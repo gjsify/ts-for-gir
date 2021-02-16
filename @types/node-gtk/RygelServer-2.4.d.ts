@@ -3,18 +3,18 @@
  */
 
 /// <reference types="node" />
-/// <reference path="RygelCore-2.4.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="GUPnP-1.0.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
+import type { RygelCore } from './RygelCore-2.4';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { Gee } from './Gee-0.8';
+import type { GUPnP } from './GUPnP-1.0';
+import type { libxml2 } from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="GUPnPAV-1.0.d.ts" />
+import type { GModule } from './GModule-2.0';
+import type { Soup } from './Soup-2.4';
+import type { GUPnPAV } from './GUPnPAV-1.0';
 
 declare namespace RygelServer {
 
@@ -77,6 +77,8 @@ export class SearchableContainer {
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parentInstance: MediaObject
+    priv: MediaContainerPrivate
     updateId: number
     storageUsed: number
     totalDeletedChildCount: number
@@ -114,13 +116,7 @@ export class SearchableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -183,9 +179,6 @@ export class SearchableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -196,18 +189,18 @@ export class SearchableContainer {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
-    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
-    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "container_updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -346,6 +339,8 @@ export class TrackableContainer {
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parentInstance: MediaObject
+    priv: MediaContainerPrivate
     updateId: number
     storageUsed: number
     totalDeletedChildCount: number
@@ -390,13 +385,7 @@ export class TrackableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -462,9 +451,6 @@ export class TrackableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -488,18 +474,18 @@ export class TrackableContainer {
     once(sigName: "child_removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "child_removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
-    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
-    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "container_updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -613,6 +599,10 @@ export interface TrackableItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class TrackableItem {
     /* Properties of RygelServer.MediaItem */
+    mimeType: string
+    dlnaProfile: string
+    size: number
+    placeHolder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -628,6 +618,10 @@ export class TrackableItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+    /* Fields of RygelServer.MediaItem */
+    parentInstance: MediaObject
+    priv: MediaItemPrivate
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
@@ -635,6 +629,19 @@ export class TrackableItem {
     /* Methods of RygelServer.TrackableItem */
     changed(): void
     /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    getMimeType(): string
+    setMimeType(value: string): void
+    getDlnaProfile(): string
+    setDlnaProfile(value: string): void
+    getSize(): number
+    setSize(value: number): void
+    getPlaceHolder(): boolean
+    setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -645,13 +652,7 @@ export class TrackableItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -701,12 +702,14 @@ export class TrackableItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -723,6 +726,26 @@ export class TrackableItem {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::mime-type", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dlna-profile", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::place-holder", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -818,6 +841,10 @@ export class VisualItem {
     colorDepth: number
     thumbnails: Gee.ArrayList
     /* Properties of RygelServer.MediaItem */
+    mimeType: string
+    dlnaProfile: string
+    size: number
+    placeHolder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -833,6 +860,10 @@ export class VisualItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+    /* Fields of RygelServer.MediaItem */
+    parentInstance: MediaObject
+    priv: MediaItemPrivate
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
@@ -847,6 +878,19 @@ export class VisualItem {
     getThumbnails(): Gee.ArrayList
     setThumbnails(value: Gee.ArrayList): void
     /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    getMimeType(): string
+    setMimeType(value: string): void
+    getDlnaProfile(): string
+    setDlnaProfile(value: string): void
+    getSize(): number
+    setSize(value: number): void
+    getPlaceHolder(): boolean
+    setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -857,13 +901,7 @@ export class VisualItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -922,12 +960,14 @@ export class VisualItem {
     vfuncSetColorDepth(value: number): void
     vfuncGetThumbnails(): Gee.ArrayList
     vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -964,6 +1004,26 @@ export class VisualItem {
     on(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dlna-profile", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::place-holder", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1073,6 +1133,8 @@ export class WritableContainer {
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parentInstance: MediaObject
+    priv: MediaContainerPrivate
     updateId: number
     storageUsed: number
     totalDeletedChildCount: number
@@ -1117,13 +1179,7 @@ export class WritableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1194,9 +1250,6 @@ export class WritableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1207,18 +1260,18 @@ export class WritableContainer {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
-    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
-    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "container_updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -1434,6 +1487,8 @@ export class UpdatableObject {
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaObject */
+    parentInstance: GObject.Object
+    priv: MediaObjectPrivate
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -1448,13 +1503,7 @@ export class UpdatableObject {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1510,9 +1559,6 @@ export class UpdatableObject {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1623,6 +1669,10 @@ export class AudioItem {
     channels: number
     album: string
     /* Properties of RygelServer.MediaItem */
+    mimeType: string
+    dlnaProfile: string
+    size: number
+    placeHolder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -1641,6 +1691,8 @@ export class AudioItem {
     /* Fields of RygelServer.AudioItem */
     parentInstance: MediaItem
     priv: AudioItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
@@ -1659,6 +1711,19 @@ export class AudioItem {
     getAlbum(): string
     setAlbum(value: string): void
     /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    getMimeType(): string
+    setMimeType(value: string): void
+    getDlnaProfile(): string
+    setDlnaProfile(value: string): void
+    getSize(): number
+    setSize(value: number): void
+    getPlaceHolder(): boolean
+    setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -1669,13 +1734,7 @@ export class AudioItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1725,12 +1784,14 @@ export class AudioItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1777,6 +1838,26 @@ export class AudioItem {
     on(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dlna-profile", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::place-holder", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1869,6 +1950,10 @@ export interface ImageItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class ImageItem {
     /* Properties of RygelServer.MediaItem */
+    mimeType: string
+    dlnaProfile: string
+    size: number
+    placeHolder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -1892,11 +1977,26 @@ export class ImageItem {
     /* Fields of RygelServer.ImageItem */
     parentInstance: MediaItem
     priv: ImageItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    getMimeType(): string
+    setMimeType(value: string): void
+    getDlnaProfile(): string
+    setDlnaProfile(value: string): void
+    getSize(): number
+    setSize(value: number): void
+    getPlaceHolder(): boolean
+    setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -1907,13 +2007,7 @@ export class ImageItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1981,12 +2075,14 @@ export class ImageItem {
     vfuncSetColorDepth(value: number): void
     vfuncGetThumbnails(): Gee.ArrayList
     vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2003,6 +2099,26 @@ export class ImageItem {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::mime-type", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dlna-profile", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::place-holder", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2174,22 +2290,37 @@ export class MediaArtStore {
 export interface MediaObjects_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class MediaObjects {
-    /* Properties of Gee.ArrayList */
-    equalFunc: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly readOnlyView: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly isEmpty: boolean
+    readonly readOnly: boolean
     /* Fields of RygelServer.MediaObjects */
     parentInstance: Gee.ArrayList
     priv: MediaObjectsPrivate
+    /* Fields of Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaObjects */
     sortByCriteria(sortCriteria: string): void
     /* Methods of Gee.ArrayList */
-    sortWithData(compare: GLib.CompareDataFunc): void
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     listIterator(): Gee.ListIterator
     get(index: number): object | null
@@ -2198,20 +2329,17 @@ export class MediaObjects {
     insert(index: number, item?: object | null): void
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insertAll(index: number, collection: Gee.Collection): void
+    getReadOnlyView(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    toArray(): object[]
-    addAll(collection: Gee.Collection): boolean
-    containsAll(collection: Gee.Collection): boolean
-    removeAll(collection: Gee.Collection): boolean
-    retainAll(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2234,6 +2362,29 @@ export class MediaObjects {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObjects */
+    vfuncGetReadOnlyView(): Gee.BidirList
+    vfuncGetReadOnlyView(): Gee.List
+    vfuncGetReadOnlyView(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfuncGetReadOnlyView(): Gee.BidirList
+    vfuncGetReadOnlyView(): Gee.List
+    vfuncGetReadOnlyView(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfuncBidirListIterator(): Gee.BidirListIterator
+    vfuncReserved0(): void
+    vfuncReserved1(): void
+    vfuncReserved2(): void
+    vfuncReserved3(): void
+    vfuncReserved4(): void
+    vfuncReserved5(): void
+    vfuncReserved6(): void
+    vfuncReserved7(): void
+    vfuncReserved8(): void
+    vfuncReserved9(): void
+    vfuncGetReadOnlyView(): Gee.BidirList
+    vfuncGetReadOnlyView(): Gee.List
+    vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfuncListIterator(): Gee.ListIterator
     vfuncGet(index: number): object | null
@@ -2242,21 +2393,69 @@ export class MediaObjects {
     vfuncInsert(index: number, item?: object | null): void
     vfuncRemoveAt(index: number): object | null
     vfuncSlice(start: number, stop: number): Gee.List | null
+    vfuncReserved0(): void
+    vfuncReserved1(): void
+    vfuncReserved2(): void
+    vfuncReserved3(): void
+    vfuncReserved4(): void
+    vfuncReserved5(): void
+    vfuncReserved6(): void
+    vfuncReserved7(): void
+    vfuncReserved8(): void
+    vfuncReserved9(): void
+    vfuncGetReadOnlyView(): Gee.List
+    vfuncGetReadOnlyView(): Gee.Collection
     vfuncFirst(): object | null
     vfuncLast(): object | null
     vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc?: GLib.CompareFunc | null): void
+    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfuncContains(item?: object | null): boolean
     vfuncAdd(item?: object | null): boolean
     vfuncRemove(item?: object | null): boolean
     vfuncClear(): void
-    vfuncToArray(): object[]
+    vfuncIterator(): Gee.Iterator
+    vfuncForeach(f: Gee.ForallFunc): boolean
+    vfuncReserved0(): void
+    vfuncReserved1(): void
+    vfuncReserved2(): void
+    vfuncReserved3(): void
+    vfuncReserved4(): void
+    vfuncReserved5(): void
+    vfuncReserved6(): void
+    vfuncReserved7(): void
+    vfuncReserved8(): void
+    vfuncReserved9(): void
+    vfuncGetSize(): number
+    vfuncGetReadOnly(): boolean
+    vfuncGetReadOnlyView(): Gee.Collection
+    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
+    vfuncChop(offset: number, length: number): Gee.Iterator
+    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfuncTee(forks: number): Gee.Iterator[]
+    vfuncFirstMatch(pred: Gee.Predicate): object | null
+    vfuncAnyMatch(pred: Gee.Predicate): boolean
+    vfuncAllMatch(pred: Gee.Predicate): boolean
+    vfuncMax(compare: GLib.CompareDataFunc): object | null
+    vfuncMin(compare: GLib.CompareDataFunc): object | null
+    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfuncGetElementType(): GObject.Type
     vfuncAddAll(collection: Gee.Collection): boolean
     vfuncContainsAll(collection: Gee.Collection): boolean
     vfuncRemoveAll(collection: Gee.Collection): boolean
     vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncIterator(): Gee.Iterator
+    vfuncToArray(): object[]
+    vfuncAddAllArray(array: object[]): boolean
+    vfuncContainsAllArray(array: object[]): boolean
+    vfuncRemoveAllArray(array: object[]): boolean
+    vfuncAddAllIterator(iter: Gee.Iterator): boolean
+    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
+    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
+    vfuncGetIsEmpty(): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2272,11 +2471,6 @@ export class MediaObjects {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2287,11 +2481,11 @@ export class MediaObjects {
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2304,7 +2498,7 @@ export class MediaObjects {
     _init (config?: MediaObjects_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): MediaObjects
-    static new(equalFunc?: GLib.EqualFunc | null): MediaObjects
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): MediaObjects
     static $gtype: GObject.Type
 }
 export interface MusicItem_ConstructProps extends AudioItem_ConstructProps {
@@ -2322,12 +2516,11 @@ export class MusicItem {
     bitsPerSample: number
     channels: number
     album: string
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -2346,9 +2539,8 @@ export class MusicItem {
     /* Fields of RygelServer.MusicItem */
     parentInstance: AudioItem
     priv: MusicItemPrivate
-    /* Fields of RygelServer.MediaFileItem */
-    rygelMediaFileItemAddressRegex: GLib.Regex
-    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
@@ -2372,13 +2564,12 @@ export class MusicItem {
     setChannels(value: number): void
     getAlbum(): string
     setAlbum(value: string): void
-    /* Methods of RygelServer.MediaFileItem */
-    getPrimaryResource(): MediaResource
-    getExtension(): string
-    extFromMimeType(mimeType: string): string
-    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    addEngineResourcesFinish(res: Gio.AsyncResult): void
-    addAdditionalResources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -2387,7 +2578,6 @@ export class MusicItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -2398,13 +2588,7 @@ export class MusicItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -2454,18 +2638,14 @@ export class MusicItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfuncGetPrimaryResource(): MediaResource
-    vfuncGetExtension(): string
-    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
-    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2629,12 +2809,11 @@ export class MusicItem {
 export interface PhotoItem_ConstructProps extends ImageItem_ConstructProps {
 }
 export class PhotoItem {
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -2653,20 +2832,18 @@ export class PhotoItem {
     /* Fields of RygelServer.PhotoItem */
     parentInstance: ImageItem
     priv: PhotoItemPrivate
-    /* Fields of RygelServer.MediaFileItem */
-    rygelMediaFileItemAddressRegex: GLib.Regex
-    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of RygelServer.MediaFileItem */
-    getPrimaryResource(): MediaResource
-    getExtension(): string
-    extFromMimeType(mimeType: string): string
-    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    addEngineResourcesFinish(res: Gio.AsyncResult): void
-    addAdditionalResources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -2675,7 +2852,6 @@ export class PhotoItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -2686,13 +2862,7 @@ export class PhotoItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -2751,18 +2921,14 @@ export class PhotoItem {
     vfuncSetColorDepth(value: number): void
     vfuncGetThumbnails(): Gee.ArrayList
     vfuncSetThumbnails(value: Gee.ArrayList): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfuncGetPrimaryResource(): MediaResource
-    vfuncGetExtension(): string
-    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
-    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2951,13 +3117,7 @@ export class SimpleContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3027,9 +3187,6 @@ export class SimpleContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -3040,18 +3197,18 @@ export class SimpleContainer {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
-    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
-    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "container_updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
@@ -3186,12 +3343,11 @@ export class VideoItem {
     bitsPerSample: number
     channels: number
     album: string
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -3216,9 +3372,8 @@ export class VideoItem {
     parentInstance: AudioItem
     priv: VideoItemPrivate
     subtitles: Gee.ArrayList
-    /* Fields of RygelServer.MediaFileItem */
-    rygelMediaFileItemAddressRegex: GLib.Regex
-    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
@@ -3239,13 +3394,12 @@ export class VideoItem {
     setChannels(value: number): void
     getAlbum(): string
     setAlbum(value: string): void
-    /* Methods of RygelServer.MediaFileItem */
-    getPrimaryResource(): MediaResource
-    getExtension(): string
-    extFromMimeType(mimeType: string): string
-    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    addEngineResourcesFinish(res: Gio.AsyncResult): void
-    addAdditionalResources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -3254,7 +3408,6 @@ export class VideoItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -3265,13 +3418,7 @@ export class VideoItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3339,18 +3486,14 @@ export class VideoItem {
     vfuncSetColorDepth(value: number): void
     vfuncGetThumbnails(): Gee.ArrayList
     vfuncSetThumbnails(value: Gee.ArrayList): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfuncGetPrimaryResource(): MediaResource
-    vfuncGetExtension(): string
-    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
-    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
-    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -3586,13 +3729,7 @@ export class MediaContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3650,9 +3787,6 @@ export class MediaContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -3844,13 +3978,7 @@ export class MediaItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3908,9 +4036,6 @@ export class MediaItem {
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4220,14 +4345,14 @@ export class MediaObject {
 }
 export interface MediaServerPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
     rootContainer?: MediaContainer
-    uploadProfiles?: any[]
-    supportedProfiles?: any[]
+    uploadProfiles?: DLNAProfile[]
+    supportedProfiles?: DLNAProfile[]
 }
 export class MediaServerPlugin {
     /* Properties of RygelServer.MediaServerPlugin */
     readonly searchCaps: string
-    uploadProfiles: any[]
-    supportedProfiles: any[]
+    uploadProfiles: DLNAProfile[]
+    supportedProfiles: DLNAProfile[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -4238,15 +4363,17 @@ export class MediaServerPlugin {
     /* Fields of RygelServer.MediaServerPlugin */
     parentInstance: RygelCore.Plugin
     priv: MediaServerPluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaServerPlugin */
     getRootContainer(): MediaContainer
     getSearchCaps(): string
-    getUploadProfiles(): any[]
-    setUploadProfiles(value: any[]): void
-    getSupportedProfiles(): any[]
-    setSupportedProfiles(value: any[]): void
+    getUploadProfiles(): DLNAProfile[]
+    setUploadProfiles(value: DLNAProfile[]): void
+    getSupportedProfiles(): DLNAProfile[]
+    setSupportedProfiles(value: DLNAProfile[]): void
     /* Methods of RygelCore.Plugin */
     addResource(resourceInfo: RygelCore.ResourceInfo): void
     addIcon(iconInfo: RygelCore.IconInfo): void
@@ -4589,7 +4716,7 @@ export class MediaEngine {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaEngine */
-    getDlnaProfiles(): any[]
+    getDlnaProfiles(): DLNAProfile[]
     getTranscoders(): Transcoder[] | null
     createDataSource(uri: string): DataSource | null
     /* Methods of GObject.Object */
@@ -4615,7 +4742,7 @@ export class MediaEngine {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of RygelServer.MediaEngine */
-    vfuncGetDlnaProfiles(): any[]
+    vfuncGetDlnaProfiles(): DLNAProfile[]
     vfuncGetTranscoders(): Transcoder[] | null
     vfuncCreateDataSource(uri: string): DataSource | null
     /* Virtual methods of GObject.Object */
@@ -4771,6 +4898,10 @@ export interface PlaylistItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class PlaylistItem {
     /* Properties of RygelServer.MediaItem */
+    mimeType: string
+    dlnaProfile: string
+    size: number
+    placeHolder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -4789,11 +4920,26 @@ export class PlaylistItem {
     /* Fields of RygelServer.PlaylistItem */
     parentInstance: MediaItem
     priv: PlaylistItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygelMediaItemAddressRegex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaItem */
+    createStreamSource(hostIp?: string | null): DataSource | null
+    isLiveStream(): boolean
+    streamable(): boolean
+    getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    getMimeType(): string
+    setMimeType(value: string): void
+    getDlnaProfile(): string
+    setDlnaProfile(value: string): void
+    getSize(): number
+    setSize(value: number): void
+    getPlaceHolder(): boolean
+    setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -4804,13 +4950,7 @@ export class PlaylistItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
-    getResourceList(): Gee.List
-    getResourceByName(resourceName: string): MediaResource | null
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
-    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    compareByProperty(mediaObject: MediaObject, property: string): number
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -4860,12 +5000,14 @@ export class PlaylistItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfuncAddUri(uri: string): void
     vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
-    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
     vfuncGetOcmFlags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4882,6 +5024,26 @@ export class PlaylistItem {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::mime-type", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dlna-profile", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dlna-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::place-holder", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4975,6 +5137,8 @@ export class ContentDirectory {
     featureList: string
     rootContainer: MediaContainer
     systemUpdateId: number
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.Service */
@@ -4987,6 +5151,7 @@ export class ContentDirectory {
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+    getIntrospection(): GUPnP.ServiceIntrospection
     getIntrospectionAsync(callback: GUPnP.ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -4994,8 +5159,6 @@ export class ContentDirectory {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
-    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5405,7 +5568,7 @@ export class MediaServerPrivate {
 export abstract class MediaEngineClass {
     /* Fields of RygelServer.MediaEngineClass */
     parentClass: GObject.ObjectClass
-    getDlnaProfiles: (self: MediaEngine) => any[]
+    getDlnaProfiles: (self: MediaEngine) => DLNAProfile[]
     getTranscoders: (self: MediaEngine) => Transcoder[] | null
     createDataSource: (self: MediaEngine, uri: string) => DataSource | null
     static name: string

@@ -2,13 +2,13 @@
  * SpiceClientGLib-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GstBase from './GstBase-1.0';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
-import * as Gio from './Gio-2.0';
+import type * as Gjs from './Gjs';
+import type * as GstBase from './GstBase-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Gio from './Gio-2.0';
 
 export enum ChannelEvent {
     NONE,
@@ -1589,18 +1589,18 @@ export class SmartcardManager {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of SpiceClientGLib.SmartcardManager */
-    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "card-inserted", vreader: any): void
-    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "card-removed", vreader: any): void
-    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "reader-added", vreader: any): void
-    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "reader-removed", vreader: any): void
+    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "card-inserted", vreader: VReader): void
+    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "card-removed", vreader: VReader): void
+    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "reader-added", vreader: VReader): void
+    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "reader-removed", vreader: VReader): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SmartcardManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SmartcardManager, pspec: GObject.ParamSpec) => void)): number

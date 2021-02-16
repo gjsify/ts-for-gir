@@ -2,10 +2,10 @@
  * Gst-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum BufferingMode {
     STREAM,
@@ -7774,7 +7774,7 @@ export class ValueTable {
     deserialize_with_pspec: ValueDeserializeWithPSpecFunc
     static name: string
 }
-type ClockID = object
-type ClockTime = number
-type ClockTimeDiff = number
-type ElementFactoryListType = number
+export type ClockID = object
+export type ClockTime = number
+export type ClockTimeDiff = number
+export type ElementFactoryListType = number

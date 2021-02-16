@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace Gegl {
 
@@ -331,10 +331,7 @@ export class Buffer {
     signalConnect(detailedSignal: string, cHandler: GObject.Callback): number
     /* Methods of Gegl.TileHandler */
     damageRect(rect: Rectangle): void
-    damageTile(x: number, y: number, z: number, damage: number): void
-    lock(): void
     setSource(source: TileSource): void
-    unlock(): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding

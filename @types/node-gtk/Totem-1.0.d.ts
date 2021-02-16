@@ -3,19 +3,19 @@
  */
 
 /// <reference types="node" />
-/// <reference path="TotemPlParser-1.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gtk-3.0.d.ts" />
-/// <reference path="xlib-2.0.d.ts" />
-/// <reference path="Gdk-3.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GdkPixbuf-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Atk-1.0.d.ts" />
+import type { TotemPlParser } from './TotemPlParser-1.0';
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Gtk } from './Gtk-3.0';
+import type { xlib } from './xlib-2.0';
+import type { Gdk } from './Gdk-3.0';
+import type { cairo } from './cairo-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GdkPixbuf } from './GdkPixbuf-2.0';
+import type { GModule } from './GModule-2.0';
+import type { Atk } from './Atk-1.0';
 
 declare namespace Totem {
 
@@ -81,6 +81,7 @@ export class Object {
     readonly streamLength: number
     /* Properties of Gtk.Application */
     readonly activeWindow: Gtk.Window
+    appMenu: Gio.MenuModel
     menubar: Gio.MenuModel
     registerSession: boolean
     readonly screensaverActive: boolean
@@ -94,7 +95,7 @@ export class Object {
     readonly isRemote: boolean
     resourceBasePath: string
     /* Fields of Gtk.Application */
-    parentInstance: Gio.Application
+    parent: Gio.Application
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Totem.Object */
@@ -137,18 +138,24 @@ export class Object {
     showError(title: string, reason: string): void
     stop(): void
     /* Methods of Gtk.Application */
+    addAccelerator(accelerator: string, actionName: string, parameter?: GLib.Variant | null): void
     addWindow(window: Gtk.Window): void
     getAccelsForAction(detailedActionName: string): string[]
     getActionsForAccel(accel: string): string[]
     getActiveWindow(): Gtk.Window | null
-    getMenuById(id: string): Gio.Menu | null
-    getMenubar(): Gio.MenuModel | null
+    getAppMenu(): Gio.MenuModel | null
+    getMenuById(id: string): Gio.Menu
+    getMenubar(): Gio.MenuModel
     getWindowById(id: number): Gtk.Window | null
     getWindows(): Gtk.Window[]
     inhibit(window: Gtk.Window | null, flags: Gtk.ApplicationInhibitFlags, reason?: string | null): number
+    isInhibited(flags: Gtk.ApplicationInhibitFlags): boolean
     listActionDescriptions(): string[]
+    prefersAppMenu(): boolean
+    removeAccelerator(actionName: string, parameter?: GLib.Variant | null): void
     removeWindow(window: Gtk.Window): void
     setAccelsForAction(detailedActionName: string, accels: string[]): void
+    setAppMenu(appMenu?: Gio.MenuModel | null): void
     setMenubar(menubar?: Gio.MenuModel | null): void
     uninhibit(cookie: number): void
     /* Methods of Gio.Application */
@@ -460,6 +467,11 @@ export class Object {
     on(sigName: "notify::active-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::active-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::active-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::app-menu", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::app-menu", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::app-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::app-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::menubar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::menubar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::menubar", callback: (...args: any[]) => void): NodeJS.EventEmitter

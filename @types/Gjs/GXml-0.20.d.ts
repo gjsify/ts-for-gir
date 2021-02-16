@@ -2,12 +2,12 @@
  * GXml-0.20
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
 
 export enum CssCombiner {
     NULL,
@@ -6220,60 +6220,28 @@ export interface Attr_ConstructProps extends Node_ConstructProps {
 export class Attr {
     /* Properties of GXml.Attr */
     readonly is_referenced: boolean
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomAttr */
+    readonly namespace_uri: string
+    readonly prefix: string
+    readonly local_name: string
     readonly name: string
     value: string
     /* Fields of GXml.Attr */
     _namespace_uri: string
     prop: Property
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.Attr */
     get_is_referenced(): boolean
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6297,6 +6265,8 @@ export class Attr {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomAttr */
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
     get_local_name(): string
     get_name(): string
     get_value(): string
@@ -6306,35 +6276,42 @@ export class Attr {
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
     vfunc_get_local_name(): string
-    vfunc_get_local_name(): string | null
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_specified(): boolean
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6349,36 +6326,12 @@ export class Attr {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::is-referenced", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-referenced", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::prefix", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::prefix", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
@@ -6392,6 +6345,7 @@ export class Attr {
     _init (config?: Attr_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(element: DomElement, name: string, val: string): Attr
+    static new(): Attr
     static namespace(element: DomElement, namespace_uri: string, prefix: string | null, name: string, val: string): Attr
     static reference(element: DomElement, name: string): Attr
     static $gtype: GObject.Type
@@ -6401,8 +6355,6 @@ export interface BaseCollection_ConstructProps extends GObject.Object_ConstructP
     items_type?: GObject.Type
 }
 export class BaseCollection {
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Properties of GXml.Collection */
     readonly nodes_index: GLib.Queue
     element: DomElement
@@ -6517,8 +6469,6 @@ export class BaseCollection {
     connect(sigName: "notify", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::element-type", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::nodes-index", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::nodes-index", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element", callback: (($obj: BaseCollection, pspec: GObject.ParamSpec) => void)): number
@@ -6932,22 +6882,6 @@ export class CssSelectorParser {
 export interface Document_ConstructProps extends Node_ConstructProps {
 }
 export class Document {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
@@ -6973,37 +6907,18 @@ export class Document {
     _constructor: DomEvent
     _parser: Parser
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.Document */
     search_root_element_property(): Element
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7141,29 +7056,37 @@ export class Document {
     vfunc_get_xml_parser(): Parser
     vfunc_set_xml_parser(parser: Parser): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7176,36 +7099,6 @@ export class Document {
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::first-element-child", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
@@ -7311,22 +7204,6 @@ export class Implementation {
 export interface DocumentType_ConstructProps extends Node_ConstructProps {
 }
 export class DocumentType {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomDocumentType */
     readonly name: string
     readonly public_id: string
@@ -7336,35 +7213,16 @@ export class DocumentType {
     _public_id: string
     _system_id: string
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7399,29 +7257,37 @@ export class DocumentType {
     vfunc_get_public_id(): string
     vfunc_get_system_id(): string
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7434,36 +7300,6 @@ export class DocumentType {
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::public-id", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
@@ -7479,6 +7315,7 @@ export class DocumentType {
     _init (config?: DocumentType_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: DomDocument, name: string, public_id?: string | null, system_id?: string | null): DocumentType
+    static new(): DocumentType
     static with_name(doc: DomDocument, name: string): DocumentType
     static with_ids(doc: DomDocument, name: string, public_id: string, system_id: string): DocumentType
     static $gtype: GObject.Type
@@ -7486,57 +7323,22 @@ export class DocumentType {
 export interface DocumentFragment_ConstructProps extends Node_ConstructProps {
 }
 export class DocumentFragment {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7579,29 +7381,37 @@ export class DocumentFragment {
     vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7614,36 +7424,6 @@ export class DocumentFragment {
     connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::first-element-child", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
@@ -7661,6 +7441,7 @@ export class DocumentFragment {
     _init (config?: DocumentFragment_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: DomDocument): DocumentFragment
+    static new(): DocumentFragment
     static $gtype: GObject.Type
 }
 export interface DomNodeFilter_ConstructProps extends GObject.Object_ConstructProps {
@@ -7716,20 +7497,33 @@ export class DomNodeFilter {
 export interface DomElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class DomElementList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Gee.ArrayList */
-    parent_instance: Gee.AbstractList
-    priv: Gee.ArrayListPrivate
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7738,20 +7532,17 @@ export class DomElementList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7787,6 +7578,28 @@ export class DomElementList {
     vfunc_get_length(): number
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7795,21 +7608,69 @@ export class DomElementList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7822,14 +7683,12 @@ export class DomElementList {
     connect(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7839,7 +7698,7 @@ export class DomElementList {
     _init (config?: DomElementList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): DomElementList
-    static new(equal_func?: GLib.EqualFunc | null): DomElementList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): DomElementList
     static $gtype: GObject.Type
 }
 export interface DomEventInit_ConstructProps extends GObject.Object_ConstructProps {
@@ -8194,22 +8053,6 @@ export class Element {
     parse_children: boolean
     unparsed: string
     read_buffer: Gio.MemoryOutputStream
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
@@ -8219,16 +8062,26 @@ export class Element {
     readonly last_element_child: DomElement
     readonly child_element_count: number
     /* Properties of GXml.DomElement */
+    readonly namespace_uri: string
+    readonly prefix: string
+    readonly local_name: string
     readonly tag_name: string
     id: string
     class_name: string
     readonly class_list: DomTokenList
+    readonly attributes: DomNamedNodeMap
     /* Fields of GXml.Element */
     _attributes: ElementAttributes
     _namespace_uri: string
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.Element */
@@ -8249,31 +8102,6 @@ export class Element {
     parse_pending(): number
     parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
     parse_buffer_finish(_res_: Gio.AsyncResult): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8310,6 +8138,8 @@ export class Element {
     query_selector_all(selectors: string): DomNodeList
     get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomElement */
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
     get_local_name(): string
     get_tag_name(): string
     get_id(): string | null
@@ -8381,7 +8211,6 @@ export class Element {
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
     vfunc_get_local_name(): string
-    vfunc_get_local_name(): string | null
     vfunc_get_tag_name(): string
     vfunc_get_id(): string | null
     vfunc_set_id(value?: string | null): void
@@ -8389,7 +8218,6 @@ export class Element {
     vfunc_set_class_name(value?: string | null): void
     vfunc_get_class_list(): DomTokenList
     vfunc_get_attributes(): DomNamedNodeMap
-    vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -8439,29 +8267,37 @@ export class Element {
     vfunc_set_instance_property(name: string): boolean
     vfunc_clean_property_elements(name: string): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8480,36 +8316,6 @@ export class Element {
     connect_after(sigName: "notify::unparsed", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-buffer", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-buffer", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::previous-element-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::previous-element-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::next-element-sibling", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
@@ -8522,6 +8328,12 @@ export class Element {
     connect_after(sigName: "notify::last-element-child", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::child-element-count", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-element-count", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-uri", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-uri", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::local-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::local-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
@@ -8530,6 +8342,8 @@ export class Element {
     connect_after(sigName: "notify::class-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::class-list", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::class-list", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attributes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attributes", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8544,13 +8358,9 @@ export class Element {
 export interface ElementAttributes_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class ElementAttributes {
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -8559,13 +8369,14 @@ export class ElementAttributes {
     readonly length: number
     /* Fields of GXml.ElementAttributes */
     _element: Element
-    /* Fields of Gee.HashMap */
-    parent_instance: Gee.AbstractMap
-    priv: Gee.HashMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.ElementAttributes */
     add_reference(name: string): void
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -8574,9 +8385,24 @@ export class ElementAttributes {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8625,14 +8451,43 @@ export class ElementAttributes {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8645,16 +8500,10 @@ export class ElementAttributes {
     connect(sigName: "notify", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::key-hash-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: ElementAttributes, pspec: GObject.ParamSpec) => void)): number
@@ -8674,7 +8523,7 @@ export class ElementAttributes {
     _init (config?: ElementAttributes_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(element: Element): ElementAttributes
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): ElementAttributes
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): ElementAttributes
     static $gtype: GObject.Type
 }
 export class Enumeration {
@@ -9296,20 +9145,33 @@ export class HashThreeMap {
 export interface HTMLCollection_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class HTMLCollection {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Gee.ArrayList */
-    parent_instance: Gee.AbstractList
-    priv: Gee.ArrayListPrivate
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9318,20 +9180,17 @@ export class HTMLCollection {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9367,6 +9226,28 @@ export class HTMLCollection {
     vfunc_get_length(): number
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9375,21 +9256,69 @@ export class HTMLCollection {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9402,14 +9331,12 @@ export class HTMLCollection {
     connect(sigName: "notify", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: HTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9419,7 +9346,7 @@ export class HTMLCollection {
     _init (config?: HTMLCollection_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): HTMLCollection
-    static new(equal_func?: GLib.EqualFunc | null): HTMLCollection
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): HTMLCollection
     static $gtype: GObject.Type
 }
 export interface HtmlDocument_ConstructProps extends Document_ConstructProps {
@@ -9428,75 +9355,31 @@ export interface HtmlDocument_ConstructProps extends Document_ConstructProps {
 export class HtmlDocument {
     /* Properties of GXml.HtmlDocument */
     html: DomElement
-    /* Properties of GXml.Document */
-    doctype: DocumentType
-    implementation: Implementation
-    document_element: Element
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Fields of GXml.Document */
-    parent_instance: Node
-    priv: DocumentPrivate
+    _implementation: DomImplementation
+    _url: string
+    _origin: string
+    _compat_mode: string
+    _character_set: string
+    _content_type: string
+    _constructor: DomEvent
+    _parser: Parser
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.HtmlDocument */
     get_html(): DomElement
     set_html(value: DomElement): void
     /* Methods of GXml.Document */
-    save_to_path(file_path: string): void
-    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
-    create_element(tag_name: string): Element
-    create_document_fragment(): DocumentFragment
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    create_entity_reference(name: string): EntityReference
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_implementation(): Implementation
-    get_document_element(): Element
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    search_root_element_property(): Element
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9519,30 +9402,94 @@ export class HtmlDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Document */
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_element_by_id(element_id: string): DomElement | null
+    vfunc_get_implementation(): DomImplementation
+    vfunc_get_url(): string
+    vfunc_get_document_uri(): string
+    vfunc_get_origin(): string
+    vfunc_get_compat_mode(): string
+    vfunc_get_character_set(): string
+    vfunc_get_content_type(): string
+    vfunc_get_doctype(): DomDocumentType | null
+    vfunc_get_document_element(): DomElement | null
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
+    vfunc_create_document_fragment(): DomDocumentFragment
+    vfunc_create_text_node(data: string): DomText
+    vfunc_create_comment(data: string): DomComment
+    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
+    vfunc_import_node(node: DomNode, deep: boolean): DomNode
+    vfunc_adopt_node(node: DomNode): DomNode
+    vfunc_create_event(interface: string): DomEvent
+    vfunc_create_range(): DomRange
+    vfunc_create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
+    vfunc_create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
+    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_get_xml_parser(): Parser
+    vfunc_set_xml_parser(parser: Parser): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9557,42 +9504,6 @@ export class HtmlDocument {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::html", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::html", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::doctype", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::doctype", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::implementation", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::implementation", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-element", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-element", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9608,66 +9519,41 @@ export interface HtmlElement_ConstructProps extends Element_ConstructProps {
 }
 export class HtmlElement {
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9690,30 +9576,112 @@ export class HtmlElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.HtmlElement */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9726,40 +9694,12 @@ export class HtmlElement {
     connect(sigName: "notify", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::tag-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: HtmlElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10020,22 +9960,35 @@ export class Node {
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomNodeList */
     readonly length: number
     /* Fields of Gee.ArrayList */
-    parent_instance: Gee.AbstractList
-    priv: Gee.ArrayListPrivate
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10044,20 +9997,17 @@ export class NodeList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10086,6 +10036,28 @@ export class NodeList {
     /* Virtual methods of GXml.NodeList */
     vfunc_item(index: number): DomNode | null
     vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10094,21 +10066,69 @@ export class NodeList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10121,14 +10141,12 @@ export class NodeList {
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -10140,7 +10158,7 @@ export class NodeList {
     _init (config?: NodeList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): NodeList
-    static new(equal_func?: GLib.EqualFunc | null): NodeList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): NodeList
     static $gtype: GObject.Type
 }
 export interface NodeIterator_ConstructProps extends GObject.Object_ConstructProps {
@@ -11177,27 +11195,40 @@ export interface SettableTokenList_ConstructProps extends TokenList_ConstructPro
     value?: string
 }
 export class SettableTokenList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomSettableTokenList */
     value: string
     /* Fields of GXml.TokenList */
     _element: DomElement
     _attr: string
     /* Fields of Gee.ArrayList */
-    parent_instance: Gee.AbstractList
-    priv: Gee.ArrayListPrivate
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TokenList */
     update(): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11206,20 +11237,17 @@ export class SettableTokenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11248,6 +11276,9 @@ export class SettableTokenList {
     /* Virtual methods of GXml.SettableTokenList */
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
     vfunc_add(tokens: string[]): void
@@ -11265,6 +11296,28 @@ export class SettableTokenList {
     vfunc_remove(item?: object | null): boolean
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11273,21 +11326,69 @@ export class SettableTokenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11300,14 +11401,12 @@ export class SettableTokenList {
     connect(sigName: "notify", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: SettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -11319,7 +11418,7 @@ export class SettableTokenList {
     _init (config?: SettableTokenList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(e: DomElement, attr?: string | null): SettableTokenList
-    static new(equal_func?: GLib.EqualFunc | null): SettableTokenList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): SettableTokenList
     static $gtype: GObject.Type
 }
 export interface StringRef_ConstructProps extends GObject.Object_ConstructProps {
@@ -11389,57 +11488,22 @@ export interface CharacterData_ConstructProps extends Node_ConstructProps {
     data?: string
 }
 export class CharacterData {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomNonDocumentTypeChildNode */
     readonly previous_element_sibling: DomElement
     readonly next_element_sibling: DomElement
     /* Properties of GXml.DomCharacterData */
     data: string
     /* Fields of GXml.Node */
-    parent_instance: GObject.Object
-    priv: NodePrivate
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11489,29 +11553,37 @@ export class CharacterData {
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11524,36 +11596,6 @@ export class CharacterData {
     connect(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::previous-element-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::previous-element-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::next-element-sibling", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
@@ -11575,64 +11617,19 @@ export interface Text_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
 export class Text {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml.DomCharacterData */
     data: string
-    length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
-    /* Fields of GXml.CharacterData */
-    parent_instance: BackedNode
-    priv: CharacterDataPrivate
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CharacterData */
-    substring_data(offset: number, count: number): string
-    append_data(new_segment: string): void
-    insert_data(offset: number, new_segment: string): void
-    delete_data(offset: number, count: number): void
-    replace_data(offset: number, count: number, new_segment: string): void
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11661,12 +11658,19 @@ export class Text {
     /* Methods of GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
+    get_length(): number
+    substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
+    delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.Text */
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
+    /* Virtual methods of GXml.CharacterData */
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_remove(): void
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
@@ -11676,29 +11680,37 @@ export class Text {
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11713,38 +11725,6 @@ export class Text {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::data", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::length", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::length", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11754,72 +11734,28 @@ export class Text {
     _init (config?: Text_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: DomDocument, data: string): Text
+    static new(): Text
     static $gtype: GObject.Type
 }
 export interface ProcessingInstruction_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
 export class ProcessingInstruction {
-    /* Properties of GXml.CharacterData */
-    data: string
-    length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Properties of GXml.DomProcessingInstruction */
     readonly target: string
-    /* Fields of GXml.CharacterData */
-    parent_instance: BackedNode
-    priv: CharacterDataPrivate
+    /* Properties of GXml.DomCharacterData */
+    data: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CharacterData */
-    substring_data(offset: number, count: number): string
-    append_data(new_segment: string): void
-    insert_data(offset: number, new_segment: string): void
-    delete_data(offset: number, count: number): void
-    replace_data(offset: number, count: number, new_segment: string): void
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11847,11 +11783,18 @@ export class ProcessingInstruction {
     /* Methods of GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
+    get_length(): number
+    substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
+    delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.ProcessingInstruction */
     vfunc_get_target(): string
+    /* Virtual methods of GXml.CharacterData */
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_remove(): void
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
@@ -11861,29 +11804,37 @@ export class ProcessingInstruction {
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11896,42 +11847,10 @@ export class ProcessingInstruction {
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::data", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::data", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::length", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::length", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::data", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::data", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11941,70 +11860,26 @@ export class ProcessingInstruction {
     _init (config?: ProcessingInstruction_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: DomDocument, target: string, data: string): ProcessingInstruction
+    static new(): ProcessingInstruction
     static $gtype: GObject.Type
 }
 export interface Comment_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
 export class Comment {
-    /* Properties of GXml.CharacterData */
+    /* Properties of GXml.DomCharacterData */
     data: string
-    length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
-    /* Fields of GXml.CharacterData */
-    parent_instance: BackedNode
-    priv: CharacterDataPrivate
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.CharacterData */
-    substring_data(offset: number, count: number): string
-    append_data(new_segment: string): void
-    insert_data(offset: number, new_segment: string): void
-    delete_data(offset: number, count: number): void
-    replace_data(offset: number, count: number, new_segment: string): void
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12030,10 +11905,16 @@ export class Comment {
     /* Methods of GXml.DomCharacterData */
     get_data(): string
     set_data(value: string): void
+    get_length(): number
+    substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
+    delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
-    /* Virtual methods of GXml.Comment */
+    /* Virtual methods of GXml.CharacterData */
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_remove(): void
     vfunc_get_data(): string
     vfunc_set_data(value: string): void
     vfunc_get_length(): number
@@ -12043,29 +11924,37 @@ export class Comment {
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
     /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12080,38 +11969,6 @@ export class Comment {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::data", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::length", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::length", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12121,32 +11978,46 @@ export class Comment {
     _init (config?: Comment_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: DomDocument, data: string): Comment
+    static new(): Comment
     static $gtype: GObject.Type
 }
 export interface TokenList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class TokenList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomTokenList */
     readonly length: number
     /* Fields of GXml.TokenList */
     _element: DomElement
     _attr: string
     /* Fields of Gee.ArrayList */
-    parent_instance: Gee.AbstractList
-    priv: Gee.ArrayListPrivate
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TokenList */
     update(): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12155,20 +12026,17 @@ export class TokenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12210,6 +12078,28 @@ export class TokenList {
     vfunc_remove(item?: object | null): boolean
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12218,21 +12108,69 @@ export class TokenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12245,14 +12183,12 @@ export class TokenList {
     connect(sigName: "notify", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: TokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -12264,7 +12200,7 @@ export class TokenList {
     _init (config?: TokenList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(e: DomElement, attr?: string | null): TokenList
-    static new(equal_func?: GLib.EqualFunc | null): TokenList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): TokenList
     static $gtype: GObject.Type
 }
 export interface TreeWalker_ConstructProps extends GObject.Object_ConstructProps {
@@ -13167,7 +13103,7 @@ export class XDocument {
     readonly document_element: DomElement
     /* Fields of GXml.XDocument */
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     _parser: Parser
     _implementation: DomImplementation
     _url: string
@@ -13785,16 +13721,13 @@ export interface XHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructPr
 export class XHashMapAttr {
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
     /* Properties of GXml.DomNamedNodeMap */
     readonly length: number
-    /* Fields of Gee.AbstractMap */
-    parent_instance: GObject.Object
-    priv: Gee.AbstractMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractMap */
@@ -13805,9 +13738,24 @@ export class XHashMapAttr {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13856,14 +13804,43 @@ export class XHashMapAttr {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13878,8 +13855,8 @@ export class XHashMapAttr {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: XHashMapAttr, pspec: GObject.ParamSpec) => void)): number
@@ -13907,11 +13884,14 @@ export class XHashMapAttrEntry {
     /* Properties of Gee.MapEntry */
     readonly key: object
     value: object
-    /* Fields of Gee.MapEntry */
-    parent_instance: GObject.Object
-    priv: Gee.EntryPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.MapEntry */
+    get_key(): object | null
+    get_value(): object | null
+    set_value(value?: object | null): void
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13934,6 +13914,11 @@ export class XHashMapAttrEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.MapEntry */
+    vfunc_get_key(): object | null
+    vfunc_get_value(): object | null
+    vfunc_set_value(value?: object | null): void
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13950,6 +13935,8 @@ export class XHashMapAttrEntry {
     connect_after(sigName: "notify::key", callback: (($obj: XHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: XHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: XHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: XHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: XHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13964,6 +13951,10 @@ export class XHashMapAttrEntry {
 export interface XHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XHashMapAttrIterator {
+    /* Properties of Gee.MapIterator */
+    readonly valid: boolean
+    readonly mutable: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -13991,19 +13982,27 @@ export class XHashMapAttrIterator {
     /* Methods of Gee.MapIterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get_key(): object | null
     get_value(): object | null
     set_value(value?: object | null): void
     unset(): void
+    fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    foreach(f: Gee.ForallMapFunc): boolean
+    get_valid(): boolean
+    get_mutable(): boolean
+    get_read_only(): boolean
     /* Virtual methods of GXml.XHashMapAttrIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    vfunc_foreach(f: Gee.ForallMapFunc): boolean
+    vfunc_get_valid(): boolean
+    vfunc_get_mutable(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14016,6 +14015,12 @@ export class XHashMapAttrIterator {
     connect(sigName: "notify", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mutable", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mutable", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: XHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14047,7 +14052,7 @@ export class XHtmlDocument {
     value: string
     /* Fields of GXml.XDocument */
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     _parser: Parser
     _implementation: DomImplementation
     _url: string
@@ -14287,12 +14292,9 @@ export class XListChildren {
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomNodeList */
     readonly length: number
-    /* Fields of Gee.AbstractList */
-    parent_instance: Gee.AbstractCollection
-    priv: Gee.AbstractListPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractBidirList */
@@ -14316,20 +14318,17 @@ export class XListChildren {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14368,6 +14367,9 @@ export class XListChildren {
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
@@ -14381,6 +14383,8 @@ export class XListChildren {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14389,21 +14393,69 @@ export class XListChildren {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14420,8 +14472,8 @@ export class XListChildren {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: XListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -14438,6 +14490,9 @@ export class XListChildren {
 export interface XListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class XListChildrenIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -14482,18 +14537,21 @@ export class XListChildrenIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of Gee.BidirIterator */
     previous(): boolean
     has_previous(): boolean
+    first(): boolean
     last(): boolean
     /* Methods of Gee.ListIterator */
     set(item?: object | null): void
-    insert(item?: object | null): void
     add(item?: object | null): void
     index(): number
+    /* Methods of Gee.BidirListIterator */
+    insert(item?: object | null): void
     /* Virtual methods of GXml.XListChildrenIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -14513,16 +14571,18 @@ export class XListChildrenIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     vfunc_previous(): boolean
     vfunc_has_previous(): boolean
+    vfunc_first(): boolean
     vfunc_last(): boolean
     vfunc_set(item?: object | null): void
-    vfunc_insert(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
+    vfunc_insert(item?: object | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14535,6 +14595,10 @@ export class XListChildrenIterator {
     connect(sigName: "notify", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: XListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14544,6 +14608,8 @@ export class XListChildrenIterator {
     _init (config?: XListChildrenIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: XDocument, node?: object | null): XListChildrenIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export interface XNode_ConstructProps extends GObject.Object_ConstructProps {
@@ -15111,27 +15177,21 @@ export class XsdSchema {
     simple_type_definitions: XsdListSimpleTypes
     complex_type_definitions: XsdListComplexTypes
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdSchema */
@@ -15142,42 +15202,23 @@ export class XsdSchema {
     get_complex_type_definitions(): XsdListComplexTypes
     set_complex_type_definitions(value: XsdListComplexTypes): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15200,30 +15241,112 @@ export class XsdSchema {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdSchema */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15242,40 +15365,12 @@ export class XsdSchema {
     connect_after(sigName: "notify::simple-type-definitions", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::complex-type-definitions", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::complex-type-definitions", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdSchema, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15304,27 +15399,21 @@ export class XsdSimpleType {
     union: XsdTypeUnion
     restriction: XsdTypeRestriction
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdSimpleType */
@@ -15341,42 +15430,23 @@ export class XsdSimpleType {
     get_restriction(): XsdTypeRestriction
     set_restriction(value: XsdTypeRestriction): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15399,30 +15469,112 @@ export class XsdSimpleType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdSimpleType */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15447,40 +15599,12 @@ export class XsdSimpleType {
     connect_after(sigName: "notify::union", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::restriction", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::restriction", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdSimpleType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15499,69 +15623,44 @@ export class XsdTypeDefinition {
     /* Properties of GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeDefinition */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15584,30 +15683,112 @@ export class XsdTypeDefinition {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeDefinition */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15622,40 +15803,12 @@ export class XsdTypeDefinition {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeDefinition, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15673,69 +15826,44 @@ export class XsdTypeList {
     /* Properties of GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeDefinition */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15758,30 +15886,117 @@ export class XsdTypeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeList */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeDefinition */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15796,40 +16011,12 @@ export class XsdTypeList {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15847,69 +16034,44 @@ export class XsdTypeUnion {
     /* Properties of GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeDefinition */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15932,30 +16094,117 @@ export class XsdTypeUnion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeUnion */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeDefinition */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15970,40 +16219,12 @@ export class XsdTypeUnion {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeUnion, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16030,27 +16251,21 @@ export class XsdTypeRestriction {
     /* Properties of GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestriction */
@@ -16066,42 +16281,23 @@ export class XsdTypeRestriction {
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -16124,30 +16320,117 @@ export class XsdTypeRestriction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestriction */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeDefinition */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16170,40 +16453,12 @@ export class XsdTypeRestriction {
     connect_after(sigName: "notify::white-spaces", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestriction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16222,69 +16477,44 @@ export class XsdTypeRestrictionDef {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -16307,30 +16537,112 @@ export class XsdTypeRestrictionDef {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16345,40 +16657,12 @@ export class XsdTypeRestrictionDef {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionDef, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16396,69 +16680,44 @@ export class XsdTypeRestrictionMinExclusive {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -16481,30 +16740,117 @@ export class XsdTypeRestrictionMinExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMinExclusive */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16519,40 +16865,12 @@ export class XsdTypeRestrictionMinExclusive {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinExclusive, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16570,69 +16888,44 @@ export class XsdTypeRestrictionMinInclusive {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -16655,30 +16948,117 @@ export class XsdTypeRestrictionMinInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMinInclusive */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16693,40 +17073,12 @@ export class XsdTypeRestrictionMinInclusive {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinInclusive, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16744,69 +17096,44 @@ export class XsdTypeRestrictionMaxExclusive {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -16829,30 +17156,117 @@ export class XsdTypeRestrictionMaxExclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMaxExclusive */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16867,40 +17281,12 @@ export class XsdTypeRestrictionMaxExclusive {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxExclusive, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16918,69 +17304,44 @@ export class XsdTypeRestrictionMaxInclusive {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17003,30 +17364,117 @@ export class XsdTypeRestrictionMaxInclusive {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMaxInclusive */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17041,40 +17489,12 @@ export class XsdTypeRestrictionMaxInclusive {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxInclusive, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17092,69 +17512,44 @@ export class XsdTypeRestrictionTotalDigits {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17177,30 +17572,117 @@ export class XsdTypeRestrictionTotalDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionTotalDigits */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17215,40 +17697,12 @@ export class XsdTypeRestrictionTotalDigits {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionTotalDigits, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17266,69 +17720,44 @@ export class XsdTypeRestrictionFractionDigits {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17351,30 +17780,117 @@ export class XsdTypeRestrictionFractionDigits {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionFractionDigits */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17389,40 +17905,12 @@ export class XsdTypeRestrictionFractionDigits {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionFractionDigits, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17440,69 +17928,44 @@ export class XsdTypeRestrictionLength {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17525,30 +17988,117 @@ export class XsdTypeRestrictionLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionLength */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17563,40 +18113,12 @@ export class XsdTypeRestrictionLength {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionLength, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17614,69 +18136,44 @@ export class XsdTypeRestrictionMinLength {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17699,30 +18196,117 @@ export class XsdTypeRestrictionMinLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMinLength */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17737,40 +18321,12 @@ export class XsdTypeRestrictionMinLength {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMinLength, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17788,69 +18344,44 @@ export class XsdTypeRestrictionMaxLength {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17873,30 +18404,117 @@ export class XsdTypeRestrictionMaxLength {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionMaxLength */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17911,40 +18529,12 @@ export class XsdTypeRestrictionMaxLength {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionMaxLength, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17965,27 +18555,21 @@ export class XsdTypeRestrictionEnumeration {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionEnumeration */
@@ -17995,42 +18579,23 @@ export class XsdTypeRestrictionEnumeration {
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18053,30 +18618,117 @@ export class XsdTypeRestrictionEnumeration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionEnumeration */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18093,40 +18745,12 @@ export class XsdTypeRestrictionEnumeration {
     connect_after(sigName: "notify::value", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionEnumeration, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18149,27 +18773,21 @@ export class XsdTypeRestrictionWhiteSpace {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionWhiteSpace */
@@ -18181,42 +18799,23 @@ export class XsdTypeRestrictionWhiteSpace {
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18239,30 +18838,117 @@ export class XsdTypeRestrictionWhiteSpace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionWhiteSpace */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18281,40 +18967,12 @@ export class XsdTypeRestrictionWhiteSpace {
     connect_after(sigName: "notify::value", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionWhiteSpace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18399,69 +19057,44 @@ export class XsdTypeRestrictionPattern {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18484,30 +19117,117 @@ export class XsdTypeRestrictionPattern {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionPattern */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18522,40 +19242,12 @@ export class XsdTypeRestrictionPattern {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionPattern, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18573,69 +19265,44 @@ export class XsdTypeRestrictionAssertion {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18658,30 +19325,117 @@ export class XsdTypeRestrictionAssertion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionAssertion */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18696,40 +19450,12 @@ export class XsdTypeRestrictionAssertion {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionAssertion, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18747,69 +19473,44 @@ export class XsdTypeRestrictionExplicitTimezone {
     /* Properties of GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdTypeRestrictionDef */
     get_annotation(): XsdAnnotation
     set_annotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18832,30 +19533,117 @@ export class XsdTypeRestrictionExplicitTimezone {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdTypeRestrictionExplicitTimezone */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdTypeRestrictionDef */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18870,40 +19658,12 @@ export class XsdTypeRestrictionExplicitTimezone {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::annotation", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdTypeRestrictionExplicitTimezone, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18938,30 +19698,24 @@ export class XsdComplexType {
     /* Properties of GXml.XsdBaseType */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.XsdComplexType */
     _type_attributes: XsdList
     _group_attributes: XsdList
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdComplexType */
@@ -18985,42 +19739,23 @@ export class XsdComplexType {
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19043,30 +19778,117 @@ export class XsdComplexType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdComplexType */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseType */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19099,40 +19921,12 @@ export class XsdComplexType {
     connect_after(sigName: "notify::group-attributes", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::anotation", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdComplexType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19151,69 +19945,44 @@ export class XsdExtension {
     /* Properties of GXml.XsdExtension */
     base: string
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdExtension */
     get_base(): string
     set_base(value: string): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19236,30 +20005,112 @@ export class XsdExtension {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdExtension */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19274,40 +20125,12 @@ export class XsdExtension {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::base", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::base", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdExtension, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19358,27 +20181,21 @@ export class XsdElement {
     simple_type: XsdSimpleType
     complex_type: XsdComplexType
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdElement */
@@ -19417,42 +20234,23 @@ export class XsdElement {
     get_complex_type(): XsdComplexType
     set_complex_type(value: XsdComplexType): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19474,30 +20272,112 @@ export class XsdElement {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdElement */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19544,40 +20424,12 @@ export class XsdElement {
     connect_after(sigName: "notify::simple-type", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::complex-type", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::complex-type", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19593,66 +20445,41 @@ export interface XsdAnnotation_ConstructProps extends Element_ConstructProps {
 }
 export class XsdAnnotation {
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19675,30 +20502,112 @@ export class XsdAnnotation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdAnnotation */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19711,40 +20620,12 @@ export class XsdAnnotation {
     connect(sigName: "notify", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdAnnotation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19763,69 +20644,44 @@ export class XsdBaseType {
     /* Properties of GXml.XsdBaseType */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseType */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19848,30 +20704,112 @@ export class XsdBaseType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdBaseType */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19886,40 +20824,12 @@ export class XsdBaseType {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdBaseType, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19938,69 +20848,44 @@ export class XsdBaseContent {
     /* Properties of GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseContent */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20023,30 +20908,112 @@ export class XsdBaseContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdBaseContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20061,40 +21028,12 @@ export class XsdBaseContent {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdBaseContent, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20112,69 +21051,44 @@ export class XsdSimpleContent {
     /* Properties of GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseContent */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20197,30 +21111,117 @@ export class XsdSimpleContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdSimpleContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20235,40 +21236,12 @@ export class XsdSimpleContent {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdSimpleContent, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20286,69 +21259,44 @@ export class XsdComplexContent {
     /* Properties of GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseContent */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20371,30 +21319,117 @@ export class XsdComplexContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdComplexContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20409,40 +21444,12 @@ export class XsdComplexContent {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdComplexContent, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20460,69 +21467,44 @@ export class XsdOpenContent {
     /* Properties of GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseContent */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20545,30 +21527,117 @@ export class XsdOpenContent {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdOpenContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseContent */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20583,40 +21652,12 @@ export class XsdOpenContent {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdOpenContent, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20635,69 +21676,44 @@ export class XsdBaseAttribute {
     /* Properties of GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseAttribute */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20720,30 +21736,112 @@ export class XsdBaseAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdBaseAttribute */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20758,40 +21856,12 @@ export class XsdBaseAttribute {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdBaseAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20809,69 +21879,44 @@ export class XsdAttribute {
     /* Properties of GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseAttribute */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -20894,30 +21939,117 @@ export class XsdAttribute {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdAttribute */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseAttribute */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20932,40 +22064,12 @@ export class XsdAttribute {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20983,69 +22087,44 @@ export class XsdAttributeGroup {
     /* Properties of GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml.Element */
-    tag_name: string
-    content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    parse_children: boolean
+    unparsed: string
+    read_buffer: Gio.MemoryOutputStream
     /* Fields of GXml.Element */
-    parent_instance: BackedNode
-    priv: ElementPrivate
+    _attributes: ElementAttributes
+    _namespace_uri: string
+    /* Fields of GXml.Node */
+    _local_name: string
+    _prefix: string
+    _base_uri: string
+    _node_value: string
+    _parent: DomNode
+    _node_type: DomNodeNodeType
+    _child_nodes: NodeList
+    _document: DomDocument
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.XsdBaseAttribute */
     get_anotation(): XsdAnnotation
     set_anotation(value: XsdAnnotation): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    normalize(): void
-    get_tag_name(): string
-    get_content(): string
-    set_content(value: string): void
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    initialize(local_name: string): void
+    initialize_document(doc: DomDocument, local_name: string): void
+    initialize_with_namespace(namespace_uri: string | null, prefix: string | null, local_name: string): void
+    initialize_document_with_namespace(doc: DomDocument, namespace_uri: string | null, prefix: string | null, local_name: string): void
+    get_parse_children(): boolean
+    set_parse_children(value: boolean): void
+    get_unparsed(): string
+    set_unparsed(value: string): void
+    read_unparsed(): void
+    get_read_buffer(): Gio.MemoryOutputStream
+    set_read_buffer(value: Gio.MemoryOutputStream): void
+    parse_buffer(): void
+    parse_pending(): number
+    parse_buffer_async(_callback_?: Gio.AsyncReadyCallback | null): void
+    parse_buffer_finish(_res_: Gio.AsyncResult): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -21068,30 +22147,117 @@ export class XsdAttributeGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    /* Virtual methods of GXml.XsdAttributeGroup */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.XsdBaseAttribute */
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    /* Virtual methods of GXml.Element */
+    vfunc_remove(): void
+    vfunc_get_previous_element_sibling(): DomElement | null
+    vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_get_children(): DomHTMLCollection
+    vfunc_get_first_element_child(): DomElement | null
+    vfunc_get_last_element_child(): DomElement | null
+    vfunc_get_child_element_count(): number
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_namespace_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_get_attribute(name: string): string | null
+    vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
+    vfunc_set_attribute(name: string, value: string): void
+    vfunc_set_attribute(name: string, val: string): boolean
+    vfunc_set_attribute_ns(namespace: string | null, name: string, value: string): void
+    vfunc_remove_attribute(name: string): void
+    vfunc_remove_attribute(name: string): boolean
+    vfunc_remove_attribute_ns(namespace: string | null, local_name: string): void
+    vfunc_has_attribute(name: string): boolean
+    vfunc_has_attribute_ns(namespace: string | null, local_name: string): boolean
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
+    vfunc_matches(selectors: string): boolean
+    vfunc_read_from_uri(uri: string): void
+    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
+    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
+    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
+    vfunc_write_stream(stream: Gio.OutputStream): void
+    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
+    vfunc_create_stream(): Gio.InputStream
+    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_properties_list(): GObject.ParamSpec[]
+    vfunc_find_property_name(nick: string): GObject.ParamSpec | null
+    vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
+    vfunc_get_property_element_list(): GObject.ParamSpec[]
+    vfunc_get_property_string(prop: GObject.ParamSpec): string | null
+    vfunc_find_property(name: string): Property | null
+    vfunc_get_child(name: string): DomElement | null
+    vfunc_find_elements(name: string): DomElementList
+    vfunc_set_instance_property(name: string): boolean
+    vfunc_clean_property_elements(name: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
     vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -21106,40 +22272,12 @@ export class XsdAttributeGroup {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::anotation", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anotation", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tag-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tag-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parse-children", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parse-children", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unparsed", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unparsed", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-buffer", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-buffer", callback: (($obj: XsdAttributeGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

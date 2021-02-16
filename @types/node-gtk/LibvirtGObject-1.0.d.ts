@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="LibvirtGLib-1.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="LibvirtGConfig-1.0.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
+import type { LibvirtGLib } from './LibvirtGLib-1.0';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { LibvirtGConfig } from './LibvirtGConfig-1.0';
+import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 
 declare namespace LibvirtGObject {
 
@@ -132,7 +132,7 @@ export interface StreamSourceFunc {
     (stream: Stream): number
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: ConnectionHandle
     uri?: string
 }
 export class Connection {
@@ -275,7 +275,7 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export interface Domain_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: DomainHandle
 }
 export class Domain {
     /* Properties of LibvirtGObject.Domain */
@@ -619,7 +619,7 @@ export class DomainInterface {
     static $gtype: GObject.Type
 }
 export interface DomainSnapshot_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: DomainSnapshotHandle
 }
 export class DomainSnapshot {
     /* Fields of LibvirtGObject.DomainSnapshot */
@@ -688,7 +688,7 @@ export class DomainSnapshot {
     static $gtype: GObject.Type
 }
 export interface Interface_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: InterfaceHandle
 }
 export class Interface {
     /* Fields of LibvirtGObject.Interface */
@@ -830,7 +830,7 @@ export class Manager {
     static $gtype: GObject.Type
 }
 export interface Network_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: NetworkHandle
 }
 export class Network {
     /* Fields of LibvirtGObject.Network */
@@ -964,7 +964,7 @@ export class NetworkDHCPLease {
     static $gtype: GObject.Type
 }
 export interface NetworkFilter_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: NetworkFilterHandle
 }
 export class NetworkFilter {
     /* Fields of LibvirtGObject.NetworkFilter */
@@ -1026,7 +1026,7 @@ export class NetworkFilter {
     static $gtype: GObject.Type
 }
 export interface NodeDevice_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: NodeDeviceHandle
 }
 export class NodeDevice {
     /* Fields of LibvirtGObject.NodeDevice */
@@ -1087,7 +1087,7 @@ export class NodeDevice {
     static $gtype: GObject.Type
 }
 export interface Secret_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: SecretHandle
 }
 export class Secret {
     /* Fields of LibvirtGObject.Secret */
@@ -1149,7 +1149,7 @@ export class Secret {
     static $gtype: GObject.Type
 }
 export interface StoragePool_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: StoragePoolHandle
 }
 export class StoragePool {
     /* Fields of LibvirtGObject.StoragePool */
@@ -1237,7 +1237,7 @@ export class StoragePool {
     static $gtype: GObject.Type
 }
 export interface StorageVol_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: any
+    handle?: StorageVolHandle
     pool?: StoragePool
 }
 export class StorageVol {
@@ -1305,7 +1305,7 @@ export class StorageVol {
     static $gtype: GObject.Type
 }
 export interface Stream_ConstructProps extends Gio.IOStream_ConstructProps {
-    handle?: any
+    handle?: StreamHandle
 }
 export class Stream {
     /* Properties of Gio.IOStream */

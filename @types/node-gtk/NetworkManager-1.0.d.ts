@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="DBusGLib-1.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { DBusGLib } from './DBusGLib-1.0';
 
 declare namespace NetworkManager {
 

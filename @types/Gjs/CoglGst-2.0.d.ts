@@ -2,14 +2,14 @@
  * CoglGst-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GstBase from './GstBase-1.0';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
-import * as Cogl from './Cogl-2.0';
-import * as GL from './GL-1.0';
+import type * as Gjs from './Gjs';
+import type * as GstBase from './GstBase-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Cogl from './Cogl-2.0';
+import type * as GL from './GL-1.0';
 
 export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProps {
     update_priority?: number

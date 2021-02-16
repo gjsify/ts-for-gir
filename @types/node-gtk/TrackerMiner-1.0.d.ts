@@ -3,11 +3,11 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Tracker-1.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { Tracker } from './Tracker-1.0';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace TrackerMiner {
 
@@ -97,6 +97,8 @@ export class Decorator {
     commitBatchSize: number
     priorityRdfTypes: string[]
     /* Properties of TrackerMiner.Miner */
+    introspectionHandler: object
+    introspectionXml: string
     progress: number
     remainingTime: number
     status: string
@@ -115,10 +117,16 @@ export class Decorator {
     prependId(id: number, classNameId: number): void
     setPriorityRdfTypes(rdfTypes: string): void
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -149,8 +157,9 @@ export class Decorator {
     vfuncFinished(): void
     vfuncItemsAvailable(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -177,6 +186,12 @@ export class Decorator {
     once(sigName: "items-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "items-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: Decorator, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: Decorator, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: Decorator) => void)): number
     connect_after(sigName: "paused", callback: (($obj: Decorator) => void)): number
     emit(sigName: "paused"): void
@@ -229,6 +244,16 @@ export class Decorator {
     on(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-handler", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-xml", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::progress", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -266,6 +291,8 @@ export class DecoratorFS {
     commitBatchSize: number
     priorityRdfTypes: string[]
     /* Properties of TrackerMiner.Miner */
+    introspectionHandler: object
+    introspectionXml: string
     progress: number
     remainingTime: number
     status: string
@@ -286,10 +313,16 @@ export class DecoratorFS {
     prependId(id: number, classNameId: number): void
     setPriorityRdfTypes(rdfTypes: string): void
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -320,8 +353,9 @@ export class DecoratorFS {
     vfuncFinished(): void
     vfuncItemsAvailable(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -348,6 +382,12 @@ export class DecoratorFS {
     once(sigName: "items-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "items-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: DecoratorFS, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: DecoratorFS, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: DecoratorFS) => void)): number
     connect_after(sigName: "paused", callback: (($obj: DecoratorFS) => void)): number
     emit(sigName: "paused"): void
@@ -400,6 +440,16 @@ export class DecoratorFS {
     on(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::priority-rdf-types", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-handler", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-xml", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::progress", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -717,6 +767,8 @@ export class MinerFS {
     processingPoolWaitLimit: number
     throttle: number
     /* Properties of TrackerMiner.Miner */
+    introspectionHandler: object
+    introspectionXml: string
     progress: number
     remainingTime: number
     status: string
@@ -754,10 +806,16 @@ export class MinerFS {
     writebackFile(file: Gio.File, rdfTypes: string[], results: any): void
     writebackNotify(file: Gio.File, error: GLib.Error): void
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -792,8 +850,9 @@ export class MinerFS {
     vfuncProcessFileAttributes(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     vfuncRemoveFile(file: Gio.File, childrenOnly: boolean, builder: Tracker.SparqlBuilder): boolean
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -850,6 +909,12 @@ export class MinerFS {
     once(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     emit(sigName: "paused"): void
@@ -912,6 +977,16 @@ export class MinerFS {
     on(sigName: "notify::throttle", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::throttle", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::throttle", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-handler", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-xml", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::progress", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -947,6 +1022,8 @@ export class MinerOnline {
     /* Properties of TrackerMiner.MinerOnline */
     readonly networkType: NetworkType
     /* Properties of TrackerMiner.Miner */
+    introspectionHandler: object
+    introspectionXml: string
     progress: number
     remainingTime: number
     status: string
@@ -959,10 +1036,16 @@ export class MinerOnline {
     /* Methods of TrackerMiner.MinerOnline */
     getNetworkType(): NetworkType
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -993,8 +1076,9 @@ export class MinerOnline {
     vfuncConnected(network: NetworkType): boolean
     vfuncDisconnected(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -1021,6 +1105,12 @@ export class MinerOnline {
     once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerOnline, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerOnline, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerOnline) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerOnline) => void)): number
     emit(sigName: "paused"): void
@@ -1063,6 +1153,16 @@ export class MinerOnline {
     on(sigName: "notify::network-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::network-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::network-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-handler", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-handler", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::introspection-xml", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::introspection-xml", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::progress", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::progress", callback: (...args: any[]) => void): NodeJS.EventEmitter

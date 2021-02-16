@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace JavaScriptCore {
 
@@ -91,9 +91,9 @@ export class Class {
     gTypeInstance: GObject.TypeInstance
     /* Methods of JavaScriptCore.Class */
     addConstructorVariadic(name: string | null, callback: GObject.Callback, returnType: GObject.Type): Value
-    addConstructor(name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: any[]): Value
+    addConstructor(name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: GType[] | null): Value
     addMethodVariadic(name: string, callback: GObject.Callback, returnType: GObject.Type): void
-    addMethod(name: string, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: any[]): void
+    addMethod(name: string, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: GType[] | null): void
     addProperty(name: string, propertyType: GObject.Type, getter?: GObject.Callback | null, setter?: GObject.Callback | null): void
     getName(): string
     getParent(): Class
@@ -383,7 +383,7 @@ export class Value {
     static newBoolean(context: Context, value: boolean): Value
     static newFromJson(context: Context, json: string): Value
     static newFunctionVariadic(context: Context, name: string | null, callback: GObject.Callback, returnType: GObject.Type): Value
-    static newFunction(context: Context, name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: any[]): Value
+    static newFunction(context: Context, name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: GType[] | null): Value
     static newNull(context: Context): Value
     static newNumber(context: Context, number: number): Value
     static newObject(context: Context, instance?: object | null, jscClass?: Class | null): Value

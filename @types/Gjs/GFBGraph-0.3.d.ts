@@ -2,13 +2,13 @@
  * GFBGraph-0.3
  */
 
-import * as Gjs from './Gjs';
-import * as Soup from './Soup-2.4';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Rest from './Rest-0.7';
-import * as Json from './Json-1.0';
+import type * as Gjs from './Gjs';
+import type * as Soup from './Soup-2.4';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Rest from './Rest-0.7';
+import type * as Json from './Json-1.0';
 
 export enum NodeError {
     CONNECTIONABLE,

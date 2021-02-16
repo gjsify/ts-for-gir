@@ -3,23 +3,23 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Rest-0.7.d.ts" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GeocodeGlib-1.0.d.ts" />
-/// <reference path="Json-1.0.d.ts" />
-/// <reference path="Champlain-0.12.d.ts" />
-/// <reference path="Clutter-1.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="GL-1.0.d.ts" />
-/// <reference path="CoglPango-1.0.d.ts" />
-/// <reference path="PangoCairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="Cogl-1.0.d.ts" />
-/// <reference path="Atk-1.0.d.ts" />
+import type { Rest } from './Rest-0.7';
+import type { Soup } from './Soup-2.4';
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GeocodeGlib } from './GeocodeGlib-1.0';
+import type { Json } from './Json-1.0';
+import type { Champlain } from './Champlain-0.12';
+import type { Clutter } from './Clutter-1.0';
+import type { cairo } from './cairo-1.0';
+import type { GL } from './GL-1.0';
+import type { CoglPango } from './CoglPango-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { Cogl } from './Cogl-1.0';
+import type { Atk } from './Atk-1.0';
 
 declare namespace GnomeMaps {
 

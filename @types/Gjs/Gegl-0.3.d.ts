@@ -2,9 +2,9 @@
  * Gegl-0.3
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum AbyssPolicy {
     NONE,
@@ -320,10 +320,7 @@ export class Buffer {
     signal_connect(detailed_signal: string, c_handler: GObject.Callback): number
     /* Methods of Gegl.TileHandler */
     damage_rect(rect: Rectangle): void
-    damage_tile(x: number, y: number, z: number, damage: number): void
-    lock(): void
     set_source(source: TileSource): void
-    unlock(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding

@@ -2,11 +2,11 @@
  * GstCheck-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export function buffer_straw_get_buffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
 export function buffer_straw_start_pipeline(bin: Gst.Element, pad: Gst.Pad): void

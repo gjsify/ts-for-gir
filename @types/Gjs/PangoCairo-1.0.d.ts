@@ -2,12 +2,12 @@
  * PangoCairo-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
 
 export function context_get_font_options(context: Pango.Context): cairo.FontOptions | null
 export function context_get_resolution(context: Pango.Context): number

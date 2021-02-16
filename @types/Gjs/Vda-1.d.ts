@@ -2,12 +2,12 @@
  * Vda-1
  */
 
-import * as Gjs from './Gjs';
-import * as GCalc from './GCalc-1';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as Gee from './Gee-0.8';
+import type * as Gjs from './Gjs';
+import type * as GCalc from './GCalc-1';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
 
 export enum MetaObjectError {
     APPEND,
@@ -7040,13 +7040,9 @@ export class ConnectionParameterPassword {
 export interface ConnectionParameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class ConnectionParameters {
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -7059,6 +7055,10 @@ export class ConnectionParameters {
     /* Methods of Vda.ConnectionParameters */
     parse(cnstring: string): void
     to_string(): string
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -7067,9 +7067,24 @@ export class ConnectionParameters {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7102,14 +7117,43 @@ export class ConnectionParameters {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7122,16 +7166,10 @@ export class ConnectionParameters {
     connect(sigName: "notify", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::key-hash-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: ConnectionParameters, pspec: GObject.ParamSpec) => void)): number
@@ -7149,26 +7187,42 @@ export class ConnectionParameters {
     _init (config?: ConnectionParameters_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(cnc_str: string): ConnectionParameters
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): ConnectionParameters
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): ConnectionParameters
     static $gtype: GObject.Type
 }
 export interface Expression_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class Expression {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.Expression */
     parent_instance: Gee.ArrayList
     priv: ExpressionPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7177,20 +7231,17 @@ export class Expression {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7231,6 +7282,28 @@ export class Expression {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7239,21 +7312,69 @@ export class Expression {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7270,14 +7391,12 @@ export class Expression {
     connect(sigName: "items-changed", callback: (($obj: Expression, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: Expression, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    connect(sigName: "notify::equal-func", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7287,7 +7406,7 @@ export class Expression {
     _init (config?: Expression_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Expression
-    static new(equal_func?: GLib.EqualFunc | null): Expression
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): Expression
     static parse(str: string, cnc: Connection, params?: SqlParameters | null): SqlExpression
     static $gtype: GObject.Type
 }
@@ -7297,13 +7416,11 @@ export interface ExpressionField_ConstructProps extends Expression_ConstructProp
     allias?: string
 }
 export class ExpressionField {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Vda.SqlExpressionField */
     table_ref: string
     name: string
@@ -7311,10 +7428,28 @@ export class ExpressionField {
     /* Fields of Vda.ExpressionField */
     parent_instance: Expression
     priv: ExpressionFieldPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7323,20 +7458,17 @@ export class ExpressionField {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7373,6 +7505,9 @@ export class ExpressionField {
     vfunc_set_name(value: string): void
     vfunc_get_allias(): string | null
     vfunc_set_allias(value?: string | null): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -7381,6 +7516,28 @@ export class ExpressionField {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7389,21 +7546,69 @@ export class ExpressionField {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7416,14 +7621,12 @@ export class ExpressionField {
     connect(sigName: "notify", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::table-ref", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::table-ref", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
@@ -7439,29 +7642,45 @@ export class ExpressionField {
     _init (config?: ExpressionField_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionField
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionField
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionField
     static $gtype: GObject.Type
 }
 export interface ExpressionOperator_ConstructProps extends Expression_ConstructProps {
 }
 export class ExpressionOperator {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Vda.SqlExpressionOperator */
     readonly operator_type: SqlExpressionOperatorType
     /* Fields of Vda.ExpressionOperator */
     parent_instance: Expression
     priv: ExpressionOperatorPrivate
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7470,20 +7689,17 @@ export class ExpressionOperator {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7580,6 +7796,9 @@ export class ExpressionOperator {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -7588,6 +7807,28 @@ export class ExpressionOperator {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7596,21 +7837,69 @@ export class ExpressionOperator {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7623,14 +7912,12 @@ export class ExpressionOperator {
     connect(sigName: "notify", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-type", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-type", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7642,28 +7929,44 @@ export class ExpressionOperator {
     _init (config?: ExpressionOperator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperator
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperator
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperator
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorGroup_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorGroup {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorGroup */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorGroupPrivate
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7672,20 +7975,17 @@ export class ExpressionOperatorGroup {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7708,6 +8008,10 @@ export class ExpressionOperatorGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorGroup */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -7745,6 +8049,9 @@ export class ExpressionOperatorGroup {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -7753,6 +8060,28 @@ export class ExpressionOperatorGroup {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7761,21 +8090,69 @@ export class ExpressionOperatorGroup {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7788,14 +8165,12 @@ export class ExpressionOperatorGroup {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7805,29 +8180,45 @@ export class ExpressionOperatorGroup {
     _init (config?: ExpressionOperatorGroup_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorGroup
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorGroup
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorGroup
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorMultiterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorMultiterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorMultiterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorMultitermPrivate
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -7836,20 +8227,17 @@ export class ExpressionOperatorMultiterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7872,6 +8260,10 @@ export class ExpressionOperatorMultiterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -7909,6 +8301,9 @@ export class ExpressionOperatorMultiterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -7917,6 +8312,28 @@ export class ExpressionOperatorMultiterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -7925,21 +8342,69 @@ export class ExpressionOperatorMultiterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7952,14 +8417,12 @@ export class ExpressionOperatorMultiterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7969,19 +8432,17 @@ export class ExpressionOperatorMultiterm {
     _init (config?: ExpressionOperatorMultiterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorMultiterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorMultiterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorMultiterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorAnd_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
 export class ExpressionOperatorAnd {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorAnd */
     parent_instance: ExpressionOperatorMultiterm
     priv: ExpressionOperatorAndPrivate
@@ -7989,10 +8450,28 @@ export class ExpressionOperatorAnd {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8001,20 +8480,17 @@ export class ExpressionOperatorAnd {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8037,6 +8513,14 @@ export class ExpressionOperatorAnd {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorAnd */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8074,6 +8558,9 @@ export class ExpressionOperatorAnd {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8082,6 +8569,28 @@ export class ExpressionOperatorAnd {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8090,21 +8599,69 @@ export class ExpressionOperatorAnd {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8117,14 +8674,12 @@ export class ExpressionOperatorAnd {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8134,19 +8689,17 @@ export class ExpressionOperatorAnd {
     _init (config?: ExpressionOperatorAnd_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorAnd
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorAnd
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorAnd
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorOr_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
 export class ExpressionOperatorOr {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorOr */
     parent_instance: ExpressionOperatorMultiterm
     priv: ExpressionOperatorOrPrivate
@@ -8154,10 +8707,28 @@ export class ExpressionOperatorOr {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8166,20 +8737,17 @@ export class ExpressionOperatorOr {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8202,6 +8770,14 @@ export class ExpressionOperatorOr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorOr */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorMultiterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8239,6 +8815,9 @@ export class ExpressionOperatorOr {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8247,6 +8826,28 @@ export class ExpressionOperatorOr {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8255,21 +8856,69 @@ export class ExpressionOperatorOr {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8282,14 +8931,12 @@ export class ExpressionOperatorOr {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8299,29 +8946,45 @@ export class ExpressionOperatorOr {
     _init (config?: ExpressionOperatorOr_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorOr
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorOr
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorOr
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorBinaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorBinaryterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorBinaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorBinarytermPrivate
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8330,20 +8993,17 @@ export class ExpressionOperatorBinaryterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8366,6 +9026,10 @@ export class ExpressionOperatorBinaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8403,6 +9067,9 @@ export class ExpressionOperatorBinaryterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8411,6 +9078,28 @@ export class ExpressionOperatorBinaryterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8419,21 +9108,69 @@ export class ExpressionOperatorBinaryterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8446,14 +9183,12 @@ export class ExpressionOperatorBinaryterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8463,19 +9198,17 @@ export class ExpressionOperatorBinaryterm {
     _init (config?: ExpressionOperatorBinaryterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorBinaryterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorBinaryterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorBinaryterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorEq {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorEq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorEqPrivate
@@ -8483,10 +9216,28 @@ export class ExpressionOperatorEq {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8495,20 +9246,17 @@ export class ExpressionOperatorEq {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8531,6 +9279,14 @@ export class ExpressionOperatorEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorEq */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8568,6 +9324,9 @@ export class ExpressionOperatorEq {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8576,6 +9335,28 @@ export class ExpressionOperatorEq {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8584,21 +9365,69 @@ export class ExpressionOperatorEq {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8611,14 +9440,12 @@ export class ExpressionOperatorEq {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8628,19 +9455,17 @@ export class ExpressionOperatorEq {
     _init (config?: ExpressionOperatorEq_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorEq
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorEq
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorEq
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorNotEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorNotEq {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorNotEq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorNotEqPrivate
@@ -8648,10 +9473,28 @@ export class ExpressionOperatorNotEq {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8660,20 +9503,17 @@ export class ExpressionOperatorNotEq {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8696,6 +9536,14 @@ export class ExpressionOperatorNotEq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorNotEq */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8733,6 +9581,9 @@ export class ExpressionOperatorNotEq {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8741,6 +9592,28 @@ export class ExpressionOperatorNotEq {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8749,21 +9622,69 @@ export class ExpressionOperatorNotEq {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8776,14 +9697,12 @@ export class ExpressionOperatorNotEq {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8793,19 +9712,17 @@ export class ExpressionOperatorNotEq {
     _init (config?: ExpressionOperatorNotEq_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorNotEq
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorNotEq
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorNotEq
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorDiff_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorDiff {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorDiff */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorDiffPrivate
@@ -8813,10 +9730,28 @@ export class ExpressionOperatorDiff {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8825,20 +9760,17 @@ export class ExpressionOperatorDiff {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8861,6 +9793,14 @@ export class ExpressionOperatorDiff {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorDiff */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -8898,6 +9838,9 @@ export class ExpressionOperatorDiff {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -8906,6 +9849,28 @@ export class ExpressionOperatorDiff {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8914,21 +9879,69 @@ export class ExpressionOperatorDiff {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8941,14 +9954,12 @@ export class ExpressionOperatorDiff {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8958,19 +9969,17 @@ export class ExpressionOperatorDiff {
     _init (config?: ExpressionOperatorDiff_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorDiff
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorDiff
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorDiff
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorGt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorGt {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorGt */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorGtPrivate
@@ -8978,10 +9987,28 @@ export class ExpressionOperatorGt {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8990,20 +10017,17 @@ export class ExpressionOperatorGt {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9026,6 +10050,14 @@ export class ExpressionOperatorGt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorGt */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9063,6 +10095,9 @@ export class ExpressionOperatorGt {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9071,6 +10106,28 @@ export class ExpressionOperatorGt {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9079,21 +10136,69 @@ export class ExpressionOperatorGt {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9106,14 +10211,12 @@ export class ExpressionOperatorGt {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9123,19 +10226,17 @@ export class ExpressionOperatorGt {
     _init (config?: ExpressionOperatorGt_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorGt
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorGt
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorGt
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorLt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLt {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorLt */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLtPrivate
@@ -9143,10 +10244,28 @@ export class ExpressionOperatorLt {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9155,20 +10274,17 @@ export class ExpressionOperatorLt {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9191,6 +10307,14 @@ export class ExpressionOperatorLt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorLt */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9228,6 +10352,9 @@ export class ExpressionOperatorLt {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9236,6 +10363,28 @@ export class ExpressionOperatorLt {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9244,21 +10393,69 @@ export class ExpressionOperatorLt {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9271,14 +10468,12 @@ export class ExpressionOperatorLt {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9288,19 +10483,17 @@ export class ExpressionOperatorLt {
     _init (config?: ExpressionOperatorLt_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorLt
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorLt
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorLt
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorGeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorGeq {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorGeq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorGeqPrivate
@@ -9308,10 +10501,28 @@ export class ExpressionOperatorGeq {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9320,20 +10531,17 @@ export class ExpressionOperatorGeq {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9356,6 +10564,14 @@ export class ExpressionOperatorGeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorGeq */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9393,6 +10609,9 @@ export class ExpressionOperatorGeq {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9401,6 +10620,28 @@ export class ExpressionOperatorGeq {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9409,21 +10650,69 @@ export class ExpressionOperatorGeq {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9436,14 +10725,12 @@ export class ExpressionOperatorGeq {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9453,19 +10740,17 @@ export class ExpressionOperatorGeq {
     _init (config?: ExpressionOperatorGeq_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorGeq
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorGeq
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorGeq
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorLeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLeq {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorLeq */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLeqPrivate
@@ -9473,10 +10758,28 @@ export class ExpressionOperatorLeq {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9485,20 +10788,17 @@ export class ExpressionOperatorLeq {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9521,6 +10821,14 @@ export class ExpressionOperatorLeq {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorLeq */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9558,6 +10866,9 @@ export class ExpressionOperatorLeq {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9566,6 +10877,28 @@ export class ExpressionOperatorLeq {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9574,21 +10907,69 @@ export class ExpressionOperatorLeq {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9601,14 +10982,12 @@ export class ExpressionOperatorLeq {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9618,19 +10997,17 @@ export class ExpressionOperatorLeq {
     _init (config?: ExpressionOperatorLeq_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorLeq
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorLeq
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorLeq
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorRegexp_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorRegexp {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorRegexp */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorRegexpPrivate
@@ -9638,10 +11015,28 @@ export class ExpressionOperatorRegexp {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9650,20 +11045,17 @@ export class ExpressionOperatorRegexp {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9686,6 +11078,14 @@ export class ExpressionOperatorRegexp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorRegexp */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9723,6 +11123,9 @@ export class ExpressionOperatorRegexp {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9731,6 +11134,28 @@ export class ExpressionOperatorRegexp {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9739,21 +11164,69 @@ export class ExpressionOperatorRegexp {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9766,14 +11239,12 @@ export class ExpressionOperatorRegexp {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9783,19 +11254,17 @@ export class ExpressionOperatorRegexp {
     _init (config?: ExpressionOperatorRegexp_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorRegexp
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorRegexp
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorRegexp
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorStar_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorStar {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorStar */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorStarPrivate
@@ -9803,10 +11272,28 @@ export class ExpressionOperatorStar {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9815,20 +11302,17 @@ export class ExpressionOperatorStar {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9851,6 +11335,14 @@ export class ExpressionOperatorStar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorStar */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -9888,6 +11380,9 @@ export class ExpressionOperatorStar {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -9896,6 +11391,28 @@ export class ExpressionOperatorStar {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9904,21 +11421,69 @@ export class ExpressionOperatorStar {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9931,14 +11496,12 @@ export class ExpressionOperatorStar {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9948,19 +11511,17 @@ export class ExpressionOperatorStar {
     _init (config?: ExpressionOperatorStar_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorStar
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorStar
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorStar
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorDiv_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorDiv {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorDiv */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorDivPrivate
@@ -9968,10 +11529,28 @@ export class ExpressionOperatorDiv {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -9980,20 +11559,17 @@ export class ExpressionOperatorDiv {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10016,6 +11592,14 @@ export class ExpressionOperatorDiv {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorDiv */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10053,6 +11637,9 @@ export class ExpressionOperatorDiv {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10061,6 +11648,28 @@ export class ExpressionOperatorDiv {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10069,21 +11678,69 @@ export class ExpressionOperatorDiv {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10096,14 +11753,12 @@ export class ExpressionOperatorDiv {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10113,19 +11768,17 @@ export class ExpressionOperatorDiv {
     _init (config?: ExpressionOperatorDiv_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorDiv
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorDiv
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorDiv
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorIn {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIn */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorInPrivate
@@ -10133,10 +11786,28 @@ export class ExpressionOperatorIn {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10145,20 +11816,17 @@ export class ExpressionOperatorIn {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10181,6 +11849,14 @@ export class ExpressionOperatorIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIn */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10218,6 +11894,9 @@ export class ExpressionOperatorIn {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10226,6 +11905,28 @@ export class ExpressionOperatorIn {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10234,21 +11935,69 @@ export class ExpressionOperatorIn {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10261,14 +12010,12 @@ export class ExpressionOperatorIn {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10278,19 +12025,17 @@ export class ExpressionOperatorIn {
     _init (config?: ExpressionOperatorIn_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIn
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIn
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIn
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorNotIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorNotIn {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorNotIn */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorNotInPrivate
@@ -10298,10 +12043,28 @@ export class ExpressionOperatorNotIn {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10310,20 +12073,17 @@ export class ExpressionOperatorNotIn {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10346,6 +12106,14 @@ export class ExpressionOperatorNotIn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorNotIn */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10383,6 +12151,9 @@ export class ExpressionOperatorNotIn {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10391,6 +12162,28 @@ export class ExpressionOperatorNotIn {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10399,21 +12192,69 @@ export class ExpressionOperatorNotIn {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10426,14 +12267,12 @@ export class ExpressionOperatorNotIn {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10443,19 +12282,17 @@ export class ExpressionOperatorNotIn {
     _init (config?: ExpressionOperatorNotIn_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorNotIn
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorNotIn
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorNotIn
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorConcatenate_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorConcatenate {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorConcatenate */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorConcatenatePrivate
@@ -10463,10 +12300,28 @@ export class ExpressionOperatorConcatenate {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10475,20 +12330,17 @@ export class ExpressionOperatorConcatenate {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10511,6 +12363,14 @@ export class ExpressionOperatorConcatenate {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorConcatenate */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10548,6 +12408,9 @@ export class ExpressionOperatorConcatenate {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10556,6 +12419,28 @@ export class ExpressionOperatorConcatenate {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10564,21 +12449,69 @@ export class ExpressionOperatorConcatenate {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10591,14 +12524,12 @@ export class ExpressionOperatorConcatenate {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10608,19 +12539,17 @@ export class ExpressionOperatorConcatenate {
     _init (config?: ExpressionOperatorConcatenate_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorConcatenate
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorConcatenate
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorConcatenate
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorSimilarTo_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorSimilarTo {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorSimilarTo */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorSimilarToPrivate
@@ -10628,10 +12557,28 @@ export class ExpressionOperatorSimilarTo {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10640,20 +12587,17 @@ export class ExpressionOperatorSimilarTo {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10676,6 +12620,14 @@ export class ExpressionOperatorSimilarTo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorSimilarTo */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10713,6 +12665,9 @@ export class ExpressionOperatorSimilarTo {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10721,6 +12676,28 @@ export class ExpressionOperatorSimilarTo {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10729,21 +12706,69 @@ export class ExpressionOperatorSimilarTo {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10756,14 +12781,12 @@ export class ExpressionOperatorSimilarTo {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10773,19 +12796,17 @@ export class ExpressionOperatorSimilarTo {
     _init (config?: ExpressionOperatorSimilarTo_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorSimilarTo
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorSimilarTo
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorSimilarTo
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorLike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorLike {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorLike */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorLikePrivate
@@ -10793,10 +12814,28 @@ export class ExpressionOperatorLike {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10805,20 +12844,17 @@ export class ExpressionOperatorLike {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10841,6 +12877,14 @@ export class ExpressionOperatorLike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorLike */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -10878,6 +12922,9 @@ export class ExpressionOperatorLike {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -10886,6 +12933,28 @@ export class ExpressionOperatorLike {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10894,21 +12963,69 @@ export class ExpressionOperatorLike {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10921,14 +13038,12 @@ export class ExpressionOperatorLike {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10938,19 +13053,17 @@ export class ExpressionOperatorLike {
     _init (config?: ExpressionOperatorLike_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorLike
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorLike
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorLike
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorIlike {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIlike */
     parent_instance: ExpressionOperatorBinaryterm
     priv: ExpressionOperatorIlikePrivate
@@ -10958,10 +13071,28 @@ export class ExpressionOperatorIlike {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -10970,20 +13101,17 @@ export class ExpressionOperatorIlike {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11006,6 +13134,14 @@ export class ExpressionOperatorIlike {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIlike */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11043,6 +13179,9 @@ export class ExpressionOperatorIlike {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11051,6 +13190,28 @@ export class ExpressionOperatorIlike {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11059,21 +13220,69 @@ export class ExpressionOperatorIlike {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11086,14 +13295,12 @@ export class ExpressionOperatorIlike {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11103,29 +13310,45 @@ export class ExpressionOperatorIlike {
     _init (config?: ExpressionOperatorIlike_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIlike
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIlike
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIlike
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorBinaryUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorBinaryUnaryterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorBinaryUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorBinaryUnarytermPrivate
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11134,20 +13357,17 @@ export class ExpressionOperatorBinaryUnaryterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11170,6 +13390,10 @@ export class ExpressionOperatorBinaryUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11207,6 +13431,9 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11215,6 +13442,28 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11223,21 +13472,69 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11250,14 +13547,12 @@ export class ExpressionOperatorBinaryUnaryterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11267,19 +13562,17 @@ export class ExpressionOperatorBinaryUnaryterm {
     _init (config?: ExpressionOperatorBinaryUnaryterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorBinaryUnaryterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorBinaryUnaryterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorBinaryUnaryterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorMinus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorMinus {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorMinus */
     parent_instance: ExpressionOperatorBinaryUnaryterm
     priv: ExpressionOperatorMinusPrivate
@@ -11287,10 +13580,28 @@ export class ExpressionOperatorMinus {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11299,20 +13610,17 @@ export class ExpressionOperatorMinus {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11335,6 +13643,14 @@ export class ExpressionOperatorMinus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorMinus */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11372,6 +13688,9 @@ export class ExpressionOperatorMinus {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11380,6 +13699,28 @@ export class ExpressionOperatorMinus {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11388,21 +13729,69 @@ export class ExpressionOperatorMinus {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11415,14 +13804,12 @@ export class ExpressionOperatorMinus {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11432,19 +13819,17 @@ export class ExpressionOperatorMinus {
     _init (config?: ExpressionOperatorMinus_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorMinus
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorMinus
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorMinus
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorPlus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorPlus {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorPlus */
     parent_instance: ExpressionOperatorBinaryUnaryterm
     priv: ExpressionOperatorPlusPrivate
@@ -11452,10 +13837,28 @@ export class ExpressionOperatorPlus {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11464,20 +13867,17 @@ export class ExpressionOperatorPlus {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11500,6 +13900,14 @@ export class ExpressionOperatorPlus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorPlus */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorBinaryUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11537,6 +13945,9 @@ export class ExpressionOperatorPlus {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11545,6 +13956,28 @@ export class ExpressionOperatorPlus {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11553,21 +13986,69 @@ export class ExpressionOperatorPlus {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11580,14 +14061,12 @@ export class ExpressionOperatorPlus {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11597,29 +14076,45 @@ export class ExpressionOperatorPlus {
     _init (config?: ExpressionOperatorPlus_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorPlus
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorPlus
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorPlus
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorInitialUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorInitialUnaryterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorInitialUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorInitialUnarytermPrivate
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11628,20 +14123,17 @@ export class ExpressionOperatorInitialUnaryterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11664,6 +14156,10 @@ export class ExpressionOperatorInitialUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorInitialUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11701,6 +14197,9 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11709,6 +14208,28 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11717,21 +14238,69 @@ export class ExpressionOperatorInitialUnaryterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11744,14 +14313,12 @@ export class ExpressionOperatorInitialUnaryterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11761,19 +14328,17 @@ export class ExpressionOperatorInitialUnaryterm {
     _init (config?: ExpressionOperatorInitialUnaryterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorInitialUnaryterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorInitialUnaryterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorInitialUnaryterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorNot_ConstructProps extends ExpressionOperatorInitialUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorNot {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorNot */
     parent_instance: ExpressionOperatorInitialUnaryterm
     priv: ExpressionOperatorNotPrivate
@@ -11781,10 +14346,28 @@ export class ExpressionOperatorNot {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11793,20 +14376,17 @@ export class ExpressionOperatorNot {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11829,6 +14409,14 @@ export class ExpressionOperatorNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorInitialUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -11866,6 +14454,9 @@ export class ExpressionOperatorNot {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -11874,6 +14465,28 @@ export class ExpressionOperatorNot {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11882,21 +14495,69 @@ export class ExpressionOperatorNot {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11909,14 +14570,12 @@ export class ExpressionOperatorNot {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11926,29 +14585,45 @@ export class ExpressionOperatorNot {
     _init (config?: ExpressionOperatorNot_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorNot
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorNot
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorNot
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorFinalUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorFinalUnaryterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorFinalUnaryterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorFinalUnarytermPrivate
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -11957,20 +14632,17 @@ export class ExpressionOperatorFinalUnaryterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11993,6 +14665,10 @@ export class ExpressionOperatorFinalUnaryterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12030,6 +14706,9 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12038,6 +14717,28 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12046,21 +14747,69 @@ export class ExpressionOperatorFinalUnaryterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12073,14 +14822,12 @@ export class ExpressionOperatorFinalUnaryterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12090,19 +14837,17 @@ export class ExpressionOperatorFinalUnaryterm {
     _init (config?: ExpressionOperatorFinalUnaryterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorFinalUnaryterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorFinalUnaryterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorFinalUnaryterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIs_ConstructProps extends ExpressionOperatorFinalUnaryterm_ConstructProps {
 }
 export class ExpressionOperatorIs {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIs */
     parent_instance: ExpressionOperatorFinalUnaryterm
     priv: ExpressionOperatorIsPrivate
@@ -12110,10 +14855,28 @@ export class ExpressionOperatorIs {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12122,20 +14885,17 @@ export class ExpressionOperatorIs {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12158,6 +14918,14 @@ export class ExpressionOperatorIs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12195,6 +14963,9 @@ export class ExpressionOperatorIs {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12203,6 +14974,28 @@ export class ExpressionOperatorIs {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12211,21 +15004,69 @@ export class ExpressionOperatorIs {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12238,14 +15079,12 @@ export class ExpressionOperatorIs {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12255,19 +15094,17 @@ export class ExpressionOperatorIs {
     _init (config?: ExpressionOperatorIs_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIs
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIs
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIs
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNot_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsNot {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNot */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsNotPrivate
@@ -12275,10 +15112,28 @@ export class ExpressionOperatorIsNot {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12287,20 +15142,17 @@ export class ExpressionOperatorIsNot {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12323,6 +15175,18 @@ export class ExpressionOperatorIsNot {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12360,6 +15224,9 @@ export class ExpressionOperatorIsNot {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12368,6 +15235,28 @@ export class ExpressionOperatorIsNot {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12376,21 +15265,69 @@ export class ExpressionOperatorIsNot {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12403,14 +15340,12 @@ export class ExpressionOperatorIsNot {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12420,19 +15355,17 @@ export class ExpressionOperatorIsNot {
     _init (config?: ExpressionOperatorIsNot_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNot
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNot
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNot
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNull_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsNull {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNull */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsNullPrivate
@@ -12440,10 +15373,28 @@ export class ExpressionOperatorIsNull {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12452,20 +15403,17 @@ export class ExpressionOperatorIsNull {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12488,6 +15436,18 @@ export class ExpressionOperatorIsNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNull */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12525,6 +15485,9 @@ export class ExpressionOperatorIsNull {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12533,6 +15496,28 @@ export class ExpressionOperatorIsNull {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12541,21 +15526,69 @@ export class ExpressionOperatorIsNull {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12568,14 +15601,12 @@ export class ExpressionOperatorIsNull {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12585,19 +15616,17 @@ export class ExpressionOperatorIsNull {
     _init (config?: ExpressionOperatorIsNull_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNull
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNull
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNull
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotNull_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotNull {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotNull */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotNullPrivate
@@ -12605,10 +15634,28 @@ export class ExpressionOperatorIsNotNull {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12617,20 +15664,17 @@ export class ExpressionOperatorIsNotNull {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12653,6 +15697,22 @@ export class ExpressionOperatorIsNotNull {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotNull */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12690,6 +15750,9 @@ export class ExpressionOperatorIsNotNull {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12698,6 +15761,28 @@ export class ExpressionOperatorIsNotNull {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12706,21 +15791,69 @@ export class ExpressionOperatorIsNotNull {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12733,14 +15866,12 @@ export class ExpressionOperatorIsNotNull {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12750,19 +15881,17 @@ export class ExpressionOperatorIsNotNull {
     _init (config?: ExpressionOperatorIsNotNull_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotNull
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotNull
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotNull
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsTrue_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsTrue {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsTrue */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsTruePrivate
@@ -12770,10 +15899,28 @@ export class ExpressionOperatorIsTrue {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12782,20 +15929,17 @@ export class ExpressionOperatorIsTrue {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12818,6 +15962,18 @@ export class ExpressionOperatorIsTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsTrue */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -12855,6 +16011,9 @@ export class ExpressionOperatorIsTrue {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -12863,6 +16022,28 @@ export class ExpressionOperatorIsTrue {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -12871,21 +16052,69 @@ export class ExpressionOperatorIsTrue {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12898,14 +16127,12 @@ export class ExpressionOperatorIsTrue {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12915,19 +16142,17 @@ export class ExpressionOperatorIsTrue {
     _init (config?: ExpressionOperatorIsTrue_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsTrue
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsTrue
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsTrue
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotTrue_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotTrue {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotTrue */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotTruePrivate
@@ -12935,10 +16160,28 @@ export class ExpressionOperatorIsNotTrue {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -12947,20 +16190,17 @@ export class ExpressionOperatorIsNotTrue {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -12983,6 +16223,22 @@ export class ExpressionOperatorIsNotTrue {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotTrue */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13020,6 +16276,9 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13028,6 +16287,28 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13036,21 +16317,69 @@ export class ExpressionOperatorIsNotTrue {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13063,14 +16392,12 @@ export class ExpressionOperatorIsNotTrue {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13080,19 +16407,17 @@ export class ExpressionOperatorIsNotTrue {
     _init (config?: ExpressionOperatorIsNotTrue_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotTrue
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotTrue
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotTrue
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsFalse_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsFalse {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsFalse */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsFalsePrivate
@@ -13100,10 +16425,28 @@ export class ExpressionOperatorIsFalse {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13112,20 +16455,17 @@ export class ExpressionOperatorIsFalse {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13148,6 +16488,18 @@ export class ExpressionOperatorIsFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsFalse */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13185,6 +16537,9 @@ export class ExpressionOperatorIsFalse {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13193,6 +16548,28 @@ export class ExpressionOperatorIsFalse {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13201,21 +16578,69 @@ export class ExpressionOperatorIsFalse {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13228,14 +16653,12 @@ export class ExpressionOperatorIsFalse {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13245,19 +16668,17 @@ export class ExpressionOperatorIsFalse {
     _init (config?: ExpressionOperatorIsFalse_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsFalse
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsFalse
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsFalse
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotFalse_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotFalse {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotFalse */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotFalsePrivate
@@ -13265,10 +16686,28 @@ export class ExpressionOperatorIsNotFalse {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13277,20 +16716,17 @@ export class ExpressionOperatorIsNotFalse {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13313,6 +16749,22 @@ export class ExpressionOperatorIsNotFalse {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotFalse */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13350,6 +16802,9 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13358,6 +16813,28 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13366,21 +16843,69 @@ export class ExpressionOperatorIsNotFalse {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13393,14 +16918,12 @@ export class ExpressionOperatorIsNotFalse {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13410,19 +16933,17 @@ export class ExpressionOperatorIsNotFalse {
     _init (config?: ExpressionOperatorIsNotFalse_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotFalse
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotFalse
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotFalse
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotUnknown_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotUnknown {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotUnknown */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotUnknownPrivate
@@ -13430,10 +16951,28 @@ export class ExpressionOperatorIsNotUnknown {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13442,20 +16981,17 @@ export class ExpressionOperatorIsNotUnknown {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13478,6 +17014,22 @@ export class ExpressionOperatorIsNotUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotUnknown */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13515,6 +17067,9 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13523,6 +17078,28 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13531,21 +17108,69 @@ export class ExpressionOperatorIsNotUnknown {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13558,14 +17183,12 @@ export class ExpressionOperatorIsNotUnknown {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13575,19 +17198,17 @@ export class ExpressionOperatorIsNotUnknown {
     _init (config?: ExpressionOperatorIsNotUnknown_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotUnknown
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotUnknown
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotUnknown
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsUnknown_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsUnknown {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsUnknown */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsUnknownPrivate
@@ -13595,10 +17216,28 @@ export class ExpressionOperatorIsUnknown {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13607,20 +17246,17 @@ export class ExpressionOperatorIsUnknown {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13643,6 +17279,18 @@ export class ExpressionOperatorIsUnknown {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsUnknown */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13680,6 +17328,9 @@ export class ExpressionOperatorIsUnknown {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13688,6 +17339,28 @@ export class ExpressionOperatorIsUnknown {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13696,21 +17369,69 @@ export class ExpressionOperatorIsUnknown {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13723,14 +17444,12 @@ export class ExpressionOperatorIsUnknown {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13740,19 +17459,17 @@ export class ExpressionOperatorIsUnknown {
     _init (config?: ExpressionOperatorIsUnknown_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsUnknown
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsUnknown
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsUnknown
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
 export class ExpressionOperatorIsDistinct {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsDistinct */
     parent_instance: ExpressionOperatorIs
     priv: ExpressionOperatorIsDistinctPrivate
@@ -13760,10 +17477,28 @@ export class ExpressionOperatorIsDistinct {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13772,20 +17507,17 @@ export class ExpressionOperatorIsDistinct {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13808,6 +17540,18 @@ export class ExpressionOperatorIsDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsDistinct */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -13845,6 +17589,9 @@ export class ExpressionOperatorIsDistinct {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -13853,6 +17600,28 @@ export class ExpressionOperatorIsDistinct {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13861,21 +17630,69 @@ export class ExpressionOperatorIsDistinct {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13888,14 +17705,12 @@ export class ExpressionOperatorIsDistinct {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13905,19 +17720,17 @@ export class ExpressionOperatorIsDistinct {
     _init (config?: ExpressionOperatorIsDistinct_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsDistinct
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsDistinct
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsDistinct
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotDistinct_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
 export class ExpressionOperatorIsNotDistinct {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotDistinct */
     parent_instance: ExpressionOperatorIsNot
     priv: ExpressionOperatorIsNotDistinctPrivate
@@ -13925,10 +17738,28 @@ export class ExpressionOperatorIsNotDistinct {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13937,20 +17768,17 @@ export class ExpressionOperatorIsNotDistinct {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13973,6 +17801,22 @@ export class ExpressionOperatorIsNotDistinct {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinct */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14010,6 +17854,9 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14018,6 +17865,28 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14026,21 +17895,69 @@ export class ExpressionOperatorIsNotDistinct {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14053,14 +17970,12 @@ export class ExpressionOperatorIsNotDistinct {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14070,19 +17985,17 @@ export class ExpressionOperatorIsNotDistinct {
     _init (config?: ExpressionOperatorIsNotDistinct_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotDistinct
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotDistinct
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotDistinct
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsDistinctFrom_ConstructProps extends ExpressionOperatorIsDistinct_ConstructProps {
 }
 export class ExpressionOperatorIsDistinctFrom {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsDistinctFrom */
     parent_instance: ExpressionOperatorIsDistinct
     priv: ExpressionOperatorIsDistinctFromPrivate
@@ -14090,10 +18003,28 @@ export class ExpressionOperatorIsDistinctFrom {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14102,20 +18033,17 @@ export class ExpressionOperatorIsDistinctFrom {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14138,6 +18066,22 @@ export class ExpressionOperatorIsDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsDistinctFrom */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsDistinct */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14175,6 +18119,9 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14183,6 +18130,28 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14191,21 +18160,69 @@ export class ExpressionOperatorIsDistinctFrom {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14218,14 +18235,12 @@ export class ExpressionOperatorIsDistinctFrom {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14235,19 +18250,17 @@ export class ExpressionOperatorIsDistinctFrom {
     _init (config?: ExpressionOperatorIsDistinctFrom_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsDistinctFrom
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsDistinctFrom
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsDistinctFrom
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorIsNotDistinctFrom_ConstructProps extends ExpressionOperatorIsNotDistinct_ConstructProps {
 }
 export class ExpressionOperatorIsNotDistinctFrom {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorIsNotDistinctFrom */
     parent_instance: ExpressionOperatorIsNotDistinct
     priv: ExpressionOperatorIsNotDistinctFromPrivate
@@ -14255,10 +18268,28 @@ export class ExpressionOperatorIsNotDistinctFrom {
     _operator_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14267,20 +18298,17 @@ export class ExpressionOperatorIsNotDistinctFrom {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14303,6 +18331,26 @@ export class ExpressionOperatorIsNotDistinctFrom {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinctFrom */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNotDistinct */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIsNot */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorIs */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorFinalUnaryterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14340,6 +18388,9 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14348,6 +18399,28 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14356,21 +18429,69 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14383,14 +18504,12 @@ export class ExpressionOperatorIsNotDistinctFrom {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14400,19 +18519,17 @@ export class ExpressionOperatorIsNotDistinctFrom {
     _init (config?: ExpressionOperatorIsNotDistinctFrom_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorIsNotDistinctFrom
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorIsNotDistinctFrom
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorIsNotDistinctFrom
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorThreeterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorThreeterm {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorThreeterm */
     parent_instance: ExpressionOperator
     priv: ExpressionOperatorThreetermPrivate
@@ -14420,10 +18537,28 @@ export class ExpressionOperatorThreeterm {
     _operator2_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14432,20 +18567,17 @@ export class ExpressionOperatorThreeterm {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14468,6 +18600,10 @@ export class ExpressionOperatorThreeterm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14505,6 +18641,9 @@ export class ExpressionOperatorThreeterm {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14513,6 +18652,28 @@ export class ExpressionOperatorThreeterm {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14521,21 +18682,69 @@ export class ExpressionOperatorThreeterm {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14548,14 +18757,12 @@ export class ExpressionOperatorThreeterm {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14565,19 +18772,17 @@ export class ExpressionOperatorThreeterm {
     _init (config?: ExpressionOperatorThreeterm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorThreeterm
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorThreeterm
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorThreeterm
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorBetween {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorBetween */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorBetweenPrivate
@@ -14586,10 +18791,28 @@ export class ExpressionOperatorBetween {
     _operator2_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14598,20 +18821,17 @@ export class ExpressionOperatorBetween {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14634,6 +18854,14 @@ export class ExpressionOperatorBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorBetween */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14671,6 +18899,9 @@ export class ExpressionOperatorBetween {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14679,6 +18910,28 @@ export class ExpressionOperatorBetween {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14687,21 +18940,69 @@ export class ExpressionOperatorBetween {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14714,14 +19015,12 @@ export class ExpressionOperatorBetween {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14731,19 +19030,17 @@ export class ExpressionOperatorBetween {
     _init (config?: ExpressionOperatorBetween_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorBetween
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorBetween
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorBetween
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorNotBetween {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorNotBetween */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorNotBetweenPrivate
@@ -14752,10 +19049,28 @@ export class ExpressionOperatorNotBetween {
     _operator2_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14764,20 +19079,17 @@ export class ExpressionOperatorNotBetween {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14800,6 +19112,14 @@ export class ExpressionOperatorNotBetween {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorNotBetween */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -14837,6 +19157,9 @@ export class ExpressionOperatorNotBetween {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -14845,6 +19168,28 @@ export class ExpressionOperatorNotBetween {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -14853,21 +19198,69 @@ export class ExpressionOperatorNotBetween {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14880,14 +19273,12 @@ export class ExpressionOperatorNotBetween {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14897,19 +19288,17 @@ export class ExpressionOperatorNotBetween {
     _init (config?: ExpressionOperatorNotBetween_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorNotBetween
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorNotBetween
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorNotBetween
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorBetweenSymmetric {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorBetweenSymmetric */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorBetweenSymmetricPrivate
@@ -14918,10 +19307,28 @@ export class ExpressionOperatorBetweenSymmetric {
     _operator2_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -14930,20 +19337,17 @@ export class ExpressionOperatorBetweenSymmetric {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -14966,6 +19370,14 @@ export class ExpressionOperatorBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorBetweenSymmetric */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -15003,6 +19415,9 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -15011,6 +19426,28 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15019,21 +19456,69 @@ export class ExpressionOperatorBetweenSymmetric {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15046,14 +19531,12 @@ export class ExpressionOperatorBetweenSymmetric {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15063,19 +19546,17 @@ export class ExpressionOperatorBetweenSymmetric {
     _init (config?: ExpressionOperatorBetweenSymmetric_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorBetweenSymmetric
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorBetweenSymmetric
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorBetweenSymmetric
     static $gtype: GObject.Type
 }
 export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
 export class ExpressionOperatorNotBetweenSymmetric {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.ExpressionOperatorNotBetweenSymmetric */
     parent_instance: ExpressionOperatorThreeterm
     priv: ExpressionOperatorNotBetweenSymmetricPrivate
@@ -15084,10 +19565,28 @@ export class ExpressionOperatorNotBetweenSymmetric {
     _operator2_name: string
     /* Fields of Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -15096,20 +19595,17 @@ export class ExpressionOperatorNotBetweenSymmetric {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15132,6 +19628,14 @@ export class ExpressionOperatorNotBetweenSymmetric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Vda.ExpressionOperatorNotBetweenSymmetric */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Vda.ExpressionOperatorThreeterm */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfunc_create_field_expression(name: string): SqlExpressionField
     vfunc_create_value_expression(val: any, cnc: Connection): SqlExpressionValue
@@ -15169,6 +19673,9 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_add_is_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_add_is_not_distinct_from_operator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfunc_get_operator_type(): SqlExpressionOperatorType
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -15177,6 +19684,28 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15185,21 +19714,69 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15212,14 +19789,12 @@ export class ExpressionOperatorNotBetweenSymmetric {
     connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15229,7 +19804,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     _init (config?: ExpressionOperatorNotBetweenSymmetric_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionOperatorNotBetweenSymmetric
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionOperatorNotBetweenSymmetric
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionOperatorNotBetweenSymmetric
     static $gtype: GObject.Type
 }
 export interface ExpressionValue_ConstructProps extends Expression_ConstructProps {
@@ -15237,23 +19812,39 @@ export interface ExpressionValue_ConstructProps extends Expression_ConstructProp
     value?: SqlValue
 }
 export class ExpressionValue {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
     /* Fields of Vda.ExpressionValue */
     parent_instance: Expression
     priv: ExpressionValuePrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -15262,20 +19853,17 @@ export class ExpressionValue {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15310,6 +19898,9 @@ export class ExpressionValue {
     vfunc_set_connection(value?: Connection | null): void
     vfunc_get_value(): SqlValue
     vfunc_set_value(value: SqlValue): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -15318,6 +19909,28 @@ export class ExpressionValue {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15326,21 +19939,69 @@ export class ExpressionValue {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15353,14 +20014,12 @@ export class ExpressionValue {
     connect(sigName: "notify", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::connection", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
@@ -15374,7 +20033,7 @@ export class ExpressionValue {
     _init (config?: ExpressionValue_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionValue
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionValue
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionValue
     static $gtype: GObject.Type
 }
 export interface ExpressionValueParameter_ConstructProps extends ExpressionValue_ConstructProps {
@@ -15383,13 +20042,11 @@ export interface ExpressionValueParameter_ConstructProps extends ExpressionValue
     gtype?: GObject.Type
 }
 export class ExpressionValueParameter {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Vda.SqlExpressionValueParameter */
     parameters: SqlParameters
     name: string
@@ -15397,10 +20054,28 @@ export class ExpressionValueParameter {
     /* Fields of Vda.ExpressionValueParameter */
     parent_instance: ExpressionValue
     priv: ExpressionValueParameterPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -15409,20 +20084,17 @@ export class ExpressionValueParameter {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15461,12 +20133,18 @@ export class ExpressionValueParameter {
     vfunc_set_name(value: string): void
     vfunc_get_gtype(): GObject.Type
     vfunc_set_gtype(value: GObject.Type): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.ExpressionValue */
     vfunc_set_math_expression_value(str: string): void
     vfunc_get_connection(): Connection | null
     vfunc_set_connection(value?: Connection | null): void
     vfunc_get_value(): SqlValue
     vfunc_set_value(value: SqlValue): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Vda.Expression */
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
@@ -15475,6 +20153,28 @@ export class ExpressionValueParameter {
     vfunc_remove_expression(exp: SqlExpression): void
     vfunc_to_string(): string
     vfunc_add_math_expression(str: string, cnc: Connection): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15483,21 +20183,69 @@ export class ExpressionValueParameter {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15510,14 +20258,12 @@ export class ExpressionValueParameter {
     connect(sigName: "notify", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parameters", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameters", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
@@ -15533,27 +20279,43 @@ export class ExpressionValueParameter {
     _init (config?: ExpressionValueParameter_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionValueParameter
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionValueParameter
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionValueParameter
     static gtype_from_string(str: string): GObject.Type
     static $gtype: GObject.Type
 }
 export interface HashList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class HashList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Vda.HashList */
     parent_instance: Gee.ArrayList
     priv: HashListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -15562,20 +20324,17 @@ export class HashList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15616,6 +20375,28 @@ export class HashList {
     vfunc_find(key: GObject.Object): GObject.Object | null
     vfunc_remove(object: GObject.Object): void
     vfunc_remove(item?: object | null): boolean
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15624,21 +20405,69 @@ export class HashList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15655,14 +20484,12 @@ export class HashList {
     connect(sigName: "items-changed", callback: (($obj: HashList, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: HashList, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    connect(sigName: "notify::equal-func", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15672,7 +20499,7 @@ export class HashList {
     _init (config?: HashList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): HashList
-    static new(equal_func?: GLib.EqualFunc | null): HashList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): HashList
     static $gtype: GObject.Type
 }
 export interface InvalidQuery_ConstructProps extends GObject.Object_ConstructProps {
@@ -15904,13 +20731,9 @@ export class InvalidResult {
 export interface Parameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class Parameters {
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -15920,6 +20743,10 @@ export class Parameters {
     priv: ParametersPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -15928,9 +20755,24 @@ export class Parameters {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15971,14 +20813,43 @@ export class Parameters {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15991,16 +20862,10 @@ export class Parameters {
     connect(sigName: "notify", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::key-hash-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
@@ -16018,7 +20883,7 @@ export class Parameters {
     _init (config?: Parameters_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Parameters
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): Parameters
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): Parameters
     static $gtype: GObject.Type
 }
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {

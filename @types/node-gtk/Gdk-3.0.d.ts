@@ -3,14 +3,14 @@
  */
 
 /// <reference types="node" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GdkPixbuf-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { cairo } from './cairo-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { Gio } from './Gio-2.0';
+import type { GdkPixbuf } from './GdkPixbuf-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace Gdk {
 
@@ -2966,13 +2966,10 @@ export interface DevicePad_ConstructProps extends Device_ConstructProps {
 }
 export class DevicePad {
     /* Properties of Gdk.Device */
-    readonly capsLockState: boolean
-    readonly direction: Pango.Direction
-    readonly hasBidiLayouts: boolean
-    readonly modifierState: ModifierType
+    readonly associatedDevice: Device
+    readonly axes: AxisFlags
+    inputMode: InputMode
     readonly nAxes: number
-    readonly numLockState: boolean
-    readonly scrollLockState: boolean
     seat: Seat
     readonly tool: DeviceTool
     /* Fields of GObject.Object */
@@ -2983,21 +2980,34 @@ export class DevicePad {
     getNFeatures(feature: DevicePadFeature): number
     getNGroups(): number
     /* Methods of Gdk.Device */
-    getCapsLockState(): boolean
-    getDeviceTool(): DeviceTool
-    getDirection(): Pango.Direction
+    getAssociatedDevice(): Device | null
+    getAxes(): AxisFlags
+    getAxisUse(index: number): AxisUse
+    getDeviceType(): DeviceType
     getDisplay(): Display
     getHasCursor(): boolean
-    getModifierState(): ModifierType
+    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
+    getLastEventWindow(): Window | null
+    getMode(): InputMode
+    getNAxes(): number
+    getNKeys(): number
     getName(): string
-    getNumLockState(): boolean
-    getNumTouches(): number
+    getPosition(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
+    getPositionDouble(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
     getProductId(): string | null
-    getScrollLockState(): boolean
     getSeat(): Seat
     getSource(): InputSource
-    getSurfaceAtPosition(): [ /* returnType */ Surface | null, /* winX */ number | null, /* winY */ number | null ]
     getVendorId(): string | null
+    getWindowAtPosition(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPositionDouble(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
+    grab(window: Window, grabOwnership: GrabOwnership, ownerEvents: boolean, eventMask: EventMask, cursor: Cursor | null, time: number): GrabStatus
+    listAxes(): Atom[]
+    listSlaveDevices(): Device[] | null
+    setAxisUse(index: number, use: AxisUse): void
+    setKey(index: number, keyval: number, modifiers: ModifierType): void
+    setMode(mode: InputMode): boolean
+    ungrab(time: number): void
+    warp(screen: Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3048,41 +3058,26 @@ export class DevicePad {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::direction", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::modifier-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-mode", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::num-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::seat", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::seat", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5376,5 +5371,5 @@ export class Event {
     static peek(): Event | null
     static requestMotions(event: EventMotion): void
 }
-type XEvent = void
+export type XEvent = void
 }

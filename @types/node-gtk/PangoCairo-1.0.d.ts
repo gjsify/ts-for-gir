@@ -3,11 +3,11 @@
  */
 
 /// <reference types="node" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { cairo } from './cairo-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
 
 declare namespace PangoCairo {
 

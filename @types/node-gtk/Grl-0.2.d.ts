@@ -3,10 +3,10 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace Grl {
 
@@ -570,7 +570,6 @@ export class Media {
     addBinary(key: KeyID, buf: number, size: number): void
     addBoxed(key: KeyID, boxed?: object | null): void
     addFloat(key: KeyID, floatvalue: number): void
-    addForId(keyName: string, value: any): boolean
     addInt(key: KeyID, intvalue: number): void
     addInt64(key: KeyID, intvalue: number): void
     addRelatedKeys(relkeys: RelatedKeys): void
@@ -597,7 +596,6 @@ export class Media {
     setBoolean(key: KeyID, boolvalue: boolean): void
     setBoxed(key: KeyID, boxed?: object | null): void
     setFloat(key: KeyID, floatvalue: number): void
-    setForId(keyName: string, value: any): boolean
     setInt(key: KeyID, intvalue: number): void
     setInt64(key: KeyID, intvalue: number): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
@@ -657,8 +655,6 @@ export class Media {
 export interface MediaAudio_ConstructProps extends Media_ConstructProps {
 }
 export class MediaAudio {
-    /* Properties of Grl.Media */
-    mediaType: MediaType
     /* Fields of Grl.MediaAudio */
     parent: Media
     /* Fields of Grl.Data */
@@ -701,67 +697,38 @@ export class MediaAudio {
     setUrlData(url: string, mime: string, bitrate: number): void
     /* Methods of Grl.Media */
     addAuthor(author: string): void
-    addDirector(director: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
     addKeyword(keyword: string): void
-    addPerformer(performer: string): void
-    addProducer(producer: string): void
     addRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
     addThumbnail(thumbnail: string): void
     addThumbnailBinary(thumbnail: number, size: number): void
-    addUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    getAlbumArtist(): string
-    getAlbumDiscNumber(): number
+    addUrlData(url: string, mime: string): void
     getAuthor(): string
     getAuthorNth(index: number): string
-    getCameraModel(): string
     getCertificate(): string
-    getChildcount(): number
-    getComposer(): string
-    getComposerNth(index: number): string
     getCreationDate(): GLib.DateTime
     getDescription(): string
-    getDirector(): string
-    getDirectorNth(index: number): string
     getDuration(): number
-    getEpisode(): number
-    getEpisodeTitle(): string
-    getExposureTime(): number
     getExternalUrl(): string
     getExternalUrlNth(index: number): string
     getFavourite(): boolean
-    getFlashUsed(): string
-    getFramerate(): number
-    getHeight(): number
     getId(): string
-    getIsoSpeed(): number
     getKeyword(): string
     getKeywordNth(index: number): string
-    getLastPlayed(): GLib.DateTime
+    getLastPlayed(): string
     getLastPosition(): number
     getLicense(): string
-    getMbReleaseGroupId(): string
-    getMbReleaseId(): string
-    getMediaType(): MediaType
     getMime(): string
     getModificationDate(): GLib.DateTime
-    getOrientation(): number
-    getOriginalTitle(): string
-    getPerformer(): string
-    getPerformerNth(index: number): string
     getPlayCount(): number
     getPlayer(): string
     getPlayerNth(index: number): string
-    getProducer(): string
-    getProducerNth(index: number): string
     getPublicationDate(): GLib.DateTime
     getRating(): number
     getRegion(): string
     getRegionData(): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
     getRegionDataNth(index: number): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
-    getSeason(): number
-    getShow(): string
     getSite(): string
     getSize(): number
     getSource(): string
@@ -773,55 +740,29 @@ export class MediaAudio {
     getThumbnailNth(index: number): string
     getTitle(): string
     getUrl(): string
-    getUrlData(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getUrlDataNth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getWidth(): number
-    isAudio(): boolean
-    isContainer(): boolean
-    isImage(): boolean
-    isVideo(): boolean
+    getUrlData(): [ /* returnType */ string, /* mime */ string ]
+    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    setAlbumArtist(albumArtist: string): void
-    setAlbumDiscNumber(discNumber: number): void
     setAuthor(author: string): void
-    setCameraModel(cameraModel: string): void
     setCertificate(certificate: string): void
-    setChildcount(childcount: number): void
-    setComposer(composer: string): void
     setCreationDate(creationDate: GLib.DateTime): void
     setDescription(description: string): void
-    setDirector(director: string): void
     setDuration(duration: number): void
-    setEpisode(episode: number): void
-    setEpisodeTitle(episodeTitle: string): void
-    setExposureTime(exposureTime: number): void
     setExternalPlayer(player: string): void
     setExternalUrl(url: string): void
     setFavourite(favourite: boolean): void
-    setFlashUsed(flashUsed: string): void
-    setFramerate(framerate: number): void
-    setHeight(height: number): void
     setId(id: string): void
-    setIsoSpeed(isoSpeed: number): void
     setKeyword(keyword: string): void
-    setLastPlayed(lastPlayed: GLib.DateTime): void
+    setLastPlayed(lastPlayed: string): void
     setLastPosition(lastPosition: number): void
     setLicense(license: string): void
-    setMbReleaseGroupId(mbReleaseGroupId: string): void
-    setMbReleaseId(mbReleaseId: string): void
     setMime(mime: string): void
     setModificationDate(modificationDate: GLib.DateTime): void
-    setOrientation(orientation: number): void
-    setOriginalTitle(originalTitle: string): void
-    setPerformer(performer: string): void
     setPlayCount(playCount: number): void
-    setProducer(producer: string): void
     setPublicationDate(date: GLib.DateTime): void
     setRating(rating: number, max: number): void
     setRegion(region: string): void
     setRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
-    setSeason(season: number): void
-    setShow(show: string): void
     setSite(site: string): void
     setSize(size: number): void
     setSource(source: string): void
@@ -830,13 +771,11 @@ export class MediaAudio {
     setThumbnailBinary(thumbnail: number, size: number): void
     setTitle(title: string): void
     setUrl(url: string): void
-    setUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    setWidth(width: number): void
+    setUrlData(url: string, mime: string): void
     /* Methods of Grl.Data */
     addBinary(key: KeyID, buf: number, size: number): void
     addBoxed(key: KeyID, boxed?: object | null): void
     addFloat(key: KeyID, floatvalue: number): void
-    addForId(keyName: string, value: any): boolean
     addInt(key: KeyID, intvalue: number): void
     addInt64(key: KeyID, intvalue: number): void
     addRelatedKeys(relkeys: RelatedKeys): void
@@ -863,7 +802,6 @@ export class MediaAudio {
     setBoolean(key: KeyID, boolvalue: boolean): void
     setBoxed(key: KeyID, boxed?: object | null): void
     setFloat(key: KeyID, floatvalue: number): void
-    setForId(keyName: string, value: any): boolean
     setInt(key: KeyID, intvalue: number): void
     setInt64(key: KeyID, intvalue: number): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
@@ -905,11 +843,6 @@ export class MediaAudio {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::media-type", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -927,8 +860,6 @@ export class MediaAudio {
 export interface MediaBox_ConstructProps extends Media_ConstructProps {
 }
 export class MediaBox {
-    /* Properties of Grl.Media */
-    mediaType: MediaType
     /* Fields of Grl.MediaBox */
     parent: Media
     /* Fields of Grl.Data */
@@ -940,84 +871,39 @@ export class MediaBox {
     getChildcount(): number
     setChildcount(childcount: number): void
     /* Methods of Grl.Media */
-    addArtist(artist: string): void
     addAuthor(author: string): void
-    addDirector(director: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
-    addGenre(genre: string): void
     addKeyword(keyword: string): void
-    addLyrics(lyrics: string): void
-    addMbArtistId(mbArtistId: string): void
-    addPerformer(performer: string): void
-    addProducer(producer: string): void
     addRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
     addThumbnail(thumbnail: string): void
     addThumbnailBinary(thumbnail: number, size: number): void
-    addUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    getAlbum(): string
-    getAlbumArtist(): string
-    getAlbumDiscNumber(): number
-    getArtist(): string
-    getArtistNth(index: number): string
+    addUrlData(url: string, mime: string): void
     getAuthor(): string
     getAuthorNth(index: number): string
-    getBitrate(): number
-    getCameraModel(): string
     getCertificate(): string
-    getComposer(): string
-    getComposerNth(index: number): string
     getCreationDate(): GLib.DateTime
     getDescription(): string
-    getDirector(): string
-    getDirectorNth(index: number): string
     getDuration(): number
-    getEpisode(): number
-    getEpisodeTitle(): string
-    getExposureTime(): number
     getExternalUrl(): string
     getExternalUrlNth(index: number): string
     getFavourite(): boolean
-    getFlashUsed(): string
-    getFramerate(): number
-    getGenre(): string
-    getGenreNth(index: number): string
-    getHeight(): number
     getId(): string
-    getIsoSpeed(): number
     getKeyword(): string
     getKeywordNth(index: number): string
-    getLastPlayed(): GLib.DateTime
+    getLastPlayed(): string
     getLastPosition(): number
     getLicense(): string
-    getLyrics(): string
-    getLyricsNth(index: number): string
-    getMbAlbumId(): string
-    getMbArtistId(): string
-    getMbArtistIdNth(index: number): string
-    getMbRecordingId(): string
-    getMbReleaseGroupId(): string
-    getMbReleaseId(): string
-    getMbTrackId(): string
-    getMediaType(): MediaType
     getMime(): string
     getModificationDate(): GLib.DateTime
-    getOrientation(): number
-    getOriginalTitle(): string
-    getPerformer(): string
-    getPerformerNth(index: number): string
     getPlayCount(): number
     getPlayer(): string
     getPlayerNth(index: number): string
-    getProducer(): string
-    getProducerNth(index: number): string
     getPublicationDate(): GLib.DateTime
     getRating(): number
     getRegion(): string
     getRegionData(): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
     getRegionDataNth(index: number): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
-    getSeason(): number
-    getShow(): string
     getSite(): string
     getSize(): number
     getSource(): string
@@ -1028,65 +914,30 @@ export class MediaBox {
     getThumbnailBinaryNth(size: number, index: number): number
     getThumbnailNth(index: number): string
     getTitle(): string
-    getTrackNumber(): number
     getUrl(): string
-    getUrlData(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getUrlDataNth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getWidth(): number
-    isAudio(): boolean
-    isContainer(): boolean
-    isImage(): boolean
-    isVideo(): boolean
+    getUrlData(): [ /* returnType */ string, /* mime */ string ]
+    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    setAlbum(album: string): void
-    setAlbumArtist(albumArtist: string): void
-    setAlbumDiscNumber(discNumber: number): void
-    setArtist(artist: string): void
     setAuthor(author: string): void
-    setBitrate(bitrate: number): void
-    setCameraModel(cameraModel: string): void
     setCertificate(certificate: string): void
-    setComposer(composer: string): void
     setCreationDate(creationDate: GLib.DateTime): void
     setDescription(description: string): void
-    setDirector(director: string): void
     setDuration(duration: number): void
-    setEpisode(episode: number): void
-    setEpisodeTitle(episodeTitle: string): void
-    setExposureTime(exposureTime: number): void
     setExternalPlayer(player: string): void
     setExternalUrl(url: string): void
     setFavourite(favourite: boolean): void
-    setFlashUsed(flashUsed: string): void
-    setFramerate(framerate: number): void
-    setGenre(genre: string): void
-    setHeight(height: number): void
     setId(id: string): void
-    setIsoSpeed(isoSpeed: number): void
     setKeyword(keyword: string): void
-    setLastPlayed(lastPlayed: GLib.DateTime): void
+    setLastPlayed(lastPlayed: string): void
     setLastPosition(lastPosition: number): void
     setLicense(license: string): void
-    setLyrics(lyrics: string): void
-    setMbAlbumId(mbAlbumId: string): void
-    setMbArtistId(mbArtistId: string): void
-    setMbRecordingId(mbRecordingId: string): void
-    setMbReleaseGroupId(mbReleaseGroupId: string): void
-    setMbReleaseId(mbReleaseId: string): void
-    setMbTrackId(mbTrackId: string): void
     setMime(mime: string): void
     setModificationDate(modificationDate: GLib.DateTime): void
-    setOrientation(orientation: number): void
-    setOriginalTitle(originalTitle: string): void
-    setPerformer(performer: string): void
     setPlayCount(playCount: number): void
-    setProducer(producer: string): void
     setPublicationDate(date: GLib.DateTime): void
     setRating(rating: number, max: number): void
     setRegion(region: string): void
     setRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
-    setSeason(season: number): void
-    setShow(show: string): void
     setSite(site: string): void
     setSize(size: number): void
     setSource(source: string): void
@@ -1094,15 +945,12 @@ export class MediaBox {
     setThumbnail(thumbnail: string): void
     setThumbnailBinary(thumbnail: number, size: number): void
     setTitle(title: string): void
-    setTrackNumber(trackNumber: number): void
     setUrl(url: string): void
-    setUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    setWidth(width: number): void
+    setUrlData(url: string, mime: string): void
     /* Methods of Grl.Data */
     addBinary(key: KeyID, buf: number, size: number): void
     addBoxed(key: KeyID, boxed?: object | null): void
     addFloat(key: KeyID, floatvalue: number): void
-    addForId(keyName: string, value: any): boolean
     addInt(key: KeyID, intvalue: number): void
     addInt64(key: KeyID, intvalue: number): void
     addRelatedKeys(relkeys: RelatedKeys): void
@@ -1129,7 +977,6 @@ export class MediaBox {
     setBoolean(key: KeyID, boolvalue: boolean): void
     setBoxed(key: KeyID, boxed?: object | null): void
     setFloat(key: KeyID, floatvalue: number): void
-    setForId(keyName: string, value: any): boolean
     setInt(key: KeyID, intvalue: number): void
     setInt64(key: KeyID, intvalue: number): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
@@ -1171,11 +1018,6 @@ export class MediaBox {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::media-type", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1193,8 +1035,6 @@ export class MediaBox {
 export interface MediaImage_ConstructProps extends Media_ConstructProps {
 }
 export class MediaImage {
-    /* Properties of Grl.Media */
-    mediaType: MediaType
     /* Fields of Grl.MediaImage */
     parent: Media
     /* Fields of Grl.Data */
@@ -1223,79 +1063,39 @@ export class MediaImage {
     setUrlData(url: string, mime: string, width: number, height: number): void
     setWidth(width: number): void
     /* Methods of Grl.Media */
-    addArtist(artist: string): void
     addAuthor(author: string): void
-    addDirector(director: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
-    addGenre(genre: string): void
     addKeyword(keyword: string): void
-    addLyrics(lyrics: string): void
-    addMbArtistId(mbArtistId: string): void
-    addPerformer(performer: string): void
-    addProducer(producer: string): void
     addRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
     addThumbnail(thumbnail: string): void
     addThumbnailBinary(thumbnail: number, size: number): void
-    addUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    getAlbum(): string
-    getAlbumArtist(): string
-    getAlbumDiscNumber(): number
-    getArtist(): string
-    getArtistNth(index: number): string
+    addUrlData(url: string, mime: string): void
     getAuthor(): string
     getAuthorNth(index: number): string
-    getBitrate(): number
     getCertificate(): string
-    getChildcount(): number
-    getComposer(): string
-    getComposerNth(index: number): string
     getCreationDate(): GLib.DateTime
     getDescription(): string
-    getDirector(): string
-    getDirectorNth(index: number): string
     getDuration(): number
-    getEpisode(): number
-    getEpisodeTitle(): string
     getExternalUrl(): string
     getExternalUrlNth(index: number): string
     getFavourite(): boolean
-    getFramerate(): number
-    getGenre(): string
-    getGenreNth(index: number): string
     getId(): string
     getKeyword(): string
     getKeywordNth(index: number): string
-    getLastPlayed(): GLib.DateTime
+    getLastPlayed(): string
     getLastPosition(): number
     getLicense(): string
-    getLyrics(): string
-    getLyricsNth(index: number): string
-    getMbAlbumId(): string
-    getMbArtistId(): string
-    getMbArtistIdNth(index: number): string
-    getMbRecordingId(): string
-    getMbReleaseGroupId(): string
-    getMbReleaseId(): string
-    getMbTrackId(): string
-    getMediaType(): MediaType
     getMime(): string
     getModificationDate(): GLib.DateTime
-    getOriginalTitle(): string
-    getPerformer(): string
-    getPerformerNth(index: number): string
     getPlayCount(): number
     getPlayer(): string
     getPlayerNth(index: number): string
-    getProducer(): string
-    getProducerNth(index: number): string
     getPublicationDate(): GLib.DateTime
     getRating(): number
     getRegion(): string
     getRegionData(): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
     getRegionDataNth(index: number): [ /* returnType */ string, /* publicationDate */ GLib.DateTime, /* certificate */ string ]
-    getSeason(): number
-    getShow(): string
     getSite(): string
     getSize(): number
     getSource(): string
@@ -1306,59 +1106,30 @@ export class MediaImage {
     getThumbnailBinaryNth(size: number, index: number): number
     getThumbnailNth(index: number): string
     getTitle(): string
-    getTrackNumber(): number
     getUrl(): string
-    getUrlData(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getUrlDataNth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    isAudio(): boolean
-    isContainer(): boolean
-    isImage(): boolean
-    isVideo(): boolean
+    getUrlData(): [ /* returnType */ string, /* mime */ string ]
+    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    setAlbum(album: string): void
-    setAlbumArtist(albumArtist: string): void
-    setAlbumDiscNumber(discNumber: number): void
-    setArtist(artist: string): void
     setAuthor(author: string): void
-    setBitrate(bitrate: number): void
     setCertificate(certificate: string): void
-    setChildcount(childcount: number): void
-    setComposer(composer: string): void
     setCreationDate(creationDate: GLib.DateTime): void
     setDescription(description: string): void
-    setDirector(director: string): void
     setDuration(duration: number): void
-    setEpisode(episode: number): void
-    setEpisodeTitle(episodeTitle: string): void
     setExternalPlayer(player: string): void
     setExternalUrl(url: string): void
     setFavourite(favourite: boolean): void
-    setFramerate(framerate: number): void
-    setGenre(genre: string): void
     setId(id: string): void
     setKeyword(keyword: string): void
-    setLastPlayed(lastPlayed: GLib.DateTime): void
+    setLastPlayed(lastPlayed: string): void
     setLastPosition(lastPosition: number): void
     setLicense(license: string): void
-    setLyrics(lyrics: string): void
-    setMbAlbumId(mbAlbumId: string): void
-    setMbArtistId(mbArtistId: string): void
-    setMbRecordingId(mbRecordingId: string): void
-    setMbReleaseGroupId(mbReleaseGroupId: string): void
-    setMbReleaseId(mbReleaseId: string): void
-    setMbTrackId(mbTrackId: string): void
     setMime(mime: string): void
     setModificationDate(modificationDate: GLib.DateTime): void
-    setOriginalTitle(originalTitle: string): void
-    setPerformer(performer: string): void
     setPlayCount(playCount: number): void
-    setProducer(producer: string): void
     setPublicationDate(date: GLib.DateTime): void
     setRating(rating: number, max: number): void
     setRegion(region: string): void
     setRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
-    setSeason(season: number): void
-    setShow(show: string): void
     setSite(site: string): void
     setSize(size: number): void
     setSource(source: string): void
@@ -1366,14 +1137,12 @@ export class MediaImage {
     setThumbnail(thumbnail: string): void
     setThumbnailBinary(thumbnail: number, size: number): void
     setTitle(title: string): void
-    setTrackNumber(trackNumber: number): void
     setUrl(url: string): void
-    setUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
+    setUrlData(url: string, mime: string): void
     /* Methods of Grl.Data */
     addBinary(key: KeyID, buf: number, size: number): void
     addBoxed(key: KeyID, boxed?: object | null): void
     addFloat(key: KeyID, floatvalue: number): void
-    addForId(keyName: string, value: any): boolean
     addInt(key: KeyID, intvalue: number): void
     addInt64(key: KeyID, intvalue: number): void
     addRelatedKeys(relkeys: RelatedKeys): void
@@ -1400,7 +1169,6 @@ export class MediaImage {
     setBoolean(key: KeyID, boolvalue: boolean): void
     setBoxed(key: KeyID, boxed?: object | null): void
     setFloat(key: KeyID, floatvalue: number): void
-    setForId(keyName: string, value: any): boolean
     setInt(key: KeyID, intvalue: number): void
     setInt64(key: KeyID, intvalue: number): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
@@ -1442,11 +1210,6 @@ export class MediaImage {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::media-type", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1464,8 +1227,6 @@ export class MediaImage {
 export interface MediaVideo_ConstructProps extends Media_ConstructProps {
 }
 export class MediaVideo {
-    /* Properties of Grl.Media */
-    mediaType: MediaType
     /* Fields of Grl.MediaVideo */
     parent: Media
     /* Fields of Grl.Data */
@@ -1508,61 +1269,31 @@ export class MediaVideo {
     setUrlData(url: string, mime: string, framerate: number, width: number, height: number): void
     setWidth(width: number): void
     /* Methods of Grl.Media */
-    addArtist(artist: string): void
     addAuthor(author: string): void
     addExternalPlayer(player: string): void
     addExternalUrl(url: string): void
-    addGenre(genre: string): void
     addKeyword(keyword: string): void
-    addLyrics(lyrics: string): void
-    addMbArtistId(mbArtistId: string): void
     addRegionData(region: string, publicationDate: GLib.DateTime, certificate: string): void
     addThumbnail(thumbnail: string): void
     addThumbnailBinary(thumbnail: number, size: number): void
-    addUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    getAlbum(): string
-    getAlbumArtist(): string
-    getAlbumDiscNumber(): number
-    getArtist(): string
-    getArtistNth(index: number): string
+    addUrlData(url: string, mime: string): void
     getAuthor(): string
     getAuthorNth(index: number): string
-    getBitrate(): number
-    getCameraModel(): string
     getCertificate(): string
-    getChildcount(): number
-    getComposer(): string
-    getComposerNth(index: number): string
     getCreationDate(): GLib.DateTime
     getDescription(): string
     getDuration(): number
-    getExposureTime(): number
     getExternalUrl(): string
     getExternalUrlNth(index: number): string
     getFavourite(): boolean
-    getFlashUsed(): string
-    getGenre(): string
-    getGenreNth(index: number): string
     getId(): string
-    getIsoSpeed(): number
     getKeyword(): string
     getKeywordNth(index: number): string
-    getLastPlayed(): GLib.DateTime
+    getLastPlayed(): string
     getLastPosition(): number
     getLicense(): string
-    getLyrics(): string
-    getLyricsNth(index: number): string
-    getMbAlbumId(): string
-    getMbArtistId(): string
-    getMbArtistIdNth(index: number): string
-    getMbRecordingId(): string
-    getMbReleaseGroupId(): string
-    getMbReleaseId(): string
-    getMbTrackId(): string
-    getMediaType(): MediaType
     getMime(): string
     getModificationDate(): GLib.DateTime
-    getOrientation(): number
     getPlayCount(): number
     getPlayer(): string
     getPlayerNth(index: number): string
@@ -1581,50 +1312,25 @@ export class MediaVideo {
     getThumbnailBinaryNth(size: number, index: number): number
     getThumbnailNth(index: number): string
     getTitle(): string
-    getTrackNumber(): number
     getUrl(): string
-    getUrlData(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    getUrlDataNth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    isAudio(): boolean
-    isContainer(): boolean
-    isImage(): boolean
-    isVideo(): boolean
+    getUrlData(): [ /* returnType */ string, /* mime */ string ]
+    getUrlDataNth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    setAlbum(album: string): void
-    setAlbumArtist(albumArtist: string): void
-    setAlbumDiscNumber(discNumber: number): void
-    setArtist(artist: string): void
     setAuthor(author: string): void
-    setBitrate(bitrate: number): void
-    setCameraModel(cameraModel: string): void
     setCertificate(certificate: string): void
-    setChildcount(childcount: number): void
-    setComposer(composer: string): void
     setCreationDate(creationDate: GLib.DateTime): void
     setDescription(description: string): void
     setDuration(duration: number): void
-    setExposureTime(exposureTime: number): void
     setExternalPlayer(player: string): void
     setExternalUrl(url: string): void
     setFavourite(favourite: boolean): void
-    setFlashUsed(flashUsed: string): void
-    setGenre(genre: string): void
     setId(id: string): void
-    setIsoSpeed(isoSpeed: number): void
     setKeyword(keyword: string): void
-    setLastPlayed(lastPlayed: GLib.DateTime): void
+    setLastPlayed(lastPlayed: string): void
     setLastPosition(lastPosition: number): void
     setLicense(license: string): void
-    setLyrics(lyrics: string): void
-    setMbAlbumId(mbAlbumId: string): void
-    setMbArtistId(mbArtistId: string): void
-    setMbRecordingId(mbRecordingId: string): void
-    setMbReleaseGroupId(mbReleaseGroupId: string): void
-    setMbReleaseId(mbReleaseId: string): void
-    setMbTrackId(mbTrackId: string): void
     setMime(mime: string): void
     setModificationDate(modificationDate: GLib.DateTime): void
-    setOrientation(orientation: number): void
     setPlayCount(playCount: number): void
     setPublicationDate(date: GLib.DateTime): void
     setRating(rating: number, max: number): void
@@ -1637,14 +1343,12 @@ export class MediaVideo {
     setThumbnail(thumbnail: string): void
     setThumbnailBinary(thumbnail: number, size: number): void
     setTitle(title: string): void
-    setTrackNumber(trackNumber: number): void
     setUrl(url: string): void
-    setUrlData(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
+    setUrlData(url: string, mime: string): void
     /* Methods of Grl.Data */
     addBinary(key: KeyID, buf: number, size: number): void
     addBoxed(key: KeyID, boxed?: object | null): void
     addFloat(key: KeyID, floatvalue: number): void
-    addForId(keyName: string, value: any): boolean
     addInt(key: KeyID, intvalue: number): void
     addInt64(key: KeyID, intvalue: number): void
     addRelatedKeys(relkeys: RelatedKeys): void
@@ -1671,7 +1375,6 @@ export class MediaVideo {
     setBoolean(key: KeyID, boolvalue: boolean): void
     setBoxed(key: KeyID, boxed?: object | null): void
     setFloat(key: KeyID, floatvalue: number): void
-    setForId(keyName: string, value: any): boolean
     setInt(key: KeyID, intvalue: number): void
     setInt64(key: KeyID, intvalue: number): void
     setRelatedKeys(relkeys: RelatedKeys, index: number): void
@@ -1713,11 +1416,6 @@ export class MediaVideo {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::media-type", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::media-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2485,5 +2183,5 @@ export class SourceStoreSpec {
     userData: object
     static name: string
 }
-type KeyID = number
+export type KeyID = number
 }

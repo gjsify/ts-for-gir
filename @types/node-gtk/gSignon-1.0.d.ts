@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace gSignon {
 
@@ -430,10 +430,10 @@ export class _Identity {
     priv: IdentityPrivate
     static name: string
 }
-type AuthSessionQueryAvailableMethodsCb = AuthSessionQueryAvailableMechanismsCb
-type IdentityCredentialsUpdatedCb = IdentityVoidCb
-type IdentityReferenceAddedCb = IdentityVoidCb
-type IdentityReferenceRemovedCb = IdentityVoidCb
-type IdentityRemovedCb = IdentityVoidCb
-type IdentitySignedOutCb = IdentityVoidCb
+export type AuthSessionQueryAvailableMethodsCb = AuthSessionQueryAvailableMechanismsCb
+export type IdentityCredentialsUpdatedCb = IdentityVoidCb
+export type IdentityReferenceAddedCb = IdentityVoidCb
+export type IdentityReferenceRemovedCb = IdentityVoidCb
+export type IdentityRemovedCb = IdentityVoidCb
+export type IdentitySignedOutCb = IdentityVoidCb
 }

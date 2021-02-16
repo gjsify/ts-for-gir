@@ -3,11 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace win32 {
 
-type HWND = number
-type HICON = number
-type HGDIOBJ = number
+export type HWND = number
+export type HICON = number
+export type HGDIOBJ = number
 }

@@ -2,15 +2,15 @@
  * CoglPango-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as PangoCairo from './PangoCairo-1.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Cogl from './Cogl-2.0';
-import * as GL from './GL-1.0';
+import type * as Gjs from './Gjs';
+import type * as PangoCairo from './PangoCairo-1.0';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Cogl from './Cogl-2.0';
+import type * as GL from './GL-1.0';
 
 export function ensure_glyph_cache_for_layout(layout: Pango.Layout): void
 export function font_map_clear_glyph_cache(font_map: FontMap): void
@@ -111,4 +111,4 @@ export class Renderer {
 export abstract class RendererClass {
     static name: string
 }
-type FontMap = PangoCairo.FontMap
+export type FontMap = PangoCairo.FontMap

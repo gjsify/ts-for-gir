@@ -2,11 +2,11 @@
  * Pango-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as cairo from './cairo-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
 
 export enum Alignment {
     LEFT,
@@ -1806,6 +1806,6 @@ export class TabArray {
     /* Static methods and pseudo-constructors */
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
-type Glyph = number
-type GlyphUnit = number
-type LayoutRun = GlyphItem
+export type Glyph = number
+export type GlyphUnit = number
+export type LayoutRun = GlyphItem

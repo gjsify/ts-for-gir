@@ -3,7 +3,7 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GLib } from './GLib-2.0';
 
 declare namespace GObject {
 
@@ -1688,8 +1688,8 @@ export class _Value__data__union {
     vPointer: object
     static name: string
 }
-type SignalCMarshaller = ClosureMarshal
-type SignalCVaMarshaller = any
+export type SignalCMarshaller = ClosureMarshal
+export type SignalCVaMarshaller = VaClosureMarshal
 export interface Type {
     name: string
 }

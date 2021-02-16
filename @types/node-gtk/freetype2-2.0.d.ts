@@ -3,7 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace freetype2 {
 
@@ -17,5 +18,5 @@ export class Face {
 export class Library {
     static name: string
 }
-type Int32 = any
+export type Int32 = int32
 }

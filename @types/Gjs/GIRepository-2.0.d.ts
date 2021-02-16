@@ -2,9 +2,9 @@
  * GIRepository-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum ArrayType {
     C,
@@ -383,20 +383,20 @@ export class Argument {
     v_pointer: object
     static name: string
 }
-type ArgInfo = BaseInfo
-type CallableInfo = BaseInfo
-type CallbackInfo = BaseInfo
-type ConstantInfo = BaseInfo
-type EnumInfo = BaseInfo
-type FieldInfo = BaseInfo
-type FunctionInfo = BaseInfo
-type InterfaceInfo = BaseInfo
-type ObjectInfo = BaseInfo
-type PropertyInfo = BaseInfo
-type RegisteredTypeInfo = BaseInfo
-type SignalInfo = BaseInfo
-type StructInfo = BaseInfo
-type TypeInfo = BaseInfo
-type UnionInfo = BaseInfo
-type VFuncInfo = BaseInfo
-type ValueInfo = BaseInfo
+export type ArgInfo = BaseInfo
+export type CallableInfo = BaseInfo
+export type CallbackInfo = BaseInfo
+export type ConstantInfo = BaseInfo
+export type EnumInfo = BaseInfo
+export type FieldInfo = BaseInfo
+export type FunctionInfo = BaseInfo
+export type InterfaceInfo = BaseInfo
+export type ObjectInfo = BaseInfo
+export type PropertyInfo = BaseInfo
+export type RegisteredTypeInfo = BaseInfo
+export type SignalInfo = BaseInfo
+export type StructInfo = BaseInfo
+export type TypeInfo = BaseInfo
+export type UnionInfo = BaseInfo
+export type VFuncInfo = BaseInfo
+export type ValueInfo = BaseInfo

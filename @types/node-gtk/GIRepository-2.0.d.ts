@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace GIRepository {
 
@@ -391,21 +391,21 @@ export class Argument {
     vPointer: object
     static name: string
 }
-type ArgInfo = BaseInfo
-type CallableInfo = BaseInfo
-type CallbackInfo = BaseInfo
-type ConstantInfo = BaseInfo
-type EnumInfo = BaseInfo
-type FieldInfo = BaseInfo
-type FunctionInfo = BaseInfo
-type InterfaceInfo = BaseInfo
-type ObjectInfo = BaseInfo
-type PropertyInfo = BaseInfo
-type RegisteredTypeInfo = BaseInfo
-type SignalInfo = BaseInfo
-type StructInfo = BaseInfo
-type TypeInfo = BaseInfo
-type UnionInfo = BaseInfo
-type VFuncInfo = BaseInfo
-type ValueInfo = BaseInfo
+export type ArgInfo = BaseInfo
+export type CallableInfo = BaseInfo
+export type CallbackInfo = BaseInfo
+export type ConstantInfo = BaseInfo
+export type EnumInfo = BaseInfo
+export type FieldInfo = BaseInfo
+export type FunctionInfo = BaseInfo
+export type InterfaceInfo = BaseInfo
+export type ObjectInfo = BaseInfo
+export type PropertyInfo = BaseInfo
+export type RegisteredTypeInfo = BaseInfo
+export type SignalInfo = BaseInfo
+export type StructInfo = BaseInfo
+export type TypeInfo = BaseInfo
+export type UnionInfo = BaseInfo
+export type VFuncInfo = BaseInfo
+export type ValueInfo = BaseInfo
 }

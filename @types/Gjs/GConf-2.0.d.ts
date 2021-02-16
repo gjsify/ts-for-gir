@@ -2,9 +2,9 @@
  * GConf-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum ClientErrorHandlingMode {
     HANDLE_NONE,
@@ -295,7 +295,7 @@ export class Listeners {
     foreach(callback: ListenersForeach): void
     free(): void
     get_data(cnxn_id: number, listener_data_p: object | null, location_p: string): boolean
-    notify(all_above: string, callback: any): void
+    notify(all_above: string, callback: ListenersCallback): void
     remove(cnxn_id: number): void
     remove_if(predicate: ListenersPredicate): void
     static name: string

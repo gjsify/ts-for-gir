@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace Mbim {
 
@@ -1375,19 +1375,19 @@ export class Uuid {
     static fromPrintable(str: string, uuid: Uuid): boolean
     static fromService(service: Service): Uuid
 }
-type AtdsProviderArray = AtdsProvider
-type DeprecatedCidBasicConnect = number
-type DeprecatedRegistrationFlag = number
-type DeviceServiceElementArray = DeviceServiceElement
-type EventEntryArray = EventEntry
-type IPv4ElementArray = IPv4Element
-type IPv6ElementArray = IPv6Element
-type LteAttachConfigurationArray = LteAttachConfiguration
-type PacketFilterArray = PacketFilter
-type PhonebookEntryArray = PhonebookEntry
-type ProviderArray = Provider
-type ProvisionedContextElementArray = ProvisionedContextElement
-type SarConfigStateArray = SarConfigState
-type SmsCdmaReadRecordArray = SmsCdmaReadRecord
-type SmsPduReadRecordArray = SmsPduReadRecord
+export type AtdsProviderArray = AtdsProvider
+export type DeprecatedCidBasicConnect = number
+export type DeprecatedRegistrationFlag = number
+export type DeviceServiceElementArray = DeviceServiceElement
+export type EventEntryArray = EventEntry
+export type IPv4ElementArray = IPv4Element
+export type IPv6ElementArray = IPv6Element
+export type LteAttachConfigurationArray = LteAttachConfiguration
+export type PacketFilterArray = PacketFilter
+export type PhonebookEntryArray = PhonebookEntry
+export type ProviderArray = Provider
+export type ProvisionedContextElementArray = ProvisionedContextElement
+export type SarConfigStateArray = SarConfigState
+export type SmsCdmaReadRecordArray = SmsCdmaReadRecord
+export type SmsPduReadRecordArray = SmsPduReadRecord
 }

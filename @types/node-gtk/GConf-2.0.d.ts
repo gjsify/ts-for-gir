@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace GConf {
 
@@ -312,7 +312,7 @@ export class Listeners {
     foreach(callback: ListenersForeach): void
     free(): void
     getData(cnxnId: number, listenerDataP: object | null, locationP: string): boolean
-    notify(allAbove: string, callback: any): void
+    notify(allAbove: string, callback: ListenersCallback): void
     remove(cnxnId: number): void
     removeIf(predicate: ListenersPredicate): void
     static name: string

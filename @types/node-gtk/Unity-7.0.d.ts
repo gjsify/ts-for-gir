@@ -3,11 +3,11 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Dbusmenu-0.4.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Dee-1.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Dbusmenu } from './Dbusmenu-0.4';
+import type { Dee } from './Dee-1.0';
+import type { Gio } from './Gio-2.0';
 
 declare namespace Unity {
 
@@ -4771,11 +4771,11 @@ export class SimpleScope {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Unity.SimpleScope */
-    setSearchFunc(func: any): void
-    setSearchAsyncFunc(func: any): void
-    setActivateFunc(func: any): void
-    setPreviewFunc(func: any): void
-    setPreviewAsyncFunc(func: any): void
+    setSearchFunc(func: SimpleScopeSearchRunFunc): void
+    setSearchAsyncFunc(func: SimpleScopeSearchRunAsyncFunc | null): void
+    setActivateFunc(func: SimpleScopeActivateFunc | null): void
+    setPreviewFunc(func: SimpleScopePreviewRunFunc): void
+    setPreviewAsyncFunc(func: SimpleScopePreviewRunAsyncFunc | null): void
     getFilterSet(): FilterSet
     setFilterSet(value: FilterSet): void
     getCategorySet(): CategorySet
@@ -5312,9 +5312,9 @@ export class MusicPlayer {
     on(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    emit(sigName: "activate-playlist", playlistId: any): void
+    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
+    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
+    emit(sigName: "activate-playlist", playlistId: GLib.ObjectPath): void
     on(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter

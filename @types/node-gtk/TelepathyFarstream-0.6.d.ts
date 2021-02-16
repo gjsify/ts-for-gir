@@ -3,13 +3,13 @@
  */
 
 /// <reference types="node" />
-/// <reference path="TelepathyGLib-0.12.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Farstream-0.2.d.ts" />
+import type { TelepathyGLib } from './TelepathyGLib-0.12';
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Gst } from './Gst-1.0';
+import type { GModule } from './GModule-2.0';
+import type { Farstream } from './Farstream-0.2';
 
 declare namespace TelepathyFarstream {
 

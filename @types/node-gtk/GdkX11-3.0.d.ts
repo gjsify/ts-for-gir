@@ -3,16 +3,16 @@
  */
 
 /// <reference types="node" />
-/// <reference path="xlib-2.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GdkPixbuf-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Gdk-3.0.d.ts" />
+import type { xlib } from './xlib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { cairo } from './cairo-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { Gio } from './Gio-2.0';
+import type { GdkPixbuf } from './GdkPixbuf-2.0';
+import type { GModule } from './GModule-2.0';
+import type { Gdk } from './Gdk-3.0';
 
 declare namespace GdkX11 {
 
@@ -46,10 +46,11 @@ export class X11AppLaunchContext {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.AppLaunchContext */
-    getDisplay(): Gdk.Display
     setDesktop(desktop: number): void
+    setDisplay(display: Gdk.Display): void
     setIcon(icon?: Gio.Icon | null): void
     setIconName(iconName?: string | null): void
+    setScreen(screen: Gdk.Screen): void
     setTimestamp(timestamp: number): void
     /* Methods of Gio.AppLaunchContext */
     getDisplay(info: Gio.AppInfo, files: Gio.File[]): string | null
@@ -134,11 +135,12 @@ export class X11Cursor {
     getXcursor(): xlib.Cursor
     getXdisplay(): xlib.Display
     /* Methods of Gdk.Cursor */
-    getFallback(): Gdk.Cursor | null
-    getHotspotX(): number
-    getHotspotY(): number
-    getName(): string | null
-    getTexture(): Gdk.Texture | null
+    getCursorType(): Gdk.CursorType
+    getDisplay(): Gdk.Display
+    getImage(): GdkPixbuf.Pixbuf | null
+    getSurface(): [ /* returnType */ cairo.Surface | null, /* xHot */ number | null, /* yHot */ number | null ]
+    ref(): Gdk.Cursor
+    unref(): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -159,7 +161,6 @@ export class X11Cursor {
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -192,33 +193,43 @@ export interface X11DeviceCore_ConstructProps extends Gdk.Device_ConstructProps 
 }
 export class X11DeviceCore {
     /* Properties of Gdk.Device */
-    readonly capsLockState: boolean
-    readonly direction: Pango.Direction
-    readonly hasBidiLayouts: boolean
-    readonly modifierState: Gdk.ModifierType
+    readonly associatedDevice: Gdk.Device
+    readonly axes: Gdk.AxisFlags
+    inputMode: Gdk.InputMode
     readonly nAxes: number
-    readonly numLockState: boolean
-    readonly scrollLockState: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.Device */
-    getCapsLockState(): boolean
-    getDeviceTool(): Gdk.DeviceTool
-    getDirection(): Pango.Direction
+    getAssociatedDevice(): Gdk.Device | null
+    getAxes(): Gdk.AxisFlags
+    getAxisUse(index: number): Gdk.AxisUse
+    getDeviceType(): Gdk.DeviceType
     getDisplay(): Gdk.Display
     getHasCursor(): boolean
-    getModifierState(): Gdk.ModifierType
+    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ Gdk.ModifierType ]
+    getLastEventWindow(): Gdk.Window | null
+    getMode(): Gdk.InputMode
+    getNAxes(): number
+    getNKeys(): number
     getName(): string
-    getNumLockState(): boolean
-    getNumTouches(): number
+    getPosition(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
+    getPositionDouble(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
     getProductId(): string | null
-    getScrollLockState(): boolean
     getSeat(): Gdk.Seat
     getSource(): Gdk.InputSource
-    getSurfaceAtPosition(): [ /* returnType */ Gdk.Surface | null, /* winX */ number | null, /* winY */ number | null ]
     getVendorId(): string | null
+    getWindowAtPosition(): [ /* returnType */ Gdk.Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPositionDouble(): [ /* returnType */ Gdk.Window | null, /* winX */ number | null, /* winY */ number | null ]
+    grab(window: Gdk.Window, grabOwnership: Gdk.GrabOwnership, ownerEvents: boolean, eventMask: Gdk.EventMask, cursor: Gdk.Cursor | null, time: number): Gdk.GrabStatus
+    listAxes(): Gdk.Atom[]
+    listSlaveDevices(): Gdk.Device[] | null
+    setAxisUse(index: number, use: Gdk.AxisUse): void
+    setKey(index: number, keyval: number, modifiers: Gdk.ModifierType): void
+    setMode(mode: Gdk.InputMode): boolean
+    ungrab(time: number): void
+    warp(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -269,41 +280,26 @@ export class X11DeviceCore {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::direction", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::modifier-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::associated-device", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-mode", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::seat", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::seat", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -488,33 +484,43 @@ export interface X11DeviceXI2_ConstructProps extends Gdk.Device_ConstructProps {
 }
 export class X11DeviceXI2 {
     /* Properties of Gdk.Device */
-    readonly capsLockState: boolean
-    readonly direction: Pango.Direction
-    readonly hasBidiLayouts: boolean
-    readonly modifierState: Gdk.ModifierType
+    readonly associatedDevice: Gdk.Device
+    readonly axes: Gdk.AxisFlags
+    inputMode: Gdk.InputMode
     readonly nAxes: number
-    readonly numLockState: boolean
-    readonly scrollLockState: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.Device */
-    getCapsLockState(): boolean
-    getDeviceTool(): Gdk.DeviceTool
-    getDirection(): Pango.Direction
+    getAssociatedDevice(): Gdk.Device | null
+    getAxes(): Gdk.AxisFlags
+    getAxisUse(index: number): Gdk.AxisUse
+    getDeviceType(): Gdk.DeviceType
     getDisplay(): Gdk.Display
     getHasCursor(): boolean
-    getModifierState(): Gdk.ModifierType
+    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ Gdk.ModifierType ]
+    getLastEventWindow(): Gdk.Window | null
+    getMode(): Gdk.InputMode
+    getNAxes(): number
+    getNKeys(): number
     getName(): string
-    getNumLockState(): boolean
-    getNumTouches(): number
+    getPosition(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
+    getPositionDouble(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
     getProductId(): string | null
-    getScrollLockState(): boolean
     getSeat(): Gdk.Seat
     getSource(): Gdk.InputSource
-    getSurfaceAtPosition(): [ /* returnType */ Gdk.Surface | null, /* winX */ number | null, /* winY */ number | null ]
     getVendorId(): string | null
+    getWindowAtPosition(): [ /* returnType */ Gdk.Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPositionDouble(): [ /* returnType */ Gdk.Window | null, /* winX */ number | null, /* winY */ number | null ]
+    grab(window: Gdk.Window, grabOwnership: Gdk.GrabOwnership, ownerEvents: boolean, eventMask: Gdk.EventMask, cursor: Gdk.Cursor | null, time: number): Gdk.GrabStatus
+    listAxes(): Gdk.Atom[]
+    listSlaveDevices(): Gdk.Device[] | null
+    setAxisUse(index: number, use: Gdk.AxisUse): void
+    setKey(index: number, keyval: number, modifiers: Gdk.ModifierType): void
+    setMode(mode: Gdk.InputMode): boolean
+    ungrab(time: number): void
+    warp(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -565,41 +571,26 @@ export class X11DeviceXI2 {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::caps-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::direction", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::has-bidi-layouts", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::modifier-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::modifier-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::associated-device", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-mode", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::n-axes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::num-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::scroll-lock-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::seat", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::seat", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -625,10 +616,6 @@ export class X11DeviceXI2 {
 export interface X11Display_ConstructProps extends Gdk.Display_ConstructProps {
 }
 export class X11Display {
-    /* Properties of Gdk.Display */
-    readonly composited: boolean
-    readonly inputShapes: boolean
-    readonly rgba: boolean
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkX11.X11Display */
@@ -652,25 +639,46 @@ export class X11Display {
     deviceIsGrabbed(device: Gdk.Device): boolean
     flush(): void
     getAppLaunchContext(): Gdk.AppLaunchContext
-    getClipboard(): Gdk.Clipboard
-    getDefaultSeat(): Gdk.Seat | null
-    getMonitorAtSurface(surface: Gdk.Surface): Gdk.Monitor
-    getMonitors(): Gio.ListModel
+    getDefaultCursorSize(): number
+    getDefaultGroup(): Gdk.Window
+    getDefaultScreen(): Gdk.Screen
+    getDefaultSeat(): Gdk.Seat
+    getDeviceManager(): Gdk.DeviceManager | null
+    getEvent(): Gdk.Event | null
+    getMaximalCursorSize(): [ /* width */ number, /* height */ number ]
+    getMonitor(monitorNum: number): Gdk.Monitor | null
+    getMonitorAtPoint(x: number, y: number): Gdk.Monitor
+    getMonitorAtWindow(window: Gdk.Window): Gdk.Monitor
+    getNMonitors(): number
+    getNScreens(): number
     getName(): string
-    getPrimaryClipboard(): Gdk.Clipboard
-    getSetting(name: string, value: any): boolean
-    getStartupNotificationId(): string | null
+    getPointer(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null, /* mask */ Gdk.ModifierType | null ]
+    getPrimaryMonitor(): Gdk.Monitor | null
+    getScreen(screenNum: number): Gdk.Screen
+    getWindowAtPointer(): [ /* returnType */ Gdk.Window | null, /* winX */ number | null, /* winY */ number | null ]
+    hasPending(): boolean
     isClosed(): boolean
-    isComposited(): boolean
-    isRgba(): boolean
+    keyboardUngrab(time: number): void
+    listDevices(): Gdk.Device[]
     listSeats(): Gdk.Seat[]
-    mapKeycode(keycode: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] | null, /* keyvals */ number[] | null ]
-    mapKeyval(keyval: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] ]
     notifyStartupComplete(startupId: string): void
+    peekEvent(): Gdk.Event | null
+    pointerIsGrabbed(): boolean
+    pointerUngrab(time: number): void
     putEvent(event: Gdk.Event): void
+    requestSelectionNotification(selection: Gdk.Atom): boolean
+    setDoubleClickDistance(distance: number): void
+    setDoubleClickTime(msec: number): void
+    storeClipboard(clipboardWindow: Gdk.Window, time: number, targets: Gdk.Atom[] | null): void
+    supportsClipboardPersistence(): boolean
+    supportsComposite(): boolean
+    supportsCursorAlpha(): boolean
+    supportsCursorColor(): boolean
     supportsInputShapes(): boolean
+    supportsSelectionNotification(): boolean
+    supportsShapes(): boolean
     sync(): void
-    translateKey(keycode: number, state: Gdk.ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effectiveGroup */ number | null, /* level */ number | null, /* consumed */ Gdk.ModifierType | null ]
+    warpPointer(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -708,6 +716,18 @@ export class X11Display {
     on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "monitor-added", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    connect_after(sigName: "monitor-added", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    emit(sigName: "monitor-added", monitor: Gdk.Monitor): void
+    on(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "monitor-removed", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    connect_after(sigName: "monitor-removed", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    emit(sigName: "monitor-removed", monitor: Gdk.Monitor): void
+    on(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: X11Display) => void)): number
     connect_after(sigName: "opened", callback: (($obj: X11Display) => void)): number
     emit(sigName: "opened"): void
@@ -726,12 +746,6 @@ export class X11Display {
     on(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
-    emit(sigName: "setting-changed", setting: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
@@ -739,21 +753,6 @@ export class X11Display {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::composited", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::composited", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::composited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::composited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::composited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::input-shapes", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::input-shapes", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-shapes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::input-shapes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::input-shapes", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rgba", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rgba", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rgba", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rgba", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rgba", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -936,8 +935,6 @@ export class X11DragContext {
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class X11GLContext {
-    /* Properties of Gdk.DrawContext */
-    readonly display: Gdk.Display
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.GLContext */
@@ -946,9 +943,9 @@ export class X11GLContext {
     getForwardCompatible(): boolean
     getRequiredVersion(): [ /* major */ number | null, /* minor */ number | null ]
     getSharedContext(): Gdk.GLContext | null
-    getSurface(): Gdk.Surface | null
     getUseEs(): boolean
     getVersion(): [ /* major */ number, /* minor */ number ]
+    getWindow(): Gdk.Window | null
     isLegacy(): boolean
     makeCurrent(): void
     realize(): boolean
@@ -956,11 +953,6 @@ export class X11GLContext {
     setForwardCompatible(compatible: boolean): void
     setRequiredVersion(major: number, minor: number): void
     setUseEs(useEs: number): void
-    /* Methods of Gdk.DrawContext */
-    beginFrame(region: cairo.Region): void
-    endFrame(): void
-    getFrameRegion(): cairo.Region | null
-    isInFrame(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -998,11 +990,6 @@ export class X11GLContext {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1109,7 +1096,6 @@ export interface X11Monitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
 export class X11Monitor {
     /* Properties of Gdk.Monitor */
-    readonly connector: string
     readonly geometry: Gdk.Rectangle
     readonly heightMm: number
     readonly manufacturer: string
@@ -1117,12 +1103,11 @@ export class X11Monitor {
     readonly refreshRate: number
     readonly scaleFactor: number
     readonly subpixelLayout: Gdk.SubpixelLayout
-    readonly valid: boolean
     readonly widthMm: number
+    readonly workarea: Gdk.Rectangle
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.Monitor */
-    getConnector(): string | null
     getDisplay(): Gdk.Display
     getGeometry(): /* geometry */ Gdk.Rectangle
     getHeightMm(): number
@@ -1132,7 +1117,8 @@ export class X11Monitor {
     getScaleFactor(): number
     getSubpixelLayout(): Gdk.SubpixelLayout
     getWidthMm(): number
-    isValid(): boolean
+    getWorkarea(): /* workarea */ Gdk.Rectangle
+    isPrimary(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1177,11 +1163,6 @@ export class X11Monitor {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::connector", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::connector", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::connector", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::connector", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::connector", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::geometry", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::geometry", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::geometry", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1217,16 +1198,16 @@ export class X11Monitor {
     on(sigName: "notify::subpixel-layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::subpixel-layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::subpixel-layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::valid", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::valid", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::width-mm", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-mm", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::width-mm", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::width-mm", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::width-mm", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::workarea", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::workarea", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::workarea", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::workarea", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::workarea", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

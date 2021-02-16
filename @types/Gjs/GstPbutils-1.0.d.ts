@@ -2,14 +2,14 @@
  * GstPbutils-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as GstVideo from './GstVideo-1.0';
-import * as GstBase from './GstBase-1.0';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
-import * as GstAudio from './GstAudio-1.0';
+import type * as Gjs from './Gjs';
+import type * as GstVideo from './GstVideo-1.0';
+import type * as GstBase from './GstBase-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as GstAudio from './GstAudio-1.0';
 
 export enum AudioVisualizerShader {
     NONE,
@@ -1267,10 +1267,10 @@ export class InstallPluginsContext {
     /* Static methods and pseudo-constructors */
     static new(): InstallPluginsContext
 }
-type DiscovererAudioInfoClass = GObject.ObjectClass
-type DiscovererContainerInfoClass = GObject.ObjectClass
-type DiscovererInfoClass = GObject.ObjectClass
-type DiscovererStreamInfoClass = GObject.ObjectClass
-type DiscovererSubtitleInfoClass = GObject.ObjectClass
-type DiscovererVideoInfoClass = GObject.ObjectClass
-type EncodingTargetClass = GObject.ObjectClass
+export type DiscovererAudioInfoClass = GObject.ObjectClass
+export type DiscovererContainerInfoClass = GObject.ObjectClass
+export type DiscovererInfoClass = GObject.ObjectClass
+export type DiscovererStreamInfoClass = GObject.ObjectClass
+export type DiscovererSubtitleInfoClass = GObject.ObjectClass
+export type DiscovererVideoInfoClass = GObject.ObjectClass
+export type EncodingTargetClass = GObject.ObjectClass

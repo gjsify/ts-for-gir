@@ -2,19 +2,19 @@
  * GooCanvas-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gtk from './Gtk-3.0';
-import * as xlib from './xlib-2.0';
-import * as Gdk from './Gdk-3.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as Gtk from './Gtk-3.0';
+import type * as xlib from './xlib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gdk from './Gdk-3.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Atk from './Atk-1.0';
 
 export enum CairoAntialias {
     DEFAULT,
@@ -132,7 +132,7 @@ export class CanvasItem {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Methods of GooCanvas.CanvasItem */
@@ -283,7 +283,7 @@ export class CanvasItemModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Methods of GooCanvas.CanvasItemModel */
@@ -412,32 +412,37 @@ export class Canvas {
     child: Gtk.Widget
     resize_mode: Gtk.ResizeMode
     /* Properties of Gtk.Widget */
+    app_paintable: boolean
+    can_default: boolean
     can_focus: boolean
-    can_target: boolean
-    css_classes: string[]
-    cursor: Gdk.Cursor
+    readonly composite_child: boolean
+    double_buffered: boolean
+    events: Gdk.EventMask
+    expand: boolean
     focus_on_click: boolean
-    focusable: boolean
     halign: Gtk.Align
-    readonly has_default: boolean
-    readonly has_focus: boolean
+    has_default: boolean
+    has_focus: boolean
     has_tooltip: boolean
     height_request: number
     hexpand: boolean
     hexpand_set: boolean
-    layout_manager: Gtk.LayoutManager
+    is_focus: boolean
+    margin: number
     margin_bottom: number
     margin_end: number
+    margin_left: number
+    margin_right: number
     margin_start: number
     margin_top: number
     name: string
+    no_show_all: boolean
     opacity: number
-    overflow: Gtk.Overflow
-    readonly parent: Gtk.Widget
+    parent: Gtk.Container
     receives_default: boolean
-    readonly root: Gtk.Root
     readonly scale_factor: number
     sensitive: boolean
+    style: Gtk.Style
     tooltip_markup: string
     tooltip_text: string
     valign: Gtk.Align
@@ -445,6 +450,7 @@ export class Canvas {
     vexpand_set: boolean
     visible: boolean
     width_request: number
+    readonly window: Gdk.Window
     /* Properties of Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscroll_policy: Gtk.ScrollablePolicy
@@ -551,159 +557,263 @@ export class Canvas {
     set_resize_mode(resize_mode: Gtk.ResizeMode): void
     unset_focus_chain(): void
     /* Methods of Gtk.Widget */
-    action_set_enabled(action_name: string, enabled: boolean): void
     activate(): boolean
-    activate_action(name: string, args?: GLib.Variant | null): boolean
-    activate_default(): void
-    add_controller(controller: Gtk.EventController): void
-    add_css_class(css_class: string): void
+    add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
+    add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
+    add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
     add_tick_callback(callback: Gtk.TickCallback): number
-    allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
+    can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    compute_bounds(target: Gtk.Widget): [ /* returnType */ boolean, /* out_bounds */ Graphene.Rect ]
+    child_notify(child_property: string): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
-    compute_point(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* out_point */ Graphene.Point ]
-    compute_transform(target: Gtk.Widget): [ /* returnType */ boolean, /* out_transform */ Graphene.Matrix ]
-    contains(x: number, y: number): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text?: string | null): Pango.Layout
+    destroy(): void
+    destroyed(widget_pointer: Gtk.Widget): /* widget_pointer */ Gtk.Widget
+    device_is_shadowed(device: Gdk.Device): boolean
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
+    drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
+    drag_dest_add_image_targets(): void
+    drag_dest_add_text_targets(): void
+    drag_dest_add_uri_targets(): void
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_get_target_list(): Gtk.TargetList | null
+    drag_dest_get_track_motion(): boolean
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
+    drag_dest_set_track_motion(track_motion: boolean): void
+    drag_dest_unset(): void
+    drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
+    drag_highlight(): void
+    drag_source_add_image_targets(): void
+    drag_source_add_text_targets(): void
+    drag_source_add_uri_targets(): void
+    drag_source_get_target_list(): Gtk.TargetList | null
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    drag_source_set_icon_gicon(icon: Gio.Icon): void
+    drag_source_set_icon_name(icon_name: string): void
+    drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
+    drag_source_set_icon_stock(stock_id: string): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
+    drag_source_unset(): void
+    drag_unhighlight(): void
+    draw(cr: cairo.Context): void
+    ensure_style(): void
     error_bell(): void
+    event(event: Gdk.Event): boolean
+    freeze_child_notify(): void
+    get_accessible(): Atk.Object
+    get_action_group(prefix: string): Gio.ActionGroup | null
     get_allocated_baseline(): number
     get_allocated_height(): number
+    get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
+    get_app_paintable(): boolean
+    get_can_default(): boolean
     get_can_focus(): boolean
-    get_can_target(): boolean
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clipboard(): Gdk.Clipboard
-    get_css_classes(): string[]
-    get_css_name(): string
-    get_cursor(): Gdk.Cursor | null
+    get_clip(): /* clip */ Gtk.Allocation
+    get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
+    get_composite_name(): string
+    get_device_enabled(device: Gdk.Device): boolean
+    get_device_events(device: Gdk.Device): Gdk.EventMask
     get_direction(): Gtk.TextDirection
     get_display(): Gdk.Display
-    get_first_child(): Gtk.Widget | null
+    get_double_buffered(): boolean
+    get_events(): number
     get_focus_on_click(): boolean
-    get_focusable(): boolean
     get_font_map(): Pango.FontMap | null
     get_font_options(): cairo.FontOptions | null
     get_frame_clock(): Gdk.FrameClock | null
     get_halign(): Gtk.Align
     get_has_tooltip(): boolean
-    get_height(): number
+    get_has_window(): boolean
     get_hexpand(): boolean
     get_hexpand_set(): boolean
-    get_last_child(): Gtk.Widget | null
-    get_layout_manager(): Gtk.LayoutManager | null
     get_mapped(): boolean
     get_margin_bottom(): number
     get_margin_end(): number
+    get_margin_left(): number
+    get_margin_right(): number
     get_margin_start(): number
     get_margin_top(): number
+    get_modifier_mask(intent: Gdk.ModifierIntent): Gdk.ModifierType
+    get_modifier_style(): Gtk.RcStyle
     get_name(): string
-    get_native(): Gtk.Native | null
-    get_next_sibling(): Gtk.Widget | null
+    get_no_show_all(): boolean
     get_opacity(): number
-    get_overflow(): Gtk.Overflow
     get_pango_context(): Pango.Context
     get_parent(): Gtk.Widget | null
+    get_parent_window(): Gdk.Window | null
+    get_path(): Gtk.WidgetPath
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
     get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
-    get_prev_sibling(): Gtk.Widget | null
-    get_primary_clipboard(): Gdk.Clipboard
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_root(): Gtk.Root | null
+    get_requisition(): /* requisition */ Gtk.Requisition
+    get_root_window(): Gdk.Window
     get_scale_factor(): number
+    get_screen(): Gdk.Screen
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size(orientation: Gtk.Orientation): number
     get_size_request(): [ /* width */ number | null, /* height */ number | null ]
+    get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
+    get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
+    get_support_multidevice(): boolean
     get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
+    get_tooltip_window(): Gtk.Window
+    get_toplevel(): Gtk.Widget
     get_valign(): Gtk.Align
+    get_valign_with_baseline(): Gtk.Align
     get_vexpand(): boolean
     get_vexpand_set(): boolean
     get_visible(): boolean
-    get_width(): number
-    grab_focus(): boolean
-    has_css_class(css_class: string): boolean
+    get_visual(): Gdk.Visual
+    get_window(): Gdk.Window | null
+    grab_add(): void
+    grab_default(): void
+    grab_focus(): void
+    grab_remove(): void
+    has_grab(): boolean
+    has_rc_style(): boolean
+    has_screen(): boolean
     has_visible_focus(): boolean
     hide(): void
+    hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
+    input_shape_combine_region(region?: cairo.Region | null): void
     insert_action_group(name: string, group?: Gio.ActionGroup | null): void
-    insert_after(parent: Gtk.Widget, previous_sibling?: Gtk.Widget | null): void
-    insert_before(parent: Gtk.Widget, next_sibling?: Gtk.Widget | null): void
+    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
+    is_composited(): boolean
     is_drawable(): boolean
-    is_focus(): boolean
     is_sensitive(): boolean
+    is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
+    list_accel_closures(): Function
+    list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
-    measure(orientation: Gtk.Orientation, for_size: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
     mnemonic_activate(group_cycling: boolean): boolean
-    observe_children(): Gio.ListModel
-    observe_controllers(): Gio.ListModel
-    pick(x: number, y: number, flags: Gtk.PickFlags): Gtk.Widget | null
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
+    modify_style(style: Gtk.RcStyle): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
+    queue_compute_expand(): void
     queue_draw(): void
+    queue_draw_area(x: number, y: number, width: number, height: number): void
+    queue_draw_region(region: cairo.Region): void
     queue_resize(): void
+    queue_resize_no_redraw(): void
     realize(): void
-    remove_controller(controller: Gtk.EventController): void
-    remove_css_class(css_class: string): void
+    region_intersect(region: cairo.Region): cairo.Region
+    register_window(window: Gdk.Window): void
+    remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
+    render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
+    reparent(new_parent: Gtk.Widget): void
+    reset_rc_styles(): void
+    reset_style(): void
+    send_expose(event: Gdk.Event): number
+    send_focus_change(event: Gdk.Event): boolean
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
+    set_allocation(allocation: Gtk.Allocation): void
+    set_app_paintable(app_paintable: boolean): void
+    set_can_default(can_default: boolean): void
     set_can_focus(can_focus: boolean): void
-    set_can_target(can_target: boolean): void
-    set_child_visible(child_visible: boolean): void
-    set_css_classes(classes: string[]): void
-    set_cursor(cursor?: Gdk.Cursor | null): void
-    set_cursor_from_name(name?: string | null): void
+    set_child_visible(is_visible: boolean): void
+    set_clip(clip: Gtk.Allocation): void
+    set_composite_name(name: string): void
+    set_device_enabled(device: Gdk.Device, enabled: boolean): void
+    set_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     set_direction(dir: Gtk.TextDirection): void
+    set_double_buffered(double_buffered: boolean): void
+    set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_focusable(focusable: boolean): void
     set_font_map(font_map?: Pango.FontMap | null): void
     set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
+    set_has_window(has_window: boolean): void
     set_hexpand(expand: boolean): void
     set_hexpand_set(set: boolean): void
-    set_layout_manager(layout_manager?: Gtk.LayoutManager | null): void
+    set_mapped(mapped: boolean): void
     set_margin_bottom(margin: number): void
     set_margin_end(margin: number): void
+    set_margin_left(margin: number): void
+    set_margin_right(margin: number): void
     set_margin_start(margin: number): void
     set_margin_top(margin: number): void
     set_name(name: string): void
+    set_no_show_all(no_show_all: boolean): void
     set_opacity(opacity: number): void
-    set_overflow(overflow: Gtk.Overflow): void
     set_parent(parent: Gtk.Widget): void
+    set_parent_window(parent_window: Gdk.Window): void
+    set_realized(realized: boolean): void
     set_receives_default(receives_default: boolean): void
+    set_redraw_on_allocate(redraw_on_allocate: boolean): void
     set_sensitive(sensitive: boolean): void
     set_size_request(width: number, height: number): void
+    set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
+    set_style(style?: Gtk.Style | null): void
+    set_support_multidevice(support_multidevice: boolean): void
     set_tooltip_markup(markup?: string | null): void
     set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    should_layout(): boolean
+    set_visual(visual?: Gdk.Visual | null): void
+    set_window(window: Gdk.Window): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
-    size_allocate(allocation: Gtk.Allocation, baseline: number): void
-    snapshot_child(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
+    show_all(): void
+    show_now(): void
+    size_allocate(allocation: Gtk.Allocation): void
+    size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
+    size_request(): /* requisition */ Gtk.Requisition
+    style_attach(): void
+    style_get_property(property_name: string, value: any): void
+    thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number | null, /* dest_y */ number | null ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
     unrealize(): void
+    unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -728,7 +838,14 @@ export class Canvas {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gtk.Buildable */
-    get_buildable_id(): string
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Methods of Gtk.Scrollable */
     get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     get_hadjustment(): Gtk.Adjustment
@@ -743,14 +860,15 @@ export class Canvas {
     vfunc_create_item(model: CanvasItemModel): CanvasItem
     vfunc_item_created(item: CanvasItem, model: CanvasItemModel): void
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     vfunc_custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfunc_custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
-    vfunc_get_id(): string
+    vfunc_custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
     vfunc_get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    vfunc_get_name(): string
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    vfunc_set_id(id: string): void
+    vfunc_set_name(name: string): void
     vfunc_get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
     /* Virtual methods of Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
@@ -764,31 +882,88 @@ export class Canvas {
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
+    vfunc_adjust_baseline_allocation(baseline: number): void
+    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event(event: Gdk.EventButton): boolean
+    vfunc_button_release_event(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel(signal_id: number): boolean
+    vfunc_child_notify(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed(): void
     vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_contains(x: number, y: number): boolean
-    vfunc_css_changed(change: Gtk.CssStyleChange): void
+    vfunc_configure_event(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event(event: Gdk.EventExpose): boolean
+    vfunc_delete_event(event: Gdk.EventAny): boolean
+    vfunc_destroy(): void
+    vfunc_destroy_event(event: Gdk.EventAny): boolean
     vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin(context: Gdk.DragContext): void
+    vfunc_drag_data_delete(context: Gdk.DragContext): void
+    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end(context: Gdk.DragContext): void
+    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw(cr: cairo.Context): boolean
+    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
+    vfunc_event(event: Gdk.Event): boolean
     vfunc_focus(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible(): Atk.Object
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_focus(): boolean
+    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus(): void
+    vfunc_grab_notify(was_grabbed: boolean): void
     vfunc_hide(): void
+    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event(event: Gdk.EventKey): boolean
+    vfunc_key_release_event(event: Gdk.EventKey): boolean
     vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
     vfunc_map(): void
-    vfunc_measure(orientation: Gtk.Orientation, for_size: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_map_event(event: Gdk.EventAny): boolean
     vfunc_mnemonic_activate(group_cycling: boolean): boolean
+    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
     vfunc_move_focus(direction: Gtk.DirectionType): void
+    vfunc_parent_set(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu(): boolean
+    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
     vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region(region: cairo.Region): void
     vfunc_realize(): void
-    vfunc_root(): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_screen_changed(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
+    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
+    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
     vfunc_show(): void
-    vfunc_size_allocate(width: number, height: number, baseline: number): void
-    vfunc_snapshot(snapshot: Gtk.Snapshot): void
+    vfunc_show_all(): void
+    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate(allocation: Gtk.Allocation): void
+    vfunc_state_changed(previous_state: Gtk.StateType): void
     vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_system_setting_changed(settings: Gtk.SystemSetting): void
+    vfunc_style_set(previous_style: Gtk.Style): void
+    vfunc_style_updated(): void
+    vfunc_touch_event(event: Gdk.EventTouch): boolean
     vfunc_unmap(): void
+    vfunc_unmap_event(event: Gdk.EventAny): boolean
     vfunc_unrealize(): void
-    vfunc_unroot(): void
+    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -815,45 +990,213 @@ export class Canvas {
     connect_after(sigName: "set-focus-child", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
     /* Signals of Gtk.Widget */
+    connect(sigName: "accel-closures-changed", callback: (($obj: Canvas) => void)): number
+    connect_after(sigName: "accel-closures-changed", callback: (($obj: Canvas) => void)): number
+    emit(sigName: "accel-closures-changed"): void
+    connect(sigName: "button-press-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    connect_after(sigName: "button-press-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    emit(sigName: "button-press-event", event: Gdk.EventButton): void
+    connect(sigName: "button-release-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    connect_after(sigName: "button-release-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    emit(sigName: "button-release-event", event: Gdk.EventButton): void
+    connect(sigName: "can-activate-accel", callback: (($obj: Canvas, signal_id: number) => boolean)): number
+    connect_after(sigName: "can-activate-accel", callback: (($obj: Canvas, signal_id: number) => boolean)): number
+    emit(sigName: "can-activate-accel", signal_id: number): void
+    connect(sigName: "child-notify", callback: (($obj: Canvas, child_property: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "child-notify", callback: (($obj: Canvas, child_property: GObject.ParamSpec) => void)): number
+    emit(sigName: "child-notify", child_property: GObject.ParamSpec): void
+    connect(sigName: "composited-changed", callback: (($obj: Canvas) => void)): number
+    connect_after(sigName: "composited-changed", callback: (($obj: Canvas) => void)): number
+    emit(sigName: "composited-changed"): void
+    connect(sigName: "configure-event", callback: (($obj: Canvas, event: Gdk.EventConfigure) => boolean)): number
+    connect_after(sigName: "configure-event", callback: (($obj: Canvas, event: Gdk.EventConfigure) => boolean)): number
+    emit(sigName: "configure-event", event: Gdk.EventConfigure): void
+    connect(sigName: "damage-event", callback: (($obj: Canvas, event: Gdk.EventExpose) => boolean)): number
+    connect_after(sigName: "damage-event", callback: (($obj: Canvas, event: Gdk.EventExpose) => boolean)): number
+    emit(sigName: "damage-event", event: Gdk.EventExpose): void
+    connect(sigName: "delete-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    connect_after(sigName: "delete-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    emit(sigName: "delete-event", event: Gdk.Event): void
     connect(sigName: "destroy", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "destroy", callback: (($obj: Canvas) => void)): number
     emit(sigName: "destroy"): void
+    connect(sigName: "destroy-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    connect_after(sigName: "destroy-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    emit(sigName: "destroy-event", event: Gdk.Event): void
     connect(sigName: "direction-changed", callback: (($obj: Canvas, previous_direction: Gtk.TextDirection) => void)): number
     connect_after(sigName: "direction-changed", callback: (($obj: Canvas, previous_direction: Gtk.TextDirection) => void)): number
     emit(sigName: "direction-changed", previous_direction: Gtk.TextDirection): void
+    connect(sigName: "drag-begin", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    connect_after(sigName: "drag-begin", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    emit(sigName: "drag-begin", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-delete", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    connect_after(sigName: "drag-data-delete", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-get", callback: (($obj: Canvas, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    connect_after(sigName: "drag-data-get", callback: (($obj: Canvas, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-data-received", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    connect_after(sigName: "drag-data-received", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-drop", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    connect_after(sigName: "drag-drop", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "drag-end", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    connect_after(sigName: "drag-end", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    emit(sigName: "drag-end", context: Gdk.DragContext): void
+    connect(sigName: "drag-failed", callback: (($obj: Canvas, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    connect_after(sigName: "drag-failed", callback: (($obj: Canvas, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
+    connect(sigName: "drag-leave", callback: (($obj: Canvas, context: Gdk.DragContext, time: number) => void)): number
+    connect_after(sigName: "drag-leave", callback: (($obj: Canvas, context: Gdk.DragContext, time: number) => void)): number
+    emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
+    connect(sigName: "drag-motion", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    connect_after(sigName: "drag-motion", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context) => boolean)): number
+    connect_after(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context) => boolean)): number
+    emit(sigName: "draw", cr: cairo.Context): void
+    connect(sigName: "enter-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    connect_after(sigName: "enter-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
+    connect(sigName: "event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    connect_after(sigName: "event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    emit(sigName: "event", event: Gdk.Event): void
+    connect(sigName: "event-after", callback: (($obj: Canvas, event: Gdk.Event) => void)): number
+    connect_after(sigName: "event-after", callback: (($obj: Canvas, event: Gdk.Event) => void)): number
+    emit(sigName: "event-after", event: Gdk.Event): void
+    connect(sigName: "focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
+    connect_after(sigName: "focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
+    emit(sigName: "focus", direction: Gtk.DirectionType): void
+    connect(sigName: "focus-in-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    connect_after(sigName: "focus-in-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
+    connect(sigName: "focus-out-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    connect_after(sigName: "focus-out-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
+    connect(sigName: "grab-broken-event", callback: (($obj: Canvas, event: Gdk.EventGrabBroken) => boolean)): number
+    connect_after(sigName: "grab-broken-event", callback: (($obj: Canvas, event: Gdk.EventGrabBroken) => boolean)): number
+    emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
+    connect(sigName: "grab-focus", callback: (($obj: Canvas) => void)): number
+    connect_after(sigName: "grab-focus", callback: (($obj: Canvas) => void)): number
+    emit(sigName: "grab-focus"): void
+    connect(sigName: "grab-notify", callback: (($obj: Canvas, was_grabbed: boolean) => void)): number
+    connect_after(sigName: "grab-notify", callback: (($obj: Canvas, was_grabbed: boolean) => void)): number
+    emit(sigName: "grab-notify", was_grabbed: boolean): void
     connect(sigName: "hide", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "hide", callback: (($obj: Canvas) => void)): number
     emit(sigName: "hide"): void
+    connect(sigName: "hierarchy-changed", callback: (($obj: Canvas, previous_toplevel?: Gtk.Widget | null) => void)): number
+    connect_after(sigName: "hierarchy-changed", callback: (($obj: Canvas, previous_toplevel?: Gtk.Widget | null) => void)): number
+    emit(sigName: "hierarchy-changed", previous_toplevel?: Gtk.Widget | null): void
+    connect(sigName: "key-press-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    connect_after(sigName: "key-press-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    emit(sigName: "key-press-event", event: Gdk.EventKey): void
+    connect(sigName: "key-release-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    connect_after(sigName: "key-release-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    emit(sigName: "key-release-event", event: Gdk.EventKey): void
     connect(sigName: "keynav-failed", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
     connect_after(sigName: "keynav-failed", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    connect(sigName: "leave-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    connect_after(sigName: "leave-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
     connect(sigName: "map", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "map", callback: (($obj: Canvas) => void)): number
     emit(sigName: "map"): void
+    connect(sigName: "map-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    connect_after(sigName: "map-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    emit(sigName: "map-event", event: Gdk.EventAny): void
     connect(sigName: "mnemonic-activate", callback: (($obj: Canvas, group_cycling: boolean) => boolean)): number
     connect_after(sigName: "mnemonic-activate", callback: (($obj: Canvas, group_cycling: boolean) => boolean)): number
     emit(sigName: "mnemonic-activate", group_cycling: boolean): void
+    connect(sigName: "motion-notify-event", callback: (($obj: Canvas, event: Gdk.EventMotion) => boolean)): number
+    connect_after(sigName: "motion-notify-event", callback: (($obj: Canvas, event: Gdk.EventMotion) => boolean)): number
+    emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
     connect(sigName: "move-focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => void)): number
     connect_after(sigName: "move-focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => void)): number
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    connect(sigName: "parent-set", callback: (($obj: Canvas, old_parent?: Gtk.Widget | null) => void)): number
+    connect_after(sigName: "parent-set", callback: (($obj: Canvas, old_parent?: Gtk.Widget | null) => void)): number
+    emit(sigName: "parent-set", old_parent?: Gtk.Widget | null): void
+    connect(sigName: "popup-menu", callback: (($obj: Canvas) => boolean)): number
+    connect_after(sigName: "popup-menu", callback: (($obj: Canvas) => boolean)): number
+    emit(sigName: "popup-menu"): void
+    connect(sigName: "property-notify-event", callback: (($obj: Canvas, event: Gdk.EventProperty) => boolean)): number
+    connect_after(sigName: "property-notify-event", callback: (($obj: Canvas, event: Gdk.EventProperty) => boolean)): number
+    emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
+    connect(sigName: "proximity-in-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    connect_after(sigName: "proximity-in-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
+    connect(sigName: "proximity-out-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    connect_after(sigName: "proximity-out-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
     connect(sigName: "query-tooltip", callback: (($obj: Canvas, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     connect_after(sigName: "query-tooltip", callback: (($obj: Canvas, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     emit(sigName: "query-tooltip", x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip): void
     connect(sigName: "realize", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "realize", callback: (($obj: Canvas) => void)): number
     emit(sigName: "realize"): void
+    connect(sigName: "screen-changed", callback: (($obj: Canvas, previous_screen?: Gdk.Screen | null) => void)): number
+    connect_after(sigName: "screen-changed", callback: (($obj: Canvas, previous_screen?: Gdk.Screen | null) => void)): number
+    emit(sigName: "screen-changed", previous_screen?: Gdk.Screen | null): void
+    connect(sigName: "scroll-event", callback: (($obj: Canvas, event: Gdk.EventScroll) => boolean)): number
+    connect_after(sigName: "scroll-event", callback: (($obj: Canvas, event: Gdk.EventScroll) => boolean)): number
+    emit(sigName: "scroll-event", event: Gdk.EventScroll): void
+    connect(sigName: "selection-clear-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    connect_after(sigName: "selection-clear-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-get", callback: (($obj: Canvas, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    connect_after(sigName: "selection-get", callback: (($obj: Canvas, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "selection-notify-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    connect_after(sigName: "selection-notify-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-received", callback: (($obj: Canvas, data: Gtk.SelectionData, time: number) => void)): number
+    connect_after(sigName: "selection-received", callback: (($obj: Canvas, data: Gtk.SelectionData, time: number) => void)): number
+    emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
+    connect(sigName: "selection-request-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    connect_after(sigName: "selection-request-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
     connect(sigName: "show", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "show", callback: (($obj: Canvas) => void)): number
     emit(sigName: "show"): void
+    connect(sigName: "show-help", callback: (($obj: Canvas, help_type: Gtk.WidgetHelpType) => boolean)): number
+    connect_after(sigName: "show-help", callback: (($obj: Canvas, help_type: Gtk.WidgetHelpType) => boolean)): number
+    emit(sigName: "show-help", help_type: Gtk.WidgetHelpType): void
+    connect(sigName: "size-allocate", callback: (($obj: Canvas, allocation: Gtk.Allocation) => void)): number
+    connect_after(sigName: "size-allocate", callback: (($obj: Canvas, allocation: Gtk.Allocation) => void)): number
+    emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
+    connect(sigName: "state-changed", callback: (($obj: Canvas, state: Gtk.StateType) => void)): number
+    connect_after(sigName: "state-changed", callback: (($obj: Canvas, state: Gtk.StateType) => void)): number
+    emit(sigName: "state-changed", state: Gtk.StateType): void
     connect(sigName: "state-flags-changed", callback: (($obj: Canvas, flags: Gtk.StateFlags) => void)): number
     connect_after(sigName: "state-flags-changed", callback: (($obj: Canvas, flags: Gtk.StateFlags) => void)): number
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    connect(sigName: "style-set", callback: (($obj: Canvas, previous_style?: Gtk.Style | null) => void)): number
+    connect_after(sigName: "style-set", callback: (($obj: Canvas, previous_style?: Gtk.Style | null) => void)): number
+    emit(sigName: "style-set", previous_style?: Gtk.Style | null): void
+    connect(sigName: "style-updated", callback: (($obj: Canvas) => void)): number
+    connect_after(sigName: "style-updated", callback: (($obj: Canvas) => void)): number
+    emit(sigName: "style-updated"): void
+    connect(sigName: "touch-event", callback: (($obj: Canvas, object: Gdk.Event) => boolean)): number
+    connect_after(sigName: "touch-event", callback: (($obj: Canvas, object: Gdk.Event) => boolean)): number
+    emit(sigName: "touch-event", object: Gdk.Event): void
     connect(sigName: "unmap", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "unmap", callback: (($obj: Canvas) => void)): number
     emit(sigName: "unmap"): void
+    connect(sigName: "unmap-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    connect_after(sigName: "unmap-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    emit(sigName: "unmap-event", event: Gdk.EventAny): void
     connect(sigName: "unrealize", callback: (($obj: Canvas) => void)): number
     connect_after(sigName: "unrealize", callback: (($obj: Canvas) => void)): number
     emit(sigName: "unrealize"): void
+    connect(sigName: "visibility-notify-event", callback: (($obj: Canvas, event: Gdk.EventVisibility) => boolean)): number
+    connect_after(sigName: "visibility-notify-event", callback: (($obj: Canvas, event: Gdk.EventVisibility) => boolean)): number
+    emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
+    connect(sigName: "window-state-event", callback: (($obj: Canvas, event: Gdk.EventWindowState) => boolean)): number
+    connect_after(sigName: "window-state-event", callback: (($obj: Canvas, event: Gdk.EventWindowState) => boolean)): number
+    emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
@@ -904,18 +1247,22 @@ export class Canvas {
     connect_after(sigName: "notify::child", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::resize-mode", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::resize-mode", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::app-paintable", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::app-paintable", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::can-default", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-default", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::can-focus", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::can-target", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::can-target", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::css-classes", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::css-classes", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::cursor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::cursor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::composite-child", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::composite-child", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::double-buffered", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::double-buffered", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::events", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::events", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::expand", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::expand", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::focus-on-click", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::focus-on-click", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::focusable", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::focusable", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::halign", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::halign", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::has-default", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
@@ -930,32 +1277,38 @@ export class Canvas {
     connect_after(sigName: "notify::hexpand", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::hexpand-set", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hexpand-set", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::layout-manager", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::layout-manager", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::is-focus", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-focus", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::margin", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::margin-bottom", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-bottom", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::margin-end", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-end", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::margin-left", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-left", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::margin-right", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-right", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::margin-start", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-start", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::margin-top", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-top", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::no-show-all", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::no-show-all", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::opacity", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::overflow", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::overflow", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::receives-default", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::receives-default", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::root", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::root", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::scale-factor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::sensitive", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sensitive", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::style", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::style", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tooltip-markup", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-markup", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tooltip-text", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
@@ -970,6 +1323,8 @@ export class Canvas {
     connect_after(sigName: "notify::visible", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::width-request", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-request", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::window", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::window", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::hadjustment", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hadjustment", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::hscroll-policy", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
@@ -1067,7 +1422,7 @@ export interface CanvasEllipse_ConstructProps extends CanvasItemSimple_Construct
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -1088,7 +1443,7 @@ export class CanvasEllipse {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -1103,7 +1458,7 @@ export class CanvasEllipse {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -1112,7 +1467,7 @@ export class CanvasEllipse {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasEllipse */
@@ -1412,7 +1767,7 @@ export interface CanvasEllipseModel_ConstructProps extends CanvasItemModelSimple
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -1433,7 +1788,7 @@ export class CanvasEllipseModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -1448,7 +1803,7 @@ export class CanvasEllipseModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -1457,7 +1812,7 @@ export class CanvasEllipseModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasEllipseModel */
@@ -1661,14 +2016,14 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     border_color?: string
     border_color_gdk_rgba?: Gdk.RGBA
     border_color_rgba?: number
-    border_pattern?: any
+    border_pattern?: CairoPattern
     border_pixbuf?: GdkPixbuf.Pixbuf
     border_width?: number
     height?: number
     horz_grid_line_color?: string
     horz_grid_line_color_gdk_rgba?: Gdk.RGBA
     horz_grid_line_color_rgba?: number
-    horz_grid_line_pattern?: any
+    horz_grid_line_pattern?: CairoPattern
     horz_grid_line_pixbuf?: GdkPixbuf.Pixbuf
     horz_grid_line_width?: number
     show_horz_grid_lines?: boolean
@@ -1676,7 +2031,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     vert_grid_line_color?: string
     vert_grid_line_color_gdk_rgba?: Gdk.RGBA
     vert_grid_line_color_rgba?: number
-    vert_grid_line_pattern?: any
+    vert_grid_line_pattern?: CairoPattern
     vert_grid_line_pixbuf?: GdkPixbuf.Pixbuf
     vert_grid_line_width?: number
     vert_grid_lines_on_top?: boolean
@@ -1693,7 +2048,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -1702,14 +2057,14 @@ export class CanvasGrid {
     border_color: string
     border_color_gdk_rgba: Gdk.RGBA
     border_color_rgba: number
-    border_pattern: any
+    border_pattern: CairoPattern
     border_pixbuf: GdkPixbuf.Pixbuf
     border_width: number
     height: number
     horz_grid_line_color: string
     horz_grid_line_color_gdk_rgba: Gdk.RGBA
     horz_grid_line_color_rgba: number
-    horz_grid_line_pattern: any
+    horz_grid_line_pattern: CairoPattern
     horz_grid_line_pixbuf: GdkPixbuf.Pixbuf
     horz_grid_line_width: number
     show_horz_grid_lines: boolean
@@ -1717,7 +2072,7 @@ export class CanvasGrid {
     vert_grid_line_color: string
     vert_grid_line_color_gdk_rgba: Gdk.RGBA
     vert_grid_line_color_rgba: number
-    vert_grid_line_pattern: any
+    vert_grid_line_pattern: CairoPattern
     vert_grid_line_pixbuf: GdkPixbuf.Pixbuf
     vert_grid_line_width: number
     vert_grid_lines_on_top: boolean
@@ -1735,7 +2090,7 @@ export class CanvasGrid {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -1750,7 +2105,7 @@ export class CanvasGrid {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -1759,7 +2114,7 @@ export class CanvasGrid {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasGrid */
@@ -2090,14 +2445,14 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     border_color?: string
     border_color_gdk_rgba?: Gdk.RGBA
     border_color_rgba?: number
-    border_pattern?: any
+    border_pattern?: CairoPattern
     border_pixbuf?: GdkPixbuf.Pixbuf
     border_width?: number
     height?: number
     horz_grid_line_color?: string
     horz_grid_line_color_gdk_rgba?: Gdk.RGBA
     horz_grid_line_color_rgba?: number
-    horz_grid_line_pattern?: any
+    horz_grid_line_pattern?: CairoPattern
     horz_grid_line_pixbuf?: GdkPixbuf.Pixbuf
     horz_grid_line_width?: number
     show_horz_grid_lines?: boolean
@@ -2105,7 +2460,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     vert_grid_line_color?: string
     vert_grid_line_color_gdk_rgba?: Gdk.RGBA
     vert_grid_line_color_rgba?: number
-    vert_grid_line_pattern?: any
+    vert_grid_line_pattern?: CairoPattern
     vert_grid_line_pixbuf?: GdkPixbuf.Pixbuf
     vert_grid_line_width?: number
     vert_grid_lines_on_top?: boolean
@@ -2122,7 +2477,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -2131,14 +2486,14 @@ export class CanvasGridModel {
     border_color: string
     border_color_gdk_rgba: Gdk.RGBA
     border_color_rgba: number
-    border_pattern: any
+    border_pattern: CairoPattern
     border_pixbuf: GdkPixbuf.Pixbuf
     border_width: number
     height: number
     horz_grid_line_color: string
     horz_grid_line_color_gdk_rgba: Gdk.RGBA
     horz_grid_line_color_rgba: number
-    horz_grid_line_pattern: any
+    horz_grid_line_pattern: CairoPattern
     horz_grid_line_pixbuf: GdkPixbuf.Pixbuf
     horz_grid_line_width: number
     show_horz_grid_lines: boolean
@@ -2146,7 +2501,7 @@ export class CanvasGridModel {
     vert_grid_line_color: string
     vert_grid_line_color_gdk_rgba: Gdk.RGBA
     vert_grid_line_color_rgba: number
-    vert_grid_line_pattern: any
+    vert_grid_line_pattern: CairoPattern
     vert_grid_line_pixbuf: GdkPixbuf.Pixbuf
     vert_grid_line_width: number
     vert_grid_lines_on_top: boolean
@@ -2164,7 +2519,7 @@ export class CanvasGridModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -2179,7 +2534,7 @@ export class CanvasGridModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -2188,7 +2543,7 @@ export class CanvasGridModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasGridModel */
@@ -2441,7 +2796,7 @@ export interface CanvasGroup_ConstructProps extends CanvasItemSimple_ConstructPr
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -2458,7 +2813,7 @@ export class CanvasGroup {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -2473,7 +2828,7 @@ export class CanvasGroup {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -2482,7 +2837,7 @@ export class CanvasGroup {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasGroup */
@@ -2770,7 +3125,7 @@ export interface CanvasGroupModel_ConstructProps extends CanvasItemModelSimple_C
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -2787,7 +3142,7 @@ export class CanvasGroupModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -2802,7 +3157,7 @@ export class CanvasGroupModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -2811,7 +3166,7 @@ export class CanvasGroupModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasGroupModel */
@@ -3006,7 +3361,7 @@ export class CanvasGroupModel {
 export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructProps {
     alpha?: number
     height?: number
-    pattern?: any
+    pattern?: CairoPattern
     pixbuf?: GdkPixbuf.Pixbuf
     scale_to_fit?: boolean
     width?: number
@@ -3018,7 +3373,7 @@ export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructPr
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -3026,7 +3381,7 @@ export class CanvasImage {
     /* Properties of GooCanvas.CanvasImage */
     alpha: number
     height: number
-    pattern: any
+    pattern: CairoPattern
     pixbuf: GdkPixbuf.Pixbuf
     scale_to_fit: boolean
     width: number
@@ -3039,7 +3394,7 @@ export class CanvasImage {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -3054,7 +3409,7 @@ export class CanvasImage {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -3063,7 +3418,7 @@ export class CanvasImage {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasImage */
@@ -3351,7 +3706,7 @@ export class CanvasImage {
 export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_ConstructProps {
     alpha?: number
     height?: number
-    pattern?: any
+    pattern?: CairoPattern
     pixbuf?: GdkPixbuf.Pixbuf
     scale_to_fit?: boolean
     width?: number
@@ -3363,7 +3718,7 @@ export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_C
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -3371,7 +3726,7 @@ export class CanvasImageModel {
     /* Properties of GooCanvas.CanvasImageModel */
     alpha: number
     height: number
-    pattern: any
+    pattern: CairoPattern
     pixbuf: GdkPixbuf.Pixbuf
     scale_to_fit: boolean
     width: number
@@ -3384,7 +3739,7 @@ export class CanvasImageModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -3399,7 +3754,7 @@ export class CanvasImageModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -3408,7 +3763,7 @@ export class CanvasImageModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasImageModel */
@@ -3671,7 +4026,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     fill_color?: string
     fill_color_gdk_rgba?: Gdk.RGBA
     fill_color_rgba?: number
-    fill_pattern?: any
+    fill_pattern?: CairoPattern
     fill_pixbuf?: GdkPixbuf.Pixbuf
     fill_rule?: CairoFillRule
     font?: string
@@ -3686,7 +4041,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     stroke_color?: string
     stroke_color_gdk_rgba?: Gdk.RGBA
     stroke_color_rgba?: number
-    stroke_pattern?: any
+    stroke_pattern?: CairoPattern
     stroke_pixbuf?: GdkPixbuf.Pixbuf
     can_focus?: boolean
     description?: string
@@ -3694,7 +4049,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -3706,7 +4061,7 @@ export class CanvasItemModelSimple {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -3721,7 +4076,7 @@ export class CanvasItemModelSimple {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -3730,7 +4085,7 @@ export class CanvasItemModelSimple {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasItemModelSimple */
@@ -3923,7 +4278,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     fill_color?: string
     fill_color_gdk_rgba?: Gdk.RGBA
     fill_color_rgba?: number
-    fill_pattern?: any
+    fill_pattern?: CairoPattern
     fill_pixbuf?: GdkPixbuf.Pixbuf
     fill_rule?: CairoFillRule
     font?: string
@@ -3938,7 +4293,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     stroke_color?: string
     stroke_color_gdk_rgba?: Gdk.RGBA
     stroke_color_rgba?: number
-    stroke_pattern?: any
+    stroke_pattern?: CairoPattern
     stroke_pixbuf?: GdkPixbuf.Pixbuf
     can_focus?: boolean
     description?: string
@@ -3946,7 +4301,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -3958,7 +4313,7 @@ export class CanvasItemSimple {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -3973,7 +4328,7 @@ export class CanvasItemSimple {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -3982,7 +4337,7 @@ export class CanvasItemSimple {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasItemSimple */
@@ -4264,7 +4619,7 @@ export interface CanvasPath_ConstructProps extends CanvasItemSimple_ConstructPro
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -4282,7 +4637,7 @@ export class CanvasPath {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -4297,7 +4652,7 @@ export class CanvasPath {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -4306,7 +4661,7 @@ export class CanvasPath {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasPath */
@@ -4596,7 +4951,7 @@ export interface CanvasPathModel_ConstructProps extends CanvasItemModelSimple_Co
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -4614,7 +4969,7 @@ export class CanvasPathModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -4629,7 +4984,7 @@ export class CanvasPathModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -4638,7 +4993,7 @@ export class CanvasPathModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasPathModel */
@@ -4850,7 +5205,7 @@ export interface CanvasPolyline_ConstructProps extends CanvasItemSimple_Construc
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -4874,7 +5229,7 @@ export class CanvasPolyline {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -4889,7 +5244,7 @@ export class CanvasPolyline {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -4898,7 +5253,7 @@ export class CanvasPolyline {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasPolyline */
@@ -5206,7 +5561,7 @@ export interface CanvasPolylineModel_ConstructProps extends CanvasItemModelSimpl
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -5230,7 +5585,7 @@ export class CanvasPolylineModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -5245,7 +5600,7 @@ export class CanvasPolylineModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -5254,7 +5609,7 @@ export class CanvasPolylineModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasPolylineModel */
@@ -5473,7 +5828,7 @@ export interface CanvasRect_ConstructProps extends CanvasItemSimple_ConstructPro
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -5492,7 +5847,7 @@ export class CanvasRect {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -5507,7 +5862,7 @@ export class CanvasRect {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -5516,7 +5871,7 @@ export class CanvasRect {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasRect */
@@ -5809,7 +6164,7 @@ export interface CanvasRectModel_ConstructProps extends CanvasItemModelSimple_Co
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -5828,7 +6183,7 @@ export class CanvasRectModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -5843,7 +6198,7 @@ export class CanvasRectModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -5852,7 +6207,7 @@ export class CanvasRectModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasRectModel */
@@ -6124,7 +6479,7 @@ export interface CanvasTable_ConstructProps extends CanvasGroup_ConstructProps {
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -6150,7 +6505,7 @@ export class CanvasTable {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -6165,7 +6520,7 @@ export class CanvasTable {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -6174,7 +6529,7 @@ export class CanvasTable {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasTable */
@@ -6484,7 +6839,7 @@ export interface CanvasTableModel_ConstructProps extends CanvasGroupModel_Constr
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -6510,7 +6865,7 @@ export class CanvasTableModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -6525,7 +6880,7 @@ export class CanvasTableModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -6534,7 +6889,7 @@ export class CanvasTableModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasTableModel */
@@ -6761,7 +7116,7 @@ export interface CanvasText_ConstructProps extends CanvasItemSimple_ConstructPro
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -6784,7 +7139,7 @@ export class CanvasText {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -6799,7 +7154,7 @@ export class CanvasText {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -6808,7 +7163,7 @@ export class CanvasText {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasText */
@@ -7116,7 +7471,7 @@ export interface CanvasTextModel_ConstructProps extends CanvasItemModelSimple_Co
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -7139,7 +7494,7 @@ export class CanvasTextModel {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -7154,7 +7509,7 @@ export class CanvasTextModel {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     can_focus: boolean
@@ -7163,7 +7518,7 @@ export class CanvasTextModel {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasTextModel */
@@ -7380,7 +7735,7 @@ export interface CanvasWidget_ConstructProps extends CanvasItemSimple_ConstructP
     pointer_events?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: any
+    transform?: CairoMatrix
     visibility?: CanvasItemVisibility
     visibility_threshold?: number
 }
@@ -7399,7 +7754,7 @@ export class CanvasWidget {
     fill_color: string
     fill_color_gdk_rgba: Gdk.RGBA
     fill_color_rgba: number
-    fill_pattern: any
+    fill_pattern: CairoPattern
     fill_pixbuf: GdkPixbuf.Pixbuf
     fill_rule: CairoFillRule
     font: string
@@ -7414,7 +7769,7 @@ export class CanvasWidget {
     stroke_color: string
     stroke_color_gdk_rgba: Gdk.RGBA
     stroke_color_rgba: number
-    stroke_pattern: any
+    stroke_pattern: CairoPattern
     stroke_pixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     can_focus: boolean
@@ -7423,7 +7778,7 @@ export class CanvasWidget {
     pointer_events: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: any
+    transform: CairoMatrix
     visibility: CanvasItemVisibility
     visibility_threshold: number
     /* Fields of GooCanvas.CanvasWidget */

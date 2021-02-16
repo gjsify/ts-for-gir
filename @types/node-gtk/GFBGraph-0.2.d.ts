@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Rest-0.7.d.ts" />
-/// <reference path="Json-1.0.d.ts" />
+import type { Soup } from './Soup-2.4';
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Rest } from './Rest-0.7';
+import type { Json } from './Json-1.0';
 
 declare namespace GFBGraph {
 

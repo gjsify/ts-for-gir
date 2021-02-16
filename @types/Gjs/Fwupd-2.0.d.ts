@@ -2,10 +2,10 @@
  * Fwupd-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum ClientDownloadFlags {
     NONE,
@@ -1164,6 +1164,6 @@ export abstract class SecurityAttrClass {
     parent_class: GObject.ObjectClass
     static name: string
 }
-type DeviceFlags = number
-type PluginFlags = number
-type ReleaseFlags = number
+export type DeviceFlags = number
+export type PluginFlags = number
+export type ReleaseFlags = number

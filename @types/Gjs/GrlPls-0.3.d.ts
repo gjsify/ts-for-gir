@@ -2,12 +2,12 @@
  * GrlPls-0.3
  */
 
-import * as Gjs from './Gjs';
-import * as Grl from './Grl-0.3';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Grl from './Grl-0.3';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export function browse(source: Grl.Source, playlist: Grl.Media, keys: Grl.KeyID[], options: Grl.OperationOptions, filter_func: FilterFunc | null, callback: Grl.SourceResultCb): number
 export function browse_by_spec(source: Grl.Source, filter_func: FilterFunc | null, bs: Grl.SourceBrowseSpec): void

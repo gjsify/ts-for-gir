@@ -3,27 +3,18 @@
  */
 
 /// <reference types="node" />
-/// <reference path="libxml2-2.0.d.ts" />
+import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { GModule } from './GModule-2.0';
 
 declare namespace GUPnP {
 
-export interface DLNADiscoverer_ConstructProps extends GstPbutils.Discoverer_ConstructProps {
-    extendedMode?: boolean
-    relaxedMode?: boolean
-}
 export class DLNADiscoverer {
-    /* Properties of GstPbutils.Discoverer */
-    timeout: number
-    useCache: boolean
     /* Fields of GUPnP.DLNADiscoverer */
     parent: GstPbutils.Discoverer
-    /* Fields of GObject.Object */
-    gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.DLNADiscoverer */
     discoverUri(uri: string): boolean
     discoverUriSync(uri: string): DLNAInformation
@@ -31,48 +22,8 @@ export class DLNADiscoverer {
     getProfile(name: string): DLNAProfile
     getRelaxedMode(): boolean
     listProfiles(): DLNAProfile[]
-    /* Methods of GstPbutils.Discoverer */
-    discoverUri(uri: string): GstPbutils.DiscovererInfo
-    discoverUriAsync(uri: string): boolean
-    start(): void
-    stop(): void
-    /* Methods of GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GUPnP.DLNADiscoverer */
     vfuncDone(dlna: DLNAInformation, err: GLib.Error): void
-    /* Virtual methods of GstPbutils.Discoverer */
-    vfuncDiscovered(info: GstPbutils.DiscovererInfo, err: GLib.Error): void
-    vfuncFinished(): void
-    vfuncSourceSetup(source: Gst.Element): void
-    vfuncStarting(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GUPnP.DLNADiscoverer */
     connect(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
     connect_after(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
@@ -80,62 +31,11 @@ export class DLNADiscoverer {
     on(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GstPbutils.Discoverer */
-    connect(sigName: "discovered", callback: (($obj: DLNADiscoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
-    connect_after(sigName: "discovered", callback: (($obj: DLNADiscoverer, info: GstPbutils.DiscovererInfo, error?: GLib.Error | null) => void)): number
-    emit(sigName: "discovered", info: GstPbutils.DiscovererInfo, error?: GLib.Error | null): void
-    on(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "discovered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "finished", callback: (($obj: DLNADiscoverer) => void)): number
-    connect_after(sigName: "finished", callback: (($obj: DLNADiscoverer) => void)): number
-    emit(sigName: "finished"): void
-    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "source-setup", callback: (($obj: DLNADiscoverer, source: Gst.Element) => void)): number
-    connect_after(sigName: "source-setup", callback: (($obj: DLNADiscoverer, source: Gst.Element) => void)): number
-    emit(sigName: "source-setup", source: Gst.Element): void
-    on(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "source-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "starting", callback: (($obj: DLNADiscoverer) => void)): number
-    connect_after(sigName: "starting", callback: (($obj: DLNADiscoverer) => void)): number
-    emit(sigName: "starting"): void
-    on(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "starting", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timeout", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::use-cache", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::use-cache", callback: (($obj: DLNADiscoverer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::use-cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::use-cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::use-cache", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: DLNADiscoverer_ConstructProps)
-    _init (config?: DLNADiscoverer_ConstructProps): void
+    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
+    constructor(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean)
     /* Static methods and pseudo-constructors */
     static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
-    static new(timeout: Gst.ClockTime): DLNADiscoverer
-    static $gtype: GObject.Type
 }
 export interface DLNAInformation_ConstructProps extends GObject.Object_ConstructProps {
     info?: GstPbutils.DiscovererInfo
@@ -289,7 +189,84 @@ export abstract class DLNAProfileClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
-}ue: GObject.Value, pspec: GObject.ParamSpec): void
+}args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::host-ip", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::host-ip", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host-ip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::host-ip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::host-ip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::network", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::network", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::network", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::network", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::network", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::server-id", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::server-id", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::server-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::server-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::server-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: Context_ConstructProps)
+    _init (config?: Context_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(mainContext: GLib.MainContext | null, iface: string | null, port: number): Context
+    static new(mainContext?: GLib.MainContext | null, iface?: string | null): Context
+    static $gtype: GObject.Type
+}
+export interface ContextManager_ConstructProps extends GObject.Object_ConstructProps {
+    mainContext?: object
+    port?: number
+}
+export class ContextManager {
+    /* Properties of GUPnP.ContextManager */
+    readonly whiteList: WhiteList
+    /* Fields of GUPnP.ContextManager */
+    parent: GObject.Object
+    priv: ContextManagerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GUPnP.ContextManager */
+    getPort(): number
+    getWhiteList(): WhiteList
+    manageControlPoint(controlPoint: ControlPoint): void
+    manageRootDevice(rootDevice: RootDevice): void
+    rescanControlPoints(): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GUPnP.ContextManager */
@@ -343,8 +320,6 @@ export class ControlPoint {
     /* Fields of GUPnP.ControlPoint */
     parent: GSSDP.ResourceBrowser
     priv: ControlPointPrivate
-    /* Fields of GSSDP.ResourceBrowser */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.ControlPoint */
@@ -390,7 +365,6 @@ export class ControlPoint {
     vfuncServiceProxyUnavailable(proxy: ServiceProxy): void
     /* Virtual methods of GSSDP.ResourceBrowser */
     vfuncResourceUnavailable(usn: string): void
-    vfuncResourceUpdate(usn: string, bootId: number, nextBootId: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -437,12 +411,6 @@ export class ControlPoint {
     on(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "resource-unavailable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "resource-update", callback: (($obj: ControlPoint, usn: string, bootId: number, nextBootId: number) => void)): number
-    connect_after(sigName: "resource-update", callback: (($obj: ControlPoint, usn: string, bootId: number, nextBootId: number) => void)): number
-    emit(sigName: "resource-update", usn: string, bootId: number, nextBootId: number): void
-    on(sigName: "resource-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resource-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resource-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: ControlPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ControlPoint, pspec: GObject.ParamSpec) => void)): number
@@ -485,15 +453,9 @@ export interface Device_ConstructProps extends DeviceInfo_ConstructProps {
     rootDevice?: RootDevice
 }
 export class Device {
-    /* Properties of GUPnP.DeviceInfo */
-    element: object
-    location: string
-    urlBase: Soup.URI
     /* Fields of GUPnP.Device */
     parent: DeviceInfo
     priv: DevicePrivate
-    /* Fields of GUPnP.DeviceInfo */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.DeviceInfo */
@@ -560,21 +522,6 @@ export class Device {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::element", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::location", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::location", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::url-base", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::url-base", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -682,15 +629,9 @@ export class DeviceInfo {
 export interface DeviceProxy_ConstructProps extends DeviceInfo_ConstructProps {
 }
 export class DeviceProxy {
-    /* Properties of GUPnP.DeviceInfo */
-    element: object
-    location: string
-    urlBase: Soup.URI
     /* Fields of GUPnP.DeviceProxy */
     parent: DeviceInfo
     priv: DeviceProxyPrivate
-    /* Fields of GUPnP.DeviceInfo */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.DeviceInfo */
@@ -757,21 +698,6 @@ export class DeviceProxy {
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::element", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::location", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::location", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::url-base", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::url-base", callback: (($obj: DeviceProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -858,15 +784,9 @@ export interface RootDevice_ConstructProps extends Device_ConstructProps {
 export class RootDevice {
     /* Properties of GUPnP.RootDevice */
     available: boolean
-    /* Properties of GUPnP.DeviceInfo */
-    element: object
-    location: string
-    urlBase: Soup.URI
     /* Fields of GUPnP.RootDevice */
     parent: Device
     priv: RootDevicePrivate
-    /* Fields of GUPnP.Device */
-    parentInstance: DeviceInfo
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.RootDevice */
@@ -945,21 +865,6 @@ export class RootDevice {
     on(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -982,8 +887,6 @@ export class Service {
     /* Fields of GUPnP.Service */
     parent: ServiceInfo
     priv: ServicePrivate
-    /* Fields of GUPnP.ServiceInfo */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.Service */
@@ -996,6 +899,7 @@ export class Service {
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+    getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -1003,8 +907,6 @@ export class Service {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
-    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1225,8 +1127,6 @@ export class ServiceProxy {
     /* Fields of GUPnP.ServiceProxy */
     parent: ServiceInfo
     priv: ServiceProxyPrivate
-    /* Fields of GUPnP.ServiceInfo */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.ServiceProxy */
@@ -1235,17 +1135,18 @@ export class ServiceProxy {
     beginActionList(action: string, inNames: string[], inValues: any, callback: ServiceProxyActionCallback): ServiceProxyAction
     cancelAction(action: ServiceProxyAction): void
     endActionHash(action: ServiceProxyAction, hash: GLib.HashTable): [ /* returnType */ boolean, /* hash */ GLib.HashTable ]
-    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: any[]): [ /* returnType */ boolean, /* outValues */ any ]
+    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
     getSubscribed(): boolean
     removeNotify(variable: string, callback: ServiceProxyNotifyCallback): boolean
     removeRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: any[]): [ /* returnType */ boolean, /* outValues */ any ]
+    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
     setSubscribed(subscribed: boolean): void
     /* Methods of GUPnP.ServiceInfo */
     getContext(): Context
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+    getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -1253,8 +1154,6 @@ export class ServiceProxy {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
-    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1540,7 +1439,7 @@ export class ServiceAction {
     getLocales(): string[]
     getMessage(): Soup.Message
     getName(): string
-    getValues(argNames: string[], argTypes: any[]): any
+    getValues(argNames: string[], argTypes: GType[]): any
     return(): void
     returnError(errorCode: number, errorDescription: string): void
     setValue(argument: string, value: any): void

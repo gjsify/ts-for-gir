@@ -3,24 +3,24 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GstAudio-1.0.d.ts" />
-/// <reference path="Clutter-1.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Json-1.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GL-1.0.d.ts" />
-/// <reference path="CoglPango-1.0.d.ts" />
-/// <reference path="PangoCairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="Cogl-1.0.d.ts" />
-/// <reference path="Atk-1.0.d.ts" />
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { GstAudio } from './GstAudio-1.0';
+import type { Clutter } from './Clutter-1.0';
+import type { cairo } from './cairo-1.0';
+import type { Json } from './Json-1.0';
+import type { Gio } from './Gio-2.0';
+import type { GL } from './GL-1.0';
+import type { CoglPango } from './CoglPango-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { Cogl } from './Cogl-1.0';
+import type { Atk } from './Atk-1.0';
 
 declare namespace ClutterGst {
 
@@ -568,6 +568,10 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     subtitleFontName?: string
     subtitleUri?: string
     uri?: string
+    audioStream?: number
+    seekFlags?: SeekFlags
+    subtitleTrack?: number
+    userAgent?: string
 }
 export class VideoTexture {
     /* Properties of ClutterGst.VideoTexture */
@@ -678,7 +682,14 @@ export class VideoTexture {
     subtitleUri: string
     uri: string
     /* Properties of ClutterGst.Player */
+    audioStream: number
+    readonly audioStreams: object
     readonly idle: boolean
+    readonly inSeek: boolean
+    seekFlags: SeekFlags
+    subtitleTrack: number
+    readonly subtitleTracks: object
+    userAgent: string
     /* Fields of Clutter.Actor */
     flags: number
     /* Fields of GObject.InitiallyUnowned */
@@ -1027,9 +1038,12 @@ export class VideoTexture {
     setCustomProperty(script: Clutter.Script, name: string, value: any): void
     setId(id: string): void
     /* Methods of ClutterGst.Player */
-    getFrame(): Frame
+    deinit(): void
+    getAudioStreams(): string[]
     getIdle(): boolean
-    getVideoSink(): VideoSink
+    getInSeek(): boolean
+    getSubtitleTracks(): string[]
+    init(): boolean
     /* Virtual methods of ClutterGst.VideoTexture */
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
@@ -1055,17 +1069,22 @@ export class VideoTexture {
     vfuncParseCustomNode(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     vfuncSetCustomProperty(script: Clutter.Script, name: string, value: any): void
     vfuncSetId(id: string): void
-    vfuncGetAudioVolume(): number
-    vfuncGetFrame(): Frame
+    vfuncDownloadBuffering(start: number, stop: number): void
+    vfuncGetAudioStream(): number
+    vfuncGetAudioStreams(): string[]
+    vfuncGetBufferingMode(): BufferingMode
     vfuncGetIdle(): boolean
+    vfuncGetInSeek(): boolean
     vfuncGetPipeline(): Gst.Element
-    vfuncGetPlaying(): boolean
-    vfuncGetVideoSink(): VideoSink
-    vfuncNewFrame(frame: Frame): void
-    vfuncReady(): void
-    vfuncSetAudioVolume(volume: number): void
-    vfuncSetPlaying(playing: boolean): void
-    vfuncSizeChange(width: number, height: number): void
+    vfuncGetSeekFlags(): SeekFlags
+    vfuncGetSubtitleTrack(): number
+    vfuncGetSubtitleTracks(): string[]
+    vfuncGetUserAgent(): string
+    vfuncSetAudioStream(index: number): void
+    vfuncSetBufferingMode(mode: BufferingMode): void
+    vfuncSetSeekFlags(flags: SeekFlags): void
+    vfuncSetSubtitleTrack(index: number): void
+    vfuncSetUserAgent(userAgent: string): void
     /* Virtual methods of Clutter.Texture */
     vfuncLoadFinished(error: GLib.Error): void
     vfuncPixbufChange(): void
@@ -1330,36 +1349,12 @@ export class VideoTexture {
     once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of ClutterGst.Player */
-    connect(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
-    emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "new-frame", callback: (($obj: VideoTexture, frame: Frame) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: VideoTexture, frame: Frame) => void)): number
-    emit(sigName: "new-frame", frame: Frame): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "ready", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "ready", callback: (($obj: VideoTexture) => void)): number
-    emit(sigName: "ready"): void
-    on(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
-    emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
+    connect_after(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
+    emit(sigName: "download-buffering", start: number, stop: number): void
+    on(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "download-buffering", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::pixel-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1875,11 +1870,46 @@ export class VideoTexture {
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::audio-stream", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-stream", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::audio-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::audio-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::audio-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::audio-streams", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-streams", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::audio-streams", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::audio-streams", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::audio-streams", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::idle", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::idle", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::idle", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::idle", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::idle", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::in-seek", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::in-seek", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::in-seek", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::in-seek", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::in-seek", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::seek-flags", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::seek-flags", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::seek-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::seek-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::seek-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::subtitle-track", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::subtitle-track", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::subtitle-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::subtitle-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::subtitle-track", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::subtitle-tracks", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::subtitle-tracks", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::subtitle-tracks", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::subtitle-tracks", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::subtitle-tracks", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::user-agent", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-agent", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::user-agent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1894,6 +1924,7 @@ export class VideoTexture {
     static new(): VideoTexture
     static classFindChildProperty(klass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
     static classListChildProperties(klass: GObject.ObjectClass): GObject.ParamSpec[]
+    static classInit(objectClass: GObject.ObjectClass): void
     static $gtype: GObject.Type
 }
 export abstract class PlayerIface {

@@ -2,10 +2,10 @@
  * Gda-5.0
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum BatchError {
     BATCH_CONFLICTING_PARAMETER_ERROR,
@@ -1136,9 +1136,9 @@ export class Connection {
     vfunc_dsn_changed(): void
     vfunc_error(error: ConnectionEvent): void
     vfunc_transaction_status_changed(): void
-    vfunc_lock(): void
-    vfunc_trylock(): boolean
-    vfunc_unlock(): void
+    vfunc_i_lock(): void
+    vfunc_i_trylock(): boolean
+    vfunc_i_unlock(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1339,9 +1339,10 @@ export class DataAccessWrapper {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -1350,9 +1351,38 @@ export class DataAccessWrapper {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataAccessWrapper */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1536,9 +1566,10 @@ export class DataModelArray {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -1547,9 +1578,38 @@ export class DataModelArray {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelArray */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1658,9 +1718,10 @@ export class DataModelDir {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -1669,9 +1730,38 @@ export class DataModelDir {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelDir */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1783,9 +1873,10 @@ export class DataModelImport {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -1794,9 +1885,38 @@ export class DataModelImport {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelImport */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1865,7 +1985,10 @@ export class DataModelIter {
     object: Set
     priv: DataModelIterPrivate
     /* Fields of Gda.Set */
-    parent_instance: GObject.Object
+    holders: Holder[]
+    nodes_list: SetNode[]
+    sources_list: SetSource[]
+    groups_list: SetGroup[]
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.DataModelIter */
@@ -1885,16 +2008,12 @@ export class DataModelIter {
     add_holder(holder: Holder): boolean
     copy(): Set
     get_group(holder: Holder): SetGroup
-    get_groups(): SetGroup[]
     get_holder(holder_id: string): Holder
     get_holder_value(holder_id: string): any
-    get_holders(): Holder[]
     get_node(holder: Holder): SetNode
-    get_nodes(): SetNode[]
     get_nth_holder(pos: number): Holder
     get_source(holder: Holder): SetSource
     get_source_for_model(model: DataModel): SetSource
-    get_sources(): SetSource[]
     merge_with_set(set_to_merge: Set): void
     remove_holder(holder: Holder): void
     replace_source_model(source: SetSource, model: DataModel): void
@@ -2062,9 +2181,10 @@ export class DataModelLdap {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -2073,9 +2193,38 @@ export class DataModelLdap {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelLdap */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2185,9 +2334,10 @@ export class DataPivot {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -2196,9 +2346,38 @@ export class DataPivot {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataPivot */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2342,9 +2521,10 @@ export class DataProxy {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -2353,6 +2533,7 @@ export class DataProxy {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
@@ -2363,6 +2544,33 @@ export class DataProxy {
     vfunc_sample_changed(sample_start: number, sample_end: number): void
     vfunc_sample_size_changed(sample_size: number): void
     vfunc_validate_row_changes(row: number, proxied_row: number): GLib.Error
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2527,9 +2735,10 @@ export class DataSelect {
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
-    iter_move_next_default(iter: DataModelIter): boolean
-    iter_move_prev_default(iter: DataModelIter): boolean
-    iter_move_to_row_default(iter: DataModelIter, row: number): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
     remove_row(row: number): boolean
     reset(): void
     row_inserted(row: number): void
@@ -2538,6 +2747,7 @@ export class DataSelect {
     send_hint(hint: DataModelHint, hint_value?: any): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
     set_value_at(col: number, row: number, value: any): boolean
     set_values(row: number, values?: any): boolean
     thaw(): void
@@ -2548,6 +2758,33 @@ export class DataSelect {
     vfunc_fetch_prev(prow: Row, rownum: number): boolean
     vfunc_fetch_random(prow: Row, rownum: number): boolean
     vfunc_store_all(): boolean
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any, cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3114,9 +3351,9 @@ export class Holder {
     vfunc_changed(): void
     vfunc_source_changed(): void
     vfunc_validate_change(new_value: any): GLib.Error
-    vfunc_lock(): void
-    vfunc_trylock(): boolean
-    vfunc_unlock(): void
+    vfunc_i_lock(): void
+    vfunc_i_trylock(): boolean
+    vfunc_i_unlock(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3341,7 +3578,7 @@ export class PStmt {
     sql: string
     param_ids: string[]
     ncols: number
-    types: any
+    types: GType
     tmpl_columns: Column[]
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -3965,9 +4202,9 @@ export class SqlParser {
     trylock(): boolean
     unlock(): void
     /* Virtual methods of Gda.SqlParser */
-    vfunc_lock(): void
-    vfunc_trylock(): boolean
-    vfunc_unlock(): void
+    vfunc_i_lock(): void
+    vfunc_i_trylock(): boolean
+    vfunc_i_unlock(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4369,13 +4606,11 @@ export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProp
 }
 export class TreeMgrColumns {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrColumns */
     object: TreeManager
     priv: TreeMgrColumnsPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4383,7 +4618,6 @@ export class TreeMgrColumns {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4438,13 +4672,11 @@ export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps 
 }
 export class TreeMgrLabel {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrLabel */
     object: TreeManager
     priv: TreeMgrLabelPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4452,7 +4684,6 @@ export class TreeMgrLabel {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4507,13 +4738,11 @@ export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
 }
 export class TreeMgrLdap {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrLdap */
     object: TreeManager
     priv: TreeMgrLdapPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4521,7 +4750,6 @@ export class TreeMgrLdap {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4577,13 +4805,11 @@ export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProp
 }
 export class TreeMgrSchemas {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrSchemas */
     object: TreeManager
     priv: TreeMgrSchemasPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4591,7 +4817,6 @@ export class TreeMgrSchemas {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4648,13 +4873,11 @@ export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps
 }
 export class TreeMgrSelect {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrSelect */
     object: TreeManager
     priv: TreeMgrSelectPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4662,7 +4885,6 @@ export class TreeMgrSelect {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4719,13 +4941,11 @@ export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps
 }
 export class TreeMgrTables {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrTables */
     object: TreeManager
     priv: TreeMgrTablesPriv
-    /* Fields of Gda.TreeManager */
-    parent_instance: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -4733,7 +4953,6 @@ export class TreeMgrTables {
     add_new_node_attribute(attribute: string, value?: any): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
-    set_node_create_func(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6033,6 +6252,6 @@ export class XaTransactionId {
 export class XaTransactionPrivate {
     static name: string
 }
-type Mutex = GLib.RecMutex
-type SqlBuilderId = number
-type SqlErrorType = SqlError
+export type Mutex = GLib.RecMutex
+export type SqlBuilderId = number
+export type SqlErrorType = SqlError

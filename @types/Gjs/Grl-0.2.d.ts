@@ -2,11 +2,11 @@
  * Grl-0.2
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum CoreError {
     BROWSE_FAILED,
@@ -550,7 +550,6 @@ export class Media {
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
-    add_for_id(key_name: string, value: any): boolean
     add_int(key: KeyID, intvalue: number): void
     add_int64(key: KeyID, intvalue: number): void
     add_related_keys(relkeys: RelatedKeys): void
@@ -577,7 +576,6 @@ export class Media {
     set_boolean(key: KeyID, boolvalue: boolean): void
     set_boxed(key: KeyID, boxed?: object | null): void
     set_float(key: KeyID, floatvalue: number): void
-    set_for_id(key_name: string, value: any): boolean
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
@@ -631,8 +629,6 @@ export class Media {
 export interface MediaAudio_ConstructProps extends Media_ConstructProps {
 }
 export class MediaAudio {
-    /* Properties of Grl.Media */
-    media_type: MediaType
     /* Fields of Grl.MediaAudio */
     parent: Media
     /* Fields of Grl.Data */
@@ -675,67 +671,38 @@ export class MediaAudio {
     set_url_data(url: string, mime: string, bitrate: number): void
     /* Methods of Grl.Media */
     add_author(author: string): void
-    add_director(director: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
     add_keyword(keyword: string): void
-    add_performer(performer: string): void
-    add_producer(producer: string): void
     add_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
     add_thumbnail(thumbnail: string): void
     add_thumbnail_binary(thumbnail: number, size: number): void
-    add_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    get_album_artist(): string
-    get_album_disc_number(): number
+    add_url_data(url: string, mime: string): void
     get_author(): string
     get_author_nth(index: number): string
-    get_camera_model(): string
     get_certificate(): string
-    get_childcount(): number
-    get_composer(): string
-    get_composer_nth(index: number): string
     get_creation_date(): GLib.DateTime
     get_description(): string
-    get_director(): string
-    get_director_nth(index: number): string
     get_duration(): number
-    get_episode(): number
-    get_episode_title(): string
-    get_exposure_time(): number
     get_external_url(): string
     get_external_url_nth(index: number): string
     get_favourite(): boolean
-    get_flash_used(): string
-    get_framerate(): number
-    get_height(): number
     get_id(): string
-    get_iso_speed(): number
     get_keyword(): string
     get_keyword_nth(index: number): string
-    get_last_played(): GLib.DateTime
+    get_last_played(): string
     get_last_position(): number
     get_license(): string
-    get_mb_release_group_id(): string
-    get_mb_release_id(): string
-    get_media_type(): MediaType
     get_mime(): string
     get_modification_date(): GLib.DateTime
-    get_orientation(): number
-    get_original_title(): string
-    get_performer(): string
-    get_performer_nth(index: number): string
     get_play_count(): number
     get_player(): string
     get_player_nth(index: number): string
-    get_producer(): string
-    get_producer_nth(index: number): string
     get_publication_date(): GLib.DateTime
     get_rating(): number
     get_region(): string
     get_region_data(): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
     get_region_data_nth(index: number): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
-    get_season(): number
-    get_show(): string
     get_site(): string
     get_size(): number
     get_source(): string
@@ -747,55 +714,29 @@ export class MediaAudio {
     get_thumbnail_nth(index: number): string
     get_title(): string
     get_url(): string
-    get_url_data(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_url_data_nth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_width(): number
-    is_audio(): boolean
-    is_container(): boolean
-    is_image(): boolean
-    is_video(): boolean
+    get_url_data(): [ /* returnType */ string, /* mime */ string ]
+    get_url_data_nth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    set_album_artist(album_artist: string): void
-    set_album_disc_number(disc_number: number): void
     set_author(author: string): void
-    set_camera_model(camera_model: string): void
     set_certificate(certificate: string): void
-    set_childcount(childcount: number): void
-    set_composer(composer: string): void
     set_creation_date(creation_date: GLib.DateTime): void
     set_description(description: string): void
-    set_director(director: string): void
     set_duration(duration: number): void
-    set_episode(episode: number): void
-    set_episode_title(episode_title: string): void
-    set_exposure_time(exposure_time: number): void
     set_external_player(player: string): void
     set_external_url(url: string): void
     set_favourite(favourite: boolean): void
-    set_flash_used(flash_used: string): void
-    set_framerate(framerate: number): void
-    set_height(height: number): void
     set_id(id: string): void
-    set_iso_speed(iso_speed: number): void
     set_keyword(keyword: string): void
-    set_last_played(last_played: GLib.DateTime): void
+    set_last_played(last_played: string): void
     set_last_position(last_position: number): void
     set_license(license: string): void
-    set_mb_release_group_id(mb_release_group_id: string): void
-    set_mb_release_id(mb_release_id: string): void
     set_mime(mime: string): void
     set_modification_date(modification_date: GLib.DateTime): void
-    set_orientation(orientation: number): void
-    set_original_title(original_title: string): void
-    set_performer(performer: string): void
     set_play_count(play_count: number): void
-    set_producer(producer: string): void
     set_publication_date(date: GLib.DateTime): void
     set_rating(rating: number, max: number): void
     set_region(region: string): void
     set_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
-    set_season(season: number): void
-    set_show(show: string): void
     set_site(site: string): void
     set_size(size: number): void
     set_source(source: string): void
@@ -804,13 +745,11 @@ export class MediaAudio {
     set_thumbnail_binary(thumbnail: number, size: number): void
     set_title(title: string): void
     set_url(url: string): void
-    set_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    set_width(width: number): void
+    set_url_data(url: string, mime: string): void
     /* Methods of Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
-    add_for_id(key_name: string, value: any): boolean
     add_int(key: KeyID, intvalue: number): void
     add_int64(key: KeyID, intvalue: number): void
     add_related_keys(relkeys: RelatedKeys): void
@@ -837,7 +776,6 @@ export class MediaAudio {
     set_boolean(key: KeyID, boolvalue: boolean): void
     set_boxed(key: KeyID, boxed?: object | null): void
     set_float(key: KeyID, floatvalue: number): void
-    set_for_id(key_name: string, value: any): boolean
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
@@ -876,8 +814,6 @@ export class MediaAudio {
     connect(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::media-type", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaAudio, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -892,8 +828,6 @@ export class MediaAudio {
 export interface MediaBox_ConstructProps extends Media_ConstructProps {
 }
 export class MediaBox {
-    /* Properties of Grl.Media */
-    media_type: MediaType
     /* Fields of Grl.MediaBox */
     parent: Media
     /* Fields of Grl.Data */
@@ -905,84 +839,39 @@ export class MediaBox {
     get_childcount(): number
     set_childcount(childcount: number): void
     /* Methods of Grl.Media */
-    add_artist(artist: string): void
     add_author(author: string): void
-    add_director(director: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
-    add_genre(genre: string): void
     add_keyword(keyword: string): void
-    add_lyrics(lyrics: string): void
-    add_mb_artist_id(mb_artist_id: string): void
-    add_performer(performer: string): void
-    add_producer(producer: string): void
     add_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
     add_thumbnail(thumbnail: string): void
     add_thumbnail_binary(thumbnail: number, size: number): void
-    add_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    get_album(): string
-    get_album_artist(): string
-    get_album_disc_number(): number
-    get_artist(): string
-    get_artist_nth(index: number): string
+    add_url_data(url: string, mime: string): void
     get_author(): string
     get_author_nth(index: number): string
-    get_bitrate(): number
-    get_camera_model(): string
     get_certificate(): string
-    get_composer(): string
-    get_composer_nth(index: number): string
     get_creation_date(): GLib.DateTime
     get_description(): string
-    get_director(): string
-    get_director_nth(index: number): string
     get_duration(): number
-    get_episode(): number
-    get_episode_title(): string
-    get_exposure_time(): number
     get_external_url(): string
     get_external_url_nth(index: number): string
     get_favourite(): boolean
-    get_flash_used(): string
-    get_framerate(): number
-    get_genre(): string
-    get_genre_nth(index: number): string
-    get_height(): number
     get_id(): string
-    get_iso_speed(): number
     get_keyword(): string
     get_keyword_nth(index: number): string
-    get_last_played(): GLib.DateTime
+    get_last_played(): string
     get_last_position(): number
     get_license(): string
-    get_lyrics(): string
-    get_lyrics_nth(index: number): string
-    get_mb_album_id(): string
-    get_mb_artist_id(): string
-    get_mb_artist_id_nth(index: number): string
-    get_mb_recording_id(): string
-    get_mb_release_group_id(): string
-    get_mb_release_id(): string
-    get_mb_track_id(): string
-    get_media_type(): MediaType
     get_mime(): string
     get_modification_date(): GLib.DateTime
-    get_orientation(): number
-    get_original_title(): string
-    get_performer(): string
-    get_performer_nth(index: number): string
     get_play_count(): number
     get_player(): string
     get_player_nth(index: number): string
-    get_producer(): string
-    get_producer_nth(index: number): string
     get_publication_date(): GLib.DateTime
     get_rating(): number
     get_region(): string
     get_region_data(): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
     get_region_data_nth(index: number): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
-    get_season(): number
-    get_show(): string
     get_site(): string
     get_size(): number
     get_source(): string
@@ -993,65 +882,30 @@ export class MediaBox {
     get_thumbnail_binary_nth(size: number, index: number): number
     get_thumbnail_nth(index: number): string
     get_title(): string
-    get_track_number(): number
     get_url(): string
-    get_url_data(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_url_data_nth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_width(): number
-    is_audio(): boolean
-    is_container(): boolean
-    is_image(): boolean
-    is_video(): boolean
+    get_url_data(): [ /* returnType */ string, /* mime */ string ]
+    get_url_data_nth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    set_album(album: string): void
-    set_album_artist(album_artist: string): void
-    set_album_disc_number(disc_number: number): void
-    set_artist(artist: string): void
     set_author(author: string): void
-    set_bitrate(bitrate: number): void
-    set_camera_model(camera_model: string): void
     set_certificate(certificate: string): void
-    set_composer(composer: string): void
     set_creation_date(creation_date: GLib.DateTime): void
     set_description(description: string): void
-    set_director(director: string): void
     set_duration(duration: number): void
-    set_episode(episode: number): void
-    set_episode_title(episode_title: string): void
-    set_exposure_time(exposure_time: number): void
     set_external_player(player: string): void
     set_external_url(url: string): void
     set_favourite(favourite: boolean): void
-    set_flash_used(flash_used: string): void
-    set_framerate(framerate: number): void
-    set_genre(genre: string): void
-    set_height(height: number): void
     set_id(id: string): void
-    set_iso_speed(iso_speed: number): void
     set_keyword(keyword: string): void
-    set_last_played(last_played: GLib.DateTime): void
+    set_last_played(last_played: string): void
     set_last_position(last_position: number): void
     set_license(license: string): void
-    set_lyrics(lyrics: string): void
-    set_mb_album_id(mb_album_id: string): void
-    set_mb_artist_id(mb_artist_id: string): void
-    set_mb_recording_id(mb_recording_id: string): void
-    set_mb_release_group_id(mb_release_group_id: string): void
-    set_mb_release_id(mb_release_id: string): void
-    set_mb_track_id(mb_track_id: string): void
     set_mime(mime: string): void
     set_modification_date(modification_date: GLib.DateTime): void
-    set_orientation(orientation: number): void
-    set_original_title(original_title: string): void
-    set_performer(performer: string): void
     set_play_count(play_count: number): void
-    set_producer(producer: string): void
     set_publication_date(date: GLib.DateTime): void
     set_rating(rating: number, max: number): void
     set_region(region: string): void
     set_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
-    set_season(season: number): void
-    set_show(show: string): void
     set_site(site: string): void
     set_size(size: number): void
     set_source(source: string): void
@@ -1059,15 +913,12 @@ export class MediaBox {
     set_thumbnail(thumbnail: string): void
     set_thumbnail_binary(thumbnail: number, size: number): void
     set_title(title: string): void
-    set_track_number(track_number: number): void
     set_url(url: string): void
-    set_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    set_width(width: number): void
+    set_url_data(url: string, mime: string): void
     /* Methods of Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
-    add_for_id(key_name: string, value: any): boolean
     add_int(key: KeyID, intvalue: number): void
     add_int64(key: KeyID, intvalue: number): void
     add_related_keys(relkeys: RelatedKeys): void
@@ -1094,7 +945,6 @@ export class MediaBox {
     set_boolean(key: KeyID, boolvalue: boolean): void
     set_boxed(key: KeyID, boxed?: object | null): void
     set_float(key: KeyID, floatvalue: number): void
-    set_for_id(key_name: string, value: any): boolean
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
@@ -1133,8 +983,6 @@ export class MediaBox {
     connect(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::media-type", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaBox, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1149,8 +997,6 @@ export class MediaBox {
 export interface MediaImage_ConstructProps extends Media_ConstructProps {
 }
 export class MediaImage {
-    /* Properties of Grl.Media */
-    media_type: MediaType
     /* Fields of Grl.MediaImage */
     parent: Media
     /* Fields of Grl.Data */
@@ -1179,79 +1025,39 @@ export class MediaImage {
     set_url_data(url: string, mime: string, width: number, height: number): void
     set_width(width: number): void
     /* Methods of Grl.Media */
-    add_artist(artist: string): void
     add_author(author: string): void
-    add_director(director: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
-    add_genre(genre: string): void
     add_keyword(keyword: string): void
-    add_lyrics(lyrics: string): void
-    add_mb_artist_id(mb_artist_id: string): void
-    add_performer(performer: string): void
-    add_producer(producer: string): void
     add_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
     add_thumbnail(thumbnail: string): void
     add_thumbnail_binary(thumbnail: number, size: number): void
-    add_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    get_album(): string
-    get_album_artist(): string
-    get_album_disc_number(): number
-    get_artist(): string
-    get_artist_nth(index: number): string
+    add_url_data(url: string, mime: string): void
     get_author(): string
     get_author_nth(index: number): string
-    get_bitrate(): number
     get_certificate(): string
-    get_childcount(): number
-    get_composer(): string
-    get_composer_nth(index: number): string
     get_creation_date(): GLib.DateTime
     get_description(): string
-    get_director(): string
-    get_director_nth(index: number): string
     get_duration(): number
-    get_episode(): number
-    get_episode_title(): string
     get_external_url(): string
     get_external_url_nth(index: number): string
     get_favourite(): boolean
-    get_framerate(): number
-    get_genre(): string
-    get_genre_nth(index: number): string
     get_id(): string
     get_keyword(): string
     get_keyword_nth(index: number): string
-    get_last_played(): GLib.DateTime
+    get_last_played(): string
     get_last_position(): number
     get_license(): string
-    get_lyrics(): string
-    get_lyrics_nth(index: number): string
-    get_mb_album_id(): string
-    get_mb_artist_id(): string
-    get_mb_artist_id_nth(index: number): string
-    get_mb_recording_id(): string
-    get_mb_release_group_id(): string
-    get_mb_release_id(): string
-    get_mb_track_id(): string
-    get_media_type(): MediaType
     get_mime(): string
     get_modification_date(): GLib.DateTime
-    get_original_title(): string
-    get_performer(): string
-    get_performer_nth(index: number): string
     get_play_count(): number
     get_player(): string
     get_player_nth(index: number): string
-    get_producer(): string
-    get_producer_nth(index: number): string
     get_publication_date(): GLib.DateTime
     get_rating(): number
     get_region(): string
     get_region_data(): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
     get_region_data_nth(index: number): [ /* returnType */ string, /* publication_date */ GLib.DateTime, /* certificate */ string ]
-    get_season(): number
-    get_show(): string
     get_site(): string
     get_size(): number
     get_source(): string
@@ -1262,59 +1068,30 @@ export class MediaImage {
     get_thumbnail_binary_nth(size: number, index: number): number
     get_thumbnail_nth(index: number): string
     get_title(): string
-    get_track_number(): number
     get_url(): string
-    get_url_data(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_url_data_nth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    is_audio(): boolean
-    is_container(): boolean
-    is_image(): boolean
-    is_video(): boolean
+    get_url_data(): [ /* returnType */ string, /* mime */ string ]
+    get_url_data_nth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    set_album(album: string): void
-    set_album_artist(album_artist: string): void
-    set_album_disc_number(disc_number: number): void
-    set_artist(artist: string): void
     set_author(author: string): void
-    set_bitrate(bitrate: number): void
     set_certificate(certificate: string): void
-    set_childcount(childcount: number): void
-    set_composer(composer: string): void
     set_creation_date(creation_date: GLib.DateTime): void
     set_description(description: string): void
-    set_director(director: string): void
     set_duration(duration: number): void
-    set_episode(episode: number): void
-    set_episode_title(episode_title: string): void
     set_external_player(player: string): void
     set_external_url(url: string): void
     set_favourite(favourite: boolean): void
-    set_framerate(framerate: number): void
-    set_genre(genre: string): void
     set_id(id: string): void
     set_keyword(keyword: string): void
-    set_last_played(last_played: GLib.DateTime): void
+    set_last_played(last_played: string): void
     set_last_position(last_position: number): void
     set_license(license: string): void
-    set_lyrics(lyrics: string): void
-    set_mb_album_id(mb_album_id: string): void
-    set_mb_artist_id(mb_artist_id: string): void
-    set_mb_recording_id(mb_recording_id: string): void
-    set_mb_release_group_id(mb_release_group_id: string): void
-    set_mb_release_id(mb_release_id: string): void
-    set_mb_track_id(mb_track_id: string): void
     set_mime(mime: string): void
     set_modification_date(modification_date: GLib.DateTime): void
-    set_original_title(original_title: string): void
-    set_performer(performer: string): void
     set_play_count(play_count: number): void
-    set_producer(producer: string): void
     set_publication_date(date: GLib.DateTime): void
     set_rating(rating: number, max: number): void
     set_region(region: string): void
     set_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
-    set_season(season: number): void
-    set_show(show: string): void
     set_site(site: string): void
     set_size(size: number): void
     set_source(source: string): void
@@ -1322,14 +1099,12 @@ export class MediaImage {
     set_thumbnail(thumbnail: string): void
     set_thumbnail_binary(thumbnail: number, size: number): void
     set_title(title: string): void
-    set_track_number(track_number: number): void
     set_url(url: string): void
-    set_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
+    set_url_data(url: string, mime: string): void
     /* Methods of Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
-    add_for_id(key_name: string, value: any): boolean
     add_int(key: KeyID, intvalue: number): void
     add_int64(key: KeyID, intvalue: number): void
     add_related_keys(relkeys: RelatedKeys): void
@@ -1356,7 +1131,6 @@ export class MediaImage {
     set_boolean(key: KeyID, boolvalue: boolean): void
     set_boxed(key: KeyID, boxed?: object | null): void
     set_float(key: KeyID, floatvalue: number): void
-    set_for_id(key_name: string, value: any): boolean
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
@@ -1395,8 +1169,6 @@ export class MediaImage {
     connect(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::media-type", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaImage, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1411,8 +1183,6 @@ export class MediaImage {
 export interface MediaVideo_ConstructProps extends Media_ConstructProps {
 }
 export class MediaVideo {
-    /* Properties of Grl.Media */
-    media_type: MediaType
     /* Fields of Grl.MediaVideo */
     parent: Media
     /* Fields of Grl.Data */
@@ -1455,61 +1225,31 @@ export class MediaVideo {
     set_url_data(url: string, mime: string, framerate: number, width: number, height: number): void
     set_width(width: number): void
     /* Methods of Grl.Media */
-    add_artist(artist: string): void
     add_author(author: string): void
     add_external_player(player: string): void
     add_external_url(url: string): void
-    add_genre(genre: string): void
     add_keyword(keyword: string): void
-    add_lyrics(lyrics: string): void
-    add_mb_artist_id(mb_artist_id: string): void
     add_region_data(region: string, publication_date: GLib.DateTime, certificate: string): void
     add_thumbnail(thumbnail: string): void
     add_thumbnail_binary(thumbnail: number, size: number): void
-    add_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
-    get_album(): string
-    get_album_artist(): string
-    get_album_disc_number(): number
-    get_artist(): string
-    get_artist_nth(index: number): string
+    add_url_data(url: string, mime: string): void
     get_author(): string
     get_author_nth(index: number): string
-    get_bitrate(): number
-    get_camera_model(): string
     get_certificate(): string
-    get_childcount(): number
-    get_composer(): string
-    get_composer_nth(index: number): string
     get_creation_date(): GLib.DateTime
     get_description(): string
     get_duration(): number
-    get_exposure_time(): number
     get_external_url(): string
     get_external_url_nth(index: number): string
     get_favourite(): boolean
-    get_flash_used(): string
-    get_genre(): string
-    get_genre_nth(index: number): string
     get_id(): string
-    get_iso_speed(): number
     get_keyword(): string
     get_keyword_nth(index: number): string
-    get_last_played(): GLib.DateTime
+    get_last_played(): string
     get_last_position(): number
     get_license(): string
-    get_lyrics(): string
-    get_lyrics_nth(index: number): string
-    get_mb_album_id(): string
-    get_mb_artist_id(): string
-    get_mb_artist_id_nth(index: number): string
-    get_mb_recording_id(): string
-    get_mb_release_group_id(): string
-    get_mb_release_id(): string
-    get_mb_track_id(): string
-    get_media_type(): MediaType
     get_mime(): string
     get_modification_date(): GLib.DateTime
-    get_orientation(): number
     get_play_count(): number
     get_player(): string
     get_player_nth(index: number): string
@@ -1528,50 +1268,25 @@ export class MediaVideo {
     get_thumbnail_binary_nth(size: number, index: number): number
     get_thumbnail_nth(index: number): string
     get_title(): string
-    get_track_number(): number
     get_url(): string
-    get_url_data(framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    get_url_data_nth(index: number, framerate: number, width: number, height: number): [ /* returnType */ string, /* mime */ string, /* bitrate */ number ]
-    is_audio(): boolean
-    is_container(): boolean
-    is_image(): boolean
-    is_video(): boolean
+    get_url_data(): [ /* returnType */ string, /* mime */ string ]
+    get_url_data_nth(index: number): [ /* returnType */ string, /* mime */ string ]
     serialize(): string
-    set_album(album: string): void
-    set_album_artist(album_artist: string): void
-    set_album_disc_number(disc_number: number): void
-    set_artist(artist: string): void
     set_author(author: string): void
-    set_bitrate(bitrate: number): void
-    set_camera_model(camera_model: string): void
     set_certificate(certificate: string): void
-    set_childcount(childcount: number): void
-    set_composer(composer: string): void
     set_creation_date(creation_date: GLib.DateTime): void
     set_description(description: string): void
     set_duration(duration: number): void
-    set_exposure_time(exposure_time: number): void
     set_external_player(player: string): void
     set_external_url(url: string): void
     set_favourite(favourite: boolean): void
-    set_flash_used(flash_used: string): void
-    set_genre(genre: string): void
     set_id(id: string): void
-    set_iso_speed(iso_speed: number): void
     set_keyword(keyword: string): void
-    set_last_played(last_played: GLib.DateTime): void
+    set_last_played(last_played: string): void
     set_last_position(last_position: number): void
     set_license(license: string): void
-    set_lyrics(lyrics: string): void
-    set_mb_album_id(mb_album_id: string): void
-    set_mb_artist_id(mb_artist_id: string): void
-    set_mb_recording_id(mb_recording_id: string): void
-    set_mb_release_group_id(mb_release_group_id: string): void
-    set_mb_release_id(mb_release_id: string): void
-    set_mb_track_id(mb_track_id: string): void
     set_mime(mime: string): void
     set_modification_date(modification_date: GLib.DateTime): void
-    set_orientation(orientation: number): void
     set_play_count(play_count: number): void
     set_publication_date(date: GLib.DateTime): void
     set_rating(rating: number, max: number): void
@@ -1584,14 +1299,12 @@ export class MediaVideo {
     set_thumbnail(thumbnail: string): void
     set_thumbnail_binary(thumbnail: number, size: number): void
     set_title(title: string): void
-    set_track_number(track_number: number): void
     set_url(url: string): void
-    set_url_data(url: string, mime: string, bitrate: number, framerate: number, width: number, height: number): void
+    set_url_data(url: string, mime: string): void
     /* Methods of Grl.Data */
     add_binary(key: KeyID, buf: number, size: number): void
     add_boxed(key: KeyID, boxed?: object | null): void
     add_float(key: KeyID, floatvalue: number): void
-    add_for_id(key_name: string, value: any): boolean
     add_int(key: KeyID, intvalue: number): void
     add_int64(key: KeyID, intvalue: number): void
     add_related_keys(relkeys: RelatedKeys): void
@@ -1618,7 +1331,6 @@ export class MediaVideo {
     set_boolean(key: KeyID, boolvalue: boolean): void
     set_boxed(key: KeyID, boxed?: object | null): void
     set_float(key: KeyID, floatvalue: number): void
-    set_for_id(key_name: string, value: any): boolean
     set_int(key: KeyID, intvalue: number): void
     set_int64(key: KeyID, intvalue: number): void
     set_related_keys(relkeys: RelatedKeys, index: number): void
@@ -1657,8 +1369,6 @@ export class MediaVideo {
     connect(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::media-type", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::media-type", callback: (($obj: MediaVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2351,4 +2061,4 @@ export class SourceStoreSpec {
     user_data: object
     static name: string
 }
-type KeyID = number
+export type KeyID = number

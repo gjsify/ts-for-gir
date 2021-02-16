@@ -2,20 +2,20 @@
  * FolksEds-0.7
  */
 
-import * as Gjs from './Gjs';
-import * as EBookContacts from './EBookContacts-1.2';
-import * as libxml2 from './libxml2-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as EDataServer from './EDataServer-1.2';
-import * as Soup from './Soup-2.4';
-import * as GData from './GData-0.0';
-import * as Json from './Json-1.0';
-import * as Goa from './Goa-1.0';
-import * as Camel from './Camel-1.2';
-import * as Gee from './Gee-0.8';
-import * as Folks from './Folks-0.7';
+import type * as Gjs from './Gjs';
+import type * as EBookContacts from './EBookContacts-1.2';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as EDataServer from './EDataServer-1.2';
+import type * as Soup from './Soup-2.4';
+import type * as GData from './GData-0.0';
+import type * as Json from './Json-1.0';
+import type * as Goa from './Goa-1.0';
+import type * as Camel from './Camel-1.2';
+import type * as Gee from './Gee-0.8';
+import type * as Folks from './Folks-0.7';
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     source?: EDataServer.Source
@@ -252,7 +252,7 @@ export class Persona {
     get_in_google_personal_group(): boolean
     set_in_google_personal_group(value: boolean): void
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: any): void
+    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -487,7 +487,7 @@ export class Persona {
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */

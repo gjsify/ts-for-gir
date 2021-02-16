@@ -3,19 +3,19 @@
  */
 
 /// <reference types="node" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="ICalGLib-3.0.d.ts" />
-/// <reference path="EDataServer-1.2.d.ts" />
-/// <reference path="GData-0.0.d.ts" />
-/// <reference path="Json-1.0.d.ts" />
-/// <reference path="Goa-1.0.d.ts" />
-/// <reference path="Camel-1.2.d.ts" />
-/// <reference path="ECal-2.0.d.ts" />
-/// <reference path="EBackend-1.2.d.ts" />
+import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Soup } from './Soup-2.4';
+import type { Gio } from './Gio-2.0';
+import type { ICalGLib } from './ICalGLib-3.0';
+import type { EDataServer } from './EDataServer-1.2';
+import type { GData } from './GData-0.0';
+import type { Json } from './Json-1.0';
+import type { Goa } from './Goa-1.0';
+import type { Camel } from './Camel-1.2';
+import type { ECal } from './ECal-2.0';
+import type { EBackend } from './EBackend-1.2';
 
 declare namespace EDataCal {
 

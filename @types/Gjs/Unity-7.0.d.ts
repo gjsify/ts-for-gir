@@ -2,12 +2,12 @@
  * Unity-7.0
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as Dbusmenu from './Dbusmenu-0.4';
-import * as GObject from './GObject-2.0';
-import * as Dee from './Dee-1.0';
-import * as Gio from './Gio-2.0';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Dbusmenu from './Dbusmenu-0.4';
+import type * as Dee from './Dee-1.0';
+import type * as Gio from './Gio-2.0';
 
 export enum CategoryType {
     NONE,
@@ -3938,11 +3938,11 @@ export class SimpleScope {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Unity.SimpleScope */
-    set_search_func(func: any): void
-    set_search_async_func(func: any): void
-    set_activate_func(func: any): void
-    set_preview_func(func: any): void
-    set_preview_async_func(func: any): void
+    set_search_func(func: SimpleScopeSearchRunFunc): void
+    set_search_async_func(func: SimpleScopeSearchRunAsyncFunc | null): void
+    set_activate_func(func: SimpleScopeActivateFunc | null): void
+    set_preview_func(func: SimpleScopePreviewRunFunc): void
+    set_preview_async_func(func: SimpleScopePreviewRunAsyncFunc | null): void
     get_filter_set(): FilterSet
     set_filter_set(value: FilterSet): void
     get_category_set(): CategorySet
@@ -4383,9 +4383,9 @@ export class MusicPlayer {
     connect(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     connect_after(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     emit(sigName: "next"): void
-    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    emit(sigName: "activate-playlist", playlist_id: any): void
+    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: GLib.ObjectPath) => void)): number
+    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: GLib.ObjectPath) => void)): number
+    emit(sigName: "activate-playlist", playlist_id: GLib.ObjectPath): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number

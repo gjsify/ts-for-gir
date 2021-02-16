@@ -3,19 +3,19 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gtk-3.0.d.ts" />
-/// <reference path="xlib-2.0.d.ts" />
-/// <reference path="Gdk-3.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GdkPixbuf-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Atk-1.0.d.ts" />
-/// <reference path="GDesktopEnums-3.0.d.ts" />
+import type { Gtk } from './Gtk-3.0';
+import type { xlib } from './xlib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Gdk } from './Gdk-3.0';
+import type { cairo } from './cairo-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { Gio } from './Gio-2.0';
+import type { GdkPixbuf } from './GdkPixbuf-2.0';
+import type { GModule } from './GModule-2.0';
+import type { Atk } from './Atk-1.0';
+import type { GDesktopEnums } from './GDesktopEnums-3.0';
 
 declare namespace GnomeDesktop {
 

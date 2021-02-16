@@ -2,20 +2,20 @@
  * RygelRendererGst-2.6
  */
 
-import * as Gjs from './Gjs';
-import * as RygelRenderer from './RygelRenderer-2.6';
-import * as RygelCore from './RygelCore-2.6';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GUPnP from './GUPnP-1.2';
-import * as libxml2 from './libxml2-2.0';
-import * as Soup from './Soup-2.4';
-import * as GSSDP from './GSSDP-1.2';
-import * as GUPnPAV from './GUPnPAV-1.0';
-import * as Gst from './Gst-1.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as RygelRenderer from './RygelRenderer-2.6';
+import type * as RygelCore from './RygelCore-2.6';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as Gio from './Gio-2.0';
+import type * as GUPnP from './GUPnP-1.2';
+import type * as libxml2 from './libxml2-2.0';
+import type * as Soup from './Soup-2.4';
+import type * as GSSDP from './GSSDP-1.2';
+import type * as GUPnPAV from './GUPnPAV-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GModule from './GModule-2.0';
 
 export enum PlaybinPlayerError {
     NO_ELEMENT,

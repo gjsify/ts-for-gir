@@ -2,21 +2,21 @@
  * IAnjuta-3.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gtk from './Gtk-3.0';
-import * as xlib from './xlib-2.0';
-import * as Gdk from './Gdk-3.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Atk from './Atk-1.0';
-import * as Anjuta from './Anjuta-3.0';
-import * as Gdl from './Gdl-3';
+import type * as Gjs from './Gjs';
+import type * as Gtk from './Gtk-3.0';
+import type * as xlib from './xlib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gdk from './Gdk-3.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Atk from './Atk-1.0';
+import type * as Anjuta from './Anjuta-3.0';
+import type * as Gdl from './Gdl-3';
 
 export enum BuildableCommand {
     COMMAND_COMPILE,
@@ -4203,5 +4203,5 @@ export abstract class WizardIface {
     activate: (obj: Wizard) => void
     static name: string
 }
-type BuilderHandle = object
-type LanguageId = number
+export type BuilderHandle = object
+export type LanguageId = number

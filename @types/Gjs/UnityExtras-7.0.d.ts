@@ -2,11 +2,10 @@
  * UnityExtras-7.0
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as Unity from './Unity-7.0';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gio from './Gio-2.0';
 
 export function show_in_folder(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
 export function show_in_folder_finish(_res_: Gio.AsyncResult): void

@@ -2,13 +2,13 @@
  * GstCodecs-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as GstVideo from './GstVideo-1.0';
-import * as GstBase from './GstBase-1.0';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as GstVideo from './GstVideo-1.0';
+import type * as GstBase from './GstBase-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum H264PictureField {
     FRAME,

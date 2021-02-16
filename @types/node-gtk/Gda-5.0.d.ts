@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace Gda {
 
@@ -1210,9 +1210,9 @@ export class Connection {
     vfuncDsnChanged(): void
     vfuncError(error: ConnectionEvent): void
     vfuncTransactionStatusChanged(): void
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
+    vfuncILock(): void
+    vfuncITrylock(): boolean
+    vfuncIUnlock(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1479,9 +1479,10 @@ export class DataAccessWrapper {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -1490,9 +1491,38 @@ export class DataAccessWrapper {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataAccessWrapper */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1715,9 +1745,10 @@ export class DataModelArray {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -1726,9 +1757,38 @@ export class DataModelArray {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelArray */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1867,9 +1927,10 @@ export class DataModelDir {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -1878,9 +1939,38 @@ export class DataModelDir {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelDir */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2016,9 +2106,10 @@ export class DataModelImport {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -2027,9 +2118,38 @@ export class DataModelImport {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelImport */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2125,7 +2245,10 @@ export class DataModelIter {
     object: Set
     priv: DataModelIterPrivate
     /* Fields of Gda.Set */
-    parentInstance: GObject.Object
+    holders: Holder[]
+    nodesList: SetNode[]
+    sourcesList: SetSource[]
+    groupsList: SetGroup[]
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.DataModelIter */
@@ -2145,16 +2268,12 @@ export class DataModelIter {
     addHolder(holder: Holder): boolean
     copy(): Set
     getGroup(holder: Holder): SetGroup
-    getGroups(): SetGroup[]
     getHolder(holderId: string): Holder
     getHolderValue(holderId: string): any
-    getHolders(): Holder[]
     getNode(holder: Holder): SetNode
-    getNodes(): SetNode[]
     getNthHolder(pos: number): Holder
     getSource(holder: Holder): SetSource
     getSourceForModel(model: DataModel): SetSource
-    getSources(): SetSource[]
     mergeWithSet(setToMerge: Set): void
     removeHolder(holder: Holder): void
     replaceSourceModel(source: SetSource, model: DataModel): void
@@ -2379,9 +2498,10 @@ export class DataModelLdap {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -2390,9 +2510,38 @@ export class DataModelLdap {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataModelLdap */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2526,9 +2675,10 @@ export class DataPivot {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -2537,9 +2687,38 @@ export class DataPivot {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
+    /* Virtual methods of Gda.DataPivot */
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2710,9 +2889,10 @@ export class DataProxy {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -2721,6 +2901,7 @@ export class DataProxy {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
@@ -2731,6 +2912,33 @@ export class DataProxy {
     vfuncSampleChanged(sampleStart: number, sampleEnd: number): void
     vfuncSampleSizeChanged(sampleSize: number): void
     vfuncValidateRowChanges(row: number, proxiedRow: number): GLib.Error
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2952,9 +3160,10 @@ export class DataSelect {
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterMoveNextDefault(iter: DataModelIter): boolean
-    iterMovePrevDefault(iter: DataModelIter): boolean
-    iterMoveToRowDefault(iter: DataModelIter, row: number): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
     removeRow(row: number): boolean
     reset(): void
     rowInserted(row: number): void
@@ -2963,6 +3172,7 @@ export class DataSelect {
     sendHint(hint: DataModelHint, hintValue?: any): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
     setValues(row: number, values?: any): boolean
     thaw(): void
@@ -2973,6 +3183,33 @@ export class DataSelect {
     vfuncFetchPrev(prow: Row, rownum: number): boolean
     vfuncFetchRandom(prow: Row, rownum: number): boolean
     vfuncStoreAll(): boolean
+    vfuncAccessChanged(): void
+    vfuncChanged(): void
+    vfuncIAppendRow(): number
+    vfuncIAppendValues(values?: any): number
+    vfuncICreateIter(): DataModelIter
+    vfuncIDescribeColumn(col: number): Column | null
+    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIGetAccessFlags(): DataModelAccessFlags
+    vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
+    vfuncIGetExceptions(): GLib.Error[]
+    vfuncIGetNColumns(): number
+    vfuncIGetNRows(): number
+    vfuncIGetNotify(): boolean
+    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
+    vfuncIIterNext(iter: DataModelIter): boolean
+    vfuncIIterPrev(iter: DataModelIter): boolean
+    vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    vfuncIRemoveRow(row: number): boolean
+    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISetNotify(doNotifyChanges: boolean): void
+    vfuncISetValueAt(col: number, row: number, value: any): boolean
+    vfuncISetValues(row: number, values?: any): boolean
+    vfuncReset(): void
+    vfuncRowInserted(row: number): void
+    vfuncRowRemoved(row: number): void
+    vfuncRowUpdated(row: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3623,9 +3860,9 @@ export class Holder {
     vfuncChanged(): void
     vfuncSourceChanged(): void
     vfuncValidateChange(newValue: any): GLib.Error
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
+    vfuncILock(): void
+    vfuncITrylock(): boolean
+    vfuncIUnlock(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3919,7 +4156,7 @@ export class PStmt {
     sql: string
     paramIds: string[]
     ncols: number
-    types: any
+    types: GType
     tmplColumns: Column[]
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -4627,9 +4864,9 @@ export class SqlParser {
     trylock(): boolean
     unlock(): void
     /* Virtual methods of Gda.SqlParser */
-    vfuncLock(): void
-    vfuncTrylock(): boolean
-    vfuncUnlock(): void
+    vfuncILock(): void
+    vfuncITrylock(): boolean
+    vfuncIUnlock(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -5109,13 +5346,11 @@ export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProp
 }
 export class TreeMgrColumns {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrColumns */
     object: TreeManager
     priv: TreeMgrColumnsPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5123,7 +5358,6 @@ export class TreeMgrColumns {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5190,13 +5424,11 @@ export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps 
 }
 export class TreeMgrLabel {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrLabel */
     object: TreeManager
     priv: TreeMgrLabelPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5204,7 +5436,6 @@ export class TreeMgrLabel {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5271,13 +5502,11 @@ export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
 }
 export class TreeMgrLdap {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrLdap */
     object: TreeManager
     priv: TreeMgrLdapPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5285,7 +5514,6 @@ export class TreeMgrLdap {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5353,13 +5581,11 @@ export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProp
 }
 export class TreeMgrSchemas {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrSchemas */
     object: TreeManager
     priv: TreeMgrSchemasPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5367,7 +5593,6 @@ export class TreeMgrSchemas {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5436,13 +5661,11 @@ export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps
 }
 export class TreeMgrSelect {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrSelect */
     object: TreeManager
     priv: TreeMgrSelectPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5450,7 +5673,6 @@ export class TreeMgrSelect {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5519,13 +5741,11 @@ export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps
 }
 export class TreeMgrTables {
     /* Properties of Gda.TreeManager */
-    func: TreeManagerNodesFunc
+    func: object
     recursive: boolean
     /* Fields of Gda.TreeMgrTables */
     object: TreeManager
     priv: TreeMgrTablesPriv
-    /* Fields of Gda.TreeManager */
-    parentInstance: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
@@ -5533,7 +5753,6 @@ export class TreeMgrTables {
     addNewNodeAttribute(attribute: string, value?: any): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
-    setNodeCreateFunc(func?: TreeManagerNodeFunc | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6872,7 +7091,7 @@ export class XaTransactionId {
 export class XaTransactionPrivate {
     static name: string
 }
-type Mutex = GLib.RecMutex
-type SqlBuilderId = number
-type SqlErrorType = SqlError
+export type Mutex = GLib.RecMutex
+export type SqlBuilderId = number
+export type SqlErrorType = SqlError
 }

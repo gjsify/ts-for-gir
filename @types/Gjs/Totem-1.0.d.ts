@@ -2,20 +2,20 @@
  * Totem-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as TotemPlParser from './TotemPlParser-1.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gtk from './Gtk-3.0';
-import * as xlib from './xlib-2.0';
-import * as Gdk from './Gdk-3.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as TotemPlParser from './TotemPlParser-1.0';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gtk from './Gtk-3.0';
+import type * as xlib from './xlib-2.0';
+import type * as Gdk from './Gdk-3.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Atk from './Atk-1.0';
 
 export enum RemoteCommand {
     UNKNOWN,
@@ -79,6 +79,7 @@ export class Object {
     readonly stream_length: number
     /* Properties of Gtk.Application */
     readonly active_window: Gtk.Window
+    app_menu: Gio.MenuModel
     menubar: Gio.MenuModel
     register_session: boolean
     readonly screensaver_active: boolean
@@ -92,7 +93,7 @@ export class Object {
     readonly is_remote: boolean
     resource_base_path: string
     /* Fields of Gtk.Application */
-    parent_instance: Gio.Application
+    parent: Gio.Application
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Totem.Object */
@@ -135,18 +136,24 @@ export class Object {
     show_error(title: string, reason: string): void
     stop(): void
     /* Methods of Gtk.Application */
+    add_accelerator(accelerator: string, action_name: string, parameter?: GLib.Variant | null): void
     add_window(window: Gtk.Window): void
     get_accels_for_action(detailed_action_name: string): string[]
     get_actions_for_accel(accel: string): string[]
     get_active_window(): Gtk.Window | null
-    get_menu_by_id(id: string): Gio.Menu | null
-    get_menubar(): Gio.MenuModel | null
+    get_app_menu(): Gio.MenuModel | null
+    get_menu_by_id(id: string): Gio.Menu
+    get_menubar(): Gio.MenuModel
     get_window_by_id(id: number): Gtk.Window | null
     get_windows(): Gtk.Window[]
     inhibit(window: Gtk.Window | null, flags: Gtk.ApplicationInhibitFlags, reason?: string | null): number
+    is_inhibited(flags: Gtk.ApplicationInhibitFlags): boolean
     list_action_descriptions(): string[]
+    prefers_app_menu(): boolean
+    remove_accelerator(action_name: string, parameter?: GLib.Variant | null): void
     remove_window(window: Gtk.Window): void
     set_accels_for_action(detailed_action_name: string, accels: string[]): void
+    set_app_menu(app_menu?: Gio.MenuModel | null): void
     set_menubar(menubar?: Gio.MenuModel | null): void
     uninhibit(cookie: number): void
     /* Methods of Gio.Application */
@@ -365,6 +372,8 @@ export class Object {
     connect_after(sigName: "notify::stream-length", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::active-window", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active-window", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::app-menu", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::app-menu", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::menubar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::menubar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::register-session", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number

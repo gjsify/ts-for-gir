@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GSSDP-1.2.d.ts" />
+import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Soup } from './Soup-2.4';
+import type { Gio } from './Gio-2.0';
+import type { GSSDP } from './GSSDP-1.2';
 
 declare namespace GUPnP {
 
@@ -1252,11 +1252,11 @@ export class ServiceProxy {
     callActionFinish(result: Gio.AsyncResult): ServiceProxyAction
     cancelAction(action: ServiceProxyAction): void
     endActionHash(action: ServiceProxyAction, hash: GLib.HashTable): [ /* returnType */ boolean, /* hash */ GLib.HashTable ]
-    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: any[]): [ /* returnType */ boolean, /* outValues */ any ]
+    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
     getSubscribed(): boolean
     removeNotify(variable: string, callback: ServiceProxyNotifyCallback): boolean
     removeRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: any[]): [ /* returnType */ boolean, /* outValues */ any ]
+    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
     setSubscribed(subscribed: boolean): void
     /* Methods of GUPnP.ServiceInfo */
     getContext(): Context
@@ -1531,7 +1531,7 @@ export class ServiceAction {
     getLocales(): string[]
     getMessage(): Soup.Message
     getName(): string
-    getValues(argNames: string[], argTypes: any[]): any
+    getValues(argNames: string[], argTypes: GType[]): any
     return(): void
     returnError(errorCode: number, errorDescription: string): void
     setValue(argument: string, value: any): void
@@ -1572,7 +1572,7 @@ export abstract class ServiceIntrospectionClass {
 export class ServiceProxyAction {
     /* Methods of GUPnP.ServiceProxyAction */
     getResultHash(outHash: GLib.HashTable): [ /* returnType */ boolean, /* outHash */ GLib.HashTable ]
-    getResultList(outNames: string[], outTypes: any[]): [ /* returnType */ boolean, /* outValues */ any ]
+    getResultList(outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
     ref(): ServiceProxyAction
     unref(): void
     static name: string

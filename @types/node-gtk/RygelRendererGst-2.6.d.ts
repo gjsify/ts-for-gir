@@ -3,19 +3,19 @@
  */
 
 /// <reference types="node" />
-/// <reference path="RygelRenderer-2.6.d.ts" />
-/// <reference path="RygelCore-2.6.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GUPnP-1.2.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="Soup-2.4.d.ts" />
-/// <reference path="GSSDP-1.2.d.ts" />
-/// <reference path="GUPnPAV-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { RygelRenderer } from './RygelRenderer-2.6';
+import type { RygelCore } from './RygelCore-2.6';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gee } from './Gee-0.8';
+import type { Gio } from './Gio-2.0';
+import type { GUPnP } from './GUPnP-1.2';
+import type { libxml2 } from './libxml2-2.0';
+import type { Soup } from './Soup-2.4';
+import type { GSSDP } from './GSSDP-1.2';
+import type { GUPnPAV } from './GUPnPAV-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace RygelRendererGst {
 

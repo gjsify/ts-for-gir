@@ -2,12 +2,12 @@
  * ColorHug-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GUsb from './GUsb-1.0';
-import * as Colord from './Colord-1.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GUsb from './GUsb-1.0';
+import type * as Colord from './Colord-1.0';
 
 export enum ColorSelect {
     RED,
@@ -415,4 +415,4 @@ export class Sha1 {
     /* Static methods and pseudo-constructors */
     static parse(value: string, sha1: Sha1): boolean
 }
-type Cmd = number
+export type Cmd = number

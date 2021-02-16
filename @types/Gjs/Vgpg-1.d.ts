@@ -2,14 +2,14 @@
  * Vgpg-1
  */
 
-import * as Gjs from './Gjs';
-import * as Vda from './Vda-1';
-import * as GCalc from './GCalc-1';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as Gee from './Gee-0.8';
-import * as Vgda from './Vgda-1';
+import type * as Gjs from './Gjs';
+import type * as Vda from './Vda-1';
+import type * as GCalc from './GCalc-1';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as Vgda from './Vgda-1';
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }

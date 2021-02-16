@@ -2,9 +2,9 @@
  * Atk-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum CoordType {
     SCREEN,
@@ -3431,5 +3431,5 @@ export abstract class WindowIface {
     parent: GObject.TypeInterface
     static name: string
 }
-type AttributeSet = any
-type State = number
+export type AttributeSet = any
+export type State = number

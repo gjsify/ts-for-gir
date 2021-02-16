@@ -2,22 +2,22 @@
  * GitgExt-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gitg from './Gitg-1.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
-import * as Gio from './Gio-2.0';
-import * as Gdk from './Gdk-3.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Ggit from './Ggit-1.0';
-import * as Gtk from './Gtk-3.0';
-import * as xlib from './xlib-2.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as Gitg from './Gitg-1.0';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gee from './Gee-0.8';
+import type * as Gio from './Gio-2.0';
+import type * as Gdk from './Gdk-3.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Ggit from './Ggit-1.0';
+import type * as Gtk from './Gtk-3.0';
+import type * as xlib from './xlib-2.0';
+import type * as Atk from './Atk-1.0';
 
 export enum SelectionMode {
     NORMAL,

@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace Atk {
 
@@ -4177,6 +4177,6 @@ export abstract class WindowIface {
     parent: GObject.TypeInterface
     static name: string
 }
-type AttributeSet = any
-type State = number
+export type AttributeSet = any
+export type State = number
 }

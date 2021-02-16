@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace GstCodecs {
 

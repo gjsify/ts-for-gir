@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GL-1.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GL } from './GL-1.0';
 
 declare namespace Cogl {
 
@@ -1604,11 +1604,11 @@ export class _TextureVertexSizeCheck {
     compileTimeAssertCoglTextureVertexSize: number[]
     static name: string
 }
-type Angle = number
-type Bool = number
-type Buffer = void
-type Handle = object
-type MetaTexture = void
-type PrimitiveTexture = void
-type UserDataDestroyCallback = GLib.DestroyNotify
+export type Angle = number
+export type Bool = number
+export type Buffer = void
+export type Handle = object
+export type MetaTexture = void
+export type PrimitiveTexture = void
+export type UserDataDestroyCallback = GLib.DestroyNotify
 }

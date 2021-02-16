@@ -2,12 +2,12 @@
  * TrackerMiner-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Tracker from './Tracker-1.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Tracker from './Tracker-1.0';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum DecoratorError {
     EMPTY,
@@ -95,6 +95,8 @@ export class Decorator {
     commit_batch_size: number
     priority_rdf_types: string[]
     /* Properties of TrackerMiner.Miner */
+    introspection_handler: object
+    introspection_xml: string
     progress: number
     remaining_time: number
     status: string
@@ -113,10 +115,16 @@ export class Decorator {
     prepend_id(id: number, class_name_id: number): void
     set_priority_rdf_types(rdf_types: string): void
     /* Methods of TrackerMiner.Miner */
+    get_connection(): Tracker.SparqlConnection
+    get_dbus_connection(): Gio.DBusConnection
+    get_dbus_full_name(): string
+    get_dbus_full_path(): string
+    get_n_pause_reasons(): number
+    ignore_next_update(urls: string[]): void
     is_paused(): boolean
     is_started(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -147,8 +155,9 @@ export class Decorator {
     vfunc_finished(): void
     vfunc_items_available(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
-    vfunc_progress(status: string, progress: number, remaining_time: number): void
+    vfunc_progress(status: string, progress: number): void
     vfunc_resumed(): void
     vfunc_started(): void
     vfunc_stopped(): void
@@ -169,6 +178,9 @@ export class Decorator {
     connect_after(sigName: "items-available", callback: (($obj: Decorator) => void)): number
     emit(sigName: "items-available"): void
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: Decorator, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: Decorator, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
     connect(sigName: "paused", callback: (($obj: Decorator) => void)): number
     connect_after(sigName: "paused", callback: (($obj: Decorator) => void)): number
     emit(sigName: "paused"): void
@@ -194,6 +206,10 @@ export class Decorator {
     connect_after(sigName: "notify::commit-batch-size", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::priority-rdf-types", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::priority-rdf-types", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-handler", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-xml", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::progress", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-time", callback: (($obj: Decorator, pspec: GObject.ParamSpec) => void)): number
@@ -219,6 +235,8 @@ export class DecoratorFS {
     commit_batch_size: number
     priority_rdf_types: string[]
     /* Properties of TrackerMiner.Miner */
+    introspection_handler: object
+    introspection_xml: string
     progress: number
     remaining_time: number
     status: string
@@ -239,10 +257,16 @@ export class DecoratorFS {
     prepend_id(id: number, class_name_id: number): void
     set_priority_rdf_types(rdf_types: string): void
     /* Methods of TrackerMiner.Miner */
+    get_connection(): Tracker.SparqlConnection
+    get_dbus_connection(): Gio.DBusConnection
+    get_dbus_full_name(): string
+    get_dbus_full_path(): string
+    get_n_pause_reasons(): number
+    ignore_next_update(urls: string[]): void
     is_paused(): boolean
     is_started(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -273,8 +297,9 @@ export class DecoratorFS {
     vfunc_finished(): void
     vfunc_items_available(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
-    vfunc_progress(status: string, progress: number, remaining_time: number): void
+    vfunc_progress(status: string, progress: number): void
     vfunc_resumed(): void
     vfunc_started(): void
     vfunc_stopped(): void
@@ -295,6 +320,9 @@ export class DecoratorFS {
     connect_after(sigName: "items-available", callback: (($obj: DecoratorFS) => void)): number
     emit(sigName: "items-available"): void
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: DecoratorFS, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: DecoratorFS, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
     connect(sigName: "paused", callback: (($obj: DecoratorFS) => void)): number
     connect_after(sigName: "paused", callback: (($obj: DecoratorFS) => void)): number
     emit(sigName: "paused"): void
@@ -320,6 +348,10 @@ export class DecoratorFS {
     connect_after(sigName: "notify::commit-batch-size", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::priority-rdf-types", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::priority-rdf-types", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-handler", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-xml", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::progress", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-time", callback: (($obj: DecoratorFS, pspec: GObject.ParamSpec) => void)): number
@@ -565,6 +597,8 @@ export class MinerFS {
     processing_pool_wait_limit: number
     throttle: number
     /* Properties of TrackerMiner.Miner */
+    introspection_handler: object
+    introspection_xml: string
     progress: number
     remaining_time: number
     status: string
@@ -602,10 +636,16 @@ export class MinerFS {
     writeback_file(file: Gio.File, rdf_types: string[], results: any): void
     writeback_notify(file: Gio.File, error: GLib.Error): void
     /* Methods of TrackerMiner.Miner */
+    get_connection(): Tracker.SparqlConnection
+    get_dbus_connection(): Gio.DBusConnection
+    get_dbus_full_name(): string
+    get_dbus_full_path(): string
+    get_n_pause_reasons(): number
+    ignore_next_update(urls: string[]): void
     is_paused(): boolean
     is_started(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -640,8 +680,9 @@ export class MinerFS {
     vfunc_process_file_attributes(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     vfunc_remove_file(file: Gio.File, children_only: boolean, builder: Tracker.SparqlBuilder): boolean
     /* Virtual methods of TrackerMiner.Miner */
+    vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
-    vfunc_progress(status: string, progress: number, remaining_time: number): void
+    vfunc_progress(status: string, progress: number): void
     vfunc_resumed(): void
     vfunc_started(): void
     vfunc_stopped(): void
@@ -677,6 +718,9 @@ export class MinerFS {
     connect_after(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdf_types: string[], results: any, cancellable?: Gio.Cancellable | null) => boolean)): number
     emit(sigName: "writeback-file", file: Gio.File, rdf_types: string[], results: any, cancellable?: Gio.Cancellable | null): void
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
     connect(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     emit(sigName: "paused"): void
@@ -706,6 +750,10 @@ export class MinerFS {
     connect_after(sigName: "notify::processing-pool-wait-limit", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::throttle", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::throttle", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-handler", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-xml", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::progress", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-time", callback: (($obj: MinerFS, pspec: GObject.ParamSpec) => void)): number
@@ -729,6 +777,8 @@ export class MinerOnline {
     /* Properties of TrackerMiner.MinerOnline */
     readonly network_type: NetworkType
     /* Properties of TrackerMiner.Miner */
+    introspection_handler: object
+    introspection_xml: string
     progress: number
     remaining_time: number
     status: string
@@ -741,10 +791,16 @@ export class MinerOnline {
     /* Methods of TrackerMiner.MinerOnline */
     get_network_type(): NetworkType
     /* Methods of TrackerMiner.Miner */
+    get_connection(): Tracker.SparqlConnection
+    get_dbus_connection(): Gio.DBusConnection
+    get_dbus_full_name(): string
+    get_dbus_full_path(): string
+    get_n_pause_reasons(): number
+    ignore_next_update(urls: string[]): void
     is_paused(): boolean
     is_started(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -775,8 +831,9 @@ export class MinerOnline {
     vfunc_connected(network: NetworkType): boolean
     vfunc_disconnected(): void
     /* Virtual methods of TrackerMiner.Miner */
+    vfunc_ignore_next_update(urls: string[]): void
     vfunc_paused(): void
-    vfunc_progress(status: string, progress: number, remaining_time: number): void
+    vfunc_progress(status: string, progress: number): void
     vfunc_resumed(): void
     vfunc_started(): void
     vfunc_stopped(): void
@@ -797,6 +854,9 @@ export class MinerOnline {
     connect_after(sigName: "disconnected", callback: (($obj: MinerOnline) => void)): number
     emit(sigName: "disconnected"): void
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerOnline, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerOnline, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
     connect(sigName: "paused", callback: (($obj: MinerOnline) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerOnline) => void)): number
     emit(sigName: "paused"): void
@@ -818,6 +878,10 @@ export class MinerOnline {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::network-type", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::network-type", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-handler", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-handler", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::introspection-xml", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::introspection-xml", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::progress", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::progress", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-time", callback: (($obj: MinerOnline, pspec: GObject.ParamSpec) => void)): number

@@ -3,17 +3,17 @@
  */
 
 /// <reference types="node" />
-/// <reference path="RygelCore-2.4.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="GUPnP-1.0.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
+import type { RygelCore } from './RygelCore-2.4';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { Gee } from './Gee-0.8';
+import type { GUPnP } from './GUPnP-1.0';
+import type { libxml2 } from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GUPnPAV-1.0.d.ts" />
+import type { GModule } from './GModule-2.0';
+import type { GUPnPAV } from './GUPnPAV-1.0';
 
 declare namespace RygelRenderer {
 
@@ -415,11 +415,11 @@ export class PlayerController {
     static $gtype: GObject.Type
 }
 export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
-    supportedProfiles?: any[]
+    supportedProfiles?: DLNAProfile[]
 }
 export class MediaRendererPlugin {
     /* Properties of RygelRenderer.MediaRendererPlugin */
-    supportedProfiles: any[]
+    supportedProfiles: DLNAProfile[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -430,13 +430,15 @@ export class MediaRendererPlugin {
     /* Fields of RygelRenderer.MediaRendererPlugin */
     parentInstance: RygelCore.Plugin
     priv: MediaRendererPluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelRenderer.MediaRendererPlugin */
     getPlayer(): MediaPlayer | null
     getProtocolInfo(): string
-    getSupportedProfiles(): any[]
-    setSupportedProfiles(value: any[]): void
+    getSupportedProfiles(): DLNAProfile[]
+    setSupportedProfiles(value: DLNAProfile[]): void
     /* Methods of RygelCore.Plugin */
     addResource(resourceInfo: RygelCore.ResourceInfo): void
     addIcon(iconInfo: RygelCore.IconInfo): void

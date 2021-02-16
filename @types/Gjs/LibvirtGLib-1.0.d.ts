@@ -2,9 +2,9 @@
  * LibvirtGLib-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as GObject from './GObject-2.0';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
 
 export function error_new_literal(domain: GLib.Quark, code: number, message: string): GLib.Error
 export function event_register(): void

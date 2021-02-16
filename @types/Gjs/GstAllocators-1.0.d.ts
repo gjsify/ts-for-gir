@@ -2,11 +2,11 @@
  * GstAllocators-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum FdMemoryFlags {
     NONE,
@@ -22,7 +22,7 @@ export function fd_memory_get_fd(mem: Gst.Memory): number
 export function is_dmabuf_memory(mem: Gst.Memory): boolean
 export function is_fd_memory(mem: Gst.Memory): boolean
 export function is_phys_memory(mem: Gst.Memory): boolean
-export function phys_memory_get_phys_addr(mem: Gst.Memory): any
+export function phys_memory_get_phys_addr(mem: Gst.Memory): guintptr
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class PhysMemoryAllocator {
@@ -95,7 +95,7 @@ export class PhysMemoryAllocator {
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstAllocators.PhysMemoryAllocator */
-    vfunc_get_phys_addr(mem: Gst.Memory): any
+    vfunc_get_phys_addr(mem: Gst.Memory): guintptr
     /* Virtual methods of Gst.Allocator */
     vfunc_alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfunc_free(memory: Gst.Memory): void
@@ -360,6 +360,6 @@ export abstract class FdAllocatorClass {
 }
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstAllocators.PhysMemoryAllocatorInterface */
-    get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => any
+    get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => guintptr
     static name: string
 }

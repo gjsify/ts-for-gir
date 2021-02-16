@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace GUdev {
 
@@ -303,5 +303,5 @@ export abstract class EnumeratorClass {
 export class EnumeratorPrivate {
     static name: string
 }
-type DeviceNumber = number
+export type DeviceNumber = number
 }

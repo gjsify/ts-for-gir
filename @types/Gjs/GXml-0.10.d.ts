@@ -2,12 +2,12 @@
  * GXml-0.10
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as GLib from './GLib-2.0';
-import * as GObject from './GObject-2.0';
-import * as Gio from './Gio-2.0';
-import * as Gee from './Gee-0.8';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
 
 export enum DomException {
     NONE,
@@ -1317,23 +1317,39 @@ export class SerializableCollection {
 export interface ElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class ElementList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.ElementList */
     parent_instance: Gee.ArrayList
     priv: ElementListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.ElementList */
     get(index: number): Element
     to_array(): Element[]
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -1342,20 +1358,17 @@ export class ElementList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1378,6 +1391,29 @@ export class ElementList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.ElementList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -1386,21 +1422,69 @@ export class ElementList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1413,14 +1497,12 @@ export class ElementList {
     connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1430,29 +1512,45 @@ export class ElementList {
     _init (config?: ElementList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ElementList
-    static new(equal_func?: GLib.EqualFunc | null): ElementList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ElementList
     static $gtype: GObject.Type
 }
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.NodeList */
     parent_instance: Gee.ArrayList
     priv: NodeListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.NodeList */
     get(index: number): Node
     to_array(): Node[]
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -1461,20 +1559,17 @@ export class NodeList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1497,6 +1592,29 @@ export class NodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.NodeList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -1505,21 +1623,69 @@ export class NodeList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1532,14 +1698,12 @@ export class NodeList {
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1549,7 +1713,7 @@ export class NodeList {
     _init (config?: NodeList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): NodeList
-    static new(equal_func?: GLib.EqualFunc | null): NodeList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): NodeList
     static $gtype: GObject.Type
 }
 export interface xAttr_ConstructProps extends BackedNode_ConstructProps {
@@ -1559,56 +1723,74 @@ export interface xAttr_ConstructProps extends BackedNode_ConstructProps {
 export class xAttr {
     /* Properties of GXml.xAttr */
     specified: boolean
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
     /* Properties of GXml.Attribute */
     namespace: Namespace
+    readonly prefix: string
     /* Fields of GXml.xAttr */
     parent_instance: BackedNode
     priv: xAttrPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xAttr */
     get_specified(): boolean
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1632,36 +1814,53 @@ export class xAttr {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Attribute */
-    get_namespace(): Namespace | null
-    set_namespace(value?: Namespace | null): void
+    get_namespace(): Namespace
+    set_namespace(value: Namespace): void
+    get_prefix(): string
     /* Virtual methods of GXml.xAttr */
-    vfunc_get_namespace(): Namespace | null
-    vfunc_set_namespace(value?: Namespace | null): void
-    vfunc_get_prefix(): string | null
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    vfunc_get_namespace(): Namespace
+    vfunc_set_namespace(value: Namespace): void
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_get_prefix(): string
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1680,8 +1879,8 @@ export class xAttr {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
@@ -1706,8 +1905,22 @@ export class xAttr {
     connect_after(sigName: "notify::attributes", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1805,55 +2018,18 @@ export class BackedNode {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BackedNode */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -1861,17 +2037,11 @@ export class BackedNode {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -1880,8 +2050,13 @@ export class BackedNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1951,27 +2126,36 @@ export class xCDATASection {
     /* Properties of GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
     /* Properties of GXml.CDATA */
     readonly str: string
     /* Fields of GXml.xCDATASection */
     parent_instance: xText
     priv: xCDATASectionPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xText */
@@ -1985,31 +2169,39 @@ export class xCDATASection {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2036,30 +2228,47 @@ export class xCDATASection {
     get_str(): string
     /* Virtual methods of GXml.xCDATASection */
     vfunc_get_str(): string
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    /* Virtual methods of GXml.xText */
+    vfunc_get_str(): string
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2080,8 +2289,8 @@ export class xCDATASection {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
@@ -2106,6 +2315,18 @@ export class xCDATASection {
     connect_after(sigName: "notify::attributes", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::str", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2125,25 +2346,34 @@ export class xCharacterData {
     /* Properties of GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
     /* Fields of GXml.xCharacterData */
     parent_instance: BackedNode
     priv: xCharacterDataPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xCharacterData */
@@ -2155,31 +2385,39 @@ export class xCharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2202,30 +2440,45 @@ export class xCharacterData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2246,8 +2499,8 @@ export class xCharacterData {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
@@ -2272,6 +2525,18 @@ export class xCharacterData {
     connect_after(sigName: "notify::attributes", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2287,25 +2552,36 @@ export class xComment {
     /* Properties of GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
+    /* Properties of GXml.Comment */
+    readonly str: string
     /* Fields of GXml.xComment */
     parent_instance: xCharacterData
     priv: xCommentPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xCharacterData */
@@ -2317,31 +2593,39 @@ export class xComment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2364,30 +2648,49 @@ export class xComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    /* Methods of GXml.Comment */
+    get_str(): string
+    /* Virtual methods of GXml.xComment */
+    vfunc_get_str(): string
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2408,8 +2711,8 @@ export class xComment {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
@@ -2434,6 +2737,20 @@ export class xComment {
     connect_after(sigName: "notify::attributes", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2446,52 +2763,69 @@ export class xComment {
 export interface DocumentFragment_ConstructProps extends BackedNode_ConstructProps {
 }
 export class DocumentFragment {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
     /* Fields of GXml.DocumentFragment */
     parent_instance: BackedNode
     priv: DocumentFragmentPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2514,30 +2848,45 @@ export class DocumentFragment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2554,8 +2903,8 @@ export class DocumentFragment {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
@@ -2580,6 +2929,18 @@ export class DocumentFragment {
     connect_after(sigName: "notify::attributes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2592,7 +2953,6 @@ export class DocumentFragment {
 export interface xDocumentType_ConstructProps extends xNode_ConstructProps {
     entities?: Gee.Map
     notations?: Gee.Map
-    name?: string
 }
 export class xDocumentType {
     /* Properties of GXml.xDocumentType */
@@ -2686,58 +3046,18 @@ export class xDocumentType {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GXml.DocumentType */
-    get_entities(): GLib.HashTable | null
-    get_notations(): GLib.HashTable | null
-    /* Virtual methods of GXml.xDocumentType */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -2745,17 +3065,11 @@ export class xDocumentType {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -2764,8 +3078,13 @@ export class xDocumentType {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2837,6 +3156,11 @@ export interface xDocument_ConstructProps extends xNode_ConstructProps {
     doctype?: xDocumentType
     implementation?: Implementation
     document_element?: xElement
+    indent?: boolean
+    ns_top?: boolean
+    prefix_default_ns?: boolean
+    backup?: boolean
+    file?: Gio.File
 }
 export class xDocument {
     /* Properties of GXml.xDocument */
@@ -2866,6 +3190,12 @@ export class xDocument {
     readonly name: string
     value: string
     readonly parent: Node
+    /* Properties of GXml.Document */
+    indent: boolean
+    ns_top: boolean
+    prefix_default_ns: boolean
+    backup: boolean
+    file: Gio.File
     /* Fields of GXml.xDocument */
     parent_instance: xNode
     priv: xDocumentPrivate
@@ -2946,66 +3276,54 @@ export class xDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Document */
-    create_element(tag_name: string): Element
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_document_element(): Element
+    create_element(name: string): Node
+    create_text(text: string): Node
+    create_comment(text: string): Node
+    create_cdata(text: string): Node
+    create_pi(target: string, data: string): Node
+    save(cancellable?: Gio.Cancellable | null): boolean
+    save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    get_indent(): boolean
+    set_indent(value: boolean): void
+    get_ns_top(): boolean
+    set_ns_top(value: boolean): void
+    get_prefix_default_ns(): boolean
+    set_prefix_default_ns(value: boolean): void
+    get_backup(): boolean
+    set_backup(value: boolean): void
+    get_file(): Gio.File
+    set_file(value: Gio.File): void
     /* Virtual methods of GXml.xDocument */
     vfunc_get_root(): Node
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_create_element(name: string): Node
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_save(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3013,17 +3331,11 @@ export class xDocument {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3032,8 +3344,13 @@ export class xDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3096,6 +3413,16 @@ export class xDocument {
     connect_after(sigName: "notify::value", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::indent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ns-top", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ns-top", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix-default-ns", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix-default-ns", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::backup", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::backup", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::file", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::file", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3111,35 +3438,46 @@ export class xDocument {
     static from_string(xml: string): xDocument
     static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): xDocument
     static new(): xDocument
+    static new_default(): Document
+    static new_default_for_path(path: string): Document
+    static new_default_for_file(f: Gio.File): Document
     static $gtype: GObject.Type
 }
 export interface xElement_ConstructProps extends BackedNode_ConstructProps {
-    tag_name?: string
     content?: string
 }
 export class xElement {
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
     /* Properties of GXml.Element */
-    tag_name: string
+    readonly tag_name: string
     content: string
     /* Fields of GXml.xElement */
     parent_instance: BackedNode
     priv: xElementPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xElement */
@@ -3150,31 +3488,39 @@ export class xElement {
     set_attribute_node(new_attr: xAttr): xAttr
     remove_attribute_node(old_attr: xAttr): xAttr
     get_elements_by_tag_name(tag_name: string): xNodeList
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3198,38 +3544,64 @@ export class xElement {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Element */
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
     normalize(): void
+    set_attr(name: string, value: string): void
+    get_attr(name: string): Node
+    remove_attr(name: string): void
+    set_ns_attr(ns: Namespace, name: string, value: string): void
+    get_ns_attr(name: string, uri: string): Node
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    /* Virtual methods of GXml.xElement */
+    vfunc_normalize(): void
+    vfunc_set_attr(name: string, value: string): void
+    vfunc_get_attr(name: string): Node
+    vfunc_remove_attr(name: string): void
+    vfunc_set_ns_attr(ns: Namespace, name: string, value: string): void
+    vfunc_get_ns_attr(name: string, uri: string): Node
+    vfunc_get_tag_name(): string
+    vfunc_get_content(): string
+    vfunc_set_content(value: string): void
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3246,8 +3618,8 @@ export class xElement {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
@@ -3272,6 +3644,18 @@ export class xElement {
     connect_after(sigName: "notify::attributes", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tag-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
@@ -3384,55 +3768,18 @@ export class Entity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.Entity */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3440,17 +3787,11 @@ export class Entity {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3459,8 +3800,13 @@ export class Entity {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3618,55 +3964,18 @@ export class EntityReference {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.EntityReference */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3674,17 +3983,11 @@ export class EntityReference {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3693,8 +3996,13 @@ export class EntityReference {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3815,8 +4123,6 @@ export class Implementation {
 export interface AbstractNamedAttrMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMap {
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of GXml.AbstractNamedAttrMap */
     parent_instance: GObject.Object
     priv: AbstractNamedAttrMapPrivate
@@ -3894,8 +4200,6 @@ export class AbstractNamedAttrMap {
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3911,11 +4215,17 @@ export class AbstractNamedAttrMapEntry {
     /* Properties of Gee.MapEntry */
     readonly key: object
     value: object
+    readonly read_only: boolean
     /* Fields of GXml.AbstractNamedAttrMapEntry */
     parent_instance: Gee.MapEntry
     priv: AbstractNamedAttrMapEntryPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.MapEntry */
+    get_key(): object | null
+    get_value(): object | null
+    set_value(value?: object | null): void
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3938,6 +4248,11 @@ export class AbstractNamedAttrMapEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.MapEntry */
+    vfunc_get_key(): object | null
+    vfunc_get_value(): object | null
+    vfunc_set_value(value?: object | null): void
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3954,6 +4269,8 @@ export class AbstractNamedAttrMapEntry {
     connect_after(sigName: "notify::key", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3968,6 +4285,9 @@ export class AbstractNamedAttrMapEntry {
 export interface AbstractNamedAttrMapIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMapIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GXml.AbstractNamedAttrMapIterator */
     parent_instance: GObject.Object
     priv: AbstractNamedAttrMapIteratorPrivate
@@ -4017,9 +4337,10 @@ export class AbstractNamedAttrMapIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Virtual methods of GXml.AbstractNamedAttrMapIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -4039,9 +4360,10 @@ export class AbstractNamedAttrMapIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4054,6 +4376,10 @@ export class AbstractNamedAttrMapIterator {
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4063,23 +4389,22 @@ export class AbstractNamedAttrMapIterator {
     _init (config?: AbstractNamedAttrMapIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(nm: AbstractNamedAttrMap): AbstractNamedAttrMapIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export interface NamedAttrMap_ConstructProps extends AbstractNamedAttrMap_ConstructProps {
-    length?: number
 }
 export class NamedAttrMap {
     /* Properties of Gee.Map */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
     /* Properties of GXml.NamedNodeMap */
-    length: number
+    readonly length: number
     /* Fields of GXml.NamedAttrMap */
     parent_instance: AbstractNamedAttrMap
     priv: NamedAttrMapPrivate
@@ -4127,6 +4452,15 @@ export class NamedAttrMap {
     set_all(map: Gee.Map): void
     unset_all(map: Gee.Map): boolean
     has_all(map: Gee.Map): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Methods of GXml.NamedNodeMap */
     get_named_item(name: string): object | null
     set_named_item(item?: object | null): object | null
@@ -4135,19 +4469,22 @@ export class NamedAttrMap {
     get_length(): number
     /* Virtual methods of GXml.NamedAttrMap */
     vfunc_has_key(key?: object | null): boolean
-    vfunc_contains(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_clear(): void
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
-    vfunc_remove_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
     vfunc_get_named_item(name: string): object | null
     vfunc_set_named_item(item?: object | null): object | null
     vfunc_remove_named_item(name: string): object | null
@@ -4185,8 +4522,8 @@ export class NamedAttrMap {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
@@ -4195,10 +4532,6 @@ export class NamedAttrMap {
     connect_after(sigName: "notify::entries", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -4209,7 +4542,7 @@ export class NamedAttrMap {
     constructor (config?: NamedAttrMap_ConstructProps)
     _init (config?: NamedAttrMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): Gee.Map
+    static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): Gee.Map
     static $gtype: GObject.Type
 }
 export interface NamespaceAttr_ConstructProps extends xNode_ConstructProps {
@@ -4312,59 +4645,23 @@ export class NamespaceAttr {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Namespace */
-    get_uri(): string | null
-    get_prefix(): string | null
+    get_uri(): string
+    get_prefix(): string
     /* Virtual methods of GXml.NamespaceAttr */
-    vfunc_get_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_uri(): string
+    vfunc_get_prefix(): string
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -4372,17 +4669,11 @@ export class NamespaceAttr {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -4391,8 +4682,13 @@ export class NamespaceAttr {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4481,7 +4777,6 @@ export interface xNode_ConstructProps extends GObject.Object_ConstructProps {
     attributes?: NamedAttrMap
     owner_document?: xDocument
     value?: string
-    prefix?: string
 }
 export class xNode {
     /* Properties of GXml.xNode */
@@ -4507,7 +4802,9 @@ export class xNode {
     value: string
     readonly parent: Node
     /* Properties of GXml.Node */
-    prefix: string
+    readonly childs: Gee.BidirList
+    readonly type_node: NodeType
+    readonly document: Document
     /* Fields of GXml.xNode */
     parent_instance: GObject.Object
     priv: xNodePrivate
@@ -4571,43 +4868,26 @@ export class xNode {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_prefix(): string | null
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_owner_document(): Document
+    get(key: string): Node | null
+    get_elements_by_property_value(property: string, value: string): ElementList
+    set_namespace(uri: string, prefix?: string | null): boolean
+    ns_prefix(): string
+    ns_uri(): string
+    get_childs(): Gee.BidirList
+    get_type_node(): NodeType
+    get_document(): Document
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -4615,17 +4895,11 @@ export class xNode {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -4634,8 +4908,13 @@ export class xNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4690,8 +4969,12 @@ export class xNode {
     connect_after(sigName: "notify::value", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::childs", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::childs", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::type-node", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::type-node", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::document", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4699,11 +4982,11 @@ export class xNode {
     static name: string
     constructor (config?: xNode_ConstructProps)
     _init (config?: xNode_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
 export interface xNotation_ConstructProps extends xNode_ConstructProps {
-    public_id?: string
-    system_id?: string
 }
 export class xNotation {
     /* Properties of GXml.xNode */
@@ -4729,8 +5012,8 @@ export class xNotation {
     value: string
     readonly parent: Node
     /* Properties of GXml.Notation */
-    public_id: string
-    system_id: string
+    readonly public_id: string
+    readonly external_id: string
     /* Fields of GXml.xNotation */
     parent_instance: xNode
     priv: xNotationPrivate
@@ -4796,56 +5079,22 @@ export class xNotation {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Notation */
     get_public_id(): string | null
-    get_system_id(): string | null
+    get_external_id(): string | null
     /* Virtual methods of GXml.xNotation */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_public_id(): string | null
+    vfunc_get_external_id(): string | null
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -4853,17 +5102,11 @@ export class xNotation {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -4872,8 +5115,13 @@ export class xNotation {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4930,8 +5178,8 @@ export class xNotation {
     connect_after(sigName: "notify::parent", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::public-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::system-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::system-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::external-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::external-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4942,8 +5190,6 @@ export class xNotation {
     static $gtype: GObject.Type
 }
 export interface xProcessingInstruction_ConstructProps extends xNode_ConstructProps {
-    target?: string
-    data?: string
 }
 export class xProcessingInstruction {
     /* Properties of GXml.xNode */
@@ -4969,8 +5215,8 @@ export class xProcessingInstruction {
     value: string
     readonly parent: Node
     /* Properties of GXml.ProcessingInstruction */
-    target: string
-    data: string
+    readonly target: string
+    readonly data: string
     /* Fields of GXml.xProcessingInstruction */
     parent_instance: xNode
     priv: xProcessingInstructionPrivate
@@ -5037,56 +5283,21 @@ export class xProcessingInstruction {
     /* Methods of GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
-    set_data(value: string): void
     /* Virtual methods of GXml.xProcessingInstruction */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_target(): string
+    vfunc_get_data(): string
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -5094,17 +5305,11 @@ export class xProcessingInstruction {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -5113,8 +5318,13 @@ export class xProcessingInstruction {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5188,25 +5398,36 @@ export class xText {
     /* Properties of GXml.xCharacterData */
     data: string
     length: number
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
+    /* Properties of GXml.xNode */
+    namespace_definitions: Gee.List
     namespace_uri: string
-    prefix: string
+    namespace_prefix: string
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
+    parent_node: xNode
+    child_nodes: xNodeList
+    first_child: xNode
+    last_child: xNode
+    previous_sibling: xNode
+    next_sibling: xNode
     attributes: NamedAttrMap
-    owner_document: Document
+    owner_document: xDocument
+    readonly namespaces: Gee.List
+    readonly children: Gee.BidirList
+    readonly attrs: Gee.Map
+    readonly name: string
+    value: string
+    readonly parent: Node
+    /* Properties of GXml.Text */
+    readonly str: string
     /* Fields of GXml.xText */
     parent_instance: xCharacterData
     priv: xTextPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.xText */
@@ -5220,31 +5441,39 @@ export class xText {
     get_data(): string
     set_data(value: string): void
     get_length(): number
-    /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
+    /* Methods of GXml.xNode */
+    add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    replace_child(new_child: xNode, old_child: xNode): xNode | null
+    remove_child(old_child: xNode): xNode | null
+    append_child(new_child: xNode): xNode | null
     has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
+    clone_node(deep: boolean): xNode | null
+    stringify(format: boolean, level: number): string
+    to_string(): string
+    get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
-    get_prefix(): string | null
+    get_namespace_prefix(): string | null
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
+    get_parent_node(): xNode | null
+    get_child_nodes(): xNodeList | null
+    get_first_child(): xNode | null
+    get_last_child(): xNode | null
+    get_previous_sibling(): xNode | null
+    get_next_sibling(): xNode | null
     get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get_owner_document(): xDocument
+    get_namespaces(): Gee.List
+    get_children(): Gee.BidirList
+    get_attrs(): Gee.Map
+    get_name(): string
+    get_value(): string
+    set_value(value: string): void
+    get_parent(): Node
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5268,31 +5497,48 @@ export class xText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Text */
-    split_text(offset: number): Text
-    /* Virtual methods of GXml.Node */
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
+    get_str(): string
+    /* Virtual methods of GXml.xText */
+    vfunc_get_str(): string
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_append_child(new_child: xNode): xNode | null
     vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
+    vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_next_sibling(): xNode | null
     vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get_namespaces(): Gee.List
+    vfunc_get_children(): Gee.BidirList
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_name(): string
+    vfunc_get_value(): string
+    vfunc_set_value(value: string): void
+    vfunc_get_parent(): Node
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5313,8 +5559,8 @@ export class xText {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
@@ -5339,6 +5585,20 @@ export class xText {
     connect_after(sigName: "notify::attributes", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespaces", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespaces", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attrs", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attrs", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5788,7 +6048,6 @@ export class SerializableValueList {
 export interface SerializableObjectModel_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableObjectModel {
@@ -5796,7 +6055,8 @@ export class SerializableObjectModel {
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableObjectModel */
     parent_instance: GObject.Object
@@ -5849,20 +6109,10 @@ export class SerializableObjectModel {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GXml.SerializableObjectModel */
@@ -5875,27 +6125,13 @@ export class SerializableObjectModel {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_to_string(): string
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject.Object */
@@ -5927,8 +6163,10 @@ export class SerializableObjectModel {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5946,25 +6184,26 @@ export class SerializableObjectModel {
 export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableTreeMap {
     /* Properties of GXml.SerializableTreeMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.TreeMap */
-    key_compare_func: GLib.CompareFunc
-    value_equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractBidirSortedMap */
+    readonly read_only_view: Gee.BidirSortedMap
+    /* Properties of Gee.AbstractSortedMap */
+    readonly ascending_keys: Gee.SortedSet
+    readonly ascending_entries: Gee.SortedSet
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
-    readonly read_only_view: Gee.Map
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableTreeMap */
     parent_instance: Gee.TreeMap
@@ -5996,6 +6235,28 @@ export class SerializableTreeMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+    /* Methods of Gee.TreeMap */
+    get_key_compare_func(): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirSortedMap */
+    bidir_map_iterator(): Gee.BidirMapIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirSortedMap
+    /* Methods of Gee.AbstractSortedMap */
+    head_map(before?: object | null): Gee.SortedMap
+    tail_map(after?: object | null): Gee.SortedMap
+    sub_map(before?: object | null, after?: object | null): Gee.SortedMap
+    get_ascending_keys(): Gee.SortedSet
+    get_ascending_entries(): Gee.SortedSet
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -6004,9 +6265,14 @@ export class SerializableTreeMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6031,20 +6297,10 @@ export class SerializableTreeMap {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -6062,30 +6318,56 @@ export class SerializableTreeMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.TreeMap */
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.AbstractBidirSortedMap */
+    vfunc_bidir_map_iterator(): Gee.BidirMapIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.AbstractSortedMap */
+    vfunc_head_map(before?: object | null): Gee.SortedMap
+    vfunc_tail_map(after?: object | null): Gee.SortedMap
+    vfunc_sub_map(before?: object | null, after?: object | null): Gee.SortedMap
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_ascending_keys(): Gee.SortedSet
+    vfunc_get_ascending_entries(): Gee.SortedSet
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -6094,14 +6376,43 @@ export class SerializableTreeMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6131,24 +6442,26 @@ export class SerializableTreeMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6160,7 +6473,7 @@ export class SerializableTreeMap {
     _init (config?: SerializableTreeMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
-    static new(key_compare_func?: GLib.CompareFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableTreeMap
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_compare_func: GLib.CompareDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableTreeMap
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -6168,26 +6481,22 @@ export class SerializableTreeMap {
 export interface SerializableHashMap_ConstructProps extends Gee.HashMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableHashMap {
     /* Properties of GXml.SerializableHashMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableHashMap */
     parent_instance: Gee.HashMap
@@ -6220,6 +6529,10 @@ export class SerializableHashMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -6228,9 +6541,24 @@ export class SerializableHashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6254,20 +6582,10 @@ export class SerializableHashMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -6286,26 +6604,12 @@ export class SerializableHashMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
@@ -6317,14 +6621,43 @@ export class SerializableHashMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6354,16 +6687,10 @@ export class SerializableHashMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
@@ -6372,8 +6699,10 @@ export class SerializableHashMap {
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6385,7 +6714,7 @@ export class SerializableHashMap {
     _init (config?: SerializableHashMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableHashMap
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableHashMap
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -6393,7 +6722,6 @@ export class SerializableHashMap {
 export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableDualKeyMap {
@@ -6406,7 +6734,8 @@ export class SerializableDualKeyMap {
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableDualKeyMap */
     parent_instance: GObject.Object
@@ -6490,20 +6819,10 @@ export class SerializableDualKeyMap {
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -6522,9 +6841,7 @@ export class SerializableDualKeyMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -6543,21 +6860,9 @@ export class SerializableDualKeyMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
@@ -6600,8 +6905,10 @@ export class SerializableDualKeyMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6620,28 +6927,30 @@ export class SerializableDualKeyMap {
 export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableArrayList {
     /* Properties of GXml.SerializableArrayList */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableArrayList */
     parent_instance: Gee.ArrayList
     priv: SerializableArrayListPrivate
     _node: Node
     _deserialized: boolean
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.SerializableArrayList */
@@ -6668,7 +6977,21 @@ export class SerializableArrayList {
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -6677,20 +7000,17 @@ export class SerializableArrayList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6715,20 +7035,10 @@ export class SerializableArrayList {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -6746,30 +7056,38 @@ export class SerializableArrayList {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -6778,21 +7096,69 @@ export class SerializableArrayList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6822,16 +7188,16 @@ export class SerializableArrayList {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6843,7 +7209,7 @@ export class SerializableArrayList {
     _init (config?: SerializableArrayList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
-    static new(equal_func?: GLib.EqualFunc | null): SerializableArrayList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): SerializableArrayList
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -6851,9 +7217,14 @@ export class SerializableArrayList {
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
+    /* Properties of GXml.SerializableObjectModel */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
     /* Fields of GXml.SerializableContainer */
     parent_instance: SerializableObjectModel
     priv: SerializableContainerPrivate
+    /* Fields of GXml.SerializableObjectModel */
+    _node: Node
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.SerializableContainer */
@@ -6862,24 +7233,24 @@ export class SerializableContainer {
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
+    set_default_namespace(node: Node): boolean
     node_name(): string
     default_node_name(): string
     find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
     list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
     serialize(node: Node): Node | null
     default_serialize(node: Node): Node | null
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
     default_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
-    default_deserialize(node: Node): Node | null
+    deserialize(node: Node): boolean
+    default_deserialize(node: Node): boolean
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
     to_string(): string
+    get_properties(): GObject.ParamSpec[]
+    set_properties(value: GObject.ParamSpec[]): void
+    get_ignored_serializable_properties(): GLib.HashTable
+    set_ignored_serializable_properties(value: GLib.HashTable): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6908,30 +7279,19 @@ export class SerializableContainer {
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
+    vfunc_set_default_namespace(node: Node): boolean
     vfunc_node_name(): string
     vfunc_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
     vfunc_serialize(node: Node): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    vfunc_deserialize(node: Node): Node | null
+    vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_to_string(): string
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject.Object */
@@ -6946,6 +7306,10 @@ export class SerializableContainer {
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6961,7 +7325,7 @@ export interface TAttribute_ConstructProps extends TNode_ConstructProps {
 export class TAttribute {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -6980,7 +7344,6 @@ export class TAttribute {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -6988,7 +7351,7 @@ export class TAttribute {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7019,23 +7382,20 @@ export class TAttribute {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Attribute */
-    get_namespace(): Namespace | null
-    set_namespace(value?: Namespace | null): void
-    get_prefix(): string | null
+    get_namespace(): Namespace
+    set_namespace(value: Namespace): void
+    get_prefix(): string
     /* Virtual methods of GXml.TAttribute */
-    vfunc_get_namespace(): Namespace | null
-    vfunc_set_namespace(value?: Namespace | null): void
+    vfunc_get_namespace(): Namespace
+    vfunc_set_namespace(value: Namespace): void
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
-    vfunc_get_prefix(): string | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_prefix(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7043,28 +7403,11 @@ export class TAttribute {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7079,8 +7422,8 @@ export class TAttribute {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
@@ -7113,13 +7456,15 @@ export interface TComment_ConstructProps extends TNode_ConstructProps {
 export class TComment {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+    /* Properties of GXml.Comment */
+    readonly str: string
     /* Fields of GXml.TComment */
     parent_instance: TNode
     priv: TCommentPrivate
@@ -7128,7 +7473,6 @@ export class TComment {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -7136,7 +7480,7 @@ export class TComment {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7166,16 +7510,16 @@ export class TComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Comment */
+    get_str(): string
     /* Virtual methods of GXml.TComment */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_str(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7183,28 +7527,11 @@ export class TComment {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7219,8 +7546,8 @@ export class TComment {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
@@ -7233,6 +7560,8 @@ export class TComment {
     connect_after(sigName: "notify::value", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7249,7 +7578,7 @@ export interface TCDATA_ConstructProps extends TNode_ConstructProps {
 export class TCDATA {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -7266,7 +7595,6 @@ export class TCDATA {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -7274,7 +7602,7 @@ export class TCDATA {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7308,15 +7636,12 @@ export class TCDATA {
     get_str(): string
     /* Virtual methods of GXml.TCDATA */
     vfunc_get_str(): string
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7324,28 +7649,11 @@ export class TCDATA {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7360,8 +7668,8 @@ export class TCDATA {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
@@ -7388,14 +7696,16 @@ export class TCDATA {
     static $gtype: GObject.Type
 }
 export interface TDocument_ConstructProps extends TNode_ConstructProps {
-    doctype?: DocumentType
-    implementation?: Implementation
-    document_element?: Element
+    indent?: boolean
+    ns_top?: boolean
+    prefix_default_ns?: boolean
+    backup?: boolean
+    file?: Gio.File
 }
 export class TDocument {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -7403,9 +7713,12 @@ export class TDocument {
     value: string
     readonly parent: Node
     /* Properties of GXml.Document */
-    doctype: DocumentType
-    implementation: Implementation
-    document_element: Element
+    indent: boolean
+    ns_top: boolean
+    prefix_default_ns: boolean
+    backup: boolean
+    readonly root: Node
+    file: Gio.File
     /* Fields of GXml.TDocument */
     parent_instance: TNode
     priv: TDocumentPrivate
@@ -7416,7 +7729,6 @@ export class TDocument {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TDocument */
@@ -7426,7 +7738,7 @@ export class TDocument {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7457,31 +7769,49 @@ export class TDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Document */
-    save_to_path(file_path: string): void
-    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
-    create_element(tag_name: string): Element
-    create_document_fragment(): DocumentFragment
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    create_entity_reference(name: string): EntityReference
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_implementation(): Implementation
-    get_document_element(): Element
+    create_element(name: string): Node
+    create_text(text: string): Node
+    create_comment(text: string): Node
+    create_cdata(text: string): Node
+    create_pi(target: string, data: string): Node
+    save(cancellable?: Gio.Cancellable | null): boolean
+    save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    get_indent(): boolean
+    set_indent(value: boolean): void
+    get_ns_top(): boolean
+    set_ns_top(value: boolean): void
+    get_prefix_default_ns(): boolean
+    set_prefix_default_ns(value: boolean): void
+    get_backup(): boolean
+    set_backup(value: boolean): void
+    get_root(): Node
+    get_file(): Gio.File
+    set_file(value: Gio.File): void
     /* Virtual methods of GXml.TDocument */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_create_element(name: string): Node
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_save(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7489,28 +7819,11 @@ export class TDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7525,8 +7838,8 @@ export class TDocument {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
@@ -7539,12 +7852,18 @@ export class TDocument {
     connect_after(sigName: "notify::value", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ns-top", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ns-top", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix-default-ns", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix-default-ns", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::backup", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::backup", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::root", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7558,32 +7877,30 @@ export class TDocument {
     static from_uri(uri: string): TDocument
     static from_file(file: Gio.File): TDocument
     static from_stream(stream: Gio.InputStream): TDocument
-    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): TDocument
     static from_string(str: string): TDocument
-    static from_path_with_readtype_func(path: string, func: any): TDocument
-    static from_uri_with_readtype_func(uri: string, func: any): TDocument
-    static from_file_with_readtype_func(file: Gio.File, func: any): TDocument
-    static from_stream_with_readtype_func(stream: Gio.InputStream, func: any): TDocument
-    static from_string_with_readtype_func(str: string, func: any): TDocument
-    static from_libxml2(doc: object | null, require_root: boolean): TDocument
-    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): TDocument
-    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): TDocument
+    static from_path_with_readtype_func(path: string, func: TDocumentReadTypeFunc): TDocument
+    static from_uri_with_readtype_func(uri: string, func: TDocumentReadTypeFunc): TDocument
+    static from_file_with_readtype_func(file: Gio.File, func: TDocumentReadTypeFunc): TDocument
+    static from_stream_with_readtype_func(stream: Gio.InputStream, func: TDocumentReadTypeFunc): TDocument
+    static from_string_with_readtype_func(str: string, func: TDocumentReadTypeFunc): TDocument
     static tw_save_as(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     static write_document(doc: Document, tw: libxml2.TextWriter): void
     static start_node(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declared_ns: Gee.ArrayList): /* declared_ns */ Gee.ArrayList
-    static read_doc(doc: Document, file: Gio.File, rtfunc?: any): void
-    static read_doc_stream(doc: Document, istream: Gio.InputStream, rtfunc?: any): void
-    static read_node(node: Node, tr: libxml2.TextReader, rntfunc?: any): TDocumentReadType
+    static read_doc(doc: Document, file: Gio.File, rtfunc?: TDocumentReadTypeFunc | null): void
+    static read_doc_stream(doc: Document, istream: Gio.InputStream, rtfunc?: TDocumentReadTypeFunc | null): void
+    static read_node(node: Node, tr: libxml2.TextReader, rntfunc?: TDocumentReadTypeFunc | null): TDocumentReadType
+    static new_default(): Document
+    static new_default_for_path(path: string): Document
+    static new_default_for_file(f: Gio.File): Document
     static $gtype: GObject.Type
 }
 export interface TElement_ConstructProps extends TNode_ConstructProps {
-    tag_name?: string
     content?: string
 }
 export class TElement {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -7591,7 +7908,7 @@ export class TElement {
     value: string
     readonly parent: Node
     /* Properties of GXml.Element */
-    tag_name: string
+    readonly tag_name: string
     content: string
     /* Fields of GXml.TElement */
     parent_instance: TNode
@@ -7604,7 +7921,6 @@ export class TElement {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -7612,7 +7928,7 @@ export class TElement {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7643,27 +7959,31 @@ export class TElement {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
     normalize(): void
+    set_attr(name: string, value: string): void
+    get_attr(name: string): Node
+    remove_attr(name: string): void
+    set_ns_attr(ns: Namespace, name: string, value: string): void
+    get_ns_attr(name: string, uri: string): Node
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
     /* Virtual methods of GXml.TElement */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_normalize(): void
+    vfunc_set_attr(name: string, value: string): void
+    vfunc_get_attr(name: string): Node
+    vfunc_remove_attr(name: string): void
+    vfunc_set_ns_attr(ns: Namespace, name: string, value: string): void
+    vfunc_get_ns_attr(name: string, uri: string): Node
+    vfunc_get_tag_name(): string
+    vfunc_get_content(): string
+    vfunc_set_content(value: string): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7671,28 +7991,11 @@ export class TElement {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7707,8 +8010,8 @@ export class TElement {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
@@ -7741,7 +8044,7 @@ export interface TNamespace_ConstructProps extends TNode_ConstructProps {
 export class TNamespace {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -7759,7 +8062,6 @@ export class TNamespace {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -7767,7 +8069,7 @@ export class TNamespace {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7798,20 +8100,17 @@ export class TNamespace {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Namespace */
-    get_uri(): string | null
-    get_prefix(): string | null
+    get_uri(): string
+    get_prefix(): string
     /* Virtual methods of GXml.TNamespace */
-    vfunc_get_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_uri(): string
+    vfunc_get_prefix(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7819,28 +8118,11 @@ export class TNamespace {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7855,8 +8137,8 @@ export class TNamespace {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
@@ -7886,21 +8168,6 @@ export class TNamespace {
 }
 export interface TNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
-    namespace_definitions?: NodeList
-    namespace_uri?: string
-    prefix?: string
-    local_name?: string
-    node_name?: string
-    node_value?: string
-    node_type?: NodeType
-    parent_node?: Node
-    child_nodes?: NodeList
-    first_child?: Node
-    last_child?: Node
-    previous_sibling?: Node
-    next_sibling?: Node
-    attributes?: NamedAttrMap
-    owner_document?: Document
 }
 export class TNode {
     /* Properties of GXml.TNode */
@@ -7913,21 +8180,7 @@ export class TNode {
     value: string
     readonly parent: Node
     /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    readonly childs: Gee.BidirList
     /* Fields of GXml.TNode */
     parent_instance: GObject.Object
     priv: TNodePrivate
@@ -7973,34 +8226,14 @@ export class TNode {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get(key: string): Node | null
+    get_elements_by_property_value(property: string, value: string): ElementList
+    ns_prefix(): string
+    ns_uri(): string
+    get_childs(): Gee.BidirList
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
@@ -8011,28 +8244,11 @@ export class TNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8061,36 +8277,8 @@ export class TNode {
     connect_after(sigName: "notify::value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::childs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::childs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8098,6 +8286,8 @@ export class TNode {
     static name: string
     constructor (config?: TNode_ConstructProps)
     _init (config?: TNode_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
 export interface TNodeTChildrenList_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
@@ -8107,7 +8297,7 @@ export class TNodeTChildrenList {
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.TNodeTChildrenList */
     parent_instance: Gee.AbstractBidirList
     priv: TNodeTChildrenListPrivate
@@ -8134,20 +8324,17 @@ export class TNodeTChildrenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8170,6 +8357,10 @@ export class TNodeTChildrenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.TNodeTChildrenList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
@@ -8183,6 +8374,8 @@ export class TNodeTChildrenList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8191,21 +8384,69 @@ export class TNodeTChildrenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8222,8 +8463,8 @@ export class TNodeTChildrenList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8236,13 +8477,11 @@ export class TNodeTChildrenList {
     static $gtype: GObject.Type
 }
 export interface TProcessingInstruction_ConstructProps extends TNode_ConstructProps {
-    target?: string
-    data?: string
 }
 export class TProcessingInstruction {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
@@ -8250,8 +8489,8 @@ export class TProcessingInstruction {
     value: string
     readonly parent: Node
     /* Properties of GXml.ProcessingInstruction */
-    target: string
-    data: string
+    readonly target: string
+    readonly data: string
     /* Fields of GXml.TProcessingInstruction */
     parent_instance: TNode
     priv: TProcessingInstructionPrivate
@@ -8260,7 +8499,6 @@ export class TProcessingInstruction {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -8268,7 +8506,7 @@ export class TProcessingInstruction {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -8301,17 +8539,15 @@ export class TProcessingInstruction {
     /* Methods of GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
-    set_data(value: string): void
     /* Virtual methods of GXml.TProcessingInstruction */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_target(): string
+    vfunc_get_data(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -8319,28 +8555,11 @@ export class TProcessingInstruction {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8355,8 +8574,8 @@ export class TProcessingInstruction {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
@@ -8389,13 +8608,15 @@ export interface TText_ConstructProps extends TNode_ConstructProps {
 export class TText {
     /* Properties of GXml.TNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+    /* Properties of GXml.Text */
+    readonly str: string
     /* Fields of GXml.TText */
     parent_instance: TNode
     priv: TTextPrivate
@@ -8404,7 +8625,6 @@ export class TText {
     _value: string
     _doc: Document
     _parent: Node
-    _node_type: NodeType
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.TNode */
@@ -8412,7 +8632,7 @@ export class TText {
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -8443,17 +8663,15 @@ export class TText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Text */
-    split_text(offset: number): Text
+    get_str(): string
     /* Virtual methods of GXml.TText */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_str(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -8461,28 +8679,11 @@ export class TText {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8497,8 +8698,8 @@ export class TText {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
@@ -8511,6 +8712,8 @@ export class TText {
     connect_after(sigName: "notify::value", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8636,85 +8839,37 @@ export class HtmlDocument {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.HtmlDocument */
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.xDocument */
     vfunc_get_root(): Node
-    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_create_element(name: string): Node
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_save(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
     /* Virtual methods of GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
     vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(old_child: xNode): xNode | null
-    vfunc_remove_child(old_child: Node): Node | null
     vfunc_append_child(new_child: xNode): xNode | null
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_has_child_nodes(): boolean
     vfunc_clone_node(deep: boolean): xNode | null
-    vfunc_clone_node(deep: boolean): Node | null
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_namespace_definitions(): Gee.List | null
-    vfunc_get_namespace_definitions(): NodeList | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -8722,17 +8877,11 @@ export class HtmlDocument {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
-    vfunc_get_parent_node(): Node | null
     vfunc_get_child_nodes(): xNodeList | null
-    vfunc_get_child_nodes(): NodeList | null
     vfunc_get_first_child(): xNode | null
-    vfunc_get_first_child(): Node | null
     vfunc_get_last_child(): xNode | null
-    vfunc_get_last_child(): Node | null
     vfunc_get_previous_sibling(): xNode | null
-    vfunc_get_previous_sibling(): Node | null
     vfunc_get_next_sibling(): xNode | null
-    vfunc_get_next_sibling(): Node | null
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -8741,8 +8890,13 @@ export class HtmlDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_prefix(): string | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
+    vfunc_get_type_node(): NodeType
+    vfunc_get_document(): Document
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8831,7 +8985,7 @@ export interface GAttribute_ConstructProps extends GNode_ConstructProps {
 export class GAttribute {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -8847,7 +9001,6 @@ export class GAttribute {
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -8855,7 +9008,7 @@ export class GAttribute {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -8886,44 +9039,19 @@ export class GAttribute {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Attribute */
-    get_namespace(): Namespace | null
-    set_namespace(value?: Namespace | null): void
-    get_prefix(): string | null
+    get_namespace(): Namespace
+    set_namespace(value: Namespace): void
+    get_prefix(): string
     /* Virtual methods of GXml.GAttribute */
-    vfunc_get_namespace(): Namespace | null
-    vfunc_set_namespace(value?: Namespace | null): void
+    vfunc_get_namespace(): Namespace
+    vfunc_set_namespace(value: Namespace): void
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
-    vfunc_get_prefix(): string | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_prefix(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -8931,56 +9059,11 @@ export class GAttribute {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8995,8 +9078,8 @@ export class GAttribute {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
@@ -9029,20 +9112,21 @@ export interface GComment_ConstructProps extends GNode_ConstructProps {
 export class GComment {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+    /* Properties of GXml.Comment */
+    readonly str: string
     /* Fields of GXml.GComment */
     parent_instance: GNode
     priv: GCommentPrivate
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -9050,7 +9134,7 @@ export class GComment {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9080,37 +9164,15 @@ export class GComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Comment */
+    get_str(): string
     /* Virtual methods of GXml.GComment */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_str(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9118,56 +9180,11 @@ export class GComment {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9182,8 +9199,8 @@ export class GComment {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
@@ -9196,6 +9213,8 @@ export class GComment {
     connect_after(sigName: "notify::name", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9212,7 +9231,7 @@ export interface GCDATA_ConstructProps extends GNode_ConstructProps {
 export class GCDATA {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -9227,7 +9246,6 @@ export class GCDATA {
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -9235,7 +9253,7 @@ export class GCDATA {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9269,36 +9287,11 @@ export class GCDATA {
     get_str(): string
     /* Virtual methods of GXml.GCDATA */
     vfunc_get_str(): string
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9306,56 +9299,11 @@ export class GCDATA {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9370,8 +9318,8 @@ export class GCDATA {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
@@ -9398,14 +9346,16 @@ export class GCDATA {
     static $gtype: GObject.Type
 }
 export interface GDocument_ConstructProps extends GNode_ConstructProps {
-    doctype?: DocumentType
-    implementation?: Implementation
-    document_element?: Element
+    indent?: boolean
+    ns_top?: boolean
+    prefix_default_ns?: boolean
+    backup?: boolean
+    file?: Gio.File
 }
 export class GDocument {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -9413,18 +9363,20 @@ export class GDocument {
     readonly name: string
     value: string
     /* Properties of GXml.Document */
-    doctype: DocumentType
-    implementation: Implementation
-    document_element: Element
+    indent: boolean
+    ns_top: boolean
+    prefix_default_ns: boolean
+    backup: boolean
+    readonly root: Node
+    file: Gio.File
     /* Fields of GXml.GDocument */
     parent_instance: GNode
     priv: GDocumentPrivate
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GDocument */
@@ -9436,7 +9388,7 @@ export class GDocument {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9467,54 +9419,46 @@ export class GDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Document */
-    save_to_path(file_path: string): void
-    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
-    create_element(tag_name: string): Element
-    create_document_fragment(): DocumentFragment
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    create_entity_reference(name: string): EntityReference
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_implementation(): Implementation
-    get_document_element(): Element
+    create_element(name: string): Node
+    create_text(text: string): Node
+    create_comment(text: string): Node
+    create_cdata(text: string): Node
+    create_pi(target: string, data: string): Node
+    get_indent(): boolean
+    set_indent(value: boolean): void
+    get_ns_top(): boolean
+    set_ns_top(value: boolean): void
+    get_prefix_default_ns(): boolean
+    set_prefix_default_ns(value: boolean): void
+    get_backup(): boolean
+    set_backup(value: boolean): void
+    get_root(): Node
+    get_file(): Gio.File
+    set_file(value: Gio.File): void
     /* Virtual methods of GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_create_element(name: string): Node
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9522,56 +9466,11 @@ export class GDocument {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9586,8 +9485,8 @@ export class GDocument {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
@@ -9600,12 +9499,18 @@ export class GDocument {
     connect_after(sigName: "notify::name", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ns-top", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ns-top", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix-default-ns", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix-default-ns", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::backup", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::backup", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::root", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9616,27 +9521,23 @@ export class GDocument {
     /* Static methods and pseudo-constructors */
     static new(): GDocument
     static from_path(path: string, options: number): GDocument
-    static from_path(file_path: string): GDocument
     static from_uri(uri: string, options: number): GDocument
     static from_file(file: Gio.File, options: number, cancel?: Gio.Cancellable | null): GDocument
     static from_string(str: string, options: number): GDocument
-    static from_string(xml: string): GDocument
     static from_stream(istream: Gio.InputStream): GDocument
-    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): GDocument
     static from_doc(doc: libxml2.Doc): GDocument
-    static from_libxml2(doc: object | null, require_root: boolean): GDocument
-    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): GDocument
-    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): GDocument
+    static new_default(): Document
+    static new_default_for_path(path: string): Document
+    static new_default_for_file(f: Gio.File): Document
     static $gtype: GObject.Type
 }
 export interface GElement_ConstructProps extends GNode_ConstructProps {
-    tag_name?: string
     content?: string
 }
 export class GElement {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -9644,7 +9545,7 @@ export class GElement {
     readonly name: string
     value: string
     /* Properties of GXml.Element */
-    tag_name: string
+    readonly tag_name: string
     content: string
     /* Fields of GXml.GElement */
     parent_instance: GNode
@@ -9652,7 +9553,6 @@ export class GElement {
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -9660,7 +9560,7 @@ export class GElement {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9691,48 +9591,30 @@ export class GElement {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
     normalize(): void
+    set_attr(name: string, value: string): void
+    get_attr(name: string): Node
+    remove_attr(name: string): void
+    set_ns_attr(ns: Namespace, name: string, value: string): void
+    get_ns_attr(name: string, uri: string): Node
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
     /* Virtual methods of GXml.GElement */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_normalize(): void
+    vfunc_set_attr(name: string, value: string): void
+    vfunc_get_attr(name: string): Node
+    vfunc_remove_attr(name: string): void
+    vfunc_set_ns_attr(ns: Namespace, name: string, value: string): void
+    vfunc_get_ns_attr(name: string, uri: string): Node
+    vfunc_get_tag_name(): string
+    vfunc_get_content(): string
+    vfunc_set_content(value: string): void
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9740,56 +9622,11 @@ export class GElement {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9804,8 +9641,8 @@ export class GElement {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
@@ -9838,7 +9675,7 @@ export interface GNamespace_ConstructProps extends GNode_ConstructProps {
 export class GNamespace {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -9854,7 +9691,6 @@ export class GNamespace {
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNamespace */
@@ -9864,7 +9700,7 @@ export class GNamespace {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9895,41 +9731,16 @@ export class GNamespace {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Namespace */
-    get_uri(): string | null
-    get_prefix(): string | null
+    get_uri(): string
+    get_prefix(): string
     /* Virtual methods of GXml.GNamespace */
-    vfunc_get_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_uri(): string
+    vfunc_get_prefix(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9937,56 +9748,11 @@ export class GNamespace {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10001,8 +9767,8 @@ export class GNamespace {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
@@ -10032,21 +9798,6 @@ export class GNamespace {
 }
 export interface GNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
-    namespace_definitions?: NodeList
-    namespace_uri?: string
-    prefix?: string
-    local_name?: string
-    node_name?: string
-    node_value?: string
-    node_type?: NodeType
-    parent_node?: Node
-    child_nodes?: NodeList
-    first_child?: Node
-    last_child?: Node
-    previous_sibling?: Node
-    next_sibling?: Node
-    attributes?: NamedAttrMap
-    owner_document?: Document
 }
 export class GNode {
     /* Properties of GXml.GNode */
@@ -10059,21 +9810,7 @@ export class GNode {
     readonly name: string
     value: string
     /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
+    readonly childs: Gee.BidirList
     /* Fields of GXml.GNode */
     parent_instance: GObject.Object
     priv: GNodePrivate
@@ -10117,34 +9854,14 @@ export class GNode {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get(key: string): Node | null
+    get_elements_by_property_value(property: string, value: string): ElementList
+    ns_prefix(): string
+    ns_uri(): string
+    get_childs(): Gee.BidirList
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -10154,28 +9871,11 @@ export class GNode {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10204,36 +9904,8 @@ export class GNode {
     connect_after(sigName: "notify::name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::childs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::childs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10243,16 +9915,15 @@ export class GNode {
     _init (config?: GNode_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static to_gnode(doc: GDocument, node?: object | null): Node
+    static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
 export interface GProcessingInstruction_ConstructProps extends GNode_ConstructProps {
-    target?: string
-    data?: string
 }
 export class GProcessingInstruction {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
@@ -10260,15 +9931,14 @@ export class GProcessingInstruction {
     readonly name: string
     value: string
     /* Properties of GXml.ProcessingInstruction */
-    target: string
-    data: string
+    readonly target: string
+    readonly data: string
     /* Fields of GXml.GProcessingInstruction */
     parent_instance: GNode
     priv: GProcessingInstructionPrivate
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -10276,7 +9946,7 @@ export class GProcessingInstruction {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -10309,38 +9979,14 @@ export class GProcessingInstruction {
     /* Methods of GXml.ProcessingInstruction */
     get_target(): string
     get_data(): string
-    set_data(value: string): void
     /* Virtual methods of GXml.GProcessingInstruction */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_target(): string
+    vfunc_get_data(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -10348,56 +9994,11 @@ export class GProcessingInstruction {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10412,8 +10013,8 @@ export class GProcessingInstruction {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
@@ -10446,20 +10047,21 @@ export interface GText_ConstructProps extends GNode_ConstructProps {
 export class GText {
     /* Properties of GXml.GNode */
     readonly attrs: Gee.Map
-    readonly children_nodes: Gee.BidirList
+    readonly children: Gee.BidirList
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+    /* Properties of GXml.Text */
+    readonly str: string
     /* Fields of GXml.GText */
     parent_instance: GNode
     priv: GTextPrivate
     /* Fields of GXml.GNode */
     _doc: GDocument
     _node: object | null
-    _base_uri: string
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GNode */
@@ -10467,7 +10069,7 @@ export class GText {
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
-    get_children_nodes(): Gee.BidirList
+    get_children(): Gee.BidirList
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -10498,38 +10100,14 @@ export class GText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Text */
-    split_text(offset: number): Text
+    get_str(): string
     /* Virtual methods of GXml.GText */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_str(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
-    vfunc_get_children_nodes(): Gee.BidirList
+    vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -10537,56 +10115,11 @@ export class GText {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
-    vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
+    vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10601,8 +10134,8 @@ export class GText {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::children-nodes", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::children-nodes", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::children", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespaces", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
@@ -10615,6 +10148,8 @@ export class GText {
     connect_after(sigName: "notify::name", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10631,7 +10166,7 @@ export interface GHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructPr
 export class GHashMapAttr {
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -10649,9 +10184,24 @@ export class GHashMapAttr {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10682,14 +10232,43 @@ export class GHashMapAttr {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10704,8 +10283,8 @@ export class GHashMapAttr {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
@@ -10731,11 +10310,17 @@ export class GHashMapAttrEntry {
     /* Properties of Gee.MapEntry */
     readonly key: object
     value: object
+    readonly read_only: boolean
     /* Fields of GXml.GHashMapAttrEntry */
     parent_instance: Gee.MapEntry
     priv: GHashMapAttrEntryPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.MapEntry */
+    get_key(): object | null
+    get_value(): object | null
+    set_value(value?: object | null): void
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10758,6 +10343,11 @@ export class GHashMapAttrEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.MapEntry */
+    vfunc_get_key(): object | null
+    vfunc_get_value(): object | null
+    vfunc_set_value(value?: object | null): void
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10774,6 +10364,8 @@ export class GHashMapAttrEntry {
     connect_after(sigName: "notify::key", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10788,6 +10380,10 @@ export class GHashMapAttrEntry {
 export interface GHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GHashMapAttrIterator {
+    /* Properties of Gee.MapIterator */
+    readonly valid: boolean
+    readonly mutable: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GHashMapAttrIterator */
     parent_instance: GObject.Object
     priv: GHashMapAttrIteratorPrivate
@@ -10818,19 +10414,27 @@ export class GHashMapAttrIterator {
     /* Methods of Gee.MapIterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get_key(): object | null
     get_value(): object | null
     set_value(value?: object | null): void
     unset(): void
+    fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    foreach(f: Gee.ForallMapFunc): boolean
+    get_valid(): boolean
+    get_mutable(): boolean
+    get_read_only(): boolean
     /* Virtual methods of GXml.GHashMapAttrIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    vfunc_foreach(f: Gee.ForallMapFunc): boolean
+    vfunc_get_valid(): boolean
+    vfunc_get_mutable(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10843,6 +10447,12 @@ export class GHashMapAttrIterator {
     connect(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mutable", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mutable", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10861,7 +10471,7 @@ export class GListChildren {
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListChildren */
     parent_instance: Gee.AbstractBidirList
     priv: GListChildrenPrivate
@@ -10888,20 +10498,17 @@ export class GListChildren {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -10924,6 +10531,10 @@ export class GListChildren {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.GListChildren */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
@@ -10937,6 +10548,8 @@ export class GListChildren {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -10945,21 +10558,69 @@ export class GListChildren {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10976,8 +10637,8 @@ export class GListChildren {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10992,6 +10653,9 @@ export class GListChildren {
 export interface GListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListChildrenIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListChildrenIterator */
     parent_instance: GObject.Object
     priv: GListChildrenIteratorPrivate
@@ -11039,18 +10703,21 @@ export class GListChildrenIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of Gee.BidirIterator */
     previous(): boolean
     has_previous(): boolean
+    first(): boolean
     last(): boolean
     /* Methods of Gee.ListIterator */
     set(item?: object | null): void
-    insert(item?: object | null): void
     add(item?: object | null): void
     index(): number
+    /* Methods of Gee.BidirListIterator */
+    insert(item?: object | null): void
     /* Virtual methods of GXml.GListChildrenIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -11070,16 +10737,18 @@ export class GListChildrenIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     vfunc_previous(): boolean
     vfunc_has_previous(): boolean
+    vfunc_first(): boolean
     vfunc_last(): boolean
     vfunc_set(item?: object | null): void
-    vfunc_insert(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
+    vfunc_insert(item?: object | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11092,6 +10761,10 @@ export class GListChildrenIterator {
     connect(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11101,6 +10774,8 @@ export class GListChildrenIterator {
     _init (config?: GListChildrenIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: GDocument, node?: object | null): GListChildrenIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export interface GListNamespaces_ConstructProps extends Gee.AbstractList_ConstructProps {
@@ -11110,7 +10785,7 @@ export class GListNamespaces {
     readonly read_only_view: Gee.List
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListNamespaces */
     parent_instance: Gee.AbstractList
     priv: GListNamespacesPrivate
@@ -11124,20 +10799,27 @@ export class GListNamespaces {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -11160,6 +10842,9 @@ export class GListNamespaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.GListNamespaces */
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -11168,21 +10853,69 @@ export class GListNamespaces {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11199,8 +10932,8 @@ export class GListNamespaces {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11215,6 +10948,9 @@ export class GListNamespaces {
 export interface GListNamespacesIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListNamespacesIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListNamespacesIterator */
     parent_instance: GObject.Object
     priv: GListNamespacesIteratorPrivate
@@ -11262,18 +10998,14 @@ export class GListNamespacesIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of Gee.ListIterator */
     set(item?: object | null): void
-    insert(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Methods of Gee.BidirIterator */
-    previous(): boolean
-    has_previous(): boolean
-    last(): boolean
     /* Virtual methods of GXml.GListNamespacesIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -11293,16 +11025,13 @@ export class GListNamespacesIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     vfunc_set(item?: object | null): void
-    vfunc_insert(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
-    vfunc_previous(): boolean
-    vfunc_has_previous(): boolean
-    vfunc_last(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11315,6 +11044,10 @@ export class GListNamespacesIterator {
     connect(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11324,6 +11057,8 @@ export class GListNamespacesIterator {
     _init (config?: GListNamespacesIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(node?: object | null): GListNamespacesIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export abstract class ElementListClass {

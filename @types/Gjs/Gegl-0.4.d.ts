@@ -2,10 +2,10 @@
  * Gegl-0.4
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Babl from './Babl-0.1';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Babl from './Babl-0.1';
 
 export enum AbyssPolicy {
     NONE,

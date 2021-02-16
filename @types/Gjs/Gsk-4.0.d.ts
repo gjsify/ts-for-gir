@@ -2,17 +2,17 @@
  * Gsk-4.0
  */
 
-import * as Gjs from './Gjs';
-import * as Graphene from './Graphene-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gdk from './Gdk-4.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Graphene from './Graphene-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gdk from './Gdk-4.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum BlendMode {
     DEFAULT,

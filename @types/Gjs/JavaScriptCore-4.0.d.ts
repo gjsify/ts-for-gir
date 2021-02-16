@@ -2,9 +2,9 @@
  * JavaScriptCore-4.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum CheckSyntaxMode {
     SCRIPT,
@@ -89,9 +89,9 @@ export class Class {
     g_type_instance: GObject.TypeInstance
     /* Methods of JavaScriptCore.Class */
     add_constructor_variadic(name: string | null, callback: GObject.Callback, return_type: GObject.Type): Value
-    add_constructor(name: string | null, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: any[]): Value
+    add_constructor(name: string | null, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: GType[] | null): Value
     add_method_variadic(name: string, callback: GObject.Callback, return_type: GObject.Type): void
-    add_method(name: string, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: any[]): void
+    add_method(name: string, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: GType[] | null): void
     add_property(name: string, property_type: GObject.Type, getter?: GObject.Callback | null, setter?: GObject.Callback | null): void
     get_name(): string
     get_parent(): Class
@@ -357,7 +357,7 @@ export class Value {
     static new_boolean(context: Context, value: boolean): Value
     static new_from_json(context: Context, json: string): Value
     static new_function_variadic(context: Context, name: string | null, callback: GObject.Callback, return_type: GObject.Type): Value
-    static new_function(context: Context, name: string | null, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: any[]): Value
+    static new_function(context: Context, name: string | null, callback: GObject.Callback, return_type: GObject.Type, parameter_types?: GType[] | null): Value
     static new_null(context: Context): Value
     static new_number(context: Context, number: number): Value
     static new_object(context: Context, instance?: object | null, jsc_class?: Class | null): Value

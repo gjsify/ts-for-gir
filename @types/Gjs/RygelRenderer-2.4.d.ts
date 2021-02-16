@@ -2,18 +2,18 @@
  * RygelRenderer-2.4
  */
 
-import * as Gjs from './Gjs';
-import * as RygelCore from './RygelCore-2.4';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as Gee from './Gee-0.8';
-import * as GUPnP from './GUPnP-1.0';
-import * as libxml2 from './libxml2-2.0';
+import type * as Gjs from './Gjs';
+import type * as RygelCore from './RygelCore-2.4';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as GUPnP from './GUPnP-1.0';
+import type * as libxml2 from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-import * as GModule from './GModule-2.0';
-import * as GUPnPAV from './GUPnPAV-1.0';
+import type * as GModule from './GModule-2.0';
+import type * as GUPnPAV from './GUPnPAV-1.0';
 
 export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProps {
     playback_state?: string
@@ -320,11 +320,11 @@ export class PlayerController {
     static $gtype: GObject.Type
 }
 export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
-    supported_profiles?: any[]
+    supported_profiles?: DLNAProfile[]
 }
 export class MediaRendererPlugin {
     /* Properties of RygelRenderer.MediaRendererPlugin */
-    supported_profiles: any[]
+    supported_profiles: DLNAProfile[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -335,13 +335,15 @@ export class MediaRendererPlugin {
     /* Fields of RygelRenderer.MediaRendererPlugin */
     parent_instance: RygelCore.Plugin
     priv: MediaRendererPluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelRenderer.MediaRendererPlugin */
     get_player(): MediaPlayer | null
     get_protocol_info(): string
-    get_supported_profiles(): any[]
-    set_supported_profiles(value: any[]): void
+    get_supported_profiles(): DLNAProfile[]
+    set_supported_profiles(value: DLNAProfile[]): void
     /* Methods of RygelCore.Plugin */
     add_resource(resource_info: RygelCore.ResourceInfo): void
     add_icon(icon_info: RygelCore.IconInfo): void

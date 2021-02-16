@@ -3,8 +3,8 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace HarfBuzz {
 
@@ -1319,21 +1319,21 @@ export class var_int_t {
     i8: any
     static name: string
 }
-type bool_t = number
-type codepoint_t = number
-type color_t = number
-type font_get_font_h_extents_func_t = font_get_font_extents_func_t
-type font_get_font_v_extents_func_t = font_get_font_extents_func_t
-type font_get_glyph_h_advance_func_t = font_get_glyph_advance_func_t
-type font_get_glyph_h_advances_func_t = font_get_glyph_advances_func_t
-type font_get_glyph_h_kerning_func_t = font_get_glyph_kerning_func_t
-type font_get_glyph_h_origin_func_t = font_get_glyph_origin_func_t
-type font_get_glyph_v_advance_func_t = font_get_glyph_advance_func_t
-type font_get_glyph_v_advances_func_t = font_get_glyph_advances_func_t
-type font_get_glyph_v_kerning_func_t = font_get_glyph_kerning_func_t
-type font_get_glyph_v_origin_func_t = font_get_glyph_origin_func_t
-type mask_t = number
-type ot_name_id_t = number
-type position_t = number
-type tag_t = number
+export type bool_t = number
+export type codepoint_t = number
+export type color_t = number
+export type font_get_font_h_extents_func_t = font_get_font_extents_func_t
+export type font_get_font_v_extents_func_t = font_get_font_extents_func_t
+export type font_get_glyph_h_advance_func_t = font_get_glyph_advance_func_t
+export type font_get_glyph_h_advances_func_t = font_get_glyph_advances_func_t
+export type font_get_glyph_h_kerning_func_t = font_get_glyph_kerning_func_t
+export type font_get_glyph_h_origin_func_t = font_get_glyph_origin_func_t
+export type font_get_glyph_v_advance_func_t = font_get_glyph_advance_func_t
+export type font_get_glyph_v_advances_func_t = font_get_glyph_advances_func_t
+export type font_get_glyph_v_kerning_func_t = font_get_glyph_kerning_func_t
+export type font_get_glyph_v_origin_func_t = font_get_glyph_origin_func_t
+export type mask_t = number
+export type ot_name_id_t = number
+export type position_t = number
+export type tag_t = number
 }

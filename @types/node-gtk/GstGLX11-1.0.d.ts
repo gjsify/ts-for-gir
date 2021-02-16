@@ -3,13 +3,13 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GstGL-1.0.d.ts" />
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { GstGL } from './GstGL-1.0';
 
 declare namespace GstGLX11 {
 
@@ -34,7 +34,7 @@ export class GLDisplayX11 {
     getGlApi(): GstGL.GLAPI
     getGlApiUnlocked(): GstGL.GLAPI
     getGlContextForThread(thread: GLib.Thread): GstGL.GLContext
-    getHandle(): any
+    getHandle(): GstGL.guintptr
     getHandleType(): GstGL.GLDisplayType
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
@@ -87,7 +87,7 @@ export class GLDisplayX11 {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): any
+    vfuncGetHandle(): GstGL.guintptr
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */

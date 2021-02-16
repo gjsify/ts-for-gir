@@ -2,10 +2,10 @@
  * Qmi-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum CoreError {
     FAILED,
@@ -11091,4 +11091,4 @@ export abstract class ProxyClass {
 export class ProxyPrivate {
     static name: string
 }
-type Message = Uint8Array
+export type Message = Uint8Array

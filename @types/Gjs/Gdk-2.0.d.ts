@@ -2,15 +2,15 @@
  * Gdk-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum AxisUse {
     IGNORE,
@@ -4871,9 +4871,9 @@ export class Event {
     static request_motions(event: EventMotion): void
     static send_client_message_for_display(display: Display, event: Event, winid: NativeWindow): boolean
 }
-type NativeWindow = number
-type Selection = Atom
-type SelectionType = Atom
-type Target = Atom
-type WChar = number
-type XEvent = void
+export type NativeWindow = number
+export type Selection = Atom
+export type SelectionType = Atom
+export type Target = Atom
+export type WChar = number
+export type XEvent = void

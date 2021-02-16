@@ -2,11 +2,11 @@
  * Farstream-0.2
  */
 
-import * as Gjs from './Gjs';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum CandidateType {
     HOST,
@@ -793,7 +793,7 @@ export class Stream {
 }
 export interface StreamTransmitter_ConstructProps extends GObject.Object_ConstructProps {
     associate_on_source?: boolean
-    preferred_local_candidates?: any
+    preferred_local_candidates?: CandidateList
     sending?: boolean
 }
 export class StreamTransmitter {

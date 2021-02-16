@@ -3,11 +3,11 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Dbusmenu-0.4.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Dee-1.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Dbusmenu } from './Dbusmenu-0.4';
+import type { Dee } from './Dee-1.0';
+import type { Gio } from './Gio-2.0';
 
 declare namespace Unity {
 
@@ -887,7 +887,6 @@ export class OptionsFilter {
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.OptionsFilter */
     parentInstance: Filter
@@ -899,15 +898,6 @@ export class OptionsFilter {
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -930,8 +920,6 @@ export class OptionsFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -969,11 +957,6 @@ export class OptionsFilter {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: OptionsFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -998,11 +981,9 @@ export interface RadioOptionFilter_ConstructProps extends OptionsFilter_Construc
 export class RadioOptionFilter {
     /* Properties of Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    showAllButton: boolean
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.RadioOptionFilter */
     parentInstance: OptionsFilter
@@ -1017,19 +998,6 @@ export class RadioOptionFilter {
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    getSortType(): OptionsFilterSortType
-    setSortType(value: OptionsFilterSortType): void
-    getShowAllButton(): boolean
-    setShowAllButton(value: boolean): void
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1052,8 +1020,6 @@ export class RadioOptionFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1081,11 +1047,6 @@ export class RadioOptionFilter {
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::show-all-button", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-all-button", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1096,11 +1057,6 @@ export class RadioOptionFilter {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: RadioOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1126,11 +1082,9 @@ export interface CheckOptionFilter_ConstructProps extends OptionsFilter_Construc
 export class CheckOptionFilter {
     /* Properties of Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    showAllButton: boolean
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.CheckOptionFilter */
     parentInstance: OptionsFilter
@@ -1143,19 +1097,6 @@ export class CheckOptionFilter {
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    getSortType(): OptionsFilterSortType
-    setSortType(value: OptionsFilterSortType): void
-    getShowAllButton(): boolean
-    setShowAllButton(value: boolean): void
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1178,8 +1119,6 @@ export class CheckOptionFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1207,11 +1146,6 @@ export class CheckOptionFilter {
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::show-all-button", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-all-button", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1222,11 +1156,6 @@ export class CheckOptionFilter {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: CheckOptionFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1252,11 +1181,9 @@ export interface CheckOptionFilterCompact_ConstructProps extends OptionsFilter_C
 export class CheckOptionFilterCompact {
     /* Properties of Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    showAllButton: boolean
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.CheckOptionFilterCompact */
     parentInstance: OptionsFilter
@@ -1269,19 +1196,6 @@ export class CheckOptionFilterCompact {
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    getSortType(): OptionsFilterSortType
-    setSortType(value: OptionsFilterSortType): void
-    getShowAllButton(): boolean
-    setShowAllButton(value: boolean): void
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1304,8 +1218,6 @@ export class CheckOptionFilterCompact {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1333,11 +1245,6 @@ export class CheckOptionFilterCompact {
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::show-all-button", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-all-button", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1348,11 +1255,6 @@ export class CheckOptionFilterCompact {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: CheckOptionFilterCompact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1382,22 +1284,12 @@ export class RatingsFilter {
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.RatingsFilter */
     parentInstance: Filter
     priv: RatingsFilterPrivate
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1420,8 +1312,6 @@ export class RatingsFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1459,11 +1349,6 @@ export class RatingsFilter {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: RatingsFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1488,11 +1373,9 @@ export interface MultiRangeFilter_ConstructProps extends OptionsFilter_Construct
 export class MultiRangeFilter {
     /* Properties of Unity.OptionsFilter */
     sortType: OptionsFilterSortType
-    showAllButton: boolean
     /* Properties of Unity.Filter */
     displayName: string
     visible: boolean
-    collapsed: boolean
     filtering: boolean
     /* Fields of Unity.MultiRangeFilter */
     parentInstance: OptionsFilter
@@ -1508,19 +1391,6 @@ export class MultiRangeFilter {
     addOption(id: string, displayName: string, iconHint?: Gio.Icon | null): FilterOption
     getOption(id: string): FilterOption | null
     removeOption(id: string): boolean
-    getSortType(): OptionsFilterSortType
-    setSortType(value: OptionsFilterSortType): void
-    getShowAllButton(): boolean
-    setShowAllButton(value: boolean): void
-    /* Methods of Unity.Filter */
-    getId(): string
-    getDisplayName(): string
-    getIconHint(): Gio.Icon | null
-    getRenderer(): FilterRenderer
-    getVisible(): boolean
-    setVisible(value: boolean): void
-    getCollapsed(): boolean
-    getFiltering(): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1543,8 +1413,6 @@ export class MultiRangeFilter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Unity.Filter */
-    vfuncSerialize(): GLib.Variant
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1572,11 +1440,6 @@ export class MultiRangeFilter {
     on(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sort-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::show-all-button", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-all-button", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::show-all-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::display-name", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::display-name", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::display-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1587,11 +1450,6 @@ export class MultiRangeFilter {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::collapsed", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::collapsed", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::collapsed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filtering", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filtering", callback: (($obj: MultiRangeFilter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filtering", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2185,18 +2043,6 @@ export class GenericPreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2221,8 +2067,6 @@ export class GenericPreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2231,6 +2075,13 @@ export class GenericPreview {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: GenericPreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GenericPreview, pspec: GObject.ParamSpec) => void)): number
@@ -2305,18 +2156,6 @@ export class ApplicationPreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2341,8 +2180,6 @@ export class ApplicationPreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2351,6 +2188,13 @@ export class ApplicationPreview {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: ApplicationPreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ApplicationPreview, pspec: GObject.ParamSpec) => void)): number
@@ -2443,18 +2287,6 @@ export class MusicPreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2479,8 +2311,6 @@ export class MusicPreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2502,6 +2332,13 @@ export class MusicPreview {
     on(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "pause", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: MusicPreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPreview, pspec: GObject.ParamSpec) => void)): number
@@ -2585,18 +2422,6 @@ export class MoviePreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2621,8 +2446,6 @@ export class MoviePreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2631,6 +2454,13 @@ export class MoviePreview {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: MoviePreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MoviePreview, pspec: GObject.ParamSpec) => void)): number
@@ -2708,18 +2538,6 @@ export class SocialPreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2744,8 +2562,6 @@ export class SocialPreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2754,6 +2570,13 @@ export class SocialPreview {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: SocialPreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocialPreview, pspec: GObject.ParamSpec) => void)): number
@@ -2900,18 +2723,6 @@ export class AsyncPreview {
     /* Methods of Unity.Preview */
     addAction(action: PreviewAction): void
     addInfo(infoHint: InfoHint): void
-    getTitle(): string
-    setTitle(value: string): void
-    getSubtitle(): string
-    setSubtitle(value: string): void
-    getDescriptionMarkup(): string
-    setDescriptionMarkup(value: string): void
-    getImageSourceUri(): string
-    setImageSourceUri(value: string): void
-    getImage(): Gio.Icon | null
-    setImage(value?: Gio.Icon | null): void
-    /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2936,8 +2747,6 @@ export class AsyncPreview {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
-    /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2953,6 +2762,13 @@ export class AsyncPreview {
     on(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "preview_ready", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of Unity.Preview */
+    connect(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: AsyncPreview) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AsyncPreview, pspec: GObject.ParamSpec) => void)): number
@@ -3469,9 +3285,9 @@ export class MusicPlayer {
     on(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    emit(sigName: "activate_playlist", playlistId: any): void
+    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
+    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
+    emit(sigName: "activate_playlist", playlistId: GLib.ObjectPath): void
     on(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter

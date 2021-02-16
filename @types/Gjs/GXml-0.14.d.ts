@@ -2,12 +2,12 @@
  * GXml-0.14
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
 
 export enum NodeType {
     INVALID,
@@ -1553,20 +1553,21 @@ export class DomText {
     readonly whole_text: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.DomText */
     split_text(offset: number): DomText
     get_whole_text(): string
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1595,23 +1596,23 @@ export class DomText {
     /* Virtual methods of GXml.DomText */
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.DomCharacterData */
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1628,6 +1629,8 @@ export class DomText {
     connect_after(sigName: "notify::whole-text", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: DomText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1644,19 +1647,20 @@ export class DomProcessingInstruction {
     readonly target: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.DomProcessingInstruction */
     get_target(): string
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1684,23 +1688,23 @@ export class DomProcessingInstruction {
     set_data(value: string): void
     /* Virtual methods of GXml.DomProcessingInstruction */
     vfunc_get_target(): string
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.DomCharacterData */
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1717,6 +1721,8 @@ export class DomProcessingInstruction {
     connect_after(sigName: "notify::target", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: DomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1731,17 +1737,18 @@ export interface DomComment_ConstructProps extends DomCharacterData_ConstructPro
 export class DomComment {
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1768,23 +1775,23 @@ export class DomComment {
     get_data(): string
     set_data(value: string): void
     /* Virtual methods of GXml.DomComment */
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.DomCharacterData */
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1799,6 +1806,8 @@ export class DomComment {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::data", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: DomComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2436,13 +2445,13 @@ export class DomSettableTokenList {
     get_value(): string
     set_value(value: string): void
     /* Methods of GXml.DomTokenList */
-    get_length(): number
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
     remove(tokens: string[]): void
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
+    get_length(): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2468,21 +2477,21 @@ export class DomSettableTokenList {
     /* Virtual methods of GXml.DomSettableTokenList */
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
-    vfunc_get_length(): number
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_add(tokens: string[]): void
     vfunc_remove(tokens: string[]): void
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_length(): number
     /* Virtual methods of GXml.DomTokenList */
-    vfunc_get_length(): number
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_add(tokens: string[]): void
     vfunc_remove(tokens: string[]): void
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_length(): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6736,20 +6745,38 @@ export class IXsdListTypeRestrictionWhiteSpaces {
 export interface ElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class ElementList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
+    /* Properties of GXml.DomHTMLCollection */
+    readonly length: number
     /* Fields of GXml.ElementList */
     parent_instance: Gee.ArrayList
     priv: ElementListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -6758,20 +6785,17 @@ export class ElementList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6797,16 +6821,38 @@ export class ElementList {
     /* Methods of GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
-    get_length(): number
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
+    get_length(): number
     /* Virtual methods of GXml.ElementList */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
-    vfunc_get_length(): number
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -6815,21 +6861,69 @@ export class ElementList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6842,14 +6936,14 @@ export class ElementList {
     connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6859,29 +6953,45 @@ export class ElementList {
     _init (config?: ElementList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ElementList
-    static new(equal_func?: GLib.EqualFunc | null): ElementList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ElementList
     static $gtype: GObject.Type
 }
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.NodeList */
     parent_instance: Gee.ArrayList
     priv: NodeListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.NodeList */
     get(index: number): Node
     to_array(): Node[]
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -6890,20 +7000,17 @@ export class NodeList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6926,6 +7033,29 @@ export class NodeList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.NodeList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -6934,21 +7064,69 @@ export class NodeList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6961,14 +7139,12 @@ export class NodeList {
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6978,7 +7154,7 @@ export class NodeList {
     _init (config?: NodeList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): NodeList
-    static new(equal_func?: GLib.EqualFunc | null): NodeList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): NodeList
     static $gtype: GObject.Type
 }
 export interface SerializableBool_ConstructProps extends GObject.Object_ConstructProps {
@@ -7421,7 +7597,6 @@ export class SerializableValueList {
 export interface SerializableObjectModel_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableObjectModel {
@@ -7429,7 +7604,8 @@ export class SerializableObjectModel {
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableObjectModel */
     parent_instance: GObject.Object
@@ -7482,20 +7658,10 @@ export class SerializableObjectModel {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GXml.SerializableObjectModel */
@@ -7508,27 +7674,13 @@ export class SerializableObjectModel {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_to_string(): string
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject.Object */
@@ -7544,24 +7696,26 @@ export class SerializableObjectModel {
     connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml.Serializable */
-    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property-type", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
     connect(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7579,25 +7733,26 @@ export class SerializableObjectModel {
 export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableTreeMap {
     /* Properties of GXml.SerializableTreeMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.TreeMap */
-    key_compare_func: GLib.CompareFunc
-    value_equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractBidirSortedMap */
+    readonly read_only_view: Gee.BidirSortedMap
+    /* Properties of Gee.AbstractSortedMap */
+    readonly ascending_keys: Gee.SortedSet
+    readonly ascending_entries: Gee.SortedSet
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
-    readonly read_only_view: Gee.Map
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableTreeMap */
     parent_instance: Gee.TreeMap
@@ -7629,6 +7784,28 @@ export class SerializableTreeMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+    /* Methods of Gee.TreeMap */
+    get_key_compare_func(): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirSortedMap */
+    bidir_map_iterator(): Gee.BidirMapIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirSortedMap
+    /* Methods of Gee.AbstractSortedMap */
+    head_map(before?: object | null): Gee.SortedMap
+    tail_map(after?: object | null): Gee.SortedMap
+    sub_map(before?: object | null, after?: object | null): Gee.SortedMap
+    get_ascending_keys(): Gee.SortedSet
+    get_ascending_entries(): Gee.SortedSet
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -7637,9 +7814,14 @@ export class SerializableTreeMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7664,20 +7846,10 @@ export class SerializableTreeMap {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -7695,30 +7867,56 @@ export class SerializableTreeMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.TreeMap */
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.AbstractBidirSortedMap */
+    vfunc_bidir_map_iterator(): Gee.BidirMapIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirSortedMap
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
+    /* Virtual methods of Gee.AbstractSortedMap */
+    vfunc_head_map(before?: object | null): Gee.SortedMap
+    vfunc_tail_map(after?: object | null): Gee.SortedMap
+    vfunc_sub_map(before?: object | null, after?: object | null): Gee.SortedMap
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_ascending_keys(): Gee.SortedSet
+    vfunc_get_ascending_entries(): Gee.SortedSet
+    vfunc_get_read_only_view(): Gee.SortedMap
+    vfunc_get_read_only_view(): Gee.Map
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -7727,14 +7925,43 @@ export class SerializableTreeMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7748,40 +7975,42 @@ export class SerializableTreeMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml.Serializable */
-    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property-type", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
     connect(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7793,7 +8022,7 @@ export class SerializableTreeMap {
     _init (config?: SerializableTreeMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
-    static new(key_compare_func?: GLib.CompareFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableTreeMap
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_compare_func: GLib.CompareDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableTreeMap
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -7801,26 +8030,22 @@ export class SerializableTreeMap {
 export interface SerializableHashMap_ConstructProps extends Gee.HashMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableHashMap {
     /* Properties of GXml.SerializableHashMap */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableHashMap */
     parent_instance: Gee.HashMap
@@ -7853,6 +8078,10 @@ export class SerializableHashMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -7861,9 +8090,24 @@ export class SerializableHashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -7887,20 +8131,10 @@ export class SerializableHashMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -7919,26 +8153,12 @@ export class SerializableHashMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
@@ -7950,14 +8170,43 @@ export class SerializableHashMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7971,32 +8220,26 @@ export class SerializableHashMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml.Serializable */
-    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property-type", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
     connect(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
@@ -8005,8 +8248,10 @@ export class SerializableHashMap {
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -8018,7 +8263,7 @@ export class SerializableHashMap {
     _init (config?: SerializableHashMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableHashMap
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableHashMap
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -8026,7 +8271,6 @@ export class SerializableHashMap {
 export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableDualKeyMap {
@@ -8039,7 +8283,8 @@ export class SerializableDualKeyMap {
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableDualKeyMap */
     parent_instance: GObject.Object
@@ -8123,20 +8368,10 @@ export class SerializableDualKeyMap {
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
     /* Methods of GXml.Serializable */
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -8155,9 +8390,7 @@ export class SerializableDualKeyMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -8176,21 +8409,9 @@ export class SerializableDualKeyMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
@@ -8207,18 +8428,18 @@ export class SerializableDualKeyMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml.Serializable */
-    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property-type", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
     connect(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::primary-key-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
@@ -8233,8 +8454,10 @@ export class SerializableDualKeyMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -8253,28 +8476,30 @@ export class SerializableDualKeyMap {
 export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
-    unknown_serializable_property?: GLib.HashTable
     serialized_xml_node_value?: string
 }
 export class SerializableArrayList {
     /* Properties of GXml.SerializableArrayList */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.Serializable */
-    unknown_serializable_property: GLib.HashTable
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml.SerializableArrayList */
     parent_instance: Gee.ArrayList
     priv: SerializableArrayListPrivate
     _node: Node
     _deserialized: boolean
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.SerializableArrayList */
@@ -8301,7 +8526,21 @@ export class SerializableArrayList {
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -8310,20 +8549,17 @@ export class SerializableArrayList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8348,20 +8584,10 @@ export class SerializableArrayList {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
-    default_init_properties(): void
     default_list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    get_unknown_serializable_property(): GLib.HashTable
-    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_unknown_serializable_properties(): Gee.Map
+    get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Methods of GXml.SerializableCollection */
@@ -8379,30 +8605,38 @@ export class SerializableArrayList {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
     vfunc_deserialize(node: Node): boolean
-    vfunc_deserialize(node: Node): Node | null
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -8411,21 +8645,69 @@ export class SerializableArrayList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8439,32 +8721,32 @@ export class SerializableArrayList {
     connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml.Serializable */
-    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
-    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize-unknown-property-type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize-unknown-property-type", element: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property", node: Node, prop: GObject.ParamSpec): void
+    connect(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize-unknown-property-type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize-unknown-property-type", node: Node, prop: GObject.ParamSpec): void
     connect(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -8476,7 +8758,7 @@ export class SerializableArrayList {
     _init (config?: SerializableArrayList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
-    static new(equal_func?: GLib.EqualFunc | null): SerializableArrayList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): SerializableArrayList
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -8484,9 +8766,14 @@ export class SerializableArrayList {
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
+    /* Properties of GXml.SerializableObjectModel */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
     /* Fields of GXml.SerializableContainer */
     parent_instance: SerializableObjectModel
     priv: SerializableContainerPrivate
+    /* Fields of GXml.SerializableObjectModel */
+    _node: Node
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.SerializableContainer */
@@ -8495,24 +8782,24 @@ export class SerializableContainer {
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
+    set_default_namespace(node: Node): boolean
     node_name(): string
     default_node_name(): string
     find_property_spec(property_name: string): GObject.ParamSpec | null
-    init_properties(): void
     list_serializable_properties(): GObject.ParamSpec[]
-    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    set_property_value(spec: GObject.ParamSpec, val: any): void
-    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
     serialize(node: Node): Node | null
     default_serialize(node: Node): Node | null
-    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
     default_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    deserialize(node: Node): Node | null
-    default_deserialize(node: Node): Node | null
+    deserialize(node: Node): boolean
+    default_deserialize(node: Node): boolean
     deserialize_property(property_node: Node): boolean
     default_deserialize_property(property_node: Node): boolean
     to_string(): string
+    get_properties(): GObject.ParamSpec[]
+    set_properties(value: GObject.ParamSpec[]): void
+    get_ignored_serializable_properties(): GLib.HashTable
+    set_ignored_serializable_properties(value: GLib.HashTable): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8541,30 +8828,19 @@ export class SerializableContainer {
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
+    vfunc_set_default_namespace(node: Node): boolean
     vfunc_node_name(): string
     vfunc_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_init_properties(): void
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
-    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
     vfunc_serialize(node: Node): Node | null
-    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
-    vfunc_deserialize(node: Node): Node | null
+    vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_to_string(): string
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
-    vfunc_default_init_properties(): void
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
-    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
-    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
-    vfunc_get_properties(): GObject.ParamSpec[]
-    vfunc_set_properties(value: GObject.ParamSpec[]): void
-    vfunc_get_ignored_serializable_properties(): GLib.HashTable
-    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
-    vfunc_get_unknown_serializable_property(): GLib.HashTable
-    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_properties(): Gee.Map
+    vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject.Object */
@@ -8579,6 +8855,10 @@ export class SerializableContainer {
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8660,12 +8940,9 @@ export class TAttribute {
     vfunc_set_namespace(value?: Namespace | null): void
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_get_prefix(): string | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -8676,28 +8953,12 @@ export class TAttribute {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8742,6 +9003,7 @@ export class TAttribute {
     static $gtype: GObject.Type
 }
 export interface TComment_ConstructProps extends TNode_ConstructProps {
+    str?: string
 }
 export class TComment {
     /* Properties of GXml.TNode */
@@ -8753,6 +9015,8 @@ export class TComment {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+    /* Properties of GXml.Comment */
+    str: string
     /* Fields of GXml.TComment */
     parent_instance: TNode
     priv: TCommentPrivate
@@ -8799,13 +9063,15 @@ export class TComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Comment */
+    get_str(): string
+    set_str(value: string): void
     /* Virtual methods of GXml.TComment */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_str(): string
+    vfunc_set_str(value: string): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -8816,28 +9082,12 @@ export class TComment {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8866,6 +9116,8 @@ export class TComment {
     connect_after(sigName: "notify::value", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8941,12 +9193,9 @@ export class TCDATA {
     get_str(): string
     /* Virtual methods of GXml.TCDATA */
     vfunc_get_str(): string
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -8957,28 +9206,12 @@ export class TCDATA {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9021,9 +9254,11 @@ export class TCDATA {
     static $gtype: GObject.Type
 }
 export interface TDocument_ConstructProps extends TNode_ConstructProps {
-    doctype?: DocumentType
-    implementation?: Implementation
-    document_element?: Element
+    indent?: boolean
+    ns_top?: boolean
+    prefix_default_ns?: boolean
+    backup?: boolean
+    file?: Gio.File
 }
 export class TDocument {
     /* Properties of GXml.TNode */
@@ -9036,9 +9271,12 @@ export class TDocument {
     value: string
     readonly parent: Node
     /* Properties of GXml.Document */
-    doctype: DocumentType
-    implementation: Implementation
-    document_element: Element
+    indent: boolean
+    ns_top: boolean
+    prefix_default_ns: boolean
+    backup: boolean
+    readonly root: Node
+    file: Gio.File
     /* Fields of GXml.TDocument */
     parent_instance: TNode
     priv: TDocumentPrivate
@@ -9090,28 +9328,46 @@ export class TDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Document */
-    save_to_path(file_path: string): void
-    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
-    create_element(tag_name: string): Element
-    create_document_fragment(): DocumentFragment
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    create_entity_reference(name: string): EntityReference
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_implementation(): Implementation
-    get_document_element(): Element
+    create_element(name: string): Node
+    create_text(text: string): Node
+    create_comment(text: string): Node
+    create_cdata(text: string): Node
+    create_pi(target: string, data: string): Node
+    save(cancellable?: Gio.Cancellable | null): boolean
+    save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    get_indent(): boolean
+    set_indent(value: boolean): void
+    get_ns_top(): boolean
+    set_ns_top(value: boolean): void
+    get_prefix_default_ns(): boolean
+    set_prefix_default_ns(value: boolean): void
+    get_backup(): boolean
+    set_backup(value: boolean): void
+    get_root(): Node
+    get_file(): Gio.File
+    set_file(value: Gio.File): void
     /* Virtual methods of GXml.TDocument */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_create_element(name: string): Node
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_save(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -9122,28 +9378,12 @@ export class TDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9172,12 +9412,18 @@ export class TDocument {
     connect_after(sigName: "notify::value", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ns-top", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ns-top", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix-default-ns", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix-default-ns", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::backup", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::backup", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::root", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9191,26 +9437,24 @@ export class TDocument {
     static from_uri(uri: string): TDocument
     static from_file(file: Gio.File): TDocument
     static from_stream(stream: Gio.InputStream): TDocument
-    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): TDocument
     static from_string(str: string): TDocument
-    static from_path_with_readtype_func(path: string, func: any): TDocument
-    static from_uri_with_readtype_func(uri: string, func: any): TDocument
-    static from_file_with_readtype_func(file: Gio.File, func: any): TDocument
-    static from_stream_with_readtype_func(stream: Gio.InputStream, func: any): TDocument
-    static from_string_with_readtype_func(str: string, func: any): TDocument
-    static from_libxml2(doc: object | null, require_root: boolean): TDocument
-    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): TDocument
-    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): TDocument
+    static from_path_with_readtype_func(path: string, func: TDocumentReadTypeFunc): TDocument
+    static from_uri_with_readtype_func(uri: string, func: TDocumentReadTypeFunc): TDocument
+    static from_file_with_readtype_func(file: Gio.File, func: TDocumentReadTypeFunc): TDocument
+    static from_stream_with_readtype_func(stream: Gio.InputStream, func: TDocumentReadTypeFunc): TDocument
+    static from_string_with_readtype_func(str: string, func: TDocumentReadTypeFunc): TDocument
     static tw_save_as(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     static write_document(doc: Document, tw: libxml2.TextWriter): void
     static start_node(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declared_ns: Gee.ArrayList): /* declared_ns */ Gee.ArrayList
-    static read_doc(doc: Document, file: Gio.File, rtfunc?: any): void
-    static read_doc_stream(doc: Document, istream: Gio.InputStream, rtfunc?: any): void
-    static read_node(node: Node, tr: libxml2.TextReader, rntfunc?: any): TDocumentReadType
+    static read_doc(doc: Document, file: Gio.File, rtfunc?: TDocumentReadTypeFunc | null): void
+    static read_doc_stream(doc: Document, istream: Gio.InputStream, rtfunc?: TDocumentReadTypeFunc | null): void
+    static read_node(node: Node, tr: libxml2.TextReader, rntfunc?: TDocumentReadTypeFunc | null): TDocumentReadType
+    static new_default(): Document
+    static new_default_for_path(path: string): Document
+    static new_default_for_file(f: Gio.File): Document
     static $gtype: GObject.Type
 }
 export interface TElement_ConstructProps extends TNode_ConstructProps {
-    tag_name?: string
     content?: string
 }
 export class TElement {
@@ -9224,7 +9468,7 @@ export class TElement {
     value: string
     readonly parent: Node
     /* Properties of GXml.Element */
-    tag_name: string
+    readonly tag_name: string
     content: string
     /* Fields of GXml.TElement */
     parent_instance: TNode
@@ -9276,24 +9520,30 @@ export class TElement {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    set_attribute(name: string, value: string): void
-    remove_attribute(name: string): void
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
     normalize(): void
+    set_attr(name: string, value: string): void
+    get_attr(name: string): Node | null
+    remove_attr(name: string): void
+    remove_ns_attr(name: string, uri: string): void
+    set_ns_attr(ns: string, name: string, value: string): void
+    get_ns_attr(name: string, uri: string): Node | null
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
     /* Virtual methods of GXml.TElement */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_normalize(): void
+    vfunc_set_attr(name: string, value: string): void
+    vfunc_get_attr(name: string): Node | null
+    vfunc_remove_attr(name: string): void
+    vfunc_remove_ns_attr(name: string, uri: string): void
+    vfunc_set_ns_attr(ns: string, name: string, value: string): void
+    vfunc_get_ns_attr(name: string, uri: string): Node | null
+    vfunc_get_tag_name(): string
+    vfunc_get_content(): string
+    vfunc_set_content(value: string): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -9304,28 +9554,12 @@ export class TElement {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9436,12 +9670,9 @@ export class TNamespace {
     /* Virtual methods of GXml.TNamespace */
     vfunc_get_uri(): string | null
     vfunc_get_prefix(): string | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -9452,28 +9683,12 @@ export class TNamespace {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9519,21 +9734,6 @@ export class TNamespace {
 }
 export interface TNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
-    namespace_definitions?: NodeList
-    namespace_uri?: string
-    prefix?: string
-    local_name?: string
-    node_name?: string
-    node_value?: string
-    node_type?: NodeType
-    parent_node?: Node
-    child_nodes?: NodeList
-    first_child?: Node
-    last_child?: Node
-    previous_sibling?: Node
-    next_sibling?: Node
-    attributes?: NamedAttrMap
-    owner_document?: Document
 }
 export class TNode {
     /* Properties of GXml.TNode */
@@ -9545,22 +9745,6 @@ export class TNode {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    node_name: string
-    node_value: string
-    node_type: NodeType
-    parent_node: Node
-    child_nodes: NodeList
-    first_child: Node
-    last_child: Node
-    previous_sibling: Node
-    next_sibling: Node
-    attributes: NamedAttrMap
-    owner_document: Document
     /* Fields of GXml.TNode */
     parent_instance: GObject.Object
     priv: TNodePrivate
@@ -9607,34 +9791,15 @@ export class TNode {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    has_child_nodes(): boolean
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_name(): string
-    get_node_value(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get(key: string): Node | null
+    get_elements_by_property_value(property: string, value: string): ElementList
+    get_elements_by_name(name: string): ElementList
+    get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    ns_prefix(): string
+    ns_uri(): string
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -9645,28 +9810,12 @@ export class TNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9695,36 +9844,6 @@ export class TNode {
     connect_after(sigName: "notify::value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9732,6 +9851,8 @@ export class TNode {
     static name: string
     constructor (config?: TNode_ConstructProps)
     _init (config?: TNode_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
 export interface TNodeTChildrenList_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
@@ -9741,7 +9862,7 @@ export class TNodeTChildrenList {
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.TNodeTChildrenList */
     parent_instance: Gee.AbstractBidirList
     priv: TNodeTChildrenListPrivate
@@ -9768,20 +9889,17 @@ export class TNodeTChildrenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9804,6 +9922,10 @@ export class TNodeTChildrenList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.TNodeTChildrenList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
@@ -9817,6 +9939,8 @@ export class TNodeTChildrenList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -9825,21 +9949,69 @@ export class TNodeTChildrenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9856,8 +10028,8 @@ export class TNodeTChildrenList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9870,7 +10042,6 @@ export class TNodeTChildrenList {
     static $gtype: GObject.Type
 }
 export interface TProcessingInstruction_ConstructProps extends TNode_ConstructProps {
-    target?: string
     data?: string
 }
 export class TProcessingInstruction {
@@ -9884,7 +10055,7 @@ export class TProcessingInstruction {
     value: string
     readonly parent: Node
     /* Properties of GXml.ProcessingInstruction */
-    target: string
+    readonly target: string
     data: string
     /* Fields of GXml.TProcessingInstruction */
     parent_instance: TNode
@@ -9937,12 +10108,12 @@ export class TProcessingInstruction {
     get_data(): string
     set_data(value: string): void
     /* Virtual methods of GXml.TProcessingInstruction */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_target(): string
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -9953,28 +10124,12 @@ export class TProcessingInstruction {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10019,6 +10174,7 @@ export class TProcessingInstruction {
     static $gtype: GObject.Type
 }
 export interface TText_ConstructProps extends TNode_ConstructProps {
+    str?: string
 }
 export class TText {
     /* Properties of GXml.TNode */
@@ -10030,6 +10186,8 @@ export class TText {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+    /* Properties of GXml.Text */
+    str: string
     /* Fields of GXml.TText */
     parent_instance: TNode
     priv: TTextPrivate
@@ -10077,14 +10235,14 @@ export class TText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Text */
-    split_text(offset: number): Text
+    get_str(): string
+    set_str(value: string): void
     /* Virtual methods of GXml.TText */
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_str(): string
+    vfunc_set_str(value: string): void
     /* Virtual methods of GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
@@ -10095,28 +10253,12 @@ export class TText {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_has_child_nodes(): boolean
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_node_name(): string
-    vfunc_get_node_value(): string | null
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10145,6 +10287,8 @@ export class TText {
     connect_after(sigName: "notify::value", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10175,7 +10319,7 @@ export class HtmlDocument {
     priv: HtmlDocumentPrivate
     /* Fields of GXml.GDocument */
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     _implementation: GImplementation
     _url: string
     _origin: string
@@ -10229,41 +10373,55 @@ export class HtmlDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GXml.HtmlDocument */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_create_element(name: string): Node
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_comment(text: string): Node
+    vfunc_create_comment(data: string): DomComment
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     /* Virtual methods of GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_create_element(name: string): Node
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_comment(data: string): DomComment
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
+    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
+    vfunc_create_document_fragment(): DomDocumentFragment
+    vfunc_create_text_node(data: string): DomText
+    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
+    vfunc_import_node(node: DomNode, deep: boolean): DomNode
+    vfunc_adopt_node(node: DomNode): DomNode
+    vfunc_create_event(interface: string): DomEvent
+    vfunc_create_range(): DomRange
+    vfunc_create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    vfunc_create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
     vfunc_get_implementation(): DomImplementation
     vfunc_get_url(): string
     vfunc_get_document_uri(): string
@@ -10273,73 +10431,10 @@ export class HtmlDocument {
     vfunc_get_content_type(): string
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
-    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
-    vfunc_create_element(local_name: string): DomElement
-    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
-    vfunc_create_document_fragment(): DomDocumentFragment
-    vfunc_create_text_node(data: string): DomText
-    vfunc_create_comment(data: string): DomComment
-    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
-    vfunc_import_node(node: DomNode, deep: boolean): DomNode
-    vfunc_adopt_node(node: DomNode): DomNode
-    vfunc_create_event(interface: string): DomEvent
-    vfunc_create_range(): DomRange
-    vfunc_create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    vfunc_create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_get_xml_parser(): Parser
-    vfunc_set_xml_parser(parser: Parser): void
-    vfunc_evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -10352,29 +10447,6 @@ export class HtmlDocument {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -10384,21 +10456,32 @@ export class HtmlDocument {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10465,6 +10548,7 @@ export class GAttribute {
     /* Properties of GXml.DomAttr */
     readonly namespace_uri: string
     readonly local_name: string
+    readonly specified: boolean
     /* Fields of GXml.GAttribute */
     parent_instance: GNode
     priv: GAttributePrivate
@@ -10524,39 +10608,13 @@ export class GAttribute {
     vfunc_get_prefix(): string | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_local_name(): string
-    vfunc_get_local_name(): string | null
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_specified(): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -10569,29 +10627,6 @@ export class GAttribute {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -10601,21 +10636,32 @@ export class GAttribute {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10652,6 +10698,8 @@ export class GAttribute {
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-name", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::specified", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::specified", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10664,6 +10712,7 @@ export class GAttribute {
     static $gtype: GObject.Type
 }
 export interface GComment_ConstructProps extends GCharacterData_ConstructProps {
+    str?: string
     data?: string
 }
 export class GComment {
@@ -10676,8 +10725,11 @@ export class GComment {
     readonly type_node: NodeType
     readonly name: string
     value: string
+    /* Properties of GXml.Comment */
+    str: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GComment */
     parent_instance: GCharacterData
     priv: GCommentPrivate
@@ -10722,132 +10774,40 @@ export class GComment {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Comment */
+    get_str(): string
+    set_str(value: string): void
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GComment */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_str(): string
+    vfunc_set_str(value: string): void
     /* Virtual methods of GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -10860,29 +10820,6 @@ export class GComment {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -10892,21 +10829,32 @@ export class GComment {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10935,8 +10883,12 @@ export class GComment {
     connect_after(sigName: "notify::name", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10967,6 +10919,7 @@ export class GCharacterData {
     str: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GCharacterData */
     parent_instance: GNonDocumentChildNode
     priv: GCharacterDataPrivate
@@ -11015,106 +10968,33 @@ export class GCharacterData {
     get_str(): string
     set_str(value: string): void
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -11127,29 +11007,6 @@ export class GCharacterData {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -11159,21 +11016,32 @@ export class GCharacterData {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11206,6 +11074,8 @@ export class GCharacterData {
     connect_after(sigName: "notify::str", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11277,34 +11147,9 @@ export class GChildNode {
     remove(): void
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -11317,29 +11162,6 @@ export class GChildNode {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -11349,21 +11171,32 @@ export class GChildNode {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11468,60 +11301,11 @@ export class GNonDocumentChildNode {
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -11534,29 +11318,6 @@ export class GNonDocumentChildNode {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -11566,21 +11327,32 @@ export class GNonDocumentChildNode {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11686,34 +11458,9 @@ export class GCDATA {
     get_str(): string
     /* Virtual methods of GXml.GCDATA */
     vfunc_get_str(): string
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -11726,29 +11473,6 @@ export class GCDATA {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -11758,21 +11482,32 @@ export class GCDATA {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11815,9 +11550,11 @@ export class GCDATA {
     static $gtype: GObject.Type
 }
 export interface GDocument_ConstructProps extends GNode_ConstructProps {
-    doctype?: DocumentType
-    implementation?: Implementation
-    document_element?: Element
+    indent?: boolean
+    ns_top?: boolean
+    prefix_default_ns?: boolean
+    backup?: boolean
+    file?: Gio.File
 }
 export class GDocument {
     /* Properties of GXml.GNode */
@@ -11830,26 +11567,32 @@ export class GDocument {
     readonly name: string
     value: string
     /* Properties of GXml.Document */
-    doctype: DocumentType
-    implementation: Implementation
-    document_element: Element
+    indent: boolean
+    ns_top: boolean
+    prefix_default_ns: boolean
+    backup: boolean
+    readonly root: Node
+    file: Gio.File
     /* Properties of GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly first_element_child: DomElement
     readonly last_element_child: DomElement
     readonly child_element_count: number
     /* Properties of GXml.DomDocument */
+    readonly implementation: DomImplementation
     readonly url: string
     readonly document_uri: string
     readonly origin: string
     readonly compat_mode: string
     readonly character_set: string
     readonly content_type: string
+    readonly doctype: DomDocumentType
+    readonly document_element: DomElement
     /* Fields of GXml.GDocument */
     parent_instance: GNode
     priv: GDocumentPrivate
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     _implementation: GImplementation
     _url: string
     _origin: string
@@ -11903,41 +11646,33 @@ export class GDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Document */
-    save_to_path(file_path: string): void
-    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
-    create_element(tag_name: string): Element
-    create_document_fragment(): DocumentFragment
-    create_text_node(text_data: string): Text
-    create_comment(comment_data: string): Comment
-    create_cdata_section(cdata_data: string): CDATASection
-    create_processing_instruction(target: string, data: string): ProcessingInstruction
-    create_attribute(name: string): Attr
-    create_entity_reference(name: string): EntityReference
-    get_elements_by_tag_name(tag_name: string): NodeList
-    copy_node(foreign_node: Node, deep: boolean): Node
-    get_doctype(): DocumentType | null
-    get_implementation(): Implementation
-    get_document_element(): Element
+    create_element(name: string): Node
+    create_text(text: string): Node
+    create_comment(text: string): Node
+    create_cdata(text: string): Node
+    create_pi(target: string, data: string): Node
+    get_indent(): boolean
+    set_indent(value: boolean): void
+    get_ns_top(): boolean
+    set_ns_top(value: boolean): void
+    get_prefix_default_ns(): boolean
+    set_prefix_default_ns(value: boolean): void
+    get_backup(): boolean
+    set_backup(value: boolean): void
+    get_root(): Node
+    get_file(): Gio.File
+    set_file(value: Gio.File): void
     /* Methods of GXml.DomParentNode */
+    query_selector(selectors: string): DomElement | null
+    query_selector_all(selectors: string): DomNodeList
+    get_elements_by_property_value(property: string, value: string): DomElementList
     get_children(): DomHTMLCollection
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    query_selector(selectors: string): DomElement | null
-    query_selector_all(selectors: string): DomNodeList
-    get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
     /* Methods of GXml.DomDocument */
-    get_implementation(): DomImplementation
-    get_url(): string
-    get_document_uri(): string
-    get_origin(): string
-    get_compat_mode(): string
-    get_character_set(): string
-    get_content_type(): string
-    get_doctype(): DomDocumentType | null
-    get_document_element(): DomElement | null
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -11951,44 +11686,62 @@ export class GDocument {
     adopt_node(node: DomNode): DomNode
     create_event(interface: string): DomEvent
     create_range(): DomRange
-    create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
-    write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
-    create_stream(): Gio.InputStream
-    create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    write_string(cancellable?: Gio.Cancellable | null): string
-    write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
-    read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
-    read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
-    read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
-    get_xml_parser(): Parser
-    set_xml_parser(parser: Parser): void
+    create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
+    get_implementation(): DomImplementation
+    get_url(): string
+    get_document_uri(): string
+    get_origin(): string
+    get_compat_mode(): string
+    get_character_set(): string
+    get_content_type(): string
+    get_doctype(): DomDocumentType | null
+    get_document_element(): DomElement | null
     /* Methods of GXml.XPathContext */
-    evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
+    evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_create_element(name: string): Node
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_comment(data: string): DomComment
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
+    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
+    vfunc_create_document_fragment(): DomDocumentFragment
+    vfunc_create_text_node(data: string): DomText
+    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
+    vfunc_import_node(node: DomNode, deep: boolean): DomNode
+    vfunc_adopt_node(node: DomNode): DomNode
+    vfunc_create_event(interface: string): DomEvent
+    vfunc_create_range(): DomRange
+    vfunc_create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    vfunc_create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
     vfunc_get_implementation(): DomImplementation
     vfunc_get_url(): string
     vfunc_get_document_uri(): string
@@ -11998,73 +11751,10 @@ export class GDocument {
     vfunc_get_content_type(): string
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
-    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
-    vfunc_create_element(local_name: string): DomElement
-    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
-    vfunc_create_document_fragment(): DomDocumentFragment
-    vfunc_create_text_node(data: string): DomText
-    vfunc_create_comment(data: string): DomComment
-    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
-    vfunc_import_node(node: DomNode, deep: boolean): DomNode
-    vfunc_adopt_node(node: DomNode): DomNode
-    vfunc_create_event(interface: string): DomEvent
-    vfunc_create_range(): DomRange
-    vfunc_create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    vfunc_create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_get_xml_parser(): Parser
-    vfunc_set_xml_parser(parser: Parser): void
-    vfunc_evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -12077,29 +11767,6 @@ export class GDocument {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -12109,21 +11776,32 @@ export class GDocument {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12152,12 +11830,18 @@ export class GDocument {
     connect_after(sigName: "notify::name", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ns-top", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ns-top", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix-default-ns", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix-default-ns", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::backup", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::backup", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::root", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::first-element-child", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
@@ -12166,6 +11850,8 @@ export class GDocument {
     connect_after(sigName: "notify::last-element-child", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::child-element-count", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-element-count", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::url", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::url", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document-uri", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
@@ -12178,6 +11864,10 @@ export class GDocument {
     connect_after(sigName: "notify::character-set", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content-type", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-type", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12188,17 +11878,14 @@ export class GDocument {
     /* Static methods and pseudo-constructors */
     static new(): GDocument
     static from_path(path: string, options: number): GDocument
-    static from_path(file_path: string): GDocument
     static from_uri(uri: string, options: number): GDocument
     static from_file(file: Gio.File, options: number, cancel?: Gio.Cancellable | null): GDocument
     static from_string(str: string, options: number): GDocument
-    static from_string(xml: string): GDocument
     static from_stream(istream: Gio.InputStream): GDocument
-    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): GDocument
     static from_doc(doc: libxml2.Doc): GDocument
-    static from_libxml2(doc: object | null, require_root: boolean): GDocument
-    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): GDocument
-    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): GDocument
+    static new_default(): Document
+    static new_default_for_path(path: string): Document
+    static new_default_for_file(f: Gio.File): Document
     static $gtype: GObject.Type
 }
 export interface GImplementation_ConstructProps extends GObject.Object_ConstructProps {
@@ -12234,12 +11921,12 @@ export class GImplementation {
     /* Methods of GXml.DomImplementation */
     create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
-    create_html_document(title: string): DomDocument
+    create_html_document(title: string): Document
     has_feature(): boolean
     /* Virtual methods of GXml.GImplementation */
     vfunc_create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     vfunc_create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
-    vfunc_create_html_document(title: string): DomDocument
+    vfunc_create_html_document(title: string): Document
     vfunc_has_feature(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -12344,6 +12031,19 @@ export class GDocumentType {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomNode */
+    has_child_nodes(): boolean
+    normalize(): void
+    is_equal_node(node?: DomNode | null): boolean
+    compare_document_position(other: DomNode): DomNodeDocumentPosition
+    contains(other?: DomNode | null): boolean
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    is_default_namespace(nspace?: string | null): boolean
+    insert_before(node: DomNode, child?: DomNode | null): DomNode
+    append_child(node: DomNode): DomNode
+    replace_child(node: DomNode, child: DomNode): DomNode
+    remove_child(child: DomNode): DomNode
+    clone_node(deep: boolean): DomNode
     get_node_type(): DomNodeNodeType
     get_node_name(): string
     get_base_uri(): string | null
@@ -12360,18 +12060,6 @@ export class GDocumentType {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    has_child_nodes(): boolean
-    normalize(): void
-    is_equal_node(node?: DomNode | null): boolean
-    compare_document_position(other: DomNode): DomNodeDocumentPosition
-    contains(other?: DomNode | null): boolean
-    lookup_prefix(nspace?: string | null): string | null
-    lookup_namespace_uri(prefix?: string | null): string | null
-    is_default_namespace(nspace?: string | null): boolean
-    insert_before(node: DomNode, child?: DomNode | null): DomNode
-    append_child(node: DomNode): DomNode
-    replace_child(node: DomNode, child: DomNode): DomNode
-    remove_child(child: DomNode): DomNode
     /* Methods of GXml.DomChildNode */
     remove(): void
     /* Methods of GXml.DomDocumentType */
@@ -12381,60 +12069,11 @@ export class GDocumentType {
     vfunc_get_name(): string
     vfunc_get_public_id(): string
     vfunc_get_system_id(): string
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -12447,29 +12086,6 @@ export class GDocumentType {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -12479,21 +12095,32 @@ export class GDocumentType {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12582,7 +12209,7 @@ export class GDocumentFragment {
     priv: GDocumentFragmentPrivate
     /* Fields of GXml.GDocument */
     doc: object | null
-    _buffer: any
+    _buffer: libxml2.Buffer
     _implementation: GImplementation
     _url: string
     _origin: string
@@ -12636,41 +12263,55 @@ export class GDocumentFragment {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GXml.GDocumentFragment */
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_create_element(name: string): Node
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_comment(text: string): Node
+    vfunc_create_comment(data: string): DomComment
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     /* Virtual methods of GXml.GDocument */
     vfunc_save(cancellable?: Gio.Cancellable | null): boolean
     vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_create_element(name: string): Node
+    vfunc_create_element(local_name: string): DomElement
+    vfunc_create_text(text: string): Node
+    vfunc_create_comment(text: string): Node
+    vfunc_create_comment(data: string): DomComment
+    vfunc_create_cdata(text: string): Node
+    vfunc_create_pi(target: string, data: string): Node
+    vfunc_get_indent(): boolean
+    vfunc_set_indent(value: boolean): void
+    vfunc_get_ns_top(): boolean
+    vfunc_set_ns_top(value: boolean): void
+    vfunc_get_prefix_default_ns(): boolean
+    vfunc_set_prefix_default_ns(value: boolean): void
+    vfunc_get_backup(): boolean
+    vfunc_set_backup(value: boolean): void
+    vfunc_get_root(): Node
+    vfunc_get_file(): Gio.File
+    vfunc_set_file(value: Gio.File): void
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
+    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
+    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
+    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
+    vfunc_create_document_fragment(): DomDocumentFragment
+    vfunc_create_text_node(data: string): DomText
+    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
+    vfunc_import_node(node: DomNode, deep: boolean): DomNode
+    vfunc_adopt_node(node: DomNode): DomNode
+    vfunc_create_event(interface: string): DomEvent
+    vfunc_create_range(): DomRange
+    vfunc_create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    vfunc_create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
     vfunc_get_implementation(): DomImplementation
     vfunc_get_url(): string
     vfunc_get_document_uri(): string
@@ -12680,73 +12321,10 @@ export class GDocumentFragment {
     vfunc_get_content_type(): string
     vfunc_get_doctype(): DomDocumentType | null
     vfunc_get_document_element(): DomElement | null
-    vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
-    vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
-    vfunc_create_element(local_name: string): DomElement
-    vfunc_create_element_ns(namespace: string | null, qualified_name: string): DomElement
-    vfunc_create_document_fragment(): DomDocumentFragment
-    vfunc_create_text_node(data: string): DomText
-    vfunc_create_comment(data: string): DomComment
-    vfunc_create_processing_instruction(target: string, data: string): DomProcessingInstruction
-    vfunc_import_node(node: DomNode, deep: boolean): DomNode
-    vfunc_adopt_node(node: DomNode): DomNode
-    vfunc_create_event(interface: string): DomEvent
-    vfunc_create_range(): DomRange
-    vfunc_create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    vfunc_create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_get_xml_parser(): Parser
-    vfunc_set_xml_parser(parser: Parser): void
-    vfunc_evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -12759,29 +12337,6 @@ export class GDocumentFragment {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -12791,21 +12346,32 @@ export class GDocumentFragment {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12854,6 +12420,7 @@ export class GDomNodeIterator {
     readonly reference_node: DomNode
     readonly pointer_before_reference_node: boolean
     readonly what_to_show: number
+    readonly filter: DomNodeFilter
     /* Fields of GXml.GDomNodeIterator */
     parent_instance: GObject.Object
     priv: GDomNodeIteratorPrivate
@@ -12887,21 +12454,23 @@ export class GDomNodeIterator {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomNodeIterator */
+    next_node(): DomNode | null
+    previous_node(): DomNode | null
+    detach(): void
     get_root(): DomNode
     get_reference_node(): DomNode
     get_pointer_before_reference_node(): boolean
     get_what_to_show(): number
-    next_node(): DomNode | null
-    previous_node(): DomNode | null
-    detach(): void
+    get_filter(): DomNodeFilter | null
     /* Virtual methods of GXml.GDomNodeIterator */
+    vfunc_next_node(): DomNode | null
+    vfunc_previous_node(): DomNode | null
+    vfunc_detach(): void
     vfunc_get_root(): DomNode
     vfunc_get_reference_node(): DomNode
     vfunc_get_pointer_before_reference_node(): boolean
     vfunc_get_what_to_show(): number
-    vfunc_next_node(): DomNode | null
-    vfunc_previous_node(): DomNode | null
-    vfunc_detach(): void
+    vfunc_get_filter(): DomNodeFilter | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12914,10 +12483,6 @@ export class GDomNodeIterator {
     connect(sigName: "notify", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.DomNodeIterator */
-    connect(sigName: "accept-node", callback: (($obj: GDomNodeIterator, node: DomNode) => DomNodeFilterFilter)): number
-    connect_after(sigName: "accept-node", callback: (($obj: GDomNodeIterator, node: DomNode) => DomNodeFilterFilter)): number
-    emit(sigName: "accept-node", node: DomNode): void
     connect(sigName: "notify::root", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::root", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::reference-node", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
@@ -12926,6 +12491,8 @@ export class GDomNodeIterator {
     connect_after(sigName: "notify::pointer-before-reference-node", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::what-to-show", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::what-to-show", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::filter", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::filter", callback: (($obj: GDomNodeIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12943,6 +12510,7 @@ export class GDomTreeWalker {
     /* Properties of GXml.DomTreeWalker */
     readonly root: DomNode
     readonly what_to_show: number
+    readonly filter: DomNodeFilter
     readonly current_node: DomNode
     /* Fields of GXml.GDomTreeWalker */
     parent_instance: GObject.Object
@@ -12976,27 +12544,29 @@ export class GDomTreeWalker {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomTreeWalker */
+    parentNode(): DomNode | null
+    firstChild(): DomNode | null
+    lastChild(): DomNode | null
+    previousSibling(): DomNode | null
+    nextSibling(): DomNode | null
+    previousNode(): DomNode | null
+    nextNode(): DomNode | null
     get_root(): DomNode
     get_what_to_show(): number
+    get_filter(): DomNodeFilter | null
     get_current_node(): DomNode
-    parent_node(): DomNode | null
-    first_child(): DomNode | null
-    last_child(): DomNode | null
-    previous_sibling(): DomNode | null
-    next_sibling(): DomNode | null
-    previous_node(): DomNode | null
-    next_node(): DomNode | null
     /* Virtual methods of GXml.GDomTreeWalker */
+    vfunc_parentNode(): DomNode | null
+    vfunc_firstChild(): DomNode | null
+    vfunc_lastChild(): DomNode | null
+    vfunc_previousSibling(): DomNode | null
+    vfunc_nextSibling(): DomNode | null
+    vfunc_previousNode(): DomNode | null
+    vfunc_nextNode(): DomNode | null
     vfunc_get_root(): DomNode
     vfunc_get_what_to_show(): number
+    vfunc_get_filter(): DomNodeFilter | null
     vfunc_get_current_node(): DomNode
-    vfunc_parent_node(): DomNode | null
-    vfunc_first_child(): DomNode | null
-    vfunc_last_child(): DomNode | null
-    vfunc_previous_sibling(): DomNode | null
-    vfunc_next_sibling(): DomNode | null
-    vfunc_previous_node(): DomNode | null
-    vfunc_next_node(): DomNode | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13009,14 +12579,12 @@ export class GDomTreeWalker {
     connect(sigName: "notify", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of GXml.DomTreeWalker */
-    connect(sigName: "accept-node", callback: (($obj: GDomTreeWalker, node: DomNode) => DomNodeFilterFilter)): number
-    connect_after(sigName: "accept-node", callback: (($obj: GDomTreeWalker, node: DomNode) => DomNodeFilterFilter)): number
-    emit(sigName: "accept-node", node: DomNode): void
     connect(sigName: "notify::root", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::root", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::what-to-show", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::what-to-show", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::filter", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::filter", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::current-node", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-node", callback: (($obj: GDomTreeWalker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -13033,13 +12601,11 @@ export class GDomTreeWalker {
 export interface GDomTokenList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GDomTokenList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomTokenList */
     readonly length: number
     /* Fields of GXml.GDomTokenList */
@@ -13047,12 +12613,30 @@ export class GDomTokenList {
     priv: GDomTokenListPrivate
     _element: DomElement
     _attr: string
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GDomTokenList */
     update(): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13061,20 +12645,17 @@ export class GDomTokenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13098,15 +12679,14 @@ export class GDomTokenList {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomTokenList */
-    get_length(): number
     item(index: number): string | null
     contains(token: string): boolean
     add(tokens: string[]): void
     remove(tokens: string[]): void
     toggle(token: string, force: boolean, auto: boolean): boolean
     to_string(): string
+    get_length(): number
     /* Virtual methods of GXml.GDomTokenList */
-    vfunc_get_length(): number
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
@@ -13116,6 +12696,29 @@ export class GDomTokenList {
     vfunc_remove(item?: object | null): boolean
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13124,21 +12727,69 @@ export class GDomTokenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13151,14 +12802,12 @@ export class GDomTokenList {
     connect(sigName: "notify", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GDomTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -13170,34 +12819,52 @@ export class GDomTokenList {
     _init (config?: GDomTokenList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(e: DomElement, attr?: string | null): GDomTokenList
-    static new(equal_func?: GLib.EqualFunc | null): GDomTokenList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): GDomTokenList
     static $gtype: GObject.Type
 }
 export interface GDomSettableTokenList_ConstructProps extends GDomTokenList_ConstructProps {
     value?: string
 }
 export class GDomSettableTokenList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomSettableTokenList */
     value: string
+    /* Properties of GXml.DomTokenList */
+    readonly length: number
     /* Fields of GXml.GDomSettableTokenList */
     parent_instance: GDomTokenList
     priv: GDomSettableTokenListPrivate
     /* Fields of GXml.GDomTokenList */
     _element: DomElement
     _attr: string
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GDomTokenList */
     update(): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13206,20 +12873,17 @@ export class GDomSettableTokenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13245,9 +12909,20 @@ export class GDomSettableTokenList {
     /* Methods of GXml.DomSettableTokenList */
     get_value(): string
     set_value(value: string): void
+    /* Methods of GXml.DomTokenList */
+    item(index: number): string | null
+    contains(token: string): boolean
+    add(tokens: string[]): void
+    remove(tokens: string[]): void
+    toggle(token: string, force: boolean, auto: boolean): boolean
+    to_string(): string
+    get_length(): number
     /* Virtual methods of GXml.GDomSettableTokenList */
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
     vfunc_add(tokens: string[]): void
@@ -13255,7 +12930,6 @@ export class GDomSettableTokenList {
     vfunc_remove(tokens: string[]): void
     vfunc_remove(item?: object | null): boolean
     /* Virtual methods of GXml.GDomTokenList */
-    vfunc_get_length(): number
     vfunc_item(index: number): string | null
     vfunc_contains(token: string): boolean
     vfunc_contains(item?: object | null): boolean
@@ -13265,6 +12939,29 @@ export class GDomSettableTokenList {
     vfunc_remove(item?: object | null): boolean
     vfunc_toggle(token: string, force: boolean, auto: boolean): boolean
     vfunc_to_string(): string
+    vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13273,21 +12970,69 @@ export class GDomSettableTokenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13300,16 +13045,16 @@ export class GDomSettableTokenList {
     connect(sigName: "notify", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GDomSettableTokenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13319,26 +13064,44 @@ export class GDomSettableTokenList {
     _init (config?: GDomSettableTokenList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(e: DomElement, attr?: string | null): GDomSettableTokenList
-    static new(equal_func?: GLib.EqualFunc | null): GDomSettableTokenList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): GDomSettableTokenList
     static $gtype: GObject.Type
 }
 export interface GDomHTMLCollection_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GDomHTMLCollection {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
+    /* Properties of GXml.DomHTMLCollection */
+    readonly length: number
     /* Fields of GXml.GDomHTMLCollection */
     parent_instance: Gee.ArrayList
     priv: GDomHTMLCollectionPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -13347,20 +13110,17 @@ export class GDomHTMLCollection {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13386,16 +13146,38 @@ export class GDomHTMLCollection {
     /* Methods of GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
-    get_length(): number
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
+    get_length(): number
     /* Virtual methods of GXml.GDomHTMLCollection */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
-    vfunc_get_length(): number
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -13404,21 +13186,69 @@ export class GDomHTMLCollection {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13431,14 +13261,14 @@ export class GDomHTMLCollection {
     connect(sigName: "notify", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GDomHTMLCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13448,7 +13278,7 @@ export class GDomHTMLCollection {
     _init (config?: GDomHTMLCollection_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): GDomHTMLCollection
-    static new(equal_func?: GLib.EqualFunc | null): GDomHTMLCollection
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): GDomHTMLCollection
     static $gtype: GObject.Type
 }
 export interface GDomEvent_ConstructProps extends GObject.Object_ConstructProps {
@@ -13502,6 +13332,10 @@ export class GDomEvent {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomEvent */
+    stop_propagation(): void
+    stop_immediate_propagation(): void
+    prevent_default(): void
+    init_event(type: string, bubbles: boolean, cancelable: boolean): void
     get_etype(): string
     get_event_target(): DomEventTarget | null
     get_current_target(): DomEventTarget | null
@@ -13511,11 +13345,11 @@ export class GDomEvent {
     get_time_stamp(): DomTimeStamp
     get_default_prevented(): boolean
     get_event_phase(): DomEventPhase
-    stop_propagation(): void
-    stop_immediate_propagation(): void
-    prevent_default(): void
-    init_event(type: string, bubbles: boolean, cancelable: boolean): void
     /* Virtual methods of GXml.GDomEvent */
+    vfunc_stop_propagation(): void
+    vfunc_stop_immediate_propagation(): void
+    vfunc_prevent_default(): void
+    vfunc_init_event(type: string, bubbles: boolean, cancelable: boolean): void
     vfunc_get_etype(): string
     vfunc_get_event_target(): DomEventTarget | null
     vfunc_get_current_target(): DomEventTarget | null
@@ -13525,10 +13359,6 @@ export class GDomEvent {
     vfunc_get_time_stamp(): DomTimeStamp
     vfunc_get_default_prevented(): boolean
     vfunc_get_event_phase(): DomEventPhase
-    vfunc_stop_propagation(): void
-    vfunc_stop_immediate_propagation(): void
-    vfunc_prevent_default(): void
-    vfunc_init_event(type: string, bubbles: boolean, cancelable: boolean): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13618,6 +13448,10 @@ export class GDomCustomEvent {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GXml.GDomEvent */
+    vfunc_stop_propagation(): void
+    vfunc_stop_immediate_propagation(): void
+    vfunc_prevent_default(): void
+    vfunc_init_event(type: string, bubbles: boolean, cancelable: boolean): void
     vfunc_get_etype(): string
     vfunc_get_event_target(): DomEventTarget | null
     vfunc_get_current_target(): DomEventTarget | null
@@ -13627,10 +13461,6 @@ export class GDomCustomEvent {
     vfunc_get_time_stamp(): DomTimeStamp
     vfunc_get_default_prevented(): boolean
     vfunc_get_event_phase(): DomEventPhase
-    vfunc_stop_propagation(): void
-    vfunc_stop_immediate_propagation(): void
-    vfunc_prevent_default(): void
-    vfunc_init_event(type: string, bubbles: boolean, cancelable: boolean): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13701,12 +13531,6 @@ export class GDomRange {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomRange */
-    get_start_container(): DomNode
-    get_start_offset(): number
-    get_end_container(): DomNode
-    get_end_offset(): number
-    get_collapsed(): boolean
-    get_common_ancestor_container(): DomNode
     set_start(node: DomNode, offset: number): void
     set_end(node: DomNode, offset: number): void
     set_start_before(node: DomNode): void
@@ -13728,13 +13552,13 @@ export class GDomRange {
     compare_point(node: DomNode, offset: number): number
     intersects_node(node: DomNode): boolean
     to_string(): string
+    get_start_container(): DomNode
+    get_start_offset(): number
+    get_end_container(): DomNode
+    get_end_offset(): number
+    get_collapsed(): boolean
+    get_common_ancestor_container(): DomNode
     /* Virtual methods of GXml.GDomRange */
-    vfunc_get_start_container(): DomNode
-    vfunc_get_start_offset(): number
-    vfunc_get_end_container(): DomNode
-    vfunc_get_end_offset(): number
-    vfunc_get_collapsed(): boolean
-    vfunc_get_common_ancestor_container(): DomNode
     vfunc_set_start(node: DomNode, offset: number): void
     vfunc_set_end(node: DomNode, offset: number): void
     vfunc_set_start_before(node: DomNode): void
@@ -13756,6 +13580,12 @@ export class GDomRange {
     vfunc_compare_point(node: DomNode, offset: number): number
     vfunc_intersects_node(node: DomNode): boolean
     vfunc_to_string(): string
+    vfunc_get_start_container(): DomNode
+    vfunc_get_start_offset(): number
+    vfunc_get_end_container(): DomNode
+    vfunc_get_end_offset(): number
+    vfunc_get_collapsed(): boolean
+    vfunc_get_common_ancestor_container(): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13794,7 +13624,6 @@ export class GDomRange {
 export interface GElement_ConstructProps extends GNonDocumentChildNode_ConstructProps {
     id?: string
     class_name?: string
-    tag_name?: string
     content?: string
 }
 export class GElement {
@@ -13868,24 +13697,14 @@ export class GElement {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomParentNode */
+    query_selector(selectors: string): DomElement | null
+    query_selector_all(selectors: string): DomNodeList
+    get_elements_by_property_value(property: string, value: string): DomElementList
     get_children(): DomHTMLCollection
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    query_selector(selectors: string): DomElement | null
-    query_selector_all(selectors: string): DomNodeList
-    get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomElement */
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string
-    get_tag_name(): string
-    get_id(): string | null
-    set_id(value?: string | null): void
-    get_class_name(): string | null
-    set_class_name(value?: string | null): void
-    get_class_list(): DomTokenList
-    get_attributes(): DomNamedNodeMap
     get_attribute(name: string): string | null
     get_attribute_ns(namespace: string | null, local_name: string): string | null
     set_attribute(name: string, value: string): void
@@ -13897,62 +13716,37 @@ export class GElement {
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(class_names: string): DomHTMLCollection
-    matches(selectors: string): boolean
-    read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
-    read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
-    read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
-    read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
-    write_string(cancellable?: Gio.Cancellable | null): string
-    write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
-    write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
-    write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
-    create_stream(): Gio.InputStream
-    create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+    get_local_name(): string
+    get_tag_name(): string
+    get_id(): string | null
+    set_id(value?: string | null): void
+    get_class_name(): string | null
+    set_class_name(value?: string | null): void
+    get_class_list(): DomTokenList
+    get_attributes(): DomNamedNodeMap
     /* Methods of GXml.Element */
-    get_attribute(name: string): string
-    get_attribute_node(name: string): Attr | null
-    set_attribute_node(new_attr: Attr): Attr
-    remove_attribute_node(old_attr: Attr): Attr
-    get_elements_by_tag_name(tag_name: string): NodeList
     normalize(): void
+    set_attr(name: string, value: string): void
+    get_attr(name: string): Node | null
+    remove_attr(name: string): void
+    remove_ns_attr(name: string, uri: string): void
+    set_ns_attr(ns: string, name: string, value: string): void
+    get_ns_attr(name: string, uri: string): Node | null
     get_content(): string
     set_content(value: string): void
     /* Methods of GXml.XPathContext */
-    evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
+    evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GElement */
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_local_name(): string | null
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
-    vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -13964,113 +13758,34 @@ export class GElement {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_evaluate(expression: string, resolver?: Gee.Map | null): XPathObject
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
+    vfunc_normalize(): void
+    vfunc_set_attr(name: string, value: string): void
+    vfunc_get_attr(name: string): Node | null
+    vfunc_remove_attr(name: string): void
+    vfunc_remove_ns_attr(name: string, uri: string): void
+    vfunc_set_ns_attr(ns: string, name: string, value: string): void
+    vfunc_get_ns_attr(name: string, uri: string): Node | null
+    vfunc_get_content(): string
+    vfunc_set_content(value: string): void
+    vfunc_evaluate(expression: string, resolver?: Gee.List | null): XPathObject
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -14083,29 +13798,6 @@ export class GElement {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -14115,21 +13807,32 @@ export class GElement {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14269,19 +13972,6 @@ export interface GNode_ConstructProps extends GObject.Object_ConstructProps {
     owner_document?: DomDocument
     node_value?: string
     text_content?: string
-    namespace_definitions?: NodeList
-    namespace_uri?: string
-    prefix?: string
-    local_name?: string
-    node_name?: string
-    node_type?: NodeType
-    parent_node?: Node
-    child_nodes?: NodeList
-    first_child?: Node
-    last_child?: Node
-    previous_sibling?: Node
-    next_sibling?: Node
-    attributes?: NamedAttrMap
 }
 export class GNode {
     /* Properties of GXml.GNode */
@@ -14307,12 +13997,6 @@ export class GNode {
     readonly next_sibling: DomNode
     node_value: string
     text_content: string
-    /* Properties of GXml.Node */
-    namespace_definitions: NodeList
-    namespace_uri: string
-    prefix: string
-    local_name: string
-    attributes: NamedAttrMap
     /* Fields of GXml.GNode */
     parent_instance: GObject.Object
     priv: GNodePrivate
@@ -14361,6 +14045,19 @@ export class GNode {
     remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     dispatch_event(event: DomEvent): boolean
     /* Methods of GXml.DomNode */
+    has_child_nodes(): boolean
+    normalize(): void
+    is_equal_node(node?: DomNode | null): boolean
+    compare_document_position(other: DomNode): DomNodeDocumentPosition
+    contains(other?: DomNode | null): boolean
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    is_default_namespace(nspace?: string | null): boolean
+    insert_before(node: DomNode, child?: DomNode | null): DomNode
+    append_child(node: DomNode): DomNode
+    replace_child(node: DomNode, child: DomNode): DomNode
+    remove_child(child: DomNode): DomNode
+    clone_node(deep: boolean): DomNode
     get_node_type(): DomNodeNodeType
     get_node_name(): string
     get_base_uri(): string | null
@@ -14377,44 +14074,16 @@ export class GNode {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    has_child_nodes(): boolean
-    normalize(): void
-    is_equal_node(node?: DomNode | null): boolean
-    compare_document_position(other: DomNode): DomNodeDocumentPosition
-    contains(other?: DomNode | null): boolean
-    lookup_prefix(nspace?: string | null): string | null
-    lookup_namespace_uri(prefix?: string | null): string | null
-    is_default_namespace(nspace?: string | null): boolean
-    insert_before(node: DomNode, child?: DomNode | null): DomNode
-    append_child(node: DomNode): DomNode
-    replace_child(node: DomNode, child: DomNode): DomNode
-    remove_child(child: DomNode): DomNode
     /* Methods of GXml.Node */
-    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    replace_child(new_child: Node, old_child: Node): Node | null
-    remove_child(old_child: Node): Node | null
-    append_child(new_child: Node): Node | null
-    clone_node(deep: boolean): Node | null
-    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    to_string(format: boolean, level: number): string
-    get_namespace_definitions(): NodeList | null
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string | null
-    get_node_type(): NodeType
-    get_parent_node(): Node | null
-    get_child_nodes(): NodeList | null
-    get_first_child(): Node | null
-    get_last_child(): Node | null
-    get_previous_sibling(): Node | null
-    get_next_sibling(): Node | null
-    get_attributes(): NamedAttrMap | null
-    get_owner_document(): Document
+    get(key: string): Node | null
+    get_elements_by_property_value(property: string, value: string): ElementList
+    get_elements_by_name(name: string): ElementList
+    get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    ns_prefix(): string
+    ns_uri(): string
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -14427,29 +14096,6 @@ export class GNode {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -14459,21 +14105,32 @@ export class GNode {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14528,16 +14185,6 @@ export class GNode {
     connect_after(sigName: "notify::node-value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::text-content", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text-content", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14548,10 +14195,10 @@ export class GNode {
     /* Static methods and pseudo-constructors */
     static to_gnode(doc: GDocument, node?: object | null): Node
     static copy(doc: DomDocument, node: DomNode, source: DomNode, deep: boolean): boolean
+    static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
 export interface GProcessingInstruction_ConstructProps extends GCharacterData_ConstructProps {
-    target?: string
     data?: string
 }
 export class GProcessingInstruction {
@@ -14565,8 +14212,10 @@ export class GProcessingInstruction {
     readonly name: string
     value: string
     /* Properties of GXml.ProcessingInstruction */
-    target: string
+    readonly target: string
     data: string
+    /* Properties of GXml.DomCharacterData */
+    readonly length: number
     /* Fields of GXml.GProcessingInstruction */
     parent_instance: GCharacterData
     priv: GProcessingInstructionPrivate
@@ -14616,130 +14265,35 @@ export class GProcessingInstruction {
     get_data(): string
     set_data(value: string): void
     /* Methods of GXml.DomCharacterData */
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_length(): number
     /* Virtual methods of GXml.GProcessingInstruction */
     vfunc_get_target(): string
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
     /* Virtual methods of GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -14752,29 +14306,6 @@ export class GProcessingInstruction {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -14784,21 +14315,32 @@ export class GProcessingInstruction {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14831,6 +14373,8 @@ export class GProcessingInstruction {
     connect_after(sigName: "notify::target", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14844,6 +14388,7 @@ export class GProcessingInstruction {
     static $gtype: GObject.Type
 }
 export interface GText_ConstructProps extends GCharacterData_ConstructProps {
+    str?: string
     data?: string
 }
 export class GText {
@@ -14856,8 +14401,13 @@ export class GText {
     readonly type_node: NodeType
     readonly name: string
     value: string
+    /* Properties of GXml.Text */
+    str: string
+    /* Properties of GXml.DomText */
+    readonly whole_text: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GText */
     parent_instance: GCharacterData
     priv: GTextPrivate
@@ -14903,138 +14453,44 @@ export class GText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Text */
-    split_text(offset: number): Text
+    get_str(): string
+    set_str(value: string): void
     /* Methods of GXml.DomText */
     split_text(offset: number): DomText
     get_whole_text(): string
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GText */
+    vfunc_get_str(): string
+    vfunc_set_str(value: string): void
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GCharacterData */
     vfunc_get_str(): string
     vfunc_set_str(value: string): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GNonDocumentChildNode */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GChildNode */
     vfunc_remove(): void
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
-    vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
-    vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
     /* Virtual methods of GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
-    vfunc_to_string(format: boolean, level: number): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children_nodes(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -15047,29 +14503,6 @@ export class GText {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
-    vfunc_get_node_type(): DomNodeNodeType
-    vfunc_get_node_type(): NodeType
-    vfunc_get_node_name(): string
-    vfunc_get_base_uri(): string | null
-    vfunc_get_owner_document(): DomDocument | null
-    vfunc_set_owner_document(value?: DomDocument | null): void
-    vfunc_get_parent_node(): DomNode | null
-    vfunc_get_parent_node(): Node | null
-    vfunc_get_parent_element(): DomElement | null
-    vfunc_get_child_nodes(): DomNodeList
-    vfunc_get_child_nodes(): NodeList | null
-    vfunc_get_first_child(): DomNode | null
-    vfunc_get_first_child(): Node | null
-    vfunc_get_last_child(): DomNode | null
-    vfunc_get_last_child(): Node | null
-    vfunc_get_previous_sibling(): DomNode | null
-    vfunc_get_previous_sibling(): Node | null
-    vfunc_get_next_sibling(): DomNode | null
-    vfunc_get_next_sibling(): Node | null
-    vfunc_get_node_value(): string | null
-    vfunc_set_node_value(value?: string | null): void
-    vfunc_get_text_content(): string | null
-    vfunc_set_text_content(value?: string | null): void
     vfunc_has_child_nodes(): boolean
     vfunc_normalize(): void
     vfunc_is_equal_node(node?: DomNode | null): boolean
@@ -15079,21 +14512,32 @@ export class GText {
     vfunc_lookup_namespace_uri(prefix?: string | null): string | null
     vfunc_is_default_namespace(nspace?: string | null): boolean
     vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
     vfunc_append_child(node: DomNode): DomNode
-    vfunc_append_child(new_child: Node): Node | null
     vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
     vfunc_remove_child(child: DomNode): DomNode
-    vfunc_remove_child(old_child: Node): Node | null
-    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
-    vfunc_clone_node(deep: boolean): Node | null
-    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
-    vfunc_get_namespace_definitions(): NodeList | null
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string | null
-    vfunc_get_attributes(): NamedAttrMap | null
+    vfunc_clone_node(deep: boolean): DomNode
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_get(key: string): Node | null
+    vfunc_get_elements_by_property_value(property: string, value: string): ElementList
+    vfunc_get_elements_by_name(name: string): ElementList
+    vfunc_get_elements_by_name_ns(name: string, ns?: string | null): ElementList
+    vfunc_ns_prefix(): string
+    vfunc_ns_uri(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15122,8 +14566,14 @@ export class GText {
     connect_after(sigName: "notify::name", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::whole-text", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::whole-text", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15141,7 +14591,7 @@ export interface GHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructPr
 export class GHashMapAttr {
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -15161,9 +14611,24 @@ export class GHashMapAttr {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15187,7 +14652,6 @@ export class GHashMapAttr {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomNamedNodeMap */
-    get_length(): number
     item(index: number): DomNode | null
     get_named_item(name: string): DomNode | null
     set_named_item(node: DomNode): DomNode | null
@@ -15195,8 +14659,8 @@ export class GHashMapAttr {
     remove_named_item_ns(namespace_uri: string, localName: string): DomNode | null
     get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     set_named_item_ns(node: DomNode): DomNode | null
+    get_length(): number
     /* Virtual methods of GXml.GHashMapAttr */
-    vfunc_get_length(): number
     vfunc_item(index: number): DomNode | null
     vfunc_get_named_item(name: string): DomNode | null
     vfunc_set_named_item(node: DomNode): DomNode | null
@@ -15204,6 +14668,7 @@ export class GHashMapAttr {
     vfunc_remove_named_item_ns(namespace_uri: string, localName: string): DomNode | null
     vfunc_get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     vfunc_set_named_item_ns(node: DomNode): DomNode | null
+    vfunc_get_length(): number
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -15212,14 +14677,43 @@ export class GHashMapAttr {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15234,8 +14728,8 @@ export class GHashMapAttr {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
@@ -15263,11 +14757,17 @@ export class GHashMapAttrEntry {
     /* Properties of Gee.MapEntry */
     readonly key: object
     value: object
+    readonly read_only: boolean
     /* Fields of GXml.GHashMapAttrEntry */
     parent_instance: Gee.MapEntry
     priv: GHashMapAttrEntryPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.MapEntry */
+    get_key(): object | null
+    get_value(): object | null
+    set_value(value?: object | null): void
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15290,6 +14790,11 @@ export class GHashMapAttrEntry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.MapEntry */
+    vfunc_get_key(): object | null
+    vfunc_get_value(): object | null
+    vfunc_set_value(value?: object | null): void
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15306,6 +14811,8 @@ export class GHashMapAttrEntry {
     connect_after(sigName: "notify::key", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15320,6 +14827,10 @@ export class GHashMapAttrEntry {
 export interface GHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GHashMapAttrIterator {
+    /* Properties of Gee.MapIterator */
+    readonly valid: boolean
+    readonly mutable: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GHashMapAttrIterator */
     parent_instance: GObject.Object
     priv: GHashMapAttrIteratorPrivate
@@ -15350,19 +14861,27 @@ export class GHashMapAttrIterator {
     /* Methods of Gee.MapIterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get_key(): object | null
     get_value(): object | null
     set_value(value?: object | null): void
     unset(): void
+    fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    foreach(f: Gee.ForallMapFunc): boolean
+    get_valid(): boolean
+    get_mutable(): boolean
+    get_read_only(): boolean
     /* Virtual methods of GXml.GHashMapAttrIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
+    vfunc_foreach(f: Gee.ForallMapFunc): boolean
+    vfunc_get_valid(): boolean
+    vfunc_get_mutable(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15375,6 +14894,12 @@ export class GHashMapAttrIterator {
     connect(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mutable", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mutable", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15393,7 +14918,7 @@ export class GListChildren {
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomNodeList */
     readonly length: number
     /* Fields of GXml.GListChildren */
@@ -15422,20 +14947,17 @@ export class GListChildren {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15474,6 +14996,9 @@ export class GListChildren {
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
@@ -15487,6 +15012,8 @@ export class GListChildren {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15495,21 +15022,69 @@ export class GListChildren {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15526,8 +15101,8 @@ export class GListChildren {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -15544,6 +15119,9 @@ export class GListChildren {
 export interface GListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListChildrenIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListChildrenIterator */
     parent_instance: GObject.Object
     priv: GListChildrenIteratorPrivate
@@ -15591,18 +15169,21 @@ export class GListChildrenIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of Gee.BidirIterator */
     previous(): boolean
     has_previous(): boolean
+    first(): boolean
     last(): boolean
     /* Methods of Gee.ListIterator */
     set(item?: object | null): void
-    insert(item?: object | null): void
     add(item?: object | null): void
     index(): number
+    /* Methods of Gee.BidirListIterator */
+    insert(item?: object | null): void
     /* Virtual methods of GXml.GListChildrenIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -15622,16 +15203,18 @@ export class GListChildrenIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     vfunc_previous(): boolean
     vfunc_has_previous(): boolean
+    vfunc_first(): boolean
     vfunc_last(): boolean
     vfunc_set(item?: object | null): void
-    vfunc_insert(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
+    vfunc_insert(item?: object | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15644,6 +15227,10 @@ export class GListChildrenIterator {
     connect(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15653,6 +15240,8 @@ export class GListChildrenIterator {
     _init (config?: GListChildrenIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: GDocument, node?: object | null): GListChildrenIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export interface GListNamespaces_ConstructProps extends Gee.AbstractList_ConstructProps {
@@ -15662,7 +15251,7 @@ export class GListNamespaces {
     readonly read_only_view: Gee.List
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListNamespaces */
     parent_instance: Gee.AbstractList
     priv: GListNamespacesPrivate
@@ -15676,20 +15265,27 @@ export class GListNamespaces {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15712,6 +15308,9 @@ export class GListNamespaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.GListNamespaces */
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -15720,21 +15319,69 @@ export class GListNamespaces {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15751,8 +15398,8 @@ export class GListNamespaces {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15767,6 +15414,9 @@ export class GListNamespaces {
 export interface GListNamespacesIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListNamespacesIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GXml.GListNamespacesIterator */
     parent_instance: GObject.Object
     priv: GListNamespacesIteratorPrivate
@@ -15814,18 +15464,14 @@ export class GListNamespacesIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of Gee.ListIterator */
     set(item?: object | null): void
-    insert(item?: object | null): void
     add(item?: object | null): void
     index(): number
-    /* Methods of Gee.BidirIterator */
-    previous(): boolean
-    has_previous(): boolean
-    last(): boolean
     /* Virtual methods of GXml.GListNamespacesIterator */
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -15845,16 +15491,13 @@ export class GListNamespacesIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     vfunc_set(item?: object | null): void
-    vfunc_insert(item?: object | null): void
     vfunc_add(item?: object | null): void
     vfunc_index(): number
-    vfunc_previous(): boolean
-    vfunc_has_previous(): boolean
-    vfunc_last(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15867,6 +15510,10 @@ export class GListNamespacesIterator {
     connect(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15876,6 +15523,8 @@ export class GListNamespacesIterator {
     _init (config?: GListNamespacesIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(node?: object | null): GListNamespacesIterator
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export interface DomNodeFilter_ConstructProps extends GObject.Object_ConstructProps {
@@ -15934,20 +15583,38 @@ export class DomNodeFilter {
 export interface DomElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class DomElementList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
+    /* Properties of GXml.DomHTMLCollection */
+    readonly length: number
     /* Fields of GXml.DomElementList */
     parent_instance: Gee.ArrayList
     priv: DomElementListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -15956,20 +15623,17 @@ export class DomElementList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -15995,16 +15659,38 @@ export class DomElementList {
     /* Methods of GXml.DomHTMLCollection */
     get_element(index: number): DomElement | null
     to_array(): DomElement[]
-    get_length(): number
     item(index: number): DomElement | null
     named_item(name: string): DomElement | null
+    get_length(): number
     /* Virtual methods of GXml.DomElementList */
     vfunc_get_element(index: number): DomElement | null
     vfunc_to_array(): DomElement[]
     vfunc_to_array(): object[]
-    vfunc_get_length(): number
     vfunc_item(index: number): DomElement | null
     vfunc_named_item(name: string): DomElement | null
+    vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -16013,21 +15699,69 @@ export class DomElementList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16040,14 +15774,14 @@ export class DomElementList {
     connect(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: DomElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16057,7 +15791,7 @@ export class DomElementList {
     _init (config?: DomElementList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): DomElementList
-    static new(equal_func?: GLib.EqualFunc | null): DomElementList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): DomElementList
     static $gtype: GObject.Type
 }
 export interface DomEventInit_ConstructProps extends GObject.Object_ConstructProps {
@@ -16565,25 +16299,16 @@ export class GomDocument {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomParentNode */
+    query_selector(selectors: string): DomElement | null
+    query_selector_all(selectors: string): DomNodeList
+    get_elements_by_property_value(property: string, value: string): DomElementList
     get_children(): DomHTMLCollection
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    query_selector(selectors: string): DomElement | null
-    query_selector_all(selectors: string): DomNodeList
-    get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
     /* Methods of GXml.DomDocument */
-    get_implementation(): DomImplementation
-    get_url(): string
-    get_document_uri(): string
-    get_origin(): string
-    get_compat_mode(): string
-    get_character_set(): string
-    get_content_type(): string
-    get_doctype(): DomDocumentType | null
-    get_document_element(): DomElement | null
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -16597,48 +16322,26 @@ export class GomDocument {
     adopt_node(node: DomNode): DomNode
     create_event(interface: string): DomEvent
     create_range(): DomRange
-    create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
-    write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
-    create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    write_string(cancellable?: Gio.Cancellable | null): string
-    write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
-    read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
-    read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
-    read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
-    get_xml_parser(): Parser
-    set_xml_parser(parser: Parser): void
+    create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
+    get_implementation(): DomImplementation
+    get_url(): string
+    get_document_uri(): string
+    get_origin(): string
+    get_compat_mode(): string
+    get_character_set(): string
+    get_content_type(): string
+    get_doctype(): DomDocumentType | null
+    get_document_element(): DomElement | null
     /* Virtual methods of GXml.GomDocument */
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
-    vfunc_get_implementation(): DomImplementation
-    vfunc_get_url(): string
-    vfunc_get_document_uri(): string
-    vfunc_get_origin(): string
-    vfunc_get_compat_mode(): string
-    vfunc_get_character_set(): string
-    vfunc_get_content_type(): string
-    vfunc_get_doctype(): DomDocumentType | null
-    vfunc_get_document_element(): DomElement | null
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(classNames: string): DomHTMLCollection
@@ -16652,35 +16355,34 @@ export class GomDocument {
     vfunc_adopt_node(node: DomNode): DomNode
     vfunc_create_event(interface: string): DomEvent
     vfunc_create_range(): DomRange
-    vfunc_create_node_iterator(root: DomNode, whatToShow: number): DomNodeIterator
-    vfunc_create_tree_walker(root: DomNode, what_to_show: number): DomTreeWalker
-    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_read_from_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_get_xml_parser(): Parser
-    vfunc_set_xml_parser(parser: Parser): void
+    vfunc_create_node_iterator(root: DomNode, whatToShow: number, filter?: DomNodeFilter | null): DomNodeIterator
+    vfunc_create_tree_walker(root: DomNode, what_to_show: number, filter?: DomNodeFilter | null): DomTreeWalker
+    vfunc_get_implementation(): DomImplementation
+    vfunc_get_url(): string
+    vfunc_get_document_uri(): string
+    vfunc_get_origin(): string
+    vfunc_get_compat_mode(): string
+    vfunc_get_character_set(): string
+    vfunc_get_content_type(): string
+    vfunc_get_doctype(): DomDocumentType | null
+    vfunc_get_document_element(): DomElement | null
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -16697,18 +16399,6 @@ export class GomDocument {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16796,12 +16486,12 @@ export class GomImplementation {
     /* Methods of GXml.DomImplementation */
     create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
-    create_html_document(title: string): DomDocument
+    create_html_document(title: string): Document
     has_feature(): boolean
     /* Virtual methods of GXml.GomImplementation */
     vfunc_create_document_type(qualified_name: string, public_id: string, system_id: string): DomDocumentType
     vfunc_create_document(nspace?: string | null, qualified_name?: string | null, doctype?: DomDocumentType | null): DomXMLDocument
-    vfunc_create_html_document(title: string): DomDocument
+    vfunc_create_html_document(title: string): Document
     vfunc_has_feature(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -16890,6 +16580,19 @@ export class GomDocumentType {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomNode */
+    has_child_nodes(): boolean
+    normalize(): void
+    is_equal_node(node?: DomNode | null): boolean
+    compare_document_position(other: DomNode): DomNodeDocumentPosition
+    contains(other?: DomNode | null): boolean
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    is_default_namespace(nspace?: string | null): boolean
+    insert_before(node: DomNode, child?: DomNode | null): DomNode
+    append_child(node: DomNode): DomNode
+    replace_child(node: DomNode, child: DomNode): DomNode
+    remove_child(child: DomNode): DomNode
+    clone_node(deep: boolean): DomNode
     get_node_type(): DomNodeNodeType
     get_node_name(): string
     get_base_uri(): string | null
@@ -16906,18 +16609,6 @@ export class GomDocumentType {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    has_child_nodes(): boolean
-    normalize(): void
-    is_equal_node(node?: DomNode | null): boolean
-    compare_document_position(other: DomNode): DomNodeDocumentPosition
-    contains(other?: DomNode | null): boolean
-    lookup_prefix(nspace?: string | null): string | null
-    lookup_namespace_uri(prefix?: string | null): string | null
-    is_default_namespace(nspace?: string | null): boolean
-    insert_before(node: DomNode, child?: DomNode | null): DomNode
-    append_child(node: DomNode): DomNode
-    replace_child(node: DomNode, child: DomNode): DomNode
-    remove_child(child: DomNode): DomNode
     /* Methods of GXml.DomChildNode */
     remove(): void
     /* Methods of GXml.DomDocumentType */
@@ -16933,6 +16624,19 @@ export class GomDocumentType {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -16949,18 +16653,6 @@ export class GomDocumentType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17063,28 +16755,41 @@ export class GomDocumentFragment {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomParentNode */
+    query_selector(selectors: string): DomElement | null
+    query_selector_all(selectors: string): DomNodeList
+    get_elements_by_property_value(property: string, value: string): DomElementList
     get_children(): DomHTMLCollection
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    query_selector(selectors: string): DomElement | null
-    query_selector_all(selectors: string): DomNodeList
-    get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomNonElementParentNode */
     get_element_by_id(element_id: string): DomElement | null
     /* Virtual methods of GXml.GomDocumentFragment */
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_element_by_id(element_id: string): DomElement | null
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -17101,18 +16806,6 @@ export class GomDocumentFragment {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17236,24 +16929,14 @@ export class GomElement {
     get_previous_element_sibling(): DomElement | null
     get_next_element_sibling(): DomElement | null
     /* Methods of GXml.DomParentNode */
+    query_selector(selectors: string): DomElement | null
+    query_selector_all(selectors: string): DomNodeList
+    get_elements_by_property_value(property: string, value: string): DomElementList
     get_children(): DomHTMLCollection
     get_first_element_child(): DomElement | null
     get_last_element_child(): DomElement | null
     get_child_element_count(): number
-    query_selector(selectors: string): DomElement | null
-    query_selector_all(selectors: string): DomNodeList
-    get_elements_by_property_value(property: string, value: string): DomElementList
     /* Methods of GXml.DomElement */
-    get_namespace_uri(): string | null
-    get_prefix(): string | null
-    get_local_name(): string
-    get_tag_name(): string
-    get_id(): string | null
-    set_id(value?: string | null): void
-    get_class_name(): string | null
-    set_class_name(value?: string | null): void
-    get_class_list(): DomTokenList
-    get_attributes(): DomNamedNodeMap
     get_attribute(name: string): string | null
     get_attribute_ns(namespace: string | null, local_name: string): string | null
     set_attribute(name: string, value: string): void
@@ -17265,26 +16948,16 @@ export class GomElement {
     get_elements_by_tag_name(local_name: string): DomHTMLCollection
     get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     get_elements_by_class_name(class_names: string): DomHTMLCollection
-    matches(selectors: string): boolean
-    read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
-    read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
-    write_string(cancellable?: Gio.Cancellable | null): string
-    write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
-    write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
-    write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
-    create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+    get_local_name(): string
+    get_tag_name(): string
+    get_id(): string | null
+    set_id(value?: string | null): void
+    get_class_name(): string | null
+    set_class_name(value?: string | null): void
+    get_class_list(): DomTokenList
+    get_attributes(): DomNamedNodeMap
     /* Methods of GXml.GomObject */
     get_properties_list(): GObject.ParamSpec[]
     find_property_name(pname: string): GObject.ParamSpec | null
@@ -17301,23 +16974,13 @@ export class GomElement {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -17331,31 +16994,16 @@ export class GomElement {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -17369,6 +17017,19 @@ export class GomElement {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -17385,18 +17046,6 @@ export class GomElement {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17455,13 +17104,9 @@ export class GomElement {
 export interface GomElementAttributes_ConstructProps extends Gee.HashMap_ConstructProps {
 }
 export class GomElementAttributes {
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -17474,6 +17119,10 @@ export class GomElementAttributes {
     _element: GomElement
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -17482,9 +17131,24 @@ export class GomElementAttributes {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17508,7 +17172,6 @@ export class GomElementAttributes {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomNamedNodeMap */
-    get_length(): number
     item(index: number): DomNode | null
     get_named_item(name: string): DomNode | null
     set_named_item(node: DomNode): DomNode | null
@@ -17516,8 +17179,8 @@ export class GomElementAttributes {
     remove_named_item_ns(namespace_uri: string, localName: string): DomNode | null
     get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     set_named_item_ns(node: DomNode): DomNode | null
+    get_length(): number
     /* Virtual methods of GXml.GomElementAttributes */
-    vfunc_get_length(): number
     vfunc_item(index: number): DomNode | null
     vfunc_get_named_item(name: string): DomNode | null
     vfunc_set_named_item(node: DomNode): DomNode | null
@@ -17525,6 +17188,7 @@ export class GomElementAttributes {
     vfunc_remove_named_item_ns(namespace_uri: string, localName: string): DomNode | null
     vfunc_get_named_item_ns(namespace_uri: string, local_name: string): DomNode | null
     vfunc_set_named_item_ns(node: DomNode): DomNode | null
+    vfunc_get_length(): number
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -17533,14 +17197,43 @@ export class GomElementAttributes {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17553,16 +17246,10 @@ export class GomElementAttributes {
     connect(sigName: "notify", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::key-hash-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: GomElementAttributes, pspec: GObject.ParamSpec) => void)): number
@@ -17582,7 +17269,7 @@ export class GomElementAttributes {
     _init (config?: GomElementAttributes_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(element: GomElement): GomElementAttributes
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): GomElementAttributes
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): GomElementAttributes
     static $gtype: GObject.Type
 }
 export interface GomAttr_ConstructProps extends GomNode_ConstructProps {
@@ -17595,6 +17282,7 @@ export class GomAttr {
     readonly local_name: string
     readonly name: string
     value: string
+    readonly specified: boolean
     /* Fields of GXml.GomAttr */
     parent_instance: GomNode
     priv: GomAttrPrivate
@@ -17652,6 +17340,19 @@ export class GomAttr {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -17668,18 +17369,6 @@ export class GomAttr {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17702,6 +17391,8 @@ export class GomAttr {
     connect_after(sigName: "notify::name", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::specified", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::specified", callback: (($obj: GomAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17775,6 +17466,19 @@ export class GomNode {
     remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     dispatch_event(event: DomEvent): boolean
     /* Methods of GXml.DomNode */
+    has_child_nodes(): boolean
+    normalize(): void
+    is_equal_node(node?: DomNode | null): boolean
+    compare_document_position(other: DomNode): DomNodeDocumentPosition
+    contains(other?: DomNode | null): boolean
+    lookup_prefix(nspace?: string | null): string | null
+    lookup_namespace_uri(prefix?: string | null): string | null
+    is_default_namespace(nspace?: string | null): boolean
+    insert_before(node: DomNode, child?: DomNode | null): DomNode
+    append_child(node: DomNode): DomNode
+    replace_child(node: DomNode, child: DomNode): DomNode
+    remove_child(child: DomNode): DomNode
+    clone_node(deep: boolean): DomNode
     get_node_type(): DomNodeNodeType
     get_node_name(): string
     get_base_uri(): string | null
@@ -17791,22 +17495,23 @@ export class GomNode {
     set_node_value(value?: string | null): void
     get_text_content(): string | null
     set_text_content(value?: string | null): void
-    has_child_nodes(): boolean
-    normalize(): void
-    is_equal_node(node?: DomNode | null): boolean
-    compare_document_position(other: DomNode): DomNodeDocumentPosition
-    contains(other?: DomNode | null): boolean
-    lookup_prefix(nspace?: string | null): string | null
-    lookup_namespace_uri(prefix?: string | null): string | null
-    is_default_namespace(nspace?: string | null): boolean
-    insert_before(node: DomNode, child?: DomNode | null): DomNode
-    append_child(node: DomNode): DomNode
-    replace_child(node: DomNode, child: DomNode): DomNode
-    remove_child(child: DomNode): DomNode
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -17823,18 +17528,6 @@ export class GomNode {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17888,22 +17581,38 @@ export class GomNode {
 export interface GomNodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class GomNodeList {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of GXml.DomNodeList */
     readonly length: number
     /* Fields of GXml.GomNodeList */
     parent_instance: Gee.ArrayList
     priv: GomNodeListPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -17912,20 +17621,17 @@ export class GomNodeList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -17954,6 +17660,28 @@ export class GomNodeList {
     /* Virtual methods of GXml.GomNodeList */
     vfunc_item(index: number): DomNode | null
     vfunc_get_length(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -17962,21 +17690,69 @@ export class GomNodeList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -17989,14 +17765,12 @@ export class GomNodeList {
     connect(sigName: "notify", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomNodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -18008,7 +17782,7 @@ export class GomNodeList {
     _init (config?: GomNodeList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): GomNodeList
-    static new(equal_func?: GLib.EqualFunc | null): GomNodeList
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): GomNodeList
     static $gtype: GObject.Type
 }
 export interface GomCharacterData_ConstructProps extends GomNode_ConstructProps {
@@ -18020,6 +17794,7 @@ export class GomCharacterData {
     readonly next_element_sibling: DomElement
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GomCharacterData */
     parent_instance: GomNode
     priv: GomCharacterDataPrivate
@@ -18062,30 +17837,43 @@ export class GomCharacterData {
     /* Methods of GXml.DomChildNode */
     remove(): void
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -18102,18 +17890,6 @@ export class GomCharacterData {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18132,6 +17908,8 @@ export class GomCharacterData {
     connect_after(sigName: "notify::next-element-sibling", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GomCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18147,8 +17925,11 @@ export interface GomText_ConstructProps extends GomCharacterData_ConstructProps 
     data?: string
 }
 export class GomText {
+    /* Properties of GXml.DomText */
+    readonly whole_text: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GomText */
     parent_instance: GomCharacterData
     priv: GomTextPrivate
@@ -18189,14 +17970,14 @@ export class GomText {
     split_text(offset: number): DomText
     get_whole_text(): string
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GomText */
     vfunc_split_text(offset: number): DomText
     vfunc_get_whole_text(): string
@@ -18204,18 +17985,31 @@ export class GomText {
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -18232,18 +18026,6 @@ export class GomText {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18256,8 +18038,12 @@ export class GomText {
     connect(sigName: "notify", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::whole-text", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::whole-text", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GomText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18278,6 +18064,7 @@ export class GomProcessingInstruction {
     readonly target: string
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GomProcessingInstruction */
     parent_instance: GomCharacterData
     priv: GomProcessingInstructionPrivate
@@ -18317,32 +18104,45 @@ export class GomProcessingInstruction {
     /* Methods of GXml.DomProcessingInstruction */
     get_target(): string
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GomProcessingInstruction */
     vfunc_get_target(): string
     /* Virtual methods of GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -18359,18 +18159,6 @@ export class GomProcessingInstruction {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18387,6 +18175,8 @@ export class GomProcessingInstruction {
     connect_after(sigName: "notify::target", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::data", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GomProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18405,6 +18195,7 @@ export interface GomComment_ConstructProps extends GomCharacterData_ConstructPro
 export class GomComment {
     /* Properties of GXml.DomCharacterData */
     data: string
+    readonly length: number
     /* Fields of GXml.GomComment */
     parent_instance: GomCharacterData
     priv: GomCommentPrivate
@@ -18442,30 +18233,43 @@ export class GomComment {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.DomCharacterData */
-    get_data(): string
-    set_data(value: string): void
-    get_length(): number
     substring_data(offset: number, count: number): string
     append_data(data: string): void
     insert_data(offset: number, data: string): void
     delete_data(offset: number, count: number): void
     replace_data(offset: number, count: number, data: string): void
+    get_data(): string
+    set_data(value: string): void
+    get_length(): number
     /* Virtual methods of GXml.GomCharacterData */
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
     vfunc_remove(): void
-    vfunc_get_data(): string
-    vfunc_set_data(value: string): void
-    vfunc_get_length(): number
     vfunc_substring_data(offset: number, count: number): string
     vfunc_append_data(data: string): void
     vfunc_insert_data(offset: number, data: string): void
     vfunc_delete_data(offset: number, count: number): void
     vfunc_replace_data(offset: number, count: number, data: string): void
+    vfunc_get_data(): string
+    vfunc_set_data(value: string): void
+    vfunc_get_length(): number
     /* Virtual methods of GXml.GomNode */
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -18482,18 +18286,6 @@ export class GomComment {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18508,6 +18300,8 @@ export class GomComment {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::data", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::length", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::length", callback: (($obj: GomComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18609,26 +18403,35 @@ export interface GomArrayList_ConstructProps extends BaseCollection_ConstructPro
     items_type?: GObject.Type
 }
 export class GomArrayList {
-    /* Properties of GXml.GomCollection */
-    readonly nodes_index: GLib.Queue
-    element: GomElement
+    /* Properties of GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
+    /* Properties of GXml.GomCollection */
     readonly length: number
     /* Fields of GXml.GomArrayList */
     parent_instance: BaseCollection
     priv: GomArrayListPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18652,17 +18455,9 @@ export class GomArrayList {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.GomCollection */
-    search(): void
     get_item(index: number): DomElement | null
-    append(node: DomElement): void
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
-    get_nodes_index(): GLib.Queue
-    get_element(): GomElement
-    set_element(value: GomElement): void
-    get_items_name(): string
-    get_items_type(): GObject.Type
-    set_items_type(value: GObject.Type): void
     get_length(): number
     /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
@@ -18670,50 +18465,16 @@ export class GomArrayList {
     vfunc_append(node: DomElement): void
     vfunc_initialize(t: GObject.Type): void
     vfunc_create_item(): GomElement | null
-    vfunc_create_item(): DomElement | null
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
     vfunc_get_nodes_index(): GLib.Queue
     vfunc_get_element(): GomElement
-    vfunc_get_element(): DomElement
     vfunc_set_element(value: GomElement): void
-    vfunc_set_element(value: DomElement): void
     vfunc_get_items_name(): string
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
     /* Virtual methods of GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
-    vfunc_search(): void
-    vfunc_get_item(index: number): DomElement | null
-    vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
-    vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18726,14 +18487,14 @@ export class GomArrayList {
     connect(sigName: "notify", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::nodes-index", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-name", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-name", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-type", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-type", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -18755,11 +18516,12 @@ export interface GomHashMap_ConstructProps extends BaseCollection_ConstructProps
 export class GomHashMap {
     /* Properties of GXml.GomHashMap */
     attribute_key: string
-    /* Properties of GXml.GomCollection */
-    readonly nodes_index: GLib.Queue
-    element: GomElement
+    /* Properties of GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
+    /* Properties of GXml.GomCollection */
     readonly length: number
     /* Fields of GXml.GomHashMap */
     parent_instance: BaseCollection
@@ -18768,7 +18530,7 @@ export class GomHashMap {
     _attribute_key: string
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -18782,9 +18544,17 @@ export class GomHashMap {
     get_attribute_key(): string
     set_attribute_key(value: string): void
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18808,17 +18578,9 @@ export class GomHashMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.GomCollection */
-    search(): void
     get_item(index: number): DomElement | null
-    append(node: DomElement): void
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
-    get_nodes_index(): GLib.Queue
-    get_element(): GomElement
-    set_element(value: GomElement): void
-    get_items_name(): string
-    get_items_type(): GObject.Type
-    set_items_type(value: GObject.Type): void
     get_length(): number
     /* Virtual methods of GXml.GomHashMap */
     vfunc_search(): void
@@ -18826,50 +18588,16 @@ export class GomHashMap {
     vfunc_append(node: DomElement): void
     vfunc_initialize(t: GObject.Type): void
     vfunc_create_item(): GomElement | null
-    vfunc_create_item(): DomElement | null
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
     vfunc_get_nodes_index(): GLib.Queue
     vfunc_get_element(): GomElement
-    vfunc_get_element(): DomElement
     vfunc_set_element(value: GomElement): void
-    vfunc_set_element(value: DomElement): void
     vfunc_get_items_name(): string
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
     /* Virtual methods of GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
-    vfunc_search(): void
-    vfunc_get_item(index: number): DomElement | null
-    vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
-    vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -18884,14 +18612,14 @@ export class GomHashMap {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attribute-key", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attribute-key", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-name", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-name", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-type", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-type", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -18915,11 +18643,12 @@ export class GomHashPairedMap {
     /* Properties of GXml.GomHashPairedMap */
     attribute_primary_key: string
     attribute_secondary_key: string
-    /* Properties of GXml.GomCollection */
-    readonly nodes_index: GLib.Queue
-    element: GomElement
+    /* Properties of GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
+    /* Properties of GXml.GomCollection */
     readonly length: number
     /* Fields of GXml.GomHashPairedMap */
     parent_instance: BaseCollection
@@ -18929,7 +18658,7 @@ export class GomHashPairedMap {
     _attribute_secondary_key: string
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -18947,9 +18676,17 @@ export class GomHashPairedMap {
     get_attribute_secondary_key(): string
     set_attribute_secondary_key(value: string): void
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -18973,17 +18710,9 @@ export class GomHashPairedMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.GomCollection */
-    search(): void
     get_item(index: number): DomElement | null
-    append(node: DomElement): void
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
-    get_nodes_index(): GLib.Queue
-    get_element(): GomElement
-    set_element(value: GomElement): void
-    get_items_name(): string
-    get_items_type(): GObject.Type
-    set_items_type(value: GObject.Type): void
     get_length(): number
     /* Virtual methods of GXml.GomHashPairedMap */
     vfunc_search(): void
@@ -18991,50 +18720,16 @@ export class GomHashPairedMap {
     vfunc_append(node: DomElement): void
     vfunc_initialize(t: GObject.Type): void
     vfunc_create_item(): GomElement | null
-    vfunc_create_item(): DomElement | null
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
     vfunc_get_nodes_index(): GLib.Queue
     vfunc_get_element(): GomElement
-    vfunc_get_element(): DomElement
     vfunc_set_element(value: GomElement): void
-    vfunc_set_element(value: DomElement): void
     vfunc_get_items_name(): string
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
     /* Virtual methods of GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
-    vfunc_search(): void
-    vfunc_get_item(index: number): DomElement | null
-    vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
-    vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19051,14 +18746,14 @@ export class GomHashPairedMap {
     connect_after(sigName: "notify::attribute-primary-key", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::attribute-secondary-key", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attribute-secondary-key", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-name", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-name", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-type", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-type", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomHashPairedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -19084,11 +18779,12 @@ export class GomHashThreeMap {
     attribute_primary_key: string
     attribute_secondary_key: string
     attribute_third_key: string
-    /* Properties of GXml.GomCollection */
-    readonly nodes_index: GLib.Queue
-    element: GomElement
+    /* Properties of GXml.BaseCollection */
     readonly items_name: string
     items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
+    /* Properties of GXml.GomCollection */
     readonly length: number
     /* Fields of GXml.GomHashThreeMap */
     parent_instance: BaseCollection
@@ -19099,7 +18795,7 @@ export class GomHashThreeMap {
     _attribute_third_key: string
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -19121,9 +18817,17 @@ export class GomHashThreeMap {
     get_attribute_third_key(): string
     set_attribute_third_key(value: string): void
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -19147,17 +18851,9 @@ export class GomHashThreeMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.GomCollection */
-    search(): void
     get_item(index: number): DomElement | null
-    append(node: DomElement): void
     initialize(t: GObject.Type): void
     create_item(): GomElement | null
-    get_nodes_index(): GLib.Queue
-    get_element(): GomElement
-    set_element(value: GomElement): void
-    get_items_name(): string
-    get_items_type(): GObject.Type
-    set_items_type(value: GObject.Type): void
     get_length(): number
     /* Virtual methods of GXml.GomHashThreeMap */
     vfunc_search(): void
@@ -19165,50 +18861,16 @@ export class GomHashThreeMap {
     vfunc_append(node: DomElement): void
     vfunc_initialize(t: GObject.Type): void
     vfunc_create_item(): GomElement | null
-    vfunc_create_item(): DomElement | null
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
     vfunc_get_nodes_index(): GLib.Queue
     vfunc_get_element(): GomElement
-    vfunc_get_element(): DomElement
     vfunc_set_element(value: GomElement): void
-    vfunc_set_element(value: DomElement): void
     vfunc_get_items_name(): string
     vfunc_get_items_type(): GObject.Type
     vfunc_set_items_type(value: GObject.Type): void
     vfunc_get_length(): number
     /* Virtual methods of GXml.BaseCollection */
     vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
-    vfunc_search(): void
-    vfunc_get_item(index: number): DomElement | null
-    vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
-    vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -19227,14 +18889,14 @@ export class GomHashThreeMap {
     connect_after(sigName: "notify::attribute-secondary-key", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::attribute-third-key", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attribute-third-key", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-name", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-name", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::items-type", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::items-type", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::length", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomHashThreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -20061,15 +19723,12 @@ export class GomDateTime {
 export interface XParser_ConstructProps extends GObject.Object_ConstructProps {
     backup?: boolean
     indent?: boolean
-    cancellable?: Gio.Cancellable
 }
 export class XParser {
     /* Properties of GXml.Parser */
     backup: boolean
     indent: boolean
-    cancellable: Gio.Cancellable
     readonly node: DomNode
-    readonly types: GLib.HashTable
     /* Fields of GXml.XParser */
     parent_instance: GObject.Object
     priv: XParserPrivate
@@ -20116,86 +19775,29 @@ export class XParser {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GXml.Parser */
+    write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    write_string(): string
+    write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
+    read_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    read_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    read_string(str: string, cancellable?: Gio.Cancellable | null): void
     get_backup(): boolean
     set_backup(value: boolean): void
     get_indent(): boolean
     set_indent(value: boolean): void
-    get_cancellable(): Gio.Cancellable | null
-    set_cancellable(value?: Gio.Cancellable | null): void
     get_node(): DomNode
-    get_types(): GLib.HashTable
-    write_file(file: Gio.File): void
-    write_file_async(file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
-    write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
-    write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
-    read_file(file: Gio.File): void
-    read_file_async(file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_file_finish(_res_: Gio.AsyncResult): void
-    read_stream(stream: Gio.InputStream): void
-    read_stream_async(stream: Gio.InputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_stream_finish(_res_: Gio.AsyncResult): void
-    read_string(str: string): void
-    read_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_string_finish(_res_: Gio.AsyncResult): void
-    create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    read_child_nodes_async(parent: DomNode, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_child_nodes_finish(_res_: Gio.AsyncResult): void
-    read_child_nodes_stream(istream: Gio.InputStream): void
-    read_child_nodes_string(str: string): void
     /* Virtual methods of GXml.XParser */
+    vfunc_write_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_write_string(): string
+    vfunc_write_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_file(file: Gio.File, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
+    vfunc_read_string(str: string, cancellable?: Gio.Cancellable | null): void
     vfunc_get_backup(): boolean
     vfunc_set_backup(value: boolean): void
     vfunc_get_indent(): boolean
     vfunc_set_indent(value: boolean): void
-    vfunc_get_cancellable(): Gio.Cancellable | null
-    vfunc_set_cancellable(value?: Gio.Cancellable | null): void
     vfunc_get_node(): DomNode
-    vfunc_get_types(): GLib.HashTable
-    vfunc_write_file(file: Gio.File): void
-    vfunc_write_file_async(file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(): string
-    vfunc_write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_file(file: Gio.File): void
-    vfunc_read_file_async(file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_stream(stream: Gio.InputStream): void
-    vfunc_read_stream_async(stream: Gio.InputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_string(str: string): void
-    vfunc_read_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
-    vfunc_read_child_nodes(parent: DomNode): void
-    vfunc_read_child_nodes_async(parent: DomNode, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_child_nodes_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_child_node(parent: DomNode): boolean
-    vfunc_read_child_element(parent: DomNode): boolean
-    vfunc_read_element_property(parent: DomNode): [ /* returnType */ boolean, /* element */ DomNode ]
-    vfunc_add_element_collection(parent: DomNode): [ /* returnType */ boolean, /* element */ DomNode ]
-    vfunc_read_child_nodes_stream(istream: Gio.InputStream): void
-    vfunc_read_child_nodes_string(str: string): void
-    vfunc_read_unparsed(): string
-    vfunc_move_next_node(): boolean
-    vfunc_current_is_empty_element(): boolean
-    vfunc_current_is_element(): boolean
-    vfunc_current_is_document(): boolean
-    vfunc_current_node_name(): string
-    vfunc_create_element(parent: DomNode): DomElement | null
-    vfunc_read_element(element: DomElement): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20212,12 +19814,8 @@ export class XParser {
     connect_after(sigName: "notify::backup", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::indent", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::cancellable", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::cancellable", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::node", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::types", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::types", callback: (($obj: XParser, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20268,29 +19866,13 @@ export class GomXsdSchema {
     set_complex_type_definitions(value: GomXsdListComplexTypes): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -20333,23 +19915,13 @@ export class GomXsdSchema {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -20363,31 +19935,16 @@ export class GomXsdSchema {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -20401,6 +19958,19 @@ export class GomXsdSchema {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -20417,18 +19987,6 @@ export class GomXsdSchema {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20513,29 +20071,13 @@ export class GomXsdSimpleType {
     set_restriction(value: GomXsdTypeRestriction): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -20578,23 +20120,13 @@ export class GomXsdSimpleType {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -20608,31 +20140,16 @@ export class GomXsdSimpleType {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -20646,6 +20163,19 @@ export class GomXsdSimpleType {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -20662,18 +20192,6 @@ export class GomXsdSimpleType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20744,29 +20262,13 @@ export class GomXsdTypeDefinition {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -20809,23 +20311,13 @@ export class GomXsdTypeDefinition {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -20839,31 +20331,16 @@ export class GomXsdTypeDefinition {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -20877,6 +20354,19 @@ export class GomXsdTypeDefinition {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -20893,18 +20383,6 @@ export class GomXsdTypeDefinition {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -20964,29 +20442,13 @@ export class GomXsdTypeList {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -21034,23 +20496,13 @@ export class GomXsdTypeList {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -21064,31 +20516,16 @@ export class GomXsdTypeList {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -21102,6 +20539,19 @@ export class GomXsdTypeList {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -21118,18 +20568,6 @@ export class GomXsdTypeList {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -21189,29 +20627,13 @@ export class GomXsdTypeUnion {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -21259,23 +20681,13 @@ export class GomXsdTypeUnion {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -21289,31 +20701,16 @@ export class GomXsdTypeUnion {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -21327,6 +20724,19 @@ export class GomXsdTypeUnion {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -21343,18 +20753,6 @@ export class GomXsdTypeUnion {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -21432,29 +20830,13 @@ export class GomXsdTypeRestriction {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -21502,23 +20884,13 @@ export class GomXsdTypeRestriction {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -21532,31 +20904,16 @@ export class GomXsdTypeRestriction {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -21570,6 +20927,19 @@ export class GomXsdTypeRestriction {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -21586,18 +20956,6 @@ export class GomXsdTypeRestriction {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -21666,29 +21024,13 @@ export class GomXsdTypeRestrictionDef {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -21731,23 +21073,13 @@ export class GomXsdTypeRestrictionDef {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -21761,31 +21093,16 @@ export class GomXsdTypeRestrictionDef {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -21799,6 +21116,19 @@ export class GomXsdTypeRestrictionDef {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -21815,18 +21145,6 @@ export class GomXsdTypeRestrictionDef {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -21886,29 +21204,13 @@ export class GomXsdTypeRestrictionMinExclusive {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -21956,23 +21258,13 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -21986,31 +21278,16 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -22024,6 +21301,19 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -22040,18 +21330,6 @@ export class GomXsdTypeRestrictionMinExclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -22111,29 +21389,13 @@ export class GomXsdTypeRestrictionMinInclusive {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -22181,23 +21443,13 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -22211,31 +21463,16 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -22249,6 +21486,19 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -22265,18 +21515,6 @@ export class GomXsdTypeRestrictionMinInclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -22336,29 +21574,13 @@ export class GomXsdTypeRestrictionMaxExclusive {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -22406,23 +21628,13 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -22436,31 +21648,16 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -22474,6 +21671,19 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -22490,18 +21700,6 @@ export class GomXsdTypeRestrictionMaxExclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -22561,29 +21759,13 @@ export class GomXsdTypeRestrictionMaxInclusive {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -22631,23 +21813,13 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -22661,31 +21833,16 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -22699,6 +21856,19 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -22715,18 +21885,6 @@ export class GomXsdTypeRestrictionMaxInclusive {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -22786,29 +21944,13 @@ export class GomXsdTypeRestrictionTotalDigits {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -22856,23 +21998,13 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -22886,31 +22018,16 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -22924,6 +22041,19 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -22940,18 +22070,6 @@ export class GomXsdTypeRestrictionTotalDigits {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -23011,29 +22129,13 @@ export class GomXsdTypeRestrictionFractionDigits {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -23081,23 +22183,13 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -23111,31 +22203,16 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -23149,6 +22226,19 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -23165,18 +22255,6 @@ export class GomXsdTypeRestrictionFractionDigits {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -23236,29 +22314,13 @@ export class GomXsdTypeRestrictionLength {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -23306,23 +22368,13 @@ export class GomXsdTypeRestrictionLength {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -23336,31 +22388,16 @@ export class GomXsdTypeRestrictionLength {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -23374,6 +22411,19 @@ export class GomXsdTypeRestrictionLength {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -23390,18 +22440,6 @@ export class GomXsdTypeRestrictionLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -23461,29 +22499,13 @@ export class GomXsdTypeRestrictionMinLength {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -23531,23 +22553,13 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -23561,31 +22573,16 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -23599,6 +22596,19 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -23615,18 +22625,6 @@ export class GomXsdTypeRestrictionMinLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -23686,29 +22684,13 @@ export class GomXsdTypeRestrictionMaxLength {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -23756,23 +22738,13 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -23786,31 +22758,16 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -23824,6 +22781,19 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -23840,18 +22810,6 @@ export class GomXsdTypeRestrictionMaxLength {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -23917,29 +22875,13 @@ export class GomXsdTypeRestrictionEnumeration {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -23987,23 +22929,13 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -24017,31 +22949,16 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -24055,6 +22972,19 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -24071,18 +23001,6 @@ export class GomXsdTypeRestrictionEnumeration {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -24154,29 +23072,13 @@ export class GomXsdTypeRestrictionWhiteSpace {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -24224,23 +23126,13 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -24254,31 +23146,16 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -24292,6 +23169,19 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -24308,18 +23198,6 @@ export class GomXsdTypeRestrictionWhiteSpace {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -24453,29 +23331,13 @@ export class GomXsdTypeRestrictionPattern {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -24523,23 +23385,13 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -24553,31 +23405,16 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -24591,6 +23428,19 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -24607,18 +23457,6 @@ export class GomXsdTypeRestrictionPattern {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -24678,29 +23516,13 @@ export class GomXsdTypeRestrictionAssertion {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -24748,23 +23570,13 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -24778,31 +23590,16 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -24816,6 +23613,19 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -24832,18 +23642,6 @@ export class GomXsdTypeRestrictionAssertion {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -24903,29 +23701,13 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     set_annotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -24973,23 +23755,13 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -25003,31 +23775,16 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -25041,6 +23798,19 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -25057,18 +23827,6 @@ export class GomXsdTypeRestrictionExplicitTimezone {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -25164,29 +23922,13 @@ export class GomXsdComplexType {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -25234,23 +23976,13 @@ export class GomXsdComplexType {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -25264,31 +23996,16 @@ export class GomXsdComplexType {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -25302,6 +24019,19 @@ export class GomXsdComplexType {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -25318,18 +24048,6 @@ export class GomXsdComplexType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -25408,29 +24126,13 @@ export class GomXsdExtension {
     set_base(value: string): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -25473,23 +24175,13 @@ export class GomXsdExtension {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -25503,31 +24195,16 @@ export class GomXsdExtension {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -25541,6 +24218,19 @@ export class GomXsdExtension {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -25557,18 +24247,6 @@ export class GomXsdExtension {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -25693,29 +24371,13 @@ export class GomXsdElement {
     set_complex_type(value: GomXsdComplexType): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -25757,23 +24419,13 @@ export class GomXsdElement {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -25787,31 +24439,16 @@ export class GomXsdElement {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -25825,6 +24462,19 @@ export class GomXsdElement {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -25841,18 +24491,6 @@ export class GomXsdElement {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -25939,29 +24577,13 @@ export class GomXsdAnnotation {
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -26004,23 +24626,13 @@ export class GomXsdAnnotation {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -26034,31 +24646,16 @@ export class GomXsdAnnotation {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -26072,6 +24669,19 @@ export class GomXsdAnnotation {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -26088,18 +24698,6 @@ export class GomXsdAnnotation {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -26158,29 +24756,13 @@ export class GomXsdBaseType {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -26223,23 +24805,13 @@ export class GomXsdBaseType {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -26253,31 +24825,16 @@ export class GomXsdBaseType {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -26291,6 +24848,19 @@ export class GomXsdBaseType {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -26307,18 +24877,6 @@ export class GomXsdBaseType {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -26379,29 +24937,13 @@ export class GomXsdBaseContent {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -26444,23 +24986,13 @@ export class GomXsdBaseContent {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -26474,31 +25006,16 @@ export class GomXsdBaseContent {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -26512,6 +25029,19 @@ export class GomXsdBaseContent {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -26528,18 +25058,6 @@ export class GomXsdBaseContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -26599,29 +25117,13 @@ export class GomXsdSimpleContent {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -26669,23 +25171,13 @@ export class GomXsdSimpleContent {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -26699,31 +25191,16 @@ export class GomXsdSimpleContent {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -26737,6 +25214,19 @@ export class GomXsdSimpleContent {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -26753,18 +25243,6 @@ export class GomXsdSimpleContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -26824,29 +25302,13 @@ export class GomXsdComplexContent {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -26894,23 +25356,13 @@ export class GomXsdComplexContent {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -26924,31 +25376,16 @@ export class GomXsdComplexContent {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -26962,6 +25399,19 @@ export class GomXsdComplexContent {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -26978,18 +25428,6 @@ export class GomXsdComplexContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -27049,29 +25487,13 @@ export class GomXsdOpenContent {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -27119,23 +25541,13 @@ export class GomXsdOpenContent {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -27149,31 +25561,16 @@ export class GomXsdOpenContent {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -27187,6 +25584,19 @@ export class GomXsdOpenContent {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -27203,18 +25613,6 @@ export class GomXsdOpenContent {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -27275,29 +25673,13 @@ export class GomXsdBaseAttribute {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -27340,23 +25722,13 @@ export class GomXsdBaseAttribute {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -27370,31 +25742,16 @@ export class GomXsdBaseAttribute {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -27408,6 +25765,19 @@ export class GomXsdBaseAttribute {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -27424,18 +25794,6 @@ export class GomXsdBaseAttribute {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -27495,29 +25853,13 @@ export class GomXsdAttribute {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -27565,23 +25907,13 @@ export class GomXsdAttribute {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -27595,31 +25927,16 @@ export class GomXsdAttribute {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -27633,6 +25950,19 @@ export class GomXsdAttribute {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -27649,18 +25979,6 @@ export class GomXsdAttribute {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -27720,29 +26038,13 @@ export class GomXsdAttributeGroup {
     set_anotation(value: GomXsdAnnotation): void
     /* Methods of GXml.GomElement */
     read_from_uri(uri: string): void
-    read_from_uri_async(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_uri_finish(_res_: Gio.AsyncResult): void
     read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_file_finish(_res_: Gio.AsyncResult): void
     read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_stream_finish(_res_: Gio.AsyncResult): void
     read_from_string(str: string): void
-    read_from_string_async(str: string, _callback_?: Gio.AsyncReadyCallback | null): void
-    read_from_string_finish(_res_: Gio.AsyncResult): void
     write_string(): string
-    write_string_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    write_string_finish(_res_: Gio.AsyncResult): string
     write_file(f: Gio.File): void
-    write_file_async(f: Gio.File, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_file_finish(_res_: Gio.AsyncResult): void
     write_stream(stream: Gio.OutputStream): void
-    write_stream_async(stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null): void
-    write_stream_finish(_res_: Gio.AsyncResult): void
     create_stream(): Gio.InputStream
-    create_stream_async(_callback_?: Gio.AsyncReadyCallback | null): void
-    create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
     lookup_prefix(nspace?: string | null): string | null
     lookup_namespace_uri(prefix?: string | null): string | null
     initialize(local_name: string): void
@@ -27790,23 +26092,13 @@ export class GomXsdAttributeGroup {
     vfunc_remove(): void
     vfunc_get_previous_element_sibling(): DomElement | null
     vfunc_get_next_element_sibling(): DomElement | null
+    vfunc_query_selector(selectors: string): DomElement | null
+    vfunc_query_selector_all(selectors: string): DomNodeList
+    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
     vfunc_get_children(): DomHTMLCollection
     vfunc_get_first_element_child(): DomElement | null
     vfunc_get_last_element_child(): DomElement | null
     vfunc_get_child_element_count(): number
-    vfunc_query_selector(selectors: string): DomElement | null
-    vfunc_query_selector_all(selectors: string): DomNodeList
-    vfunc_get_elements_by_property_value(property: string, value: string): DomElementList
-    vfunc_get_namespace_uri(): string | null
-    vfunc_get_prefix(): string | null
-    vfunc_get_local_name(): string
-    vfunc_get_tag_name(): string
-    vfunc_get_id(): string | null
-    vfunc_set_id(value?: string | null): void
-    vfunc_get_class_name(): string | null
-    vfunc_set_class_name(value?: string | null): void
-    vfunc_get_class_list(): DomTokenList
-    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_attribute(name: string): string | null
     vfunc_get_attribute_ns(namespace: string | null, local_name: string): string | null
     vfunc_set_attribute(name: string, value: string): void
@@ -27820,31 +26112,16 @@ export class GomXsdAttributeGroup {
     vfunc_get_elements_by_tag_name(local_name: string): DomHTMLCollection
     vfunc_get_elements_by_tag_name_ns(namespace: string | null, local_name: string): DomHTMLCollection
     vfunc_get_elements_by_class_name(class_names: string): DomHTMLCollection
-    vfunc_matches(selectors: string): boolean
-    vfunc_read_from_uri(uri: string): void
-    vfunc_read_from_uri_async(uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_uri_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_stream(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_stream_async(istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_read_from_string(str: string, cancellable?: Gio.Cancellable | null): void
-    vfunc_read_from_string_async(str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_read_from_string_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_string(cancellable?: Gio.Cancellable | null): string
-    vfunc_write_string_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_string_finish(_res_: Gio.AsyncResult): string
-    vfunc_write_file(f: Gio.File, cancellable?: Gio.Cancellable | null): void
-    vfunc_write_file_async(f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_file_finish(_res_: Gio.AsyncResult): void
-    vfunc_write_stream(stream: Gio.OutputStream): void
-    vfunc_write_stream_async(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_write_stream_finish(_res_: Gio.AsyncResult): void
-    vfunc_create_stream(): Gio.InputStream
-    vfunc_create_stream_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_create_stream_finish(_res_: Gio.AsyncResult): Gio.InputStream
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string
+    vfunc_get_tag_name(): string
+    vfunc_get_id(): string | null
+    vfunc_set_id(value?: string | null): void
+    vfunc_get_class_name(): string | null
+    vfunc_set_class_name(value?: string | null): void
+    vfunc_get_class_list(): DomTokenList
+    vfunc_get_attributes(): DomNamedNodeMap
     vfunc_get_properties_list(): GObject.ParamSpec[]
     vfunc_find_property_name(pname: string): GObject.ParamSpec | null
     vfunc_find_object_property_name(pname: string): GObject.ParamSpec | null
@@ -27858,6 +26135,19 @@ export class GomXsdAttributeGroup {
     vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
     vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_clone_node(deep: boolean): DomNode
     vfunc_get_node_type(): DomNodeNodeType
     vfunc_get_node_name(): string
     vfunc_get_base_uri(): string | null
@@ -27874,18 +26164,6 @@ export class GomXsdAttributeGroup {
     vfunc_set_node_value(value?: string | null): void
     vfunc_get_text_content(): string | null
     vfunc_set_text_content(value?: string | null): void
-    vfunc_has_child_nodes(): boolean
-    vfunc_normalize(): void
-    vfunc_is_equal_node(node?: DomNode | null): boolean
-    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
-    vfunc_contains(other?: DomNode | null): boolean
-    vfunc_lookup_prefix(nspace?: string | null): string | null
-    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
-    vfunc_is_default_namespace(nspace?: string | null): boolean
-    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
-    vfunc_append_child(node: DomNode): DomNode
-    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
-    vfunc_remove_child(child: DomNode): DomNode
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -27920,12 +26198,17 @@ export interface GomXsdList_ConstructProps extends GomArrayList_ConstructProps {
 export class GomXsdList {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdList */
     parent_instance: GomArrayList
     priv: GomXsdListPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -27935,9 +26218,17 @@ export class GomXsdList {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -27960,38 +26251,22 @@ export class GomXsdList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28006,6 +26281,14 @@ export class GomXsdList {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -28022,12 +26305,17 @@ export interface GomXsdListElements_ConstructProps extends GomXsdList_ConstructP
 export class GomXsdListElements {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdListElements */
     parent_instance: GomXsdList
     priv: GomXsdListElementsPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -28037,9 +26325,17 @@ export class GomXsdListElements {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -28062,38 +26358,22 @@ export class GomXsdListElements {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28108,6 +26388,14 @@ export class GomXsdListElements {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdListElements, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -28124,12 +26412,17 @@ export interface GomXsdListSimpleTypes_ConstructProps extends GomXsdList_Constru
 export class GomXsdListSimpleTypes {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdListSimpleTypes */
     parent_instance: GomXsdList
     priv: GomXsdListSimpleTypesPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -28139,9 +26432,17 @@ export class GomXsdListSimpleTypes {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -28164,38 +26465,22 @@ export class GomXsdListSimpleTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28210,6 +26495,14 @@ export class GomXsdListSimpleTypes {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdListSimpleTypes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -28226,12 +26519,17 @@ export interface GomXsdListComplexTypes_ConstructProps extends GomXsdList_Constr
 export class GomXsdListComplexTypes {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdListComplexTypes */
     parent_instance: GomXsdList
     priv: GomXsdListComplexTypesPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -28241,9 +26539,17 @@ export class GomXsdListComplexTypes {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -28266,38 +26572,22 @@ export class GomXsdListComplexTypes {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28312,6 +26602,14 @@ export class GomXsdListComplexTypes {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdListComplexTypes, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -28328,12 +26626,17 @@ export interface GomXsdListTypeRestrictionEnumerations_ConstructProps extends Go
 export class GomXsdListTypeRestrictionEnumerations {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdListTypeRestrictionEnumerations */
     parent_instance: GomXsdList
     priv: GomXsdListTypeRestrictionEnumerationsPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -28343,9 +26646,17 @@ export class GomXsdListTypeRestrictionEnumerations {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -28368,38 +26679,22 @@ export class GomXsdListTypeRestrictionEnumerations {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28414,6 +26709,14 @@ export class GomXsdListTypeRestrictionEnumerations {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdListTypeRestrictionEnumerations, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -28430,12 +26733,17 @@ export interface GomXsdListTypeRestrictionWhiteSpaces_ConstructProps extends Gom
 export class GomXsdListTypeRestrictionWhiteSpaces {
     /* Properties of GXml.GomXsdList */
     readonly length: number
+    /* Properties of GXml.BaseCollection */
+    readonly items_name: string
+    items_type: GObject.Type
+    readonly nodes_index: GLib.Queue
+    element: GomElement
     /* Fields of GXml.GomXsdListTypeRestrictionWhiteSpaces */
     parent_instance: GomXsdList
     priv: GomXsdListTypeRestrictionWhiteSpacesPrivate
     /* Fields of GXml.BaseCollection */
     _nodes_index: GLib.Queue
-    _element: Element
+    _element: GomElement
     _items_name: string
     _items_type: GObject.Type
     /* Fields of GObject.Object */
@@ -28445,9 +26753,17 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     index_of(element: DomElement): number
     get_length(): number
     /* Methods of GXml.BaseCollection */
-    initialize_element(e: Element): void
+    initialize(items_type: GObject.Type): void
+    initialize_element(e: GomElement): void
+    append(node: DomElement): void
+    search(): void
     validate_append(index: number, element: DomElement): boolean
-    clear(): void
+    get_items_name(): string
+    get_items_type(): GObject.Type
+    set_items_type(value: GObject.Type): void
+    get_nodes_index(): GLib.Queue
+    get_element(): GomElement
+    set_element(value: GomElement): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -28470,38 +26786,22 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GXml.BaseCollection */
-    vfunc_validate_append(index: number, element: DomElement): boolean
-    vfunc_clear(): void
-    vfunc_foreach(f: Gee.ForallFunc): boolean
-    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
-    vfunc_chop(offset: number, length: number): Gee.Iterator
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfunc_tee(forks: number): Gee.Iterator[]
-    vfunc_first_match(pred: Gee.Predicate): object | null
-    vfunc_any_match(pred: Gee.Predicate): boolean
-    vfunc_all_match(pred: Gee.Predicate): boolean
-    vfunc_max(compare: GLib.CompareDataFunc): object | null
-    vfunc_min(compare: GLib.CompareDataFunc): object | null
-    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfunc_get_element_type(): GObject.Type
-    vfunc_iterator(): Gee.Iterator
-    vfunc_get_nodes_index(): GLib.Queue
-    vfunc_get_element(): DomElement
-    vfunc_set_element(value: DomElement): void
-    vfunc_get_items_name(): string
-    vfunc_get_items_type(): GObject.Type
-    vfunc_set_items_type(value: GObject.Type): void
+    /* Virtual methods of GXml.GomArrayList */
     vfunc_search(): void
     vfunc_get_item(index: number): DomElement | null
     vfunc_append(node: DomElement): void
-    vfunc_get_length(): number
     vfunc_initialize(t: GObject.Type): void
-    vfunc_create_item(): DomElement | null
+    vfunc_create_item(): GomElement | null
+    vfunc_validate_append(index: number, element: DomElement): boolean
+    vfunc_get_nodes_index(): GLib.Queue
+    vfunc_get_element(): GomElement
+    vfunc_set_element(value: GomElement): void
+    vfunc_get_items_name(): string
+    vfunc_get_items_type(): GObject.Type
+    vfunc_set_items_type(value: GObject.Type): void
+    vfunc_get_length(): number
+    /* Virtual methods of GXml.BaseCollection */
+    vfunc_validate_append(index: number, element: DomElement): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -28516,6 +26816,14 @@ export class GomXsdListTypeRestrictionWhiteSpaces {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::length", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-name", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-name", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::items-type", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::items-type", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::nodes-index", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::nodes-index", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::element", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: GomXsdListTypeRestrictionWhiteSpaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

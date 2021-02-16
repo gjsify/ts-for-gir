@@ -2,19 +2,19 @@
  * Nautilus-3.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gtk from './Gtk-3.0';
-import * as xlib from './xlib-2.0';
-import * as Gdk from './Gdk-3.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as Gtk from './Gtk-3.0';
+import type * as xlib from './xlib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gdk from './Gdk-3.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Atk from './Atk-1.0';
 
 export enum OperationResult {
     COMPLETE,
@@ -29,7 +29,7 @@ export function file_info_lookup(location: Gio.File): FileInfo
 export function file_info_lookup_for_uri(uri: string): FileInfo
 export function info_provider_update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 export function module_initialize(module: GObject.TypeModule): void
-export function module_list_types(): /* types */ any[]
+export function module_list_types(): /* types */ GType[]
 export function module_shutdown(): void
 export class ColumnProvider {
     /* Methods of Nautilus.ColumnProvider */
@@ -469,8 +469,8 @@ export class PropertyPageProviderInterface {
     g_iface: GObject.TypeInterface
     static name: string
 }
-type ColumnProviderIface = ColumnProviderInterface
-type InfoProviderIface = InfoProviderInterface
-type LocationWidgetProviderIface = LocationWidgetProviderInterface
-type MenuProviderIface = MenuProviderInterface
-type PropertyPageProviderIface = PropertyPageProviderInterface
+export type ColumnProviderIface = ColumnProviderInterface
+export type InfoProviderIface = InfoProviderInterface
+export type LocationWidgetProviderIface = LocationWidgetProviderInterface
+export type MenuProviderIface = MenuProviderInterface
+export type PropertyPageProviderIface = PropertyPageProviderInterface

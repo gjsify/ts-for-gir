@@ -2,18 +2,18 @@
  * Gtk-4.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gsk from './Gsk-4.0';
-import * as Graphene from './Graphene-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gdk from './Gdk-4.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gsk from './Gsk-4.0';
+import type * as Graphene from './Graphene-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gdk from './Gdk-4.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum AccessibleAutocomplete {
     NONE,
@@ -7096,16 +7096,6 @@ export class Application {
     vfunc_run_mainloop(): void
     vfunc_shutdown(): void
     vfunc_startup(): void
-    vfunc_get_action(action_name: string): Action
-    vfunc_add_child(builder: Builder, child: GObject.Object, type?: string | null): void
-    vfunc_custom_finished(builder: Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfunc_custom_tag_end(builder: Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfunc_custom_tag_start(builder: Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ BuildableParser, /* data */ object | null ]
-    vfunc_get_id(): string
-    vfunc_get_internal_child(builder: Builder, childname: string): GObject.Object
-    vfunc_parser_finished(builder: Builder): void
-    vfunc_set_buildable_property(builder: Builder, name: string, value: any): void
-    vfunc_set_id(id: string): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -63958,7 +63948,7 @@ export class Widget {
     static get_layout_manager_type(widget_class: Widget | Function | GObject.Type): GObject.Type
     static install_action(widget_class: Widget | Function | GObject.Type, action_name: string, parameter_type: string | null, activate: WidgetActionActivateFunc): void
     static install_property_action(widget_class: Widget | Function | GObject.Type, action_name: string, property_name: string): void
-    static query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ any, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
+    static query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GType, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
     static set_accessible_role(widget_class: Widget | Function | GObject.Type, accessible_role: AccessibleRole): void
     static set_activate_signal(widget_class: Widget | Function | GObject.Type, signal_id: number): void
     static set_activate_signal_from_name(widget_class: Widget | Function | GObject.Type, signal_name: string): void
@@ -66974,7 +66964,7 @@ export abstract class WidgetClass {
     get_layout_manager_type(widget_class: Widget | Function | GObject.Type): GObject.Type
     install_action(widget_class: Widget | Function | GObject.Type, action_name: string, parameter_type: string | null, activate: WidgetActionActivateFunc): void
     install_property_action(widget_class: Widget | Function | GObject.Type, action_name: string, property_name: string): void
-    query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ any, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
+    query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GType, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
     set_accessible_role(widget_class: Widget | Function | GObject.Type, accessible_role: AccessibleRole): void
     set_activate_signal(widget_class: Widget | Function | GObject.Type, signal_id: number): void
     set_activate_signal_from_name(widget_class: Widget | Function | GObject.Type, signal_name: string): void
@@ -67024,4 +67014,4 @@ export abstract class WindowHandleClass {
     parent_class: WidgetClass
     static name: string
 }
-type Allocation = Gdk.Rectangle
+export type Allocation = Gdk.Rectangle

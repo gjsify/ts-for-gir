@@ -2,11 +2,11 @@
  * GCalc-1
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as Gee from './Gee-0.8';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
 
 export enum AssigError {
     INVALID_STRUCTURE_ERROR,
@@ -1343,16 +1343,18 @@ export interface ExpressionContainer_ConstructProps extends Gee.ArrayList_Constr
 export class ExpressionContainer {
     /* Properties of GCalc.ExpressionContainer */
     parent: Expression
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of GCalc.ExpressionContainer */
     parent_instance: Gee.ArrayList
     priv: ExpressionContainerPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GCalc.ExpressionContainer */
@@ -1365,7 +1367,21 @@ export class ExpressionContainer {
     get_parent(): Expression
     set_parent(value: Expression): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -1374,20 +1390,17 @@ export class ExpressionContainer {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1419,6 +1432,28 @@ export class ExpressionContainer {
     vfunc_get_item(position: number): GObject.Object | null
     vfunc_get_item_type(): GObject.Type
     vfunc_get_n_items(): number
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -1427,21 +1462,69 @@ export class ExpressionContainer {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1460,14 +1543,12 @@ export class ExpressionContainer {
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     connect(sigName: "notify::parent", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::equal-func", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1477,7 +1558,7 @@ export class ExpressionContainer {
     _init (config?: ExpressionContainer_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionContainer
-    static new(equal_func?: GLib.EqualFunc | null): ExpressionContainer
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ExpressionContainer
     static $gtype: GObject.Type
 }
 export interface ExpressionHashMap_ConstructProps extends Gee.HashMap_ConstructProps {
@@ -1486,13 +1567,9 @@ export interface ExpressionHashMap_ConstructProps extends Gee.HashMap_ConstructP
 export class ExpressionHashMap {
     /* Properties of GCalc.ExpressionHashMap */
     parent: Expression
-    /* Properties of Gee.HashMap */
-    key_hash_func: GLib.HashFunc
-    key_equal_func: GLib.EqualFunc
-    value_equal_func: GLib.EqualFunc
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -1508,6 +1585,10 @@ export class ExpressionHashMap {
     find_named(name: string): Expression
     get_parent(): Expression
     set_parent(value: Expression): void
+    /* Methods of Gee.HashMap */
+    get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
+    get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee.AbstractMap */
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -1516,9 +1597,24 @@ export class ExpressionHashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
-    set_all(map: Gee.Map): void
-    unset_all(map: Gee.Map): boolean
-    has_all(map: Gee.Map): boolean
+    foreach(f: Gee.ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Gee.Set
+    get_values(): Gee.Collection
+    get_entries(): Gee.Set
+    get_read_only_view(): Gee.Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1549,14 +1645,43 @@ export class ExpressionHashMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Gee.Set
+    vfunc_get_values(): Gee.Collection
+    vfunc_get_entries(): Gee.Set
+    vfunc_get_read_only_view(): Gee.Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Gee.Iterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
     vfunc_has_all(map: Gee.Map): boolean
-    vfunc_iterator(): Gee.Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Gee.Map): boolean
-    vfunc_contains_all(map: Gee.Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1571,16 +1696,10 @@ export class ExpressionHashMap {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::parent", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-hash-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-hash-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-equal-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-equal-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-equal-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-equal-func", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: ExpressionHashMap, pspec: GObject.ParamSpec) => void)): number
@@ -1598,7 +1717,7 @@ export class ExpressionHashMap {
     _init (config?: ExpressionHashMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ExpressionHashMap
-    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): ExpressionHashMap
+    static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): ExpressionHashMap
     static $gtype: GObject.Type
 }
 export interface GFunctionAcos_ConstructProps extends GFunction_ConstructProps {
@@ -1636,14 +1755,8 @@ export class GFunctionAcos {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAcos */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -1653,14 +1766,11 @@ export class GFunctionAcos {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1720,14 +1830,8 @@ export class GFunctionAcosh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAcosh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -1737,14 +1841,11 @@ export class GFunctionAcosh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1804,14 +1905,8 @@ export class GFunctionAsin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAsin */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -1821,14 +1916,11 @@ export class GFunctionAsin {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1888,14 +1980,8 @@ export class GFunctionAsinh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAsinh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -1905,14 +1991,11 @@ export class GFunctionAsinh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1972,14 +2055,8 @@ export class GFunctionAtan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAtan */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -1989,14 +2066,11 @@ export class GFunctionAtan {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2056,14 +2130,8 @@ export class GFunctionAtanh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionAtanh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2073,14 +2141,11 @@ export class GFunctionAtanh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2140,14 +2205,8 @@ export class GFunctionCos {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionCos */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2157,14 +2216,11 @@ export class GFunctionCos {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2224,14 +2280,8 @@ export class GFunctionCosh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionCosh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2241,14 +2291,11 @@ export class GFunctionCosh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2308,14 +2355,8 @@ export class GFunctionExp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionExp */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2325,14 +2366,11 @@ export class GFunctionExp {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2392,14 +2430,8 @@ export class GFunctionLog {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionLog */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2409,14 +2441,11 @@ export class GFunctionLog {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2476,14 +2505,8 @@ export class GFunctionSin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionSin */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2493,14 +2516,11 @@ export class GFunctionSin {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2560,14 +2580,8 @@ export class GFunctionSinh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionSinh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2577,14 +2591,11 @@ export class GFunctionSinh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2644,14 +2655,8 @@ export class GFunctionSqrt {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionSqrt */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2661,14 +2666,11 @@ export class GFunctionSqrt {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2728,14 +2730,8 @@ export class GFunctionTan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionTan */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2745,14 +2741,11 @@ export class GFunctionTan {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2812,14 +2805,8 @@ export class GFunctionTanh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GFunctionTanh */
-    vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -2829,14 +2816,11 @@ export class GFunctionTanh {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2862,11 +2846,11 @@ export class GFunctionTanh {
     static $gtype: GObject.Type
 }
 export interface GExpression_ConstructProps extends GObject.Object_ConstructProps {
-    parent?: MathExpression
+    parent?: Expression
 }
 export class GExpression {
-    /* Properties of GCalc.MathExpression */
-    parent: MathExpression
+    /* Properties of GCalc.Expression */
+    parent: Expression
     readonly expressions: ExpressionContainer
     /* Fields of GCalc.GExpression */
     parent_instance: GObject.Object
@@ -2899,17 +2883,14 @@ export class GExpression {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GCalc.Expression */
-    solve(): MathResult
-    /* Methods of GCalc.MathExpression */
-    get_parent(): MathExpression
-    set_parent(value: MathExpression): void
+    get_parent(): Expression
+    set_parent(value: Expression): void
     get_expressions(): ExpressionContainer
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2971,15 +2952,11 @@ export class GErrorExpression {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GErrorExpression */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3037,17 +3014,13 @@ export class GAssign {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathAssign */
-    evaluate(): MathExpression
-    /* Virtual methods of GCalc.GAssign */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
+    /* Methods of GCalc.Assign */
+    evaluate(): Expression
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3107,38 +3080,29 @@ export class GConstant {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathConstant */
-    add(c: MathConstant): MathConstant
-    subtract(c: MathConstant): MathConstant
-    multiply(c: MathConstant): MathConstant
-    divide(c: MathConstant): MathConstant
-    neg(): MathConstant
-    pow(c: MathConstant): MathConstant
-    /* Methods of GCalc.MathConstantNumber */
-    value(): number
-    /* Methods of GCalc.MathConstantComplex */
+    /* Methods of GCalc.Constant */
     real(): number
     imag(): number
     zero(): void
+    add(c: Constant): Constant
+    multiply(c: Constant): Constant
+    divide(c: Constant): Constant
+    neg(): Constant
+    pow(c: Constant): Constant
     /* Virtual methods of GCalc.GConstant */
-    vfunc_add(c: MathConstant): MathConstant
-    vfunc_subtract(c: MathConstant): MathConstant
-    vfunc_multiply(c: MathConstant): MathConstant
-    vfunc_divide(c: MathConstant): MathConstant
-    vfunc_neg(): MathConstant
-    vfunc_pow(c: MathConstant): MathConstant
-    vfunc_value(): number
     vfunc_real(): number
     vfunc_imag(): number
     vfunc_zero(): void
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
+    vfunc_add(c: Constant): Constant
+    vfunc_multiply(c: Constant): Constant
+    vfunc_divide(c: Constant): Constant
+    vfunc_neg(): Constant
+    vfunc_pow(c: Constant): Constant
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3200,15 +3164,11 @@ export class GDivision {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GDivision */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3236,9 +3196,9 @@ export class GDivision {
 export interface GErrorResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GErrorResult {
-    /* Properties of GCalc.MathResult */
-    readonly expression: MathExpression
-    /* Properties of GCalc.MathErrorResult */
+    /* Properties of GCalc.Result */
+    readonly expression: Expression
+    /* Properties of GCalc.ErrorResult */
     readonly message: string
     /* Fields of GCalc.GErrorResult */
     parent_instance: GObject.Object
@@ -3267,14 +3227,14 @@ export class GErrorResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathResult */
+    /* Methods of GCalc.Result */
     to_string(): string
-    get_expression(): MathExpression
-    /* Methods of GCalc.MathErrorResult */
+    get_expression(): Expression
+    /* Methods of GCalc.ErrorResult */
     get_message(): string
     /* Virtual methods of GCalc.GErrorResult */
     vfunc_to_string(): string
-    vfunc_get_expression(): MathExpression
+    vfunc_get_expression(): Expression
     vfunc_get_message(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3301,7 +3261,6 @@ export class GErrorResult {
     _init (config?: GErrorResult_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(msg: string): GErrorResult
-    static new(exp: MathExpression): GErrorResult
     static $gtype: GObject.Type
 }
 export interface GFunction_ConstructProps extends GExpression_ConstructProps {
@@ -3310,7 +3269,7 @@ export interface GFunction_ConstructProps extends GExpression_ConstructProps {
     closed?: boolean
 }
 export class GFunction {
-    /* Properties of GCalc.MathFunction */
+    /* Properties of GCalc.Function */
     readonly param_types: ExpressionContainer
     name: string
     n_params: number
@@ -3348,8 +3307,6 @@ export class GFunction {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GCalc.Function */
-    evaluate(): MathExpression
-    /* Methods of GCalc.MathFunction */
     verify_params(): boolean
     get_param_types(): ExpressionContainer
     get_name(): string
@@ -3362,7 +3319,6 @@ export class GFunction {
     hash(): number
     /* Virtual methods of GCalc.GFunction */
     vfunc_evaluate(): Expression
-    vfunc_evaluate(): MathExpression
     vfunc_verify_params(): boolean
     vfunc_get_param_types(): ExpressionContainer
     vfunc_get_name(): string
@@ -3372,14 +3328,11 @@ export class GFunction {
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3452,14 +3405,11 @@ export class GMathEquation {
     get_variables(): ExpressionHashMap
     /* Virtual methods of GCalc.GMathEquation */
     vfunc_get_variables(): ExpressionHashMap
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3520,11 +3470,11 @@ export class GMathEquationManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GCalc.MathEquationManager */
-    find_variable(name: string): MathVariable
+    find_variable(name: string): Variable
     get_equations(): ExpressionContainer
     get_functions(): ExpressionContainer
     /* Virtual methods of GCalc.GMathEquationManager */
-    vfunc_find_variable(name: string): MathVariable
+    vfunc_find_variable(name: string): Variable
     vfunc_get_equations(): ExpressionContainer
     vfunc_get_functions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
@@ -3587,15 +3537,11 @@ export class GMinus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GMinus */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3653,15 +3599,11 @@ export class GMultiply {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GMultiply */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3776,15 +3718,11 @@ export class GPlus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GPlus */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3842,18 +3780,15 @@ export class GPolynomial {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathPolynomial */
-    evaluate(): MathExpression
+    /* Methods of GCalc.Polynomial */
+    evaluate(): Expression
     /* Virtual methods of GCalc.GPolynomial */
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
+    vfunc_evaluate(): Expression
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3911,15 +3846,11 @@ export class GPow {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GCalc.GPow */
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3947,8 +3878,8 @@ export class GPow {
 export interface GResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GResult {
-    /* Properties of GCalc.MathResult */
-    readonly expression: MathExpression
+    /* Properties of GCalc.Result */
+    readonly expression: Expression
     /* Fields of GCalc.GResult */
     parent_instance: GObject.Object
     priv: GResultPrivate
@@ -3976,12 +3907,12 @@ export class GResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathResult */
+    /* Methods of GCalc.Result */
     to_string(): string
-    get_expression(): MathExpression
+    get_expression(): Expression
     /* Virtual methods of GCalc.GResult */
     vfunc_to_string(): string
-    vfunc_get_expression(): MathExpression
+    vfunc_get_expression(): Expression
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4005,16 +3936,15 @@ export class GResult {
     _init (config?: GResult_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(exp: Expression): GResult
-    static new(exp: MathExpression): GResult
     static $gtype: GObject.Type
 }
 export interface GGroup_ConstructProps extends GExpression_ConstructProps {
-    level?: MathGroupLevel
+    level?: GroupLevel
     closed?: boolean
 }
 export class GGroup {
-    /* Properties of GCalc.MathGroup */
-    level: MathGroupLevel
+    /* Properties of GCalc.Group */
+    level: GroupLevel
     closed: boolean
     /* Fields of GCalc.GGroup */
     parent_instance: GExpression
@@ -4046,26 +3976,23 @@ export class GGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathGroup */
-    evaluate(): MathExpression
-    get_level(): MathGroupLevel
-    set_level(value: MathGroupLevel): void
+    /* Methods of GCalc.Group */
+    evaluate(): Expression
+    get_level(): GroupLevel
+    set_level(value: GroupLevel): void
     get_closed(): boolean
     set_closed(value: boolean): void
     /* Virtual methods of GCalc.GGroup */
-    vfunc_evaluate(): MathExpression
-    vfunc_get_level(): MathGroupLevel
-    vfunc_set_level(value: MathGroupLevel): void
+    vfunc_evaluate(): Expression
+    vfunc_get_level(): GroupLevel
+    vfunc_set_level(value: GroupLevel): void
     vfunc_get_closed(): boolean
     vfunc_set_closed(value: boolean): void
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4128,10 +4055,13 @@ export class GSolver {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GCalc.Solver */
-    add_expression(exp: string): void
-    solve(str: string): MathResult
+    solve(str: string): Result
     get_equation_manager(): MathEquationManager
     set_equation_manager(value: MathEquationManager): void
+    /* Virtual methods of GCalc.GSolver */
+    vfunc_solve(str: string): Result
+    vfunc_get_equation_manager(): MathEquationManager
+    vfunc_set_equation_manager(value: MathEquationManager): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4190,20 +4120,17 @@ export class GTerm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathTerm */
-    add(t: MathTerm): MathExpression
-    evaluate(): MathExpression
+    /* Methods of GCalc.Term */
+    add(t: Term): Expression
+    evaluate(): Expression
     /* Virtual methods of GCalc.GTerm */
-    vfunc_add(t: MathTerm): MathExpression
-    vfunc_evaluate(): MathExpression
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
+    vfunc_add(t: Term): Expression
+    vfunc_evaluate(): Expression
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4226,19 +4153,19 @@ export class GTerm {
     _init (config?: GTerm_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): GTerm
-    static evaluate_constants(c1: MathConstant, c2: MathConstant, op: MathOperator): MathExpression
+    static evaluate_constants(c1: Constant, c2: Constant, op: Operator): Expression
     static $gtype: GObject.Type
 }
 export interface GVariable_ConstructProps extends GExpression_ConstructProps {
     name?: string
-    value?: MathConstant
-    bind?: MathVariable
+    value?: Constant
+    bind?: Variable
 }
 export class GVariable {
-    /* Properties of GCalc.MathVariable */
+    /* Properties of GCalc.Variable */
     name: string
-    value: MathConstant
-    bind: MathVariable
+    value: Constant
+    bind: Variable
     /* Fields of GCalc.GVariable */
     parent_instance: GExpression
     priv: GVariablePrivate
@@ -4269,35 +4196,32 @@ export class GVariable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of GCalc.MathVariable */
-    evaluate(): MathExpression
+    /* Methods of GCalc.Variable */
+    evaluate(): Expression
     get_name(): string
     set_name(value: string): void
-    get_value(): MathConstant
-    set_value(value: MathConstant): void
-    get_bind(): MathVariable
-    set_bind(value: MathVariable): void
+    get_value(): Constant
+    set_value(value: Constant): void
+    get_bind(): Variable
+    set_bind(value: Variable): void
     get_binded(): boolean
     /* Methods of GCalc.Hashable */
     hash(): number
     /* Virtual methods of GCalc.GVariable */
-    vfunc_evaluate(): MathExpression
+    vfunc_evaluate(): Expression
     vfunc_get_name(): string
     vfunc_set_name(value: string): void
-    vfunc_get_value(): MathConstant
-    vfunc_set_value(value: MathConstant): void
-    vfunc_get_bind(): MathVariable
-    vfunc_set_bind(value: MathVariable): void
+    vfunc_get_value(): Constant
+    vfunc_set_value(value: Constant): void
+    vfunc_get_bind(): Variable
+    vfunc_set_bind(value: Variable): void
     vfunc_get_binded(): boolean
     vfunc_hash(): number
-    vfunc_solve(): Result
-    vfunc_solve(): MathResult
     /* Virtual methods of GCalc.GExpression */
     vfunc_to_string(): string
     vfunc_solve(): Result
-    vfunc_solve(): MathResult
-    vfunc_get_parent(): MathExpression
-    vfunc_set_parent(value: MathExpression): void
+    vfunc_get_parent(): Expression
+    vfunc_set_parent(value: Expression): void
     vfunc_get_expressions(): ExpressionContainer
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void

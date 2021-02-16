@@ -2,8 +2,8 @@
  * GObject-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
 
 export enum BindingFlags {
     DEFAULT,
@@ -1662,8 +1662,8 @@ export class _Value__data__union {
     v_pointer: object
     static name: string
 }
-type SignalCMarshaller = ClosureMarshal
-type SignalCVaMarshaller = any
+export type SignalCMarshaller = ClosureMarshal
+export type SignalCVaMarshaller = VaClosureMarshal
 export interface Type {
     name: string
 }

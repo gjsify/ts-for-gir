@@ -2,19 +2,19 @@
  * RygelServer-2.4
  */
 
-import * as Gjs from './Gjs';
-import * as RygelCore from './RygelCore-2.4';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as Gee from './Gee-0.8';
-import * as GUPnP from './GUPnP-1.0';
-import * as libxml2 from './libxml2-2.0';
+import type * as Gjs from './Gjs';
+import type * as RygelCore from './RygelCore-2.4';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as GUPnP from './GUPnP-1.0';
+import type * as libxml2 from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-import * as GModule from './GModule-2.0';
-import * as Soup from './Soup-2.4';
-import * as GUPnPAV from './GUPnPAV-1.0';
+import type * as GModule from './GModule-2.0';
+import type * as Soup from './Soup-2.4';
+import type * as GUPnPAV from './GUPnPAV-1.0';
 
 export enum LogicalOperator {
     AND,
@@ -75,6 +75,8 @@ export class SearchableContainer {
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parent_instance: MediaObject
+    priv: MediaContainerPrivate
     update_id: number
     storage_used: number
     total_deleted_child_count: number
@@ -112,13 +114,7 @@ export class SearchableContainer {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -181,9 +177,6 @@ export class SearchableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -194,12 +187,12 @@ export class SearchableContainer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, sub_tree_root: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, sub_tree_root: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", sub_tree_root: MediaObject): void
+    connect(sigName: "container_updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: SearchableContainer, sub_tree_root: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: SearchableContainer, sub_tree_root: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", sub_tree_root: MediaObject): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -275,6 +268,8 @@ export class TrackableContainer {
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parent_instance: MediaObject
+    priv: MediaContainerPrivate
     update_id: number
     storage_used: number
     total_deleted_child_count: number
@@ -319,13 +314,7 @@ export class TrackableContainer {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -391,9 +380,6 @@ export class TrackableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -411,12 +397,12 @@ export class TrackableContainer {
     connect_after(sigName: "child_removed", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
     emit(sigName: "child_removed", object: MediaObject): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, sub_tree_root: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, sub_tree_root: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", sub_tree_root: MediaObject): void
+    connect(sigName: "container_updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: TrackableContainer, sub_tree_root: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: TrackableContainer, sub_tree_root: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", sub_tree_root: MediaObject): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -470,6 +456,10 @@ export interface TrackableItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class TrackableItem {
     /* Properties of RygelServer.MediaItem */
+    mime_type: string
+    dlna_profile: string
+    size: number
+    place_holder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -485,6 +475,10 @@ export class TrackableItem {
     parent_ref: MediaContainer
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
+    /* Fields of RygelServer.MediaItem */
+    parent_instance: MediaObject
+    priv: MediaItemPrivate
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
@@ -492,6 +486,19 @@ export class TrackableItem {
     /* Methods of RygelServer.TrackableItem */
     changed(): void
     /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
+    get_mime_type(): string
+    set_mime_type(value: string): void
+    get_dlna_profile(): string
+    set_dlna_profile(value: string): void
+    get_size(): number
+    set_size(value: number): void
+    get_place_holder(): boolean
+    set_place_holder(value: boolean): void
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -502,13 +509,7 @@ export class TrackableItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -558,12 +559,14 @@ export class TrackableItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -577,6 +580,14 @@ export class TrackableItem {
     connect(sigName: "notify", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::mime-type", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dlna-profile", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::place-holder", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
@@ -627,6 +638,10 @@ export class VisualItem {
     color_depth: number
     thumbnails: Gee.ArrayList
     /* Properties of RygelServer.MediaItem */
+    mime_type: string
+    dlna_profile: string
+    size: number
+    place_holder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -642,6 +657,10 @@ export class VisualItem {
     parent_ref: MediaContainer
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
+    /* Fields of RygelServer.MediaItem */
+    parent_instance: MediaObject
+    priv: MediaItemPrivate
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
@@ -656,6 +675,19 @@ export class VisualItem {
     get_thumbnails(): Gee.ArrayList
     set_thumbnails(value: Gee.ArrayList): void
     /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
+    get_mime_type(): string
+    set_mime_type(value: string): void
+    get_dlna_profile(): string
+    set_dlna_profile(value: string): void
+    get_size(): number
+    set_size(value: number): void
+    get_place_holder(): boolean
+    set_place_holder(value: boolean): void
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -666,13 +698,7 @@ export class VisualItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -731,12 +757,14 @@ export class VisualItem {
     vfunc_set_color_depth(value: number): void
     vfunc_get_thumbnails(): Gee.ArrayList
     vfunc_set_thumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -758,6 +786,14 @@ export class VisualItem {
     connect_after(sigName: "notify::color-depth", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::thumbnails", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::thumbnails", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dlna-profile", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::place-holder", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
@@ -822,6 +858,8 @@ export class WritableContainer {
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaContainer */
+    parent_instance: MediaObject
+    priv: MediaContainerPrivate
     update_id: number
     storage_used: number
     total_deleted_child_count: number
@@ -866,13 +904,7 @@ export class WritableContainer {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -943,9 +975,6 @@ export class WritableContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -956,12 +985,12 @@ export class WritableContainer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, sub_tree_root: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, sub_tree_root: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", sub_tree_root: MediaObject): void
+    connect(sigName: "container_updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: WritableContainer, sub_tree_root: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: WritableContainer, sub_tree_root: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", sub_tree_root: MediaObject): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -1099,6 +1128,8 @@ export class UpdatableObject {
     title: string
     readonly ocm_flags: GUPnPAV.OCMFlags
     /* Fields of RygelServer.MediaObject */
+    parent_instance: GObject.Object
+    priv: MediaObjectPrivate
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -1113,13 +1144,7 @@ export class UpdatableObject {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -1175,9 +1200,6 @@ export class UpdatableObject {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1243,6 +1265,10 @@ export class AudioItem {
     channels: number
     album: string
     /* Properties of RygelServer.MediaItem */
+    mime_type: string
+    dlna_profile: string
+    size: number
+    place_holder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -1261,6 +1287,8 @@ export class AudioItem {
     /* Fields of RygelServer.AudioItem */
     parent_instance: MediaItem
     priv: AudioItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
@@ -1279,6 +1307,19 @@ export class AudioItem {
     get_album(): string
     set_album(value: string): void
     /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
+    get_mime_type(): string
+    set_mime_type(value: string): void
+    get_dlna_profile(): string
+    set_dlna_profile(value: string): void
+    get_size(): number
+    set_size(value: number): void
+    get_place_holder(): boolean
+    set_place_holder(value: boolean): void
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -1289,13 +1330,7 @@ export class AudioItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -1345,12 +1380,14 @@ export class AudioItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1376,6 +1413,14 @@ export class AudioItem {
     connect_after(sigName: "notify::channels", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::album", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::album", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dlna-profile", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::place-holder", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
@@ -1423,6 +1468,10 @@ export interface ImageItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class ImageItem {
     /* Properties of RygelServer.MediaItem */
+    mime_type: string
+    dlna_profile: string
+    size: number
+    place_holder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -1446,11 +1495,26 @@ export class ImageItem {
     /* Fields of RygelServer.ImageItem */
     parent_instance: MediaItem
     priv: ImageItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
+    get_mime_type(): string
+    set_mime_type(value: string): void
+    get_dlna_profile(): string
+    set_dlna_profile(value: string): void
+    get_size(): number
+    set_size(value: number): void
+    get_place_holder(): boolean
+    set_place_holder(value: boolean): void
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -1461,13 +1525,7 @@ export class ImageItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -1535,12 +1593,14 @@ export class ImageItem {
     vfunc_set_color_depth(value: number): void
     vfunc_get_thumbnails(): Gee.ArrayList
     vfunc_set_thumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1554,6 +1614,14 @@ export class ImageItem {
     connect(sigName: "notify", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::mime-type", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dlna-profile", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::place-holder", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
@@ -1662,22 +1730,38 @@ export class MediaArtStore {
 export interface MediaObjects_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class MediaObjects {
-    /* Properties of Gee.ArrayList */
-    equal_func: GLib.EqualFunc
-    /* Properties of Gee.AbstractList */
-    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of RygelServer.MediaObjects */
     parent_instance: Gee.ArrayList
     priv: MediaObjectsPrivate
+    /* Fields of Gee.ArrayList */
+    _items: object[]
+    _items_length1: number
+    _size: number
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelServer.MediaObjects */
     sort_by_criteria(sort_criteria: string): void
     /* Methods of Gee.ArrayList */
-    sort_with_data(compare: GLib.CompareDataFunc): void
+    add_all(collection: Gee.Collection): boolean
+    get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractBidirList */
+    bidir_list_iterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Gee.BidirList
     /* Methods of Gee.AbstractList */
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
@@ -1686,20 +1770,17 @@ export class MediaObjects {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Gee.Collection): void
+    get_read_only_view(): Gee.List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Gee.Collection): boolean
-    contains_all(collection: Gee.Collection): boolean
-    remove_all(collection: Gee.Collection): boolean
-    retain_all(collection: Gee.Collection): boolean
     iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Gee.Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1722,6 +1803,29 @@ export class MediaObjects {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObjects */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
+    /* Virtual methods of Gee.AbstractBidirList */
+    vfunc_bidir_list_iterator(): Gee.BidirListIterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.BidirList
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
@@ -1730,21 +1834,69 @@ export class MediaObjects {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Gee.List
+    vfunc_get_read_only_view(): Gee.Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Gee.Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Gee.Iterator
+    vfunc_foreach(f: Gee.ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Gee.Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
+    vfunc_filter(pred: Gee.Predicate): Gee.Iterator
+    vfunc_chop(offset: number, length: number): Gee.Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
+    vfunc_tee(forks: number): Gee.Iterator[]
+    vfunc_first_match(pred: Gee.Predicate): object | null
+    vfunc_any_match(pred: Gee.Predicate): boolean
+    vfunc_all_match(pred: Gee.Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
-    vfunc_iterator(): Gee.Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_contains_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1757,14 +1909,12 @@ export class MediaObjects {
     connect(sigName: "notify", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1774,7 +1924,7 @@ export class MediaObjects {
     _init (config?: MediaObjects_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): MediaObjects
-    static new(equal_func?: GLib.EqualFunc | null): MediaObjects
+    static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): MediaObjects
     static $gtype: GObject.Type
 }
 export interface MusicItem_ConstructProps extends AudioItem_ConstructProps {
@@ -1792,12 +1942,11 @@ export class MusicItem {
     bits_per_sample: number
     channels: number
     album: string
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mime_type: string
     dlna_profile: string
     size: number
     place_holder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -1816,9 +1965,8 @@ export class MusicItem {
     /* Fields of RygelServer.MusicItem */
     parent_instance: AudioItem
     priv: MusicItemPrivate
-    /* Fields of RygelServer.MediaFileItem */
-    rygel_media_file_item_address_regex: GLib.Regex
-    rygel_media_file_item_mime_to_ext: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
@@ -1842,13 +1990,12 @@ export class MusicItem {
     set_channels(value: number): void
     get_album(): string
     set_album(value: string): void
-    /* Methods of RygelServer.MediaFileItem */
-    get_primary_resource(): MediaResource
-    get_extension(): string
-    ext_from_mime_type(mime_type: string): string
-    add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    add_additional_resources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     get_mime_type(): string
     set_mime_type(value: string): void
     get_dlna_profile(): string
@@ -1857,7 +2004,6 @@ export class MusicItem {
     set_size(value: number): void
     get_place_holder(): boolean
     set_place_holder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -1868,13 +2014,7 @@ export class MusicItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -1924,18 +2064,14 @@ export class MusicItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfunc_get_primary_resource(): MediaResource
-    vfunc_get_extension(): string
-    vfunc_add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    vfunc_add_additional_resources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2015,12 +2151,11 @@ export class MusicItem {
 export interface PhotoItem_ConstructProps extends ImageItem_ConstructProps {
 }
 export class PhotoItem {
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mime_type: string
     dlna_profile: string
     size: number
     place_holder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -2039,20 +2174,18 @@ export class PhotoItem {
     /* Fields of RygelServer.PhotoItem */
     parent_instance: ImageItem
     priv: PhotoItemPrivate
-    /* Fields of RygelServer.MediaFileItem */
-    rygel_media_file_item_address_regex: GLib.Regex
-    rygel_media_file_item_mime_to_ext: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of RygelServer.MediaFileItem */
-    get_primary_resource(): MediaResource
-    get_extension(): string
-    ext_from_mime_type(mime_type: string): string
-    add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    add_additional_resources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     get_mime_type(): string
     set_mime_type(value: string): void
     get_dlna_profile(): string
@@ -2061,7 +2194,6 @@ export class PhotoItem {
     set_size(value: number): void
     get_place_holder(): boolean
     set_place_holder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -2072,13 +2204,7 @@ export class PhotoItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -2137,18 +2263,14 @@ export class PhotoItem {
     vfunc_set_color_depth(value: number): void
     vfunc_get_thumbnails(): Gee.ArrayList
     vfunc_set_thumbnails(value: Gee.ArrayList): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfunc_get_primary_resource(): MediaResource
-    vfunc_get_extension(): string
-    vfunc_add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    vfunc_add_additional_resources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2277,13 +2399,7 @@ export class SimpleContainer {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -2353,9 +2469,6 @@ export class SimpleContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2366,12 +2479,12 @@ export class SimpleContainer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.MediaContainer */
-    connect(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    connect_after(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
-    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
-    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, sub_tree_root: MediaObject) => void)): number
-    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, sub_tree_root: MediaObject) => void)): number
-    emit(sigName: "sub-tree-updates-finished", sub_tree_root: MediaObject): void
+    connect(sigName: "container_updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, event_type: ObjectEventType, sub_tree_update: boolean): void
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: SimpleContainer, sub_tree_root: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: SimpleContainer, sub_tree_root: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", sub_tree_root: MediaObject): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
@@ -2443,12 +2556,11 @@ export class VideoItem {
     bits_per_sample: number
     channels: number
     album: string
-    /* Properties of RygelServer.MediaFileItem */
+    /* Properties of RygelServer.MediaItem */
     mime_type: string
     dlna_profile: string
     size: number
     place_holder: boolean
-    /* Properties of RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -2473,9 +2585,8 @@ export class VideoItem {
     parent_instance: AudioItem
     priv: VideoItemPrivate
     subtitles: Gee.ArrayList
-    /* Fields of RygelServer.MediaFileItem */
-    rygel_media_file_item_address_regex: GLib.Regex
-    rygel_media_file_item_mime_to_ext: Gee.HashMap
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
@@ -2496,13 +2607,12 @@ export class VideoItem {
     set_channels(value: number): void
     get_album(): string
     set_album(value: string): void
-    /* Methods of RygelServer.MediaFileItem */
-    get_primary_resource(): MediaResource
-    get_extension(): string
-    ext_from_mime_type(mime_type: string): string
-    add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    add_additional_resources(server: HTTPServer): void
+    /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     get_mime_type(): string
     set_mime_type(value: string): void
     get_dlna_profile(): string
@@ -2511,7 +2621,6 @@ export class VideoItem {
     set_size(value: number): void
     get_place_holder(): boolean
     set_place_holder(value: boolean): void
-    /* Methods of RygelServer.MediaItem */
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -2522,13 +2631,7 @@ export class VideoItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -2596,18 +2699,14 @@ export class VideoItem {
     vfunc_set_color_depth(value: number): void
     vfunc_get_thumbnails(): Gee.ArrayList
     vfunc_set_thumbnails(value: Gee.ArrayList): void
-    /* Virtual methods of RygelServer.MediaFileItem */
-    vfunc_get_primary_resource(): MediaResource
-    vfunc_get_extension(): string
-    vfunc_add_engine_resources(_callback_?: Gio.AsyncReadyCallback | null): void
-    vfunc_add_engine_resources_finish(_res_: Gio.AsyncResult): void
-    vfunc_add_additional_resources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2750,13 +2849,7 @@ export class MediaContainer {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -2814,9 +2907,6 @@ export class MediaContainer {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2942,13 +3032,7 @@ export class MediaItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -3006,9 +3090,6 @@ export class MediaItem {
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3213,14 +3294,14 @@ export class MediaObject {
 }
 export interface MediaServerPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
     root_container?: MediaContainer
-    upload_profiles?: any[]
-    supported_profiles?: any[]
+    upload_profiles?: DLNAProfile[]
+    supported_profiles?: DLNAProfile[]
 }
 export class MediaServerPlugin {
     /* Properties of RygelServer.MediaServerPlugin */
     readonly search_caps: string
-    upload_profiles: any[]
-    supported_profiles: any[]
+    upload_profiles: DLNAProfile[]
+    supported_profiles: DLNAProfile[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -3231,15 +3312,17 @@ export class MediaServerPlugin {
     /* Fields of RygelServer.MediaServerPlugin */
     parent_instance: RygelCore.Plugin
     priv: MediaServerPluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelServer.MediaServerPlugin */
     get_root_container(): MediaContainer
     get_search_caps(): string
-    get_upload_profiles(): any[]
-    set_upload_profiles(value: any[]): void
-    get_supported_profiles(): any[]
-    set_supported_profiles(value: any[]): void
+    get_upload_profiles(): DLNAProfile[]
+    set_upload_profiles(value: DLNAProfile[]): void
+    get_supported_profiles(): DLNAProfile[]
+    set_supported_profiles(value: DLNAProfile[]): void
     /* Methods of RygelCore.Plugin */
     add_resource(resource_info: RygelCore.ResourceInfo): void
     add_icon(icon_info: RygelCore.IconInfo): void
@@ -3528,7 +3611,7 @@ export class MediaEngine {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelServer.MediaEngine */
-    get_dlna_profiles(): any[]
+    get_dlna_profiles(): DLNAProfile[]
     get_transcoders(): Transcoder[] | null
     create_data_source(uri: string): DataSource | null
     /* Methods of GObject.Object */
@@ -3554,7 +3637,7 @@ export class MediaEngine {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of RygelServer.MediaEngine */
-    vfunc_get_dlna_profiles(): any[]
+    vfunc_get_dlna_profiles(): DLNAProfile[]
     vfunc_get_transcoders(): Transcoder[] | null
     vfunc_create_data_source(uri: string): DataSource | null
     /* Virtual methods of GObject.Object */
@@ -3677,6 +3760,10 @@ export interface PlaylistItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class PlaylistItem {
     /* Properties of RygelServer.MediaItem */
+    mime_type: string
+    dlna_profile: string
+    size: number
+    place_holder: boolean
     description: string
     /* Properties of RygelServer.MediaObject */
     id: string
@@ -3695,11 +3782,26 @@ export class PlaylistItem {
     /* Fields of RygelServer.PlaylistItem */
     parent_instance: MediaItem
     priv: PlaylistItemPrivate
+    /* Fields of RygelServer.MediaItem */
+    rygel_media_item_address_regex: GLib.Regex
     /* Fields of RygelServer.MediaObject */
     parent_ptr: MediaContainer
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelServer.MediaItem */
+    create_stream_source(host_ip?: string | null): DataSource | null
+    is_live_stream(): boolean
+    streamable(): boolean
+    get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
+    get_mime_type(): string
+    set_mime_type(value: string): void
+    get_dlna_profile(): string
+    set_dlna_profile(value: string): void
+    get_size(): number
+    set_size(value: number): void
+    get_place_holder(): boolean
+    set_place_holder(value: boolean): void
     get_description(): string
     set_description(value: string): void
     /* Methods of RygelServer.MediaObject */
@@ -3710,13 +3812,7 @@ export class PlaylistItem {
     get_writable_finish(_res_: Gio.AsyncResult): Gio.File | null
     get_writables(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_writables_finish(_res_: Gio.AsyncResult): Gee.ArrayList
-    get_resource_list(): Gee.List
-    get_resource_by_name(resource_name: string): MediaResource | null
     serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    serialize_resource_list(didl_object: GUPnPAV.DIDLLiteObject, http_server: HTTPServer): void
-    create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    compare_by_property(media_object: MediaObject, property: string): number
     compare_string_props(prop1: string, prop2: string): number
     compare_int_props(prop1: number, prop2: number): number
     get_id(): string
@@ -3766,12 +3862,14 @@ export class PlaylistItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfunc_create_stream_source(host_ip?: string | null): DataSource | null
+    vfunc_streamable(): boolean
+    vfunc_get_protocol_info(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfunc_add_resources(didl_item: GUPnPAV.DIDLLiteItem, allow_internal: boolean): void
     /* Virtual methods of RygelServer.MediaObject */
     vfunc_add_uri(uri: string): void
     vfunc_serialize(serializer: Serializer, http_server: HTTPServer): GUPnPAV.DIDLLiteObject | null
-    vfunc_create_stream_source_for_resource(request: HTTPRequest, resource: MediaResource): DataSource | null
-    vfunc_apply_didl_lite(didl_object: GUPnPAV.DIDLLiteObject): void
-    vfunc_compare_by_property(media_object: MediaObject, property: string): number
     vfunc_get_ocm_flags(): GUPnPAV.OCMFlags
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3785,6 +3883,14 @@ export class PlaylistItem {
     connect(sigName: "notify", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::mime-type", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mime-type", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dlna-profile", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dlna-profile", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::place-holder", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::place-holder", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
@@ -3833,6 +3939,8 @@ export class ContentDirectory {
     feature_list: string
     root_container: MediaContainer
     system_update_id: number
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GUPnP.Service */
@@ -3845,6 +3953,7 @@ export class ContentDirectory {
     get_control_url(): string
     get_event_subscription_url(): string
     get_id(): string
+    get_introspection(): GUPnP.ServiceIntrospection
     get_introspection_async(callback: GUPnP.ServiceIntrospectionCallback): void
     get_introspection_async_full(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     get_location(): string
@@ -3852,8 +3961,6 @@ export class ContentDirectory {
     get_service_type(): string
     get_udn(): string
     get_url_base(): Soup.URI
-    introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspect_finish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4233,7 +4340,7 @@ export class MediaServerPrivate {
 export abstract class MediaEngineClass {
     /* Fields of RygelServer.MediaEngineClass */
     parent_class: GObject.ObjectClass
-    get_dlna_profiles: (self: MediaEngine) => any[]
+    get_dlna_profiles: (self: MediaEngine) => DLNAProfile[]
     get_transcoders: (self: MediaEngine) => Transcoder[] | null
     create_data_source: (self: MediaEngine, uri: string) => DataSource | null
     static name: string

@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GdkPixbuf-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="AppStreamGlib-1.0.d.ts" />
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GdkPixbuf } from './GdkPixbuf-2.0';
+import type { GModule } from './GModule-2.0';
+import type { AppStreamGlib } from './AppStreamGlib-1.0';
 
 declare namespace AppStreamBuilder {
 
@@ -555,5 +555,5 @@ export abstract class TaskClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
-type PackageEnsureFlags = number
+export type PackageEnsureFlags = number
 }

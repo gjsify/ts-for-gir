@@ -3,7 +3,7 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
 
 declare namespace GLib {
 
@@ -3072,18 +3072,18 @@ export class TokenValue {
     vError: number
     static name: string
 }
-type DateDay = number
-type DateYear = number
-type MainContextPusher = void
-type MutexLocker = void
-type Pid = number
-type Quark = number
-type RWLockReaderLocker = void
-type RWLockWriterLocker = void
-type RecMutexLocker = void
-type RefString = number
-type Strv = string
-type Time = number
-type TimeSpan = number
-type Type = number
+export type DateDay = number
+export type DateYear = number
+export type MainContextPusher = void
+export type MutexLocker = void
+export type Pid = number
+export type Quark = number
+export type RWLockReaderLocker = void
+export type RWLockWriterLocker = void
+export type RecMutexLocker = void
+export type RefString = number
+export type Strv = string
+export type Time = number
+export type TimeSpan = number
+export type Type = number
 }

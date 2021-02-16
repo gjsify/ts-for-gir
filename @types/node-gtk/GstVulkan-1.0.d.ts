@@ -3,13 +3,13 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Vulkan-1.0.d.ts" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { Vulkan } from './Vulkan-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace GstVulkan {
 
@@ -2796,7 +2796,7 @@ export class VulkanWindow {
     resize(width: number, height: number): void
     sendKeyEvent(eventType: string, keyStr: string): void
     sendMouseEvent(eventType: string, button: number, posx: number, posy: number): void
-    setWindowHandle(handle: any): void
+    setWindowHandle(handle: guintptr): void
     /* Methods of Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
@@ -2849,7 +2849,7 @@ export class VulkanWindow {
     vfuncGetSurfaceDimensions(width: number, height: number): void
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncOpen(): boolean
-    vfuncSetWindowHandle(handle: any): void
+    vfuncSetWindowHandle(handle: guintptr): void
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -3291,7 +3291,7 @@ export abstract class VulkanWindowClass {
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void
     getPresentationSupport: (window: VulkanWindow, device: VulkanDevice, queueFamilyIdx: number) => boolean
-    setWindowHandle: (window: VulkanWindow, handle: any) => void
+    setWindowHandle: (window: VulkanWindow, handle: guintptr) => void
     getSurfaceDimensions: (window: VulkanWindow, width: number, height: number) => void
     handleEvents: (window: VulkanWindow, handleEvents: boolean) => void
     static name: string

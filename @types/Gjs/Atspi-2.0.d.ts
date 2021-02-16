@@ -2,10 +2,10 @@
  * Atspi-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as DBus from './DBus-1.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as DBus from './DBus-1.0';
 
 export enum CollectionMatchType {
     INVALID,
@@ -1666,8 +1666,8 @@ export class TextRange {
     content: string
     static name: string
 }
-type ControllerEventMask = number
-type DeviceEventMask = number
-type KeyEventMask = number
-type KeyMaskType = number
-type KeystrokeListener = void
+export type ControllerEventMask = number
+export type DeviceEventMask = number
+export type KeyEventMask = number
+export type KeyMaskType = number
+export type KeystrokeListener = void

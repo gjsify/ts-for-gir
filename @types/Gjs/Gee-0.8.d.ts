@@ -2,10 +2,10 @@
  * Gee-0.8
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum FutureError {
     ABANDON_PROMISE,
@@ -87,6 +87,9 @@ export interface FlatMapFunc {
 export interface BidirIterator_ConstructProps extends Iterator_ConstructProps {
 }
 export class BidirIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirIterator */
@@ -99,6 +102,8 @@ export class BidirIterator {
     has_next(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -130,12 +135,15 @@ export class BidirIterator {
     vfunc_has_next(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Iterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -148,6 +156,10 @@ export class BidirIterator {
     connect(sigName: "notify", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -155,6 +167,9 @@ export class BidirIterator {
     static name: string
     constructor (config?: BidirIterator_ConstructProps)
     _init (config?: BidirIterator_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: UnfoldFunc, current?: Lazy | null): Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Iterator): Iterator
     static $gtype: GObject.Type
 }
 export interface BidirList_ConstructProps extends List_ConstructProps {
@@ -164,9 +179,7 @@ export class BidirList {
     readonly read_only_view: BidirList
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirList */
@@ -183,7 +196,8 @@ export class BidirList {
     first(): object | null
     last(): object | null
     insert_all(index: number, collection: Collection): void
-    sort(compare_func?: GLib.CompareFunc | null): void
+    sort(compare_func: GLib.CompareDataFunc | null): void
+    get_read_only_view(): List
     /* Methods of Gee.Collection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
@@ -194,6 +208,16 @@ export class BidirList {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -218,9 +242,15 @@ export class BidirList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.List */
+    get_read_only_view(): List
+    /* Methods of Gee.Collection */
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.BidirList */
     vfunc_bidir_list_iterator(): BidirListIterator
     vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -231,7 +261,7 @@ export class BidirList {
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.List */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -243,7 +273,9 @@ export class BidirList {
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -253,6 +285,15 @@ export class BidirList {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -263,6 +304,16 @@ export class BidirList {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -282,10 +333,8 @@ export class BidirList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -294,13 +343,16 @@ export class BidirList {
     constructor (config?: BidirList_ConstructProps)
     _init (config?: BidirList_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): List
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): List
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface BidirListIterator_ConstructProps extends BidirIterator_ConstructProps {
 }
 export class BidirListIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirListIterator */
@@ -308,13 +360,15 @@ export class BidirListIterator {
     /* Methods of Gee.BidirIterator */
     previous(): boolean
     has_previous(): boolean
+    first(): boolean
     last(): boolean
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -341,22 +395,26 @@ export class BidirListIterator {
     vfunc_insert(item?: object | null): void
     vfunc_previous(): boolean
     vfunc_has_previous(): boolean
+    vfunc_first(): boolean
     vfunc_last(): boolean
     /* Virtual methods of Gee.BidirIterator */
     vfunc_previous(): boolean
     vfunc_has_previous(): boolean
+    vfunc_first(): boolean
     vfunc_last(): boolean
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Iterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -369,6 +427,10 @@ export class BidirListIterator {
     connect(sigName: "notify", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirListIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -381,6 +443,10 @@ export class BidirListIterator {
 export interface BidirMapIterator_ConstructProps extends MapIterator_ConstructProps {
 }
 export class BidirMapIterator {
+    /* Properties of Gee.MapIterator */
+    readonly valid: boolean
+    readonly mutable: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirMapIterator */
@@ -395,6 +461,11 @@ export class BidirMapIterator {
     get_value(): object | null
     set_value(value?: object | null): void
     unset(): void
+    fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null): object | null
+    foreach(f: ForallMapFunc): boolean
+    get_valid(): boolean
+    get_mutable(): boolean
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -428,14 +499,23 @@ export class BidirMapIterator {
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null): object | null
+    vfunc_foreach(f: ForallMapFunc): boolean
+    vfunc_get_valid(): boolean
+    vfunc_get_mutable(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.MapIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null): object | null
+    vfunc_foreach(f: ForallMapFunc): boolean
+    vfunc_get_valid(): boolean
+    vfunc_get_mutable(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -448,6 +528,12 @@ export class BidirMapIterator {
     connect(sigName: "notify", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::mutable", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::mutable", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -464,9 +550,7 @@ export class BidirSortedSet {
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirSortedSet */
@@ -475,7 +559,7 @@ export class BidirSortedSet {
     /* Methods of Gee.SortedSet */
     first(): object | null
     last(): object | null
-    iterator_at(element?: object | null): BidirIterator | null
+    iterator_at(element?: object | null): Iterator | null
     lower(element?: object | null): object | null
     higher(element?: object | null): object | null
     floor(element?: object | null): object | null
@@ -483,6 +567,9 @@ export class BidirSortedSet {
     head_set(before?: object | null): SortedSet
     tail_set(after?: object | null): SortedSet
     sub_set(from?: object | null, to?: object | null): SortedSet
+    get_read_only_view(): SortedSet
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
     /* Methods of Gee.Collection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
@@ -493,6 +580,16 @@ export class BidirSortedSet {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -517,12 +614,21 @@ export class BidirSortedSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.SortedSet */
+    get_read_only_view(): SortedSet
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
+    /* Methods of Gee.Collection */
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.BidirSortedSet */
     vfunc_bidir_iterator(): BidirIterator
     vfunc_get_read_only_view(): BidirSortedSet
+    vfunc_get_read_only_view(): SortedSet
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
+    vfunc_iterator_at(element?: object | null): Iterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -533,8 +639,7 @@ export class BidirSortedSet {
     /* Virtual methods of Gee.SortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
-    vfunc_bidir_iterator(): BidirIterator
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
+    vfunc_iterator_at(element?: object | null): Iterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -542,7 +647,12 @@ export class BidirSortedSet {
     vfunc_head_set(before?: object | null): SortedSet
     vfunc_tail_set(after?: object | null): SortedSet
     vfunc_sub_set(from?: object | null, to?: object | null): SortedSet
+    vfunc_get_read_only_view(): SortedSet
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.Set */
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -552,6 +662,15 @@ export class BidirSortedSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -562,6 +681,16 @@ export class BidirSortedSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -581,10 +710,8 @@ export class BidirSortedSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -594,8 +721,9 @@ export class BidirSortedSet {
     _init (config?: BidirSortedSet_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): BidirSortedSet
-    static empty(): Set
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): SortedSet
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface BidirSortedMap_ConstructProps extends SortedMap_ConstructProps {
@@ -608,12 +736,10 @@ export class BidirSortedMap {
     readonly ascending_entries: SortedSet
     /* Properties of Gee.Map */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.BidirSortedMap */
@@ -641,6 +767,15 @@ export class BidirSortedMap {
     remove_all(map: Map): boolean
     has_all(map: Map): boolean
     contains_all(map: Map): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -663,10 +798,15 @@ export class BidirSortedMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.SortedMap */
+    get_read_only_view(): SortedMap
+    /* Methods of Gee.Map */
+    get_read_only_view(): Map
     /* Virtual methods of Gee.BidirSortedMap */
     vfunc_bidir_map_iterator(): BidirMapIterator
     vfunc_get_read_only_view(): BidirSortedMap
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     vfunc_head_map(before?: object | null): SortedMap
     vfunc_tail_map(after?: object | null): SortedMap
     vfunc_sub_map(before?: object | null, after?: object | null): SortedMap
@@ -679,35 +819,41 @@ export class BidirSortedMap {
     vfunc_get_ascending_keys(): SortedSet
     vfunc_get_ascending_entries(): SortedSet
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     vfunc_has_key(key?: object | null): boolean
-    vfunc_contains(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_clear(): void
     vfunc_map_iterator(): MapIterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
-    vfunc_remove_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
     /* Virtual methods of Gee.Map */
     vfunc_has_key(key?: object | null): boolean
-    vfunc_contains(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_clear(): void
     vfunc_map_iterator(): MapIterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
-    vfunc_remove_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -728,18 +874,14 @@ export class BidirSortedMap {
     connect_after(sigName: "notify::ascending-entries", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: BidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -750,7 +892,6 @@ export class BidirSortedMap {
     /* Static methods and pseudo-constructors */
     static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): BidirSortedMap
     static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): Map
-    static empty(): Map
     static $gtype: GObject.Type
 }
 export interface Collection_ConstructProps extends Iterable_ConstructProps {
@@ -760,8 +901,6 @@ export class Collection {
     readonly size: number
     readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.Collection */
@@ -849,8 +988,6 @@ export class Collection {
     connect_after(sigName: "notify::read-only", callback: (($obj: Collection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: Collection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Collection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: Collection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: Collection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -923,10 +1060,8 @@ export class Deque {
     readonly is_full: boolean
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.Deque */
@@ -943,6 +1078,9 @@ export class Deque {
     peek(): object | null
     poll(): object | null
     drain(recipient: Collection, amount: number): number
+    get_capacity(): number
+    get_remaining_capacity(): number
+    get_is_full(): boolean
     /* Methods of Gee.Collection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
@@ -953,6 +1091,16 @@ export class Deque {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -990,11 +1138,17 @@ export class Deque {
     vfunc_peek(): object | null
     vfunc_poll(): object | null
     vfunc_drain(recipient: Collection, amount: number): number
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
     /* Virtual methods of Gee.Queue */
     vfunc_offer(element?: object | null): boolean
     vfunc_peek(): object | null
     vfunc_poll(): object | null
     vfunc_drain(recipient: Collection, amount: number): number
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -1004,6 +1158,16 @@ export class Deque {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -1014,6 +1178,16 @@ export class Deque {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -1037,12 +1211,10 @@ export class Deque {
     connect_after(sigName: "notify::is-full", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: Deque, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1065,11 +1237,11 @@ export class Future {
     wait_until(end_time: number): [ /* returnType */ boolean, /* value */ object | null ]
     wait_async(_callback_?: Gio.AsyncReadyCallback | null): void
     wait_finish(_res_: Gio.AsyncResult): object | null
-    map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future): Future
-    flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc): Future
+    light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
+    light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
+    zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future): Future
+    flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
     get_value(): object | null
     get_ready(): boolean
     get_exception(): GLib.Error | null
@@ -1100,11 +1272,11 @@ export class Future {
     vfunc_wait_until(end_time: number): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_wait_async(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_wait_finish(_res_: Gio.AsyncResult): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    vfunc_light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    vfunc_light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
-    vfunc_zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future): Future
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc): Future
+    vfunc_light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
+    vfunc_light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
+    vfunc_zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future): Future
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
     vfunc_get_value(): object | null
     vfunc_get_ready(): boolean
     vfunc_get_exception(): GLib.Error | null
@@ -1318,9 +1490,7 @@ export class List {
     readonly read_only_view: List
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.List */
@@ -1346,6 +1516,16 @@ export class List {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -1383,6 +1563,7 @@ export class List {
     vfunc_insert_all(index: number, collection: Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -1392,6 +1573,15 @@ export class List {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -1402,6 +1592,16 @@ export class List {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -1421,10 +1621,8 @@ export class List {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1434,12 +1632,15 @@ export class List {
     _init (config?: List_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): List
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface ListIterator_ConstructProps extends Iterator_ConstructProps {
 }
 export class ListIterator {
+    /* Properties of Gee.Iterator */
+    readonly valid: boolean
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ListIterator */
@@ -1449,9 +1650,10 @@ export class ListIterator {
     /* Methods of Gee.Iterator */
     next(): boolean
     has_next(): boolean
-    first(): boolean
     get(): object | null
     remove(): void
+    get_valid(): boolean
+    get_read_only(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1480,15 +1682,17 @@ export class ListIterator {
     vfunc_index(): number
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Iterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
-    vfunc_first(): boolean
     vfunc_get(): object | null
     vfunc_remove(): void
+    vfunc_get_valid(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1501,6 +1705,10 @@ export class ListIterator {
     connect(sigName: "notify", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::valid", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valid", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ListIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1508,6 +1716,9 @@ export class ListIterator {
     static name: string
     constructor (config?: ListIterator_ConstructProps)
     _init (config?: ListIterator_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: UnfoldFunc, current?: Lazy | null): Iterator
+    static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Iterator): Iterator
     static $gtype: GObject.Type
 }
 export interface Map_ConstructProps extends GObject.Object_ConstructProps {
@@ -1793,10 +2004,8 @@ export interface MultiSet_ConstructProps extends Collection_ConstructProps {
 export class MultiSet {
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.MultiSet */
@@ -1812,6 +2021,16 @@ export class MultiSet {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -1839,6 +2058,7 @@ export class MultiSet {
     /* Virtual methods of Gee.MultiSet */
     vfunc_count(item?: object | null): number
     vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -1848,6 +2068,15 @@ export class MultiSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -1858,6 +2087,16 @@ export class MultiSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -1875,12 +2114,10 @@ export class MultiSet {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: MultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1890,7 +2127,7 @@ export class MultiSet {
     _init (config?: MultiSet_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface Queue_ConstructProps extends Collection_ConstructProps {
@@ -1902,10 +2139,8 @@ export class Queue {
     readonly is_full: boolean
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.Queue */
@@ -1926,6 +2161,16 @@ export class Queue {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -1967,6 +2212,16 @@ export class Queue {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -1977,6 +2232,16 @@ export class Queue {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -2000,12 +2265,10 @@ export class Queue {
     connect_after(sigName: "notify::is-full", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: Queue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2014,7 +2277,7 @@ export class Queue {
     constructor (config?: Queue_ConstructProps)
     _init (config?: Queue_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface Set_ConstructProps extends Collection_ConstructProps {
@@ -2024,9 +2287,7 @@ export class Set {
     readonly read_only_view: Set
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.Set */
@@ -2041,6 +2302,16 @@ export class Set {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -2067,6 +2338,7 @@ export class Set {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gee.Set */
     vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -2076,6 +2348,15 @@ export class Set {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -2086,6 +2367,16 @@ export class Set {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -2105,10 +2396,8 @@ export class Set {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2118,7 +2407,7 @@ export class Set {
     _init (config?: Set_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface SortedMap_ConstructProps extends Map_ConstructProps {
@@ -2130,12 +2419,10 @@ export class SortedMap {
     readonly read_only_view: SortedMap
     /* Properties of Gee.Map */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.SortedMap */
@@ -2160,6 +2447,15 @@ export class SortedMap {
     remove_all(map: Map): boolean
     has_all(map: Map): boolean
     contains_all(map: Map): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2189,35 +2485,41 @@ export class SortedMap {
     vfunc_get_ascending_keys(): SortedSet
     vfunc_get_ascending_entries(): SortedSet
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     vfunc_has_key(key?: object | null): boolean
-    vfunc_contains(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_clear(): void
     vfunc_map_iterator(): MapIterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
-    vfunc_remove_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
     /* Virtual methods of Gee.Map */
     vfunc_has_key(key?: object | null): boolean
-    vfunc_contains(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_clear(): void
     vfunc_map_iterator(): MapIterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
-    vfunc_remove_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2238,18 +2540,14 @@ export class SortedMap {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: SortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2259,7 +2557,6 @@ export class SortedMap {
     _init (config?: SortedMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): Map
-    static empty(): Map
     static $gtype: GObject.Type
 }
 export interface SortedSet_ConstructProps extends Set_ConstructProps {
@@ -2269,9 +2566,7 @@ export class SortedSet {
     readonly read_only_view: SortedSet
     /* Properties of Gee.Collection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.SortedSet */
@@ -2286,6 +2581,8 @@ export class SortedSet {
     tail_set(after?: object | null): SortedSet
     sub_set(from?: object | null, to?: object | null): SortedSet
     get_read_only_view(): SortedSet
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
     /* Methods of Gee.Collection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
@@ -2296,6 +2593,16 @@ export class SortedSet {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_size(): number
+    get_is_empty(): boolean
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of Gee.Iterable */
     iterator(): Iterator
     /* Methods of GObject.Object */
@@ -2320,6 +2627,10 @@ export class SortedSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
+    /* Methods of Gee.Collection */
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.SortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
@@ -2332,7 +2643,11 @@ export class SortedSet {
     vfunc_tail_set(after?: object | null): SortedSet
     vfunc_sub_set(from?: object | null, to?: object | null): SortedSet
     vfunc_get_read_only_view(): SortedSet
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.Set */
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
@@ -2342,6 +2657,15 @@ export class SortedSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
     /* Virtual methods of Gee.Collection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -2352,6 +2676,16 @@ export class SortedSet {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_size(): number
+    vfunc_get_is_empty(): boolean
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
     vfunc_iterator(): Iterator
     /* Virtual methods of Gee.Iterable */
     vfunc_iterator(): Iterator
@@ -2371,10 +2705,8 @@ export class SortedSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2384,8 +2716,8 @@ export class SortedSet {
     _init (config?: SortedSet_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): SortedSet
-    static empty(): Set
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface Traversable_ConstructProps extends GObject.Object_ConstructProps {
@@ -2480,12 +2812,7 @@ export class AbstractBidirList {
     readonly read_only_view: BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractList */
-    parent_instance: AbstractCollection
-    priv: AbstractListPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractBidirList */
@@ -2509,20 +2836,17 @@ export class AbstractBidirList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Collection): void
+    get_read_only_view(): List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2545,8 +2869,28 @@ export class AbstractBidirList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.BidirList */
+    get_read_only_view(): BidirList
     /* Methods of Gee.List */
-    sort(compare_func?: GLib.CompareFunc | null): void
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Collection): void
+    sort(compare_func: GLib.CompareDataFunc | null): void
+    get_read_only_view(): List
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): BidirListIterator
     vfunc_reserved0(): void
@@ -2560,6 +2904,8 @@ export class AbstractBidirList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -2568,21 +2914,69 @@ export class AbstractBidirList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2599,10 +2993,8 @@ export class AbstractBidirList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractBidirList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2622,12 +3014,7 @@ export class AbstractBidirSortedSet {
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractSet */
-    parent_instance: AbstractCollection
-    priv: AbstractSetPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractBidirSortedSet */
@@ -2655,17 +3042,18 @@ export class AbstractBidirSortedSet {
     tail_set(after?: object | null): SortedSet
     sub_set(from?: object | null, to?: object | null): SortedSet
     get_read_only_view(): SortedSet
+    /* Methods of Gee.AbstractSet */
+    get_read_only_view(): Set
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2691,7 +3079,23 @@ export class AbstractBidirSortedSet {
     /* Methods of Gee.BidirSortedSet */
     get_read_only_view(): BidirSortedSet
     /* Methods of Gee.SortedSet */
-    iterator_at(element?: object | null): BidirIterator | null
+    get_read_only_view(): SortedSet
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirSortedSet */
     vfunc_bidir_iterator(): BidirIterator
     vfunc_reserved0(): void
@@ -2706,13 +3110,12 @@ export class AbstractBidirSortedSet {
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirSortedSet
     vfunc_get_read_only_view(): SortedSet
-    vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractSortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -2731,18 +3134,68 @@ export class AbstractBidirSortedSet {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): SortedSet
-    vfunc_bidir_iterator(): BidirIterator
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
+    /* Virtual methods of Gee.AbstractSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2759,10 +3212,8 @@ export class AbstractBidirSortedSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractBidirSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2790,16 +3241,10 @@ export class AbstractBidirSortedMap {
     readonly ascending_entries: SortedSet
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
-    /* Properties of Gee.Map */
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
-    /* Fields of Gee.AbstractMap */
-    parent_instance: GObject.Object
-    priv: AbstractMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractBidirSortedMap */
@@ -2829,9 +3274,14 @@ export class AbstractBidirSortedMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): MapIterator
     clear(): void
-    set_all(map: Map): void
-    unset_all(map: Map): boolean
-    has_all(map: Map): boolean
+    foreach(f: ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2854,13 +3304,22 @@ export class AbstractBidirSortedMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.BidirSortedMap */
+    get_read_only_view(): BidirSortedMap
     /* Methods of Gee.SortedMap */
     get_read_only_view(): SortedMap
     /* Methods of Gee.Map */
     contains(key?: object | null): boolean
     remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    set_all(map: Map): void
+    unset_all(map: Map): boolean
     remove_all(map: Map): boolean
+    has_all(map: Map): boolean
     contains_all(map: Map): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Map
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Virtual methods of Gee.AbstractBidirSortedMap */
     vfunc_bidir_map_iterator(): BidirMapIterator
     vfunc_reserved0(): void
@@ -2875,6 +3334,7 @@ export class AbstractBidirSortedMap {
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirSortedMap
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractSortedMap */
     vfunc_head_map(before?: object | null): SortedMap
     vfunc_tail_map(after?: object | null): SortedMap
@@ -2892,6 +3352,7 @@ export class AbstractBidirSortedMap {
     vfunc_get_ascending_keys(): SortedSet
     vfunc_get_ascending_entries(): SortedSet
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -2900,14 +3361,43 @@ export class AbstractBidirSortedMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Iterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_iterator(): Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2928,18 +3418,14 @@ export class AbstractBidirSortedMap {
     connect_after(sigName: "notify::ascending-entries", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: AbstractBidirSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2961,10 +3447,6 @@ export class AbstractCollection {
     readonly size: number
     readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Properties of Gee.Collection */
-    readonly is_empty: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractCollection */
@@ -3031,6 +3513,13 @@ export class AbstractCollection {
     remove_all(collection: Collection): boolean
     retain_all(collection: Collection): boolean
     to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
@@ -3071,6 +3560,13 @@ export class AbstractCollection {
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
     vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3089,10 +3585,6 @@ export class AbstractCollection {
     connect_after(sigName: "notify::read-only", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractCollection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3101,7 +3593,7 @@ export class AbstractCollection {
     constructor (config?: AbstractCollection_ConstructProps)
     _init (config?: AbstractCollection_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): Collection
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collection
     static $gtype: GObject.Type
 }
 export interface AbstractList_ConstructProps extends AbstractCollection_ConstructProps {
@@ -3114,12 +3606,7 @@ export class AbstractList {
     readonly read_only_view: List
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractCollection */
-    parent_instance: GObject.Object
-    priv: AbstractCollectionPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractList */
@@ -3146,12 +3633,11 @@ export class AbstractList {
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3178,7 +3664,22 @@ export class AbstractList {
     first(): object | null
     last(): object | null
     insert_all(index: number, collection: Collection): void
-    sort(compare_func?: GLib.CompareFunc | null): void
+    sort(compare_func: GLib.CompareDataFunc | null): void
+    get_read_only_view(): List
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -3198,21 +3699,58 @@ export class AbstractList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3229,10 +3767,8 @@ export class AbstractList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3241,7 +3777,7 @@ export class AbstractList {
     constructor (config?: AbstractList_ConstructProps)
     _init (config?: AbstractList_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): List
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): List
     static $gtype: GObject.Type
 }
 export interface AbstractMap_ConstructProps extends GObject.Object_ConstructProps {
@@ -3260,12 +3796,6 @@ export class AbstractMap {
     readonly values: Collection
     readonly entries: Set
     readonly read_only_view: Map
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Properties of Gee.Map */
-    readonly is_empty: boolean
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractMap */
@@ -3341,6 +3871,9 @@ export class AbstractMap {
     remove_all(map: Map): boolean
     has_all(map: Map): boolean
     contains_all(map: Map): boolean
+    get_is_empty(): boolean
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -3382,13 +3915,10 @@ export class AbstractMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_iterator(): Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
-    vfunc_remove_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3413,14 +3943,6 @@ export class AbstractMap {
     connect_after(sigName: "notify::entries", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: AbstractMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3429,7 +3951,7 @@ export class AbstractMap {
     constructor (config?: AbstractMap_ConstructProps)
     _init (config?: AbstractMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): Map
+    static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): Map
     static $gtype: GObject.Type
 }
 export interface AbstractMultiMap_ConstructProps extends GObject.Object_ConstructProps {
@@ -3443,6 +3965,7 @@ export interface AbstractMultiMap_ConstructProps extends GObject.Object_Construc
 export class AbstractMultiMap {
     /* Properties of Gee.MultiMap */
     readonly size: number
+    readonly read_only: boolean
     /* Fields of Gee.AbstractMultiMap */
     _storage_map: Map
     /* Fields of GObject.Object */
@@ -3493,6 +4016,11 @@ export class AbstractMultiMap {
     remove(key?: object | null, value?: object | null): boolean
     remove_all(key?: object | null): boolean
     clear(): void
+    map_iterator(): MapIterator
+    get_size(): number
+    get_read_only(): boolean
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Virtual methods of Gee.AbstractMultiMap */
     vfunc_create_value_storage(): Collection
     vfunc_create_multi_key_set(): MultiSet
@@ -3516,6 +4044,9 @@ export class AbstractMultiMap {
     vfunc_remove(key?: object | null, value?: object | null): boolean
     vfunc_remove_all(key?: object | null): boolean
     vfunc_clear(): void
+    vfunc_map_iterator(): MapIterator
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3530,6 +4061,8 @@ export class AbstractMultiMap {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: AbstractMultiMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractMultiMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractMultiMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractMultiMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3547,15 +4080,10 @@ export interface AbstractMultiSet_ConstructProps extends AbstractCollection_Cons
 export class AbstractMultiSet {
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
     /* Fields of Gee.AbstractMultiSet */
     _storage_map: Map
-    /* Fields of Gee.AbstractCollection */
-    parent_instance: GObject.Object
-    priv: AbstractCollectionPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractMultiSet */
@@ -3574,12 +4102,12 @@ export class AbstractMultiSet {
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3604,6 +4132,21 @@ export class AbstractMultiSet {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gee.MultiSet */
     count(item?: object | null): number
+    get_read_only_view(): MultiSet
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractMultiSet */
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -3615,18 +4158,55 @@ export class AbstractMultiSet {
     vfunc_reserved7(): void
     vfunc_reserved8(): void
     vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     vfunc_count(item?: object | null): number
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3641,12 +4221,10 @@ export class AbstractMultiSet {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3654,6 +4232,8 @@ export class AbstractMultiSet {
     static name: string
     constructor (config?: AbstractMultiSet_ConstructProps)
     _init (config?: AbstractMultiSet_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
     static $gtype: GObject.Type
 }
 export interface AbstractQueue_ConstructProps extends AbstractCollection_ConstructProps {
@@ -3668,13 +4248,8 @@ export class AbstractQueue {
     readonly is_full: boolean
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractCollection */
-    parent_instance: GObject.Object
-    priv: AbstractCollectionPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractQueue */
@@ -3698,12 +4273,11 @@ export class AbstractQueue {
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3729,6 +4303,19 @@ export class AbstractQueue {
     /* Methods of Gee.Queue */
     offer(element?: object | null): boolean
     drain(recipient: Collection, amount: number): number
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
     /* Virtual methods of Gee.AbstractQueue */
     vfunc_peek(): object | null
     vfunc_poll(): object | null
@@ -3752,12 +4339,48 @@ export class AbstractQueue {
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3778,12 +4401,10 @@ export class AbstractQueue {
     connect_after(sigName: "notify::is-full", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3803,12 +4424,7 @@ export class AbstractSet {
     readonly read_only_view: Set
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractCollection */
-    parent_instance: GObject.Object
-    priv: AbstractCollectionPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractSet */
@@ -3828,12 +4444,11 @@ export class AbstractSet {
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3856,6 +4471,22 @@ export class AbstractSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractSet */
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -3868,17 +4499,54 @@ export class AbstractSet {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3895,10 +4563,8 @@ export class AbstractSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3907,7 +4573,7 @@ export class AbstractSet {
     constructor (config?: AbstractSet_ConstructProps)
     _init (config?: AbstractSet_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static empty(): Set
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Set
     static $gtype: GObject.Type
 }
 export interface AbstractSortedMap_ConstructProps extends AbstractMap_ConstructProps {
@@ -3924,17 +4590,11 @@ export class AbstractSortedMap {
     readonly ascending_entries: SortedSet
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
     readonly read_only_view: Map
-    /* Properties of Gee.Map */
-    readonly key_type: GObject.Type
-    readonly value_type: GObject.Type
-    /* Fields of Gee.AbstractMap */
-    parent_instance: GObject.Object
-    priv: AbstractMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractSortedMap */
@@ -3961,9 +4621,14 @@ export class AbstractSortedMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): MapIterator
     clear(): void
-    set_all(map: Map): void
-    unset_all(map: Map): boolean
-    has_all(map: Map): boolean
+    foreach(f: ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3991,8 +4656,15 @@ export class AbstractSortedMap {
     /* Methods of Gee.Map */
     contains(key?: object | null): boolean
     remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    set_all(map: Map): void
+    unset_all(map: Map): boolean
     remove_all(map: Map): boolean
+    has_all(map: Map): boolean
     contains_all(map: Map): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Map
+    get_key_type(): GObject.Type
+    get_value_type(): GObject.Type
     /* Virtual methods of Gee.AbstractSortedMap */
     vfunc_head_map(before?: object | null): SortedMap
     vfunc_tail_map(after?: object | null): SortedMap
@@ -4010,6 +4682,7 @@ export class AbstractSortedMap {
     vfunc_get_ascending_keys(): SortedSet
     vfunc_get_ascending_entries(): SortedSet
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -4018,14 +4691,43 @@ export class AbstractSortedMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Iterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_iterator(): Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4044,8 +4746,8 @@ export class AbstractSortedMap {
     connect_after(sigName: "notify::ascending-entries", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
@@ -4054,10 +4756,6 @@ export class AbstractSortedMap {
     connect_after(sigName: "notify::entries", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::key-type", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::key-type", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::value-type", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::value-type", callback: (($obj: AbstractSortedMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4079,12 +4777,7 @@ export class AbstractSortedSet {
     readonly read_only_view: SortedSet
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractSet */
-    parent_instance: AbstractCollection
-    priv: AbstractSetPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractSortedSet */
@@ -4109,17 +4802,18 @@ export class AbstractSortedSet {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): SortedSet
+    /* Methods of Gee.AbstractSet */
+    get_read_only_view(): Set
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4143,13 +4837,27 @@ export class AbstractSortedSet {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gee.SortedSet */
-    bidir_iterator(): BidirIterator
-    iterator_at(element?: object | null): BidirIterator | null
+    get_read_only_view(): SortedSet
+    /* Methods of Gee.Set */
+    get_read_only_view(): Set
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
+    get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractSortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -4168,18 +4876,68 @@ export class AbstractSortedSet {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): SortedSet
-    vfunc_bidir_iterator(): BidirIterator
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
+    /* Virtual methods of Gee.AbstractSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4196,10 +4954,8 @@ export class AbstractSortedSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: AbstractSortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4207,6 +4963,8 @@ export class AbstractSortedSet {
     static name: string
     constructor (config?: AbstractSortedSet_ConstructProps)
     _init (config?: AbstractSortedSet_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static empty(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): SortedSet
     static $gtype: GObject.Type
 }
 export interface ArrayList_ConstructProps extends AbstractBidirList_ConstructProps {
@@ -4219,14 +4977,11 @@ export class ArrayList {
     readonly read_only_view: BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Fields of Gee.ArrayList */
     _items: object[]
     _items_length1: number
     _size: number
-    /* Fields of Gee.AbstractList */
-    parent_instance: AbstractCollection
-    priv: AbstractListPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayList */
@@ -4253,19 +5008,17 @@ export class ArrayList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Collection): void
+    get_read_only_view(): List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4288,6 +5041,10 @@ export class ArrayList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.ArrayList */
+    vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): BidirListIterator
     vfunc_reserved0(): void
@@ -4301,6 +5058,8 @@ export class ArrayList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -4309,21 +5068,69 @@ export class ArrayList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4340,8 +5147,8 @@ export class ArrayList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4368,33 +5175,39 @@ export class ArrayQueue {
     readonly is_full: boolean
     /* Properties of Gee.AbstractCollection */
     readonly size: number
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractQueue */
-    parent_instance: AbstractCollection
-    priv: AbstractQueuePrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ArrayQueue */
     get_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null ]
     get_is_empty(): boolean
     /* Methods of Gee.AbstractQueue */
-    offer(element?: object | null): boolean
     peek(): object | null
     poll(): object | null
-    drain(recipient: Collection, amount: number): number
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_capacity(): number
+    get_remaining_capacity(): number
+    get_is_full(): boolean
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4426,6 +5239,21 @@ export class ArrayQueue {
     peek_tail(): object | null
     poll_tail(): object | null
     drain_tail(recipient: Collection, amount: number): number
+    /* Methods of Gee.Queue */
+    offer(element?: object | null): boolean
+    drain(recipient: Collection, amount: number): number
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
     /* Virtual methods of Gee.ArrayQueue */
     vfunc_offer_head(element?: object | null): boolean
     vfunc_peek_head(): object | null
@@ -4436,21 +5264,70 @@ export class ArrayQueue {
     vfunc_poll_tail(): object | null
     vfunc_drain_tail(recipient: Collection, amount: number): number
     /* Virtual methods of Gee.AbstractQueue */
-    vfunc_offer(element?: object | null): boolean
     vfunc_peek(): object | null
     vfunc_poll(): object | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
+    vfunc_offer(element?: object | null): boolean
     vfunc_drain(recipient: Collection, amount: number): number
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4473,10 +5350,10 @@ export class ArrayQueue {
     connect_after(sigName: "notify::is-full", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: ArrayQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4500,9 +5377,7 @@ export class ConcurrentList {
     readonly read_only_view: List
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    /* Fields of Gee.AbstractList */
-    parent_instance: AbstractCollection
-    priv: AbstractListPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.ConcurrentList */
@@ -4516,20 +5391,27 @@ export class ConcurrentList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Collection): void
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4552,6 +5434,9 @@ export class ConcurrentList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.ConcurrentList */
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -4560,21 +5445,69 @@ export class ConcurrentList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4593,6 +5526,8 @@ export class ConcurrentList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ConcurrentList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ConcurrentList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ConcurrentList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ConcurrentList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ConcurrentList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4614,10 +5549,7 @@ export class ConcurrentSet {
     readonly read_only_view: SortedSet
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Fields of Gee.AbstractSet */
-    parent_instance: AbstractCollection
-    priv: AbstractSetPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.AbstractSortedSet */
@@ -4642,17 +5574,18 @@ export class ConcurrentSet {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): SortedSet
+    /* Methods of Gee.AbstractSet */
+    get_read_only_view(): Set
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4676,13 +5609,13 @@ export class ConcurrentSet {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gee.ConcurrentSet */
-    vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
+    vfunc_get_read_only_view(): SortedSet
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractSortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -4701,18 +5634,68 @@ export class ConcurrentSet {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): SortedSet
-    vfunc_bidir_iterator(): BidirIterator
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
+    /* Virtual methods of Gee.AbstractSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4729,8 +5712,8 @@ export class ConcurrentSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ConcurrentSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4753,14 +5736,11 @@ export interface HashMap_ConstructProps extends AbstractMap_ConstructProps {
 export class HashMap {
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
     readonly read_only_view: Map
-    /* Fields of Gee.AbstractMap */
-    parent_instance: GObject.Object
-    priv: AbstractMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.HashMap */
@@ -4775,9 +5755,24 @@ export class HashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): MapIterator
     clear(): void
-    set_all(map: Map): void
-    unset_all(map: Map): boolean
-    has_all(map: Map): boolean
+    foreach(f: ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4808,14 +5803,43 @@ export class HashMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Iterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_iterator(): Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4830,8 +5854,8 @@ export class HashMap {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: HashMap, pspec: GObject.ParamSpec) => void)): number
@@ -4861,8 +5885,6 @@ export interface HashMultiMap_ConstructProps extends AbstractMultiMap_ConstructP
 }
 export class HashMultiMap {
     /* Fields of Gee.AbstractMultiMap */
-    parent_instance: GObject.Object
-    priv: AbstractMultiMapPrivate
     _storage_map: Map
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -4874,7 +5896,17 @@ export class HashMultiMap {
     /* Methods of Gee.AbstractMultiMap */
     create_value_storage(): Collection
     create_multi_key_set(): MultiSet
-    get_value_equal_func(): GLib.EqualFunc
+    get_value_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    get_read_only_view(): MultiMap
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4900,7 +5932,17 @@ export class HashMultiMap {
     /* Virtual methods of Gee.AbstractMultiMap */
     vfunc_create_value_storage(): Collection
     vfunc_create_multi_key_set(): MultiSet
-    vfunc_get_value_equal_func(): GLib.EqualFunc
+    vfunc_get_value_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_get_read_only_view(): MultiMap
     vfunc_get_keys(): Set
     vfunc_get_all_keys(): MultiSet
     vfunc_get_values(): Collection
@@ -4910,6 +5952,9 @@ export class HashMultiMap {
     vfunc_remove(key?: object | null, value?: object | null): boolean
     vfunc_remove_all(key?: object | null): boolean
     vfunc_clear(): void
+    vfunc_map_iterator(): MapIterator
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4941,28 +5986,37 @@ export interface HashMultiSet_ConstructProps extends AbstractMultiSet_ConstructP
 export class HashMultiSet {
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
     /* Fields of Gee.AbstractMultiSet */
-    parent_instance: AbstractCollection
-    priv: AbstractMultiSetPrivate
     _storage_map: Map
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.HashMultiSet */
     get_hash_func(): [ /* returnType */ HashDataFunc, /* result_target */ object | null ]
     get_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractMultiSet */
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    get_read_only_view(): MultiSet
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -4985,19 +6039,69 @@ export class HashMultiSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.HashMultiSet */
+    vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractMultiSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     vfunc_count(item?: object | null): number
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5012,8 +6116,8 @@ export class HashMultiSet {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: HashMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5038,26 +6142,34 @@ export class HashSet {
     readonly read_only_view: Set
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Fields of Gee.AbstractSet */
-    parent_instance: AbstractCollection
-    priv: AbstractSetPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.HashSet */
     get_hash_func(): [ /* returnType */ HashDataFunc, /* result_target */ object | null ]
     get_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractSet */
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_read_only_view(): Set
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5080,17 +6192,69 @@ export class HashSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.HashSet */
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
+    /* Virtual methods of Gee.AbstractSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5107,8 +6271,8 @@ export class HashSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5145,16 +6309,11 @@ export class LinkedList {
     readonly read_only_view: BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Gee.Queue */
     readonly capacity: number
     readonly remaining_capacity: number
     readonly is_full: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractList */
-    parent_instance: AbstractCollection
-    priv: AbstractListPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.LinkedList */
@@ -5182,18 +6341,17 @@ export class LinkedList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): List | null
-    insert_all(index: number, collection: Collection): void
+    get_read_only_view(): List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5221,6 +6379,22 @@ export class LinkedList {
     peek(): object | null
     poll(): object | null
     drain(recipient: Collection, amount: number): number
+    get_capacity(): number
+    get_remaining_capacity(): number
+    get_is_full(): boolean
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
     /* Methods of Gee.Deque */
     offer_head(element?: object | null): boolean
     peek_head(): object | null
@@ -5235,6 +6409,9 @@ export class LinkedList {
     vfunc_peek(): object | null
     vfunc_poll(): object | null
     vfunc_drain(recipient: Collection, amount: number): number
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
     vfunc_offer_head(element?: object | null): boolean
     vfunc_peek_head(): object | null
     vfunc_poll_head(): object | null
@@ -5243,6 +6420,9 @@ export class LinkedList {
     vfunc_peek_tail(): object | null
     vfunc_poll_tail(): object | null
     vfunc_drain_tail(recipient: Collection, amount: number): number
+    vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): BidirListIterator
     vfunc_reserved0(): void
@@ -5256,6 +6436,8 @@ export class LinkedList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -5264,21 +6446,69 @@ export class LinkedList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5295,16 +6525,14 @@ export class LinkedList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remaining-capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-full", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-full", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5328,11 +6556,8 @@ export class PriorityQueue {
     readonly is_full: boolean
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
-    /* Fields of Gee.AbstractQueue */
-    parent_instance: AbstractCollection
-    priv: AbstractQueuePrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.PriorityQueue */
@@ -5342,17 +6567,29 @@ export class PriorityQueue {
     /* Methods of Gee.AbstractQueue */
     peek(): object | null
     poll(): object | null
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    get_capacity(): number
+    get_remaining_capacity(): number
+    get_is_full(): boolean
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5376,21 +6613,70 @@ export class PriorityQueue {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gee.AbstractQueue */
-    vfunc_offer(element?: object | null): boolean
     vfunc_peek(): object | null
     vfunc_poll(): object | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
+    vfunc_offer(element?: object | null): boolean
     vfunc_drain(recipient: Collection, amount: number): number
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5411,8 +6697,8 @@ export class PriorityQueue {
     connect_after(sigName: "notify::is-full", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: PriorityQueue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5455,13 +6741,10 @@ export class TreeMap {
     readonly ascending_entries: SortedSet
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly keys: Set
     readonly values: Collection
     readonly entries: Set
-    /* Fields of Gee.AbstractMap */
-    parent_instance: GObject.Object
-    priv: AbstractMapPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.TreeMap */
@@ -5494,9 +6777,14 @@ export class TreeMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): MapIterator
     clear(): void
-    set_all(map: Map): void
-    unset_all(map: Map): boolean
-    has_all(map: Map): boolean
+    foreach(f: ForallFunc): boolean
+    stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    get_size(): number
+    get_read_only(): boolean
+    get_keys(): Set
+    get_values(): Collection
+    get_entries(): Set
+    get_read_only_view(): Map
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5522,6 +6810,7 @@ export class TreeMap {
     /* Virtual methods of Gee.TreeMap */
     vfunc_get_read_only_view(): BidirSortedMap
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractBidirSortedMap */
     vfunc_bidir_map_iterator(): BidirMapIterator
     vfunc_reserved0(): void
@@ -5536,6 +6825,7 @@ export class TreeMap {
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirSortedMap
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractSortedMap */
     vfunc_head_map(before?: object | null): SortedMap
     vfunc_tail_map(after?: object | null): SortedMap
@@ -5553,6 +6843,7 @@ export class TreeMap {
     vfunc_get_ascending_keys(): SortedSet
     vfunc_get_ascending_entries(): SortedSet
     vfunc_get_read_only_view(): SortedMap
+    vfunc_get_read_only_view(): Map
     /* Virtual methods of Gee.AbstractMap */
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
@@ -5561,14 +6852,43 @@ export class TreeMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): MapIterator
     vfunc_clear(): void
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_keys(): Set
+    vfunc_get_values(): Collection
+    vfunc_get_entries(): Set
+    vfunc_get_read_only_view(): Map
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
+    vfunc_iterator(): Iterator
     vfunc_set_all(map: Map): void
     vfunc_unset_all(map: Map): boolean
     vfunc_has_all(map: Map): boolean
-    vfunc_iterator(): Iterator
-    vfunc_contains(key?: object | null): boolean
-    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
-    vfunc_remove_all(map: Map): boolean
-    vfunc_contains_all(map: Map): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5589,8 +6909,8 @@ export class TreeMap {
     connect_after(sigName: "notify::ascending-entries", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keys", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: TreeMap, pspec: GObject.ParamSpec) => void)): number
@@ -5618,8 +6938,6 @@ export interface TreeMultiMap_ConstructProps extends AbstractMultiMap_ConstructP
 }
 export class TreeMultiMap {
     /* Fields of Gee.AbstractMultiMap */
-    parent_instance: GObject.Object
-    priv: AbstractMultiMapPrivate
     _storage_map: Map
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -5629,7 +6947,17 @@ export class TreeMultiMap {
     /* Methods of Gee.AbstractMultiMap */
     create_value_storage(): Collection
     create_multi_key_set(): MultiSet
-    get_value_equal_func(): GLib.EqualFunc
+    get_value_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    get_read_only_view(): MultiMap
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5655,7 +6983,17 @@ export class TreeMultiMap {
     /* Virtual methods of Gee.AbstractMultiMap */
     vfunc_create_value_storage(): Collection
     vfunc_create_multi_key_set(): MultiSet
-    vfunc_get_value_equal_func(): GLib.EqualFunc
+    vfunc_get_value_equal_func(): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_get_read_only_view(): MultiMap
     vfunc_get_keys(): Set
     vfunc_get_all_keys(): MultiSet
     vfunc_get_values(): Collection
@@ -5665,6 +7003,9 @@ export class TreeMultiMap {
     vfunc_remove(key?: object | null, value?: object | null): boolean
     vfunc_remove_all(key?: object | null): boolean
     vfunc_clear(): void
+    vfunc_map_iterator(): MapIterator
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5696,27 +7037,36 @@ export interface TreeMultiSet_ConstructProps extends AbstractMultiSet_ConstructP
 export class TreeMultiSet {
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     readonly read_only_view: Collection
     /* Fields of Gee.AbstractMultiSet */
-    parent_instance: AbstractCollection
-    priv: AbstractMultiSetPrivate
     _storage_map: Map
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.TreeMultiSet */
     get_compare_func(): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null ]
+    /* Methods of Gee.AbstractMultiSet */
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    get_read_only_view(): MultiSet
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    reserved9(): void
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5739,19 +7089,69 @@ export class TreeMultiSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.TreeMultiSet */
+    vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractMultiSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_get_read_only_view(): MultiSet
+    vfunc_get_read_only_view(): Collection
     vfunc_count(item?: object | null): number
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5766,8 +7166,8 @@ export class TreeMultiSet {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeMultiSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5791,10 +7191,7 @@ export class TreeSet {
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
-    /* Fields of Gee.AbstractSet */
-    parent_instance: AbstractCollection
-    priv: AbstractSetPrivate
+    readonly read_only: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.TreeSet */
@@ -5824,17 +7221,18 @@ export class TreeSet {
     tail_set(after?: object | null): SortedSet
     sub_set(from?: object | null, to?: object | null): SortedSet
     get_read_only_view(): SortedSet
+    /* Methods of Gee.AbstractSet */
+    get_read_only_view(): Set
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5858,10 +7256,10 @@ export class TreeSet {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gee.TreeSet */
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
-    vfunc_iterator_at(element?: object | null): Iterator | null
     vfunc_get_read_only_view(): BidirSortedSet
     vfunc_get_read_only_view(): SortedSet
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirSortedSet */
     vfunc_bidir_iterator(): BidirIterator
     vfunc_reserved0(): void
@@ -5876,13 +7274,12 @@ export class TreeSet {
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirSortedSet
     vfunc_get_read_only_view(): SortedSet
-    vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractSortedSet */
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_iterator_at(element?: object | null): Iterator | null
-    vfunc_iterator_at(element?: object | null): BidirIterator | null
     vfunc_lower(element?: object | null): object | null
     vfunc_higher(element?: object | null): object | null
     vfunc_floor(element?: object | null): object | null
@@ -5901,18 +7298,68 @@ export class TreeSet {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): SortedSet
-    vfunc_bidir_iterator(): BidirIterator
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
+    /* Virtual methods of Gee.AbstractSet */
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): Set
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5929,8 +7376,8 @@ export class TreeSet {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5952,16 +7399,11 @@ export class UnrolledLinkedList {
     readonly read_only_view: BidirList
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly is_empty: boolean
+    readonly read_only: boolean
     /* Properties of Gee.Queue */
     readonly capacity: number
     readonly remaining_capacity: number
     readonly is_full: boolean
-    /* Properties of Gee.Iterable */
-    readonly element_type: GObject.Type
-    /* Fields of Gee.AbstractList */
-    parent_instance: AbstractCollection
-    priv: AbstractListPrivate
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee.UnrolledLinkedList */
@@ -5987,20 +7429,17 @@ export class UnrolledLinkedList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): List | null
-    first(): object | null
-    last(): object | null
-    insert_all(index: number, collection: Collection): void
+    get_read_only_view(): List
     /* Methods of Gee.AbstractCollection */
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-    to_array(): object[]
-    add_all(collection: Collection): boolean
-    contains_all(collection: Collection): boolean
-    remove_all(collection: Collection): boolean
-    retain_all(collection: Collection): boolean
     iterator(): Iterator
+    foreach(f: ForallFunc): boolean
+    get_size(): number
+    get_read_only(): boolean
+    get_read_only_view(): Collection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6028,6 +7467,22 @@ export class UnrolledLinkedList {
     peek(): object | null
     poll(): object | null
     drain(recipient: Collection, amount: number): number
+    get_capacity(): number
+    get_remaining_capacity(): number
+    get_is_full(): boolean
+    /* Methods of Gee.Collection */
+    add_all(collection: Collection): boolean
+    contains_all(collection: Collection): boolean
+    remove_all(collection: Collection): boolean
+    retain_all(collection: Collection): boolean
+    to_array(): object[]
+    add_all_array(array: object[]): boolean
+    contains_all_array(array: object[]): boolean
+    remove_all_array(array: object[]): boolean
+    add_all_iterator(iter: Iterator): boolean
+    contains_all_iterator(iter: Iterator): boolean
+    remove_all_iterator(iter: Iterator): boolean
+    get_is_empty(): boolean
     /* Methods of Gee.Deque */
     offer_head(element?: object | null): boolean
     peek_head(): object | null
@@ -6042,6 +7497,9 @@ export class UnrolledLinkedList {
     vfunc_peek(): object | null
     vfunc_poll(): object | null
     vfunc_drain(recipient: Collection, amount: number): number
+    vfunc_get_capacity(): number
+    vfunc_get_remaining_capacity(): number
+    vfunc_get_is_full(): boolean
     vfunc_offer_head(element?: object | null): boolean
     vfunc_peek_head(): object | null
     vfunc_poll_head(): object | null
@@ -6050,6 +7508,9 @@ export class UnrolledLinkedList {
     vfunc_peek_tail(): object | null
     vfunc_poll_tail(): object | null
     vfunc_drain_tail(recipient: Collection, amount: number): number
+    vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractBidirList */
     vfunc_bidir_list_iterator(): BidirListIterator
     vfunc_reserved0(): void
@@ -6063,6 +7524,8 @@ export class UnrolledLinkedList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): BidirList
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     /* Virtual methods of Gee.AbstractList */
     vfunc_list_iterator(): ListIterator
     vfunc_get(index: number): object | null
@@ -6071,21 +7534,69 @@ export class UnrolledLinkedList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): List | null
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_read_only_view(): List
+    vfunc_get_read_only_view(): Collection
     vfunc_first(): object | null
     vfunc_last(): object | null
     vfunc_insert_all(index: number, collection: Collection): void
-    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
-    vfunc_to_array(): object[]
+    vfunc_iterator(): Iterator
+    vfunc_foreach(f: ForallFunc): boolean
+    vfunc_reserved0(): void
+    vfunc_reserved1(): void
+    vfunc_reserved2(): void
+    vfunc_reserved3(): void
+    vfunc_reserved4(): void
+    vfunc_reserved5(): void
+    vfunc_reserved6(): void
+    vfunc_reserved7(): void
+    vfunc_reserved8(): void
+    vfunc_reserved9(): void
+    vfunc_get_size(): number
+    vfunc_get_read_only(): boolean
+    vfunc_get_read_only_view(): Collection
+    vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc): Iterator
+    vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): object | null
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc): Iterator
+    vfunc_scan(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null): Iterator
+    vfunc_filter(pred: Predicate): Iterator
+    vfunc_chop(offset: number, length: number): Iterator
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc): Iterator
+    vfunc_tee(forks: number): Iterator[]
+    vfunc_first_match(pred: Predicate): object | null
+    vfunc_any_match(pred: Predicate): boolean
+    vfunc_all_match(pred: Predicate): boolean
+    vfunc_max(compare: GLib.CompareDataFunc): object | null
+    vfunc_min(compare: GLib.CompareDataFunc): object | null
+    vfunc_order_by(compare: GLib.CompareDataFunc | null): Iterator
+    vfunc_get_element_type(): GObject.Type
     vfunc_add_all(collection: Collection): boolean
     vfunc_contains_all(collection: Collection): boolean
     vfunc_remove_all(collection: Collection): boolean
     vfunc_retain_all(collection: Collection): boolean
-    vfunc_iterator(): Iterator
+    vfunc_to_array(): object[]
+    vfunc_add_all_array(array: object[]): boolean
+    vfunc_contains_all_array(array: object[]): boolean
+    vfunc_remove_all_array(array: object[]): boolean
+    vfunc_add_all_iterator(iter: Iterator): boolean
+    vfunc_contains_all_iterator(iter: Iterator): boolean
+    vfunc_remove_all_iterator(iter: Iterator): boolean
+    vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6102,16 +7613,14 @@ export class UnrolledLinkedList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-empty", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-empty", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::read-only", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::capacity", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-capacity", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remaining-capacity", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-full", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-full", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element-type", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element-type", callback: (($obj: UnrolledLinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6493,7 +8002,7 @@ export class HashSetPrivate {
 }
 export class HazardPointer {
     /* Fields of Gee.HazardPointer */
-    _node: any
+    _node: HazardPointerNode
     /* Methods of Gee.HazardPointer */
     get(other_thread: boolean): object | null
     release(notify: GLib.DestroyNotify): void
@@ -6667,11 +8176,11 @@ export abstract class FutureIface {
     wait_until: (end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
     wait_async: (_callback_?: Gio.AsyncReadyCallback | null) => void
     wait_finish: (_res_: Gio.AsyncResult) => object | null
-    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    light_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    light_map_broken: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    zip: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future) => Future
-    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
+    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc) => Future
+    light_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
+    light_map_broken: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
+    zip: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future) => Future
+    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc) => Future
     get_value: () => object | null
     get_ready: () => boolean
     get_exception: () => GLib.Error | null

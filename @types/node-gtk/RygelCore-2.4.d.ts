@@ -3,15 +3,15 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="GUPnP-1.0.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { Gee } from './Gee-0.8';
+import type { GUPnP } from './GUPnP-1.0';
+import type { libxml2 } from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-/// <reference path="GModule-2.0.d.ts" />
+import type { GModule } from './GModule-2.0';
 
 declare namespace RygelCore {
 
@@ -322,6 +322,8 @@ export class ConnectionManager {
     rcsId: number
     avTransportId: number
     direction: string
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelCore.ConnectionManager */
@@ -336,6 +338,7 @@ export class ConnectionManager {
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+    getIntrospection(): GUPnP.ServiceIntrospection
     getIntrospectionAsync(callback: GUPnP.ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -343,8 +346,6 @@ export class ConnectionManager {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
-    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -428,6 +429,8 @@ export class BasicManagement {
     parentInstance: GUPnP.Service
     priv: BasicManagementPrivate
     deviceStatus: string
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelCore.BasicManagement */
@@ -443,6 +446,7 @@ export class BasicManagement {
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+    getIntrospection(): GUPnP.ServiceIntrospection
     getIntrospectionAsync(callback: GUPnP.ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -450,8 +454,6 @@ export class BasicManagement {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
-    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -612,13 +614,11 @@ export class RootDevice {
     services: Gee.ArrayList
     /* Properties of GUPnP.RootDevice */
     available: boolean
-    /* Properties of GUPnP.DeviceInfo */
-    element: object
-    location: string
-    urlBase: Soup.URI
     /* Fields of RygelCore.RootDevice */
     parentInstance: GUPnP.RootDevice
     priv: RootDevicePrivate
+    /* Fields of GUPnP.RootDevice */
+    parent: GUPnP.Device
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelCore.RootDevice */
@@ -679,8 +679,6 @@ export class RootDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.RootDevice */
-    vfuncInit(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -706,21 +704,6 @@ export class RootDevice {
     on(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::available", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::element", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::url-base", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -894,6 +877,7 @@ export class MetaConfig {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of RygelCore.Configuration */
+    getUpnpEnabled(): boolean
     getInterface(): string
     getInterfaces(): string[]
     getPort(): number
@@ -904,9 +888,9 @@ export class MetaConfig {
     getPluginPath(): string
     getEnginePath(): string
     getMediaEngine(): string
-    getVideoUploadFolder(): string | null
-    getMusicUploadFolder(): string | null
-    getPictureUploadFolder(): string | null
+    getVideoUploadFolder(): string
+    getMusicUploadFolder(): string
+    getPictureUploadFolder(): string
     getEnabled(section: string): boolean
     getTitle(section: string): string
     getString(section: string, key: string): string
@@ -915,6 +899,7 @@ export class MetaConfig {
     getIntList(section: string, key: string): Gee.ArrayList
     getBool(section: string, key: string): boolean
     /* Virtual methods of RygelCore.MetaConfig */
+    vfuncGetUpnpEnabled(): boolean
     vfuncGetInterface(): string
     vfuncGetInterfaces(): string[]
     vfuncGetPort(): number
@@ -925,9 +910,9 @@ export class MetaConfig {
     vfuncGetPluginPath(): string
     vfuncGetEnginePath(): string
     vfuncGetMediaEngine(): string
-    vfuncGetVideoUploadFolder(): string | null
-    vfuncGetMusicUploadFolder(): string | null
-    vfuncGetPictureUploadFolder(): string | null
+    vfuncGetVideoUploadFolder(): string
+    vfuncGetMusicUploadFolder(): string
+    vfuncGetPictureUploadFolder(): string
     vfuncGetEnabled(section: string): boolean
     vfuncGetTitle(section: string): string
     vfuncGetString(section: string, key: string): string
@@ -951,24 +936,24 @@ export class MetaConfig {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of RygelCore.Configuration */
-    connect(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
-    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
-    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
-    emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "configuration_changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration_changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration_changed", entry: ConfigurationEntry): void
+    on(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "section_changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section_changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section_changed", section: string, entry: SectionEntry): void
+    on(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    connect_after(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    emit(sigName: "setting_changed", section: string, key: string): void
+    on(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1170,6 +1155,8 @@ export class Plugin {
     /* Fields of RygelCore.Plugin */
     parentInstance: GUPnP.ResourceFactory
     priv: PluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelCore.Plugin */
@@ -1404,10 +1391,6 @@ export class BaseConfiguration {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
-    getVideoUploadFolder(): string | null
-    getMusicUploadFolder(): string | null
-    getPictureUploadFolder(): string | null
     /* Virtual methods of RygelCore.BaseConfiguration */
     vfuncGetUpnpEnabled(): boolean
     vfuncGetInterface(): string
@@ -1421,11 +1404,8 @@ export class BaseConfiguration {
     vfuncGetEnginePath(): string
     vfuncGetMediaEngine(): string
     vfuncGetVideoUploadFolder(): string
-    vfuncGetVideoUploadFolder(): string | null
     vfuncGetMusicUploadFolder(): string
-    vfuncGetMusicUploadFolder(): string | null
     vfuncGetPictureUploadFolder(): string
-    vfuncGetPictureUploadFolder(): string | null
     vfuncGetEnabled(section: string): boolean
     vfuncGetTitle(section: string): string
     vfuncGetString(section: string, key: string): string
@@ -1449,24 +1429,24 @@ export class BaseConfiguration {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of RygelCore.Configuration */
-    connect(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
-    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    on(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configuration-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
-    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    on(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "section-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
-    emit(sigName: "setting-changed", section: string, key: string): void
-    on(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "setting-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "configuration_changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration_changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration_changed", entry: ConfigurationEntry): void
+    on(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "configuration_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "section_changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section_changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section_changed", section: string, entry: SectionEntry): void
+    on(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "section_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    connect_after(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    emit(sigName: "setting_changed", section: string, key: string): void
+    on(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "setting_changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

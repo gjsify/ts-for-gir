@@ -2,10 +2,10 @@
  * TelepathyGLib-0.12
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum AccessControlType {
     WHITELIST,
@@ -3813,7 +3813,7 @@ export class Contact {
     readonly client_types: string[]
     readonly connection: Connection
     readonly contact_groups: string[]
-    readonly contact_info: any
+    readonly contact_info: ContactInfoList
     readonly handle: number
     readonly identifier: string
     readonly is_blocked: boolean
@@ -6930,4 +6930,4 @@ export class TextChannelPrivate {
 export class WeakRef {
     static name: string
 }
-type Handle = number
+export type Handle = number

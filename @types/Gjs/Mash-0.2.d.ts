@@ -2,24 +2,24 @@
  * Mash-0.2
  */
 
-import * as Gjs from './Gjs';
-import * as freetype2 from './freetype2-2.0';
-import * as fontconfig from './fontconfig-2.0';
-import * as cairo from './cairo-1.0';
-import * as PangoFT2 from './PangoFT2-1.0';
-import * as PangoFc from './PangoFc-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as PangoCairo from './PangoCairo-1.0';
-import * as Json from './Json-1.0';
-import * as Gio from './Gio-2.0';
-import * as GL from './GL-1.0';
-import * as CoglPango from './CoglPango-1.0';
-import * as Cogl from './Cogl-1.0';
-import * as Clutter from './Clutter-1.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as freetype2 from './freetype2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as fontconfig from './fontconfig-2.0';
+import type * as cairo from './cairo-1.0';
+import type * as PangoFT2 from './PangoFT2-1.0';
+import type * as PangoFc from './PangoFc-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as PangoCairo from './PangoCairo-1.0';
+import type * as Json from './Json-1.0';
+import type * as Gio from './Gio-2.0';
+import type * as GL from './GL-1.0';
+import type * as CoglPango from './CoglPango-1.0';
+import type * as Cogl from './Cogl-1.0';
+import type * as Clutter from './Clutter-1.0';
+import type * as Atk from './Atk-1.0';
 
 export enum DataError {
     UNKNOWN_FORMAT,

@@ -2,10 +2,10 @@
  * Cogl-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GL from './GL-1.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GL from './GL-1.0';
 
 export enum AttributeType {
     BYTE,
@@ -1602,10 +1602,10 @@ export class _TextureVertexSizeCheck {
     compile_time_assert_CoglTextureVertex_size: number[]
     static name: string
 }
-type Angle = number
-type Bool = number
-type Buffer = void
-type Handle = object
-type MetaTexture = void
-type PrimitiveTexture = void
-type UserDataDestroyCallback = GLib.DestroyNotify
+export type Angle = number
+export type Bool = number
+export type Buffer = void
+export type Handle = object
+export type MetaTexture = void
+export type PrimitiveTexture = void
+export type UserDataDestroyCallback = GLib.DestroyNotify

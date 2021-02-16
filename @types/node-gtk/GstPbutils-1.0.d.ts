@@ -3,13 +3,13 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GstAudio-1.0.d.ts" />
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { GstAudio } from './GstAudio-1.0';
 
 declare namespace GstPbutils {
 
@@ -1413,11 +1413,11 @@ export class InstallPluginsContext {
     /* Static methods and pseudo-constructors */
     static new(): InstallPluginsContext
 }
-type DiscovererAudioInfoClass = GObject.ObjectClass
-type DiscovererContainerInfoClass = GObject.ObjectClass
-type DiscovererInfoClass = GObject.ObjectClass
-type DiscovererStreamInfoClass = GObject.ObjectClass
-type DiscovererSubtitleInfoClass = GObject.ObjectClass
-type DiscovererVideoInfoClass = GObject.ObjectClass
-type EncodingTargetClass = GObject.ObjectClass
+export type DiscovererAudioInfoClass = GObject.ObjectClass
+export type DiscovererContainerInfoClass = GObject.ObjectClass
+export type DiscovererInfoClass = GObject.ObjectClass
+export type DiscovererStreamInfoClass = GObject.ObjectClass
+export type DiscovererSubtitleInfoClass = GObject.ObjectClass
+export type DiscovererVideoInfoClass = GObject.ObjectClass
+export type EncodingTargetClass = GObject.ObjectClass
 }

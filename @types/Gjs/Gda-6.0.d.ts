@@ -2,11 +2,11 @@
  * Gda-6.0
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Gio from './Gio-2.0';
 
 export enum BatchError {
     BATCH_CONFLICTING_PARAMETER_ERROR,
@@ -897,7 +897,7 @@ export class Provider {
     render_operation(cnc: Connection, op: ServerOperation): string
     rollback_savepoint(cnc: Connection, name: string): boolean
     rollback_transaction(cnc: Connection, name: string): boolean
-    statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: any, last_inserted_row: Set): GObject.Object
+    statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set): GObject.Object
     statement_prepare(cnc: Connection, stmt: Statement): boolean
     statement_rewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     statement_to_sql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
@@ -927,7 +927,7 @@ export class Provider {
     vfunc_render_operation(cnc: Connection, op: ServerOperation): string
     vfunc_rollback_savepoint(cnc: Connection, name: string): boolean
     vfunc_rollback_transaction(cnc: Connection, name: string): boolean
-    vfunc_statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: any, last_inserted_row: Set): GObject.Object
+    vfunc_statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set): GObject.Object
     vfunc_statement_prepare(cnc: Connection, stmt: Statement): boolean
     vfunc_statement_rewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     vfunc_statement_to_sql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
@@ -6669,7 +6669,7 @@ export abstract class ProviderInterface {
     rollback_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     delete_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     statement_prepare: (provider: Provider, cnc: Connection, stmt: Statement) => boolean
-    statement_execute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: any, last_inserted_row: Set) => GObject.Object
+    statement_execute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set) => GObject.Object
     get_last_inserted: (provider: Provider, cnc: Connection) => Set
     padding: object[]
     static name: string
@@ -7499,4 +7499,4 @@ export class XaTransactionId {
     to_string(): string
     static name: string
 }
-type SqlBuilderId = number
+export type SqlBuilderId = number

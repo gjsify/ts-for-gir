@@ -3,23 +3,23 @@
  */
 
 /// <reference types="node" />
-/// <reference path="freetype2-2.0.d.ts" />
-/// <reference path="fontconfig-2.0.d.ts" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="PangoFT2-1.0.d.ts" />
-/// <reference path="PangoFc-1.0.d.ts" />
-/// <reference path="Pango-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="PangoCairo-1.0.d.ts" />
-/// <reference path="Json-1.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GL-1.0.d.ts" />
-/// <reference path="CoglPango-1.0.d.ts" />
-/// <reference path="Cogl-1.0.d.ts" />
-/// <reference path="Clutter-1.0.d.ts" />
-/// <reference path="Atk-1.0.d.ts" />
+import type { freetype2 } from './freetype2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { fontconfig } from './fontconfig-2.0';
+import type { cairo } from './cairo-1.0';
+import type { PangoFT2 } from './PangoFT2-1.0';
+import type { PangoFc } from './PangoFc-1.0';
+import type { Pango } from './Pango-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { PangoCairo } from './PangoCairo-1.0';
+import type { Json } from './Json-1.0';
+import type { Gio } from './Gio-2.0';
+import type { GL } from './GL-1.0';
+import type { CoglPango } from './CoglPango-1.0';
+import type { Cogl } from './Cogl-1.0';
+import type { Clutter } from './Clutter-1.0';
+import type { Atk } from './Atk-1.0';
 
 declare namespace Mx {
 
@@ -2921,8 +2921,8 @@ export class Bin {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -2930,7 +2930,8 @@ export class Bin {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -3226,11 +3227,10 @@ export class Bin {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -3244,7 +3244,9 @@ export class Bin {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -4126,8 +4128,8 @@ export class BoxLayout {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -4135,7 +4137,8 @@ export class BoxLayout {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -4434,11 +4437,10 @@ export class BoxLayout {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -4454,7 +4456,9 @@ export class BoxLayout {
     vfuncGetAdjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfuncSetAdjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -5465,8 +5469,8 @@ export class Button {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -5474,7 +5478,8 @@ export class Button {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -5770,11 +5775,10 @@ export class Button {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -5790,7 +5794,9 @@ export class Button {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -6855,8 +6861,8 @@ export class ComboBox {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -6864,7 +6870,8 @@ export class ComboBox {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -7160,11 +7167,10 @@ export class ComboBox {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -7178,7 +7184,9 @@ export class ComboBox {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -8052,8 +8060,8 @@ export class DeformBowTie {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -8061,7 +8069,8 @@ export class DeformBowTie {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -8354,11 +8363,10 @@ export class DeformBowTie {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -8371,7 +8379,9 @@ export class DeformBowTie {
     /* Virtual methods of Mx.DeformTexture */
     vfuncDeform(vertex: Cogl.TextureVertex, width: number, height: number): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -9264,8 +9274,8 @@ export class DeformPageTurn {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -9273,7 +9283,8 @@ export class DeformPageTurn {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -9566,11 +9577,10 @@ export class DeformPageTurn {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -9583,7 +9593,9 @@ export class DeformPageTurn {
     /* Virtual methods of Mx.DeformTexture */
     vfuncDeform(vertex: Cogl.TextureVertex, width: number, height: number): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -10471,8 +10483,8 @@ export class DeformTexture {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -10480,7 +10492,8 @@ export class DeformTexture {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -10773,11 +10786,10 @@ export class DeformTexture {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -10790,7 +10802,9 @@ export class DeformTexture {
     /* Virtual methods of Mx.DeformTexture */
     vfuncDeform(vertex: Cogl.TextureVertex, width: number, height: number): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -11675,8 +11689,8 @@ export class DeformWaves {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -11684,7 +11698,8 @@ export class DeformWaves {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -11977,11 +11992,10 @@ export class DeformWaves {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -11994,7 +12008,9 @@ export class DeformWaves {
     /* Virtual methods of Mx.DeformTexture */
     vfuncDeform(vertex: Cogl.TextureVertex, width: number, height: number): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -12886,8 +12902,8 @@ export class Dialog {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -12895,7 +12911,8 @@ export class Dialog {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -13191,11 +13208,10 @@ export class Dialog {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -13209,7 +13225,9 @@ export class Dialog {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -14087,8 +14105,8 @@ export class Entry {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -14096,7 +14114,8 @@ export class Entry {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -14392,11 +14411,10 @@ export class Entry {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -14412,7 +14430,9 @@ export class Entry {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -15317,8 +15337,8 @@ export class Expander {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -15326,7 +15346,8 @@ export class Expander {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -15622,11 +15643,10 @@ export class Expander {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -15642,7 +15662,9 @@ export class Expander {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -16694,8 +16716,8 @@ export class FloatingWidget {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -16703,7 +16725,8 @@ export class FloatingWidget {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -16996,11 +17019,10 @@ export class FloatingWidget {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -17011,7 +17033,9 @@ export class FloatingWidget {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -17937,8 +17961,8 @@ export class Frame {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -17946,7 +17970,8 @@ export class Frame {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -18242,11 +18267,10 @@ export class Frame {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -18260,7 +18284,9 @@ export class Frame {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -19153,8 +19179,8 @@ export class Grid {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -19162,7 +19188,8 @@ export class Grid {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -19461,11 +19488,10 @@ export class Grid {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -19481,7 +19507,9 @@ export class Grid {
     vfuncGetAdjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfuncSetAdjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -20381,8 +20409,8 @@ export class Icon {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -20390,7 +20418,8 @@ export class Icon {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -20683,11 +20712,10 @@ export class Icon {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -20698,7 +20726,9 @@ export class Icon {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -21657,8 +21687,8 @@ export class Image {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -21666,7 +21696,8 @@ export class Image {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -21959,11 +21990,10 @@ export class Image {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -21977,7 +22007,9 @@ export class Image {
     vfuncImageLoadError(error: GLib.Error): void
     vfuncImageLoaded(): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -22895,7 +22927,7 @@ export class ItemView {
     getColumnSpacing(): number
     getHomogenousColumns(): boolean
     getHomogenousRows(): boolean
-    getLineAlignment(): Align
+    getLineAlignment(): boolean
     getMaxStride(): number
     getOrientation(): Orientation
     getRowSpacing(): number
@@ -22911,8 +22943,8 @@ export class ItemView {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -22920,7 +22952,8 @@ export class ItemView {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -23219,11 +23252,10 @@ export class ItemView {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -23239,7 +23271,9 @@ export class ItemView {
     vfuncGetAdjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfuncSetAdjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -24201,8 +24235,8 @@ export class KineticScrollView {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -24210,7 +24244,8 @@ export class KineticScrollView {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -24509,11 +24544,10 @@ export class KineticScrollView {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -24530,7 +24564,9 @@ export class KineticScrollView {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -25470,8 +25506,8 @@ export class Label {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -25479,7 +25515,8 @@ export class Label {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -25771,11 +25808,10 @@ export class Label {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -25786,7 +25822,9 @@ export class Label {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -26677,6 +26715,7 @@ export class ListView {
     setModel(model: Clutter.Model): void
     thaw(): void
     /* Methods of Mx.BoxLayout */
+    addActor(actor: Clutter.Actor, position: number): void
     childGetExpand(child: Clutter.Actor): boolean
     childGetXAlign(child: Clutter.Actor): Align
     childGetXFill(child: Clutter.Actor): boolean
@@ -26691,7 +26730,6 @@ export class ListView {
     getOrientation(): Orientation
     getScrollToFocused(): boolean
     getSpacing(): number
-    insertActor(actor: Clutter.Actor, position: number): void
     setEnableAnimations(enableAnimations: boolean): void
     setOrientation(orientation: Orientation): void
     setScrollToFocused(scrollToFocused: boolean): void
@@ -26699,8 +26737,8 @@ export class ListView {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -26708,7 +26746,8 @@ export class ListView {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -27007,11 +27046,10 @@ export class ListView {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -27027,7 +27065,9 @@ export class ListView {
     vfuncGetAdjustments(): [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     vfuncSetAdjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -27915,8 +27955,8 @@ export class Menu {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -27924,7 +27964,8 @@ export class Menu {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -28220,11 +28261,10 @@ export class Menu {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -28239,7 +28279,9 @@ export class Menu {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -29094,8 +29136,8 @@ export class Notebook {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -29103,7 +29145,8 @@ export class Notebook {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -29399,11 +29442,10 @@ export class Notebook {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -29417,7 +29459,9 @@ export class Notebook {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -31523,8 +31567,8 @@ export class PathBar {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -31532,7 +31576,8 @@ export class PathBar {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -31828,11 +31873,10 @@ export class PathBar {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -31846,7 +31890,9 @@ export class PathBar {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -32707,8 +32753,8 @@ export class ProgressBar {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -32716,7 +32762,8 @@ export class ProgressBar {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -33009,11 +33056,10 @@ export class ProgressBar {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -33024,7 +33070,9 @@ export class ProgressBar {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -33886,8 +33934,8 @@ export class ScrollBar {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -33895,7 +33943,8 @@ export class ScrollBar {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -34191,11 +34240,10 @@ export class ScrollBar {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -34212,7 +34260,9 @@ export class ScrollBar {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -35113,8 +35163,8 @@ export class ScrollView {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -35122,7 +35172,8 @@ export class ScrollView {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -35418,11 +35469,10 @@ export class ScrollView {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -35436,7 +35486,9 @@ export class ScrollView {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -36406,8 +36458,8 @@ export class Slider {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -36415,7 +36467,8 @@ export class Slider {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -36711,11 +36764,10 @@ export class Slider {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -36729,7 +36781,9 @@ export class Slider {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -37580,8 +37634,8 @@ export class Spinner {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -37589,7 +37643,8 @@ export class Spinner {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -37882,11 +37937,10 @@ export class Spinner {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -37899,7 +37953,9 @@ export class Spinner {
     /* Virtual methods of Mx.Spinner */
     vfuncLooped(): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -38759,8 +38815,8 @@ export class Stack {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -38768,7 +38824,8 @@ export class Stack {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -39064,11 +39121,10 @@ export class Stack {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -39082,7 +39138,9 @@ export class Stack {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -40124,8 +40182,8 @@ export class Table {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -40133,7 +40191,8 @@ export class Table {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -40429,11 +40488,10 @@ export class Table {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -40447,7 +40505,9 @@ export class Table {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -42605,8 +42665,8 @@ export class Toggle {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -42614,7 +42674,8 @@ export class Toggle {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -42907,11 +42968,10 @@ export class Toggle {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -42922,7 +42982,9 @@ export class Toggle {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -43783,8 +43845,8 @@ export class Toolbar {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -43792,7 +43854,8 @@ export class Toolbar {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -44088,11 +44151,10 @@ export class Toolbar {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -44108,7 +44170,9 @@ export class Toolbar {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -44986,8 +45050,8 @@ export class Tooltip {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -44995,7 +45059,8 @@ export class Tooltip {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -45286,11 +45351,10 @@ export class Tooltip {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -45301,7 +45365,9 @@ export class Tooltip {
     stylePseudoClassContains(pseudoClass: string): boolean
     stylePseudoClassRemove(removeClass: string): void
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -46177,8 +46243,8 @@ export class Viewport {
     /* Methods of Mx.Widget */
     applyStyle(style: Style): void
     getAvailableArea(allocation: Clutter.ActorBox, area: Clutter.ActorBox): void
-    getBackgroundColor(): Clutter.Color
-    getBackgroundTexture(): Cogl.Handle
+    getBackgroundImage(): Clutter.Actor
+    getBorderImage(): Clutter.Actor
     getDisabled(): boolean
     getMenu(): Menu
     getPadding(): /* padding */ Padding
@@ -46186,7 +46252,8 @@ export class Viewport {
     getTooltipText(): string
     hideTooltip(): void
     longPressCancel(): void
-    longPressQuery(event: Clutter.Event): void
+    longPressQuery(event: Clutter.ButtonEvent): void
+    paintBackground(): void
     setDisabled(disabled: boolean): void
     setMenu(menu: Menu): void
     setTooltipDelay(delay: number): void
@@ -46485,11 +46552,10 @@ export class Viewport {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void
@@ -46506,7 +46572,9 @@ export class Viewport {
     vfuncAcceptFocus(hint: FocusHint): Focusable
     vfuncMoveFocus(direction: FocusDirection, from: Focusable): Focusable
     /* Virtual methods of Mx.Widget */
+    vfuncApplyStyle(style: Style): void
     vfuncLongPress(action: LongPressAction, x: number, y: number): boolean
+    vfuncPaintBackground(background: Clutter.Actor, color: Clutter.Color): void
     vfuncAnimateProperty(animation: Clutter.Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     vfuncFindProperty(propertyName: string): GObject.ParamSpec
     vfuncGetInitialState(propertyName: string, value: any): void
@@ -47693,11 +47761,10 @@ export class Widget {
     /* Methods of Mx.Stylable */
     applyClutterTextAttributes(text: Clutter.Text): void
     connectChangeNotifiers(): void
-    disconnectChangeNotifiers(): void
     getDefaultValue(propertyName: string): [ /* returnType */ boolean, /* valueOut */ any ]
+    getProperty(propertyName: string): /* value */ any
     getStyle(): Style
     getStyleClass(): string
-    getStyleProperty(propertyName: string): /* value */ any
     getStylePseudoClass(): string
     listProperties(): GObject.ParamSpec[]
     setStyle(style: Style): void

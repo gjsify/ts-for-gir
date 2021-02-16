@@ -2,13 +2,13 @@
  * PangoFc-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as fontconfig from './fontconfig-2.0';
-import * as Pango from './Pango-1.0';
-import * as cairo from './cairo-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as fontconfig from './fontconfig-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as cairo from './cairo-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
 
 export const FONT_FEATURES: string
 export const FONT_VARIATIONS: string

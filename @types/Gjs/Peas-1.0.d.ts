@@ -2,12 +2,12 @@
  * Peas-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
-import * as GIRepository from './GIRepository-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as GIRepository from './GIRepository-2.0';
 
 export enum PluginInfoError {
     LOADING_FAILED,
@@ -400,4 +400,4 @@ export class PluginInfo {
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
-type Extension = GObject.Object
+export type Extension = GObject.Object

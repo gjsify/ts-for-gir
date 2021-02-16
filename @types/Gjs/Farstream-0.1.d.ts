@@ -2,12 +2,12 @@
  * Farstream-0.1
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 // WARN: Dependency not found: 'Gst-0.10'
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum CandidateType {
     HOST,
@@ -97,297 +97,16 @@ export function utils_get_default_codec_preferences(element: Gst.Element): Codec
 export function utils_get_default_element_properties(element: Gst.Element): GLib.KeyFile
 export function utils_get_default_rtp_header_extension_preferences(element: Gst.Element, media_type: MediaType): Codec[]
 export function utils_set_bitrate(element: Gst.Element, bitrate: number): void
-export interface Conference_ConstructProps extends Gst.Bin_ConstructProps {
-}
 export class Conference {
-    /* Properties of Gst.Bin */
-    async_handling: boolean
-    message_forward: boolean
-    /* Properties of Gst.Object */
-    name: string
-    parent: Gst.Object
-    /* Fields of Gst.Bin */
-    element: Gst.Element
-    numchildren: number
-    children: Gst.Element[]
-    children_cookie: number
-    child_bus: Gst.Bus
-    messages: Gst.Message[]
-    polling: boolean
-    state_dirty: boolean
-    clock_dirty: boolean
-    provided_clock: Gst.Clock
-    clock_provider: Gst.Element
-    /* Fields of Gst.Element */
-    object: Gst.Object
-    state_lock: GLib.RecMutex
-    state_cond: GLib.Cond
-    state_cookie: number
-    target_state: Gst.State
-    current_state: Gst.State
-    next_state: Gst.State
-    pending_state: Gst.State
-    last_return: Gst.StateChangeReturn
-    bus: Gst.Bus
-    clock: Gst.Clock
-    base_time: Gst.ClockTimeDiff
-    start_time: Gst.ClockTime
-    numpads: number
-    pads: Gst.Pad[]
-    numsrcpads: number
-    srcpads: Gst.Pad[]
-    numsinkpads: number
-    sinkpads: Gst.Pad[]
-    pads_cookie: number
-    contexts: Gst.Context[]
-    /* Fields of Gst.Object */
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
+    /* Fields of Farstream.Conference */
+    parent: Gst.Bin
     /* Methods of Farstream.Conference */
     new_participant(): Participant
     new_session(media_type: MediaType): Session
-    /* Methods of Gst.Bin */
-    add(element: Gst.Element): boolean
-    find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
-    get_by_interface(iface: GObject.Type): Gst.Element | null
-    get_by_name(name: string): Gst.Element | null
-    get_by_name_recurse_up(name: string): Gst.Element | null
-    get_suppressed_flags(): Gst.ElementFlags
-    iterate_all_by_element_factory_name(factory_name: string): Gst.Iterator | null
-    iterate_all_by_interface(iface: GObject.Type): Gst.Iterator | null
-    iterate_elements(): Gst.Iterator | null
-    iterate_recurse(): Gst.Iterator | null
-    iterate_sinks(): Gst.Iterator | null
-    iterate_sorted(): Gst.Iterator | null
-    iterate_sources(): Gst.Iterator | null
-    recalculate_latency(): boolean
-    remove(element: Gst.Element): boolean
-    set_suppressed_flags(flags: Gst.ElementFlags): void
-    sync_children_states(): boolean
-    /* Methods of Gst.Element */
-    abort_state(): void
-    add_pad(pad: Gst.Pad): boolean
-    add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
-    add_property_notify_watch(property_name: string | null, include_value: boolean): number
-    call_async(func: Gst.ElementCallAsyncFunc): void
-    change_state(transition: Gst.StateChange): Gst.StateChangeReturn
-    continue_state(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
-    create_all_pads(): void
-    foreach_pad(func: Gst.ElementForeachPadFunc): boolean
-    foreach_sink_pad(func: Gst.ElementForeachPadFunc): boolean
-    foreach_src_pad(func: Gst.ElementForeachPadFunc): boolean
-    get_base_time(): Gst.ClockTime
-    get_bus(): Gst.Bus | null
-    get_clock(): Gst.Clock | null
-    get_compatible_pad(pad: Gst.Pad, caps?: Gst.Caps | null): Gst.Pad | null
-    get_compatible_pad_template(compattempl: Gst.PadTemplate): Gst.PadTemplate | null
-    get_context(context_type: string): Gst.Context | null
-    get_context_unlocked(context_type: string): Gst.Context | null
-    get_contexts(): Gst.Context[]
-    get_current_clock_time(): Gst.ClockTime
-    get_current_running_time(): Gst.ClockTime
-    get_factory(): Gst.ElementFactory | null
-    get_metadata(key: string): string
-    get_pad_template(name: string): Gst.PadTemplate | null
-    get_pad_template_list(): Gst.PadTemplate[]
-    get_request_pad(name: string): Gst.Pad | null
-    get_start_time(): Gst.ClockTime
-    get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    get_static_pad(name: string): Gst.Pad | null
-    is_locked_state(): boolean
-    iterate_pads(): Gst.Iterator
-    iterate_sink_pads(): Gst.Iterator
-    iterate_src_pads(): Gst.Iterator
-    link(dest: Gst.Element): boolean
-    link_filtered(dest: Gst.Element, filter?: Gst.Caps | null): boolean
-    link_pads(srcpadname: string | null, dest: Gst.Element, destpadname?: string | null): boolean
-    link_pads_filtered(srcpadname: string | null, dest: Gst.Element, destpadname?: string | null, filter?: Gst.Caps | null): boolean
-    link_pads_full(srcpadname: string | null, dest: Gst.Element, destpadname: string | null, flags: Gst.PadLinkCheck): boolean
-    lost_state(): void
-    message_full(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string | null, debug: string | null, file: string, function_: string, line: number): void
-    message_full_with_details(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string | null, debug: string | null, file: string, function_: string, line: number, structure: Gst.Structure): void
-    no_more_pads(): void
-    post_message(message: Gst.Message): boolean
-    provide_clock(): Gst.Clock | null
-    query(query: Gst.Query): boolean
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number | null ]
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number | null ]
-    release_request_pad(pad: Gst.Pad): void
-    remove_pad(pad: Gst.Pad): boolean
-    remove_property_notify_watch(watch_id: number): void
-    request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
-    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    send_event(event: Gst.Event): boolean
-    set_base_time(time: Gst.ClockTime): void
-    set_bus(bus?: Gst.Bus | null): void
-    set_clock(clock?: Gst.Clock | null): boolean
-    set_context(context: Gst.Context): void
-    set_locked_state(locked_state: boolean): boolean
-    set_start_time(time: Gst.ClockTime): void
-    set_state(state: Gst.State): Gst.StateChangeReturn
-    sync_state_with_parent(): boolean
-    unlink(dest: Gst.Element): void
-    unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Methods of Gst.ChildProxy */
-    child_added(child: GObject.Object, name: string): void
-    child_removed(child: GObject.Object, name: string): void
-    get_child_by_index(index: number): GObject.Object | null
-    get_child_by_name(name: string): GObject.Object | null
-    get_children_count(): number
-    get_property(name: string): /* value */ any
-    lookup(name: string): [ /* returnType */ boolean, /* target */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
-    set_property(name: string, value: any): void
     /* Virtual methods of Farstream.Conference */
     vfunc_new_participant(): Participant
     vfunc_new_session(media_type: MediaType): Session
-    vfunc_child_added(child: GObject.Object, name: string): void
-    vfunc_child_removed(child: GObject.Object, name: string): void
-    vfunc_get_child_by_index(index: number): GObject.Object | null
-    vfunc_get_child_by_name(name: string): GObject.Object | null
-    vfunc_get_children_count(): number
-    /* Virtual methods of Gst.Bin */
-    vfunc_add_element(element: Gst.Element): boolean
-    vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
-    vfunc_deep_element_removed(sub_bin: Gst.Bin, child: Gst.Element): void
-    vfunc_do_latency(): boolean
-    vfunc_element_added(child: Gst.Element): void
-    vfunc_element_removed(child: Gst.Element): void
-    vfunc_handle_message(message: Gst.Message): void
-    vfunc_remove_element(element: Gst.Element): boolean
-    /* Virtual methods of Gst.Element */
-    vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
-    vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
-    vfunc_no_more_pads(): void
-    vfunc_pad_added(pad: Gst.Pad): void
-    vfunc_pad_removed(pad: Gst.Pad): void
-    vfunc_post_message(message: Gst.Message): boolean
-    vfunc_provide_clock(): Gst.Clock | null
-    vfunc_query(query: Gst.Query): boolean
-    vfunc_release_pad(pad: Gst.Pad): void
-    vfunc_request_new_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
-    vfunc_send_event(event: Gst.Event): boolean
-    vfunc_set_bus(bus?: Gst.Bus | null): void
-    vfunc_set_clock(clock?: Gst.Clock | null): boolean
-    vfunc_set_context(context: Gst.Context): void
-    vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
-    vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Bin */
-    connect(sigName: "deep-element-added", callback: (($obj: Conference, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-added", callback: (($obj: Conference, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
-    emit(sigName: "deep-element-added", sub_bin: Gst.Bin, element: Gst.Element): void
-    connect(sigName: "deep-element-removed", callback: (($obj: Conference, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "deep-element-removed", callback: (($obj: Conference, sub_bin: Gst.Bin, element: Gst.Element) => void)): number
-    emit(sigName: "deep-element-removed", sub_bin: Gst.Bin, element: Gst.Element): void
-    connect(sigName: "do-latency", callback: (($obj: Conference) => boolean)): number
-    connect_after(sigName: "do-latency", callback: (($obj: Conference) => boolean)): number
-    emit(sigName: "do-latency"): void
-    connect(sigName: "element-added", callback: (($obj: Conference, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: Conference, element: Gst.Element) => void)): number
-    emit(sigName: "element-added", element: Gst.Element): void
-    connect(sigName: "element-removed", callback: (($obj: Conference, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-removed", callback: (($obj: Conference, element: Gst.Element) => void)): number
-    emit(sigName: "element-removed", element: Gst.Element): void
-    /* Signals of Gst.Element */
-    connect(sigName: "no-more-pads", callback: (($obj: Conference) => void)): number
-    connect_after(sigName: "no-more-pads", callback: (($obj: Conference) => void)): number
-    emit(sigName: "no-more-pads"): void
-    connect(sigName: "pad-added", callback: (($obj: Conference, new_pad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-added", callback: (($obj: Conference, new_pad: Gst.Pad) => void)): number
-    emit(sigName: "pad-added", new_pad: Gst.Pad): void
-    connect(sigName: "pad-removed", callback: (($obj: Conference, old_pad: Gst.Pad) => void)): number
-    connect_after(sigName: "pad-removed", callback: (($obj: Conference, old_pad: Gst.Pad) => void)): number
-    emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: Conference, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Conference, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gst.ChildProxy */
-    connect(sigName: "child-added", callback: (($obj: Conference, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: Conference, object: GObject.Object, name: string) => void)): number
-    emit(sigName: "child-added", object: GObject.Object, name: string): void
-    connect(sigName: "child-removed", callback: (($obj: Conference, object: GObject.Object, name: string) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: Conference, object: GObject.Object, name: string) => void)): number
-    emit(sigName: "child-removed", object: GObject.Object, name: string): void
-    connect(sigName: "notify::async-handling", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::async-handling", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::message-forward", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::message-forward", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: Conference, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: Conference_ConstructProps)
-    _init (config?: Conference_ConstructProps): void
-    static $gtype: GObject.Type
 }
 export interface ElementAddedNotifier_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -451,94 +170,10 @@ export class ElementAddedNotifier {
     static new(): ElementAddedNotifier
     static $gtype: GObject.Type
 }
-export interface Participant_ConstructProps extends Gst.Object_ConstructProps {
-}
 export class Participant {
-    /* Properties of Gst.Object */
-    name: string
+    /* Fields of Farstream.Participant */
     parent: Gst.Object
-    /* Fields of Gst.Object */
-    object: GObject.InitiallyUnowned
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: Participant, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Participant, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::name", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: Participant_ConstructProps)
-    _init (config?: Participant_ConstructProps): void
-    static $gtype: GObject.Type
 }
 export interface Plugin_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
@@ -613,12 +248,6 @@ export class Plugin {
     static list_available(type_suffix: string): string[]
     static $gtype: GObject.Type
 }
-export interface Session_ConstructProps extends Gst.Object_ConstructProps {
-    conference?: Conference
-    id?: number
-    media_type?: MediaType
-    tos?: number
-}
 export class Session {
     /* Properties of Farstream.Session */
     readonly codec_preferences: Codec[]
@@ -627,15 +256,8 @@ export class Session {
     readonly current_send_codec: Codec
     readonly sink_pad: Gst.Pad
     tos: number
-    /* Properties of Gst.Object */
-    name: string
+    /* Fields of Farstream.Session */
     parent: Gst.Object
-    /* Fields of Gst.Object */
-    object: GObject.InitiallyUnowned
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Session */
     codecs_need_resend(old_codecs: Codec[], new_codecs: Codec[]): Codec[]
     destroy(): void
@@ -651,52 +273,6 @@ export class Session {
     set_send_codec(send_codec: Codec): boolean
     start_telephony_event(event: number, volume: number): boolean
     stop_telephony_event(): boolean
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Session */
     vfunc_codecs_need_resend(old_codecs: Codec[], new_codecs: Codec[]): Codec[]
     vfunc_get_stream_transmitter_type(transmitter: string): GObject.Type
@@ -706,57 +282,11 @@ export class Session {
     vfunc_set_send_codec(send_codec: Codec): boolean
     vfunc_start_telephony_event(event: number, volume: number): boolean
     vfunc_stop_telephony_event(): boolean
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Session */
     connect(sigName: "error", callback: (($obj: Session, object: GObject.Object, error_no: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Session, object: GObject.Object, error_no: Error, error_msg: string) => void)): number
     emit(sigName: "error", object: GObject.Object, error_no: Error, error_msg: string): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: Session, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Session, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::codec-preferences", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::codec-preferences", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::codecs", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::codecs", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::codecs-without-config", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::codecs-without-config", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::current-send-codec", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::current-send-codec", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::sink-pad", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sink-pad", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tos", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tos", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: Session_ConstructProps)
-    _init (config?: Session_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface Stream_ConstructProps extends Gst.Object_ConstructProps {
-    direction?: StreamDirection
-    participant?: Participant
-    session?: Session
 }
 export class Stream {
     /* Properties of Farstream.Stream */
@@ -764,15 +294,8 @@ export class Stream {
     direction: StreamDirection
     readonly negotiated_codecs: Codec[]
     readonly remote_codecs: Codec[]
-    /* Properties of Gst.Object */
-    name: string
+    /* Fields of Farstream.Stream */
     parent: Gst.Object
-    /* Fields of Gst.Object */
-    object: GObject.InitiallyUnowned
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Stream */
     add_id(id: number): void
     add_remote_candidates(candidates: Candidate[]): boolean
@@ -787,68 +310,12 @@ export class Stream {
     parse_recv_codecs_changed(message: Gst.Message): [ /* returnType */ boolean, /* codecs */ Codec[] ]
     set_remote_codecs(remote_codecs: Codec[]): boolean
     set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Stream */
     vfunc_add_id(id: number): void
     vfunc_add_remote_candidates(candidates: Candidate[]): boolean
     vfunc_force_remote_candidates(remote_candidates: Candidate[]): boolean
     vfunc_set_remote_codecs(remote_codecs: Codec[]): boolean
     vfunc_set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Stream */
     connect(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
@@ -856,119 +323,24 @@ export class Stream {
     connect(sigName: "src-pad-added", callback: (($obj: Stream, pad: Gst.Pad, codec: Codec) => void)): number
     connect_after(sigName: "src-pad-added", callback: (($obj: Stream, pad: Gst.Pad, codec: Codec) => void)): number
     emit(sigName: "src-pad-added", pad: Gst.Pad, codec: Codec): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: Stream, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Stream, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::current-recv-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::current-recv-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::direction", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::negotiated-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::negotiated-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::remote-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::remote-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: Stream_ConstructProps)
-    _init (config?: Stream_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface StreamTransmitter_ConstructProps extends Gst.Object_ConstructProps {
-    associate_on_source?: boolean
-    preferred_local_candidates?: any
-    sending?: boolean
 }
 export class StreamTransmitter {
     /* Properties of Farstream.StreamTransmitter */
     sending: boolean
-    /* Properties of Gst.Object */
-    name: string
+    /* Fields of Farstream.StreamTransmitter */
     parent: Gst.Object
-    /* Fields of Gst.Object */
-    object: GObject.InitiallyUnowned
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.StreamTransmitter */
     add_remote_candidates(candidates: Candidate[]): boolean
     emit_error(error_no: number, error_msg: string): void
     force_remote_candidates(remote_candidates: Candidate[]): boolean
     gather_local_candidates(): boolean
     stop(): void
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.StreamTransmitter */
     vfunc_add_remote_candidates(candidates: Candidate[]): boolean
     vfunc_force_remote_candidates(remote_candidates: Candidate[]): boolean
     vfunc_gather_local_candidates(): boolean
     vfunc_stop(): void
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.StreamTransmitter */
     connect(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, error_msg: string) => void)): number
@@ -988,111 +360,23 @@ export class StreamTransmitter {
     connect(sigName: "state-changed", callback: (($obj: StreamTransmitter, component: number, state: StreamState) => void)): number
     connect_after(sigName: "state-changed", callback: (($obj: StreamTransmitter, component: number, state: StreamState) => void)): number
     emit(sigName: "state-changed", component: number, state: StreamState): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: StreamTransmitter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: StreamTransmitter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::sending", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sending", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: StreamTransmitter_ConstructProps)
-    _init (config?: StreamTransmitter_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface Transmitter_ConstructProps extends Gst.Object_ConstructProps {
-    components?: number
-    tos?: number
 }
 export class Transmitter {
     /* Properties of Farstream.Transmitter */
     readonly gst_sink: Gst.Element
     readonly gst_src: Gst.Element
     tos: number
-    /* Properties of Gst.Object */
-    name: string
+    /* Fields of Farstream.Transmitter */
     parent: Gst.Object
-    /* Fields of Gst.Object */
-    object: GObject.InitiallyUnowned
-    lock: GLib.Mutex
-    flags: number
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Transmitter */
     emit_error(error_no: number, error_msg: string): void
     get_recvonly_filter(component: number): Gst.Element
     get_stream_transmitter_type(): GObject.Type
     new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
-    /* Methods of Gst.Object */
-    add_control_binding(binding: Gst.ControlBinding): boolean
-    default_error(error: GLib.Error, debug?: string | null): void
-    get_control_binding(property_name: string): Gst.ControlBinding | null
-    get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    get_name(): string | null
-    get_parent(): Gst.Object | null
-    get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
-    has_active_control_bindings(): boolean
-    has_ancestor(ancestor: Gst.Object): boolean
-    has_as_ancestor(ancestor: Gst.Object): boolean
-    has_as_parent(parent: Gst.Object): boolean
-    ref(): Gst.Object
-    remove_control_binding(binding: Gst.ControlBinding): boolean
-    set_control_binding_disabled(property_name: string, disabled: boolean): void
-    set_control_bindings_disabled(disabled: boolean): void
-    set_control_rate(control_rate: Gst.ClockTime): void
-    set_name(name?: string | null): boolean
-    set_parent(parent: Gst.Object): boolean
-    suggest_next_sync(): Gst.ClockTime
-    sync_values(timestamp: Gst.ClockTime): boolean
-    unparent(): void
-    unref(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Transmitter */
     vfunc_get_stream_transmitter_type(): GObject.Type
     vfunc_new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
-    /* Virtual methods of Gst.Object */
-    vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Transmitter */
     connect(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
@@ -1100,35 +384,12 @@ export class Transmitter {
     connect(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => Gst.Element)): number
     connect_after(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => Gst.Element)): number
     emit(sigName: "get-recvonly-filter", component: number): void
-    /* Signals of Gst.Object */
-    connect(sigName: "deep-notify", callback: (($obj: Transmitter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "deep-notify", callback: (($obj: Transmitter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
-    emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::gst-sink", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::gst-sink", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::gst-src", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::gst-src", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::tos", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tos", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::parent", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::parent", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
     static name: string
-    constructor (config?: Transmitter_ConstructProps)
-    _init (config?: Transmitter_ConstructProps): void
+    static new(type: string, components: number, tos: number): Transmitter
+    constructor(type: string, components: number, tos: number)
     /* Static methods and pseudo-constructors */
     static new(type: string, components: number, tos: number): Transmitter
     static list_available(): string[]
-    static $gtype: GObject.Type
 }
 export class Candidate {
     /* Fields of Farstream.Candidate */

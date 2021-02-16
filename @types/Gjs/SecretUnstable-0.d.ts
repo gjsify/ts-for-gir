@@ -2,11 +2,11 @@
  * SecretUnstable-0
  */
 
-import * as Gjs from './Gjs';
-import * as Secret from './Secret-1';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Secret from './Secret-1';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export enum CollectionCreateFlags {
     COLLECTION_CREATE_NONE,

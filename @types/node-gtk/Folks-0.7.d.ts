@@ -3,10 +3,10 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { Gee } from './Gee-0.8';
 
 declare namespace Folks {
 
@@ -218,7 +218,7 @@ export class AntiLinkable {
     getAntiLinks(): Gee.Set
     setAntiLinks(value: Gee.Set): void
     /* Methods of Folks.Persona */
-    linkablePropertyToLinks(propName: string, callback: any): void
+    linkablePropertyToLinks(propName: string, callback: PersonaLinkablePropertyCallback): void
     getIid(): string
     getUid(): string
     getDisplayId(): string
@@ -255,7 +255,7 @@ export class AntiLinkable {
     vfuncGetAntiLinks(): Gee.Set
     vfuncSetAntiLinks(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
+    vfuncLinkablePropertyToLinks(propName: string, callback: PersonaLinkablePropertyCallback): void
     vfuncGetLinkableProperties(): string[]
     vfuncGetWriteableProperties(): string[]
     /* Virtual methods of GObject.Object */
@@ -3848,7 +3848,7 @@ export class Persona {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Folks.Persona */
-    linkablePropertyToLinks(propName: string, callback: any): void
+    linkablePropertyToLinks(propName: string, callback: PersonaLinkablePropertyCallback): void
     getIid(): string
     getUid(): string
     getDisplayId(): string
@@ -3880,7 +3880,7 @@ export class Persona {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
+    vfuncLinkablePropertyToLinks(propName: string, callback: PersonaLinkablePropertyCallback): void
     vfuncGetLinkableProperties(): string[]
     vfuncGetWriteableProperties(): string[]
     /* Virtual methods of GObject.Object */
@@ -5205,7 +5205,7 @@ export class PersonaStorePrivate {
 }
 export abstract class PersonaClass {
     /* Fields of Folks.PersonaClass */
-    linkablePropertyToLinks: (propName: string, callback: any) => void
+    linkablePropertyToLinks: (propName: string, callback: PersonaLinkablePropertyCallback) => void
     static name: string
 }
 export class PersonaPrivate {

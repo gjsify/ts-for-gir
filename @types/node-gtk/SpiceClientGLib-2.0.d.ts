@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { Gio } from './Gio-2.0';
 
 declare namespace SpiceClientGLib {
 
@@ -2083,27 +2083,27 @@ export class SmartcardManager {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of SpiceClientGLib.SmartcardManager */
-    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "card-inserted", vreader: any): void
+    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "card-inserted", vreader: VReader): void
     on(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "card-removed", vreader: any): void
+    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "card-removed", vreader: VReader): void
     on(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "reader-added", vreader: any): void
+    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "reader-added", vreader: VReader): void
     on(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
-    emit(sigName: "reader-removed", vreader: any): void
+    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
+    emit(sigName: "reader-removed", vreader: VReader): void
     on(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter

@@ -2,8 +2,8 @@
  * GLib-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GObject from './GObject-2.0';
+import type * as Gjs from './Gjs';
+import type * as GObject from './GObject-2.0';
 
 export enum BookmarkFileError {
     INVALID_URI,
@@ -3070,17 +3070,17 @@ export class TokenValue {
     v_error: number
     static name: string
 }
-type DateDay = number
-type DateYear = number
-type MainContextPusher = void
-type MutexLocker = void
-type Pid = number
-type Quark = number
-type RWLockReaderLocker = void
-type RWLockWriterLocker = void
-type RecMutexLocker = void
-type RefString = number
-type Strv = string
-type Time = number
-type TimeSpan = number
-type Type = number
+export type DateDay = number
+export type DateYear = number
+export type MainContextPusher = void
+export type MutexLocker = void
+export type Pid = number
+export type Quark = number
+export type RWLockReaderLocker = void
+export type RWLockWriterLocker = void
+export type RecMutexLocker = void
+export type RefString = number
+export type Strv = string
+export type Time = number
+export type TimeSpan = number
+export type Type = number

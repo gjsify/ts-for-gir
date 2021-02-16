@@ -2,11 +2,11 @@
  * SoupGNOME-2.4
  */
 
-import * as Gjs from './Gjs';
-import * as Soup from './Soup-2.4';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import type * as Gjs from './Gjs';
+import type * as Soup from './Soup-2.4';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export const COOKIE_JAR_SQLITE_FILENAME: string
 export function gnome_features_2_26_get_type(): GObject.Type

@@ -2,20 +2,20 @@
  * EDataCal-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as libxml2 from './libxml2-2.0';
-import * as Soup from './Soup-2.4';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as ICalGLib from './ICalGLib-3.0';
-import * as EDataServer from './EDataServer-1.2';
-import * as GData from './GData-0.0';
-import * as Json from './Json-1.0';
-import * as Goa from './Goa-1.0';
-import * as Camel from './Camel-1.2';
-import * as ECal from './ECal-2.0';
-import * as EBackend from './EBackend-1.2';
+import type * as Gjs from './Gjs';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Soup from './Soup-2.4';
+import type * as Gio from './Gio-2.0';
+import type * as ICalGLib from './ICalGLib-3.0';
+import type * as EDataServer from './EDataServer-1.2';
+import type * as GData from './GData-0.0';
+import type * as Json from './Json-1.0';
+import type * as Goa from './Goa-1.0';
+import type * as Camel from './Camel-1.2';
+import type * as ECal from './ECal-2.0';
+import type * as EBackend from './EBackend-1.2';
 
 export const EDS_CALENDAR_MODULES: string
 export const EDS_SUBPROCESS_CAL_PATH: string

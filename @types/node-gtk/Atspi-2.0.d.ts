@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="DBus-1.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { DBus } from './DBus-1.0';
 
 declare namespace Atspi {
 
@@ -1746,9 +1746,9 @@ export class TextRange {
     content: string
     static name: string
 }
-type ControllerEventMask = number
-type DeviceEventMask = number
-type KeyEventMask = number
-type KeyMaskType = number
-type KeystrokeListener = void
+export type ControllerEventMask = number
+export type DeviceEventMask = number
+export type KeyEventMask = number
+export type KeyMaskType = number
+export type KeystrokeListener = void
 }

@@ -3,9 +3,9 @@
  */
 
 /// <reference types="node" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace TelepathyGLib {
 
@@ -4562,7 +4562,7 @@ export class Contact {
     readonly clientTypes: string[]
     readonly connection: Connection
     readonly contactGroups: string[]
-    readonly contactInfo: any
+    readonly contactInfo: ContactInfoList
     readonly handle: number
     readonly identifier: string
     readonly isBlocked: boolean
@@ -8342,5 +8342,5 @@ export class TextChannelPrivate {
 export class WeakRef {
     static name: string
 }
-type Handle = number
+export type Handle = number
 }

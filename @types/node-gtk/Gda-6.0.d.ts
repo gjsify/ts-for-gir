@@ -3,10 +3,10 @@
  */
 
 /// <reference types="node" />
-/// <reference path="libxml2-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Gio } from './Gio-2.0';
 
 declare namespace Gda {
 
@@ -917,7 +917,7 @@ export class Provider {
     renderOperation(cnc: Connection, op: ServerOperation): string
     rollbackSavepoint(cnc: Connection, name: string): boolean
     rollbackTransaction(cnc: Connection, name: string): boolean
-    statementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: any, lastInsertedRow: Set): GObject.Object
+    statementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: GType, lastInsertedRow: Set): GObject.Object
     statementPrepare(cnc: Connection, stmt: Statement): boolean
     statementRewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     statementToSql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
@@ -947,7 +947,7 @@ export class Provider {
     vfuncRenderOperation(cnc: Connection, op: ServerOperation): string
     vfuncRollbackSavepoint(cnc: Connection, name: string): boolean
     vfuncRollbackTransaction(cnc: Connection, name: string): boolean
-    vfuncStatementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: any, lastInsertedRow: Set): GObject.Object
+    vfuncStatementExecute(cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: GType, lastInsertedRow: Set): GObject.Object
     vfuncStatementPrepare(cnc: Connection, stmt: Statement): boolean
     vfuncStatementRewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     vfuncStatementToSql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
@@ -7712,7 +7712,7 @@ export abstract class ProviderInterface {
     rollbackSavepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     deleteSavepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     statementPrepare: (provider: Provider, cnc: Connection, stmt: Statement) => boolean
-    statementExecute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: any, lastInsertedRow: Set) => GObject.Object
+    statementExecute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, modelUsage: StatementModelUsage, colTypes: GType, lastInsertedRow: Set) => GObject.Object
     getLastInserted: (provider: Provider, cnc: Connection) => Set
     padding: object[]
     static name: string
@@ -8542,5 +8542,5 @@ export class XaTransactionId {
     toString(): string
     static name: string
 }
-type SqlBuilderId = number
+export type SqlBuilderId = number
 }

@@ -3,15 +3,15 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstPbutils-1.0.d.ts" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GstAudio-1.0.d.ts" />
-/// <reference path="GUPnPDLNA-2.0.d.ts" />
+import type { GstPbutils } from './GstPbutils-1.0';
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { GstAudio } from './GstAudio-1.0';
+import type { GUPnPDLNA } from './GUPnPDLNA-2.0';
 
 declare namespace GUPnPDLNAGst {
 

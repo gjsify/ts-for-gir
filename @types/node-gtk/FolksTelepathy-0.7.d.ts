@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="TelepathyGLib-0.12.d.ts" />
-/// <reference path="Folks-0.7.d.ts" />
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gee } from './Gee-0.8';
+import type { Gio } from './Gio-2.0';
+import type { TelepathyGLib } from './TelepathyGLib-0.12';
+import type { Folks } from './Folks-0.7';
 
 declare namespace FolksTelepathy {
 
@@ -278,7 +278,7 @@ export class Persona {
     setIsInContactList(value: boolean): void
     getContact(): TelepathyGLib.Contact | null
     /* Methods of Folks.Persona */
-    linkablePropertyToLinks(propName: string, callback: any): void
+    linkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
     getIid(): string
     getUid(): string
     getDisplayId(): string
@@ -456,7 +456,7 @@ export class Persona {
     vfuncGetUrls(): Gee.Set
     vfuncSetUrls(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
+    vfuncLinkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
     vfuncGetLinkableProperties(): string[]
     vfuncGetWriteableProperties(): string[]
     /* Virtual methods of GObject.Object */

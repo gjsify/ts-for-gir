@@ -3,12 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GstVideo-1.0.d.ts" />
-/// <reference path="GstBase-1.0.d.ts" />
-/// <reference path="Gst-1.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { GstVideo } from './GstVideo-1.0';
+import type { GstBase } from './GstBase-1.0';
+import type { Gst } from './Gst-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace GstGL {
 
@@ -1436,7 +1436,7 @@ export class GLContext {
     fillInfo(): boolean
     getDisplay(): GLDisplay
     getGlApi(): GLAPI
-    getGlContext(): any
+    getGlContext(): guintptr
     getGlPlatform(): GLPlatform
     getGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
     getGlVersion(): [ /* maj */ number, /* min */ number ]
@@ -1504,7 +1504,7 @@ export class GLContext {
     vfuncCreateContext(glApi: GLAPI, otherContext: GLContext): boolean
     vfuncDestroyContext(): void
     vfuncGetGlApi(): GLAPI
-    vfuncGetGlContext(): any
+    vfuncGetGlContext(): guintptr
     vfuncGetGlPlatform(): GLPlatform
     vfuncGetGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
     vfuncSwapBuffers(): void
@@ -1554,11 +1554,11 @@ export class GLContext {
     _init (config?: GLContext_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(display: GLDisplay): GLContext
-    static newWrapped(display: GLDisplay, handle: any, contextType: GLPlatform, availableApis: GLAPI): GLContext
+    static newWrapped(display: GLDisplay, handle: guintptr, contextType: GLPlatform, availableApis: GLAPI): GLContext
     static defaultGetProcAddress(glApi: GLAPI, name: string): object | null
     static getCurrent(): GLContext
     static getCurrentGlApi(platform: GLPlatform): [ /* returnType */ GLAPI, /* major */ number | null, /* minor */ number | null ]
-    static getCurrentGlContext(contextType: GLPlatform): any
+    static getCurrentGlContext(contextType: GLPlatform): guintptr
     static getProcAddressWithPlatform(contextType: GLPlatform, glApi: GLAPI, name: string): object | null
     static $gtype: GObject.Type
 }
@@ -1583,7 +1583,7 @@ export class GLDisplay {
     getGlApi(): GLAPI
     getGlApiUnlocked(): GLAPI
     getGlContextForThread(thread: GLib.Thread): GLContext
-    getHandle(): any
+    getHandle(): guintptr
     getHandleType(): GLDisplayType
     removeContext(context: GLContext): void
     removeWindow(window: GLWindow): boolean
@@ -1636,7 +1636,7 @@ export class GLDisplay {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GLWindow
-    vfuncGetHandle(): any
+    vfuncGetHandle(): guintptr
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -3199,9 +3199,9 @@ export class GLWindow {
     controlsViewport(): boolean
     draw(): void
     getContext(): GLContext
-    getDisplay(): any
+    getDisplay(): guintptr
     getSurfaceDimensions(): [ /* width */ number, /* height */ number ]
-    getWindowHandle(): any
+    getWindowHandle(): guintptr
     handleEvents(handleEvents: boolean): void
     hasOutputSurface(): boolean
     queueResize(): void
@@ -3218,7 +3218,7 @@ export class GLWindow {
     setPreferredSize(width: number, height: number): void
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
     setResizeCallback(callback: GLWindowResizeCB): void
-    setWindowHandle(handle: any): void
+    setWindowHandle(handle: guintptr): void
     show(): void
     /* Methods of Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
@@ -3270,8 +3270,8 @@ export class GLWindow {
     vfuncClose(): void
     vfuncControlsViewport(): boolean
     vfuncDraw(): void
-    vfuncGetDisplay(): any
-    vfuncGetWindowHandle(): any
+    vfuncGetDisplay(): guintptr
+    vfuncGetWindowHandle(): guintptr
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncHasOutputSurface(): boolean
     vfuncOpen(): boolean
@@ -3282,7 +3282,7 @@ export class GLWindow {
     vfuncSendMessageAsync(callback: GLWindowCB): void
     vfuncSetPreferredSize(width: number, height: number): void
     vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): boolean
-    vfuncSetWindowHandle(handle: any): void
+    vfuncSetWindowHandle(handle: guintptr): void
     vfuncShow(): void
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -3476,8 +3476,8 @@ export class GLColorConvertPrivate {
 export abstract class GLContextClass {
     /* Fields of GstGL.GLContextClass */
     parentClass: Gst.ObjectClass
-    getCurrentContext: () => any
-    getGlContext: (context: GLContext) => any
+    getCurrentContext: () => guintptr
+    getGlContext: (context: GLContext) => guintptr
     getGlApi: (context: GLContext) => GLAPI
     getGlPlatform: (context: GLContext) => GLPlatform
     getProcAddress: (glApi: GLAPI, name: string) => object
@@ -3496,7 +3496,7 @@ export class GLContextPrivate {
 export abstract class GLDisplayClass {
     /* Fields of GstGL.GLDisplayClass */
     objectClass: Gst.ObjectClass
-    getHandle: (display: GLDisplay) => any
+    getHandle: (display: GLDisplay) => guintptr
     createWindow: (display: GLDisplay) => GLWindow
     static name: string
 }
@@ -3691,9 +3691,9 @@ export class GLViewConvertPrivate {
 export abstract class GLWindowClass {
     /* Fields of GstGL.GLWindowClass */
     parentClass: Gst.ObjectClass
-    getDisplay: (window: GLWindow) => any
-    setWindowHandle: (window: GLWindow, handle: any) => void
-    getWindowHandle: (window: GLWindow) => any
+    getDisplay: (window: GLWindow) => guintptr
+    setWindowHandle: (window: GLWindow, handle: guintptr) => void
+    getWindowHandle: (window: GLWindow) => guintptr
     draw: (window: GLWindow) => void
     run: (window: GLWindow) => void
     quit: (window: GLWindow) => void

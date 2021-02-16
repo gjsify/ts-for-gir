@@ -2,16 +2,16 @@
  * RygelCore-2.4
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as Gee from './Gee-0.8';
-import * as GUPnP from './GUPnP-1.0';
-import * as libxml2 from './libxml2-2.0';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gio from './Gio-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as GUPnP from './GUPnP-1.0';
+import type * as libxml2 from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-import * as GModule from './GModule-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum LogLevel {
     INVALID,
@@ -287,6 +287,8 @@ export class ConnectionManager {
     rcs_id: number
     av_transport_id: number
     direction: string
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore.ConnectionManager */
@@ -301,6 +303,7 @@ export class ConnectionManager {
     get_control_url(): string
     get_event_subscription_url(): string
     get_id(): string
+    get_introspection(): GUPnP.ServiceIntrospection
     get_introspection_async(callback: GUPnP.ServiceIntrospectionCallback): void
     get_introspection_async_full(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     get_location(): string
@@ -308,8 +311,6 @@ export class ConnectionManager {
     get_service_type(): string
     get_udn(): string
     get_url_base(): Soup.URI
-    introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspect_finish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -378,6 +379,8 @@ export class BasicManagement {
     parent_instance: GUPnP.Service
     priv: BasicManagementPrivate
     device_status: string
+    /* Fields of GUPnP.Service */
+    parent: GUPnP.ServiceInfo
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore.BasicManagement */
@@ -393,6 +396,7 @@ export class BasicManagement {
     get_control_url(): string
     get_event_subscription_url(): string
     get_id(): string
+    get_introspection(): GUPnP.ServiceIntrospection
     get_introspection_async(callback: GUPnP.ServiceIntrospectionCallback): void
     get_introspection_async_full(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     get_location(): string
@@ -400,8 +404,6 @@ export class BasicManagement {
     get_service_type(): string
     get_udn(): string
     get_url_base(): Soup.URI
-    introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspect_finish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -538,13 +540,11 @@ export class RootDevice {
     services: Gee.ArrayList
     /* Properties of GUPnP.RootDevice */
     available: boolean
-    /* Properties of GUPnP.DeviceInfo */
-    element: object
-    location: string
-    url_base: Soup.URI
     /* Fields of RygelCore.RootDevice */
     parent_instance: GUPnP.RootDevice
     priv: RootDevicePrivate
+    /* Fields of GUPnP.RootDevice */
+    parent: GUPnP.Device
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore.RootDevice */
@@ -605,8 +605,6 @@ export class RootDevice {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GUPnP.RootDevice */
-    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -623,12 +621,6 @@ export class RootDevice {
     connect_after(sigName: "notify::services", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::available", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::available", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -787,6 +779,7 @@ export class MetaConfig {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of RygelCore.Configuration */
+    get_upnp_enabled(): boolean
     get_interface(): string
     get_interfaces(): string[]
     get_port(): number
@@ -797,9 +790,9 @@ export class MetaConfig {
     get_plugin_path(): string
     get_engine_path(): string
     get_media_engine(): string
-    get_video_upload_folder(): string | null
-    get_music_upload_folder(): string | null
-    get_picture_upload_folder(): string | null
+    get_video_upload_folder(): string
+    get_music_upload_folder(): string
+    get_picture_upload_folder(): string
     get_enabled(section: string): boolean
     get_title(section: string): string
     get_string(section: string, key: string): string
@@ -808,6 +801,7 @@ export class MetaConfig {
     get_int_list(section: string, key: string): Gee.ArrayList
     get_bool(section: string, key: string): boolean
     /* Virtual methods of RygelCore.MetaConfig */
+    vfunc_get_upnp_enabled(): boolean
     vfunc_get_interface(): string
     vfunc_get_interfaces(): string[]
     vfunc_get_port(): number
@@ -818,9 +812,9 @@ export class MetaConfig {
     vfunc_get_plugin_path(): string
     vfunc_get_engine_path(): string
     vfunc_get_media_engine(): string
-    vfunc_get_video_upload_folder(): string | null
-    vfunc_get_music_upload_folder(): string | null
-    vfunc_get_picture_upload_folder(): string | null
+    vfunc_get_video_upload_folder(): string
+    vfunc_get_music_upload_folder(): string
+    vfunc_get_picture_upload_folder(): string
     vfunc_get_enabled(section: string): boolean
     vfunc_get_title(section: string): string
     vfunc_get_string(section: string, key: string): string
@@ -841,15 +835,15 @@ export class MetaConfig {
     connect_after(sigName: "notify", callback: (($obj: MetaConfig, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of RygelCore.Configuration */
-    connect(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
-    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    connect(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
-    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    connect(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
-    emit(sigName: "setting-changed", section: string, key: string): void
+    connect(sigName: "configuration_changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration_changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration_changed", entry: ConfigurationEntry): void
+    connect(sigName: "section_changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section_changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section_changed", section: string, entry: SectionEntry): void
+    connect(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    connect_after(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    emit(sigName: "setting_changed", section: string, key: string): void
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1027,6 +1021,8 @@ export class Plugin {
     /* Fields of RygelCore.Plugin */
     parent_instance: GUPnP.ResourceFactory
     priv: PluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore.Plugin */
@@ -1228,10 +1224,6 @@ export class BaseConfiguration {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of RygelCore.Configuration */
-    get_video_upload_folder(): string | null
-    get_music_upload_folder(): string | null
-    get_picture_upload_folder(): string | null
     /* Virtual methods of RygelCore.BaseConfiguration */
     vfunc_get_upnp_enabled(): boolean
     vfunc_get_interface(): string
@@ -1245,11 +1237,8 @@ export class BaseConfiguration {
     vfunc_get_engine_path(): string
     vfunc_get_media_engine(): string
     vfunc_get_video_upload_folder(): string
-    vfunc_get_video_upload_folder(): string | null
     vfunc_get_music_upload_folder(): string
-    vfunc_get_music_upload_folder(): string | null
     vfunc_get_picture_upload_folder(): string
-    vfunc_get_picture_upload_folder(): string | null
     vfunc_get_enabled(section: string): boolean
     vfunc_get_title(section: string): string
     vfunc_get_string(section: string, key: string): string
@@ -1270,15 +1259,15 @@ export class BaseConfiguration {
     connect_after(sigName: "notify", callback: (($obj: BaseConfiguration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of RygelCore.Configuration */
-    connect(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
-    connect_after(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
-    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
-    connect(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
-    connect_after(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
-    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
-    connect(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
-    emit(sigName: "setting-changed", section: string, key: string): void
+    connect(sigName: "configuration_changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration_changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration_changed", entry: ConfigurationEntry): void
+    connect(sigName: "section_changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section_changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section_changed", section: string, entry: SectionEntry): void
+    connect(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    connect_after(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    emit(sigName: "setting_changed", section: string, key: string): void
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

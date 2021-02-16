@@ -3,10 +3,10 @@
  */
 
 /// <reference types="node" />
-/// <reference path="cairo-1.0.d.ts" />
-/// <reference path="HarfBuzz-0.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
+import type { cairo } from './cairo-1.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
 
 declare namespace Pango {
 
@@ -1886,7 +1886,7 @@ export class TabArray {
     /* Static methods and pseudo-constructors */
     static new(initialSize: number, positionsInPixels: boolean): TabArray
 }
-type Glyph = number
-type GlyphUnit = number
-type LayoutRun = GlyphItem
+export type Glyph = number
+export type GlyphUnit = number
+export type LayoutRun = GlyphItem
 }

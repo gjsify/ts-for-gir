@@ -3,11 +3,12 @@
  */
 
 /// <reference types="node" />
-/// <reference path="GObject-2.0.d.ts" />
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 
 declare namespace JSCore {
 
 export function evaluateScript(): void
-type GlobalContextRef = any
-type ObjectRef = any
+export type GlobalContextRef = JSGlobalContextRef
+export type ObjectRef = JSObjectRef
 }

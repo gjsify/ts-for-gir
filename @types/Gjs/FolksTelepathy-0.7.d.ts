@@ -2,13 +2,13 @@
  * FolksTelepathy-0.7
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as TelepathyGLib from './TelepathyGLib-0.12';
-import * as Folks from './Folks-0.7';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as Gio from './Gio-2.0';
+import type * as TelepathyGLib from './TelepathyGLib-0.12';
+import type * as Folks from './Folks-0.7';
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     account?: TelepathyGLib.Account
@@ -228,7 +228,7 @@ export class Persona {
     set_is_in_contact_list(value: boolean): void
     get_contact(): TelepathyGLib.Contact | null
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: any): void
+    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -406,7 +406,7 @@ export class Persona {
     vfunc_get_urls(): Gee.Set
     vfunc_set_urls(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */

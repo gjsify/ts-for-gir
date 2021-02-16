@@ -2,17 +2,17 @@
  * GdkX11-3.0
  */
 
-import * as Gjs from './Gjs';
-import * as xlib from './xlib-2.0';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
-import * as Gdk from './Gdk-3.0';
+import type * as Gjs from './Gjs';
+import type * as xlib from './xlib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as cairo from './cairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as Gdk from './Gdk-3.0';
 
 export function x11_atom_to_xatom(atom: Gdk.Atom): xlib.Atom
 export function x11_atom_to_xatom_for_display(display: X11Display, atom: Gdk.Atom): xlib.Atom
@@ -44,10 +44,11 @@ export class X11AppLaunchContext {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.AppLaunchContext */
-    get_display(): Gdk.Display
     set_desktop(desktop: number): void
+    set_display(display: Gdk.Display): void
     set_icon(icon?: Gio.Icon | null): void
     set_icon_name(icon_name?: string | null): void
+    set_screen(screen: Gdk.Screen): void
     set_timestamp(timestamp: number): void
     /* Methods of Gio.AppLaunchContext */
     get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
@@ -120,11 +121,12 @@ export class X11Cursor {
     get_xcursor(): xlib.Cursor
     get_xdisplay(): xlib.Display
     /* Methods of Gdk.Cursor */
-    get_fallback(): Gdk.Cursor | null
-    get_hotspot_x(): number
-    get_hotspot_y(): number
-    get_name(): string | null
-    get_texture(): Gdk.Texture | null
+    get_cursor_type(): Gdk.CursorType
+    get_display(): Gdk.Display
+    get_image(): GdkPixbuf.Pixbuf | null
+    get_surface(): [ /* returnType */ cairo.Surface | null, /* x_hot */ number | null, /* y_hot */ number | null ]
+    ref(): Gdk.Cursor
+    unref(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -145,7 +147,6 @@ export class X11Cursor {
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
-    unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -172,33 +173,43 @@ export interface X11DeviceCore_ConstructProps extends Gdk.Device_ConstructProps 
 }
 export class X11DeviceCore {
     /* Properties of Gdk.Device */
-    readonly caps_lock_state: boolean
-    readonly direction: Pango.Direction
-    readonly has_bidi_layouts: boolean
-    readonly modifier_state: Gdk.ModifierType
+    readonly associated_device: Gdk.Device
+    readonly axes: Gdk.AxisFlags
+    input_mode: Gdk.InputMode
     readonly n_axes: number
-    readonly num_lock_state: boolean
-    readonly scroll_lock_state: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.Device */
-    get_caps_lock_state(): boolean
-    get_device_tool(): Gdk.DeviceTool
-    get_direction(): Pango.Direction
+    get_associated_device(): Gdk.Device | null
+    get_axes(): Gdk.AxisFlags
+    get_axis_use(index_: number): Gdk.AxisUse
+    get_device_type(): Gdk.DeviceType
     get_display(): Gdk.Display
     get_has_cursor(): boolean
-    get_modifier_state(): Gdk.ModifierType
+    get_key(index_: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ Gdk.ModifierType ]
+    get_last_event_window(): Gdk.Window | null
+    get_mode(): Gdk.InputMode
+    get_n_axes(): number
+    get_n_keys(): number
     get_name(): string
-    get_num_lock_state(): boolean
-    get_num_touches(): number
+    get_position(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
+    get_position_double(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
     get_product_id(): string | null
-    get_scroll_lock_state(): boolean
     get_seat(): Gdk.Seat
     get_source(): Gdk.InputSource
-    get_surface_at_position(): [ /* returnType */ Gdk.Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_vendor_id(): string | null
+    get_window_at_position(): [ /* returnType */ Gdk.Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_window_at_position_double(): [ /* returnType */ Gdk.Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    grab(window: Gdk.Window, grab_ownership: Gdk.GrabOwnership, owner_events: boolean, event_mask: Gdk.EventMask, cursor: Gdk.Cursor | null, time_: number): Gdk.GrabStatus
+    list_axes(): Gdk.Atom[]
+    list_slave_devices(): Gdk.Device[] | null
+    set_axis_use(index_: number, use: Gdk.AxisUse): void
+    set_key(index_: number, keyval: number, modifiers: Gdk.ModifierType): void
+    set_mode(mode: Gdk.InputMode): boolean
+    ungrab(time_: number): void
+    warp(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -240,20 +251,14 @@ export class X11DeviceCore {
     connect(sigName: "notify", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::direction", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::modifier-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::associated-device", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::input-mode", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::n-axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::seat", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tool", callback: (($obj: X11DeviceCore, pspec: GObject.ParamSpec) => void)): number
@@ -399,33 +404,43 @@ export interface X11DeviceXI2_ConstructProps extends Gdk.Device_ConstructProps {
 }
 export class X11DeviceXI2 {
     /* Properties of Gdk.Device */
-    readonly caps_lock_state: boolean
-    readonly direction: Pango.Direction
-    readonly has_bidi_layouts: boolean
-    readonly modifier_state: Gdk.ModifierType
+    readonly associated_device: Gdk.Device
+    readonly axes: Gdk.AxisFlags
+    input_mode: Gdk.InputMode
     readonly n_axes: number
-    readonly num_lock_state: boolean
-    readonly scroll_lock_state: boolean
     seat: Gdk.Seat
     readonly tool: Gdk.DeviceTool
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.Device */
-    get_caps_lock_state(): boolean
-    get_device_tool(): Gdk.DeviceTool
-    get_direction(): Pango.Direction
+    get_associated_device(): Gdk.Device | null
+    get_axes(): Gdk.AxisFlags
+    get_axis_use(index_: number): Gdk.AxisUse
+    get_device_type(): Gdk.DeviceType
     get_display(): Gdk.Display
     get_has_cursor(): boolean
-    get_modifier_state(): Gdk.ModifierType
+    get_key(index_: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ Gdk.ModifierType ]
+    get_last_event_window(): Gdk.Window | null
+    get_mode(): Gdk.InputMode
+    get_n_axes(): number
+    get_n_keys(): number
     get_name(): string
-    get_num_lock_state(): boolean
-    get_num_touches(): number
+    get_position(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
+    get_position_double(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null ]
     get_product_id(): string | null
-    get_scroll_lock_state(): boolean
     get_seat(): Gdk.Seat
     get_source(): Gdk.InputSource
-    get_surface_at_position(): [ /* returnType */ Gdk.Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_vendor_id(): string | null
+    get_window_at_position(): [ /* returnType */ Gdk.Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_window_at_position_double(): [ /* returnType */ Gdk.Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    grab(window: Gdk.Window, grab_ownership: Gdk.GrabOwnership, owner_events: boolean, event_mask: Gdk.EventMask, cursor: Gdk.Cursor | null, time_: number): Gdk.GrabStatus
+    list_axes(): Gdk.Atom[]
+    list_slave_devices(): Gdk.Device[] | null
+    set_axis_use(index_: number, use: Gdk.AxisUse): void
+    set_key(index_: number, keyval: number, modifiers: Gdk.ModifierType): void
+    set_mode(mode: Gdk.InputMode): boolean
+    ungrab(time_: number): void
+    warp(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -467,20 +482,14 @@ export class X11DeviceXI2 {
     connect(sigName: "notify", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::direction", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::modifier-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::associated-device", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::input-mode", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::n-axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::seat", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tool", callback: (($obj: X11DeviceXI2, pspec: GObject.ParamSpec) => void)): number
@@ -497,10 +506,6 @@ export class X11DeviceXI2 {
 export interface X11Display_ConstructProps extends Gdk.Display_ConstructProps {
 }
 export class X11Display {
-    /* Properties of Gdk.Display */
-    readonly composited: boolean
-    readonly input_shapes: boolean
-    readonly rgba: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkX11.X11Display */
@@ -524,25 +529,46 @@ export class X11Display {
     device_is_grabbed(device: Gdk.Device): boolean
     flush(): void
     get_app_launch_context(): Gdk.AppLaunchContext
-    get_clipboard(): Gdk.Clipboard
-    get_default_seat(): Gdk.Seat | null
-    get_monitor_at_surface(surface: Gdk.Surface): Gdk.Monitor
-    get_monitors(): Gio.ListModel
+    get_default_cursor_size(): number
+    get_default_group(): Gdk.Window
+    get_default_screen(): Gdk.Screen
+    get_default_seat(): Gdk.Seat
+    get_device_manager(): Gdk.DeviceManager | null
+    get_event(): Gdk.Event | null
+    get_maximal_cursor_size(): [ /* width */ number, /* height */ number ]
+    get_monitor(monitor_num: number): Gdk.Monitor | null
+    get_monitor_at_point(x: number, y: number): Gdk.Monitor
+    get_monitor_at_window(window: Gdk.Window): Gdk.Monitor
+    get_n_monitors(): number
+    get_n_screens(): number
     get_name(): string
-    get_primary_clipboard(): Gdk.Clipboard
-    get_setting(name: string, value: any): boolean
-    get_startup_notification_id(): string | null
+    get_pointer(): [ /* screen */ Gdk.Screen | null, /* x */ number | null, /* y */ number | null, /* mask */ Gdk.ModifierType | null ]
+    get_primary_monitor(): Gdk.Monitor | null
+    get_screen(screen_num: number): Gdk.Screen
+    get_window_at_pointer(): [ /* returnType */ Gdk.Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    has_pending(): boolean
     is_closed(): boolean
-    is_composited(): boolean
-    is_rgba(): boolean
+    keyboard_ungrab(time_: number): void
+    list_devices(): Gdk.Device[]
     list_seats(): Gdk.Seat[]
-    map_keycode(keycode: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] | null, /* keyvals */ number[] | null ]
-    map_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] ]
     notify_startup_complete(startup_id: string): void
+    peek_event(): Gdk.Event | null
+    pointer_is_grabbed(): boolean
+    pointer_ungrab(time_: number): void
     put_event(event: Gdk.Event): void
+    request_selection_notification(selection: Gdk.Atom): boolean
+    set_double_click_distance(distance: number): void
+    set_double_click_time(msec: number): void
+    store_clipboard(clipboard_window: Gdk.Window, time_: number, targets: Gdk.Atom[] | null): void
+    supports_clipboard_persistence(): boolean
+    supports_composite(): boolean
+    supports_cursor_alpha(): boolean
+    supports_cursor_color(): boolean
     supports_input_shapes(): boolean
+    supports_selection_notification(): boolean
+    supports_shapes(): boolean
     sync(): void
-    translate_key(keycode: number, state: Gdk.ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed */ Gdk.ModifierType | null ]
+    warp_pointer(screen: Gdk.Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -577,6 +603,12 @@ export class X11Display {
     connect(sigName: "closed", callback: (($obj: X11Display, is_error: boolean) => void)): number
     connect_after(sigName: "closed", callback: (($obj: X11Display, is_error: boolean) => void)): number
     emit(sigName: "closed", is_error: boolean): void
+    connect(sigName: "monitor-added", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    connect_after(sigName: "monitor-added", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    emit(sigName: "monitor-added", monitor: Gdk.Monitor): void
+    connect(sigName: "monitor-removed", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    connect_after(sigName: "monitor-removed", callback: (($obj: X11Display, monitor: Gdk.Monitor) => void)): number
+    emit(sigName: "monitor-removed", monitor: Gdk.Monitor): void
     connect(sigName: "opened", callback: (($obj: X11Display) => void)): number
     connect_after(sigName: "opened", callback: (($obj: X11Display) => void)): number
     emit(sigName: "opened"): void
@@ -586,19 +618,10 @@ export class X11Display {
     connect(sigName: "seat-removed", callback: (($obj: X11Display, seat: Gdk.Seat) => void)): number
     connect_after(sigName: "seat-removed", callback: (($obj: X11Display, seat: Gdk.Seat) => void)): number
     emit(sigName: "seat-removed", seat: Gdk.Seat): void
-    connect(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
-    connect_after(sigName: "setting-changed", callback: (($obj: X11Display, setting: string) => void)): number
-    emit(sigName: "setting-changed", setting: string): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::composited", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::composited", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::input-shapes", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::input-shapes", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rgba", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rgba", callback: (($obj: X11Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -748,8 +771,6 @@ export class X11DragContext {
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class X11GLContext {
-    /* Properties of Gdk.DrawContext */
-    readonly display: Gdk.Display
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.GLContext */
@@ -758,9 +779,9 @@ export class X11GLContext {
     get_forward_compatible(): boolean
     get_required_version(): [ /* major */ number | null, /* minor */ number | null ]
     get_shared_context(): Gdk.GLContext | null
-    get_surface(): Gdk.Surface | null
     get_use_es(): boolean
     get_version(): [ /* major */ number, /* minor */ number ]
+    get_window(): Gdk.Window | null
     is_legacy(): boolean
     make_current(): void
     realize(): boolean
@@ -768,11 +789,6 @@ export class X11GLContext {
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
     set_use_es(use_es: number): void
-    /* Methods of Gdk.DrawContext */
-    begin_frame(region: cairo.Region): void
-    end_frame(): void
-    get_frame_region(): cairo.Region | null
-    is_in_frame(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -807,8 +823,6 @@ export class X11GLContext {
     connect(sigName: "notify", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -897,7 +911,6 @@ export interface X11Monitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
 export class X11Monitor {
     /* Properties of Gdk.Monitor */
-    readonly connector: string
     readonly geometry: Gdk.Rectangle
     readonly height_mm: number
     readonly manufacturer: string
@@ -905,12 +918,11 @@ export class X11Monitor {
     readonly refresh_rate: number
     readonly scale_factor: number
     readonly subpixel_layout: Gdk.SubpixelLayout
-    readonly valid: boolean
     readonly width_mm: number
+    readonly workarea: Gdk.Rectangle
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.Monitor */
-    get_connector(): string | null
     get_display(): Gdk.Display
     get_geometry(): /* geometry */ Gdk.Rectangle
     get_height_mm(): number
@@ -920,7 +932,8 @@ export class X11Monitor {
     get_scale_factor(): number
     get_subpixel_layout(): Gdk.SubpixelLayout
     get_width_mm(): number
-    is_valid(): boolean
+    get_workarea(): /* workarea */ Gdk.Rectangle
+    is_primary(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -959,8 +972,6 @@ export class X11Monitor {
     connect(sigName: "notify", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::connector", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::connector", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::geometry", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::geometry", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::height-mm", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
@@ -975,10 +986,10 @@ export class X11Monitor {
     connect_after(sigName: "notify::scale-factor", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::subpixel-layout", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::subpixel-layout", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::valid", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::valid", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::width-mm", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-mm", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::workarea", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::workarea", callback: (($obj: X11Monitor, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

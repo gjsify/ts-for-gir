@@ -2,15 +2,15 @@
  * RygelCore-2.6
  */
 
-import * as Gjs from './Gjs';
-import * as GLib from './GLib-2.0';
-import * as Gee from './Gee-0.8';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GUPnP from './GUPnP-1.2';
-import * as libxml2 from './libxml2-2.0';
-import * as Soup from './Soup-2.4';
-import * as GSSDP from './GSSDP-1.2';
+import type * as Gjs from './Gjs';
+import type * as GLib from './GLib-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as Gee from './Gee-0.8';
+import type * as Gio from './Gio-2.0';
+import type * as GUPnP from './GUPnP-1.2';
+import type * as libxml2 from './libxml2-2.0';
+import type * as Soup from './Soup-2.4';
+import type * as GSSDP from './GSSDP-1.2';
 
 export enum LogLevel {
     INVALID,
@@ -1857,7 +1857,7 @@ export class XMLUtilsChildIterator {
 export interface PluginInformation_ConstructProps extends GObject.Object_ConstructProps {
     module_path?: string
     name?: string
-    conflicts?: any
+    conflicts?: GLib.GenericSet
     module_loaded?: boolean
 }
 export class PluginInformation {
@@ -1868,7 +1868,7 @@ export class PluginInformation {
     /* Methods of RygelCore.PluginInformation */
     get_module_path(): string
     get_name(): string
-    get_conflicts(): any
+    get_conflicts(): GLib.GenericSet
     get_module_loaded(): boolean
     set_module_loaded(value: boolean): void
     /* Methods of GObject.Object */

@@ -2,25 +2,25 @@
  * ClutterGst-2.0
  */
 
-import * as Gjs from './Gjs';
-import * as GstVideo from './GstVideo-1.0';
-import * as GstBase from './GstBase-1.0';
-import * as Gst from './Gst-1.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GModule from './GModule-2.0';
-import * as GstAudio from './GstAudio-1.0';
-import * as Clutter from './Clutter-1.0';
-import * as cairo from './cairo-1.0';
-import * as Json from './Json-1.0';
-import * as Gio from './Gio-2.0';
-import * as GL from './GL-1.0';
-import * as CoglPango from './CoglPango-1.0';
-import * as PangoCairo from './PangoCairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as Cogl from './Cogl-1.0';
-import * as Atk from './Atk-1.0';
+import type * as Gjs from './Gjs';
+import type * as GstVideo from './GstVideo-1.0';
+import type * as GstBase from './GstBase-1.0';
+import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as GstAudio from './GstAudio-1.0';
+import type * as Clutter from './Clutter-1.0';
+import type * as cairo from './cairo-1.0';
+import type * as Json from './Json-1.0';
+import type * as Gio from './Gio-2.0';
+import type * as GL from './GL-1.0';
+import type * as CoglPango from './CoglPango-1.0';
+import type * as PangoCairo from './PangoCairo-1.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Cogl from './Cogl-1.0';
+import type * as Atk from './Atk-1.0';
 
 export enum BufferingMode {
     STREAM,
@@ -488,6 +488,10 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     subtitle_font_name?: string
     subtitle_uri?: string
     uri?: string
+    audio_stream?: number
+    seek_flags?: SeekFlags
+    subtitle_track?: number
+    user_agent?: string
 }
 export class VideoTexture {
     /* Properties of ClutterGst.VideoTexture */
@@ -598,7 +602,14 @@ export class VideoTexture {
     subtitle_uri: string
     uri: string
     /* Properties of ClutterGst.Player */
+    audio_stream: number
+    readonly audio_streams: object
     readonly idle: boolean
+    readonly in_seek: boolean
+    seek_flags: SeekFlags
+    subtitle_track: number
+    readonly subtitle_tracks: object
+    user_agent: string
     /* Fields of Clutter.Actor */
     flags: number
     /* Fields of GObject.InitiallyUnowned */
@@ -947,9 +958,12 @@ export class VideoTexture {
     set_custom_property(script: Clutter.Script, name: string, value: any): void
     set_id(id_: string): void
     /* Methods of ClutterGst.Player */
-    get_frame(): Frame
+    deinit(): void
+    get_audio_streams(): string[]
     get_idle(): boolean
-    get_video_sink(): VideoSink
+    get_in_seek(): boolean
+    get_subtitle_tracks(): string[]
+    init(): boolean
     /* Virtual methods of ClutterGst.VideoTexture */
     vfunc_animate_property(animation: Clutter.Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     vfunc_find_property(property_name: string): GObject.ParamSpec
@@ -975,17 +989,22 @@ export class VideoTexture {
     vfunc_parse_custom_node(script: Clutter.Script, value: any, name: string, node: Json.Node): boolean
     vfunc_set_custom_property(script: Clutter.Script, name: string, value: any): void
     vfunc_set_id(id_: string): void
-    vfunc_get_audio_volume(): number
-    vfunc_get_frame(): Frame
+    vfunc_download_buffering(start: number, stop: number): void
+    vfunc_get_audio_stream(): number
+    vfunc_get_audio_streams(): string[]
+    vfunc_get_buffering_mode(): BufferingMode
     vfunc_get_idle(): boolean
+    vfunc_get_in_seek(): boolean
     vfunc_get_pipeline(): Gst.Element
-    vfunc_get_playing(): boolean
-    vfunc_get_video_sink(): VideoSink
-    vfunc_new_frame(frame: Frame): void
-    vfunc_ready(): void
-    vfunc_set_audio_volume(volume: number): void
-    vfunc_set_playing(playing: boolean): void
-    vfunc_size_change(width: number, height: number): void
+    vfunc_get_seek_flags(): SeekFlags
+    vfunc_get_subtitle_track(): number
+    vfunc_get_subtitle_tracks(): string[]
+    vfunc_get_user_agent(): string
+    vfunc_set_audio_stream(index_: number): void
+    vfunc_set_buffering_mode(mode: BufferingMode): void
+    vfunc_set_seek_flags(flags: SeekFlags): void
+    vfunc_set_subtitle_track(index_: number): void
+    vfunc_set_user_agent(user_agent: string): void
     /* Virtual methods of Clutter.Texture */
     vfunc_load_finished(error: GLib.Error): void
     vfunc_pixbuf_change(): void
@@ -1145,21 +1164,9 @@ export class VideoTexture {
     connect_after(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
     emit(sigName: "error", error: GLib.Error): void
     /* Signals of ClutterGst.Player */
-    connect(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: VideoTexture) => void)): number
-    emit(sigName: "eos"): void
-    connect(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: VideoTexture, error: GLib.Error) => void)): number
-    emit(sigName: "error", error: GLib.Error): void
-    connect(sigName: "new-frame", callback: (($obj: VideoTexture, frame: Frame) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: VideoTexture, frame: Frame) => void)): number
-    emit(sigName: "new-frame", frame: Frame): void
-    connect(sigName: "ready", callback: (($obj: VideoTexture) => void)): number
-    connect_after(sigName: "ready", callback: (($obj: VideoTexture) => void)): number
-    emit(sigName: "ready"): void
-    connect(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: VideoTexture, width: number, height: number) => void)): number
-    emit(sigName: "size-change", width: number, height: number): void
+    connect(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
+    connect_after(sigName: "download-buffering", callback: (($obj: VideoTexture, start: number, stop: number) => void)): number
+    emit(sigName: "download-buffering", start: number, stop: number): void
     connect(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pixel-aspect-ratio", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::filename", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
@@ -1366,8 +1373,22 @@ export class VideoTexture {
     connect_after(sigName: "notify::subtitle-uri", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::uri", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-stream", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-stream", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-streams", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-streams", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::idle", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::idle", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::in-seek", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::in-seek", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::seek-flags", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::seek-flags", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::subtitle-track", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::subtitle-track", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::subtitle-tracks", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::subtitle-tracks", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::user-agent", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-agent", callback: (($obj: VideoTexture, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1379,6 +1400,7 @@ export class VideoTexture {
     static new(): VideoTexture
     static class_find_child_property(klass: GObject.ObjectClass, property_name: string): GObject.ParamSpec
     static class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
+    static class_init(object_class: GObject.ObjectClass): void
     static $gtype: GObject.Type
 }
 export abstract class PlayerIface {

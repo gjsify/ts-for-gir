@@ -2,15 +2,15 @@
  * Gdk-3.0
  */
 
-import * as Gjs from './Gjs';
-import * as cairo from './cairo-1.0';
-import * as Pango from './Pango-1.0';
-import * as HarfBuzz from './HarfBuzz-0.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as Gio from './Gio-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as cairo from './cairo-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as Pango from './Pango-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as Gio from './Gio-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum AxisUse {
     IGNORE,
@@ -2964,13 +2964,10 @@ export interface DevicePad_ConstructProps extends Device_ConstructProps {
 }
 export class DevicePad {
     /* Properties of Gdk.Device */
-    readonly caps_lock_state: boolean
-    readonly direction: Pango.Direction
-    readonly has_bidi_layouts: boolean
-    readonly modifier_state: ModifierType
+    readonly associated_device: Device
+    readonly axes: AxisFlags
+    input_mode: InputMode
     readonly n_axes: number
-    readonly num_lock_state: boolean
-    readonly scroll_lock_state: boolean
     seat: Seat
     readonly tool: DeviceTool
     /* Fields of GObject.Object */
@@ -2981,21 +2978,34 @@ export class DevicePad {
     get_n_features(feature: DevicePadFeature): number
     get_n_groups(): number
     /* Methods of Gdk.Device */
-    get_caps_lock_state(): boolean
-    get_device_tool(): DeviceTool
-    get_direction(): Pango.Direction
+    get_associated_device(): Device | null
+    get_axes(): AxisFlags
+    get_axis_use(index_: number): AxisUse
+    get_device_type(): DeviceType
     get_display(): Display
     get_has_cursor(): boolean
-    get_modifier_state(): ModifierType
+    get_key(index_: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
+    get_last_event_window(): Window | null
+    get_mode(): InputMode
+    get_n_axes(): number
+    get_n_keys(): number
     get_name(): string
-    get_num_lock_state(): boolean
-    get_num_touches(): number
+    get_position(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
+    get_position_double(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
     get_product_id(): string | null
-    get_scroll_lock_state(): boolean
     get_seat(): Seat
     get_source(): InputSource
-    get_surface_at_position(): [ /* returnType */ Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_vendor_id(): string | null
+    get_window_at_position(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_window_at_position_double(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    grab(window: Window, grab_ownership: GrabOwnership, owner_events: boolean, event_mask: EventMask, cursor: Cursor | null, time_: number): GrabStatus
+    list_axes(): Atom[]
+    list_slave_devices(): Device[] | null
+    set_axis_use(index_: number, use: AxisUse): void
+    set_key(index_: number, keyval: number, modifiers: ModifierType): void
+    set_mode(mode: InputMode): boolean
+    ungrab(time_: number): void
+    warp(screen: Screen, x: number, y: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3037,20 +3047,14 @@ export class DevicePad {
     connect(sigName: "notify", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::caps-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::caps-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::direction", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::direction", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::has-bidi-layouts", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-bidi-layouts", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::modifier-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::modifier-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::input-mode", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-mode", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::n-axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::num-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::num-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::scroll-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scroll-lock-state", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::seat", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::tool", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
@@ -5053,4 +5057,4 @@ export class Event {
     static peek(): Event | null
     static request_motions(event: EventMotion): void
 }
-type XEvent = void
+export type XEvent = void

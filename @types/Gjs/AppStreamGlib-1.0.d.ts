@@ -2,12 +2,12 @@
  * AppStreamGlib-1.0
  */
 
-import * as Gjs from './Gjs';
-import * as Gio from './Gio-2.0';
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
-import * as GdkPixbuf from './GdkPixbuf-2.0';
-import * as GModule from './GModule-2.0';
+import type * as Gjs from './Gjs';
+import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
+import type * as GdkPixbuf from './GdkPixbuf-2.0';
+import type * as GModule from './GModule-2.0';
 
 export enum AgreementKind {
     UNKNOWN,
@@ -2248,6 +2248,6 @@ export abstract class TranslationClass {
     parent_class: GObject.ObjectClass
     static name: string
 }
-type AppSourceKind = FormatKind
-type ImageAlphaFlags = number
-type Node = GLib.Node
+export type AppSourceKind = FormatKind
+export type ImageAlphaFlags = number
+export type Node = GLib.Node

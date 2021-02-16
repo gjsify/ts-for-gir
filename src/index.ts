@@ -14,19 +14,22 @@ export * from './template-processor'
 export * from './transformation'
 export * from './utils'
 
-export { run } from '@oclif/command'
+import { run } from '@oclif/command'
+import flush from '@oclif/command/flush'
+
+export { run, flush }
 
 if (require.main === module) {
     // If we don't catch exceptions, stdout gets truncated
     try {
-        require('@oclif/command')
-            .run()
-            .then(require('@oclif/command/flush'))
-            .catch((error) => {
-                console.log(error)
-                require('@oclif/errors/handle')(error)
-            })
+        const start = run() as Promise<void>
+        start.then(flush).catch((error: any) => {
+            if (error && error.oclif && typeof error.oclif.exit === 'number' && error.oclif.exit !== 0) {
+                console.log('error', error)
+            }
+            require('@oclif/errors/handle')(error)
+        })
     } catch (ex) {
-        console.log(ex.stack)
+        console.error(ex)
     }
 }

@@ -6,6 +6,8 @@ require('@oclif/command')
     .run()
     .then(require('@oclif/command/flush'))
     .catch((error) => {
-        console.log(error)
+        if (error && error.oclif && typeof error.oclif.exit === 'number' && error.oclif.exit !== 0) {
+            console.log('error', error)
+        }
         require('@oclif/errors/handle')(error)
     })

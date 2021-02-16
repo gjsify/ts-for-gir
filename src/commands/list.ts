@@ -35,19 +35,19 @@ export default class List extends Command {
         const generateConfig = Config.getGenerateConfig(config)
         const moduleLoader = new ModuleLoader(generateConfig)
         const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
-        const moduleGroupes = Object.values(grouped)
+        const moduleGroups = Object.values(grouped)
         if (Object.keys(grouped).length === 0) {
-            this.log(chalk.red('No modules found'))
-            return
+            // this.log(chalk.red('No modules found'))
+            return this.error('No modules found')
         }
 
-        const conflictModules = moduleGroupes.filter((moduleGroup) => moduleGroup.hasConflict)
+        const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict)
 
-        const byHandModules = moduleGroupes.filter(
+        const byHandModules = moduleGroups.filter(
             (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.BY_HAND,
         )
 
-        const depModules = moduleGroupes.filter(
+        const depModules = moduleGroups.filter(
             (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
         )
 

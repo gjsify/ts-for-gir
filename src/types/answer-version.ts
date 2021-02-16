@@ -1,4 +1,4 @@
 export interface AnswerVersion {
-    choosed: string
-    unchoosed: string[]
+    selected: string[]
+    unselected: string[]
 }

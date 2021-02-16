@@ -63,7 +63,7 @@ export default class Generate extends Command {
         const config = await Config.load((flags as unknown) as ConfigFlags, argv)
 
         if (argv.length === 0) {
-            this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
+            return this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
         }
 
         for (const i in config.environments) {
@@ -76,7 +76,7 @@ export default class Generate extends Command {
                     config.ignoreConflicts,
                 )
                 if (keep.length === 0) {
-                    this.error(
+                    return this.error(
                         'No module found!\nPlease make sure that you have installed the necessary gir files, for example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu.',
                     )
                 }

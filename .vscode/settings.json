@@ -20,6 +20,7 @@
     "iface's",
     "inout",
     "introspectable",
+    "libgtk",
     "monospace",
     "oclif",
     "outdir",
@@ -28,6 +29,9 @@
     "setlocale",
     "struct",
     "submodule",
-    "vfunc"
+    "submodules",
+    "vala",
+    "vfunc",
+    "xrandr"
   ]
 }

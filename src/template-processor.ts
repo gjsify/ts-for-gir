@@ -10,7 +10,7 @@ import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { GenerateConfig } from './types'
-import { CLIEngine } from 'eslint' // TODO depricated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+import { CLIEngine } from 'eslint' // TODO deprecated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
 
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
 
@@ -92,14 +92,14 @@ export class TemplateProcessor {
         environment: Environment,
         propertyName: string,
         callbackObjectName: string,
-        nampespacePrefix: string,
+        namespacePrefix: string,
         identCount = 1,
     ): string[] {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
         result.push(
-            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
-            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
         result.push()
         if (environment === 'node') {
@@ -232,9 +232,9 @@ export class TemplateProcessor {
     }
 
     /**
-     * Reads a template file from filesystem and gets the unrendered string back
+     * Reads a template file from filesystem and gets the raw string back
      * @param templateFilename
-     * @return The unrendered template content
+     * @return The raw template content
      */
     protected read(templateFilename: string): string {
         const path = this.exists(templateFilename)

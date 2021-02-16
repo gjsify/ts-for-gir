@@ -4,7 +4,6 @@
   "description": "Typescript .d.ts generator from GIR for gjs or node-gtk",
   "main": "lib/index.js",
   "bin": "./bin/run",
-  "typings": "@types",
   "scripts": {
     "start": "ts-node src/index",
     "update:submodules": "git submodule foreach git pull origin master",

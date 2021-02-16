@@ -14,6 +14,7 @@
     "sourceMap": true,
     "rootDir": "src",
     "resolveJsonModule": true,
+    "declaration": true,
   },
   "include": ["src"],
   "exclude": [

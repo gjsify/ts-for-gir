@@ -4,4 +4,4 @@ main.js
 node_modules/
 tmp/
 lib/
-@types/
+examples/**/@types/

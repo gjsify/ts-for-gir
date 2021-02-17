@@ -305,10 +305,11 @@ export class GirModule {
                 inheritanceTable[clsName] = arr.concat(names)
             }
         }
-        this.log.debug('loadInheritance')
-        for (const key in inheritanceTable) {
-            this.log.debug('key', key)
-        }
+        // TODO getSymTableKey
+        // this.log.debug('loadInheritance')
+        // for (const key in inheritanceTable) {
+        //     this.log.debug('key', key)
+        // }
     }
 
     private typeLookup(girVar: GirVariable): string {
@@ -726,8 +727,7 @@ export class GirModule {
             }
 
             if (!parentPtr && parentName == 'Object') {
-                // TODO symTable
-                parentPtr = (this.symTable['GObject.Object'] as GirClass) || null
+                parentPtr = (this.symTable['GObject-2.0.GObject.Object'] as GirClass) || null
             }
 
             // check circular dependency
@@ -866,7 +866,7 @@ export class GirModule {
 
         // Methods are overloadable by typescript
         // TODO Add support for properties
-        if (type === 'method' || type === 'property') {
+        if (type === 'method') {
             isOverloadable = true
         }
 

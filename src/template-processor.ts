@@ -229,7 +229,8 @@ export class TemplateProcessor {
                     reports?.forEach((result) => {
                         if (result.messages) {
                             for (const message of result.messages) {
-                                this.log.warn(message)
+                                // You can also log more than just the message if you need more information
+                                this.log.warn(message.message)
                             }
                         }
                     })

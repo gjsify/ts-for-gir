@@ -19,6 +19,16 @@ npm install
 npm link
 ```
 
+### CLI
+
+Run `npm link`, this is similar to `npm -g install ts-for-gir` but links to your local development repository which allows you to test your changes directly.
+
+Now you can execute `ts-for-gir` anywhere on your system:
+
+```bash
+ts-for-gir --help
+```
+
 ## Usage
 
 After you have linked this project you can use the `ts-for-gir` command in you project:
@@ -134,7 +144,7 @@ module.exports = {
 
 ## Examples
 
-Run `npm run regress` or `ts-for-gir --configName='.ts-for-gir.regress.rc.js'` in the root of this project to generate the type definitons for the examples
+Run `npm run regress` or `ts-for-gir --configName='.ts-for-gir.regress.rc.js'` in the root of this project to generate the type definitions for the examples
 
 Now open some code with an editor that understands TypeScript and see what happens, for example
 [Visual Studio Code](https://code.visualstudio.com/).
@@ -170,15 +180,34 @@ Generate example type definitions:
 npm run regress
 ```
 
-### CLI
+### NPM Scripts
 
-Run `npm link`, this is similar to `npm -g install ts-for-gir` but links to your local development repository which allows you to test your changes directly.
+#### Validate
 
-Now you can execute `ts-for-gir` anywhere on your system:
+To validate all your generated type definition files in this project run 
 
 ```bash
-ts-for-gir --help
+npm run validate:all
 ```
+
+To validate only your type definition files for Gjs
+
+```bash
+npm run validate:gjs
+```
+
+To validate only your type definition files for node-gtk
+
+```bash
+npm run validate:node
+```
+
+You can also validate a single type definition file like this
+
+```bash
+npm run npm run validate -- ./@types/Gjs/GObject-2.0.d.ts
+```
+
 
 ### Test
 
@@ -192,7 +221,7 @@ npm run test:ava
 
 #### Test gir files
 
-We have a test wich tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.
+We have a test which tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.
 
 Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gjs:
 
@@ -225,3 +254,4 @@ npm run test:girs
 * [jsgtk](https://github.com/WebReflection/jsgtk) - Replaced by cgjs
 * [vala-girs](https://github.com/nemequ/vala-girs) - Collection of GIRs and VAPIs for the Vala toolchain
 * [gjs-examples](https://github.com/optimisme/gjs-examples) - GJS examples showing how to build Gtk javascript applications
+* [hello-gjs-npm](https://github.com/jo/hello-gjs-npm) - Gjs example using Babel and Rollup

@@ -181,10 +181,61 @@ export class ElementAddedNotifier {
     static new(): ElementAddedNotifier
     static $gtype: GObject.Type
 }
+export interface Participant_ConstructProps extends Gst.Object_ConstructProps {
+}
 export class Participant {
     /* Fields of Farstream.Participant */
     parent: Gst.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Participant, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
+    constructor (config?: Participant_ConstructProps)
+    _init (config?: Participant_ConstructProps): void
+    static $gtype: GObject.Type
 }
 export interface Plugin_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
@@ -265,6 +316,12 @@ export class Plugin {
     static listAvailable(typeSuffix: string): string[]
     static $gtype: GObject.Type
 }
+export interface Session_ConstructProps extends Gst.Object_ConstructProps {
+    conference?: Conference
+    id?: number
+    mediaType?: MediaType
+    tos?: number
+}
 export class Session {
     /* Properties of Farstream.Session */
     readonly codecPreferences: Codec[]
@@ -275,6 +332,8 @@ export class Session {
     tos: number
     /* Fields of Farstream.Session */
     parent: Gst.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
     /* Methods of Farstream.Session */
     codecsNeedResend(oldCodecs: Codec[], newCodecs: Codec[]): Codec[]
     destroy(): void
@@ -290,6 +349,28 @@ export class Session {
     setSendCodec(sendCodec: Codec): boolean
     startTelephonyEvent(event: number, volume: number): boolean
     stopTelephonyEvent(): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Session */
     vfuncCodecsNeedResend(oldCodecs: Codec[], newCodecs: Codec[]): Codec[]
     vfuncGetStreamTransmitterType(transmitter: string): GObject.Type
@@ -299,6 +380,14 @@ export class Session {
     vfuncSetSendCodec(sendCodec: Codec): boolean
     vfuncStartTelephonyEvent(event: number, volume: number): boolean
     vfuncStopTelephonyEvent(): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Session */
     connect(sigName: "error", callback: (($obj: Session, object: GObject.Object, errorNo: Error, errorMsg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Session, object: GObject.Object, errorNo: Error, errorMsg: string) => void)): number
@@ -306,7 +395,59 @@ export class Session {
     on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::codec-preferences", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::codec-preferences", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::codec-preferences", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::codec-preferences", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::codec-preferences", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::codecs", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::codecs", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::codecs-without-config", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::codecs-without-config", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::codecs-without-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::codecs-without-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::codecs-without-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::current-send-codec", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-send-codec", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::current-send-codec", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::current-send-codec", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::current-send-codec", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sink-pad", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sink-pad", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sink-pad", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sink-pad", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sink-pad", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tos", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tos", callback: (($obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
+    constructor (config?: Session_ConstructProps)
+    _init (config?: Session_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface Stream_ConstructProps extends Gst.Object_ConstructProps {
+    direction?: StreamDirection
+    participant?: Participant
+    session?: Session
 }
 export class Stream {
     /* Properties of Farstream.Stream */
@@ -316,6 +457,8 @@ export class Stream {
     readonly remoteCodecs: Codec[]
     /* Fields of Farstream.Stream */
     parent: Gst.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
     /* Methods of Farstream.Stream */
     addId(id: number): void
     addRemoteCandidates(candidates: Candidate[]): boolean
@@ -330,12 +473,42 @@ export class Stream {
     parseRecvCodecsChanged(message: Gst.Message): [ /* returnType */ boolean, /* codecs */ Codec[] ]
     setRemoteCodecs(remoteCodecs: Codec[]): boolean
     setTransmitter(transmitter: string, streamTransmitterParameters: GObject.Parameter, streamTransmitterNParameters: number): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Stream */
     vfuncAddId(id: number): void
     vfuncAddRemoteCandidates(candidates: Candidate[]): boolean
     vfuncForceRemoteCandidates(remoteCandidates: Candidate[]): boolean
     vfuncSetRemoteCodecs(remoteCodecs: Codec[]): boolean
     vfuncSetTransmitter(transmitter: string, streamTransmitterParameters: GObject.Parameter, streamTransmitterNParameters: number): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Stream */
     connect(sigName: "error", callback: (($obj: Stream, errorno: Error, errorMsg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Stream, errorno: Error, errorMsg: string) => void)): number
@@ -349,24 +522,98 @@ export class Stream {
     on(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "src-pad-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::current-recv-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-recv-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::current-recv-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::current-recv-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::current-recv-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::direction", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::direction", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::negotiated-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::negotiated-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::negotiated-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::negotiated-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::negotiated-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::remote-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::remote-codecs", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::remote-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::remote-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::remote-codecs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
+    constructor (config?: Stream_ConstructProps)
+    _init (config?: Stream_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface StreamTransmitter_ConstructProps extends Gst.Object_ConstructProps {
+    associateOnSource?: boolean
+    preferredLocalCandidates?: CandidateList
+    sending?: boolean
 }
 export class StreamTransmitter {
     /* Properties of Farstream.StreamTransmitter */
     sending: boolean
     /* Fields of Farstream.StreamTransmitter */
     parent: Gst.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
     /* Methods of Farstream.StreamTransmitter */
     addRemoteCandidates(candidates: Candidate[]): boolean
     emitError(errorNo: number, errorMsg: string): void
     forceRemoteCandidates(remoteCandidates: Candidate[]): boolean
     gatherLocalCandidates(): boolean
     stop(): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.StreamTransmitter */
     vfuncAddRemoteCandidates(candidates: Candidate[]): boolean
     vfuncForceRemoteCandidates(remoteCandidates: Candidate[]): boolean
     vfuncGatherLocalCandidates(): boolean
     vfuncStop(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.StreamTransmitter */
     connect(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, errorMsg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: StreamTransmitter, errorno: Error, errorMsg: string) => void)): number
@@ -404,7 +651,33 @@ export class StreamTransmitter {
     on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sending", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sending", callback: (($obj: StreamTransmitter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sending", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
+    constructor (config?: StreamTransmitter_ConstructProps)
+    _init (config?: StreamTransmitter_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface Transmitter_ConstructProps extends Gst.Object_ConstructProps {
+    components?: number
+    tos?: number
 }
 export class Transmitter {
     /* Properties of Farstream.Transmitter */
@@ -413,14 +686,46 @@ export class Transmitter {
     tos: number
     /* Fields of Farstream.Transmitter */
     parent: Gst.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
     /* Methods of Farstream.Transmitter */
     emitError(errorNo: number, errorMsg: string): void
     getRecvonlyFilter(component: number): Gst.Element
     getStreamTransmitterType(): GObject.Type
     newStreamTransmitter(participant: Participant, nParameters: number, parameters: GObject.Parameter): StreamTransmitter
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Farstream.Transmitter */
     vfuncGetStreamTransmitterType(): GObject.Type
     vfuncNewStreamTransmitter(participant: Participant, nParameters: number, parameters: GObject.Parameter): StreamTransmitter
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.Transmitter */
     connect(sigName: "error", callback: (($obj: Transmitter, errorno: Error, errorMsg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Transmitter, errorno: Error, errorMsg: string) => void)): number
@@ -434,12 +739,42 @@ export class Transmitter {
     on(sigName: "get-recvonly-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "get-recvonly-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "get-recvonly-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::gst-sink", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::gst-sink", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::gst-sink", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::gst-sink", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::gst-sink", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::gst-src", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::gst-src", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::gst-src", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::gst-src", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::gst-src", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tos", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tos", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    static new(type: string, components: number, tos: number): Transmitter
-    constructor(type: string, components: number, tos: number)
+    constructor (config?: Transmitter_ConstructProps)
+    _init (config?: Transmitter_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(type: string, components: number, tos: number): Transmitter
     static listAvailable(): string[]
+    static $gtype: GObject.Type
 }
 export class Candidate {
     /* Fields of Farstream.Candidate */

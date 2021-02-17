@@ -2052,9 +2052,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'ColorHug.DeviceQueue': [
     'GObject.Object',
 ],
-    'Colorhug.DeviceQueue': [
-    'GObject.Object',
-],
     'Colord.Client': [
     'GObject.Object',
 ],
@@ -2097,6 +2094,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'ColordGtk.Window': [
+    'GObject.Object',
+],
+    'Colorhug.DeviceQueue': [
     'GObject.Object',
 ],
     'DBusGLib.Proxy': [
@@ -6804,25 +6804,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.Initable',
 ],
     'GXPS.Page': [
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'Gxps.CoreProperties': [
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'Gxps.Document': [
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'Gxps.DocumentStructure': [
-    'GObject.Object',
-],
-    'Gxps.File': [
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'Gxps.Page': [
     'GObject.Object',
     'Gio.Initable',
 ],
@@ -19527,6 +19508,25 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Guestfs.XfsRepair': [
     'GObject.Object',
+],
+    'Gxps.CoreProperties': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.Document': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.DocumentStructure': [
+    'GObject.Object',
+],
+    'Gxps.File': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.Page': [
+    'GObject.Object',
+    'Gio.Initable',
 ],
     'Handy.ActionRow': [
     'Handy.PreferencesRow',

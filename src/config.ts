@@ -23,7 +23,7 @@ export class Config {
         environments: ['gjs', 'node'],
         pretty: false,
         print: false,
-        outdir: '@types',
+        outdir: './@types',
         girDirectories: [OS.platform() === 'darwin' ? '/usr/local/share/gir-1.0' : '/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
@@ -116,7 +116,7 @@ export class Config {
             case '.js':
                 writeConfigString = `module.exports = ${JSON.stringify(configToStore, null, 4)}`
                 break
-            case '.jsson':
+            case '.json':
                 writeConfigString = `${JSON.stringify(configToStore, null, 4)}`
                 break
             default:
@@ -160,7 +160,7 @@ export class Config {
 
     /**
      * Loads the values of the config file and concatenate them with passed cli flags / arguments.
-     * The values from config file  are prefered if the cli flag value is the default (and so not set / overwritten)
+     * The values from config file  are preferred if the cli flag value is the default (and so not set / overwritten)
      * @param flags
      * @param modules
      */
@@ -180,42 +180,58 @@ export class Config {
         }
 
         if (configFile) {
+            // environments
             if (Utils.isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
                 config.environments = configFile.config.environments
             }
+            // buildType
             if (configFile.config.buildType) {
                 config.buildType = configFile.config.buildType
             }
+            // verbose
             if (
                 config.verbose === Config.defaultCliFlags.verbose.default &&
                 typeof configFile.config.verbose === 'boolean'
             ) {
                 config.verbose = configFile.config.verbose
             }
+            // ignoreConflicts
+            if (
+                config.ignoreConflicts === Config.defaultCliFlags.ignoreConflicts.default &&
+                typeof configFile.config.ignoreConflicts === 'boolean'
+            ) {
+                config.ignoreConflicts = configFile.config.ignoreConflicts
+            }
+            // pretty
             if (
                 config.pretty === Config.defaultCliFlags.pretty.default &&
                 typeof configFile.config.pretty === 'boolean'
             ) {
                 config.pretty = configFile.config.pretty
             }
+            // print
             if (config.print === Config.defaultCliFlags.print.default && typeof configFile.config.print === 'boolean') {
                 config.print = configFile.config.print
             }
+            // outdir
             if (config.outdir === Config.defaultCliFlags.outdir.default && configFile.config.outdir) {
                 config.outdir = config.print ? null : configFile.config.outdir
             }
+            // girDirectories
             if (
                 config.girDirectories === Config.defaultCliFlags.girDirectories.default &&
                 configFile.config.girDirectories
             ) {
                 config.girDirectories = configFile.config.girDirectories
             }
+            // ignore
             if (
                 (!config.ignore || config.ignore.length <= 0 || Utils.isEqual(config.ignore, Config.defaults.ignore)) &&
                 configFile.config.ignore
             ) {
                 config.ignore = configFile.config.ignore
             }
+            // modules
             if (
                 (config.modules.length <= 0 || Utils.isEqual(config.modules, Config.defaults.modules)) &&
                 configFile.config.modules

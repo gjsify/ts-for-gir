@@ -31,9 +31,9 @@ import type * as Gjs from "./Gjs";
 //// import type * as CoglPango10 from "./CoglPango-1.0";
 //// import type * as CoglPango20 from "./CoglPango-2.0";
 //// import type * as ColorHug10 from "./ColorHug-1.0";
-//// import type * as Colorhug10 from "./Colorhug-1.0";
 //// import type * as Colord10 from "./Colord-1.0";
 //// import type * as ColordGtk10 from "./ColordGtk-1.0";
+//// import type * as Colorhug10 from "./Colorhug-1.0";
 //// import type * as DBus10 from "./DBus-1.0";
 //// import type * as DBusGLib10 from "./DBusGLib-1.0";
 //// import type * as DMAP30 from "./DMAP-3.0";
@@ -108,7 +108,6 @@ import type * as Gjs from "./Gjs";
 //// import type * as GVncPulse10 from "./GVncPulse-1.0";
 //// import type * as GWeather30 from "./GWeather-3.0";
 //// import type * as GXPS01 from "./GXPS-0.1";
-//// import type * as Gxps10 from "./Gxps-1.0";
 //// import type * as GXml010 from "./GXml-0.10";
 //// import type * as GXml014 from "./GXml-0.14";
 //// import type * as GXml016 from "./GXml-0.16";
@@ -217,6 +216,7 @@ import type * as Gjs from "./Gjs";
 //// import type * as GtkVnc20 from "./GtkVnc-2.0";
 //// import type * as Gucharmap290 from "./Gucharmap-2.90";
 //// import type * as Guestfs10 from "./Guestfs-1.0";
+//// import type * as Gxps10 from "./Gxps-1.0";
 //// import type * as Handy00 from "./Handy-0.0";
 //// import type * as Handy1 from "./Handy-1";
 //// import type * as HarfBuzz00 from "./HarfBuzz-0.0";
@@ -397,9 +397,9 @@ declare global {
     //    //       : typeof CoglPango10
     //    //       : typeof CoglPango20
     //    //       : typeof ColorHug10
-    //    //       : typeof Colorhug10
     //    //       : typeof Colord10
     //    //       : typeof ColordGtk10
+    //    //       : typeof Colorhug10
     //    //       : typeof DBus10
     //    //       : typeof DBusGLib10
     //    //       : typeof DMAP30
@@ -474,7 +474,6 @@ declare global {
     //    //       : typeof GVncPulse10
     //    //       : typeof GWeather30
     //    //       : typeof GXPS01
-    //    //       : typeof Gxps10
     //    //       : typeof GXml010
     //    //       : typeof GXml014
     //    //       : typeof GXml016
@@ -583,6 +582,7 @@ declare global {
     //    //       : typeof GtkVnc20
     //    //       : typeof Gucharmap290
     //    //       : typeof Guestfs10
+    //    //       : typeof Gxps10
     //    //       : typeof Handy00
     //    //       : typeof Handy1
     //    //       : typeof HarfBuzz00

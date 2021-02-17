@@ -4,7 +4,7 @@
 import * as <%= girModule.importName %> from './<%= girModule.packageName %>';
     <%_ } _%>
     <%_ if (buildType === 'types') { _%>
-import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+import type { <%= girModule.namespace %> as <%= girModule.importName %> } from "./<%= girModule.packageName %>";
     <%_ } _%>
 <%_ } _%>
 
@@ -13,8 +13,7 @@ declare module 'node-gtk' {
 <%_ } _%>
     export function require(ns: string, ver?: string): any;
     <%_ for (const girModule of girModules) { _%>
-        // export function require(ns: '<%= girModule.name %>'): typeof <%= girModule.name %>;
-        export function require(ns: '<%= girModule.importName %>', ver?: '<%= girModule.version %>'): typeof <%= girModule.name %>;
+        export function require(ns: '<%= girModule.importName %>', ver?: '<%= girModule.version %>'): typeof <%= girModule.importName %>;
     <%_ } _%>
     export function startLoop(): void;
 <%_ if (buildType === 'types') { _%>

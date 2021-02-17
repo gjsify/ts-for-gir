@@ -71,7 +71,7 @@ test('constant', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 
@@ -108,7 +108,7 @@ test('function', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 
@@ -160,7 +160,7 @@ test('callback', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 
@@ -179,7 +179,7 @@ test('interface', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 
@@ -276,7 +276,7 @@ test('constructors', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 
@@ -319,7 +319,7 @@ test('class', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
     mod.symTable = symTable as any
 

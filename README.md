@@ -224,3 +224,4 @@ npm run test:girs
 * [cgjs](https://github.com/cgjs/cgjs) - A NodeJS / CommonJS Runtime for GJS
 * [jsgtk](https://github.com/WebReflection/jsgtk) - Replaced by cgjs
 * [vala-girs](https://github.com/nemequ/vala-girs) - Collection of GIRs and VAPIs for the Vala toolchain
+* [gjs-examples](https://github.com/optimisme/gjs-examples) - GJS examples showing how to build Gtk javascript applications

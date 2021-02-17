@@ -1,6 +1,6 @@
 module.exports = {
     modules: ['*'],
-    prettify: true,
+    pretty: true,
     environments: ['gjs', 'node'],
     outdir: './@types',
     girDirectories: ['./vala-girs/gir-1.0'],

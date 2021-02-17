@@ -305,6 +305,10 @@ export class GirModule {
                 inheritanceTable[clsName] = arr.concat(names)
             }
         }
+        this.log.debug('loadInheritance')
+        for (const key in inheritanceTable) {
+            this.log.debug('key', key)
+        }
     }
 
     private typeLookup(girVar: GirVariable): string {
@@ -862,7 +866,7 @@ export class GirModule {
 
         // Methods are overloadable by typescript
         // TODO Add support for properties
-        if (type === 'method') {
+        if (type === 'method' || type === 'property') {
             isOverloadable = true
         }
 
@@ -870,11 +874,6 @@ export class GirModule {
             // Ignore duplicates with the same type
             if (Utils.isEqual(localNames[name].desc, desc)) {
                 return [[], false]
-            }
-            if (debugMe) {
-                this.log.warn(
-                    `FIXME: Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n Defined: ${desc}\n`,
-                )
             }
 
             // Ignore if current method is not overloadable
@@ -884,12 +883,20 @@ export class GirModule {
 
             // Only names of the same type are overloadable
             if (localNames[name].type !== type) {
+                // This can be happen on node bindings, e.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
+                // See issue https://github.com/romgrk/node-gtk/issues/256
+                // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
+                // TODO prefer functions over properties (Overwrite the properties with the functions of they have the same name)
+                if (debugMe)
+                    this.log.warn(
+                        `Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`,
+                    )
+
                 return [[], false]
             }
 
-            if (debugMe) {
+            if (debugMe)
                 this.log.debug(`Overload ${type} ${name}\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`)
-            }
         }
 
         localNames[name] = localNames[name] || {}
@@ -1453,8 +1460,7 @@ export class GirModule {
         const details = this.getClassDetails(girClass)
         if (!details) return []
 
-        // eslint-disable-next-line prefer-const
-        let { version, name, qualifiedParentName, localParentName } = details
+        const { /*version,*/ name, qualifiedParentName, localParentName } = details
 
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, name, qualifiedParentName, localParentName))
@@ -1538,16 +1544,16 @@ export class GirModule {
         return this.exportClassInternal(girClass, false)
     }
 
-    public exportJs(): void {
+    public async exportJs(): Promise<void> {
         if (this.config.outdir) {
-            this.templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
+            await this.templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
         } else {
             const moduleContent = this.templateProcessor.load('module.js')
             this.log.log(moduleContent)
         }
     }
 
-    public export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
+    public async export(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
         const out: string[] = []
 
         out.push(...TemplateProcessor.generateTSDocComment(`${this.packageName}`))
@@ -1641,8 +1647,8 @@ export class GirModule {
         // End of file
         outStream.write(out.join('\n'))
 
-        if (outputPath) {
-            templateProcessor.prettify(outputPath)
+        if (outputPath && this.config.pretty) {
+            await templateProcessor.prettify(outputPath)
         }
     }
 }

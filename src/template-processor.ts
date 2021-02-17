@@ -10,9 +10,9 @@ import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { GenerateConfig } from './types'
-import { CLIEngine } from 'eslint' // TODO deprecated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+import { ESLint } from 'eslint' // TODO deprecated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
 
-const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
+const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts', '.js'] })
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -161,11 +161,11 @@ export class TemplateProcessor {
      * @param outputFilename
      * @return The rendered (and if possible prettified) code string
      */
-    public create(templateFilename: string, outputDir: string, outputFilename: string): string {
+    public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
         const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
         const destPath = this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.config.pretty ? this.prettify(destPath, true) : null
+        const prettifiedCode = this.config.pretty ? await this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 
@@ -202,39 +202,40 @@ export class TemplateProcessor {
         return null
     }
 
-    public prettify(path: string, changeFile = false): string | null {
+    public async prettify(path: string, changeFile = false): Promise<string | null> {
         let hasError = false
-        let report: any
+        let reports: ESLint.LintResult[] | undefined
         let prettifiedCode: string | null = null
-        this.log.info(`   Prettify ...`)
+        const filename = Path.basename(path)
+        this.log.info(`   Prettify ${filename}...`)
         try {
-            report = lint.executeOnFiles([path])
+            reports = await lint.lintFiles([path])
         } catch (error) {
             this.log.warn(error)
             hasError = true
         }
 
-        if (report?.errorCount > 0) {
+        if (reports && reports[0].errorCount > 0) {
             hasError = true
         }
 
-        prettifiedCode = report?.results[0]?.output || null
+        prettifiedCode = (reports && reports[0]?.output) || null
 
         if (hasError) {
             if (!prettifiedCode) {
-                this.log.warn(
-                    `Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`,
-                )
-                this.log.dir(report)
-
-                report?.results.forEach((result) => {
-                    if (result.message) {
-                        this.log.log(result.message)
-                    }
-                })
+                this.log.warn(`Can't prettify file: "${path}", please check errors or your .eslintrc.js config file`)
+                if (reports) {
+                    // this.log.dir(report)
+                    reports?.forEach((result) => {
+                        if (result.messages) {
+                            for (const message of result.messages) {
+                                this.log.warn(message)
+                            }
+                        }
+                    })
+                }
             }
         } else {
-            prettifiedCode = report.results[0].output
             if (prettifiedCode && changeFile) {
                 this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
             }

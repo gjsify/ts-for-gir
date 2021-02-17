@@ -62,7 +62,7 @@ export class Generator {
         }
     }
 
-    public start(girModules: GirModule[]): void {
+    public async start(girModules: GirModule[]): Promise<void> {
         this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
 
         if (girModules.length == 0) {
@@ -100,21 +100,21 @@ export class Generator {
         this.log.info('Types loaded, generating .d.ts...')
 
         for (const girModule of girModules) {
-            let dtOutf: NodeJS.WritableStream = process.stdout
+            let dtOut: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (this.config.outdir) {
                 const packageName: string = girModule.packageName || 'unknown'
-                const OutputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
+                const outputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
                 const dtFileName = `${packageName}.d.ts`
-                dtOutputPath = Path.join(OutputDir, dtFileName)
-                fs.mkdirSync(OutputDir, { recursive: true })
-                dtOutf = fs.createWriteStream(dtOutputPath)
+                dtOutputPath = Path.join(outputDir, dtFileName)
+                fs.mkdirSync(outputDir, { recursive: true })
+                dtOut = fs.createWriteStream(dtOutputPath)
             }
             this.log.log(` - ${girModule.packageName} ...`)
             girModule.patch = patch
-            girModule.export(dtOutf, dtOutputPath)
+            await girModule.export(dtOut, dtOutputPath)
             if (this.config.buildType === 'lib') {
-                girModule.exportJs()
+                await girModule.exportJs()
             }
         }
 

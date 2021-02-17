@@ -287,7 +287,7 @@ test('constructors', (t) => {
         '    path: string',
         '    interfaces: DBusInterfaceInfo[]',
         '    nodes: DBusNodeInfo[]',
-        '    annotations: any[]',
+        '    annotations: DBusAnnotationInfo[]',
         '    /* Methods of DBusNodeInfo */',
         '    generate_xml(indent: number): /* string_builder */ GLib.String',
         '    lookup_interface(name: string): DBusInterfaceInfo',

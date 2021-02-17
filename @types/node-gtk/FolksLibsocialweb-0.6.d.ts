@@ -2,7 +2,7 @@
  * FolksLibsocialweb-0.6
  */
 
-/// <reference types="node" />
+import "node"
 // WARN: Dependency not found: 'SocialWebClient-0.25'
 import type { Folks } from './Folks-0.6';
 import type { GLib } from './GLib-2.0';
@@ -10,7 +10,7 @@ import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
-declare namespace FolksLibsocialweb {
+export declare namespace FolksLibsocialweb {
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     lswContact?: SocialWebClient.Contact

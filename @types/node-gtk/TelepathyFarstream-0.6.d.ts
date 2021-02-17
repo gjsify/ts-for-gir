@@ -2,7 +2,7 @@
  * TelepathyFarstream-0.6
  */
 
-/// <reference types="node" />
+import "node"
 import type { TelepathyGLib } from './TelepathyGLib-0.12';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
@@ -11,7 +11,7 @@ import type { Gst } from './Gst-1.0';
 import type { GModule } from './GModule-2.0';
 import type { Farstream } from './Farstream-0.2';
 
-declare namespace TelepathyFarstream {
+export declare namespace TelepathyFarstream {
 
 export interface Channel_ConstructProps extends GObject.Object_ConstructProps {
     channel?: TelepathyGLib.Channel

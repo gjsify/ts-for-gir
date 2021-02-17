@@ -4,10 +4,10 @@
 
 import type * as Gjs from './Gjs';
 import type * as cairo from './cairo-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Json from './Json-1.0';
 import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as GL from './GL-1.0';
 import type * as CoglPango from './CoglPango-1.0';
 import type * as PangoCairo from './PangoCairo-1.0';
@@ -12996,7 +12996,7 @@ export class ListModel {
     set_names(names: string[]): void
     set_sort(column: number, func: ModelSortFunc | null): void
     set_sorting_column(column: number): void
-    set_types(types: GObject.Type[]): void
+    set_types(types: GObject.Type[][]): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13078,7 +13078,7 @@ export class ListModel {
     constructor (config?: ListModel_ConstructProps)
     _init (config?: ListModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newv(types: GObject.Type[], names: string[]): ListModel
+    static newv(types: GObject.Type[][], names: string[]): ListModel
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[]): ListModel
     static $gtype: GObject.Type
 }
@@ -13112,7 +13112,7 @@ export class Model {
     set_names(names: string[]): void
     set_sort(column: number, func: ModelSortFunc | null): void
     set_sorting_column(column: number): void
-    set_types(types: GObject.Type[]): void
+    set_types(types: GObject.Type[][]): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding

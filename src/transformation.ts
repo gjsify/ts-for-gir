@@ -27,6 +27,7 @@ export const POD_TYPE_MAP = {
     gunichar: 'number',
     gint8: 'number',
     gint32: 'number',
+    int32: 'number',
     gushort: 'number',
     gfloat: 'number',
     gboolean: 'boolean',
@@ -54,6 +55,7 @@ export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CT
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'any', // FIXME
+        guintptr: 'string', // TODO
         GType: ((targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') + suffix) as GType,
     }
 }

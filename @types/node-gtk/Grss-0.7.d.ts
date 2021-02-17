@@ -2,14 +2,14 @@
  * Grss-0.7
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
 
-declare namespace Grss {
+export declare namespace Grss {
 
 export interface FeedAtomFormatter_ConstructProps extends FeedFormatter_ConstructProps {
 }

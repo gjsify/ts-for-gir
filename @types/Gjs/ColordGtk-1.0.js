@@ -1,2 +1,2 @@
-imports.gi.versions.ColordGtk = '1.0';
-module.exports = imports.gi.ColordGtk;
+imports.gi.versions.ColordGtk = '1.0'
+export default imports.gi.ColordGtk

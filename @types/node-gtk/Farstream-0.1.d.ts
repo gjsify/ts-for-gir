@@ -2,14 +2,14 @@
  * Farstream-0.1
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 // WARN: Dependency not found: 'Gst-0.10'
 import type { GModule } from './GModule-2.0';
 
-declare namespace Farstream {
+export declare namespace Farstream {
 
 export enum CandidateType {
     HOST,

@@ -1,2 +1,2 @@
-imports.gi.versions.FolksDummy = '0.7';
-module.exports = imports.gi.FolksDummy;
+imports.gi.versions.FolksDummy = '0.7'
+export default imports.gi.FolksDummy

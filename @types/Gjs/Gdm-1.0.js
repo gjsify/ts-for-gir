@@ -1,2 +1,2 @@
-imports.gi.versions.Gdm = '1.0';
-module.exports = imports.gi.Gdm;
+imports.gi.versions.Gdm = '1.0'
+export default imports.gi.Gdm

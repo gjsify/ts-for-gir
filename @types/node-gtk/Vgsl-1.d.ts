@@ -2,7 +2,7 @@
  * Vgsl-1
  */
 
-/// <reference types="node" />
+import "node"
 import type { Vgda } from './Vgda-1';
 import type { Vda } from './Vda-1';
 import type { GCalc } from './GCalc-1';
@@ -11,7 +11,7 @@ import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
-declare namespace Vgsl {
+export declare namespace Vgsl {
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }

@@ -2,7 +2,7 @@
  * Gucharmap-2.90
  */
 
-/// <reference types="node" />
+import "node"
 import type { Pango } from './Pango-1.0';
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
@@ -16,7 +16,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Gucharmap {
+export declare namespace Gucharmap {
 
 export enum CharmapPageType {
     CHARTABLE,

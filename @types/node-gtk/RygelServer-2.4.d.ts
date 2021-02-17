@@ -2,7 +2,7 @@
  * RygelServer-2.4
  */
 
-/// <reference types="node" />
+import "node"
 import type { RygelCore } from './RygelCore-2.4';
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -16,7 +16,7 @@ import type { GModule } from './GModule-2.0';
 import type { Soup } from './Soup-2.4';
 import type { GUPnPAV } from './GUPnPAV-1.0';
 
-declare namespace RygelServer {
+export declare namespace RygelServer {
 
 export enum LogicalOperator {
     AND,

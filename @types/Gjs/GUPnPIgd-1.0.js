@@ -1,2 +1,2 @@
-imports.gi.versions.GUPnPIgd = '1.0';
-module.exports = imports.gi.GUPnPIgd;
+imports.gi.versions.GUPnPIgd = '1.0'
+export default imports.gi.GUPnPIgd

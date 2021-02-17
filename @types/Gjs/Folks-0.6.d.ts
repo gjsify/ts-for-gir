@@ -4,8 +4,8 @@
 
 import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
-import type * as GObject from './GObject-2.0';
 import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 
 export enum Gender {

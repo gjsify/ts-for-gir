@@ -2,7 +2,7 @@
  * Eog-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -16,7 +16,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Eog {
+export declare namespace Eog {
 
 export enum ImageError {
     SAVE_NOT_LOCAL,

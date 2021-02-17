@@ -2,7 +2,7 @@
  * PeasGtk-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Peas } from './Peas-1.0';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
@@ -18,7 +18,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace PeasGtk {
+export declare namespace PeasGtk {
 
 export class Configurable {
     /* Methods of PeasGtk.Configurable */

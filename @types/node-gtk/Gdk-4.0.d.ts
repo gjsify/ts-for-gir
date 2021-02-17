@@ -2,7 +2,7 @@
  * Gdk-4.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -12,7 +12,7 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace Gdk {
+export declare namespace Gdk {
 
 export enum AxisUse {
     IGNORE,

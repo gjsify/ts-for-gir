@@ -2,7 +2,7 @@
  * GeglGtk3-0.1
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -18,7 +18,7 @@ import type { Atk } from './Atk-1.0';
 import type { Gegl } from './Gegl-0.4';
 import type { Babl } from './Babl-0.1';
 
-declare namespace GeglGtk3 {
+export declare namespace GeglGtk3 {
 
 export enum ViewAutoscale {
     DISABLED,

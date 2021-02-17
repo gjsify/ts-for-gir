@@ -1662,6 +1662,8 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
+export type BusName = string; // TODO
+export type ObjectPath = string; // TODO
 export class Array {
     /* Fields of GLib.Array */
     data: string

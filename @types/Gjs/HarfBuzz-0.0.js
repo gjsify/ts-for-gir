@@ -1,2 +1,2 @@
-imports.gi.versions.HarfBuzz = '0.0';
-module.exports = imports.gi.HarfBuzz;
+imports.gi.versions.HarfBuzz = '0.0'
+export default imports.gi.HarfBuzz

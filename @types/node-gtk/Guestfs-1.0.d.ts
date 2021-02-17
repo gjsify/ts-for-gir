@@ -2,12 +2,12 @@
  * Guestfs-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace Guestfs {
+export declare namespace Guestfs {
 
 export enum SessionEvent {
     CLOSE,

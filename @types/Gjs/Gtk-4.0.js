@@ -1,2 +1,2 @@
-imports.gi.versions.Gtk = '4.0';
-module.exports = imports.gi.Gtk;
+imports.gi.versions.Gtk = '4.0'
+export default imports.gi.Gtk

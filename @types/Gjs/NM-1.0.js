@@ -1,2 +1,2 @@
-imports.gi.versions.NM = '1.0';
-module.exports = imports.gi.NM;
+imports.gi.versions.NM = '1.0'
+export default imports.gi.NM

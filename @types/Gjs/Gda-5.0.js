@@ -1,2 +1,2 @@
-imports.gi.versions.Gda = '5.0';
-module.exports = imports.gi.Gda;
+imports.gi.versions.Gda = '5.0'
+export default imports.gi.Gda

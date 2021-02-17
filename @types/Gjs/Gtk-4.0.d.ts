@@ -1028,7 +1028,7 @@ export function test_accessible_has_property(accessible: Accessible, property: A
 export function test_accessible_has_relation(accessible: Accessible, relation: AccessibleRelation): boolean
 export function test_accessible_has_role(accessible: Accessible, role: AccessibleRole): boolean
 export function test_accessible_has_state(accessible: Accessible, state: AccessibleState): boolean
-export function test_list_all_types(): GObject.Type[]
+export function test_list_all_types(): GObject.Type[][]
 export function test_register_all_types(): void
 export function test_widget_wait_for_draw(widget: Widget): void
 export function tree_create_row_drag_content(tree_model: TreeModel, path: TreePath): Gdk.ContentProvider
@@ -20702,12 +20702,12 @@ export class DropTarget {
     get_actions(): Gdk.DragAction
     get_drop(): Gdk.Drop | null
     get_formats(): Gdk.ContentFormats | null
-    get_gtypes(): GObject.Type[] | null
+    get_gtypes(): GObject.Type[] | null[] | null
     get_preload(): boolean
     get_value(): any
     reject(): void
     set_actions(actions: Gdk.DragAction): void
-    set_gtypes(types: GObject.Type[] | null): void
+    set_gtypes(types: GObject.Type[] | null[] | null): void
     set_preload(preload: boolean): void
     /* Methods of Gtk.EventController */
     get_current_event(): Gdk.Event | null
@@ -37359,7 +37359,7 @@ export class ListStore {
     prepend(): /* iter */ TreeIter
     remove(iter: TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: TreeIter, column: number, value: any): void
     set(iter: TreeIter, columns: number[], values: any): void
     swap(a: TreeIter, b: TreeIter): void
@@ -37507,7 +37507,7 @@ export class ListStore {
     constructor (config?: ListStore_ConstructProps)
     _init (config?: ListStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(types: GObject.Type[]): ListStore
+    static new(types: GObject.Type[][]): ListStore
     static $gtype: GObject.Type
 }
 export interface ListView_ConstructProps extends ListBase_ConstructProps {
@@ -60830,7 +60830,7 @@ export class TreeModelFilter {
     convert_path_to_child_path(filter_path: TreePath): TreePath | null
     get_model(): TreeModel
     refilter(): void
-    set_modify_func(types: GObject.Type[], func: TreeModelFilterModifyFunc): void
+    set_modify_func(types: GObject.Type[][], func: TreeModelFilterModifyFunc): void
     set_visible_column(column: number): void
     set_visible_func(func: TreeModelFilterVisibleFunc): void
     /* Methods of GObject.Object */
@@ -61193,7 +61193,7 @@ export class TreeStore {
     move_before(iter: TreeIter, position?: TreeIter | null): void
     prepend(parent?: TreeIter | null): /* iter */ TreeIter
     remove(iter: TreeIter): boolean
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: TreeIter, column: number, value: any): void
     set(iter: TreeIter, columns: number[], values: any): void
     swap(a: TreeIter, b: TreeIter): void
@@ -61341,7 +61341,7 @@ export class TreeStore {
     constructor (config?: TreeStore_ConstructProps)
     _init (config?: TreeStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(types: GObject.Type[]): TreeStore
+    static new(types: GObject.Type[][]): TreeStore
     static $gtype: GObject.Type
 }
 export interface TreeView_ConstructProps extends Widget_ConstructProps {
@@ -63948,7 +63948,7 @@ export class Widget {
     static get_layout_manager_type(widget_class: Widget | Function | GObject.Type): GObject.Type
     static install_action(widget_class: Widget | Function | GObject.Type, action_name: string, parameter_type: string | null, activate: WidgetActionActivateFunc): void
     static install_property_action(widget_class: Widget | Function | GObject.Type, action_name: string, property_name: string): void
-    static query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GType, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
+    static query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GObject.Type, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
     static set_accessible_role(widget_class: Widget | Function | GObject.Type, accessible_role: AccessibleRole): void
     static set_activate_signal(widget_class: Widget | Function | GObject.Type, signal_id: number): void
     static set_activate_signal_from_name(widget_class: Widget | Function | GObject.Type, signal_name: string): void
@@ -66964,7 +66964,7 @@ export abstract class WidgetClass {
     get_layout_manager_type(widget_class: Widget | Function | GObject.Type): GObject.Type
     install_action(widget_class: Widget | Function | GObject.Type, action_name: string, parameter_type: string | null, activate: WidgetActionActivateFunc): void
     install_property_action(widget_class: Widget | Function | GObject.Type, action_name: string, property_name: string): void
-    query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GType, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
+    query_action(widget_class: Widget | Function | GObject.Type, index_: number): [ /* returnType */ boolean, /* owner */ GObject.Type, /* action_name */ string, /* parameter_type */ GLib.VariantType, /* property_name */ string ]
     set_accessible_role(widget_class: Widget | Function | GObject.Type, accessible_role: AccessibleRole): void
     set_activate_signal(widget_class: Widget | Function | GObject.Type, signal_id: number): void
     set_activate_signal_from_name(widget_class: Widget | Function | GObject.Type, signal_name: string): void

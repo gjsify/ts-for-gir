@@ -1,2 +1,2 @@
-imports.gi.versions.Rsvg = '2.0';
-module.exports = imports.gi.Rsvg;
+imports.gi.versions.Rsvg = '2.0'
+export default imports.gi.Rsvg

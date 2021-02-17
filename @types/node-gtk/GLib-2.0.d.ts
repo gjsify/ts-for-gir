@@ -2,10 +2,10 @@
  * GLib-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 
-declare namespace GLib {
+export declare namespace GLib {
 
 export enum BookmarkFileError {
     INVALID_URI,
@@ -1664,6 +1664,8 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
+export type BusName = string;
+export type ObjectPath = string;
 export class Array {
     /* Fields of GLib.Array */
     data: string

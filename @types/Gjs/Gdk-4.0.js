@@ -1,2 +1,2 @@
-imports.gi.versions.Gdk = '4.0';
-module.exports = imports.gi.Gdk;
+imports.gi.versions.Gdk = '4.0'
+export default imports.gi.Gdk

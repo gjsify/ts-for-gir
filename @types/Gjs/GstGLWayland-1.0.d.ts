@@ -38,7 +38,7 @@ export class GLDisplayWayland {
     get_gl_api(): GstGL.GLAPI
     get_gl_api_unlocked(): GstGL.GLAPI
     get_gl_context_for_thread(thread: GLib.Thread): GstGL.GLContext
-    get_handle(): GstGL.guintptr
+    get_handle(): string
     get_handle_type(): GstGL.GLDisplayType
     remove_context(context: GstGL.GLContext): void
     remove_window(window: GstGL.GLWindow): boolean
@@ -91,7 +91,7 @@ export class GLDisplayWayland {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfunc_create_window(): GstGL.GLWindow
-    vfunc_get_handle(): GstGL.guintptr
+    vfunc_get_handle(): string
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */

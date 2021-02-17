@@ -1,2 +1,2 @@
-imports.gi.versions.GtkSource = '5';
-module.exports = imports.gi.GtkSource;
+imports.gi.versions.GtkSource = '5'
+export default imports.gi.GtkSource

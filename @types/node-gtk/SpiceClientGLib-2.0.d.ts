@@ -2,7 +2,7 @@
  * SpiceClientGLib-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
 import type { GObject } from './GObject-2.0';
@@ -10,7 +10,7 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Gio } from './Gio-2.0';
 
-declare namespace SpiceClientGLib {
+export declare namespace SpiceClientGLib {
 
 export enum ChannelEvent {
     NONE,

@@ -2,11 +2,11 @@
  * xrandr-1.3
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace xrandr {
+export declare namespace xrandr {
 
 export class ScreenSize {
     static name: string

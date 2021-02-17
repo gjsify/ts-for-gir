@@ -1,2 +1,2 @@
-imports.gi.versions.Retro = '0.14';
-module.exports = imports.gi.Retro;
+imports.gi.versions.Retro = '0.14'
+export default imports.gi.Retro

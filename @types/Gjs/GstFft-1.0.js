@@ -1,2 +1,2 @@
-imports.gi.versions.GstFft = '1.0';
-module.exports = imports.gi.GstFft;
+imports.gi.versions.GstFft = '1.0'
+export default imports.gi.GstFft

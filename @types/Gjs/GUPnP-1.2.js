@@ -1,2 +1,2 @@
-imports.gi.versions.GUPnP = '1.2';
-module.exports = imports.gi.GUPnP;
+imports.gi.versions.GUPnP = '1.2'
+export default imports.gi.GUPnP

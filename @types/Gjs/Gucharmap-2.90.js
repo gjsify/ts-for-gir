@@ -1,2 +1,2 @@
-imports.gi.versions.Gucharmap = '2.90';
-module.exports = imports.gi.Gucharmap;
+imports.gi.versions.Gucharmap = '2.90'
+export default imports.gi.Gucharmap

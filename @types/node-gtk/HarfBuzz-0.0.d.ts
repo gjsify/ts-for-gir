@@ -2,11 +2,11 @@
  * HarfBuzz-0.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace HarfBuzz {
+export declare namespace HarfBuzz {
 
 export enum aat_layout_feature_selector_t {
     INVALID,

@@ -1,2 +1,2 @@
-imports.gi.versions.Handy = '1';
-module.exports = imports.gi.Handy;
+imports.gi.versions.Handy = '1'
+export default imports.gi.Handy

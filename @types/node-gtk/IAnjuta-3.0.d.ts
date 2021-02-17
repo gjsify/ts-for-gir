@@ -2,7 +2,7 @@
  * IAnjuta-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -18,7 +18,7 @@ import type { Atk } from './Atk-1.0';
 import type { Anjuta } from './Anjuta-3.0';
 import type { Gdl } from './Gdl-3';
 
-declare namespace IAnjuta {
+export declare namespace IAnjuta {
 
 export enum BuildableCommand {
     COMMAND_COMPILE,

@@ -192,7 +192,7 @@ export function type_check_instance_is_fundamentally_a(instance: TypeInstance, f
 export function type_check_is_value_type(type: Type): boolean
 export function type_check_value(value: Value): boolean
 export function type_check_value_holds(value: Value, type: Type): boolean
-export function type_children(type: Type): Type[]
+export function type_children(type: Type): Type[][]
 export function type_class_adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
 export function type_class_peek(type: Type): TypeClass
 export function type_class_peek_static(type: Type): TypeClass
@@ -216,8 +216,8 @@ export function type_interface_add_prerequisite(interface_type: Type, prerequisi
 export function type_interface_get_plugin(instance_type: Type, interface_type: Type): TypePlugin
 export function type_interface_instantiatable_prerequisite(interface_type: Type): Type
 export function type_interface_peek(instance_class: TypeClass, iface_type: Type): TypeInterface
-export function type_interface_prerequisites(interface_type: Type): Type[]
-export function type_interfaces(type: Type): Type[]
+export function type_interface_prerequisites(interface_type: Type): Type[][]
+export function type_interfaces(type: Type): Type[][]
 export function type_is_a(type: Type, is_a_type: Type): boolean
 export function type_name(type: Type): string
 export function type_name_from_class(g_class: TypeClass): string
@@ -352,7 +352,7 @@ export const signals: symbol
 export function registerClass(metaInfo: MetaInfo, cls: Function): Function
 export function registerClass(cls: Function): Function
 export function registerClass<T extends MetaInfo | Function>(a: T, b?: Function): Function
-
+export type VaClosureMarshal = any // TODO
 export interface Binding_ConstructProps extends Object_ConstructProps {
     flags?: BindingFlags
     source?: Object
@@ -1464,7 +1464,7 @@ export class SignalQuery {
     signal_flags: SignalFlags
     return_type: Type
     n_params: number
-    param_types: Type[]
+    param_types: Type[][]
     static name: string
 }
 export class TypeClass {
@@ -1513,7 +1513,7 @@ export class TypeInterface {
     static get_plugin(instance_type: Type, interface_type: Type): TypePlugin
     static instantiatable_prerequisite(interface_type: Type): Type
     static peek(instance_class: TypeClass, iface_type: Type): TypeInterface
-    static prerequisites(interface_type: Type): Type[]
+    static prerequisites(interface_type: Type): Type[][]
 }
 export abstract class TypeModuleClass {
     /* Fields of GObject.TypeModuleClass */

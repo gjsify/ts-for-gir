@@ -2,14 +2,14 @@
  * Unity-6.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Dbusmenu } from './Dbusmenu-0.4';
 import type { Dee } from './Dee-1.0';
 import type { Gio } from './Gio-2.0';
 
-declare namespace Unity {
+export declare namespace Unity {
 
 export enum CategoryType {
     NONE,

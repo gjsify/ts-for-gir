@@ -2,12 +2,12 @@
  * UnityExtras-7.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
 
-declare namespace UnityExtras {
+export declare namespace UnityExtras {
 
 export function showInFolder(uri: string, callback?: Gio.AsyncReadyCallback | null): void
 export function showInFolderFinish(res: Gio.AsyncResult): void

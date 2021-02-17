@@ -2,13 +2,13 @@
  * GrlNet-0.3
  */
 
-/// <reference types="node" />
+import "node"
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace GrlNet {
+export declare namespace GrlNet {
 
 export enum WcError {
     UNAVAILABLE,

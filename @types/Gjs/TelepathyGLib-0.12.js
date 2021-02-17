@@ -1,2 +1,2 @@
-imports.gi.versions.TelepathyGLib = '0.12';
-module.exports = imports.gi.TelepathyGLib;
+imports.gi.versions.TelepathyGLib = '0.12'
+export default imports.gi.TelepathyGLib

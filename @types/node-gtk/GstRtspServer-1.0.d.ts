@@ -2,7 +2,7 @@
  * GstRtspServer-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstRtsp } from './GstRtsp-1.0';
 import type { GstSdp } from './GstSdp-1.0';
 import type { Gst } from './Gst-1.0';
@@ -13,7 +13,7 @@ import type { GstBase } from './GstBase-1.0';
 import type { Gio } from './Gio-2.0';
 import type { GstNet } from './GstNet-1.0';
 
-declare namespace GstRtspServer {
+export declare namespace GstRtspServer {
 
 export enum RTSPAddressPoolResult {
     OK,

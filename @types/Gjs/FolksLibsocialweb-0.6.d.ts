@@ -6,8 +6,8 @@ import type * as Gjs from './Gjs';
 // WARN: Dependency not found: 'SocialWebClient-0.25'
 import type * as Folks from './Folks-0.6';
 import type * as GLib from './GLib-2.0';
-import type * as GObject from './GObject-2.0';
 import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {

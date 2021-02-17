@@ -5,12 +5,12 @@
 import type * as Gjs from './Gjs';
 import type * as Gtk from './Gtk-3.0';
 import type * as xlib from './xlib-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Gdk from './Gdk-3.0';
 import type * as cairo from './cairo-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as GdkPixbuf from './GdkPixbuf-2.0';
 import type * as GModule from './GModule-2.0';
@@ -2591,7 +2591,7 @@ export class ListStore {
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
@@ -2750,7 +2750,7 @@ export class ListStore {
     _init (config?: ListStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ListStore
-    static new(types: GObject.Type[]): ListStore
+    static new(types: GObject.Type[][]): ListStore
     static new_from_glist(list: Image[]): ListStore
     static $gtype: GObject.Type
 }

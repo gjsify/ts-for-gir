@@ -2,7 +2,7 @@
  * LibvirtGObject-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { LibvirtGLib } from './LibvirtGLib-1.0';
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -10,7 +10,7 @@ import type { LibvirtGConfig } from './LibvirtGConfig-1.0';
 import type { libxml2 } from './libxml2-2.0';
 import type { Gio } from './Gio-2.0';
 
-declare namespace LibvirtGObject {
+export declare namespace LibvirtGObject {
 
 export enum DomainDeleteFlags {
     NONE,

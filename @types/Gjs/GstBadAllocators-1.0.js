@@ -1,2 +1,2 @@
-imports.gi.versions.GstBadAllocators = '1.0';
-module.exports = imports.gi.GstBadAllocators;
+imports.gi.versions.GstBadAllocators = '1.0'
+export default imports.gi.GstBadAllocators

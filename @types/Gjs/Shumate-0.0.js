@@ -1,2 +1,2 @@
-imports.gi.versions.Shumate = '0.0';
-module.exports = imports.gi.Shumate;
+imports.gi.versions.Shumate = '0.0'
+export default imports.gi.Shumate

@@ -2,11 +2,11 @@
  * GModule-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 
-declare namespace GModule {
+export declare namespace GModule {
 
 export enum ModuleFlags {
     LAZY,

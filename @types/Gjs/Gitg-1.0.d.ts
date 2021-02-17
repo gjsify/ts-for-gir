@@ -4,10 +4,10 @@
 
 import type * as Gjs from './Gjs';
 import type * as cairo from './cairo-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as Gee from './Gee-0.8';
 import type * as Gio from './Gio-2.0';
 import type * as Gdk from './Gdk-3.0';
@@ -9386,7 +9386,7 @@ export class SidebarStore {
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(parent?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
@@ -9435,7 +9435,7 @@ export class SidebarStore {
     _init (config?: SidebarStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SidebarStore
-    static new(types: GObject.Type[]): SidebarStore
+    static new(types: GObject.Type[][]): SidebarStore
     static $gtype: GObject.Type
 }
 export interface SidebarStoreSidebarText_ConstructProps extends GObject.Object_ConstructProps {

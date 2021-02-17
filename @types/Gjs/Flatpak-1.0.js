@@ -1,2 +1,2 @@
-imports.gi.versions.Flatpak = '1.0';
-module.exports = imports.gi.Flatpak;
+imports.gi.versions.Flatpak = '1.0'
+export default imports.gi.Flatpak

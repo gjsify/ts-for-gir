@@ -1,2 +1,2 @@
-imports.gi.versions.GTop = '2.0';
-module.exports = imports.gi.GTop;
+imports.gi.versions.GTop = '2.0'
+export default imports.gi.GTop

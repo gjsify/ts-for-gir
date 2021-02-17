@@ -5,12 +5,12 @@
 import type * as Gjs from './Gjs';
 import type * as Gtk from './Gtk-3.0';
 import type * as xlib from './xlib-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Gdk from './Gdk-3.0';
 import type * as cairo from './cairo-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as GdkPixbuf from './GdkPixbuf-2.0';
 import type * as GModule from './GModule-2.0';
@@ -29,7 +29,7 @@ export function file_info_lookup(location: Gio.File): FileInfo
 export function file_info_lookup_for_uri(uri: string): FileInfo
 export function info_provider_update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 export function module_initialize(module: GObject.TypeModule): void
-export function module_list_types(): /* types */ GType[]
+export function module_list_types(): /* types */ GObject.Type[][]
 export function module_shutdown(): void
 export class ColumnProvider {
     /* Methods of Nautilus.ColumnProvider */

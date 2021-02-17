@@ -2,7 +2,7 @@
  * Gitg-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -18,7 +18,7 @@ import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Gitg {
+export declare namespace Gitg {
 
 export enum AuthenticationLifeTime {
     FORGET,

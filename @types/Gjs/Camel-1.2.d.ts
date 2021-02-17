@@ -4,9 +4,9 @@
 
 import type * as Gjs from './Gjs';
 import type * as libxml2 from './libxml2-2.0';
+import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
 
 export enum AuthenticationResult {
     ERROR,
@@ -11793,7 +11793,7 @@ export class Provider {
     extra_conf: ProviderConfEntry
     port_entries: ProviderPortEntry
     auto_detect: ProviderAutoDetectFunc
-    object_types: GObject.Type[]
+    object_types: GObject.Type[][]
     authtypes: object[]
     url_hash: GLib.HashFunc
     url_equal: GLib.EqualFunc

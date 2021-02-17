@@ -2,7 +2,7 @@
  * Gepub-0.5
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -20,7 +20,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Gepub {
+export declare namespace Gepub {
 
 export const META_AUTHOR: string
 export const META_DESC: string

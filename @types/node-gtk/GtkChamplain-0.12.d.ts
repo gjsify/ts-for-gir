@@ -2,7 +2,7 @@
  * GtkChamplain-0.12
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -23,7 +23,7 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Champlain } from './Champlain-0.12';
 
-declare namespace GtkChamplain {
+export declare namespace GtkChamplain {
 
 export interface Embed_ConstructProps extends Gtk.Alignment_ConstructProps {
 }

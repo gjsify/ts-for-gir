@@ -1,2 +1,2 @@
-imports.gi.versions.<%= name %> = '<%= version %>';
-module.exports = imports.gi.<%= name %>;
+imports.gi.versions.<%= name %> = '<%= version %>'
+export default imports.gi.<%= name %>

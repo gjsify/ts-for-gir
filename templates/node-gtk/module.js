@@ -1,1 +1,1 @@
-module.exports =  require('node-gtk').require('<%= name %>', '<%= version %>');
+module.exports = require('node-gtk').require('<%= name %>', '<%= version %>')

@@ -2,7 +2,7 @@
  * CoglGst-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
 import type { GObject } from './GObject-2.0';
@@ -11,7 +11,7 @@ import type { GModule } from './GModule-2.0';
 import type { Cogl } from './Cogl-2.0';
 import type { GL } from './GL-1.0';
 
-declare namespace CoglGst {
+export declare namespace CoglGst {
 
 export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProps {
     updatePriority?: number

@@ -2,13 +2,13 @@
  * Libosinfo-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 
-declare namespace Libosinfo {
+export declare namespace Libosinfo {
 
 export enum DeviceDriverSigningReq {
     NONE,

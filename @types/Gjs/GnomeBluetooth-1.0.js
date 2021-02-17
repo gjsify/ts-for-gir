@@ -1,2 +1,2 @@
-imports.gi.versions.GnomeBluetooth = '1.0';
-module.exports = imports.gi.GnomeBluetooth;
+imports.gi.versions.GnomeBluetooth = '1.0'
+export default imports.gi.GnomeBluetooth

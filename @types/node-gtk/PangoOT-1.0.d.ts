@@ -2,7 +2,7 @@
  * PangoOT-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { freetype2 } from './freetype2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -12,7 +12,7 @@ import type { Pango } from './Pango-1.0';
 import type { cairo } from './cairo-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 
-declare namespace PangoOT {
+export declare namespace PangoOT {
 
 export enum TableType {
     GSUB,

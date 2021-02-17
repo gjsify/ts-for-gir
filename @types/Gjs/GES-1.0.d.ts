@@ -304,7 +304,7 @@ export class Extractable {
 export class MetaContainer {
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -396,7 +396,7 @@ export class Asset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -600,7 +600,7 @@ export class AudioSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -856,7 +856,7 @@ export class AudioTestSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1197,7 +1197,7 @@ export class AudioTrack {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1485,7 +1485,7 @@ export class AudioTransition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1737,7 +1737,7 @@ export class AudioUriSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1992,7 +1992,7 @@ export class BaseEffect {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2253,7 +2253,7 @@ export class BaseEffectClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2518,7 +2518,7 @@ export class BaseTransitionClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2848,7 +2848,7 @@ export class Clip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3039,7 +3039,7 @@ export class ClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3294,7 +3294,7 @@ export class Container {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3545,7 +3545,7 @@ export class Effect {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3737,7 +3737,7 @@ export class EffectAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3952,7 +3952,7 @@ export class EffectClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4266,7 +4266,7 @@ export class Group {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4515,7 +4515,7 @@ export class ImageSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4715,7 +4715,7 @@ export class Layer {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4832,7 +4832,7 @@ export class Marker {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5081,7 +5081,7 @@ export class MultiFileSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5334,7 +5334,7 @@ export class Operation {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5595,7 +5595,7 @@ export class OperationClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5860,7 +5860,7 @@ export class OverlayClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6232,11 +6232,11 @@ export class Pipeline {
     set_property(name: string, value: any): void
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    got_window_handle(handle: GstVideo.guintptr): void
+    got_window_handle(handle: string): void
     handle_events(handle_events: boolean): void
     prepare_window_handle(): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
-    set_window_handle(handle: GstVideo.guintptr): void
+    set_window_handle(handle: string): void
     /* Virtual methods of GES.Pipeline */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
@@ -6246,7 +6246,7 @@ export class Pipeline {
     vfunc_expose(): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): void
-    vfunc_set_window_handle(handle: GstVideo.guintptr): void
+    vfunc_set_window_handle(handle: string): void
     /* Virtual methods of Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -6489,7 +6489,7 @@ export class Project {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6721,7 +6721,7 @@ export class Source {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6984,7 +6984,7 @@ export class SourceClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7178,7 +7178,7 @@ export class SourceClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7409,7 +7409,7 @@ export class TestClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7688,7 +7688,7 @@ export class TextOverlay {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7981,7 +7981,7 @@ export class TextOverlayClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8356,7 +8356,7 @@ export class Timeline {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8657,7 +8657,7 @@ export class TimelineElement {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8931,7 +8931,7 @@ export class TitleClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9221,7 +9221,7 @@ export class TitleSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9565,7 +9565,7 @@ export class Track {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9856,7 +9856,7 @@ export class TrackElement {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10042,7 +10042,7 @@ export class TrackElementAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10243,7 +10243,7 @@ export class Transition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10507,7 +10507,7 @@ export class TransitionClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10789,7 +10789,7 @@ export class UriClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10997,7 +10997,7 @@ export class UriClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11147,7 +11147,7 @@ export class UriSourceAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11350,7 +11350,7 @@ export class VideoSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11606,7 +11606,7 @@ export class VideoTestSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11947,7 +11947,7 @@ export class VideoTrack {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12249,7 +12249,7 @@ export class VideoTransition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12509,7 +12509,7 @@ export class VideoUriSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]

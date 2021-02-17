@@ -2,7 +2,7 @@
  * Totem-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { TotemPlParser } from './TotemPlParser-1.0';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
@@ -17,7 +17,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Totem {
+export declare namespace Totem {
 
 export enum RemoteCommand {
     UNKNOWN,

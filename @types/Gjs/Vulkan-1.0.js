@@ -1,2 +1,2 @@
-imports.gi.versions.Vulkan = '1.0';
-module.exports = imports.gi.Vulkan;
+imports.gi.versions.Vulkan = '1.0'
+export default imports.gi.Vulkan

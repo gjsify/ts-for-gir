@@ -1,2 +1,2 @@
-imports.gi.versions.GstWebRTC = '1.0';
-module.exports = imports.gi.GstWebRTC;
+imports.gi.versions.GstWebRTC = '1.0'
+export default imports.gi.GstWebRTC

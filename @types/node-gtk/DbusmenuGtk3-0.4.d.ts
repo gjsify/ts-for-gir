@@ -2,7 +2,7 @@
  * DbusmenuGtk3-0.4
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -17,7 +17,7 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Dbusmenu } from './Dbusmenu-0.4';
 
-declare namespace DbusmenuGtk3 {
+export declare namespace DbusmenuGtk3 {
 
 export const GTK_MENUITEM_H__: number
 export function gtkParseGetCachedItem(widget: Gtk.Widget): Dbusmenu.Menuitem

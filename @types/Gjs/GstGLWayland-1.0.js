@@ -1,2 +1,2 @@
-imports.gi.versions.GstGLWayland = '1.0';
-module.exports = imports.gi.GstGLWayland;
+imports.gi.versions.GstGLWayland = '1.0'
+export default imports.gi.GstGLWayland

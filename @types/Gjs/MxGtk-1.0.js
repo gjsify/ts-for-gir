@@ -1,2 +1,2 @@
-imports.gi.versions.MxGtk = '1.0';
-module.exports = imports.gi.MxGtk;
+imports.gi.versions.MxGtk = '1.0'
+export default imports.gi.MxGtk

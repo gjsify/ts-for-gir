@@ -2,7 +2,7 @@
  * ClutterGst-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstVideo } from './GstVideo-1.0';
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
@@ -24,7 +24,7 @@ import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace ClutterGst {
+export declare namespace ClutterGst {
 
 export enum BufferingMode {
     STREAM,

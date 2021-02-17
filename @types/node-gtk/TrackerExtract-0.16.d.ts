@@ -2,14 +2,14 @@
  * TrackerExtract-0.16
  */
 
-/// <reference types="node" />
+import "node"
 import type { Tracker } from './Tracker-0.16';
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace TrackerExtract {
+export declare namespace TrackerExtract {
 
 export function clientCancelForPrefix(prefix: Gio.File): void
 export function clientGetMetadata(file: Gio.File, mimeType: string, graph: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void

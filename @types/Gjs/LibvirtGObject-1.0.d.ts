@@ -5,9 +5,9 @@
 import type * as Gjs from './Gjs';
 import type * as LibvirtGLib from './LibvirtGLib-1.0';
 import type * as GLib from './GLib-2.0';
-import type * as GObject from './GObject-2.0';
 import type * as LibvirtGConfig from './LibvirtGConfig-1.0';
 import type * as libxml2 from './libxml2-2.0';
+import type * as GObject from './GObject-2.0';
 import type * as Gio from './Gio-2.0';
 
 export enum DomainDeleteFlags {
@@ -129,6 +129,17 @@ export interface StreamSinkFunc {
 export interface StreamSourceFunc {
     (stream: Stream): number
 }
+export type StreamHandle = any // TODO
+export type StorageVolHandle = any // TODO
+export type StoragePoolHandle = any // TODO
+export type NodeDeviceHandle = any // TODO
+export type NetworkFilterHandle = any // TODO
+export type NetworkHandle = any // TODO
+export type InterfaceHandle = any // TODO
+export type DomainSnapshotHandle = any // TODO
+export type DomainHandle = any // TODO
+export type ConnectionHandle = any // TODO
+
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     handle?: ConnectionHandle
     uri?: string

@@ -9,7 +9,7 @@ import type * as GLib from './GLib-2.0';
 import type * as GModule from './GModule-2.0';
 
 export function is_phys_memory(mem: Gst.Memory): boolean
-export function phys_memory_get_phys_addr(mem: Gst.Memory): guintptr
+export function phys_memory_get_phys_addr(mem: Gst.Memory): string
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class PhysMemoryAllocator {
@@ -82,7 +82,7 @@ export class PhysMemoryAllocator {
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstBadAllocators.PhysMemoryAllocator */
-    vfunc_get_phys_addr(mem: Gst.Memory): guintptr
+    vfunc_get_phys_addr(mem: Gst.Memory): string
     /* Virtual methods of Gst.Allocator */
     vfunc_alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfunc_free(memory: Gst.Memory): void
@@ -120,6 +120,6 @@ export class PhysMemoryAllocator {
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstBadAllocators.PhysMemoryAllocatorInterface */
     parent_iface: GObject.TypeInterface
-    get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => guintptr
+    get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => string
     static name: string
 }

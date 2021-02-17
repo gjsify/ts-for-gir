@@ -1,2 +1,2 @@
-imports.gi.versions.EDataServerUI = '1.2';
-module.exports = imports.gi.EDataServerUI;
+imports.gi.versions.EDataServerUI = '1.2'
+export default imports.gi.EDataServerUI

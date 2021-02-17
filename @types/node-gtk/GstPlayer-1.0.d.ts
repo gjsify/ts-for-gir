@@ -2,7 +2,7 @@
  * GstPlayer-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstVideo } from './GstVideo-1.0';
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
@@ -13,7 +13,7 @@ import type { GstTag } from './GstTag-1.0';
 import type { GstPbutils } from './GstPbutils-1.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-declare namespace GstPlayer {
+export declare namespace GstPlayer {
 
 export enum PlayerColorBalanceType {
     HUE,

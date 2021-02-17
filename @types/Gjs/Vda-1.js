@@ -1,2 +1,2 @@
-imports.gi.versions.Vda = '1';
-module.exports = imports.gi.Vda;
+imports.gi.versions.Vda = '1'
+export default imports.gi.Vda

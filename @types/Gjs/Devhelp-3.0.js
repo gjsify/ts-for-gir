@@ -1,2 +1,2 @@
-imports.gi.versions.Devhelp = '3.0';
-module.exports = imports.gi.Devhelp;
+imports.gi.versions.Devhelp = '3.0'
+export default imports.gi.Devhelp

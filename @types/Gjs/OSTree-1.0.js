@@ -1,2 +1,2 @@
-imports.gi.versions.OSTree = '1.0';
-module.exports = imports.gi.OSTree;
+imports.gi.versions.OSTree = '1.0'
+export default imports.gi.OSTree

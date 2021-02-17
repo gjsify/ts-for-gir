@@ -2,7 +2,7 @@
  * PanelApplet-4.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -17,7 +17,7 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { GConf } from './GConf-2.0';
 
-declare namespace PanelApplet {
+export declare namespace PanelApplet {
 
 export enum AppletOrient {
     UP,

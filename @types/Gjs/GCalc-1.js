@@ -1,2 +1,2 @@
-imports.gi.versions.GCalc = '1';
-module.exports = imports.gi.GCalc;
+imports.gi.versions.GCalc = '1'
+export default imports.gi.GCalc

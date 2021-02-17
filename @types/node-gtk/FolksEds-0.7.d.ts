@@ -2,7 +2,7 @@
  * FolksEds-0.7
  */
 
-/// <reference types="node" />
+import "node"
 import type { EBookContacts } from './EBookContacts-1.2';
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
@@ -17,7 +17,7 @@ import type { Camel } from './Camel-1.2';
 import type { Gee } from './Gee-0.8';
 import type { Folks } from './Folks-0.7';
 
-declare namespace FolksEds {
+export declare namespace FolksEds {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     source?: EDataServer.Source

@@ -1,2 +1,2 @@
-imports.gi.versions.GstNet = '1.0';
-module.exports = imports.gi.GstNet;
+imports.gi.versions.GstNet = '1.0'
+export default imports.gi.GstNet

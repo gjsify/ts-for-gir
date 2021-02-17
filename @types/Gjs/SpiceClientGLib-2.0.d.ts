@@ -101,6 +101,7 @@ export function uuid_to_string(uuid: number): string
 export interface msg_handler {
     (channel: Channel, in_: MsgIn): void
 }
+export type VReader = any // TODO
 export interface Audio_ConstructProps extends GObject.Object_ConstructProps {
     main_context?: GLib.MainContext
     session?: Session

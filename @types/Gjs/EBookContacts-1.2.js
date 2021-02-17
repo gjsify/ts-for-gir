@@ -1,2 +1,2 @@
-imports.gi.versions.EBookContacts = '1.2';
-module.exports = imports.gi.EBookContacts;
+imports.gi.versions.EBookContacts = '1.2'
+export default imports.gi.EBookContacts

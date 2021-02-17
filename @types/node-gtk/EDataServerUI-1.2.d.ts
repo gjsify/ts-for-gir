@@ -2,7 +2,7 @@
  * EDataServerUI-1.2
  */
 
-/// <reference types="node" />
+import "node"
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
@@ -25,7 +25,7 @@ import type { Camel } from './Camel-1.2';
 import type { ECal } from './ECal-2.0';
 import type { ICalGLib } from './ICalGLib-3.0';
 
-declare namespace EDataServerUI {
+export declare namespace EDataServerUI {
 
 export enum CredentialsPrompterPromptFlags {
     NONE,

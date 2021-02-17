@@ -2,7 +2,7 @@
  * EDataBook-1.2
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -16,7 +16,7 @@ import type { Camel } from './Camel-1.2';
 import type { EBookContacts } from './EBookContacts-1.2';
 import type { EBackend } from './EBackend-1.2';
 
-declare namespace EDataBook {
+export declare namespace EDataBook {
 
 export enum BookCacheCursorOrigin {
     CURRENT,

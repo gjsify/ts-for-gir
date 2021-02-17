@@ -1,2 +1,2 @@
-imports.gi.versions.TelepathyFarstream = '0.6';
-module.exports = imports.gi.TelepathyFarstream;
+imports.gi.versions.TelepathyFarstream = '0.6'
+export default imports.gi.TelepathyFarstream

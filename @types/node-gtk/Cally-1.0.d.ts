@@ -2,7 +2,7 @@
  * Cally-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Clutter } from './Clutter-1.0';
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
@@ -17,7 +17,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Cally {
+export declare namespace Cally {
 
 export function accessibilityInit(): boolean
 export function getCallyInitialized(): boolean

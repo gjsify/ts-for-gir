@@ -2,13 +2,13 @@
  * GCalc-2
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gee } from './Gee-0.8';
 
-declare namespace GCalc {
+export declare namespace GCalc {
 
 export enum AssigError {
     INVALID_STRUCTURE_ERROR,

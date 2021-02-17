@@ -1,2 +1,2 @@
-imports.gi.versions.GstBadAudio = '1.0';
-module.exports = imports.gi.GstBadAudio;
+imports.gi.versions.GstBadAudio = '1.0'
+export default imports.gi.GstBadAudio

@@ -4,10 +4,10 @@
 
 import type * as Gjs from './Gjs';
 import type * as cairo from './cairo-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as GdkPixbuf from './GdkPixbuf-2.0';
 import type * as GModule from './GModule-2.0';
@@ -5333,7 +5333,7 @@ export class ContentFormats {
     /* Methods of Gdk.ContentFormats */
     contain_gtype(type: GObject.Type): boolean
     contain_mime_type(mime_type: string): boolean
-    get_gtypes(): GObject.Type[] | null
+    get_gtypes(): GObject.Type[] | null[] | null
     get_mime_types(): [ /* returnType */ string[] | null, /* n_mime_types */ number | null ]
     match(second: ContentFormats): boolean
     match_gtype(second: ContentFormats): GObject.Type

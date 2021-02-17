@@ -2,13 +2,13 @@
  * SoupGNOME-2.4
  */
 
-/// <reference types="node" />
+import "node"
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace SoupGNOME {
+export declare namespace SoupGNOME {
 
 export const COOKIE_JAR_SQLITE_FILENAME: string
 export function gnomeFeatures226GetType(): GObject.Type

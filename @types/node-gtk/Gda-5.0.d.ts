@@ -2,12 +2,12 @@
  * Gda-5.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace Gda {
+export declare namespace Gda {
 
 export enum BatchError {
     BATCH_CONFLICTING_PARAMETER_ERROR,

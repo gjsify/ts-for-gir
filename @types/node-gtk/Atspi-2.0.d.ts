@@ -2,12 +2,12 @@
  * Atspi-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { DBus } from './DBus-1.0';
 
-declare namespace Atspi {
+export declare namespace Atspi {
 
 export enum CollectionMatchType {
     INVALID,

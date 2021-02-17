@@ -1,2 +1,2 @@
-imports.gi.versions.xfixes = '4.0';
-module.exports = imports.gi.xfixes;
+imports.gi.versions.xfixes = '4.0'
+export default imports.gi.xfixes

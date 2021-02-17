@@ -2,11 +2,11 @@
  * Anthy-9000
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace Anthy {
+export declare namespace Anthy {
 
 export const COMPILED_ENCODING: number
 export const EUC_JP_ENCODING: number

@@ -4,8 +4,6 @@
 
 import type * as Gjs from './Gjs';
 import type * as xlib from './xlib-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as libxml2 from './libxml2-2.0';
 import type * as freetype2 from './freetype2-2.0';
 import type * as fontconfig from './fontconfig-2.0';
@@ -14,6 +12,8 @@ import type * as PangoFT2 from './PangoFT2-1.0';
 import type * as PangoFc from './PangoFc-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as PangoCairo from './PangoCairo-1.0';
 import type * as Json from './Json-1.0';
 import type * as Gio from './Gio-2.0';
@@ -32,6 +32,7 @@ import type * as EvinceDocument from './EvinceDocument-3.0';
 import type * as CoglPango from './CoglPango-1.0';
 import type * as Cogl from './Cogl-1.0';
 import type * as Clutter from './Clutter-1.0';
+import type * as Gst from './Gst-1.0';
 
 export enum SoundPlayerState {
     UNKNOWN,

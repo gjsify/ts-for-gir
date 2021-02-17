@@ -2,11 +2,11 @@
  * Babl-0.1
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace Babl {
+export declare namespace Babl {
 
 export enum IccIntent {
     PERCEPTUAL,

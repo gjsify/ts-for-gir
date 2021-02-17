@@ -1,2 +1,2 @@
-imports.gi.versions.Cogl = '2.0';
-module.exports = imports.gi.Cogl;
+imports.gi.versions.Cogl = '2.0'
+export default imports.gi.Cogl

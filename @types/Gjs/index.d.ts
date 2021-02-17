@@ -33,7 +33,6 @@ import type * as Gjs from "./Gjs";
 //// import type * as ColorHug10 from "./ColorHug-1.0";
 //// import type * as Colord10 from "./Colord-1.0";
 //// import type * as ColordGtk10 from "./ColordGtk-1.0";
-//// import type * as Colorhug10 from "./Colorhug-1.0";
 //// import type * as DBus10 from "./DBus-1.0";
 //// import type * as DBusGLib10 from "./DBusGLib-1.0";
 //// import type * as DMAP30 from "./DMAP-3.0";
@@ -274,13 +273,6 @@ import type * as Gjs from "./Gjs";
 //// import type * as Retro014 from "./Retro-0.14";
 //// import type * as Retro1 from "./Retro-1";
 //// import type * as Rsvg20 from "./Rsvg-2.0";
-//// import type * as RygelCore24 from "./RygelCore-2.4";
-//// import type * as RygelCore26 from "./RygelCore-2.6";
-//// import type * as RygelRenderer24 from "./RygelRenderer-2.4";
-//// import type * as RygelRenderer26 from "./RygelRenderer-2.6";
-//// import type * as RygelRendererGst26 from "./RygelRendererGst-2.6";
-//// import type * as RygelServer24 from "./RygelServer-2.4";
-//// import type * as RygelServer26 from "./RygelServer-2.6";
 //// import type * as Secret1 from "./Secret-1";
 //// import type * as SecretUnstable0 from "./SecretUnstable-0";
 //// import type * as Shumate00 from "./Shumate-0.0";
@@ -301,15 +293,10 @@ import type * as Gjs from "./Gjs";
 //// import type * as TimezoneMap10 from "./TimezoneMap-1.0";
 //// import type * as Totem10 from "./Totem-1.0";
 //// import type * as TotemPlParser10 from "./TotemPlParser-1.0";
-//// import type * as Tracker016 from "./Tracker-0.16";
-//// import type * as Tracker10 from "./Tracker-1.0";
 //// import type * as Tracker20 from "./Tracker-2.0";
 //// import type * as Tracker30 from "./Tracker-3.0";
 //// import type * as TrackerControl10 from "./TrackerControl-1.0";
 //// import type * as TrackerControl20 from "./TrackerControl-2.0";
-//// import type * as TrackerExtract016 from "./TrackerExtract-0.16";
-//// import type * as TrackerMiner016 from "./TrackerMiner-0.16";
-//// import type * as TrackerMiner10 from "./TrackerMiner-1.0";
 //// import type * as TrackerMiner20 from "./TrackerMiner-2.0";
 //// import type * as UDisks20 from "./UDisks-2.0";
 //// import type * as UPowerGlib10 from "./UPowerGlib-1.0";
@@ -399,7 +386,6 @@ declare global {
     //    //       : typeof ColorHug10
     //    //       : typeof Colord10
     //    //       : typeof ColordGtk10
-    //    //       : typeof Colorhug10
     //    //       : typeof DBus10
     //    //       : typeof DBusGLib10
     //    //       : typeof DMAP30
@@ -640,13 +626,6 @@ declare global {
     //    //       : typeof Retro014
     //    //       : typeof Retro1
     //    //       : typeof Rsvg20
-    //    //       : typeof RygelCore24
-    //    //       : typeof RygelCore26
-    //    //       : typeof RygelRenderer24
-    //    //       : typeof RygelRenderer26
-    //    //       : typeof RygelRendererGst26
-    //    //       : typeof RygelServer24
-    //    //       : typeof RygelServer26
     //    //       : typeof Secret1
     //    //       : typeof SecretUnstable0
     //    //       : typeof Shumate00
@@ -667,15 +646,10 @@ declare global {
     //    //       : typeof TimezoneMap10
     //    //       : typeof Totem10
     //    //       : typeof TotemPlParser10
-    //    //       : typeof Tracker016
-    //    //       : typeof Tracker10
     //    //       : typeof Tracker20
     //    //       : typeof Tracker30
     //    //       : typeof TrackerControl10
     //    //       : typeof TrackerControl20
-    //    //       : typeof TrackerExtract016
-    //    //       : typeof TrackerMiner016
-    //    //       : typeof TrackerMiner10
     //    //       : typeof TrackerMiner20
     //    //       : typeof UDisks20
     //    //       : typeof UPowerGlib10
@@ -712,19 +686,6 @@ declare global {
     //    //       : typeof Xrandr13
     //    //     }
     //     versions: {
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
-    //    //         : string
     //    //         : string
     //    //         : string
     //    //         : string

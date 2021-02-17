@@ -2,12 +2,12 @@
  * Cogl-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GL } from './GL-1.0';
 
-declare namespace Cogl {
+export declare namespace Cogl {
 
 export enum AttributeType {
     BYTE,

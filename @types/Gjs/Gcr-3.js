@@ -1,2 +1,2 @@
-imports.gi.versions.Gcr = '3';
-module.exports = imports.gi.Gcr;
+imports.gi.versions.Gcr = '3'
+export default imports.gi.Gcr

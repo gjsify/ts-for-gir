@@ -2,7 +2,7 @@
  * GstPbutils-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstVideo } from './GstVideo-1.0';
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
@@ -11,7 +11,7 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-declare namespace GstPbutils {
+export declare namespace GstPbutils {
 
 export enum AudioVisualizerShader {
     NONE,

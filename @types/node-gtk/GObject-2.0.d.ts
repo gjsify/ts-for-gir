@@ -2,10 +2,10 @@
  * GObject-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 
-declare namespace GObject {
+export declare namespace GObject {
 
 export enum BindingFlags {
     DEFAULT,

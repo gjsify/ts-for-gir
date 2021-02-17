@@ -1,2 +1,2 @@
-imports.gi.versions.UnityExtras = '7.0';
-module.exports = imports.gi.UnityExtras;
+imports.gi.versions.UnityExtras = '7.0'
+export default imports.gi.UnityExtras

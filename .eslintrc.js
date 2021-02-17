@@ -21,5 +21,8 @@ module.exports = {
     // For Gjs
     'camelcase': 'off',
     '@typescript-eslint/camelcase': 'off'
+  },
+  "globals": {
+    "imports": true,
   }
 };

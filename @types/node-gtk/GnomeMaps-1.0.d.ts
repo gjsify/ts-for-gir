@@ -2,7 +2,7 @@
  * GnomeMaps-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Rest } from './Rest-0.7';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
@@ -21,7 +21,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace GnomeMaps {
+export declare namespace GnomeMaps {
 
 export enum ContactStoreState {
     INITIAL,

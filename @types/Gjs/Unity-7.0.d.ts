@@ -4,8 +4,8 @@
 
 import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
-import type * as GObject from './GObject-2.0';
 import type * as Dbusmenu from './Dbusmenu-0.4';
+import type * as GObject from './GObject-2.0';
 import type * as Dee from './Dee-1.0';
 import type * as Gio from './Gio-2.0';
 
@@ -150,6 +150,12 @@ export interface ScopeSearchBaseCallback {
 export interface AbstractPreviewCallback {
     (previewer: ResultPreviewer, preview: AbstractPreview | null): void
 }
+export type SimpleScopePreviewRunAsyncFunc = (...args: any[]) => any; // TODO
+export type SimpleScopePreviewRunFunc = (...args: any[]) => any; // TODO
+export type SimpleScopeActivateFunc = (...args: any[]) => any; // TODO
+export type SimpleScopeSearchRunAsyncFunc = (...args: any[]) => any; // TODO
+export type SimpleScopeSearchRunFunc = (...args: any[]) => any; // TODO
+
 export interface AppInfoManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AppInfoManager {

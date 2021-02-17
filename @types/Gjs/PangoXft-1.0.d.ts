@@ -4,8 +4,6 @@
 
 import type * as Gjs from './Gjs';
 import type * as xlib from './xlib-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as xft from './xft-2.0';
 import type * as PangoOT from './PangoOT-1.0';
 import type * as freetype2 from './freetype2-2.0';
@@ -14,6 +12,8 @@ import type * as fontconfig from './fontconfig-2.0';
 import type * as Pango from './Pango-1.0';
 import type * as cairo from './cairo-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as PangoFT2 from './PangoFT2-1.0';
 
 export function get_font_map(display: xlib.Display, screen: number): Pango.FontMap

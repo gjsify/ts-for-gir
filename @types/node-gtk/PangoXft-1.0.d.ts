@@ -2,7 +2,7 @@
  * PangoXft-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -16,7 +16,7 @@ import type { cairo } from './cairo-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { PangoFT2 } from './PangoFT2-1.0';
 
-declare namespace PangoXft {
+export declare namespace PangoXft {
 
 export function getFontMap(display: xlib.Display, screen: number): Pango.FontMap
 export function pictureRender(display: xlib.Display, srcPicture: xlib.Picture, destPicture: xlib.Picture, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void

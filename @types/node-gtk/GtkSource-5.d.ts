@@ -2,7 +2,7 @@
  * GtkSource-5
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-4.0';
 import type { Gsk } from './Gsk-4.0';
 import type { Graphene } from './Graphene-1.0';
@@ -16,7 +16,7 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace GtkSource {
+export declare namespace GtkSource {
 
 export enum BackgroundPatternType {
     NONE,

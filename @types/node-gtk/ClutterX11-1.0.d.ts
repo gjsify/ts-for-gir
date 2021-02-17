@@ -2,7 +2,7 @@
  * ClutterX11-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -18,7 +18,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace ClutterX11 {
+export declare namespace ClutterX11 {
 
 export enum FilterReturn {
     CONTINUE,

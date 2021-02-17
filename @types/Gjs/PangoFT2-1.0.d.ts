@@ -4,13 +4,13 @@
 
 import type * as Gjs from './Gjs';
 import type * as freetype2 from './freetype2-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as PangoFc from './PangoFc-1.0';
 import type * as fontconfig from './fontconfig-2.0';
 import type * as Pango from './Pango-1.0';
 import type * as cairo from './cairo-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 
 export function font_get_coverage(font: Pango.Font, language: Pango.Language): Pango.Coverage
 export function font_get_kerning(font: Pango.Font, left: Pango.Glyph, right: Pango.Glyph): number

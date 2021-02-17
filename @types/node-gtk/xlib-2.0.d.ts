@@ -2,11 +2,11 @@
  * xlib-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace xlib {
+export declare namespace xlib {
 
 export function openDisplay(): void
 export class Display {

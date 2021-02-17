@@ -2,7 +2,7 @@
  * RygelRendererGst-2.6
  */
 
-/// <reference types="node" />
+import "node"
 import type { RygelRenderer } from './RygelRenderer-2.6';
 import type { RygelCore } from './RygelCore-2.6';
 import type { GLib } from './GLib-2.0';
@@ -17,7 +17,7 @@ import type { GUPnPAV } from './GUPnPAV-1.0';
 import type { Gst } from './Gst-1.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace RygelRendererGst {
+export declare namespace RygelRendererGst {
 
 export enum PlaybinPlayerError {
     NO_ELEMENT,

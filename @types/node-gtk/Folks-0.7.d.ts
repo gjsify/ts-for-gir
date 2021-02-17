@@ -2,13 +2,13 @@
  * Folks-0.7
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
-declare namespace Folks {
+export declare namespace Folks {
 
 export enum Gender {
     UNSPECIFIED,

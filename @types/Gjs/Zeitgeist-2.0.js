@@ -1,2 +1,2 @@
-imports.gi.versions.Zeitgeist = '2.0';
-module.exports = imports.gi.Zeitgeist;
+imports.gi.versions.Zeitgeist = '2.0'
+export default imports.gi.Zeitgeist

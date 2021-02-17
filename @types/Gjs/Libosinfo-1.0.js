@@ -1,2 +1,2 @@
-imports.gi.versions.Libosinfo = '1.0';
-module.exports = imports.gi.Libosinfo;
+imports.gi.versions.Libosinfo = '1.0'
+export default imports.gi.Libosinfo

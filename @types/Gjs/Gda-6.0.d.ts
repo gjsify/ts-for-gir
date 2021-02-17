@@ -4,9 +4,9 @@
 
 import type * as Gjs from './Gjs';
 import type * as libxml2 from './libxml2-2.0';
+import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
 
 export enum BatchError {
     BATCH_CONFLICTING_PARAMETER_ERROR,
@@ -686,7 +686,7 @@ export function sql_value_stringify(value: any): string
 export function string_to_binary(str?: string | null): Binary
 export function string_to_blob(str: string): Blob
 export function text_to_alphanum(text: string): string
-export function utility_check_data_model(model: DataModel, types: GObject.Type[]): boolean
+export function utility_check_data_model(model: DataModel, types: GObject.Type[][]): boolean
 export function utility_data_model_dump_data_to_xml(model: DataModel, parent: libxml2.NodePtr, cols: number[] | null, rows: number[] | null, use_col_ids: boolean): boolean
 export function utility_data_model_find_column_description(model: DataSelect, field_name: string): string | null
 export function utility_holder_load_attributes(holder: Holder, node: libxml2.NodePtr, sources?: DataModel[] | null): boolean
@@ -897,7 +897,7 @@ export class Provider {
     render_operation(cnc: Connection, op: ServerOperation): string
     rollback_savepoint(cnc: Connection, name: string): boolean
     rollback_transaction(cnc: Connection, name: string): boolean
-    statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set): GObject.Object
+    statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GObject.Type, last_inserted_row: Set): GObject.Object
     statement_prepare(cnc: Connection, stmt: Statement): boolean
     statement_rewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     statement_to_sql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
@@ -927,7 +927,7 @@ export class Provider {
     vfunc_render_operation(cnc: Connection, op: ServerOperation): string
     vfunc_rollback_savepoint(cnc: Connection, name: string): boolean
     vfunc_rollback_transaction(cnc: Connection, name: string): boolean
-    vfunc_statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set): GObject.Object
+    vfunc_statement_execute(cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GObject.Type, last_inserted_row: Set): GObject.Object
     vfunc_statement_prepare(cnc: Connection, stmt: Statement): boolean
     vfunc_statement_rewrite(cnc: Connection, stmt: Statement, params: Set): SqlStatement
     vfunc_statement_to_sql(cnc: Connection, stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
@@ -1439,14 +1439,14 @@ export class Connection {
     prepare_operation_create_table(table_name: string, arguments_: ServerOperationCreateTableArg[]): ServerOperation | null
     prepare_operation_drop_table(table_name: string): ServerOperation | null
     quote_sql_identifier(id: string): string
-    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null, stop_on_error: boolean): GObject.Object[]
+    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null[] | null, stop_on_error: boolean): GObject.Object[]
     rollback_savepoint(name?: string | null): boolean
     rollback_transaction(name?: string | null): boolean
     set_main_context(thread?: GLib.Thread | null, context?: GLib.MainContext | null): void
     statement_execute(stmt: Statement, params: Set | null, model_usage: StatementModelUsage): [ /* returnType */ GObject.Object, /* last_insert_row */ Set | null ]
     statement_execute_non_select(stmt: Statement, params?: Set | null): [ /* returnType */ number, /* last_insert_row */ Set | null ]
     statement_execute_select(stmt: Statement, params?: Set | null): DataModel
-    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null): DataModel
+    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null[] | null): DataModel
     statement_prepare(stmt: Statement): boolean
     statement_to_sql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
     supports_feature(feature: ConnectionFeature): boolean
@@ -1936,7 +1936,7 @@ export class DataModelArray {
     constructor (config?: DataModelArray_ConstructProps)
     _init (config?: DataModelArray_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new_with_g_types(cols: number, types: GObject.Type[]): DataModel
+    static new_with_g_types(cols: number, types: GObject.Type[][]): DataModel
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
@@ -4721,8 +4721,8 @@ export class PStmt {
     get_param_ids(): string[]
     get_sql(): string
     get_tmpl_columns(): Column[]
-    get_types(): GObject.Type[]
-    set_cols(types: GObject.Type[]): void
+    get_types(): GObject.Type[][]
+    set_cols(types: GObject.Type[][]): void
     set_gda_statement(stmt?: Statement | null): void
     set_param_ids(params: string[]): void
     set_sql(sql: string): void
@@ -6669,7 +6669,7 @@ export abstract class ProviderInterface {
     rollback_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     delete_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     statement_prepare: (provider: Provider, cnc: Connection, stmt: Statement) => boolean
-    statement_execute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GType, last_inserted_row: Set) => GObject.Object
+    statement_execute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GObject.Type, last_inserted_row: Set) => GObject.Object
     get_last_inserted: (provider: Provider, cnc: Connection) => Set
     padding: object[]
     static name: string

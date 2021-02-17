@@ -2,12 +2,12 @@
  * NetworkManager-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { DBusGLib } from './DBusGLib-1.0';
 
-declare namespace NetworkManager {
+export declare namespace NetworkManager {
 
 export enum TODO_80211Mode {
     UNKNOWN,

@@ -1,2 +1,2 @@
-imports.gi.versions.Vgpg = '1';
-module.exports = imports.gi.Vgpg;
+imports.gi.versions.Vgpg = '1'
+export default imports.gi.Vgpg

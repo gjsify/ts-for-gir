@@ -1,2 +1,2 @@
-imports.gi.versions.WebKit = '3.0';
-module.exports = imports.gi.WebKit;
+imports.gi.versions.WebKit = '3.0'
+export default imports.gi.WebKit

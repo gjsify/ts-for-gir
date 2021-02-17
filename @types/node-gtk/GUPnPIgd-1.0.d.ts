@@ -2,11 +2,11 @@
  * GUPnPIgd-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace GUPnPIgd {
+export declare namespace GUPnPIgd {
 
 export enum SimpleIgdError {
     SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS,

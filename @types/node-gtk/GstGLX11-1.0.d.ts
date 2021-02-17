@@ -2,7 +2,7 @@
  * GstGLX11-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstVideo } from './GstVideo-1.0';
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
@@ -11,7 +11,7 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstGL } from './GstGL-1.0';
 
-declare namespace GstGLX11 {
+export declare namespace GstGLX11 {
 
 export interface GLDisplayX11_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }

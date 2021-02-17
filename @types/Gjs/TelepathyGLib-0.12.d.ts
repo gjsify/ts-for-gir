@@ -1384,6 +1384,7 @@ export class ClientChannelFactory {
 export class HandleRepoIface {
     static name: string
 }
+export type ContactInfoList = any // TODO
 export interface Account_ConstructProps extends Proxy_ConstructProps {
 }
 export class Account {

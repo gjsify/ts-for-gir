@@ -1,2 +1,2 @@
-imports.gi.versions.Gsk = '4.0';
-module.exports = imports.gi.Gsk;
+imports.gi.versions.Gsk = '4.0'
+export default imports.gi.Gsk

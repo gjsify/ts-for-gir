@@ -2,7 +2,7 @@
  * Vgpg-1
  */
 
-/// <reference types="node" />
+import "node"
 import type { Vda } from './Vda-1';
 import type { GCalc } from './GCalc-1';
 import type { GObject } from './GObject-2.0';
@@ -11,7 +11,7 @@ import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Vgda } from './Vgda-1';
 
-declare namespace Vgpg {
+export declare namespace Vgpg {
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }

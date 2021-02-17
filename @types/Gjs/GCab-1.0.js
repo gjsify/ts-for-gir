@@ -1,2 +1,2 @@
-imports.gi.versions.GCab = '1.0';
-module.exports = imports.gi.GCab;
+imports.gi.versions.GCab = '1.0'
+export default imports.gi.GCab

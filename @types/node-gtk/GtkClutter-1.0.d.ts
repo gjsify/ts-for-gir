@@ -2,7 +2,7 @@
  * GtkClutter-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
@@ -22,7 +22,7 @@ import type { CoglPango } from './CoglPango-1.0';
 import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 
-declare namespace GtkClutter {
+export declare namespace GtkClutter {
 
 export enum TextureError {
     TEXTURE_ERROR_INVALID_STOCK_ID,

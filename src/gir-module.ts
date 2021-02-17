@@ -59,7 +59,15 @@ export class GirModule {
     importName: string
 
     dependencies: string[] = []
-    transitiveDependencies: string[] = []
+    private _transitiveDependencies: string[] = []
+
+    set transitiveDependencies(deps: string[]) {
+        this._transitiveDependencies = this.checkTransitiveDependencies(deps)
+    }
+
+    get transitiveDependencies(): string[] {
+        return this._transitiveDependencies
+    }
 
     get allDependencies(): string[] {
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
@@ -120,36 +128,52 @@ export class GirModule {
             dependencies.unshift(`${i.$.name}-${i.$.version}`)
         }
 
+        return dependencies
+    }
+
+    private checkTransitiveDependencies(transitiveDependencies: string[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
-            if (!Utils.find(dependencies, (x) => x === 'GObject-2.0')) {
-                dependencies.push('GObject-2.0')
+            if (!Utils.find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
+                transitiveDependencies.push('GObject-2.0')
             }
         }
 
         // Add missing dependencies
-        // if (this.packageName === 'Gtk-3.0') {
-        //     if (!Utils.find(dependencies, (x) => x === 'Graphene-1.0')) {
-        //         dependencies.push('Graphene-1.0')
-        //     }
-        // }
         if (this.packageName === 'UnityExtras-7.0') {
-            if (!Utils.find(dependencies, (x) => x === 'Unity-7.0')) {
-                dependencies.push('Unity-7.0')
+            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
+                transitiveDependencies.push('Unity-7.0')
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
-            if (!Utils.find(dependencies, (x) => x === 'Unity-6.0')) {
-                dependencies.push('Unity-6.0')
+            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
+                transitiveDependencies.push('Unity-6.0')
             }
         }
         if (this.packageName === 'GTop-2.0') {
-            if (!Utils.find(dependencies, (x) => x === 'GLib-2.0')) {
-                dependencies.push('GLib-2.0')
+            if (!Utils.find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
+                transitiveDependencies.push('GLib-2.0')
             }
         }
 
-        return dependencies
+        // TODO normally Sushi-1.0 has Gst-0.10 as dependency but we need the gir file for that version
+        if (this.packageName === 'Sushi-1.0') {
+            if (!Utils.find(transitiveDependencies, (x) => x === 'Gst-1.0')) {
+                transitiveDependencies.push('Gst-1.0')
+            }
+        }
+
+        // TODO normally RygelServer-2.4 has GstPbutils-0.10 and Gst-0.10 as dependencies but we need the gir file for that version
+        if (this.packageName === 'RygelServer-2.4') {
+            if (!Utils.find(transitiveDependencies, (x) => x === 'GstPbutils-1.0')) {
+                transitiveDependencies.push('GstPbutils-1.0')
+            }
+            if (!Utils.find(transitiveDependencies, (x) => x === 'Gst-1.0')) {
+                transitiveDependencies.push('Gst-1.0')
+            }
+        }
+
+        return transitiveDependencies
     }
 
     private annotateFunctionArguments(girFunc: GirFunction): void {
@@ -305,11 +329,6 @@ export class GirModule {
                 inheritanceTable[clsName] = arr.concat(names)
             }
         }
-        // TODO getSymTableKey
-        // this.log.debug('loadInheritance')
-        // for (const key in inheritanceTable) {
-        //     this.log.debug('key', key)
-        // }
     }
 
     private typeLookup(girVar: GirVariable): string {
@@ -366,6 +385,10 @@ export class GirModule {
 
             if (POD_TYPE_MAP[type.$.name]) {
                 return POD_TYPE_MAP[type.$.name] + suffix
+            }
+
+            if (C_TYPE_MAP(this.packageName, suffix)[type.$.name]) {
+                return C_TYPE_MAP(this.packageName, suffix)[type.$.name] + suffix
             }
 
             if (!this.namespace) return 'any'
@@ -1593,7 +1616,7 @@ export class GirModule {
         // START Namespace
         if (this.config.buildType === 'types') {
             out.push('')
-            out.push(`declare namespace ${this.namespace} {`)
+            out.push(`export declare namespace ${this.namespace} {`)
         }
 
         // Newline

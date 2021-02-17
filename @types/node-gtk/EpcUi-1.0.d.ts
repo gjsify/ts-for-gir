@@ -2,7 +2,7 @@
  * EpcUi-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -17,7 +17,7 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Epc } from './Epc-1.0';
 
-declare namespace EpcUi {
+export declare namespace EpcUi {
 
 export interface PasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
     anonymous?: boolean

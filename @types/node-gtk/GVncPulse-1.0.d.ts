@@ -2,13 +2,13 @@
  * GVncPulse-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GVnc } from './GVnc-1.0';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace GVncPulse {
+export declare namespace GVncPulse {
 
 export interface AudioPulse_ConstructProps extends GVnc.BaseAudio_ConstructProps {
 }

@@ -2,12 +2,12 @@
  * Gst-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace Gst {
+export declare namespace Gst {
 
 export enum BufferingMode {
     STREAM,

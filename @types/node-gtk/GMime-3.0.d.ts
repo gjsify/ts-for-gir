@@ -2,12 +2,12 @@
  * GMime-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace GMime {
+export declare namespace GMime {
 
 export enum AddressType {
     SENDER,

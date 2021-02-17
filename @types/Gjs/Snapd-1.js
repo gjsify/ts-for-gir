@@ -1,2 +1,2 @@
-imports.gi.versions.Snapd = '1';
-module.exports = imports.gi.Snapd;
+imports.gi.versions.Snapd = '1'
+export default imports.gi.Snapd

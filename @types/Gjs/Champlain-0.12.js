@@ -1,2 +1,2 @@
-imports.gi.versions.Champlain = '0.12';
-module.exports = imports.gi.Champlain;
+imports.gi.versions.Champlain = '0.12'
+export default imports.gi.Champlain

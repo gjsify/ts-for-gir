@@ -372,6 +372,13 @@ export interface SecretAgentGetSecretsFunc {
 export interface SecretAgentSaveSecretsFunc {
     (agent: SecretAgent, connection: NetworkManager.Connection, error: GLib.Error): void
 }
+export type StringArray = string[] // TODO
+export type ObjectArray = any[] // TODO
+export type UintArray = number[] // TODO
+export type Ssid = string; // TODO
+export type IP6AddressObjectArray = any; // TODO
+export type IP6RouteObjectArray = any; // TODO
+export type IP6AddressArray = any; // TODO
 export interface AccessPoint_ConstructProps extends Object_ConstructProps {
 }
 export class AccessPoint {

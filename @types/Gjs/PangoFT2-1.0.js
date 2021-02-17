@@ -1,2 +1,2 @@
-imports.gi.versions.PangoFT2 = '1.0';
-module.exports = imports.gi.PangoFT2;
+imports.gi.versions.PangoFT2 = '1.0'
+export default imports.gi.PangoFT2

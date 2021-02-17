@@ -2,7 +2,7 @@
  * Champlain-0.12
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Clutter } from './Clutter-1.0';
@@ -17,7 +17,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Champlain {
+export declare namespace Champlain {
 
 export enum MapProjection {
     MERCATOR,

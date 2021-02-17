@@ -1,2 +1,2 @@
-imports.gi.versions.Notify = '0.7';
-module.exports = imports.gi.Notify;
+imports.gi.versions.Notify = '0.7'
+export default imports.gi.Notify

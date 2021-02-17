@@ -2,7 +2,7 @@
  * GUPnPDLNA-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { libxml2 } from './libxml2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -13,7 +13,7 @@ import type { Gst } from './Gst-1.0';
 import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-declare namespace GUPnPDLNA {
+export declare namespace GUPnPDLNA {
 
 export interface Discoverer_ConstructProps extends GstPbutils.Discoverer_ConstructProps {
     extendedMode?: boolean

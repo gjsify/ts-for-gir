@@ -2,11 +2,11 @@
  * Bamf-3
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace Bamf {
+export declare namespace Bamf {
 
 export enum ClickBehavior {
     NONE,

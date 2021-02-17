@@ -1,2 +1,2 @@
-imports.gi.versions.GObject = '2.0';
-module.exports = imports.gi.GObject;
+imports.gi.versions.GObject = '2.0'
+export default imports.gi.GObject

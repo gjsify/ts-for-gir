@@ -1,2 +1,2 @@
-imports.gi.versions.GMime = '3.0';
-module.exports = imports.gi.GMime;
+imports.gi.versions.GMime = '3.0'
+export default imports.gi.GMime

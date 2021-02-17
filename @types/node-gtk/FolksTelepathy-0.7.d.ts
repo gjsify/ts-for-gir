@@ -2,7 +2,7 @@
  * FolksTelepathy-0.7
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
@@ -10,7 +10,7 @@ import type { Gio } from './Gio-2.0';
 import type { TelepathyGLib } from './TelepathyGLib-0.12';
 import type { Folks } from './Folks-0.7';
 
-declare namespace FolksTelepathy {
+export declare namespace FolksTelepathy {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     account?: TelepathyGLib.Account

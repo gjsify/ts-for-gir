@@ -5,9 +5,9 @@
 import type * as Gjs from './Gjs';
 import type * as Pango from './Pango-1.0';
 import type * as cairo from './cairo-1.0';
+import type * as HarfBuzz from './HarfBuzz-0.0';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
 import type * as Gtk from './Gtk-3.0';
 import type * as xlib from './xlib-2.0';
 import type * as Gdk from './Gdk-3.0';
@@ -96,7 +96,7 @@ export class BlockChaptersModel {
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
@@ -258,7 +258,7 @@ export class BlockChaptersModel {
     _init (config?: BlockChaptersModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): BlockChaptersModel
-    static new(types: GObject.Type[]): BlockChaptersModel
+    static new(types: GObject.Type[][]): BlockChaptersModel
     static $gtype: GObject.Type
 }
 export interface BlockCodepointList_ConstructProps extends CodepointList_ConstructProps {
@@ -351,7 +351,7 @@ export class ChaptersModel {
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
@@ -4197,7 +4197,7 @@ export class ScriptChaptersModel {
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[]): void
+    set_column_types(types: GObject.Type[][]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
     set(iter: Gtk.TreeIter, columns: number[], values: any): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
@@ -4359,7 +4359,7 @@ export class ScriptChaptersModel {
     _init (config?: ScriptChaptersModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ScriptChaptersModel
-    static new(types: GObject.Type[]): ScriptChaptersModel
+    static new(types: GObject.Type[][]): ScriptChaptersModel
     static $gtype: GObject.Type
 }
 export interface ScriptCodepointList_ConstructProps extends CodepointList_ConstructProps {

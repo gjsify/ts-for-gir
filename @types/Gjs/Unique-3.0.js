@@ -1,2 +1,2 @@
-imports.gi.versions.Unique = '3.0';
-module.exports = imports.gi.Unique;
+imports.gi.versions.Unique = '3.0'
+export default imports.gi.Unique

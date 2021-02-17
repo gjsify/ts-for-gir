@@ -2,7 +2,7 @@
  * ClutterGdk-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
@@ -20,7 +20,7 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace ClutterGdk {
+export declare namespace ClutterGdk {
 
 export function disableEventRetrieval(): void
 export function getDefaultDisplay(): Gdk.Display

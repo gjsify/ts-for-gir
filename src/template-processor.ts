@@ -10,9 +10,9 @@ import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { GenerateConfig } from './types'
-import { ESLint } from 'eslint' // TODO deprecated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+import { ESLint } from 'eslint'
 
-const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts', '.js'] })
+const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -66,7 +66,8 @@ export class TemplateProcessor {
             result.push(`import type * as ${namespace} from './${packageName}';`)
         } else {
             if (asExternType) {
-                result.push(`/// <reference types="${packageName}" />`)
+                // result.push(`/// <reference types="${packageName}" />`)
+                result.push(`import "${packageName}"`)
             } else {
                 // result.push(`/// <reference path="${packageName}.d.ts" />`)
                 result.push(`import type { ${namespace} } from './${packageName}';`)
@@ -164,18 +165,18 @@ export class TemplateProcessor {
     public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
         const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
-        const destPath = this.write(renderedCode, outputDir, outputFilename)
+        const destPath = await this.write(renderedCode, outputDir, outputFilename)
         const prettifiedCode = this.config.pretty ? await this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 
-    protected write(content: string, outputDir: string, outputFilename: string): string {
+    protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
         outputDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
         const destPath = Path.join(outputDir, outputFilename)
 
         // write template result file
-        fs.mkdirSync(outputDir, { recursive: true })
-        fs.writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
+        await fs.promises.mkdir(outputDir, { recursive: true })
+        await fs.promises.writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return destPath
     }
@@ -238,7 +239,7 @@ export class TemplateProcessor {
             }
         } else {
             if (prettifiedCode && changeFile) {
-                this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
+                await this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
             }
         }
 

@@ -2,7 +2,7 @@
  * ClutterGst-1.0
  */
 
-/// <reference types="node" />
+import "node"
 // WARN: Dependency not found: 'GstVideo-0.10'
 // WARN: Dependency not found: 'GstInterfaces-0.10'
 // WARN: Dependency not found: 'GstBase-0.10'
@@ -22,7 +22,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace ClutterGst {
+export declare namespace ClutterGst {
 
 export enum BufferingMode {
     STREAM,

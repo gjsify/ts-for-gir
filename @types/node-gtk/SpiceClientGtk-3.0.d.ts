@@ -2,7 +2,7 @@
  * SpiceClientGtk-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { SpiceClientGLib } from './SpiceClientGLib-2.0';
 import type { GstBase } from './GstBase-1.0';
 import type { Gst } from './Gst-1.0';
@@ -19,7 +19,7 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace SpiceClientGtk {
+export declare namespace SpiceClientGtk {
 
 export enum DisplayKeyEvent {
     PRESS,

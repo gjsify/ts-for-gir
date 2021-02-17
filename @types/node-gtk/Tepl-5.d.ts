@@ -2,7 +2,7 @@
  * Tepl-5
  */
 
-/// <reference types="node" />
+import "node"
 import type { GtkSource } from './GtkSource-4';
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
@@ -18,7 +18,7 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Amtk } from './Amtk-5';
 
-declare namespace Tepl {
+export declare namespace Tepl {
 
 export enum NewlineType {
     LF,

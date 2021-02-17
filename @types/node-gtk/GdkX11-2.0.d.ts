@@ -2,7 +2,7 @@
  * GdkX11-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -14,7 +14,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Gdk } from './Gdk-2.0';
 
-declare namespace GdkX11 {
+export declare namespace GdkX11 {
 
 export function netWmSupports(property: Gdk.Atom): boolean
 export function x11AtomToXatom(atom: Gdk.Atom): xlib.Atom

@@ -548,7 +548,7 @@ export function time_copy(boxed?: object | null): object | null
 export function time_free(boxed?: object | null): void
 export function timestamp_copy(boxed?: object | null): object | null
 export function timestamp_free(boxed?: object | null): void
-export function utility_check_data_model(model: DataModel, types: GObject.Type[]): boolean
+export function utility_check_data_model(model: DataModel, types: GObject.Type[][]): boolean
 export function utility_data_model_dump_data_to_xml(model: DataModel, parent: libxml2.NodePtr, cols: number[] | null, rows: number[] | null, use_col_ids: boolean): boolean
 export function utility_data_model_find_column_description(model: DataSelect, field_name: string): string
 export function utility_holder_load_attributes(holder: Holder, node: libxml2.NodePtr, sources: DataModel[]): boolean
@@ -1057,7 +1057,7 @@ export class Connection {
     add_savepoint(name?: string | null): boolean
     async_cancel(task_id: number): boolean
     async_fetch_result(task_id: number): [ /* returnType */ GObject.Object, /* last_insert_row */ Set | null ]
-    async_statement_execute(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types: GObject.Type[] | null, need_last_insert_row: boolean): number
+    async_statement_execute(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types: GObject.Type[] | null[] | null, need_last_insert_row: boolean): number
     batch_execute(batch: Batch, params: Set | null, model_usage: StatementModelUsage): GObject.Object[]
     begin_transaction(name: string | null, level: TransactionIsolation): boolean
     clear_events_list(): void
@@ -1090,13 +1090,13 @@ export class Connection {
     perform_operation(op: ServerOperation): boolean
     point_available_event(type: ConnectionEventType): ConnectionEvent
     quote_sql_identifier(id: string): string
-    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null, stop_on_error: boolean): GObject.Object[]
+    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null[] | null, stop_on_error: boolean): GObject.Object[]
     rollback_savepoint(name?: string | null): boolean
     rollback_transaction(name?: string | null): boolean
     statement_execute(stmt: Statement, params: Set | null, model_usage: StatementModelUsage): [ /* returnType */ GObject.Object, /* last_insert_row */ Set | null ]
     statement_execute_non_select(stmt: Statement, params?: Set | null): [ /* returnType */ number, /* last_insert_row */ Set | null ]
     statement_execute_select(stmt: Statement, params?: Set | null): DataModel
-    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null): DataModel
+    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null[] | null): DataModel
     statement_prepare(stmt: Statement): boolean
     statement_to_sql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
     supports_feature(feature: ConnectionFeature): boolean
@@ -3578,7 +3578,7 @@ export class PStmt {
     sql: string
     param_ids: string[]
     ncols: number
-    types: GType
+    types: GObject.Type
     tmpl_columns: Column[]
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance

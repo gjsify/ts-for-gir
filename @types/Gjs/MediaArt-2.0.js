@@ -1,2 +1,2 @@
-imports.gi.versions.MediaArt = '2.0';
-module.exports = imports.gi.MediaArt;
+imports.gi.versions.MediaArt = '2.0'
+export default imports.gi.MediaArt

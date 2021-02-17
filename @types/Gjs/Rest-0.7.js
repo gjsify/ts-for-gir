@@ -1,2 +1,2 @@
-imports.gi.versions.Rest = '0.7';
-module.exports = imports.gi.Rest;
+imports.gi.versions.Rest = '0.7'
+export default imports.gi.Rest

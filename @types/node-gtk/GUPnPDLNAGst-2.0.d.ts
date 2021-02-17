@@ -2,7 +2,7 @@
  * GUPnPDLNAGst-2.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { GstPbutils } from './GstPbutils-1.0';
 import type { GstVideo } from './GstVideo-1.0';
 import type { GstBase } from './GstBase-1.0';
@@ -13,7 +13,7 @@ import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 import type { GUPnPDLNA } from './GUPnPDLNA-2.0';
 
-declare namespace GUPnPDLNAGst {
+export declare namespace GUPnPDLNAGst {
 
 export function utilsInformationFromDiscovererInfo(info: GstPbutils.DiscovererInfo): GUPnPDLNA.Information
 }

@@ -2,7 +2,7 @@
  * Mash-0.2
  */
 
-/// <reference types="node" />
+import "node"
 import type { freetype2 } from './freetype2-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -21,7 +21,7 @@ import type { Cogl } from './Cogl-1.0';
 import type { Clutter } from './Clutter-1.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Mash {
+export declare namespace Mash {
 
 export enum DataError {
     UNKNOWN_FORMAT,

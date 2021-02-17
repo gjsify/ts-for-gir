@@ -4,8 +4,8 @@
 
 import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
-import type * as GObject from './GObject-2.0';
 import type * as Dbusmenu from './Dbusmenu-0.4';
+import type * as GObject from './GObject-2.0';
 import type * as Dee from './Dee-1.0';
 import type * as Gio from './Gio-2.0';
 

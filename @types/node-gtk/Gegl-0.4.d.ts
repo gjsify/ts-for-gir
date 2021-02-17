@@ -2,12 +2,12 @@
  * Gegl-0.4
  */
 
-/// <reference types="node" />
+import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Babl } from './Babl-0.1';
 
-declare namespace Gegl {
+export declare namespace Gegl {
 
 export enum AbyssPolicy {
     NONE,

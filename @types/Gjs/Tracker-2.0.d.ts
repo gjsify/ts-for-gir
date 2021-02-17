@@ -67,6 +67,17 @@ export function check_version(required_major: number, required_minor: number, re
 export function sparql_escape_uri(uri: string): string
 export function sparql_escape_string(literal: string): string
 export function sparql_get_uuid_urn(): string
+// TODO
+declare namespace Tracker_Vala {
+    export type SparqlCursor = any
+    export type SparqlError = any
+    export type SparqlStatement = any
+    export type SparqlConnection = any
+    export type SparqlBuilderState = any
+    export type SparqlValueType = any
+    export type SparqlConnectionFlags = any
+}
+export type SparqlError = any; // TODO
 export interface NamespaceManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NamespaceManager {

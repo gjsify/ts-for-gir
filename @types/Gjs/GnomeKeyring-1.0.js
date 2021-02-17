@@ -1,2 +1,2 @@
-imports.gi.versions.GnomeKeyring = '1.0';
-module.exports = imports.gi.GnomeKeyring;
+imports.gi.versions.GnomeKeyring = '1.0'
+export default imports.gi.GnomeKeyring

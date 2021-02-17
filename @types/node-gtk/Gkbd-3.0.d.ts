@@ -2,7 +2,7 @@
  * Gkbd-3.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
@@ -17,7 +17,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-declare namespace Gkbd {
+export declare namespace Gkbd {
 
 export enum KeyboardDrawingGroupLevelPosition {
     TOPLEFT,

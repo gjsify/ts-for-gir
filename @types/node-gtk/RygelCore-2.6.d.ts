@@ -2,7 +2,7 @@
  * RygelCore-2.6
  */
 
-/// <reference types="node" />
+import "node"
 import type { GLib } from './GLib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
@@ -12,7 +12,7 @@ import type { libxml2 } from './libxml2-2.0';
 import type { Soup } from './Soup-2.4';
 import type { GSSDP } from './GSSDP-1.2';
 
-declare namespace RygelCore {
+export declare namespace RygelCore {
 
 export enum LogLevel {
     INVALID,

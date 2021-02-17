@@ -2,13 +2,13 @@
  * GstCheck-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gst } from './Gst-1.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace GstCheck {
+export declare namespace GstCheck {
 
 export function bufferStrawGetBuffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
 export function bufferStrawStartPipeline(bin: Gst.Element, pad: Gst.Pad): void

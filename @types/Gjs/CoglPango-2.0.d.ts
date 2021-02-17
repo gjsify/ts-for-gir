@@ -5,10 +5,10 @@
 import type * as Gjs from './Gjs';
 import type * as PangoCairo from './PangoCairo-1.0';
 import type * as cairo from './cairo-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as Cogl from './Cogl-2.0';
 import type * as GL from './GL-1.0';
 

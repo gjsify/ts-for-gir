@@ -4,10 +4,10 @@
 
 import type * as Gjs from './Gjs';
 import type * as libxml2 from './libxml2-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as Soup from './Soup-2.4';
 import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as GData from './GData-0.0';
 import type * as Json from './Json-1.0';
 import type * as Goa from './Goa-1.0';

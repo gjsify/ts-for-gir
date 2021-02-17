@@ -4,11 +4,11 @@
 
 import type * as Gjs from './Gjs';
 import type * as libxml2 from './libxml2-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as WebKit2 from './WebKit2-4.0';
 import type * as Soup from './Soup-2.4';
 import type * as Gio from './Gio-2.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as JavaScriptCore from './JavaScriptCore-4.0';
 import type * as Gtk from './Gtk-3.0';
 import type * as xlib from './xlib-2.0';

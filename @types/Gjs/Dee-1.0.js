@@ -1,2 +1,2 @@
-imports.gi.versions.Dee = '1.0';
-module.exports = imports.gi.Dee;
+imports.gi.versions.Dee = '1.0'
+export default imports.gi.Dee

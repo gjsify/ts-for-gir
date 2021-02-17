@@ -2,13 +2,13 @@
  * TelepathyLogger-0.2
  */
 
-/// <reference types="node" />
+import "node"
 import type { TelepathyGLib } from './TelepathyGLib-0.12';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-declare namespace TelepathyLogger {
+export declare namespace TelepathyLogger {
 
 export enum EntityType {
     UNKNOWN,

@@ -1,2 +1,2 @@
-imports.gi.versions.PangoOT = '1.0';
-module.exports = imports.gi.PangoOT;
+imports.gi.versions.PangoOT = '1.0'
+export default imports.gi.PangoOT

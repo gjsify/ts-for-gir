@@ -2,7 +2,7 @@
  * Caribou-1.0
  */
 
-/// <reference types="node" />
+import "node"
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { GObject } from './GObject-2.0';
@@ -13,7 +13,7 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace Caribou {
+export declare namespace Caribou {
 
 export enum ModifierState {
     NONE,

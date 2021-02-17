@@ -1,2 +1,2 @@
-imports.gi.versions.GXml = '0.10';
-module.exports = imports.gi.GXml;
+imports.gi.versions.GXml = '0.10'
+export default imports.gi.GXml

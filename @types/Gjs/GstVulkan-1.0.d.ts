@@ -4,11 +4,11 @@
 
 import type * as Gjs from './Gjs';
 import type * as Vulkan from './Vulkan-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
 import type * as GstVideo from './GstVideo-1.0';
 import type * as GstBase from './GstBase-1.0';
 import type * as Gst from './Gst-1.0';
+import type * as GObject from './GObject-2.0';
+import type * as GLib from './GLib-2.0';
 import type * as GModule from './GModule-2.0';
 
 export enum VulkanBarrierFlags {
@@ -2470,7 +2470,7 @@ export class VulkanWindow {
     resize(width: number, height: number): void
     send_key_event(event_type: string, key_str: string): void
     send_mouse_event(event_type: string, button: number, posx: number, posy: number): void
-    set_window_handle(handle: guintptr): void
+    set_window_handle(handle: string): void
     /* Methods of Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
@@ -2523,7 +2523,7 @@ export class VulkanWindow {
     vfunc_get_surface_dimensions(width: number, height: number): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_open(): boolean
-    vfunc_set_window_handle(handle: guintptr): void
+    vfunc_set_window_handle(handle: string): void
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -2932,7 +2932,7 @@ export abstract class VulkanWindowClass {
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void
     get_presentation_support: (window: VulkanWindow, device: VulkanDevice, queue_family_idx: number) => boolean
-    set_window_handle: (window: VulkanWindow, handle: guintptr) => void
+    set_window_handle: (window: VulkanWindow, handle: string) => void
     get_surface_dimensions: (window: VulkanWindow, width: number, height: number) => void
     handle_events: (window: VulkanWindow, handle_events: boolean) => void
     static name: string

@@ -2,14 +2,14 @@
  * Notify-0.7
  */
 
-/// <reference types="node" />
+import "node"
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-declare namespace Notify {
+export declare namespace Notify {
 
 export enum Urgency {
     LOW,

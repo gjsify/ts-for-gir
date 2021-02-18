@@ -58,7 +58,7 @@ export class Notification {
     setCategory(category: string): void
     setHint(key: string, value?: GLib.Variant | null): void
     setHintByte(key: string, value: number): void
-    setHintByteArray(key: string, value: any): void
+    setHintByteArray(key: string, value: any[]): void
     setHintDouble(key: string, value: number): void
     setHintInt32(key: string, value: number): void
     setHintString(key: string, value: string): void

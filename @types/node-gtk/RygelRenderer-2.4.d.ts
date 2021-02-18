@@ -5,8 +5,8 @@
 import "node"
 import type { RygelCore } from './RygelCore-2.4';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
@@ -415,11 +415,11 @@ export class PlayerController {
     static $gtype: GObject.Type
 }
 export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
-    supportedProfiles?: DLNAProfile[]
+    supportedProfiles?: any[]
 }
 export class MediaRendererPlugin {
     /* Properties of RygelRenderer.MediaRendererPlugin */
-    supportedProfiles: DLNAProfile[]
+    supportedProfiles: any[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -437,8 +437,8 @@ export class MediaRendererPlugin {
     /* Methods of RygelRenderer.MediaRendererPlugin */
     getPlayer(): MediaPlayer | null
     getProtocolInfo(): string
-    getSupportedProfiles(): DLNAProfile[]
-    setSupportedProfiles(value: DLNAProfile[]): void
+    getSupportedProfiles(): any[]
+    setSupportedProfiles(value: any[]): void
     /* Methods of RygelCore.Plugin */
     addResource(resourceInfo: RygelCore.ResourceInfo): void
     addIcon(iconInfo: RygelCore.IconInfo): void

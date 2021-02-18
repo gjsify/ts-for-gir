@@ -312,7 +312,7 @@ export class Extractable {
 export class MetaContainer {
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -347,14 +347,14 @@ export class MetaContainer {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -407,7 +407,7 @@ export class Asset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -442,7 +442,7 @@ export class Asset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -477,9 +477,9 @@ export class Asset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -626,7 +626,7 @@ export class AudioSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -661,7 +661,7 @@ export class AudioSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -741,9 +741,9 @@ export class AudioSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -948,7 +948,7 @@ export class AudioTestSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -983,7 +983,7 @@ export class AudioTestSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -1063,9 +1063,9 @@ export class AudioTestSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1312,11 +1312,11 @@ export class AudioTrack {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1355,7 +1355,7 @@ export class AudioTrack {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1390,7 +1390,7 @@ export class AudioTrack {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -1529,9 +1529,9 @@ export class AudioTrack {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1718,7 +1718,7 @@ export class AudioTransition {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1753,7 +1753,7 @@ export class AudioTransition {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -1831,9 +1831,9 @@ export class AudioTransition {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2036,7 +2036,7 @@ export class AudioUriSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2071,7 +2071,7 @@ export class AudioUriSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -2151,9 +2151,9 @@ export class AudioUriSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2357,7 +2357,7 @@ export class BaseEffect {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2392,7 +2392,7 @@ export class BaseEffect {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -2470,9 +2470,9 @@ export class BaseEffect {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2684,7 +2684,7 @@ export class BaseEffectClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2719,7 +2719,7 @@ export class BaseEffectClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -2803,9 +2803,9 @@ export class BaseEffectClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3012,7 +3012,7 @@ export class BaseTransitionClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3047,7 +3047,7 @@ export class BaseTransitionClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -3131,9 +3131,9 @@ export class BaseTransitionClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3411,7 +3411,7 @@ export class Clip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3446,7 +3446,7 @@ export class Clip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -3530,9 +3530,9 @@ export class Clip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3665,7 +3665,7 @@ export class ClipAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3700,7 +3700,7 @@ export class ClipAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -3737,9 +3737,9 @@ export class ClipAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3944,7 +3944,7 @@ export class Container {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3979,7 +3979,7 @@ export class Container {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -4060,9 +4060,9 @@ export class Container {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4249,7 +4249,7 @@ export class Effect {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4284,7 +4284,7 @@ export class Effect {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -4362,9 +4362,9 @@ export class Effect {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4507,7 +4507,7 @@ export class EffectAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4542,7 +4542,7 @@ export class EffectAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -4579,9 +4579,9 @@ export class EffectAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4740,7 +4740,7 @@ export class EffectClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4775,7 +4775,7 @@ export class EffectClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -4859,9 +4859,9 @@ export class EffectClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5123,7 +5123,7 @@ export class Group {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5158,7 +5158,7 @@ export class Group {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -5239,9 +5239,9 @@ export class Group {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5426,7 +5426,7 @@ export class ImageSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5461,7 +5461,7 @@ export class ImageSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -5541,9 +5541,9 @@ export class ImageSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5692,7 +5692,7 @@ export class Layer {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5727,7 +5727,7 @@ export class Layer {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -5772,9 +5772,9 @@ export class Layer {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5833,7 +5833,7 @@ export class Marker {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5868,7 +5868,7 @@ export class Marker {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -5888,9 +5888,9 @@ export class Marker {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6109,7 +6109,7 @@ export class MultiFileSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6144,7 +6144,7 @@ export class MultiFileSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -6224,9 +6224,9 @@ export class MultiFileSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6428,7 +6428,7 @@ export class Operation {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6463,7 +6463,7 @@ export class Operation {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -6541,9 +6541,9 @@ export class Operation {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6755,7 +6755,7 @@ export class OperationClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6790,7 +6790,7 @@ export class OperationClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -6874,9 +6874,9 @@ export class OperationClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7083,7 +7083,7 @@ export class OverlayClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7118,7 +7118,7 @@ export class OverlayClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -7202,9 +7202,9 @@ export class OverlayClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7466,11 +7466,11 @@ export class Pipeline {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -7518,11 +7518,11 @@ export class Pipeline {
     setProperty(name: string, value: any): void
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    gotWindowHandle(handle: GstVideo.guintptr): void
+    gotWindowHandle(handle: any): void
     handleEvents(handleEvents: boolean): void
     prepareWindowHandle(): void
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
-    setWindowHandle(handle: GstVideo.guintptr): void
+    setWindowHandle(handle: any): void
     /* Virtual methods of GES.Pipeline */
     vfuncChildAdded(child: GObject.Object, name: string): void
     vfuncChildRemoved(child: GObject.Object, name: string): void
@@ -7532,7 +7532,7 @@ export class Pipeline {
     vfuncExpose(): void
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): void
-    vfuncSetWindowHandle(handle: GstVideo.guintptr): void
+    vfuncSetWindowHandle(handle: any): void
     /* Virtual methods of Gst.Bin */
     vfuncAddElement(element: Gst.Element): boolean
     vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void
@@ -7859,7 +7859,7 @@ export class Project {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7894,7 +7894,7 @@ export class Project {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -7986,9 +7986,9 @@ export class Project {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8130,7 +8130,7 @@ export class Source {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8165,7 +8165,7 @@ export class Source {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -8245,9 +8245,9 @@ export class Source {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8459,7 +8459,7 @@ export class SourceClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8494,7 +8494,7 @@ export class SourceClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -8578,9 +8578,9 @@ export class SourceClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8716,7 +8716,7 @@ export class SourceClipAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8751,7 +8751,7 @@ export class SourceClipAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -8788,9 +8788,9 @@ export class SourceClipAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8965,7 +8965,7 @@ export class TestClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9000,7 +9000,7 @@ export class TestClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -9084,9 +9084,9 @@ export class TestClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9319,7 +9319,7 @@ export class TextOverlay {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9354,7 +9354,7 @@ export class TextOverlay {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -9432,9 +9432,9 @@ export class TextOverlay {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9678,7 +9678,7 @@ export class TextOverlayClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9713,7 +9713,7 @@ export class TextOverlayClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -9797,9 +9797,9 @@ export class TextOverlayClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10090,11 +10090,11 @@ export class Timeline {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -10137,7 +10137,7 @@ export class Timeline {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10172,7 +10172,7 @@ export class Timeline {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -10367,9 +10367,9 @@ export class Timeline {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10534,7 +10534,7 @@ export class TimelineElement {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10569,7 +10569,7 @@ export class TimelineElement {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -10630,9 +10630,9 @@ export class TimelineElement {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10853,7 +10853,7 @@ export class TitleClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10888,7 +10888,7 @@ export class TitleClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -10972,9 +10972,9 @@ export class TitleClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11230,7 +11230,7 @@ export class TitleSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11265,7 +11265,7 @@ export class TitleSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -11345,9 +11345,9 @@ export class TitleSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11597,11 +11597,11 @@ export class Track {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -11640,7 +11640,7 @@ export class Track {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11675,7 +11675,7 @@ export class Track {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -11814,9 +11814,9 @@ export class Track {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12006,7 +12006,7 @@ export class TrackElement {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12041,7 +12041,7 @@ export class TrackElement {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -12119,9 +12119,9 @@ export class TrackElement {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12258,7 +12258,7 @@ export class TrackElementAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12293,7 +12293,7 @@ export class TrackElementAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -12330,9 +12330,9 @@ export class TrackElementAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12477,7 +12477,7 @@ export class Transition {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12512,7 +12512,7 @@ export class Transition {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -12590,9 +12590,9 @@ export class Transition {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12807,7 +12807,7 @@ export class TransitionClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12842,7 +12842,7 @@ export class TransitionClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -12926,9 +12926,9 @@ export class TransitionClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13155,7 +13155,7 @@ export class UriClip {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -13190,7 +13190,7 @@ export class UriClip {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -13274,9 +13274,9 @@ export class UriClip {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13432,7 +13432,7 @@ export class UriClipAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -13467,7 +13467,7 @@ export class UriClipAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -13504,9 +13504,9 @@ export class UriClipAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13606,7 +13606,7 @@ export class UriSourceAsset {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -13641,7 +13641,7 @@ export class UriSourceAsset {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -13678,9 +13678,9 @@ export class UriSourceAsset {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13827,7 +13827,7 @@ export class VideoSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -13862,7 +13862,7 @@ export class VideoSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -13942,9 +13942,9 @@ export class VideoSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14149,7 +14149,7 @@ export class VideoTestSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -14184,7 +14184,7 @@ export class VideoTestSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -14264,9 +14264,9 @@ export class VideoTestSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14513,11 +14513,11 @@ export class VideoTrack {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -14556,7 +14556,7 @@ export class VideoTrack {
     watchClosure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -14591,7 +14591,7 @@ export class VideoTrack {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -14730,9 +14730,9 @@ export class VideoTrack {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14933,7 +14933,7 @@ export class VideoTransition {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -14968,7 +14968,7 @@ export class VideoTransition {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -15046,9 +15046,9 @@ export class VideoTransition {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15268,7 +15268,7 @@ export class VideoUriSource {
     setAsset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     addMetasFromString(str: string): boolean
-    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GType | null ]
+    checkMetaRegistered(metaItem: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     getBoolean(metaItem: string): [ /* returnType */ boolean, /* dest */ boolean ]
     getDate(metaItem: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -15303,7 +15303,7 @@ export class VideoUriSource {
     setInt(metaItem: string, value: number): boolean
     setInt64(metaItem: string, value: number): boolean
     setMarkerList(metaItem: string, list: MarkerList): boolean
-    setMeta(metaItem: string, value?: any): boolean
+    setMeta(metaItem: string, value?: any | null): boolean
     setString(metaItem: string, value: string): boolean
     setUint(metaItem: string, value: number): boolean
     setUint64(metaItem: string, value: number): boolean
@@ -15383,9 +15383,9 @@ export class VideoUriSource {
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     on(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-meta", callback: (...args: any[]) => void): NodeJS.EventEmitter

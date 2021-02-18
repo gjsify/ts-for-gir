@@ -778,7 +778,7 @@ export class RemoteRef {
     getEol(): string
     getEolRebase(): string
     getInstalledSize(): number
-    getMetadata(): any
+    getMetadata(): any | null
     getRemoteName(): string
     /* Methods of Flatpak.Ref */
     formatRef(): string
@@ -850,7 +850,7 @@ export class Transaction {
     addDefaultDependencySources(): void
     addDependencySource(installation: Installation): void
     addInstall(remote: string, ref: string, subpaths?: string[] | null): boolean
-    addInstallBundle(file: Gio.File, gpgData?: any): boolean
+    addInstallBundle(file: Gio.File, gpgData?: any | null): boolean
     addInstallFlatpakref(flatpakrefData: any): boolean
     addRebase(remote: string, ref: string, subpaths?: string | null, previousIds?: string[] | null): boolean
     addSideloadRepo(path: string): void

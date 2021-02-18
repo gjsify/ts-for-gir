@@ -4,10 +4,10 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -4903,7 +4903,7 @@ export class GLTexture {
     /* Methods of Gdk.GLTexture */
     release(): void
     /* Methods of Gdk.Texture */
-    download(data: any, stride: number): void
+    download(data: any[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean
@@ -5054,7 +5054,7 @@ export class MemoryTexture {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.Texture */
-    download(data: any, stride: number): void
+    download(data: any[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean
@@ -5676,7 +5676,7 @@ export class Texture {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk.Texture */
-    download(data: any, stride: number): void
+    download(data: any[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean

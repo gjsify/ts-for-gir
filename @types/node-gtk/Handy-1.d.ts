@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -282,7 +282,7 @@ export class Swipeable {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -1434,7 +1434,7 @@ export class ActionRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -2825,7 +2825,7 @@ export class ApplicationWindow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -4240,7 +4240,7 @@ export class Avatar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -5422,7 +5422,7 @@ export class Carousel {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -6642,7 +6642,7 @@ export class CarouselIndicatorDots {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -7736,7 +7736,7 @@ export class CarouselIndicatorLines {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -8870,7 +8870,7 @@ export class Clamp {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10107,7 +10107,7 @@ export class ComboRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -11402,7 +11402,7 @@ export class Deck {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12753,7 +12753,7 @@ export class ExpanderRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -14043,7 +14043,7 @@ export class Flap {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -15350,7 +15350,7 @@ export class HeaderBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -16762,7 +16762,7 @@ export class Keypad {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -18009,7 +18009,7 @@ export class Leaflet {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -19279,7 +19279,7 @@ export class PreferencesGroup {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -20458,7 +20458,7 @@ export class PreferencesPage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -21655,7 +21655,7 @@ export class PreferencesRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -23016,7 +23016,7 @@ export class PreferencesWindow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -24394,7 +24394,7 @@ export class SearchBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -25594,7 +25594,7 @@ export class Squeezer {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -26815,7 +26815,7 @@ export class StatusPage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -28232,7 +28232,7 @@ export class TabBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -29629,7 +29629,7 @@ export class TabView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -30872,7 +30872,7 @@ export class TitleBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -32112,7 +32112,7 @@ export class ViewSwitcher {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -33300,7 +33300,7 @@ export class ViewSwitcherBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -34498,7 +34498,7 @@ export class ViewSwitcherTitle {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -35828,7 +35828,7 @@ export class Window {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -37194,7 +37194,7 @@ export class WindowHandle {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

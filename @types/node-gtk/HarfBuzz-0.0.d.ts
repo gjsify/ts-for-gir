@@ -770,10 +770,10 @@ export function blobIsImmutable(blob: blob_t): bool_t
 export function blobMakeImmutable(blob: blob_t): void
 export function bufferAdd(buffer: buffer_t, codepoint: codepoint_t, cluster: number): void
 export function bufferAddCodepoints(buffer: buffer_t, text: codepoint_t[], itemOffset: number, itemLength: number): void
-export function bufferAddLatin1(buffer: buffer_t, text: any, itemOffset: number, itemLength: number): void
+export function bufferAddLatin1(buffer: buffer_t, text: any[], itemOffset: number, itemLength: number): void
 export function bufferAddUtf16(buffer: buffer_t, text: number[], itemOffset: number, itemLength: number): void
 export function bufferAddUtf32(buffer: buffer_t, text: number[], itemOffset: number, itemLength: number): void
-export function bufferAddUtf8(buffer: buffer_t, text: any, itemOffset: number, itemLength: number): void
+export function bufferAddUtf8(buffer: buffer_t, text: any[], itemOffset: number, itemLength: number): void
 export function bufferAllocationSuccessful(buffer: buffer_t): bool_t
 export function bufferAppend(buffer: buffer_t, source: buffer_t, start: number, end: number): void
 export function bufferClearContents(buffer: buffer_t): void
@@ -803,12 +803,12 @@ export function bufferReset(buffer: buffer_t): void
 export function bufferReverse(buffer: buffer_t): void
 export function bufferReverseClusters(buffer: buffer_t): void
 export function bufferReverseRange(buffer: buffer_t, start: number, end: number): void
-export function bufferSerialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any, /* bufConsumed */ number | null ]
-export function bufferSerializeFormatFromString(str: any): buffer_serialize_format_t
+export function bufferSerialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any[], /* bufConsumed */ number | null ]
+export function bufferSerializeFormatFromString(str: any[]): buffer_serialize_format_t
 export function bufferSerializeFormatToString(format: buffer_serialize_format_t): string
-export function bufferSerializeGlyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any, /* bufConsumed */ number | null ]
+export function bufferSerializeGlyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any[], /* bufConsumed */ number | null ]
 export function bufferSerializeListFormats(): string[]
-export function bufferSerializeUnicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any, /* bufConsumed */ number | null ]
+export function bufferSerializeUnicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any[], /* bufConsumed */ number | null ]
 export function bufferSetClusterLevel(buffer: buffer_t, clusterLevel: buffer_cluster_level_t): void
 export function bufferSetContentType(buffer: buffer_t, contentType: buffer_content_type_t): void
 export function bufferSetDirection(buffer: buffer_t, direction: direction_t): void
@@ -825,7 +825,7 @@ export function colorGetAlpha(color: color_t): number
 export function colorGetBlue(color: color_t): number
 export function colorGetGreen(color: color_t): number
 export function colorGetRed(color: color_t): number
-export function directionFromString(str: any): direction_t
+export function directionFromString(str: any[]): direction_t
 export function directionToString(direction: direction_t): string
 export function faceBuilderAddTable(face: face_t, tag: tag_t, blob: blob_t): bool_t
 export function faceBuilderCreate(): face_t
@@ -847,7 +847,7 @@ export function faceReferenceTable(face: face_t, tag: tag_t): blob_t
 export function faceSetGlyphCount(face: face_t, glyphCount: number): void
 export function faceSetIndex(face: face_t, index: number): void
 export function faceSetUpem(face: face_t, upem: number): void
-export function featureFromString(str: any): [ /* returnType */ bool_t, /* feature */ feature_t ]
+export function featureFromString(str: any[]): [ /* returnType */ bool_t, /* feature */ feature_t ]
 export function featureToString(feature: feature_t): /* buf */ string[]
 export function fontAddGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
 export function fontCreate(face: face_t): font_t
@@ -906,7 +906,7 @@ export function fontGetScale(font: font_t): [ /* xScale */ number, /* yScale */ 
 export function fontGetVExtents(font: font_t): [ /* returnType */ bool_t, /* extents */ font_extents_t ]
 export function fontGetVarCoordsNormalized(font: font_t, length: number): number
 export function fontGetVariationGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
-export function fontGlyphFromString(font: font_t, s: any): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
+export function fontGlyphFromString(font: font_t, s: any[]): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
 export function fontGlyphToString(font: font_t, glyph: codepoint_t, s: string[]): void
 export function fontIsImmutable(font: font_t): bool_t
 export function fontMakeImmutable(font: font_t): void
@@ -932,7 +932,7 @@ export function glibGetUnicodeFuncs(): unicode_funcs_t
 export function glibScriptFromScript(script: script_t): GLib.UnicodeScript
 export function glibScriptToScript(script: GLib.UnicodeScript): script_t
 export function glyphInfoGetGlyphFlags(info: glyph_info_t): glyph_flags_t
-export function languageFromString(str: any): language_t
+export function languageFromString(str: any[]): language_t
 export function languageGetDefault(): language_t
 export function languageToString(language: language_t): string
 export function mapAllocationSuccessful(map: map_t): bool_t
@@ -1032,7 +1032,7 @@ export function otVarNamedInstanceGetSubfamilyNameId(face: face_t, instanceIndex
 export function otVarNormalizeCoords(face: face_t, coordsLength: number, designCoords: number): /* normalizedCoords */ number
 export function otVarNormalizeVariations(face: face_t, variations: variation_t, variationsLength: number): /* coords */ number[]
 export function scriptFromIso15924Tag(tag: tag_t): script_t
-export function scriptFromString(str: any): script_t
+export function scriptFromString(str: any[]): script_t
 export function scriptGetHorizontalDirection(script: script_t): direction_t
 export function scriptToIso15924Tag(script: script_t): tag_t
 export function segmentPropertiesEqual(a: segment_properties_t, b: segment_properties_t): bool_t
@@ -1072,8 +1072,8 @@ export function shapePlanCreateCached2(face: face_t, props: segment_properties_t
 export function shapePlanExecute(shapePlan: shape_plan_t, font: font_t, buffer: buffer_t, features: feature_t[]): bool_t
 export function shapePlanGetEmpty(): shape_plan_t
 export function shapePlanGetShaper(shapePlan: shape_plan_t): string
-export function tagFromString(str: any): tag_t
-export function tagToString(tag: tag_t): /* buf */ any
+export function tagFromString(str: any[]): tag_t
+export function tagToString(tag: tag_t): /* buf */ any[]
 export function unicodeCombiningClass(ufuncs: unicode_funcs_t, unicode: codepoint_t): unicode_combining_class_t
 export function unicodeCompose(ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t): [ /* returnType */ bool_t, /* ab */ codepoint_t ]
 export function unicodeDecompose(ufuncs: unicode_funcs_t, ab: codepoint_t): [ /* returnType */ bool_t, /* a */ codepoint_t, /* b */ codepoint_t ]
@@ -1315,8 +1315,8 @@ export class var_int_t {
     i32: number
     u16: number[]
     i16: number[]
-    u8: any
-    i8: any
+    u8: any[]
+    i8: any[]
     static name: string
 }
 export type bool_t = number

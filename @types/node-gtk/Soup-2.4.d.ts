@@ -486,7 +486,7 @@ export function websocketServerCheckHandshake(msg: Message, origin?: string | nu
 export function websocketServerCheckHandshakeWithExtensions(msg: Message, origin?: string | null, protocols?: string[] | null, supportedExtensions?: GObject.TypeClass[] | null): boolean
 export function websocketServerProcessHandshake(msg: Message, expectedOrigin?: string | null, protocols?: string[] | null): boolean
 export function websocketServerProcessHandshakeWithExtensions(msg: Message, expectedOrigin?: string | null, protocols?: string[] | null, supportedExtensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* acceptedExtensions */ WebsocketExtension[] | null ]
-export function xmlrpcBuildMethodCall(methodName: string, params: any): string | null
+export function xmlrpcBuildMethodCall(methodName: string, params: any[]): string | null
 export function xmlrpcBuildMethodResponse(value: any): string | null
 export function xmlrpcBuildRequest(methodName: string, params: GLib.Variant): string
 export function xmlrpcBuildResponse(value: GLib.Variant): string
@@ -2649,8 +2649,8 @@ export class Message {
     setIsTopLevelNavigation(isTopLevelNavigation: boolean): void
     setPriority(priority: MessagePriority): void
     setRedirect(statusCode: number, redirectUri: string): void
-    setRequest(contentType: string | null, reqUse: MemoryUse, reqBody: any | null): void
-    setResponse(contentType: string | null, respUse: MemoryUse, respBody: any | null): void
+    setRequest(contentType: string | null, reqUse: MemoryUse, reqBody: any[] | null): void
+    setResponse(contentType: string | null, respUse: MemoryUse, respBody: any[] | null): void
     setSiteForCookies(siteForCookies?: URI | null): void
     setStatus(statusCode: number): void
     setStatusFull(statusCode: number, reasonPhrase: string): void
@@ -2928,11 +2928,11 @@ export class MultipartInputStream {
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any, /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
+    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -2967,17 +2967,17 @@ export class MultipartInputStream {
     canPoll(): boolean
     createSource(cancellable?: Gio.Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any, cancellable?: Gio.Cancellable | null): number
+    readNonblocking(buffer: any[], cancellable?: Gio.Cancellable | null): number
     /* Virtual methods of Soup.MultipartInputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Gio.Cancellable | null): GLib.Source
     vfuncIsReadable(): boolean
-    vfuncReadNonblocking(buffer: any | null): number
+    vfuncReadNonblocking(buffer: any[] | null): number
     /* Virtual methods of Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncCloseFinish(result: Gio.AsyncResult): boolean
     vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
     vfuncReadFinish(result: Gio.AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -4429,11 +4429,11 @@ export class Socket {
     isConnected(): boolean
     isSsl(): boolean
     listen(): boolean
-    read(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    readUntil(buffer: any, boundary: object | null, boundaryLen: number, gotBoundary: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    readUntil(buffer: any[], boundary: object | null, boundaryLen: number, gotBoundary: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
     startProxySsl(sslHost: string, cancellable?: Gio.Cancellable | null): boolean
     startSsl(cancellable?: Gio.Cancellable | null): boolean
-    write(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
+    write(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -4596,7 +4596,7 @@ export class WebsocketConnection {
     getProtocol(): string | null
     getState(): WebsocketState
     getUri(): URI
-    sendBinary(data: any | null): void
+    sendBinary(data: any[] | null): void
     sendMessage(type: WebsocketDataType, message: any): void
     sendText(text: string): void
     setKeepaliveInterval(interval: number): void
@@ -4966,15 +4966,15 @@ export class Buffer {
     copy(): Buffer
     free(): void
     getAsBytes(): any
-    getData(): /* data */ any
+    getData(): /* data */ any[]
     getOwner(): object | null
     newSubbuffer(offset: number, length: number): Buffer
     static name: string
-    static new(data: any): Buffer
-    constructor(data: any)
+    static new(data: any[]): Buffer
+    constructor(data: any[])
     /* Static methods and pseudo-constructors */
-    static new(data: any): Buffer
-    static newWithOwner(data: any, owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Buffer
+    static new(data: any[]): Buffer
+    static newWithOwner(data: any[], owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Buffer
 }
 export abstract class CacheClass {
     /* Fields of Soup.CacheClass */
@@ -5166,7 +5166,7 @@ export class MessageBody {
     length: number
     /* Methods of Soup.MessageBody */
     appendBuffer(buffer: Buffer): void
-    append(data: any): void
+    append(data: any[]): void
     complete(): void
     flatten(): Buffer
     free(): void

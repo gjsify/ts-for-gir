@@ -447,7 +447,7 @@ export class Resource {
     get_identifier(): string
     get_properties(): string[]
     get_property_overwrite(property_uri: string): boolean
-    get_values(property_uri: string): any
+    get_values(property_uri: string): any[]
     identifier_compare_func(identifier: string): number
     print_jsonld(namespaces?: NamespaceManager | null): string
     print_sparql_update(namespaces?: NamespaceManager | null, graph_id?: string | null): string

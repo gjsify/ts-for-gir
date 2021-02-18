@@ -24,7 +24,7 @@ export function fdMemoryGetFd(mem: Gst.Memory): number
 export function isDmabufMemory(mem: Gst.Memory): boolean
 export function isFdMemory(mem: Gst.Memory): boolean
 export function isPhysMemory(mem: Gst.Memory): boolean
-export function physMemoryGetPhysAddr(mem: Gst.Memory): guintptr
+export function physMemoryGetPhysAddr(mem: Gst.Memory): any
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class PhysMemoryAllocator {
@@ -55,11 +55,11 @@ export class PhysMemoryAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -97,7 +97,7 @@ export class PhysMemoryAllocator {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstAllocators.PhysMemoryAllocator */
-    vfuncGetPhysAddr(mem: Gst.Memory): guintptr
+    vfuncGetPhysAddr(mem: Gst.Memory): any
     /* Virtual methods of Gst.Allocator */
     vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfuncFree(memory: Gst.Memory): void
@@ -177,11 +177,11 @@ export class DmaBufAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -302,11 +302,11 @@ export class FdAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -407,7 +407,7 @@ export abstract class FdAllocatorClass {
 }
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstAllocators.PhysMemoryAllocatorInterface */
-    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => guintptr
+    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => any
     static name: string
 }
 }

@@ -410,11 +410,11 @@ export class GLBaseFilter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -603,11 +603,11 @@ export class GLBaseMemoryAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -852,11 +852,11 @@ export class GLBaseSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1067,11 +1067,11 @@ export class GLBufferAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1195,11 +1195,11 @@ export class GLBufferPool {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1318,11 +1318,11 @@ export class GLColorConvert {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1436,7 +1436,7 @@ export class GLContext {
     fillInfo(): boolean
     getDisplay(): GLDisplay
     getGlApi(): GLAPI
-    getGlContext(): guintptr
+    getGlContext(): any
     getGlPlatform(): GLPlatform
     getGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
     getGlVersion(): [ /* maj */ number, /* min */ number ]
@@ -1456,11 +1456,11 @@ export class GLContext {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1504,7 +1504,7 @@ export class GLContext {
     vfuncCreateContext(glApi: GLAPI, otherContext: GLContext): boolean
     vfuncDestroyContext(): void
     vfuncGetGlApi(): GLAPI
-    vfuncGetGlContext(): guintptr
+    vfuncGetGlContext(): any
     vfuncGetGlPlatform(): GLPlatform
     vfuncGetGlPlatformVersion(): [ /* major */ number, /* minor */ number ]
     vfuncSwapBuffers(): void
@@ -1554,11 +1554,11 @@ export class GLContext {
     _init (config?: GLContext_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(display: GLDisplay): GLContext
-    static newWrapped(display: GLDisplay, handle: guintptr, contextType: GLPlatform, availableApis: GLAPI): GLContext
+    static newWrapped(display: GLDisplay, handle: any, contextType: GLPlatform, availableApis: GLAPI): GLContext
     static defaultGetProcAddress(glApi: GLAPI, name: string): object | null
     static getCurrent(): GLContext
     static getCurrentGlApi(platform: GLPlatform): [ /* returnType */ GLAPI, /* major */ number | null, /* minor */ number | null ]
-    static getCurrentGlContext(contextType: GLPlatform): guintptr
+    static getCurrentGlContext(contextType: GLPlatform): any
     static getProcAddressWithPlatform(contextType: GLPlatform, glApi: GLAPI, name: string): object | null
     static $gtype: GObject.Type
 }
@@ -1583,7 +1583,7 @@ export class GLDisplay {
     getGlApi(): GLAPI
     getGlApiUnlocked(): GLAPI
     getGlContextForThread(thread: GLib.Thread): GLContext
-    getHandle(): guintptr
+    getHandle(): any
     getHandleType(): GLDisplayType
     removeContext(context: GLContext): void
     removeWindow(window: GLWindow): boolean
@@ -1593,11 +1593,11 @@ export class GLDisplay {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1636,7 +1636,7 @@ export class GLDisplay {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GLWindow
-    vfuncGetHandle(): guintptr
+    vfuncGetHandle(): any
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -1841,11 +1841,11 @@ export class GLFilter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2037,11 +2037,11 @@ export class GLFramebuffer {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2157,11 +2157,11 @@ export class GLMemoryAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2285,11 +2285,11 @@ export class GLMemoryPBOAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2408,11 +2408,11 @@ export class GLOverlayCompositor {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2533,11 +2533,11 @@ export class GLRenderbufferAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2653,11 +2653,11 @@ export class GLSLStage {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2807,11 +2807,11 @@ export class GLShader {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2931,11 +2931,11 @@ export class GLUpload {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3069,11 +3069,11 @@ export class GLViewConvert {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3199,9 +3199,9 @@ export class GLWindow {
     controlsViewport(): boolean
     draw(): void
     getContext(): GLContext
-    getDisplay(): guintptr
+    getDisplay(): any
     getSurfaceDimensions(): [ /* width */ number, /* height */ number ]
-    getWindowHandle(): guintptr
+    getWindowHandle(): any
     handleEvents(handleEvents: boolean): void
     hasOutputSurface(): boolean
     queueResize(): void
@@ -3218,18 +3218,18 @@ export class GLWindow {
     setPreferredSize(width: number, height: number): void
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
     setResizeCallback(callback: GLWindowResizeCB): void
-    setWindowHandle(handle: guintptr): void
+    setWindowHandle(handle: any): void
     show(): void
     /* Methods of Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3270,8 +3270,8 @@ export class GLWindow {
     vfuncClose(): void
     vfuncControlsViewport(): boolean
     vfuncDraw(): void
-    vfuncGetDisplay(): guintptr
-    vfuncGetWindowHandle(): guintptr
+    vfuncGetDisplay(): any
+    vfuncGetWindowHandle(): any
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncHasOutputSurface(): boolean
     vfuncOpen(): boolean
@@ -3282,7 +3282,7 @@ export class GLWindow {
     vfuncSendMessageAsync(callback: GLWindowCB): void
     vfuncSetPreferredSize(width: number, height: number): void
     vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): boolean
-    vfuncSetWindowHandle(handle: guintptr): void
+    vfuncSetWindowHandle(handle: any): void
     vfuncShow(): void
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -3476,8 +3476,8 @@ export class GLColorConvertPrivate {
 export abstract class GLContextClass {
     /* Fields of GstGL.GLContextClass */
     parentClass: Gst.ObjectClass
-    getCurrentContext: () => guintptr
-    getGlContext: (context: GLContext) => guintptr
+    getCurrentContext: () => any
+    getGlContext: (context: GLContext) => any
     getGlApi: (context: GLContext) => GLAPI
     getGlPlatform: (context: GLContext) => GLPlatform
     getProcAddress: (glApi: GLAPI, name: string) => object
@@ -3496,7 +3496,7 @@ export class GLContextPrivate {
 export abstract class GLDisplayClass {
     /* Fields of GstGL.GLDisplayClass */
     objectClass: Gst.ObjectClass
-    getHandle: (display: GLDisplay) => guintptr
+    getHandle: (display: GLDisplay) => any
     createWindow: (display: GLDisplay) => GLWindow
     static name: string
 }
@@ -3691,9 +3691,9 @@ export class GLViewConvertPrivate {
 export abstract class GLWindowClass {
     /* Fields of GstGL.GLWindowClass */
     parentClass: Gst.ObjectClass
-    getDisplay: (window: GLWindow) => guintptr
-    setWindowHandle: (window: GLWindow, handle: guintptr) => void
-    getWindowHandle: (window: GLWindow) => guintptr
+    getDisplay: (window: GLWindow) => any
+    setWindowHandle: (window: GLWindow, handle: any) => void
+    getWindowHandle: (window: GLWindow) => any
     draw: (window: GLWindow) => void
     run: (window: GLWindow) => void
     quit: (window: GLWindow) => void

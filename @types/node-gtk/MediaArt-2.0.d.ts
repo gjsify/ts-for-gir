@@ -25,7 +25,7 @@ export enum ProcessFlags {
     NONE,
     FORCE,
 }
-export function bufferToJpeg(buffer: any, bufferMime: string, target: string): boolean
+export function bufferToJpeg(buffer: any[], bufferMime: string, target: string): boolean
 export function errorQuark(): GLib.Quark
 export function fileToJpeg(filename: string, target: string): boolean
 export function getFile(artist?: string | null, title?: string | null, prefix?: string | null): [ /* returnType */ boolean, /* cacheFile */ Gio.File | null ]
@@ -44,8 +44,8 @@ export class Process {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of MediaArt.Process */
-    buffer(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any | null, mime?: string | null, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
-    bufferAsync(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any | null, mime: string, artist: string | null, title: string | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    buffer(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any[] | null, mime?: string | null, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
+    bufferAsync(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any[] | null, mime: string, artist: string | null, title: string | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     bufferFinish(result: Gio.AsyncResult): boolean
     file(type: Type, flags: ProcessFlags, file: Gio.File, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
     fileAsync(type: Type, flags: ProcessFlags, file: Gio.File, artist: string | null, title: string | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void

@@ -53979,7 +53979,7 @@ export class WebView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

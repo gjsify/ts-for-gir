@@ -38,7 +38,7 @@ export class GLDisplayWayland {
     get_gl_api(): GstGL.GLAPI
     get_gl_api_unlocked(): GstGL.GLAPI
     get_gl_context_for_thread(thread: GLib.Thread): GstGL.GLContext
-    get_handle(): string
+    get_handle(): any
     get_handle_type(): GstGL.GLDisplayType
     remove_context(context: GstGL.GLContext): void
     remove_window(window: GstGL.GLWindow): boolean
@@ -48,11 +48,11 @@ export class GLDisplayWayland {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -91,7 +91,7 @@ export class GLDisplayWayland {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfunc_create_window(): GstGL.GLWindow
-    vfunc_get_handle(): string
+    vfunc_get_handle(): any
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */

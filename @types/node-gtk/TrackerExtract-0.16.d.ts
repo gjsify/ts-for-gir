@@ -5,8 +5,8 @@
 import "node"
 import type { Tracker } from './Tracker-0.16';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { GModule } from './GModule-2.0';
 
 export declare namespace TrackerExtract {

@@ -4478,7 +4478,7 @@ export class GLTexture {
     /* Methods of Gdk.GLTexture */
     release(): void
     /* Methods of Gdk.Texture */
-    download(data: Uint8Array, stride: number): void
+    download(data: Uint8Array[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
@@ -4617,7 +4617,7 @@ export class MemoryTexture {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.Texture */
-    download(data: Uint8Array, stride: number): void
+    download(data: Uint8Array[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
@@ -5128,7 +5128,7 @@ export class Texture {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk.Texture */
-    download(data: Uint8Array, stride: number): void
+    download(data: Uint8Array[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
@@ -5333,7 +5333,7 @@ export class ContentFormats {
     /* Methods of Gdk.ContentFormats */
     contain_gtype(type: GObject.Type): boolean
     contain_mime_type(mime_type: string): boolean
-    get_gtypes(): GObject.Type[] | null[] | null
+    get_gtypes(): GObject.Type[] | null
     get_mime_types(): [ /* returnType */ string[] | null, /* n_mime_types */ number | null ]
     match(second: ContentFormats): boolean
     match_gtype(second: ContentFormats): GObject.Type

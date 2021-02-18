@@ -5,8 +5,8 @@
 import "node"
 import type { RygelCore } from './RygelCore-2.4';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
@@ -1432,9 +1432,9 @@ export class DataSource {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.DataSource */
-    connect(sigName: "data_available", callback: (($obj: DataSource, data: any) => void)): number
-    connect_after(sigName: "data_available", callback: (($obj: DataSource, data: any) => void)): number
-    emit(sigName: "data_available", data: any): void
+    connect(sigName: "data_available", callback: (($obj: DataSource, data: any[]) => void)): number
+    connect_after(sigName: "data_available", callback: (($obj: DataSource, data: any[]) => void)): number
+    emit(sigName: "data_available", data: any[]): void
     on(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2235,7 +2235,7 @@ export class MediaArtStore {
     findMediaArt(item: MusicItem, simple: boolean): Thumbnail | null
     findMediaArtAny(item: MusicItem): Thumbnail | null
     getMediaArtFile(type: string, item: MusicItem, simple: boolean): Gio.File | null
-    add(item: MusicItem, file: Gio.File, data: any | null): void
+    add(item: MusicItem, file: Gio.File, data: any[] | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -4345,14 +4345,14 @@ export class MediaObject {
 }
 export interface MediaServerPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
     rootContainer?: MediaContainer
-    uploadProfiles?: DLNAProfile[]
-    supportedProfiles?: DLNAProfile[]
+    uploadProfiles?: any[]
+    supportedProfiles?: any[]
 }
 export class MediaServerPlugin {
     /* Properties of RygelServer.MediaServerPlugin */
     readonly searchCaps: string
-    uploadProfiles: DLNAProfile[]
-    supportedProfiles: DLNAProfile[]
+    uploadProfiles: any[]
+    supportedProfiles: any[]
     /* Properties of RygelCore.Plugin */
     capabilities: RygelCore.PluginCapabilities
     title: string
@@ -4370,10 +4370,10 @@ export class MediaServerPlugin {
     /* Methods of RygelServer.MediaServerPlugin */
     getRootContainer(): MediaContainer
     getSearchCaps(): string
-    getUploadProfiles(): DLNAProfile[]
-    setUploadProfiles(value: DLNAProfile[]): void
-    getSupportedProfiles(): DLNAProfile[]
-    setSupportedProfiles(value: DLNAProfile[]): void
+    getUploadProfiles(): any[]
+    setUploadProfiles(value: any[]): void
+    getSupportedProfiles(): any[]
+    setSupportedProfiles(value: any[]): void
     /* Methods of RygelCore.Plugin */
     addResource(resourceInfo: RygelCore.ResourceInfo): void
     addIcon(iconInfo: RygelCore.IconInfo): void
@@ -4716,7 +4716,7 @@ export class MediaEngine {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaEngine */
-    getDlnaProfiles(): DLNAProfile[]
+    getDlnaProfiles(): any[]
     getTranscoders(): Transcoder[] | null
     createDataSource(uri: string): DataSource | null
     /* Methods of GObject.Object */
@@ -4742,7 +4742,7 @@ export class MediaEngine {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of RygelServer.MediaEngine */
-    vfuncGetDlnaProfiles(): DLNAProfile[]
+    vfuncGetDlnaProfiles(): any[]
     vfuncGetTranscoders(): Transcoder[] | null
     vfuncCreateDataSource(uri: string): DataSource | null
     /* Virtual methods of GObject.Object */
@@ -5568,7 +5568,7 @@ export class MediaServerPrivate {
 export abstract class MediaEngineClass {
     /* Fields of RygelServer.MediaEngineClass */
     parentClass: GObject.ObjectClass
-    getDlnaProfiles: (self: MediaEngine) => DLNAProfile[]
+    getDlnaProfiles: (self: MediaEngine) => any[]
     getTranscoders: (self: MediaEngine) => Transcoder[] | null
     createDataSource: (self: MediaEngine, uri: string) => DataSource | null
     static name: string

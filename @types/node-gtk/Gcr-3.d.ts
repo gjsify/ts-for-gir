@@ -101,8 +101,8 @@ export const UNLOCK_OPTION_SESSION: string
 export const UNLOCK_OPTION_TIMEOUT: string
 export function certificateCompare(first?: Comparable | null, other?: Comparable | null): number
 export function dataErrorGetDomain(): GLib.Quark
-export function fingerprintFromAttributes(attrs: Gck.Attributes, checksumType: GLib.ChecksumType): any | null
-export function fingerprintFromSubjectPublicKeyInfo(keyInfo: any, checksumType: GLib.ChecksumType): any | null
+export function fingerprintFromAttributes(attrs: Gck.Attributes, checksumType: GLib.ChecksumType): any[] | null
+export function fingerprintFromSubjectPublicKeyInfo(keyInfo: any[], checksumType: GLib.ChecksumType): any[] | null
 export function iconForToken(tokenInfo: Gck.TokenInfo): Gio.Icon
 export function importerCreateForParsed(parsed: Parsed): Importer[]
 export function importerQueueAndFilterForParsed(importers: Importer[], parsed: Parsed): Importer[]
@@ -158,31 +158,31 @@ export class Certificate {
     readonly subject: string
     /* Methods of Gcr.Certificate */
     getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
-    getDerData(): any
+    getDerData(): any[]
     getExpiryDate(): GLib.Date
-    getFingerprint(type: GLib.ChecksumType): any
+    getFingerprint(type: GLib.ChecksumType): any[]
     getFingerprintHex(type: GLib.ChecksumType): string
     getIssuedDate(): GLib.Date
     getIssuerCn(): string
     getIssuerDn(): string
     getIssuerName(): string
     getIssuerPart(part: string): string | null
-    getIssuerRaw(): any
+    getIssuerRaw(): any[]
     getKeySize(): number
     getMarkupText(): string
-    getSerialNumber(): any
+    getSerialNumber(): any[]
     getSerialNumberHex(): string
     getSubjectCn(): string
     getSubjectDn(): string
     getSubjectName(): string
     getSubjectPart(part: string): string | null
-    getSubjectRaw(): any
+    getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.Certificate */
-    vfuncGetDerData(): any
+    vfuncGetDerData(): any[]
     /* Virtual methods of Gcr.Comparable */
     vfuncCompare(other?: Comparable | null): number
     static name: string
@@ -474,7 +474,7 @@ export class CertificateRequest {
     complete(cancellable?: Gio.Cancellable | null): boolean
     completeAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     completeFinish(result: Gio.AsyncResult): boolean
-    encode(textual: boolean): any
+    encode(textual: boolean): any[]
     getFormat(): CertificateRequestFormat
     getPrivateKey(): Gck.Object
     setCn(cn: string): void
@@ -639,13 +639,13 @@ export class Parser {
     getFilename(): string
     getParsed(): Parsed
     getParsedAttributes(): Gck.Attributes | null
-    getParsedBlock(): any | null
+    getParsedBlock(): any[] | null
     getParsedBytes(): any
     getParsedDescription(): string | null
     getParsedFormat(): DataFormat
     getParsedLabel(): string | null
     parseBytes(data: any): boolean
-    parseData(data: any): boolean
+    parseData(data: any[]): boolean
     parseStream(input: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     parseStreamAsync(input: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     parseStreamFinish(result: Gio.AsyncResult): boolean
@@ -759,9 +759,9 @@ export class Pkcs11Certificate {
     destroyFinish(result: Gio.AsyncResult): boolean
     equal(object2: Gck.Object): boolean
     getAsync(attrTypes: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getData(attrType: number, cancellable?: Gio.Cancellable | null): any
+    getData(attrType: number, cancellable?: Gio.Cancellable | null): any[]
     getDataAsync(attrType: number, allocator: Gck.Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getDataFinish(result: Gio.AsyncResult): any
+    getDataFinish(result: Gio.AsyncResult): any[]
     getFinish(result: Gio.AsyncResult): Gck.Attributes
     getFull(attrTypes: number[], cancellable?: Gio.Cancellable | null): Gck.Attributes
     getHandle(): number
@@ -801,31 +801,31 @@ export class Pkcs11Certificate {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
-    getDerData(): any
+    getDerData(): any[]
     getExpiryDate(): GLib.Date
-    getFingerprint(type: GLib.ChecksumType): any
+    getFingerprint(type: GLib.ChecksumType): any[]
     getFingerprintHex(type: GLib.ChecksumType): string
     getIssuedDate(): GLib.Date
     getIssuerCn(): string
     getIssuerDn(): string
     getIssuerName(): string
     getIssuerPart(part: string): string | null
-    getIssuerRaw(): any
+    getIssuerRaw(): any[]
     getKeySize(): number
     getMarkupText(): string
-    getSerialNumber(): any
+    getSerialNumber(): any[]
     getSerialNumberHex(): string
     getSubjectCn(): string
     getSubjectDn(): string
     getSubjectName(): string
     getSubjectPart(part: string): string | null
-    getSubjectRaw(): any
+    getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.Pkcs11Certificate */
-    vfuncGetDerData(): any
+    vfuncGetDerData(): any[]
     vfuncCompare(other?: Comparable | null): number
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -999,31 +999,31 @@ export class SimpleCertificate {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
-    getDerData(): any
+    getDerData(): any[]
     getExpiryDate(): GLib.Date
-    getFingerprint(type: GLib.ChecksumType): any
+    getFingerprint(type: GLib.ChecksumType): any[]
     getFingerprintHex(type: GLib.ChecksumType): string
     getIssuedDate(): GLib.Date
     getIssuerCn(): string
     getIssuerDn(): string
     getIssuerName(): string
     getIssuerPart(part: string): string | null
-    getIssuerRaw(): any
+    getIssuerRaw(): any[]
     getKeySize(): number
     getMarkupText(): string
-    getSerialNumber(): any
+    getSerialNumber(): any[]
     getSerialNumberHex(): string
     getSubjectCn(): string
     getSubjectDn(): string
     getSubjectName(): string
     getSubjectPart(part: string): string | null
-    getSubjectRaw(): any
+    getSubjectRaw(): any[]
     isIssuer(issuer: Certificate): boolean
     mixinEmitNotify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.SimpleCertificate */
-    vfuncGetDerData(): any
+    vfuncGetDerData(): any[]
     vfuncCompare(other?: Comparable | null): number
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1086,7 +1086,7 @@ export class SimpleCertificate {
     constructor (config?: SimpleCertificate_ConstructProps)
     _init (config?: SimpleCertificate_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(data: any): SimpleCertificate
+    static new(data: any[]): SimpleCertificate
     static compare(first?: Comparable | null, other?: Comparable | null): number
     static $gtype: GObject.Type
 }
@@ -1627,7 +1627,7 @@ export class CertificateChainPrivate {
 export abstract class CertificateIface {
     /* Fields of Gcr.CertificateIface */
     parent: GObject.TypeInterface
-    getDerData: (self: Certificate) => any
+    getDerData: (self: Certificate) => any[]
     static name: string
 }
 export abstract class CertificateRequestClass {
@@ -1692,7 +1692,7 @@ export class Parsed {
     /* Methods of Gcr.Parsed */
     getAttributes(): Gck.Attributes | null
     getBytes(): any
-    getData(): any | null
+    getData(): any[] | null
     getDescription(): string | null
     getFilename(): string
     getFormat(): DataFormat

@@ -5,9 +5,9 @@
 import "node"
 import type { Pango } from './Pango-1.0';
 import type { cairo } from './cairo-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
 import type { Gdk } from './Gdk-3.0';
@@ -295,9 +295,9 @@ export class Terminal {
     copyPrimary(): void
     eventCheckGregexSimple(event: Gdk.Event, regexes: GLib.Regex[], matchFlags: GLib.RegexMatchFlags): [ /* returnType */ boolean, /* matches */ string[] ]
     eventCheckRegexSimple(event: Gdk.Event, regexes: Regex[], matchFlags: number): string[] | null
-    feed(data: any | null): void
-    feedChild(text: any | null): void
-    feedChildBinary(data: any | null): void
+    feed(data: any[] | null): void
+    feedChild(text: any[] | null): void
+    feedChildBinary(data: any[] | null): void
     getAllowBold(): boolean
     getAllowHyperlink(): boolean
     getAudibleBell(): boolean
@@ -559,7 +559,7 @@ export class Terminal {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

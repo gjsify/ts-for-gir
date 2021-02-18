@@ -709,12 +709,12 @@ export function async_initable_newv_async(object_type: GObject.Type, n_parameter
 export function bus_get(bus_type: BusType, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function bus_get_finish(res: AsyncResult): DBusConnection
 export function bus_get_sync(bus_type: BusType, cancellable?: Cancellable | null): DBusConnection
-export function bus_own_name_on_connection(connection: DBusConnection, name: string, flags: BusNameOwnerFlags, name_acquired_closure?: Function, name_lost_closure?: Function): number
-export function bus_own_name(bus_type: BusType, name: string, flags: BusNameOwnerFlags, bus_acquired_closure?: Function, name_acquired_closure?: Function, name_lost_closure?: Function): number
+export function bus_own_name_on_connection(connection: DBusConnection, name: string, flags: BusNameOwnerFlags, name_acquired_closure?: Function | null, name_lost_closure?: Function | null): number
+export function bus_own_name(bus_type: BusType, name: string, flags: BusNameOwnerFlags, bus_acquired_closure?: Function | null, name_acquired_closure?: Function | null, name_lost_closure?: Function | null): number
 export function bus_unown_name(owner_id: number): void
 export function bus_unwatch_name(watcher_id: number): void
-export function bus_watch_name_on_connection(connection: DBusConnection, name: string, flags: BusNameWatcherFlags, name_appeared_closure?: Function, name_vanished_closure?: Function): number
-export function bus_watch_name(bus_type: BusType, name: string, flags: BusNameWatcherFlags, name_appeared_closure?: Function, name_vanished_closure?: Function): number
+export function bus_watch_name_on_connection(connection: DBusConnection, name: string, flags: BusNameWatcherFlags, name_appeared_closure?: Function | null, name_vanished_closure?: Function | null): number
+export function bus_watch_name(bus_type: BusType, name: string, flags: BusNameWatcherFlags, name_appeared_closure?: Function | null, name_vanished_closure?: Function | null): number
 export function content_type_can_be_executable(type: string): boolean
 export function content_type_equals(type1: string, type2: string): boolean
 export function content_type_from_mime_type(mime_type: string): string | null
@@ -724,7 +724,7 @@ export function content_type_get_icon(type: string): Icon
 export function content_type_get_mime_dirs(): string[]
 export function content_type_get_mime_type(type: string): string | null
 export function content_type_get_symbolic_icon(type: string): Icon
-export function content_type_guess(filename: string | null, data: Uint8Array | null): [ /* returnType */ string, /* result_uncertain */ boolean | null ]
+export function content_type_guess(filename: string | null, data: Uint8Array[] | null): [ /* returnType */ string, /* result_uncertain */ boolean | null ]
 export function content_type_guess_for_tree(root: File): string[]
 export function content_type_is_a(type: string, supertype: string): boolean
 export function content_type_is_mime_type(type: string, mime_type: string): boolean
@@ -747,7 +747,7 @@ export function dbus_error_register_error_domain(error_domain_quark_name: string
 export function dbus_error_strip_remote_error(error: GLib.Error): boolean
 export function dbus_error_unregister_error(error_domain: GLib.Quark, error_code: number, dbus_error_name: string): boolean
 export function dbus_escape_object_path(s: string): string
-export function dbus_escape_object_path_bytestring(bytes: Uint8Array): string
+export function dbus_escape_object_path_bytestring(bytes: Uint8Array[]): string
 export function dbus_generate_guid(): string
 export function dbus_gvalue_to_gvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbus_gvariant_to_gvalue(value: GLib.Variant): /* out_gvalue */ any
@@ -758,7 +758,7 @@ export function dbus_is_member_name(string: string): boolean
 export function dbus_is_name(string: string): boolean
 export function dbus_is_supported_address(string: string): boolean
 export function dbus_is_unique_name(string: string): boolean
-export function dbus_unescape_object_path(s: string): Uint8Array | null
+export function dbus_unescape_object_path(s: string): Uint8Array[] | null
 export function dtls_client_connection_new(base_socket: DatagramBased, server_identity?: SocketConnectable | null): DtlsClientConnection
 export function dtls_server_connection_new(base_socket: DatagramBased, certificate?: TlsCertificate | null): DtlsServerConnection
 export function file_new_for_commandline_arg(arg: string): File
@@ -790,9 +790,9 @@ export function networking_init(): void
 export function null_settings_backend_new(): SettingsBackend
 export function pollable_source_new(pollable_stream: GObject.Object): GLib.Source
 export function pollable_source_new_full(pollable_stream: GObject.Object, child_source?: GLib.Source | null, cancellable?: Cancellable | null): GLib.Source
-export function pollable_stream_read(stream: InputStream, buffer: Uint8Array, blocking: boolean, cancellable?: Cancellable | null): number
-export function pollable_stream_write(stream: OutputStream, buffer: Uint8Array, blocking: boolean, cancellable?: Cancellable | null): number
-export function pollable_stream_write_all(stream: OutputStream, buffer: Uint8Array, blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+export function pollable_stream_read(stream: InputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): number
+export function pollable_stream_write(stream: OutputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): number
+export function pollable_stream_write_all(stream: OutputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
 export function proxy_get_default_for_protocol(protocol: string): Proxy | null
 export function proxy_resolver_get_default(): ProxyResolver
 export function resolver_error_quark(): GLib.Quark
@@ -1112,10 +1112,10 @@ export class AsyncResult {
 }
 export class Converter {
     /* Methods of Gio.Converter */
-    convert(inbuf: Uint8Array, outbuf: Uint8Array, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    convert(inbuf: Uint8Array[], outbuf: Uint8Array[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Virtual methods of Gio.Converter */
-    vfunc_convert(inbuf: Uint8Array | null, outbuf: Uint8Array | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    vfunc_convert(inbuf: Uint8Array[] | null, outbuf: Uint8Array[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
     static name: string
 }
@@ -1286,7 +1286,7 @@ export class DtlsClientConnection {
     server_identity: SocketConnectable
     validation_flags: TlsCertificateFlags
     /* Methods of Gio.DtlsClientConnection */
-    get_accepted_cas(): any
+    get_accepted_cas(): any[]
     get_server_identity(): SocketConnectable
     get_validation_flags(): TlsCertificateFlags
     set_server_identity(identity: SocketConnectable): void
@@ -1322,7 +1322,7 @@ export class DtlsConnection {
     close_finish(result: AsyncResult): boolean
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
-    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array | null ]
+    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
@@ -1350,7 +1350,7 @@ export class DtlsConnection {
     send_messages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.DtlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
-    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array): boolean
+    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
     vfunc_get_negotiated_protocol(): string | null
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1436,10 +1436,10 @@ export class File {
     load_bytes(cancellable?: Cancellable | null): [ /* returnType */ GLib.Bytes, /* etag_out */ string | null ]
     load_bytes_async(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     load_bytes_finish(result: AsyncResult): [ /* returnType */ GLib.Bytes, /* etag_out */ string | null ]
-    load_contents(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
+    load_contents(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
     load_contents_async(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    load_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
-    load_partial_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
+    load_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
+    load_partial_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
     make_directory(cancellable?: Cancellable | null): boolean
     make_directory_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     make_directory_finish(result: AsyncResult): boolean
@@ -1478,8 +1478,8 @@ export class File {
     read_finish(res: AsyncResult): FileInputStream
     replace(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     replace_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    replace_contents(contents: Uint8Array, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
-    replace_contents_async(contents: Uint8Array, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    replace_contents(contents: Uint8Array[], etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
+    replace_contents_async(contents: Uint8Array[], etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replace_contents_bytes_async(contents: GLib.Bytes, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replace_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replace_finish(res: AsyncResult): FileOutputStream
@@ -1804,7 +1804,7 @@ export class PollableInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Methods of Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Cancellable | null): boolean
@@ -1812,11 +1812,11 @@ export class PollableInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -1851,12 +1851,12 @@ export class PollableInputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer: Uint8Array | null): number
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -1894,7 +1894,7 @@ export class PollableOutputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_writable(): boolean
-    write_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    write_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     writev_nonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Methods of Gio.OutputStream */
     clear_pending(): void
@@ -1911,11 +1911,11 @@ export class PollableOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -1952,7 +1952,7 @@ export class PollableOutputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
-    vfunc_write_nonblocking(buffer: Uint8Array | null): number
+    vfunc_write_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_writev_nonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1964,9 +1964,9 @@ export class PollableOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -2152,7 +2152,7 @@ export class TlsClientConnection {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio.TlsClientConnection */
     copy_session_state(source: TlsClientConnection): void
-    get_accepted_cas(): any
+    get_accepted_cas(): any[]
     get_server_identity(): SocketConnectable | null
     get_use_ssl3(): boolean
     get_validation_flags(): TlsCertificateFlags
@@ -2162,7 +2162,7 @@ export class TlsClientConnection {
     /* Methods of Gio.TlsConnection */
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
-    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array | null ]
+    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
@@ -2218,7 +2218,7 @@ export class TlsClientConnection {
     vfunc_copy_session_state(source: TlsClientConnection): void
     /* Virtual methods of Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
-    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array): boolean
+    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -2306,8 +2306,8 @@ export class TlsFileDatabase {
     lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate
     lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    lookup_certificates_issued_by(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
-    lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    lookup_certificates_issued_by(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
+    lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2342,8 +2342,8 @@ export class TlsFileDatabase {
     vfunc_lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate
     vfunc_lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
-    vfunc_lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
+    vfunc_lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     vfunc_verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     vfunc_verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2400,7 +2400,7 @@ export class TlsServerConnection {
     /* Methods of Gio.TlsConnection */
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
-    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array | null ]
+    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
@@ -2454,7 +2454,7 @@ export class TlsServerConnection {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
-    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array): boolean
+    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -2990,8 +2990,8 @@ export class BufferedInputStream {
     fill_finish(result: AsyncResult): number
     get_available(): number
     get_buffer_size(): number
-    peek(buffer: Uint8Array, offset: number): number
-    peek_buffer(): Uint8Array
+    peek(buffer: Uint8Array[], offset: number): number
+    peek_buffer(): Uint8Array[]
     read_byte(cancellable?: Cancellable | null): number
     set_buffer_size(size: number): void
     /* Methods of Gio.FilterInputStream */
@@ -3005,11 +3005,11 @@ export class BufferedInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -3059,7 +3059,7 @@ export class BufferedInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -3132,11 +3132,11 @@ export class BufferedOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -3191,9 +3191,9 @@ export class BufferedOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -3405,12 +3405,12 @@ export class CharsetConverter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.Converter */
-    convert(inbuf: Uint8Array, outbuf: Uint8Array, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    convert(inbuf: Uint8Array[], outbuf: Uint8Array[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Methods of Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.CharsetConverter */
-    vfunc_convert(inbuf: Uint8Array | null, outbuf: Uint8Array | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    vfunc_convert(inbuf: Uint8Array[] | null, outbuf: Uint8Array[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
     vfunc_init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
@@ -3464,11 +3464,11 @@ export class ConverterInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -3503,17 +3503,17 @@ export class ConverterInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.ConverterInputStream */
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer: Uint8Array | null): number
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -3575,11 +3575,11 @@ export class ConverterOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -3616,13 +3616,13 @@ export class ConverterOutputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_writable(): boolean
-    write_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    write_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     writev_nonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Virtual methods of Gio.ConverterOutputStream */
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
-    vfunc_write_nonblocking(buffer: Uint8Array | null): number
+    vfunc_write_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_writev_nonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3634,9 +3634,9 @@ export class ConverterOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -3920,7 +3920,7 @@ export class DBusConnection {
     get_stream(): IOStream
     get_unique_name(): string | null
     is_closed(): boolean
-    register_object(object_path: string, interface_info: DBusInterfaceInfo, method_call_closure?: Function, get_property_closure?: Function, set_property_closure?: Function): number
+    register_object(object_path: string, interface_info: DBusInterfaceInfo, method_call_closure?: Function | null, get_property_closure?: Function | null, set_property_closure?: Function | null): number
     register_subtree(object_path: string, vtable: DBusSubtreeVTable, flags: DBusSubtreeFlags, user_data: object | null, user_data_free_func: GLib.DestroyNotify): number
     remove_filter(filter_id: number): void
     send_message(message: DBusMessage, flags: DBusSendMessageFlags): [ /* returnType */ boolean, /* out_serial */ number | null ]
@@ -4178,7 +4178,7 @@ export class DBusMessage {
     get_error_name(): string | null
     get_flags(): DBusMessageFlags
     get_header(header_field: DBusMessageHeaderField): GLib.Variant | null
-    get_header_fields(): Uint8Array
+    get_header_fields(): Uint8Array[]
     get_interface(): string | null
     get_locked(): boolean
     get_member(): string | null
@@ -4210,7 +4210,7 @@ export class DBusMessage {
     set_serial(serial: number): void
     set_signature(value?: string | null): void
     set_unix_fd_list(fd_list?: UnixFDList | null): void
-    to_blob(capabilities: DBusCapabilityFlags): Uint8Array
+    to_blob(capabilities: DBusCapabilityFlags): Uint8Array[]
     to_gerror(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4257,10 +4257,10 @@ export class DBusMessage {
     _init (config?: DBusMessage_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): DBusMessage
-    static new_from_blob(blob: Uint8Array, capabilities: DBusCapabilityFlags): DBusMessage
+    static new_from_blob(blob: Uint8Array[], capabilities: DBusCapabilityFlags): DBusMessage
     static new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
     static new_signal(path: string, interface_: string, signal: string): DBusMessage
-    static bytes_needed(blob: Uint8Array): number
+    static bytes_needed(blob: Uint8Array[]): number
     static $gtype: GObject.Type
 }
 export interface DBusMethodInvocation_ConstructProps extends GObject.Object_ConstructProps {
@@ -4910,9 +4910,9 @@ export class DataInputStream {
     read_int16(cancellable?: Cancellable | null): number
     read_int32(cancellable?: Cancellable | null): number
     read_int64(cancellable?: Cancellable | null): number
-    read_line(cancellable?: Cancellable | null): [ /* returnType */ Uint8Array | null, /* length */ number | null ]
+    read_line(cancellable?: Cancellable | null): [ /* returnType */ Uint8Array[] | null, /* length */ number | null ]
     read_line_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    read_line_finish(result: AsyncResult): [ /* returnType */ Uint8Array | null, /* length */ number | null ]
+    read_line_finish(result: AsyncResult): [ /* returnType */ Uint8Array[] | null, /* length */ number | null ]
     read_line_finish_utf8(result: AsyncResult): [ /* returnType */ string | null, /* length */ number | null ]
     read_line_utf8(cancellable?: Cancellable | null): [ /* returnType */ string | null, /* length */ number | null ]
     read_uint16(cancellable?: Cancellable | null): number
@@ -4932,8 +4932,8 @@ export class DataInputStream {
     fill_finish(result: AsyncResult): number
     get_available(): number
     get_buffer_size(): number
-    peek(buffer: Uint8Array, offset: number): number
-    peek_buffer(): Uint8Array
+    peek(buffer: Uint8Array[], offset: number): number
+    peek_buffer(): Uint8Array[]
     set_buffer_size(size: number): void
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): InputStream
@@ -4946,11 +4946,11 @@ export class DataInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -5000,7 +5000,7 @@ export class DataInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -5079,11 +5079,11 @@ export class DataOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -5138,9 +5138,9 @@ export class DataOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -5292,7 +5292,7 @@ export class DesktopAppInfo {
     static new_from_filename(filename: string): DesktopAppInfo
     static new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
     static get_implementations(interface: string): DesktopAppInfo[]
-    static search(search_string: string): any
+    static search(search_string: string): any[]
     static set_desktop_env(desktop_env: string): void
     static create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
     static get_all(): AppInfo[]
@@ -5816,11 +5816,11 @@ export class FileInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -5870,7 +5870,7 @@ export class FileInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -5994,11 +5994,11 @@ export class FileOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -6057,9 +6057,9 @@ export class FileOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -6167,11 +6167,11 @@ export class FilterInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -6206,7 +6206,7 @@ export class FilterInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -6264,11 +6264,11 @@ export class FilterOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -6311,9 +6311,9 @@ export class FilterOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -6592,7 +6592,7 @@ export class InetAddress {
     _init (config?: InetAddress_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new_any(family: SocketFamily): InetAddress
-    static new_from_bytes(bytes: Uint8Array, family: SocketFamily): InetAddress
+    static new_from_bytes(bytes: Uint8Array[], family: SocketFamily): InetAddress
     static new_from_string(string: string): InetAddress
     static new_loopback(family: SocketFamily): InetAddress
     static $gtype: GObject.Type
@@ -6769,11 +6769,11 @@ export class InputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -6808,7 +6808,7 @@ export class InputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -6918,7 +6918,7 @@ export class MemoryInputStream {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio.MemoryInputStream */
     add_bytes(bytes: GLib.Bytes): void
-    add_data(data: Uint8Array, destroy?: GLib.DestroyNotify | null): void
+    add_data(data: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     /* Methods of Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Cancellable | null): boolean
@@ -6926,11 +6926,11 @@ export class MemoryInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -6965,7 +6965,7 @@ export class MemoryInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Methods of Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
@@ -6976,7 +6976,7 @@ export class MemoryInputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer: Uint8Array | null): number
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_can_seek(): boolean
     vfunc_can_truncate(): boolean
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
@@ -6986,7 +6986,7 @@ export class MemoryInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -7014,7 +7014,7 @@ export class MemoryInputStream {
     /* Static methods and pseudo-constructors */
     static new(): MemoryInputStream
     static new_from_bytes(bytes: GLib.Bytes): MemoryInputStream
-    static new_from_data(data: Uint8Array, destroy?: GLib.DestroyNotify | null): MemoryInputStream
+    static new_from_data(data: Uint8Array[], destroy?: GLib.DestroyNotify | null): MemoryInputStream
     static $gtype: GObject.Type
 }
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
@@ -7049,11 +7049,11 @@ export class MemoryOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -7090,7 +7090,7 @@ export class MemoryOutputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_writable(): boolean
-    write_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    write_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     writev_nonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Methods of Gio.Seekable */
     can_seek(): boolean
@@ -7102,7 +7102,7 @@ export class MemoryOutputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
-    vfunc_write_nonblocking(buffer: Uint8Array | null): number
+    vfunc_write_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_writev_nonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     vfunc_can_seek(): boolean
     vfunc_can_truncate(): boolean
@@ -7119,9 +7119,9 @@ export class MemoryOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -8036,11 +8036,11 @@ export class OutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -8083,9 +8083,9 @@ export class OutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -9310,17 +9310,17 @@ export class Socket {
     leave_multicast_group(group: InetAddress, source_specific: boolean, iface?: string | null): boolean
     leave_multicast_group_ssm(group: InetAddress, source_specific?: InetAddress | null, iface?: string | null): boolean
     listen(): boolean
-    receive(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    receive_from(cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null, /* buffer */ Uint8Array ]
+    receive(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    receive_from(cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null, /* buffer */ Uint8Array[] ]
     receive_message(vectors: InputVector[], flags: number, cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null, /* messages */ SocketControlMessage[] | null, /* flags */ number ]
     receive_messages(messages: InputMessage[], flags: number, cancellable?: Cancellable | null): number
-    receive_with_blocking(blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    send(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    receive_with_blocking(blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    send(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     send_message(address: SocketAddress | null, vectors: OutputVector[], messages: SocketControlMessage[] | null, flags: number, cancellable?: Cancellable | null): number
     send_message_with_timeout(address: SocketAddress | null, vectors: OutputVector[], messages: SocketControlMessage[] | null, flags: number, timeout_us: number, cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     send_messages(messages: OutputMessage[], flags: number, cancellable?: Cancellable | null): number
-    send_to(address: SocketAddress | null, buffer: Uint8Array, cancellable?: Cancellable | null): number
-    send_with_blocking(buffer: Uint8Array, blocking: boolean, cancellable?: Cancellable | null): number
+    send_to(address: SocketAddress | null, buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    send_with_blocking(buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): number
     set_blocking(blocking: boolean): void
     set_broadcast(broadcast: boolean): void
     set_keepalive(keepalive: boolean): void
@@ -9818,7 +9818,7 @@ export class SocketControlMessage {
     constructor (config?: SocketControlMessage_ConstructProps)
     _init (config?: SocketControlMessage_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static deserialize(level: number, type: number, data: Uint8Array): SocketControlMessage
+    static deserialize(level: number, type: number, data: Uint8Array[]): SocketControlMessage
     static $gtype: GObject.Type
 }
 export interface SocketListener_ConstructProps extends GObject.Object_ConstructProps {
@@ -10168,7 +10168,7 @@ export class Task {
     return_error_if_cancelled(): boolean
     return_int(result: number): void
     return_pointer(result?: object | null, result_destroy?: GLib.DestroyNotify | null): void
-    return_value(result?: any): void
+    return_value(result?: any | null): void
     run_in_thread(task_func: TaskThreadFunc): void
     run_in_thread_sync(task_func: TaskThreadFunc): void
     set_check_cancellable(check_cancellable: boolean): void
@@ -10655,11 +10655,11 @@ export class ThreadedSocketService {
     static $gtype: GObject.Type
 }
 export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructProps {
-    certificate?: Uint8Array
+    certificate?: Uint8Array[]
     certificate_pem?: string
     issuer?: TlsCertificate
     pkcs11_uri?: string
-    private_key?: Uint8Array
+    private_key?: Uint8Array[]
     private_key_pem?: string
     private_key_pkcs11_uri?: string
 }
@@ -10758,7 +10758,7 @@ export class TlsConnection {
     /* Methods of Gio.TlsConnection */
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
-    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array | null ]
+    get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
@@ -10812,7 +10812,7 @@ export class TlsConnection {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
-    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array): boolean
+    vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -10889,8 +10889,8 @@ export class TlsDatabase {
     lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate
     lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    lookup_certificates_issued_by(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
-    lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    lookup_certificates_issued_by(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
+    lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -10925,8 +10925,8 @@ export class TlsDatabase {
     vfunc_lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate
     vfunc_lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
-    vfunc_lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate[]
+    vfunc_lookup_certificates_issued_by_async(issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     vfunc_verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     vfunc_verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -11038,8 +11038,8 @@ export class TlsPassword {
     get_warning(): string
     set_description(description: string): void
     set_flags(flags: TlsPasswordFlags): void
-    set_value(value: Uint8Array): void
-    set_value_full(value: Uint8Array, destroy?: GLib.DestroyNotify | null): void
+    set_value(value: Uint8Array[]): void
+    set_value_full(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     set_warning(warning: string): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -11066,7 +11066,7 @@ export class TlsPassword {
     /* Virtual methods of Gio.TlsPassword */
     vfunc_get_default_warning(): string
     vfunc_get_value(length?: number | null): number
-    vfunc_set_value(value: Uint8Array, destroy?: GLib.DestroyNotify | null): void
+    vfunc_set_value(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11410,11 +11410,11 @@ export class UnixInputStream {
     close_finish(result: AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     read_bytes_finish(result: AsyncResult): GLib.Bytes
@@ -11449,18 +11449,18 @@ export class UnixInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.UnixInputStream */
     vfunc_get_fd(): number
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer: Uint8Array | null): number
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
     vfunc_close_fn(cancellable?: Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Cancellable | null): number
@@ -11581,11 +11581,11 @@ export class UnixOutputStream {
     splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes_finish(result: AsyncResult): number
@@ -11622,14 +11622,14 @@ export class UnixOutputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_writable(): boolean
-    write_nonblocking(buffer: Uint8Array, cancellable?: Cancellable | null): number
+    write_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     writev_nonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Virtual methods of Gio.UnixOutputStream */
     vfunc_get_fd(): number
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
-    vfunc_write_nonblocking(buffer: Uint8Array | null): number
+    vfunc_write_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_writev_nonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -11641,9 +11641,9 @@ export class UnixOutputStream {
     vfunc_splice(source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null): number
     vfunc_splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_splice_finish(result: AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Cancellable | null): number
     vfunc_writev_async(vectors: OutputVector[], io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_writev_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -11676,7 +11676,7 @@ export interface UnixSocketAddress_ConstructProps extends SocketAddress_Construc
     abstract?: boolean
     address_type?: UnixSocketAddressType
     path?: string
-    path_as_array?: Uint8Array
+    path_as_array?: Uint8Array[]
 }
 export class UnixSocketAddress {
     /* Properties of Gio.SocketAddress */
@@ -11977,10 +11977,10 @@ export class ZlibCompressor {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.Converter */
-    convert(inbuf: Uint8Array, outbuf: Uint8Array, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    convert(inbuf: Uint8Array[], outbuf: Uint8Array[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Virtual methods of Gio.ZlibCompressor */
-    vfunc_convert(inbuf: Uint8Array | null, outbuf: Uint8Array | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    vfunc_convert(inbuf: Uint8Array[] | null, outbuf: Uint8Array[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -12040,10 +12040,10 @@ export class ZlibDecompressor {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.Converter */
-    convert(inbuf: Uint8Array, outbuf: Uint8Array, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    convert(inbuf: Uint8Array[], outbuf: Uint8Array[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Virtual methods of Gio.ZlibDecompressor */
-    vfunc_convert(inbuf: Uint8Array | null, outbuf: Uint8Array | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    vfunc_convert(inbuf: Uint8Array[] | null, outbuf: Uint8Array[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -12244,7 +12244,7 @@ export abstract class CharsetConverterClass {
 export abstract class ConverterIface {
     /* Fields of Gio.ConverterIface */
     g_iface: GObject.TypeInterface
-    convert: (converter: Converter, inbuf: Uint8Array | null, outbuf: Uint8Array | null, flags: ConverterFlags) => [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    convert: (converter: Converter, inbuf: Uint8Array[] | null, outbuf: Uint8Array[] | null, flags: ConverterFlags) => [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset: (converter: Converter) => void
     static name: string
 }
@@ -12560,7 +12560,7 @@ export abstract class DtlsConnectionInterface {
     shutdown_finish: (conn: DtlsConnection, result: AsyncResult) => boolean
     set_advertised_protocols: (conn: DtlsConnection, protocols?: string[] | null) => void
     get_negotiated_protocol: (conn: DtlsConnection) => string | null
-    get_binding_data: (conn: DtlsConnection, type: TlsChannelBindingType, data: Uint8Array) => boolean
+    get_binding_data: (conn: DtlsConnection, type: TlsChannelBindingType, data: Uint8Array[]) => boolean
     static name: string
 }
 export abstract class DtlsServerConnectionInterface {
@@ -12923,7 +12923,7 @@ export abstract class InputStreamClass {
     read_fn: (stream: InputStream, buffer: object | null, count: number, cancellable?: Cancellable | null) => number
     skip: (stream: InputStream, count: number, cancellable?: Cancellable | null) => number
     close_fn: (stream: InputStream, cancellable?: Cancellable | null) => boolean
-    read_async: (stream: InputStream, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => /* buffer */ Uint8Array | null
+    read_async: (stream: InputStream, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => /* buffer */ Uint8Array[] | null
     read_finish: (stream: InputStream, result: AsyncResult) => number
     skip_async: (stream: InputStream, count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     skip_finish: (stream: InputStream, result: AsyncResult) => number
@@ -13113,11 +13113,11 @@ export class OutputMessage {
 export abstract class OutputStreamClass {
     /* Fields of Gio.OutputStreamClass */
     parent_class: GObject.ObjectClass
-    write_fn: (stream: OutputStream, buffer: Uint8Array | null, cancellable?: Cancellable | null) => number
+    write_fn: (stream: OutputStream, buffer: Uint8Array[] | null, cancellable?: Cancellable | null) => number
     splice: (stream: OutputStream, source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null) => number
     flush: (stream: OutputStream, cancellable?: Cancellable | null) => boolean
     close_fn: (stream: OutputStream, cancellable?: Cancellable | null) => boolean
-    write_async: (stream: OutputStream, buffer: Uint8Array | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
+    write_async: (stream: OutputStream, buffer: Uint8Array[] | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     write_finish: (stream: OutputStream, result: AsyncResult) => number
     splice_async: (stream: OutputStream, source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     splice_finish: (stream: OutputStream, result: AsyncResult) => number
@@ -13160,7 +13160,7 @@ export abstract class PollableInputStreamInterface {
     can_poll: (stream: PollableInputStream) => boolean
     is_readable: (stream: PollableInputStream) => boolean
     create_source: (stream: PollableInputStream, cancellable?: Cancellable | null) => GLib.Source
-    read_nonblocking: (stream: PollableInputStream, buffer: Uint8Array | null) => number
+    read_nonblocking: (stream: PollableInputStream, buffer: Uint8Array[] | null) => number
     static name: string
 }
 export abstract class PollableOutputStreamInterface {
@@ -13169,7 +13169,7 @@ export abstract class PollableOutputStreamInterface {
     can_poll: (stream: PollableOutputStream) => boolean
     is_writable: (stream: PollableOutputStream) => boolean
     create_source: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
-    write_nonblocking: (stream: PollableOutputStream, buffer: Uint8Array | null) => number
+    write_nonblocking: (stream: PollableOutputStream, buffer: Uint8Array[] | null) => number
     writev_nonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     static name: string
 }
@@ -13510,7 +13510,7 @@ export abstract class TlsConnectionClass {
     handshake: (conn: TlsConnection, cancellable?: Cancellable | null) => boolean
     handshake_async: (conn: TlsConnection, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     handshake_finish: (conn: TlsConnection, result: AsyncResult) => boolean
-    get_binding_data: (conn: TlsConnection, type: TlsChannelBindingType, data: Uint8Array) => boolean
+    get_binding_data: (conn: TlsConnection, type: TlsChannelBindingType, data: Uint8Array[]) => boolean
     static name: string
 }
 export class TlsConnectionPrivate {
@@ -13529,8 +13529,8 @@ export abstract class TlsDatabaseClass {
     lookup_certificate_issuer: (self: TlsDatabase, certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null) => TlsCertificate
     lookup_certificate_issuer_async: (self: TlsDatabase, certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookup_certificate_issuer_finish: (self: TlsDatabase, result: AsyncResult) => TlsCertificate
-    lookup_certificates_issued_by: (self: TlsDatabase, issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null) => TlsCertificate[]
-    lookup_certificates_issued_by_async: (self: TlsDatabase, issuer_raw_dn: Uint8Array, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
+    lookup_certificates_issued_by: (self: TlsDatabase, issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null) => TlsCertificate[]
+    lookup_certificates_issued_by_async: (self: TlsDatabase, issuer_raw_dn: Uint8Array[], interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookup_certificates_issued_by_finish: (self: TlsDatabase, result: AsyncResult) => TlsCertificate[]
     static name: string
 }
@@ -13559,7 +13559,7 @@ export abstract class TlsPasswordClass {
     /* Fields of Gio.TlsPasswordClass */
     parent_class: GObject.ObjectClass
     get_value: (password: TlsPassword, length?: number | null) => number
-    set_value: (password: TlsPassword, value: Uint8Array, destroy?: GLib.DestroyNotify | null) => void
+    set_value: (password: TlsPassword, value: Uint8Array[], destroy?: GLib.DestroyNotify | null) => void
     get_default_warning: (password: TlsPassword) => string
     static name: string
 }

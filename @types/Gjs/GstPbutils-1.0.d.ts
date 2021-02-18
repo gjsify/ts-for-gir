@@ -60,30 +60,30 @@ export const PLUGINS_BASE_VERSION_MAJOR: number
 export const PLUGINS_BASE_VERSION_MICRO: number
 export const PLUGINS_BASE_VERSION_MINOR: number
 export const PLUGINS_BASE_VERSION_NANO: number
-export function codec_utils_aac_caps_set_level_and_profile(caps: Gst.Caps, audio_config: Uint8Array): boolean
-export function codec_utils_aac_get_channels(audio_config: Uint8Array): number
+export function codec_utils_aac_caps_set_level_and_profile(caps: Gst.Caps, audio_config: Uint8Array[]): boolean
+export function codec_utils_aac_get_channels(audio_config: Uint8Array[]): number
 export function codec_utils_aac_get_index_from_sample_rate(rate: number): number
-export function codec_utils_aac_get_level(audio_config: Uint8Array): string
-export function codec_utils_aac_get_profile(audio_config: Uint8Array): string
-export function codec_utils_aac_get_sample_rate(audio_config: Uint8Array): number
+export function codec_utils_aac_get_level(audio_config: Uint8Array[]): string
+export function codec_utils_aac_get_profile(audio_config: Uint8Array[]): string
+export function codec_utils_aac_get_sample_rate(audio_config: Uint8Array[]): number
 export function codec_utils_aac_get_sample_rate_from_index(sr_idx: number): number
-export function codec_utils_h264_caps_set_level_and_profile(caps: Gst.Caps, sps: Uint8Array): boolean
-export function codec_utils_h264_get_level(sps: Uint8Array): string
+export function codec_utils_h264_caps_set_level_and_profile(caps: Gst.Caps, sps: Uint8Array[]): boolean
+export function codec_utils_h264_get_level(sps: Uint8Array[]): string
 export function codec_utils_h264_get_level_idc(level: string): number
-export function codec_utils_h264_get_profile(sps: Uint8Array): string
-export function codec_utils_h265_caps_set_level_tier_and_profile(caps: Gst.Caps, profile_tier_level: Uint8Array): boolean
-export function codec_utils_h265_get_level(profile_tier_level: Uint8Array): string
+export function codec_utils_h264_get_profile(sps: Uint8Array[]): string
+export function codec_utils_h265_caps_set_level_tier_and_profile(caps: Gst.Caps, profile_tier_level: Uint8Array[]): boolean
+export function codec_utils_h265_get_level(profile_tier_level: Uint8Array[]): string
 export function codec_utils_h265_get_level_idc(level: string): number
-export function codec_utils_h265_get_profile(profile_tier_level: Uint8Array): string
-export function codec_utils_h265_get_tier(profile_tier_level: Uint8Array): string
-export function codec_utils_mpeg4video_caps_set_level_and_profile(caps: Gst.Caps, vis_obj_seq: Uint8Array): boolean
-export function codec_utils_mpeg4video_get_level(vis_obj_seq: Uint8Array): string
-export function codec_utils_mpeg4video_get_profile(vis_obj_seq: Uint8Array): string
-export function codec_utils_opus_create_caps(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping?: Uint8Array | null): Gst.Caps
+export function codec_utils_h265_get_profile(profile_tier_level: Uint8Array[]): string
+export function codec_utils_h265_get_tier(profile_tier_level: Uint8Array[]): string
+export function codec_utils_mpeg4video_caps_set_level_and_profile(caps: Gst.Caps, vis_obj_seq: Uint8Array[]): boolean
+export function codec_utils_mpeg4video_get_level(vis_obj_seq: Uint8Array[]): string
+export function codec_utils_mpeg4video_get_profile(vis_obj_seq: Uint8Array[]): string
+export function codec_utils_opus_create_caps(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping?: Uint8Array[] | null): Gst.Caps
 export function codec_utils_opus_create_caps_from_header(header: Gst.Buffer, comments?: Gst.Buffer | null): Gst.Caps
-export function codec_utils_opus_create_header(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping: Uint8Array | null, pre_skip: number, output_gain: number): Gst.Buffer
-export function codec_utils_opus_parse_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array ]
-export function codec_utils_opus_parse_header(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array, /* pre_skip */ number, /* output_gain */ number ]
+export function codec_utils_opus_create_header(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping: Uint8Array[] | null, pre_skip: number, output_gain: number): Gst.Buffer
+export function codec_utils_opus_parse_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[] ]
+export function codec_utils_opus_parse_header(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[], /* pre_skip */ number, /* output_gain */ number ]
 export function encoding_list_all_targets(categoryname?: string | null): EncodingTarget[]
 export function encoding_list_available_categories(): string[]
 export function install_plugins_async(details: string[], ctx: InstallPluginsContext | null, func: InstallPluginsResultFunc): InstallPluginsReturn
@@ -233,11 +233,11 @@ export class AudioVisualizer {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean

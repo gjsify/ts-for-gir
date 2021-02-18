@@ -161,11 +161,11 @@ export class WebRTCDTLSTransport {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -398,11 +398,11 @@ export class WebRTCICETransport {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -504,11 +504,11 @@ export class WebRTCRTPReceiver {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -606,11 +606,11 @@ export class WebRTCRTPSender {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -717,11 +717,11 @@ export class WebRTCRTPTransceiver {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean

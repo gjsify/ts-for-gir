@@ -661,7 +661,7 @@ export class Editable {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1445,7 +1445,7 @@ export class AdaptorChooser {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2379,7 +2379,7 @@ export class BaseEditor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3591,7 +3591,7 @@ export class DesignView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4448,7 +4448,7 @@ export class EPropBool {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5328,7 +5328,7 @@ export class EPropCheck {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6208,7 +6208,7 @@ export class EPropColor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7088,7 +7088,7 @@ export class EPropEnum {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7968,7 +7968,7 @@ export class EPropFlags {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8848,7 +8848,7 @@ export class EPropNamedIcon {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -9728,7 +9728,7 @@ export class EPropNumeric {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -10608,7 +10608,7 @@ export class EPropObject {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11488,7 +11488,7 @@ export class EPropObjects {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -12368,7 +12368,7 @@ export class EPropText {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -13248,7 +13248,7 @@ export class EPropUnichar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -14123,7 +14123,7 @@ export class Editor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -14998,7 +14998,7 @@ export class EditorProperty {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -15864,7 +15864,7 @@ export class EditorSkeleton {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -16720,7 +16720,7 @@ export class EditorTable {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -17579,7 +17579,7 @@ export class Inspector {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -18570,7 +18570,7 @@ export class NamedIconChooserDialog {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -19522,7 +19522,7 @@ export class Palette {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -20358,7 +20358,7 @@ export class Placeholder {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -21623,7 +21623,7 @@ export class PropertyLabel {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -22498,7 +22498,7 @@ export class PropertyShell {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -23468,7 +23468,7 @@ export class SignalEditor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

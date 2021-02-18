@@ -263,7 +263,7 @@ export function audioClippingMetaGetInfo(): Gst.MetaInfo
 export function audioDownmixMetaApiGetType(): GObject.Type
 export function audioDownmixMetaGetInfo(): Gst.MetaInfo
 export function audioFormatBuildInteger(sign: boolean, endianness: number, width: number, depth: number): AudioFormat
-export function audioFormatFillSilence(info: AudioFormatInfo, dest: any): void
+export function audioFormatFillSilence(info: AudioFormatInfo, dest: any[]): void
 export function audioFormatFromString(format: string): AudioFormat
 export function audioFormatGetInfo(format: AudioFormat): AudioFormatInfo
 export function audioFormatInfoGetType(): GObject.Type
@@ -271,7 +271,7 @@ export function audioFormatToString(format: AudioFormat): string
 export function audioFormatsRaw(): AudioFormat[]
 export function audioGetChannelReorderMap(from: AudioChannelPosition[], to: AudioChannelPosition[], reorderMap: number[]): boolean
 export function audioIec61937FrameSize(spec: AudioRingBufferSpec): number
-export function audioIec61937Payload(src: any, dst: any, spec: AudioRingBufferSpec, endianness: number): boolean
+export function audioIec61937Payload(src: any[], dst: any[], spec: AudioRingBufferSpec, endianness: number): boolean
 export function audioInfoFromCaps(caps: Gst.Caps): [ /* returnType */ boolean, /* info */ AudioInfo ]
 export function audioInfoInit(): /* info */ AudioInfo
 export function audioLevelMetaApiGetType(): GObject.Type
@@ -279,7 +279,7 @@ export function audioLevelMetaGetInfo(): Gst.MetaInfo
 export function audioMakeRawCaps(formats: AudioFormat[] | null, layout: AudioLayout): Gst.Caps
 export function audioMetaApiGetType(): GObject.Type
 export function audioMetaGetInfo(): Gst.MetaInfo
-export function audioReorderChannels(data: any, format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
+export function audioReorderChannels(data: any[], format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
 export function audioResamplerNew(method: AudioResamplerMethod, flags: AudioResamplerFlags, format: AudioFormat, channels: number, inRate: number, outRate: number, options: Gst.Structure): AudioResampler
 export function audioResamplerOptionsSetQuality(method: AudioResamplerMethod, quality: number, inRate: number, outRate: number, options: Gst.Structure): void
 export function bufferAddAudioClippingMeta(buffer: Gst.Buffer, format: Gst.Format, start: number, end: number): AudioClippingMeta
@@ -296,13 +296,13 @@ export interface AudioClockGetTimeFunc {
     (clock: Gst.Clock): Gst.ClockTime
 }
 export interface AudioFormatPack {
-    (info: AudioFormatInfo, flags: AudioPackFlags, src: any, data: any, length: number): void
+    (info: AudioFormatInfo, flags: AudioPackFlags, src: any[], data: any[], length: number): void
 }
 export interface AudioFormatUnpack {
-    (info: AudioFormatInfo, flags: AudioPackFlags, dest: any, data: any, length: number): void
+    (info: AudioFormatInfo, flags: AudioPackFlags, dest: any[], data: any[], length: number): void
 }
 export interface AudioRingBufferCallback {
-    (rbuf: AudioRingBuffer, data: any): void
+    (rbuf: AudioRingBuffer, data: any[]): void
 }
 export class StreamVolume {
     /* Properties of GstAudio.StreamVolume */
@@ -454,11 +454,11 @@ export class AudioAggregator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -776,11 +776,11 @@ export class AudioAggregatorConvertPad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1035,11 +1035,11 @@ export class AudioAggregatorPad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1371,11 +1371,11 @@ export class AudioBaseSink {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1787,11 +1787,11 @@ export class AudioBaseSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2154,11 +2154,11 @@ export class AudioCdSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2413,11 +2413,11 @@ export class AudioClock {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2689,11 +2689,11 @@ export class AudioDecoder {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3003,11 +3003,11 @@ export class AudioEncoder {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3317,11 +3317,11 @@ export class AudioFilter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3507,7 +3507,7 @@ export class AudioRingBuffer {
     clear(segment: number): void
     clearAll(): void
     closeDevice(): boolean
-    commit(sample: number, data: any, outSamples: number, accum: number): [ /* returnType */ number, /* accum */ number ]
+    commit(sample: number, data: any[], outSamples: number, accum: number): [ /* returnType */ number, /* accum */ number ]
     convert(srcFmt: Gst.Format, srcVal: number, destFmt: Gst.Format): [ /* returnType */ boolean, /* destVal */ number ]
     delay(): number
     deviceIsOpen(): boolean
@@ -3517,8 +3517,8 @@ export class AudioRingBuffer {
     mayStart(allowed: boolean): void
     openDevice(): boolean
     pause(): boolean
-    prepareRead(): [ /* returnType */ boolean, /* segment */ number, /* readptr */ any ]
-    read(sample: number, data: any): [ /* returnType */ number, /* timestamp */ Gst.ClockTime ]
+    prepareRead(): [ /* returnType */ boolean, /* segment */ number, /* readptr */ any[] ]
+    read(sample: number, data: any[]): [ /* returnType */ number, /* timestamp */ Gst.ClockTime ]
     release(): boolean
     samplesDone(): number
     setCallback(cb: AudioRingBufferCallback | null): void
@@ -3533,11 +3533,11 @@ export class AudioRingBuffer {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -3579,7 +3579,7 @@ export class AudioRingBuffer {
     vfuncActivate(active: boolean): boolean
     vfuncClearAll(): void
     vfuncCloseDevice(): boolean
-    vfuncCommit(sample: number, data: any, outSamples: number, accum: number): [ /* returnType */ number, /* accum */ number ]
+    vfuncCommit(sample: number, data: any[], outSamples: number, accum: number): [ /* returnType */ number, /* accum */ number ]
     vfuncDelay(): number
     vfuncOpenDevice(): boolean
     vfuncPause(): boolean
@@ -3830,11 +3830,11 @@ export class AudioSink {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -4256,11 +4256,11 @@ export class AudioSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -4585,7 +4585,7 @@ export abstract class AudioClockClass {
 }
 export class AudioConverter {
     /* Methods of GstAudio.AudioConverter */
-    convert(flags: AudioConverterFlags, in_: any): [ /* returnType */ boolean, /* out */ any ]
+    convert(flags: AudioConverterFlags, in_: any[]): [ /* returnType */ boolean, /* out */ any[] ]
     free(): void
     getConfig(): [ /* returnType */ Gst.Structure, /* inRate */ number | null, /* outRate */ number | null ]
     getInFrames(outFrames: number): number
@@ -4682,12 +4682,12 @@ export class AudioFormatInfo {
     endianness: number
     width: number
     depth: number
-    silence: any
+    silence: any[]
     unpackFormat: AudioFormat
     unpackFunc: AudioFormatUnpack
     packFunc: AudioFormatPack
     /* Methods of GstAudio.AudioFormatInfo */
-    fillSilence(dest: any): void
+    fillSilence(dest: any[]): void
     static name: string
 }
 export class AudioInfo {
@@ -4766,7 +4766,7 @@ export abstract class AudioRingBufferClass {
     stop: (buf: AudioRingBuffer) => boolean
     delay: (buf: AudioRingBuffer) => number
     activate: (buf: AudioRingBuffer, active: boolean) => boolean
-    commit: (buf: AudioRingBuffer, sample: number, data: any, outSamples: number, accum: number) => [ /* returnType */ number, /* accum */ number ]
+    commit: (buf: AudioRingBuffer, sample: number, data: any[], outSamples: number, accum: number) => [ /* returnType */ number, /* accum */ number ]
     clearAll: (buf: AudioRingBuffer) => void
     static name: string
 }

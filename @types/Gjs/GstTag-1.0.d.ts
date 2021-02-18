@@ -111,18 +111,18 @@ export function tag_get_license_version(license_ref: string): string
 export function tag_get_licenses(): string[]
 export function tag_id3_genre_count(): number
 export function tag_id3_genre_get(id: number): string
-export function tag_image_data_to_image_sample(image_data: Uint8Array, image_type: TagImageType): Gst.Sample
-export function tag_list_add_id3_image(tag_list: Gst.TagList, image_data: Uint8Array, id3_picture_type: number): boolean
+export function tag_image_data_to_image_sample(image_data: Uint8Array[], image_type: TagImageType): Gst.Sample
+export function tag_list_add_id3_image(tag_list: Gst.TagList, image_data: Uint8Array[], id3_picture_type: number): boolean
 export function tag_list_from_exif_buffer(buffer: Gst.Buffer, byte_order: number, base_offset: number): Gst.TagList
 export function tag_list_from_exif_buffer_with_tiff_header(buffer: Gst.Buffer): Gst.TagList
 export function tag_list_from_id3v2_tag(buffer: Gst.Buffer): Gst.TagList
-export function tag_list_from_vorbiscomment(data: Uint8Array, id_data: Uint8Array): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
-export function tag_list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: Uint8Array): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
+export function tag_list_from_vorbiscomment(data: Uint8Array[], id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
+export function tag_list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
 export function tag_list_from_xmp_buffer(buffer: Gst.Buffer): Gst.TagList
-export function tag_list_new_from_id3v1(data: Uint8Array): Gst.TagList
+export function tag_list_new_from_id3v1(data: Uint8Array[]): Gst.TagList
 export function tag_list_to_exif_buffer(taglist: Gst.TagList, byte_order: number, base_offset: number): Gst.Buffer
 export function tag_list_to_exif_buffer_with_tiff_header(taglist: Gst.TagList): Gst.Buffer
-export function tag_list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: Uint8Array, vendor_string?: string | null): Gst.Buffer
+export function tag_list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: Uint8Array[], vendor_string?: string | null): Gst.Buffer
 export function tag_list_to_xmp_buffer(list: Gst.TagList, read_only: boolean, schemas: string[]): Gst.Buffer
 export function tag_parse_extended_comment(ext_comment: string, fail_if_no_key: boolean): [ /* returnType */ boolean, /* key */ string | null, /* lang */ string | null, /* value */ string ]
 export function tag_register_musicbrainz_tags(): void
@@ -242,11 +242,11 @@ export class TagXmpWriter {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -447,11 +447,11 @@ export class TagDemux {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -656,11 +656,11 @@ export class TagMux {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean

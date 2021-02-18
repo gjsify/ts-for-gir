@@ -164,11 +164,11 @@ export function bufferAddRtpSourceMeta(buffer: Gst.Buffer, ssrc: number | null, 
 export function bufferGetRtpSourceMeta(buffer: Gst.Buffer): RTPSourceMeta
 export function rtcpBufferMap(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
 export function rtcpBufferNew(mtu: number): Gst.Buffer
-export function rtcpBufferNewCopyData(data: any): Gst.Buffer
-export function rtcpBufferNewTakeData(data: any): Gst.Buffer
+export function rtcpBufferNewCopyData(data: any[]): Gst.Buffer
+export function rtcpBufferNewTakeData(data: any[]): Gst.Buffer
 export function rtcpBufferValidate(buffer: Gst.Buffer): boolean
-export function rtcpBufferValidateData(data: any): boolean
-export function rtcpBufferValidateDataReduced(data: any): boolean
+export function rtcpBufferValidateData(data: any[]): boolean
+export function rtcpBufferValidateDataReduced(data: any[]): boolean
 export function rtcpBufferValidateReduced(buffer: Gst.Buffer): boolean
 export function rtcpNtpToUnix(ntptime: number): number
 export function rtcpSdesNameToType(name: string): RTCPSDESType
@@ -181,15 +181,15 @@ export function rtpBufferCalcPayloadLen(packetLen: number, padLen: number, csrcC
 export function rtpBufferCompareSeqnum(seqnum1: number, seqnum2: number): number
 export function rtpBufferDefaultClockRate(payloadType: number): number
 export function rtpBufferExtTimestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-export function rtpBufferGetExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any ]
+export function rtpBufferGetExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
 export function rtpBufferMap(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
 export function rtpBufferNewAllocate(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
 export function rtpBufferNewAllocateLen(packetLen: number, padLen: number, csrcCount: number): Gst.Buffer
-export function rtpBufferNewCopyData(data: any): Gst.Buffer
-export function rtpBufferNewTakeData(data: any): Gst.Buffer
+export function rtpBufferNewCopyData(data: any[]): Gst.Buffer
+export function rtpBufferNewTakeData(data: any[]): Gst.Buffer
 export function rtpGetHeaderExtensionList(): RTPHeaderExtension[]
-export function rtpHdrextGetNtp56(data: any): [ /* returnType */ boolean, /* ntptime */ number ]
-export function rtpHdrextGetNtp64(data: any): [ /* returnType */ boolean, /* ntptime */ number ]
+export function rtpHdrextGetNtp56(data: any[]): [ /* returnType */ boolean, /* ntptime */ number ]
+export function rtpHdrextGetNtp64(data: any[]): [ /* returnType */ boolean, /* ntptime */ number ]
 export function rtpHdrextSetNtp56(data: object | null, size: number, ntptime: number): boolean
 export function rtpHdrextSetNtp64(data: object | null, size: number, ntptime: number): boolean
 export function rtpPayloadInfoForName(media: string, encodingName: string): RTPPayloadInfo
@@ -261,7 +261,7 @@ export class RTPBaseAudioPayload {
     /* Methods of GstRtp.RTPBaseAudioPayload */
     flush(payloadLen: number, timestamp: Gst.ClockTime): Gst.FlowReturn
     getAdapter(): GstBase.Adapter
-    push(data: any, timestamp: Gst.ClockTime): Gst.FlowReturn
+    push(data: any[], timestamp: Gst.ClockTime): Gst.FlowReturn
     setFrameBased(): void
     setFrameOptions(frameDuration: number, frameSize: number): void
     setSampleBased(): void
@@ -348,11 +348,11 @@ export class RTPBaseAudioPayload {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -709,11 +709,11 @@ export class RTPBaseDepayload {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1023,11 +1023,11 @@ export class RTPBasePayload {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1372,11 +1372,11 @@ export class RTPHeaderExtension {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1517,11 +1517,11 @@ export class RTCPBuffer {
     static name: string
     /* Static methods and pseudo-constructors */
     static map(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
-    static newCopyData(data: any): Gst.Buffer
-    static newTakeData(data: any): Gst.Buffer
+    static newCopyData(data: any[]): Gst.Buffer
+    static newTakeData(data: any[]): Gst.Buffer
     static validate(buffer: Gst.Buffer): boolean
-    static validateData(data: any): boolean
-    static validateDataReduced(data: any): boolean
+    static validateData(data: any[]): boolean
+    static validateDataReduced(data: any[]): boolean
     static validateReduced(buffer: Gst.Buffer): boolean
 }
 export class RTCPPacket {
@@ -1529,7 +1529,7 @@ export class RTCPPacket {
     rtcp: RTCPBuffer
     offset: number
     /* Methods of GstRtp.RTCPPacket */
-    addProfileSpecificExt(data: any): boolean
+    addProfileSpecificExt(data: any[]): boolean
     addRb(ssrc: number, fractionlost: number, packetslost: number, exthighestseq: number, jitter: number, lsr: number, dlsr: number): boolean
     appGetData(): number
     appGetDataLength(): number
@@ -1547,7 +1547,7 @@ export class RTCPPacket {
     byeGetReasonLen(): number
     byeGetSsrcCount(): number
     byeSetReason(reason: string): boolean
-    copyProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any ]
+    copyProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any[] ]
     fbGetFci(): number
     fbGetFciLength(): number
     fbGetMediaSsrc(): number
@@ -1560,7 +1560,7 @@ export class RTCPPacket {
     getCount(): number
     getLength(): number
     getPadding(): boolean
-    getProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any ]
+    getProfileSpecificExt(): [ /* returnType */ boolean, /* data */ any[] ]
     getProfileSpecificExtLength(): number
     getRb(nth: number): [ /* ssrc */ number, /* fractionlost */ number, /* packetslost */ number, /* exthighestseq */ number, /* jitter */ number, /* lsr */ number, /* dlsr */ number ]
     getRbCount(): number
@@ -1569,12 +1569,12 @@ export class RTCPPacket {
     remove(): boolean
     rrGetSsrc(): number
     rrSetSsrc(ssrc: number): void
-    sdesAddEntry(type: RTCPSDESType, data: any): boolean
+    sdesAddEntry(type: RTCPSDESType, data: any[]): boolean
     sdesAddItem(ssrc: number): boolean
-    sdesCopyEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any ]
+    sdesCopyEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any[] ]
     sdesFirstEntry(): boolean
     sdesFirstItem(): boolean
-    sdesGetEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any ]
+    sdesGetEntry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ any[] ]
     sdesGetItemCount(): number
     sdesGetSsrc(): number
     sdesNextEntry(): boolean
@@ -1650,14 +1650,14 @@ export class RTPBuffer {
     size: number[]
     map: Gst.MapInfo[]
     /* Methods of GstRtp.RTPBuffer */
-    addExtensionOnebyteHeader(id: number, data: any): boolean
-    addExtensionTwobytesHeader(appbits: number, id: number, data: any): boolean
+    addExtensionOnebyteHeader(id: number, data: any[]): boolean
+    addExtensionTwobytesHeader(appbits: number, id: number, data: any[]): boolean
     getCsrc(idx: number): number
     getCsrcCount(): number
     getExtension(): boolean
     getExtensionData(): [ /* returnType */ any, /* bits */ number ]
-    getExtensionOnebyteHeader(id: number, nth: number): [ /* returnType */ boolean, /* data */ any ]
-    getExtensionTwobytesHeader(id: number, nth: number): [ /* returnType */ boolean, /* appbits */ number, /* data */ any ]
+    getExtensionOnebyteHeader(id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
+    getExtensionTwobytesHeader(id: number, nth: number): [ /* returnType */ boolean, /* appbits */ number, /* data */ any[] ]
     getHeaderLen(): number
     getMarker(): boolean
     getPacketLen(): number
@@ -1693,12 +1693,12 @@ export class RTPBuffer {
     static compareSeqnum(seqnum1: number, seqnum2: number): number
     static defaultClockRate(payloadType: number): number
     static extTimestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-    static getExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any ]
+    static getExtensionOnebyteHeaderFromBytes(bytes: any, bitPattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ any[] ]
     static map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
     static newAllocate(payloadLen: number, padLen: number, csrcCount: number): Gst.Buffer
     static newAllocateLen(packetLen: number, padLen: number, csrcCount: number): Gst.Buffer
-    static newCopyData(data: any): Gst.Buffer
-    static newTakeData(data: any): Gst.Buffer
+    static newCopyData(data: any[]): Gst.Buffer
+    static newTakeData(data: any[]): Gst.Buffer
 }
 export abstract class RTPHeaderExtensionClass {
     /* Fields of GstRtp.RTPHeaderExtensionClass */

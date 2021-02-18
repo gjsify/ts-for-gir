@@ -4,8 +4,8 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 
 export declare namespace Tracker {
 
@@ -168,7 +168,7 @@ export class SparqlConnection {
     updateAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateFinish(res: Gio.AsyncResult): void
     updateArrayAsync(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    updateArrayFinish(res: Gio.AsyncResult): SparqlError[] | null
+    updateArrayFinish(res: Gio.AsyncResult): any[] | null
     updateBlank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     updateBlankAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateBlankFinish(res: Gio.AsyncResult): GLib.Variant | null
@@ -208,7 +208,7 @@ export class SparqlConnection {
     vfuncUpdateAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncUpdateFinish(res: Gio.AsyncResult): void
     vfuncUpdateArrayAsync(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUpdateArrayFinish(res: Gio.AsyncResult): SparqlError[] | null
+    vfuncUpdateArrayFinish(res: Gio.AsyncResult): any[] | null
     vfuncUpdateBlank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     vfuncUpdateBlankAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncUpdateBlankFinish(res: Gio.AsyncResult): GLib.Variant | null
@@ -367,7 +367,7 @@ export abstract class SparqlConnectionClass {
     updateAsync: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     updateFinish: (self: SparqlConnection, res: Gio.AsyncResult) => void
     updateArrayAsync: (self: SparqlConnection, sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    updateArrayFinish: (self: SparqlConnection, res: Gio.AsyncResult) => SparqlError[] | null
+    updateArrayFinish: (self: SparqlConnection, res: Gio.AsyncResult) => any[] | null
     updateBlank: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => GLib.Variant | null
     updateBlankAsync: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     updateBlankFinish: (self: SparqlConnection, res: Gio.AsyncResult) => GLib.Variant | null

@@ -4,11 +4,11 @@
 
 import "node"
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Json } from './Json-1.0';
 import type { Gio } from './Gio-2.0';
 import type { Gtk } from './Gtk-3.0';
@@ -551,7 +551,7 @@ export class TimezoneMap {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

@@ -547,7 +547,7 @@ export class ValueList {
     /* Methods of GUPnPDLNA.ValueList */
     copy(): ValueList
     free(): void
-    get_g_values(): any
+    get_g_values(): any[]
     is_empty(): boolean
     to_string(): string
     static name: string

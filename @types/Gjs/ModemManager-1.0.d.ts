@@ -2557,16 +2557,16 @@ export class CdmaManualActivationProperties {
     get_mn_aaa_key(): string
     get_mn_ha_key(): string
     get_prl(): [ /* returnType */ number, /* prl_len */ number ]
-    get_prl_bytearray(): Uint8Array
+    get_prl_bytearray(): Uint8Array[]
     get_sid(): number
     get_spc(): string
-    peek_prl_bytearray(): Uint8Array
+    peek_prl_bytearray(): Uint8Array[]
     set_mdn(mdn: string): boolean
     set_min(min: string): boolean
     set_mn_aaa_key(mn_aaa_key: string): boolean
     set_mn_ha_key(mn_ha_key: string): boolean
     set_prl(prl: number, prl_length: number): boolean
-    set_prl_bytearray(prl: Uint8Array): boolean
+    set_prl_bytearray(prl: Uint8Array[]): boolean
     set_sid(sid: number): void
     set_spc(spc: string): boolean
     /* Methods of GObject.Object */
@@ -10060,9 +10060,9 @@ export class ModemLocation {
     get_path(): string
     get_supl_server(): string
     get_supported_assistance_data(): ModemLocationAssistanceDataType
-    inject_assistance_data(data: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    inject_assistance_data(data: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     inject_assistance_data_finish(res: Gio.AsyncResult): boolean
-    inject_assistance_data_sync(data: Uint8Array, cancellable?: Gio.Cancellable | null): boolean
+    inject_assistance_data_sync(data: Uint8Array[], cancellable?: Gio.Cancellable | null): boolean
     set_gps_refresh_rate(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_gps_refresh_rate_finish(res: Gio.AsyncResult): boolean
     set_gps_refresh_rate_sync(rate: number, cancellable?: Gio.Cancellable | null): boolean
@@ -12025,7 +12025,7 @@ export class Sms {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager.Sms */
-    dup_data(): Uint8Array
+    dup_data(): Uint8Array[]
     dup_discharge_timestamp(): string
     dup_number(): string
     dup_path(): string
@@ -12033,7 +12033,7 @@ export class Sms {
     dup_text(): string
     dup_timestamp(): string
     get_class(): number
-    get_data(): Uint8Array
+    get_data(): Uint8Array[]
     get_delivery_report_request(): boolean
     get_delivery_state(): number
     get_discharge_timestamp(): string
@@ -12217,7 +12217,7 @@ export class SmsProperties {
     /* Methods of ModemManager.SmsProperties */
     get_class(): number
     get_data(): [ /* returnType */ number, /* data_len */ number ]
-    get_data_bytearray(): Uint8Array
+    get_data_bytearray(): Uint8Array[]
     get_delivery_report_request(): boolean
     get_number(): string
     get_service_category(): SmsCdmaServiceCategory
@@ -12226,10 +12226,10 @@ export class SmsProperties {
     get_text(): string
     get_validity_relative(): number
     get_validity_type(): SmsValidityType
-    peek_data_bytearray(): Uint8Array
+    peek_data_bytearray(): Uint8Array[]
     set_class(message_class: number): void
     set_data(data: number, data_length: number): void
-    set_data_bytearray(data: Uint8Array): void
+    set_data_bytearray(data: Uint8Array[]): void
     set_delivery_report_request(request: boolean): void
     set_number(number: string): void
     set_service_category(service_category: SmsCdmaServiceCategory): void

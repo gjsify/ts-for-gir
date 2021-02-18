@@ -54,8 +54,8 @@ export class ARGBControlBinding {
     /* Fields of GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst.ControlBinding */
-    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    getValue(timestamp: Gst.ClockTime): any
+    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    getValue(timestamp: Gst.ClockTime): any | null
     isDisabled(): boolean
     setDisabled(disabled: boolean): void
     syncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
@@ -64,11 +64,11 @@ export class ARGBControlBinding {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -106,8 +106,8 @@ export class ARGBControlBinding {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gst.ControlBinding */
-    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    vfuncGetValue(timestamp: Gst.ClockTime): any
+    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    vfuncGetValue(timestamp: Gst.ClockTime): any | null
     vfuncSyncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -196,8 +196,8 @@ export class DirectControlBinding {
     /* Fields of GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst.ControlBinding */
-    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    getValue(timestamp: Gst.ClockTime): any
+    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    getValue(timestamp: Gst.ClockTime): any | null
     isDisabled(): boolean
     setDisabled(disabled: boolean): void
     syncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
@@ -206,11 +206,11 @@ export class DirectControlBinding {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -248,8 +248,8 @@ export class DirectControlBinding {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gst.ControlBinding */
-    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    vfuncGetValue(timestamp: Gst.ClockTime): any
+    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    vfuncGetValue(timestamp: Gst.ClockTime): any | null
     vfuncSyncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -343,7 +343,7 @@ export class InterpolationControlSource {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
@@ -489,7 +489,7 @@ export class LFOControlSource {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
@@ -617,8 +617,8 @@ export class ProxyControlBinding {
     /* Fields of GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst.ControlBinding */
-    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    getValue(timestamp: Gst.ClockTime): any
+    getGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    getValue(timestamp: Gst.ClockTime): any | null
     isDisabled(): boolean
     setDisabled(disabled: boolean): void
     syncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
@@ -627,11 +627,11 @@ export class ProxyControlBinding {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -669,8 +669,8 @@ export class ProxyControlBinding {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gst.ControlBinding */
-    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
-    vfuncGetValue(timestamp: Gst.ClockTime): any
+    vfuncGetGValueArray(timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    vfuncGetValue(timestamp: Gst.ClockTime): any | null
     vfuncSyncValues(object: Gst.Object, timestamp: Gst.ClockTime, lastSync: Gst.ClockTime): boolean
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -755,7 +755,7 @@ export class TimedValueControlSource {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
@@ -898,7 +898,7 @@ export class TriggerControlSource {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string

@@ -61,8 +61,8 @@ export function slots_enumerate_objects(slots: Slot[], match: Attributes, option
 export function uri_build(uri_data: UriData, flags: UriFlags): string
 export function uri_error_get_quark(): GLib.Quark
 export function uri_parse(string: string, flags: UriFlags): UriData
-export function value_to_boolean(value: Uint8Array, result: boolean): boolean
-export function value_to_ulong(value: Uint8Array, result: number): boolean
+export function value_to_boolean(value: Uint8Array[], result: boolean): boolean
+export function value_to_ulong(value: Uint8Array[], result: number): boolean
 export interface Allocator {
     (data: object | null, length: number): object | null
 }
@@ -91,9 +91,9 @@ export class ObjectCache {
     destroy_finish(result: Gio.AsyncResult): boolean
     equal(object2: Object): boolean
     get_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array
+    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_data_async(attr_type: number, allocator: Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data_finish(result: Gio.AsyncResult): Uint8Array
+    get_data_finish(result: Gio.AsyncResult): Uint8Array[]
     get_finish(result: Gio.AsyncResult): Attributes
     get_full(attr_types: number[], cancellable?: Gio.Cancellable | null): Attributes
     get_handle(): number
@@ -318,9 +318,9 @@ export class Object {
     destroy_finish(result: Gio.AsyncResult): boolean
     equal(object2: Object): boolean
     get_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array
+    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_data_async(attr_type: number, allocator: Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data_finish(result: Gio.AsyncResult): Uint8Array
+    get_data_finish(result: Gio.AsyncResult): Uint8Array[]
     get_finish(result: Gio.AsyncResult): Attributes
     get_full(attr_types: number[], cancellable?: Gio.Cancellable | null): Attributes
     get_handle(): number
@@ -410,8 +410,8 @@ export class Password {
     get_warning(): string
     set_description(description: string): void
     set_flags(flags: Gio.TlsPasswordFlags): void
-    set_value(value: Uint8Array): void
-    set_value_full(value: Uint8Array, destroy?: GLib.DestroyNotify | null): void
+    set_value(value: Uint8Array[]): void
+    set_value_full(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     set_warning(warning: string): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -438,7 +438,7 @@ export class Password {
     /* Virtual methods of Gio.TlsPassword */
     vfunc_get_default_warning(): string
     vfunc_get_value(length?: number | null): number
-    vfunc_set_value(value: Uint8Array, destroy?: GLib.DestroyNotify | null): void
+    vfunc_set_value(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -488,18 +488,18 @@ export class Session {
     create_object(attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
     create_object_async(attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_object_finish(result: Gio.AsyncResult): Object
-    decrypt(key: Object, mech_type: number, input: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
-    decrypt_async(key: Object, mechanism: Mechanism, input: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    decrypt_finish(result: Gio.AsyncResult): Uint8Array
-    decrypt_full(key: Object, mechanism: Mechanism, input: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    decrypt(key: Object, mech_type: number, input: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
+    decrypt_async(key: Object, mechanism: Mechanism, input: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    decrypt_finish(result: Gio.AsyncResult): Uint8Array[]
+    decrypt_full(key: Object, mechanism: Mechanism, input: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     derive_key(base: Object, mech_type: number, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
     derive_key_async(base: Object, mechanism: Mechanism, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     derive_key_finish(result: Gio.AsyncResult): Object
     derive_key_full(base: Object, mechanism: Mechanism, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    encrypt(key: Object, mech_type: number, input: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
-    encrypt_async(key: Object, mechanism: Mechanism, input: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    encrypt_finish(result: Gio.AsyncResult): Uint8Array
-    encrypt_full(key: Object, mechanism: Mechanism, input: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    encrypt(key: Object, mech_type: number, input: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
+    encrypt_async(key: Object, mechanism: Mechanism, input: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    encrypt_finish(result: Gio.AsyncResult): Uint8Array[]
+    encrypt_full(key: Object, mechanism: Mechanism, input: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     enumerate_objects(match: Attributes): Enumerator
     find_handles(match: Attributes, cancellable?: Gio.Cancellable | null): number[] | null
     find_handles_async(match: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -518,11 +518,11 @@ export class Session {
     get_options(): SessionOptions
     get_slot(): Slot
     get_state(): number
-    init_pin(pin: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
-    init_pin_async(pin: Uint8Array | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_pin(pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
+    init_pin_async(pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     init_pin_finish(result: Gio.AsyncResult): boolean
-    login(user_type: number, pin: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
-    login_async(user_type: number, pin: Uint8Array | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    login(user_type: number, pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
+    login_async(user_type: number, pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     login_finish(result: Gio.AsyncResult): boolean
     login_interactive(user_type: number, interaction?: Gio.TlsInteraction | null, cancellable?: Gio.Cancellable | null): boolean
     login_interactive_async(user_type: number, interaction?: Gio.TlsInteraction | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -531,25 +531,25 @@ export class Session {
     logout_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     logout_finish(result: Gio.AsyncResult): boolean
     set_interaction(interaction?: Gio.TlsInteraction | null): void
-    set_pin(old_pin: Uint8Array | null, new_pin: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
-    set_pin_async(old_pin: Uint8Array | null, n_old_pin: number, new_pin: Uint8Array | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_pin(old_pin: Uint8Array[] | null, new_pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
+    set_pin_async(old_pin: Uint8Array[] | null, n_old_pin: number, new_pin: Uint8Array[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_pin_finish(result: Gio.AsyncResult): boolean
-    sign(key: Object, mech_type: number, input: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
-    sign_async(key: Object, mechanism: Mechanism, input: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    sign_finish(result: Gio.AsyncResult): Uint8Array
-    sign_full(key: Object, mechanism: Mechanism, input: Uint8Array, n_result: number, cancellable?: Gio.Cancellable | null): number
-    unwrap_key(wrapper: Object, mech_type: number, input: Uint8Array, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    unwrap_key_async(wrapper: Object, mechanism: Mechanism, input: Uint8Array, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    sign(key: Object, mech_type: number, input: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
+    sign_async(key: Object, mechanism: Mechanism, input: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    sign_finish(result: Gio.AsyncResult): Uint8Array[]
+    sign_full(key: Object, mechanism: Mechanism, input: Uint8Array[], n_result: number, cancellable?: Gio.Cancellable | null): number
+    unwrap_key(wrapper: Object, mech_type: number, input: Uint8Array[], attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
+    unwrap_key_async(wrapper: Object, mechanism: Mechanism, input: Uint8Array[], attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unwrap_key_finish(result: Gio.AsyncResult): Object
-    unwrap_key_full(wrapper: Object, mechanism: Mechanism, input: Uint8Array, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    verify(key: Object, mech_type: number, input: Uint8Array, signature: Uint8Array, cancellable?: Gio.Cancellable | null): boolean
-    verify_async(key: Object, mechanism: Mechanism, input: Uint8Array, signature: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    unwrap_key_full(wrapper: Object, mechanism: Mechanism, input: Uint8Array[], attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
+    verify(key: Object, mech_type: number, input: Uint8Array[], signature: Uint8Array[], cancellable?: Gio.Cancellable | null): boolean
+    verify_async(key: Object, mechanism: Mechanism, input: Uint8Array[], signature: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_finish(result: Gio.AsyncResult): boolean
-    verify_full(key: Object, mechanism: Mechanism, input: Uint8Array, signature: Uint8Array, cancellable?: Gio.Cancellable | null): boolean
-    wrap_key(wrapper: Object, mech_type: number, wrapped: Object, cancellable?: Gio.Cancellable | null): Uint8Array
+    verify_full(key: Object, mechanism: Mechanism, input: Uint8Array[], signature: Uint8Array[], cancellable?: Gio.Cancellable | null): boolean
+    wrap_key(wrapper: Object, mech_type: number, wrapped: Object, cancellable?: Gio.Cancellable | null): Uint8Array[]
     wrap_key_async(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    wrap_key_finish(result: Gio.AsyncResult): Uint8Array
-    wrap_key_full(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null): Uint8Array
+    wrap_key_finish(result: Gio.AsyncResult): Uint8Array[]
+    wrap_key_full(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null): Uint8Array[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -690,7 +690,7 @@ export class Slot {
 export class Attribute {
     /* Fields of Gck.Attribute */
     type: number
-    value: Uint8Array
+    value: Uint8Array[]
     length: number
     /* Methods of Gck.Attribute */
     clear(): void
@@ -699,7 +699,7 @@ export class Attribute {
     equal(attr2: Attribute): boolean
     free(): void
     get_boolean(): boolean
-    get_data(): Uint8Array
+    get_data(): Uint8Array[]
     get_date(value: GLib.Date): void
     get_string(): string | null
     get_ulong(): number
@@ -744,7 +744,7 @@ export class Builder {
     add_all(attrs: Attributes): void
     add_attribute(attr: Attribute): void
     add_boolean(attr_type: number, value: boolean): void
-    add_data(attr_type: number, value: Uint8Array | null): void
+    add_data(attr_type: number, value: Uint8Array[] | null): void
     add_date(attr_type: number, value: GLib.Date): void
     add_empty(attr_type: number): void
     add_invalid(attr_type: number): void
@@ -764,14 +764,14 @@ export class Builder {
     ref(): Builder
     set_all(attrs: Attributes): void
     set_boolean(attr_type: number, value: boolean): void
-    set_data(attr_type: number, value: Uint8Array | null): void
+    set_data(attr_type: number, value: Uint8Array[] | null): void
     set_date(attr_type: number, value: GLib.Date): void
     set_empty(attr_type: number): void
     set_invalid(attr_type: number): void
     set_string(attr_type: number, value: string): void
     set_ulong(attr_type: number, value: number): void
     steal(): Attributes
-    take_data(attr_type: number, value: Uint8Array | null): void
+    take_data(attr_type: number, value: Uint8Array[] | null): void
     static name: string
     static new(flags: BuilderFlags): Builder
     constructor(flags: BuilderFlags)

@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
 export declare namespace GXml {
@@ -9189,7 +9189,7 @@ export class GHtmlDocument {
     priv: GHtmlDocumentPrivate
     /* Fields of GXml.GDocument */
     doc: object | null
-    buffer: libxml2.Buffer
+    buffer: any
     implementation: GImplementation
     url: string
     origin: string
@@ -22933,7 +22933,7 @@ export class GDocument {
     parentInstance: GNode
     priv: GDocumentPrivate
     doc: object | null
-    buffer: libxml2.Buffer
+    buffer: any
     constructor: DomEvent
     /* Fields of GXml.GNode */
     node: object | null
@@ -23707,7 +23707,7 @@ export class GDocumentFragment {
     priv: GDocumentFragmentPrivate
     /* Fields of GXml.GDocument */
     doc: object | null
-    buffer: libxml2.Buffer
+    buffer: any
     implementation: GImplementation
     url: string
     origin: string
@@ -25057,7 +25057,7 @@ export class GDomCustomEvent {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml.GDomCustomEvent */
-    initCustomEvent(type: string, bubbles: boolean, cancelable: boolean, detail?: any): void
+    initCustomEvent(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     getDetail(): /* result */ any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -30487,17 +30487,17 @@ export class TDocument {
     static fromFile(file: Gio.File): TDocument
     static fromStream(stream: Gio.InputStream): TDocument
     static fromString(str: string): TDocument
-    static fromPathWithReadtypeFunc(path: string, func: TDocumentReadTypeFunc): TDocument
-    static fromUriWithReadtypeFunc(uri: string, func: TDocumentReadTypeFunc): TDocument
-    static fromFileWithReadtypeFunc(file: Gio.File, func: TDocumentReadTypeFunc): TDocument
-    static fromStreamWithReadtypeFunc(stream: Gio.InputStream, func: TDocumentReadTypeFunc): TDocument
-    static fromStringWithReadtypeFunc(str: string, func: TDocumentReadTypeFunc): TDocument
+    static fromPathWithReadtypeFunc(path: string, func: any): TDocument
+    static fromUriWithReadtypeFunc(uri: string, func: any): TDocument
+    static fromFileWithReadtypeFunc(file: Gio.File, func: any): TDocument
+    static fromStreamWithReadtypeFunc(stream: Gio.InputStream, func: any): TDocument
+    static fromStringWithReadtypeFunc(str: string, func: any): TDocument
     static twSaveAs(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     static writeDocument(doc: Document, tw: libxml2.TextWriter): void
     static startNode(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declaredNs: Gee.ArrayList): /* declaredNs */ Gee.ArrayList
-    static readDoc(doc: Document, file: Gio.File, rtfunc?: TDocumentReadTypeFunc | null): void
-    static readDocStream(doc: Document, istream: Gio.InputStream, rtfunc?: TDocumentReadTypeFunc | null): void
-    static readNode(node: Node, tr: libxml2.TextReader, rntfunc?: TDocumentReadTypeFunc | null): TDocumentReadType
+    static readDoc(doc: Document, file: Gio.File, rtfunc?: any | null): void
+    static readDocStream(doc: Document, istream: Gio.InputStream, rtfunc?: any | null): void
+    static readNode(node: Node, tr: libxml2.TextReader, rntfunc?: any | null): TDocumentReadType
     static newDefault(): Document
     static newDefaultForPath(path: string): Document
     static newDefaultForFile(f: Gio.File): Document

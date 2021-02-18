@@ -4273,8 +4273,6 @@ export interface SerializableDeserializeFunc {
 export interface SerializableSerializeFunc {
     (serializable: Serializable, builder: GLib.VariantBuilder): boolean
 }
-
-export interface Object_ConstructProps {}
 export interface AttrList_ConstructProps extends Serializable_ConstructProps {
 }
 export class AttrList {

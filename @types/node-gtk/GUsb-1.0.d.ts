@@ -204,13 +204,13 @@ export class Device {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUsb.Device */
-    bulkTransfer(endpoint: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
-    bulkTransferAsync(endpoint: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    bulkTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    bulkTransferAsync(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     bulkTransferFinish(res: Gio.AsyncResult): number
     claimInterface(interface: number, flags: DeviceClaimInterfaceFlags): boolean
     close(): boolean
-    controlTransfer(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
-    controlTransferAsync(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    controlTransfer(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    controlTransferAsync(direction: DeviceDirection, requestType: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     controlTransferFinish(res: Gio.AsyncResult): number
     getAddress(): number
     getBus(): number
@@ -237,8 +237,8 @@ export class Device {
     getStringDescriptorBytes(descIndex: number, langid: number): any
     getVid(): number
     getVidAsStr(): string
-    interruptTransfer(endpoint: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
-    interruptTransferAsync(endpoint: number, data: any, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    interruptTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actualLength */ number | null ]
+    interruptTransferAsync(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     interruptTransferFinish(res: Gio.AsyncResult): number
     open(): boolean
     releaseInterface(interface: number, flags: DeviceClaimInterfaceFlags): boolean

@@ -139,18 +139,18 @@ export const SUMMARY_SIG_GVARIANT_STRING: string
 export const TIMESTAMP: number
 export const TREE_GVARIANT_STRING: string
 export const WITH_AUTOCLEANUPS: number
-export function checksum_b64_from_bytes(csum: Uint8Array): string
-export function checksum_b64_to_bytes(checksum: string): Uint8Array
-export function checksum_bytes_peek(bytes: GLib.Variant): Uint8Array
-export function checksum_bytes_peek_validate(bytes: GLib.Variant): Uint8Array
-export function checksum_file(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array ]
+export function checksum_b64_from_bytes(csum: Uint8Array[]): string
+export function checksum_b64_to_bytes(checksum: string): Uint8Array[]
+export function checksum_bytes_peek(bytes: GLib.Variant): Uint8Array[]
+export function checksum_bytes_peek_validate(bytes: GLib.Variant): Uint8Array[]
+export function checksum_file(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array[] ]
 export function checksum_file_async(f: Gio.File, objtype: ObjectType, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function checksum_file_async_finish(f: Gio.File, result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_csum */ Uint8Array ]
-export function checksum_file_from_input(file_info: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array ]
-export function checksum_from_bytes(csum: Uint8Array): string
+export function checksum_file_async_finish(f: Gio.File, result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_csum */ Uint8Array[] ]
+export function checksum_file_from_input(file_info: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array[] ]
+export function checksum_from_bytes(csum: Uint8Array[]): string
 export function checksum_from_bytes_v(csum_v: GLib.Variant): string
 export function checksum_inplace_to_bytes(checksum: string, buf: number): void
-export function checksum_to_bytes(checksum: string): Uint8Array
+export function checksum_to_bytes(checksum: string): Uint8Array[]
 export function checksum_to_bytes_v(checksum: string): GLib.Variant
 export function cmd__private__(): CmdPrivateVTable
 export function cmp_checksum_bytes(a: number, b: number): number
@@ -335,11 +335,11 @@ export class ChecksumInputStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
@@ -374,7 +374,7 @@ export class ChecksumInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -686,13 +686,13 @@ export class Repo {
     write_commit_detached_metadata(checksum: string, metadata?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): boolean
     write_commit_with_time(parent: string | null, subject: string | null, body: string | null, metadata: GLib.Variant | null, root: RepoFile, time: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_commit */ string ]
     write_config(new_config: GLib.KeyFile): boolean
-    write_content(expected_checksum: string | null, object_input: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array | null ]
+    write_content(expected_checksum: string | null, object_input: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array[] | null ]
     write_content_async(expected_checksum: string | null, object: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_content_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_csum */ number ]
     write_content_trusted(checksum: string, object_input: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): boolean
     write_dfd_to_mtree(dfd: number, path: string, mtree: MutableTree, modifier?: RepoCommitModifier | null, cancellable?: Gio.Cancellable | null): boolean
     write_directory_to_mtree(dir: Gio.File, mtree: MutableTree, modifier?: RepoCommitModifier | null, cancellable?: Gio.Cancellable | null): boolean
-    write_metadata(objtype: ObjectType, expected_checksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array | null ]
+    write_metadata(objtype: ObjectType, expected_checksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_csum */ Uint8Array[] | null ]
     write_metadata_async(objtype: ObjectType, expected_checksum: string | null, object: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_metadata_finish(result: Gio.AsyncResult, out_csum: number): boolean
     write_metadata_stream_trusted(objtype: ObjectType, checksum: string, object_input: Gio.InputStream, length: number, cancellable?: Gio.Cancellable | null): boolean
@@ -839,10 +839,10 @@ export class RepoFile {
     load_bytes(cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Bytes, /* etag_out */ string | null ]
     load_bytes_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_bytes_finish(result: Gio.AsyncResult): [ /* returnType */ GLib.Bytes, /* etag_out */ string | null ]
-    load_contents(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
+    load_contents(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
     load_contents_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    load_contents_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
-    load_partial_contents_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array, /* etag_out */ string | null ]
+    load_contents_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
+    load_partial_contents_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ Uint8Array[], /* etag_out */ string | null ]
     make_directory(cancellable?: Gio.Cancellable | null): boolean
     make_directory_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     make_directory_finish(result: Gio.AsyncResult): boolean
@@ -881,8 +881,8 @@ export class RepoFile {
     read_finish(res: Gio.AsyncResult): Gio.FileInputStream
     replace(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileOutputStream
     replace_async(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    replace_contents(contents: Uint8Array, etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
-    replace_contents_async(contents: Uint8Array, etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    replace_contents(contents: Uint8Array[], etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
+    replace_contents_async(contents: Uint8Array[], etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     replace_contents_bytes_async(contents: GLib.Bytes, etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     replace_contents_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replace_finish(res: Gio.AsyncResult): Gio.FileOutputStream

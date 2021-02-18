@@ -408,7 +408,7 @@ export abstract class DeviceQueueClass {
 }
 export class Sha1 {
     /* Fields of ColorHug.Sha1 */
-    bytes: Uint8Array
+    bytes: Uint8Array[]
     /* Methods of ColorHug.Sha1 */
     to_string(): string
     static name: string

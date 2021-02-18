@@ -40,7 +40,7 @@ export class Wc {
     /* Methods of GrlNet.Wc */
     flush_delayed_requests(): void
     request_async(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    request_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* content */ Uint8Array | null ]
+    request_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* content */ Uint8Array[] | null ]
     request_with_headers_async(uri: string, headers?: GLib.HashTable | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_cache(use_cache: boolean): void
     set_cache_size(cache_size: number): void

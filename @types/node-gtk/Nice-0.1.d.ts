@@ -188,10 +188,10 @@ export class Agent {
     parseRemoteSdp(sdp: string): number
     parseRemoteStreamSdp(streamId: number, sdp: string, ufrag: string, pwd: string): Candidate[]
     peerCandidateGatheringDone(streamId: number): boolean
-    recv(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any ]
+    recv(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any[] ]
     recvMessages(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
     recvMessagesNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
-    recvNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any ]
+    recvNonblocking(streamId: number, componentId: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ any[] ]
     removeStream(streamId: number): void
     restart(): boolean
     restartStream(streamId: number): boolean

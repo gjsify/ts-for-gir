@@ -1836,14 +1836,14 @@ export function settingsErrorQuark(): GLib.Quark
 export function sriovVfAttributeValidate(name: string, value: GLib.Variant): [ /* returnType */ boolean, /* known */ boolean ]
 export function utilsApModeSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities): boolean
 export function utilsBase64secretDecode(base64Key: string, requiredKeyLen: number, outKey?: number | null): boolean
-export function utilsBin2hexstr(src: any, finalLen: number): string
+export function utilsBin2hexstr(src: any[], finalLen: number): string
 export function utilsBondModeIntToString(mode: number): string
 export function utilsBondModeStringToInt(mode: string): number
 export function utilsCheckVirtualDeviceCompatibility(virtualType: GObject.Type, otherType: GObject.Type): boolean
 export function utilsEnumFromStr(type: GObject.Type, str: string): [ /* returnType */ boolean, /* outValue */ number | null, /* errToken */ string | null ]
 export function utilsEnumGetValues(type: GObject.Type, from: number, to: number): string[]
 export function utilsEnumToStr(type: GObject.Type, value: number): string
-export function utilsEscapeSsid(ssid: any): string
+export function utilsEscapeSsid(ssid: any[]): string
 export function utilsFileIsCertificate(filename: string): boolean
 export function utilsFileIsPkcs12(filename: string): boolean
 export function utilsFileIsPrivateKey(filename: string): [ /* returnType */ boolean, /* outEncrypted */ boolean ]
@@ -1851,12 +1851,12 @@ export function utilsFileSearchInPaths(progname: string, tryFirst: string | null
 export function utilsFormatVariantAttributes(attributes: GLib.HashTable, attrSeparator: number, keyValueSeparator: number): string
 export function utilsGetTimestampMsec(): number
 export function utilsHexstr2bin(hex: string): any
-export function utilsHwaddrAtoba(asc: string, length: number): any
-export function utilsHwaddrAton(asc: string, buffer: any): number
+export function utilsHwaddrAtoba(asc: string, length: number): any[]
+export function utilsHwaddrAton(asc: string, buffer: any[]): number
 export function utilsHwaddrCanonical(asc: string, length: number): string
 export function utilsHwaddrLen(type: number): number
 export function utilsHwaddrMatches(hwaddr1: object | null, hwaddr1Len: number, hwaddr2: object | null, hwaddr2Len: number): boolean
-export function utilsHwaddrNtoa(addr: any): string
+export function utilsHwaddrNtoa(addr: any[]): string
 export function utilsHwaddrValid(asc: string, length: number): boolean
 export function utilsIfaceValidName(name?: string | null): boolean
 export function utilsIp4AddressesFromVariant(value: GLib.Variant): [ /* returnType */ IPAddress[], /* outGateway */ string | null ]
@@ -1879,17 +1879,17 @@ export function utilsIpAddressesToVariant(addresses: IPAddress[]): GLib.Variant
 export function utilsIpRoutesFromVariant(value: GLib.Variant, family: number): IPRoute[]
 export function utilsIpRoutesToVariant(routes: IPRoute[]): GLib.Variant
 export function utilsIpaddrValid(family: number, ip: string): boolean
-export function utilsIsEmptySsid(ssid: any): boolean
+export function utilsIsEmptySsid(ssid: any[]): boolean
 export function utilsIsJsonObject(str: string): boolean
 export function utilsIsUuid(str?: string | null): boolean
 export function utilsIsValidIfaceName(name?: string | null): boolean
 export function utilsParseVariantAttributes(string: string, attrSeparator: number, keyValueSeparator: number, ignoreUnknown: boolean, spec: VariantAttributeSpec): GLib.HashTable
 export function utilsPrint(outputMode: number, msg: string): void
-export function utilsSameSsid(ssid1: any, ssid2: any, ignoreTrailingNull: boolean): boolean
+export function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
 export function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
 export function utilsSriovVfFromStr(str: string): SriovVF
 export function utilsSriovVfToStr(vf: SriovVF, omitIndex: boolean): string
-export function utilsSsidToUtf8(ssid: any): string
+export function utilsSsidToUtf8(ssid: any[]): string
 export function utilsTcActionFromStr(str: string): TCAction
 export function utilsTcActionToStr(action: TCAction): string
 export function utilsTcQdiscFromStr(str: string): TCQdisc

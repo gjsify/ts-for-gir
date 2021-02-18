@@ -231,7 +231,7 @@ export class Resource {
     getFirstString(propertyUri: string): string
     getFirstUri(propertyUri: string): string
     getIdentifier(): string
-    getValues(propertyUri: string): any
+    getValues(propertyUri: string): any[]
     identifierCompareFunc(identifier: string): number
     printJsonld(namespaces?: NamespaceManager | null): string
     printSparqlUpdate(namespaces?: NamespaceManager | null, graphId?: string | null): string
@@ -308,7 +308,7 @@ export class SparqlBuilder {
     /* Properties of Tracker.SparqlBuilder */
     readonly result: string
     length: number
-    readonly state: Tracker_Vala.SparqlBuilderState
+    readonly state: any
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker.SparqlBuilder */
@@ -341,7 +341,7 @@ export class SparqlBuilder {
     append(raw: string): void
     getResult(): string
     getLength(): number
-    getState(): Tracker_Vala.SparqlBuilderState
+    getState(): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -416,25 +416,25 @@ export class SparqlConnection {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker.SparqlConnection */
-    query(sparql: string, cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor
+    query(sparql: string, cancellable?: Gio.Cancellable | null): any
     queryAsync(sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    queryFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor
+    queryFinish(res: Gio.AsyncResult): any
     update(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): void
     updateAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateFinish(res: Gio.AsyncResult): void
     updateArrayAsync(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    updateArrayFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlError[] | null
+    updateArrayFinish(res: Gio.AsyncResult): any[] | null
     updateBlank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     updateBlankAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     updateBlankFinish(res: Gio.AsyncResult): GLib.Variant | null
     load(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     loadAsync(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     loadFinish(res: Gio.AsyncResult): void
-    statistics(cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor | null
+    statistics(cancellable?: Gio.Cancellable | null): any | null
     statisticsAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    statisticsFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor | null
+    statisticsFinish(res: Gio.AsyncResult): any | null
     getNamespaceManager(): NamespaceManager | null
-    queryStatement(sparql: string, cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlStatement | null
+    queryStatement(sparql: string, cancellable?: Gio.Cancellable | null): any | null
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -458,25 +458,25 @@ export class SparqlConnection {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Tracker.SparqlConnection */
-    vfuncQuery(sparql: string, cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor
+    vfuncQuery(sparql: string, cancellable?: Gio.Cancellable | null): any
     vfuncQueryAsync(sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncQueryFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor
+    vfuncQueryFinish(res: Gio.AsyncResult): any
     vfuncUpdate(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): void
     vfuncUpdateAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncUpdateFinish(res: Gio.AsyncResult): void
     vfuncUpdateArrayAsync(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncUpdateArrayFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlError[] | null
+    vfuncUpdateArrayFinish(res: Gio.AsyncResult): any[] | null
     vfuncUpdateBlank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     vfuncUpdateBlankAsync(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncUpdateBlankFinish(res: Gio.AsyncResult): GLib.Variant | null
     vfuncLoad(file: Gio.File, cancellable?: Gio.Cancellable | null): void
     vfuncLoadAsync(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncLoadFinish(res: Gio.AsyncResult): void
-    vfuncStatistics(cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor | null
+    vfuncStatistics(cancellable?: Gio.Cancellable | null): any | null
     vfuncStatisticsAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncStatisticsFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor | null
+    vfuncStatisticsFinish(res: Gio.AsyncResult): any | null
     vfuncGetNamespaceManager(): NamespaceManager | null
-    vfuncQueryStatement(sparql: string, cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlStatement | null
+    vfuncQueryStatement(sparql: string, cancellable?: Gio.Cancellable | null): any | null
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -504,12 +504,12 @@ export class SparqlConnection {
     _init (config?: SparqlConnection_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static getAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static getFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlConnection
-    static get(cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlConnection
-    static remoteNew(uriBase: string): Tracker_Vala.SparqlConnection
-    static localNew(flags: Tracker_Vala.SparqlConnectionFlags, store: Gio.File, journal?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlConnection
-    static localNewAsync(flags: Tracker_Vala.SparqlConnectionFlags, store: Gio.File, journal?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static localNewFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlConnection
+    static getFinish(res: Gio.AsyncResult): any
+    static get(cancellable?: Gio.Cancellable | null): any
+    static remoteNew(uriBase: string): any
+    static localNew(flags: any, store: Gio.File, journal?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null): any
+    static localNewAsync(flags: any, store: Gio.File, journal?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static localNewFinish(res: Gio.AsyncResult): any
     static setDomain(domain?: string | null): void
     static getDomain(): string | null
     static setDbusConnection(dbusConnection: Gio.DBusConnection): void
@@ -517,16 +517,16 @@ export class SparqlConnection {
     static $gtype: GObject.Type
 }
 export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructProps {
-    connection?: Tracker_Vala.SparqlConnection
+    connection?: any
 }
 export class SparqlCursor {
     /* Properties of Tracker.SparqlCursor */
-    connection: Tracker_Vala.SparqlConnection
+    connection: any
     readonly nColumns: number
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker.SparqlCursor */
-    getValueType(column: number): Tracker_Vala.SparqlValueType
+    getValueType(column: number): any
     getVariableName(column: number): string | null
     getString(column: number): [ /* returnType */ string | null, /* length */ number ]
     next(cancellable?: Gio.Cancellable | null): boolean
@@ -538,8 +538,8 @@ export class SparqlCursor {
     getDouble(column: number): number
     getBoolean(column: number): boolean
     isBound(column: number): boolean
-    getConnection(): Tracker_Vala.SparqlConnection
-    setConnection(value: Tracker_Vala.SparqlConnection): void
+    getConnection(): any
+    setConnection(value: any): void
     getNColumns(): number
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -564,7 +564,7 @@ export class SparqlCursor {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Tracker.SparqlCursor */
-    vfuncGetValueType(column: number): Tracker_Vala.SparqlValueType
+    vfuncGetValueType(column: number): any
     vfuncGetVariableName(column: number): string | null
     vfuncGetString(column: number): [ /* returnType */ string | null, /* length */ number ]
     vfuncNext(cancellable?: Gio.Cancellable | null): boolean
@@ -616,12 +616,12 @@ export class SparqlCursor {
 }
 export interface SparqlStatement_ConstructProps extends GObject.Object_ConstructProps {
     sparql?: string
-    connection?: Tracker_Vala.SparqlConnection
+    connection?: any
 }
 export class SparqlStatement {
     /* Properties of Tracker.SparqlStatement */
     sparql: string
-    connection: Tracker_Vala.SparqlConnection
+    connection: any
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker.SparqlStatement */
@@ -629,13 +629,13 @@ export class SparqlStatement {
     bindBoolean(name: string, value: boolean): void
     bindString(name: string, value: string): void
     bindDouble(name: string, value: number): void
-    execute(cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor
+    execute(cancellable?: Gio.Cancellable | null): any
     executeAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    executeFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor
+    executeFinish(res: Gio.AsyncResult): any
     getSparql(): string
     setSparql(value: string): void
-    getConnection(): Tracker_Vala.SparqlConnection
-    setConnection(value: Tracker_Vala.SparqlConnection): void
+    getConnection(): any
+    setConnection(value: any): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -663,9 +663,9 @@ export class SparqlStatement {
     vfuncBindBoolean(name: string, value: boolean): void
     vfuncBindString(name: string, value: string): void
     vfuncBindDouble(name: string, value: number): void
-    vfuncExecute(cancellable?: Gio.Cancellable | null): Tracker_Vala.SparqlCursor
+    vfuncExecute(cancellable?: Gio.Cancellable | null): any
     vfuncExecuteAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncExecuteFinish(res: Gio.AsyncResult): Tracker_Vala.SparqlCursor
+    vfuncExecuteFinish(res: Gio.AsyncResult): any
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -736,25 +736,25 @@ export class SparqlBuilderPrivate {
 }
 export abstract class SparqlConnectionClass {
     /* Fields of Tracker.SparqlConnectionClass */
-    query: (sparql: string, cancellable?: Gio.Cancellable | null) => Tracker_Vala.SparqlCursor
+    query: (sparql: string, cancellable?: Gio.Cancellable | null) => any
     queryAsync: (sparql: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    queryFinish: (res: Gio.AsyncResult) => Tracker_Vala.SparqlCursor
+    queryFinish: (res: Gio.AsyncResult) => any
     update: (sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => void
     updateAsync: (sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     updateFinish: (res: Gio.AsyncResult) => void
     updateArrayAsync: (sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    updateArrayFinish: (res: Gio.AsyncResult) => Tracker_Vala.SparqlError[] | null
+    updateArrayFinish: (res: Gio.AsyncResult) => any[] | null
     updateBlank: (sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => GLib.Variant | null
     updateBlankAsync: (sparql: string, priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     updateBlankFinish: (res: Gio.AsyncResult) => GLib.Variant | null
     load: (file: Gio.File, cancellable?: Gio.Cancellable | null) => void
     loadAsync: (file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     loadFinish: (res: Gio.AsyncResult) => void
-    statistics: (cancellable?: Gio.Cancellable | null) => Tracker_Vala.SparqlCursor | null
+    statistics: (cancellable?: Gio.Cancellable | null) => any | null
     statisticsAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    statisticsFinish: (res: Gio.AsyncResult) => Tracker_Vala.SparqlCursor | null
+    statisticsFinish: (res: Gio.AsyncResult) => any | null
     getNamespaceManager: () => NamespaceManager | null
-    queryStatement: (sparql: string, cancellable?: Gio.Cancellable | null) => Tracker_Vala.SparqlStatement | null
+    queryStatement: (sparql: string, cancellable?: Gio.Cancellable | null) => any | null
     static name: string
 }
 export class SparqlConnectionPrivate {
@@ -762,7 +762,7 @@ export class SparqlConnectionPrivate {
 }
 export abstract class SparqlCursorClass {
     /* Fields of Tracker.SparqlCursorClass */
-    getValueType: (column: number) => Tracker_Vala.SparqlValueType
+    getValueType: (column: number) => any
     getVariableName: (column: number) => string | null
     getString: (column: number) => [ /* returnType */ string | null, /* length */ number ]
     next: (cancellable?: Gio.Cancellable | null) => boolean
@@ -785,9 +785,9 @@ export abstract class SparqlStatementClass {
     bindBoolean: (name: string, value: boolean) => void
     bindString: (name: string, value: string) => void
     bindDouble: (name: string, value: number) => void
-    execute: (cancellable?: Gio.Cancellable | null) => Tracker_Vala.SparqlCursor
+    execute: (cancellable?: Gio.Cancellable | null) => any
     executeAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    executeFinish: (res: Gio.AsyncResult) => Tracker_Vala.SparqlCursor
+    executeFinish: (res: Gio.AsyncResult) => any
     static name: string
 }
 export class SparqlStatementPrivate {

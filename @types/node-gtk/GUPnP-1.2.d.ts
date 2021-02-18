@@ -4,10 +4,10 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { GSSDP } from './GSSDP-1.2';
 
 export declare namespace GUPnP {
@@ -1246,17 +1246,17 @@ export class ServiceProxy {
     /* Methods of GUPnP.ServiceProxy */
     addNotify(variable: string, type: GObject.Type, callback: ServiceProxyNotifyCallback): boolean
     addRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    beginActionList(action: string, inNames: string[], inValues: any, callback: ServiceProxyActionCallback): ServiceProxyAction
+    beginActionList(action: string, inNames: string[], inValues: any[], callback: ServiceProxyActionCallback): ServiceProxyAction
     callAction(action: ServiceProxyAction, cancellable?: Gio.Cancellable | null): ServiceProxyAction
     callActionAsync(action: ServiceProxyAction, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callActionFinish(result: Gio.AsyncResult): ServiceProxyAction
     cancelAction(action: ServiceProxyAction): void
     endActionHash(action: ServiceProxyAction, hash: GLib.HashTable): [ /* returnType */ boolean, /* hash */ GLib.HashTable ]
-    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
+    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GObject.Type[]): [ /* returnType */ boolean, /* outValues */ any[] ]
     getSubscribed(): boolean
     removeNotify(variable: string, callback: ServiceProxyNotifyCallback): boolean
     removeRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
+    sendActionList(action: string, inNames: string[], inValues: any[], outNames: string[], outTypes: GObject.Type[]): [ /* returnType */ boolean, /* outValues */ any[] ]
     setSubscribed(subscribed: boolean): void
     /* Methods of GUPnP.ServiceInfo */
     getContext(): Context
@@ -1531,11 +1531,11 @@ export class ServiceAction {
     getLocales(): string[]
     getMessage(): Soup.Message
     getName(): string
-    getValues(argNames: string[], argTypes: GType[]): any
+    getValues(argNames: string[], argTypes: GObject.Type[]): any[]
     return(): void
     returnError(errorCode: number, errorDescription: string): void
     setValue(argument: string, value: any): void
-    setValues(argNames: string[], argValues: any): void
+    setValues(argNames: string[], argValues: any[]): void
     static name: string
 }
 export class ServiceActionArgInfo {
@@ -1572,12 +1572,12 @@ export abstract class ServiceIntrospectionClass {
 export class ServiceProxyAction {
     /* Methods of GUPnP.ServiceProxyAction */
     getResultHash(outHash: GLib.HashTable): [ /* returnType */ boolean, /* outHash */ GLib.HashTable ]
-    getResultList(outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
+    getResultList(outNames: string[], outTypes: GObject.Type[]): [ /* returnType */ boolean, /* outValues */ any[] ]
     ref(): ServiceProxyAction
     unref(): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static newFromList(action: string, inNames: string[], inValues: any): ServiceProxyAction
+    static newFromList(action: string, inNames: string[], inValues: any[]): ServiceProxyAction
 }
 export abstract class ServiceProxyClass {
     /* Fields of GUPnP.ServiceProxyClass */

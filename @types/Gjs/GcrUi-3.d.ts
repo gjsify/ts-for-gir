@@ -257,7 +257,7 @@ export class Viewer {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -831,25 +831,25 @@ export class CertificateRenderer {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
-    get_der_data(): Uint8Array
+    get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
-    get_fingerprint(type: GLib.ChecksumType): Uint8Array
+    get_fingerprint(type: GLib.ChecksumType): Uint8Array[]
     get_fingerprint_hex(type: GLib.ChecksumType): string
     get_issued_date(): GLib.Date
     get_issuer_cn(): string
     get_issuer_dn(): string
     get_issuer_name(): string
     get_issuer_part(part: string): string | null
-    get_issuer_raw(): Uint8Array
+    get_issuer_raw(): Uint8Array[]
     get_key_size(): number
     get_markup_text(): string
-    get_serial_number(): Uint8Array
+    get_serial_number(): Uint8Array[]
     get_serial_number_hex(): string
     get_subject_cn(): string
     get_subject_dn(): string
     get_subject_name(): string
     get_subject_part(part: string): string | null
-    get_subject_raw(): Uint8Array
+    get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Gcr.Certificate): boolean
     mixin_emit_notify(): void
     /* Methods of Gcr.Comparable */
@@ -861,7 +861,7 @@ export class CertificateRenderer {
     render_view(viewer: Viewer): void
     set_attributes(attrs?: Gck.Attributes | null): void
     /* Virtual methods of GcrUi.CertificateRenderer */
-    vfunc_get_der_data(): Uint8Array
+    vfunc_get_der_data(): Uint8Array[]
     vfunc_compare(other?: Gcr.Comparable | null): number
     vfunc_data_changed(): void
     vfunc_populate_popup(viewer: Viewer, menu: Gtk.Menu): void
@@ -1164,7 +1164,7 @@ export class CertificateWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2179,7 +2179,7 @@ export class ComboSelector {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3192,7 +3192,7 @@ export class ImportButton {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4170,7 +4170,7 @@ export class KeyWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5105,7 +5105,7 @@ export class ListSelector {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6209,7 +6209,7 @@ export class PromptDialog {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7396,7 +7396,7 @@ export class TreeSelector {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8331,7 +8331,7 @@ export class UnlockOptionsWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8977,7 +8977,7 @@ export class ViewerWidget {
     get_parser(): Gcr.Parser
     get_viewer(): Viewer
     load_bytes(display_name: string | null, data: GLib.Bytes): void
-    load_data(display_name: string | null, data: Uint8Array): void
+    load_data(display_name: string | null, data: Uint8Array[]): void
     load_file(file: Gio.File): void
     set_display_name(display_name: string): void
     show_error(message: string, error?: GLib.Error | null): void
@@ -9176,7 +9176,7 @@ export class ViewerWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

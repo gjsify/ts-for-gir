@@ -484,7 +484,7 @@ export function websocket_server_check_handshake(msg: Message, origin?: string |
 export function websocket_server_check_handshake_with_extensions(msg: Message, origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): boolean
 export function websocket_server_process_handshake(msg: Message, expected_origin?: string | null, protocols?: string[] | null): boolean
 export function websocket_server_process_handshake_with_extensions(msg: Message, expected_origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* accepted_extensions */ WebsocketExtension[] | null ]
-export function xmlrpc_build_method_call(method_name: string, params: any): string | null
+export function xmlrpc_build_method_call(method_name: string, params: any[]): string | null
 export function xmlrpc_build_method_response(value: any): string | null
 export function xmlrpc_build_request(method_name: string, params: GLib.Variant): string
 export function xmlrpc_build_response(value: GLib.Variant): string
@@ -2350,8 +2350,8 @@ export class Message {
     set_is_top_level_navigation(is_top_level_navigation: boolean): void
     set_priority(priority: MessagePriority): void
     set_redirect(status_code: number, redirect_uri: string): void
-    set_request(content_type: string | null, req_use: MemoryUse, req_body: Uint8Array | null): void
-    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: Uint8Array | null): void
+    set_request(content_type: string | null, req_use: MemoryUse, req_body: Uint8Array[] | null): void
+    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: Uint8Array[] | null): void
     set_site_for_cookies(site_for_cookies?: URI | null): void
     set_status(status_code: number): void
     set_status_full(status_code: number, reason_phrase: string): void
@@ -2527,11 +2527,11 @@ export class MultipartInputStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
@@ -2566,17 +2566,17 @@ export class MultipartInputStream {
     can_poll(): boolean
     create_source(cancellable?: Gio.Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): number
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
     /* Virtual methods of Soup.MultipartInputStream */
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Gio.Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer: Uint8Array | null): number
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -3719,11 +3719,11 @@ export class Socket {
     is_connected(): boolean
     is_ssl(): boolean
     listen(): boolean
-    read(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    read_until(buffer: Uint8Array, boundary: object | null, boundary_len: number, got_boundary: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read_until(buffer: Uint8Array[], boundary: object | null, boundary_len: number, got_boundary: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
     start_proxy_ssl(ssl_host: string, cancellable?: Gio.Cancellable | null): boolean
     start_ssl(cancellable?: Gio.Cancellable | null): boolean
-    write(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
+    write(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3841,7 +3841,7 @@ export class WebsocketConnection {
     get_protocol(): string | null
     get_state(): WebsocketState
     get_uri(): URI
-    send_binary(data: Uint8Array | null): void
+    send_binary(data: Uint8Array[] | null): void
     send_message(type: WebsocketDataType, message: GLib.Bytes): void
     send_text(text: string): void
     set_keepalive_interval(interval: number): void
@@ -4163,15 +4163,15 @@ export class Buffer {
     copy(): Buffer
     free(): void
     get_as_bytes(): GLib.Bytes
-    get_data(): /* data */ Uint8Array
+    get_data(): /* data */ Uint8Array[]
     get_owner(): object | null
     new_subbuffer(offset: number, length: number): Buffer
     static name: string
-    static new(data: Uint8Array): Buffer
-    constructor(data: Uint8Array)
+    static new(data: Uint8Array[]): Buffer
+    constructor(data: Uint8Array[])
     /* Static methods and pseudo-constructors */
-    static new(data: Uint8Array): Buffer
-    static new_with_owner(data: Uint8Array, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Buffer
+    static new(data: Uint8Array[]): Buffer
+    static new_with_owner(data: Uint8Array[], owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Buffer
 }
 export abstract class CacheClass {
     /* Fields of Soup.CacheClass */
@@ -4363,7 +4363,7 @@ export class MessageBody {
     length: number
     /* Methods of Soup.MessageBody */
     append_buffer(buffer: Buffer): void
-    append(data: Uint8Array): void
+    append(data: Uint8Array[]): void
     complete(): void
     flatten(): Buffer
     free(): void

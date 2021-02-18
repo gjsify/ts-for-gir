@@ -5113,7 +5113,7 @@ export class Session {
     getUmask(): number
     getVerbose(): number
     getcon(): string
-    getxattr(path: string, name: string): any
+    getxattr(path: string, name: string): any[]
     getxattrs(path: string): XAttr[]
     globExpand(pattern: string, optargs?: GlobExpand | null): string[]
     grep(regex: string, path: string, optargs?: Grep | null): string[]
@@ -5131,7 +5131,7 @@ export class Session {
     hivexNodeGetValue(nodeh: number, key: string): number
     hivexNodeName(nodeh: number): string
     hivexNodeParent(nodeh: number): number
-    hivexNodeSetValue(nodeh: number, key: string, t: number, val: any): boolean
+    hivexNodeSetValue(nodeh: number, key: string, t: number, val: any[]): boolean
     hivexNodeValues(nodeh: number): HivexValue[]
     hivexOpen(filename: string, optargs?: HivexOpen | null): boolean
     hivexRoot(): number
@@ -5139,8 +5139,8 @@ export class Session {
     hivexValueString(valueh: number): string
     hivexValueType(valueh: number): number
     hivexValueUtf8(valueh: number): string
-    hivexValueValue(valueh: number): any
-    initrdCat(initrdpath: string, filename: string): any
+    hivexValueValue(valueh: number): any[]
+    initrdCat(initrdpath: string, filename: string): any[]
     initrdList(path: string): string[]
     inotifyAddWatch(path: string, mask: number): number
     inotifyClose(): boolean
@@ -5154,7 +5154,7 @@ export class Session {
     inspectGetFilesystems(root: string): string[]
     inspectGetFormat(root: string): string
     inspectGetHostname(root: string): string
-    inspectGetIcon(root: string, optargs?: InspectGetIcon | null): any
+    inspectGetIcon(root: string, optargs?: InspectGetIcon | null): any[]
     inspectGetMajorVersion(root: string): number
     inspectGetMinorVersion(root: string): number
     inspectGetMountpoints(root: string): GLib.HashTable
@@ -5176,14 +5176,14 @@ export class Session {
     inspectListApplications2(root: string): Application2[]
     inspectOs(): string[]
     internalExit(cancellable?: Gio.Cancellable | null): boolean
-    internalTest(str: string, optstr: string | null, strlist: string[], b: boolean, integer: number, integer64: number, filein: string, fileout: string, bufferin: any, optargs?: InternalTest | null, cancellable?: Gio.Cancellable | null): boolean
+    internalTest(str: string, optstr: string | null, strlist: string[], b: boolean, integer: number, integer64: number, filein: string, fileout: string, bufferin: any[], optargs?: InternalTest | null, cancellable?: Gio.Cancellable | null): boolean
     internalTest63Optargs(optargs?: InternalTest63Optargs | null, cancellable?: Gio.Cancellable | null): boolean
     internalTestCloseOutput(): boolean
     internalTestOnlyOptargs(optargs?: InternalTestOnlyOptargs | null, cancellable?: Gio.Cancellable | null): boolean
     internalTestRbool(val: string): number
     internalTestRboolerr(): number
-    internalTestRbufferout(val: string): any
-    internalTestRbufferouterr(): any
+    internalTestRbufferout(val: string): any[]
+    internalTestRbufferouterr(): any[]
     internalTestRconstoptstring(val: string): string
     internalTestRconstoptstringerr(): string
     internalTestRconststring(val: string): string
@@ -5241,7 +5241,7 @@ export class Session {
     ldmtoolVolumeHint(diskgroup: string, volume: string): string
     ldmtoolVolumePartitions(diskgroup: string, volume: string): string[]
     ldmtoolVolumeType(diskgroup: string, volume: string): string
-    lgetxattr(path: string, name: string): any
+    lgetxattr(path: string, name: string): any[]
     lgetxattrs(path: string): XAttr[]
     list9p(): string[]
     listDevices(): string[]
@@ -5370,8 +5370,8 @@ export class Session {
     partToDev(partition: string): string
     partToPartnum(partition: string): number
     pingDaemon(): boolean
-    pread(path: string, count: number, offset: number): any
-    preadDevice(device: string, count: number, offset: number): any
+    pread(path: string, count: number, offset: number): any[]
+    preadDevice(device: string, count: number, offset: number): any[]
     pvchangeUuid(device: string): boolean
     pvchangeUuidAll(): boolean
     pvcreate(device: string): boolean
@@ -5381,9 +5381,9 @@ export class Session {
     pvs(): string[]
     pvsFull(): PV[]
     pvuuid(device: string): string
-    pwrite(path: string, content: any, offset: number): number
-    pwriteDevice(device: string, content: any, offset: number): number
-    readFile(path: string): any
+    pwrite(path: string, content: any[], offset: number): number
+    pwriteDevice(device: string, content: any[], offset: number): number
+    readFile(path: string): any[]
     readLines(path: string): string[]
     readdir(dir: string): Dirent[]
     readlink(path: string): string
@@ -5423,7 +5423,7 @@ export class Session {
     setHv(hv: string): boolean
     setIdentifier(identifier: string): boolean
     setLabel(mountable: string, label: string): boolean
-    setLibvirtRequestedCredential(index: number, cred: any): boolean
+    setLibvirtRequestedCredential(index: number, cred: any[]): boolean
     setLibvirtSupportedCredentials(creds: string[]): boolean
     setMemsize(memsize: number): boolean
     setNetwork(network: boolean): boolean
@@ -5499,7 +5499,7 @@ export class Session {
     vgchangeUuidAll(): boolean
     vgcreate(volgroup: string, physvols: string[]): boolean
     vglvuuids(vgname: string): string[]
-    vgmeta(vgname: string): any
+    vgmeta(vgname: string): any[]
     vgpvuuids(vgname: string): string[]
     vgremove(vgname: string): boolean
     vgrename(volgroup: string, newvolgroup: string): boolean
@@ -5512,8 +5512,8 @@ export class Session {
     wcL(path: string): number
     wcW(path: string): number
     wipefs(device: string): boolean
-    write(path: string, content: any): boolean
-    writeAppend(path: string, content: any): boolean
+    write(path: string, content: any[]): boolean
+    writeAppend(path: string, content: any[]): boolean
     writeFile(path: string, content: string, size: number): boolean
     xfsAdmin(device: string, optargs?: XfsAdmin | null): boolean
     xfsGrowfs(path: string, optargs?: XfsGrowfs | null): boolean
@@ -7205,7 +7205,7 @@ export class SessionEventParams {
     /* Fields of Guestfs.SessionEventParams */
     event: SessionEvent
     flags: number
-    buf: any
+    buf: any[]
     array: number[]
     arrayLen: number
     static name: string
@@ -7389,7 +7389,7 @@ export class Version {
 export class XAttr {
     /* Fields of Guestfs.XAttr */
     attrname: string
-    attrval: any
+    attrval: any[]
     static name: string
 }
 export class XFSInfo {

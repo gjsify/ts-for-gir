@@ -99,8 +99,8 @@ export const UNLOCK_OPTION_SESSION: string
 export const UNLOCK_OPTION_TIMEOUT: string
 export function certificate_compare(first?: Comparable | null, other?: Comparable | null): number
 export function data_error_get_domain(): GLib.Quark
-export function fingerprint_from_attributes(attrs: Gck.Attributes, checksum_type: GLib.ChecksumType): Uint8Array | null
-export function fingerprint_from_subject_public_key_info(key_info: Uint8Array, checksum_type: GLib.ChecksumType): Uint8Array | null
+export function fingerprint_from_attributes(attrs: Gck.Attributes, checksum_type: GLib.ChecksumType): Uint8Array[] | null
+export function fingerprint_from_subject_public_key_info(key_info: Uint8Array[], checksum_type: GLib.ChecksumType): Uint8Array[] | null
 export function icon_for_token(token_info: Gck.TokenInfo): Gio.Icon
 export function importer_create_for_parsed(parsed: Parsed): Importer[]
 export function importer_queue_and_filter_for_parsed(importers: Importer[], parsed: Parsed): Importer[]
@@ -156,31 +156,31 @@ export class Certificate {
     readonly subject: string
     /* Methods of Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
-    get_der_data(): Uint8Array
+    get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
-    get_fingerprint(type: GLib.ChecksumType): Uint8Array
+    get_fingerprint(type: GLib.ChecksumType): Uint8Array[]
     get_fingerprint_hex(type: GLib.ChecksumType): string
     get_issued_date(): GLib.Date
     get_issuer_cn(): string
     get_issuer_dn(): string
     get_issuer_name(): string
     get_issuer_part(part: string): string | null
-    get_issuer_raw(): Uint8Array
+    get_issuer_raw(): Uint8Array[]
     get_key_size(): number
     get_markup_text(): string
-    get_serial_number(): Uint8Array
+    get_serial_number(): Uint8Array[]
     get_serial_number_hex(): string
     get_subject_cn(): string
     get_subject_dn(): string
     get_subject_name(): string
     get_subject_part(part: string): string | null
-    get_subject_raw(): Uint8Array
+    get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.Certificate */
-    vfunc_get_der_data(): Uint8Array
+    vfunc_get_der_data(): Uint8Array[]
     /* Virtual methods of Gcr.Comparable */
     vfunc_compare(other?: Comparable | null): number
     static name: string
@@ -448,7 +448,7 @@ export class CertificateRequest {
     complete(cancellable?: Gio.Cancellable | null): boolean
     complete_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     complete_finish(result: Gio.AsyncResult): boolean
-    encode(textual: boolean): Uint8Array
+    encode(textual: boolean): Uint8Array[]
     get_format(): CertificateRequestFormat
     get_private_key(): Gck.Object
     set_cn(cn: string): void
@@ -595,13 +595,13 @@ export class Parser {
     get_filename(): string
     get_parsed(): Parsed
     get_parsed_attributes(): Gck.Attributes | null
-    get_parsed_block(): Uint8Array | null
+    get_parsed_block(): Uint8Array[] | null
     get_parsed_bytes(): GLib.Bytes
     get_parsed_description(): string | null
     get_parsed_format(): DataFormat
     get_parsed_label(): string | null
     parse_bytes(data: GLib.Bytes): boolean
-    parse_data(data: Uint8Array): boolean
+    parse_data(data: Uint8Array[]): boolean
     parse_stream(input: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     parse_stream_async(input: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     parse_stream_finish(result: Gio.AsyncResult): boolean
@@ -694,9 +694,9 @@ export class Pkcs11Certificate {
     destroy_finish(result: Gio.AsyncResult): boolean
     equal(object2: Gck.Object): boolean
     get_async(attr_types: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array
+    get_data(attr_type: number, cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_data_async(attr_type: number, allocator: Gck.Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data_finish(result: Gio.AsyncResult): Uint8Array
+    get_data_finish(result: Gio.AsyncResult): Uint8Array[]
     get_finish(result: Gio.AsyncResult): Gck.Attributes
     get_full(attr_types: number[], cancellable?: Gio.Cancellable | null): Gck.Attributes
     get_handle(): number
@@ -736,31 +736,31 @@ export class Pkcs11Certificate {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
-    get_der_data(): Uint8Array
+    get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
-    get_fingerprint(type: GLib.ChecksumType): Uint8Array
+    get_fingerprint(type: GLib.ChecksumType): Uint8Array[]
     get_fingerprint_hex(type: GLib.ChecksumType): string
     get_issued_date(): GLib.Date
     get_issuer_cn(): string
     get_issuer_dn(): string
     get_issuer_name(): string
     get_issuer_part(part: string): string | null
-    get_issuer_raw(): Uint8Array
+    get_issuer_raw(): Uint8Array[]
     get_key_size(): number
     get_markup_text(): string
-    get_serial_number(): Uint8Array
+    get_serial_number(): Uint8Array[]
     get_serial_number_hex(): string
     get_subject_cn(): string
     get_subject_dn(): string
     get_subject_name(): string
     get_subject_part(part: string): string | null
-    get_subject_raw(): Uint8Array
+    get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.Pkcs11Certificate */
-    vfunc_get_der_data(): Uint8Array
+    vfunc_get_der_data(): Uint8Array[]
     vfunc_compare(other?: Comparable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -901,31 +901,31 @@ export class SimpleCertificate {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     get_basic_constraints(): [ /* returnType */ boolean, /* is_ca */ boolean | null, /* path_len */ number | null ]
-    get_der_data(): Uint8Array
+    get_der_data(): Uint8Array[]
     get_expiry_date(): GLib.Date
-    get_fingerprint(type: GLib.ChecksumType): Uint8Array
+    get_fingerprint(type: GLib.ChecksumType): Uint8Array[]
     get_fingerprint_hex(type: GLib.ChecksumType): string
     get_issued_date(): GLib.Date
     get_issuer_cn(): string
     get_issuer_dn(): string
     get_issuer_name(): string
     get_issuer_part(part: string): string | null
-    get_issuer_raw(): Uint8Array
+    get_issuer_raw(): Uint8Array[]
     get_key_size(): number
     get_markup_text(): string
-    get_serial_number(): Uint8Array
+    get_serial_number(): Uint8Array[]
     get_serial_number_hex(): string
     get_subject_cn(): string
     get_subject_dn(): string
     get_subject_name(): string
     get_subject_part(part: string): string | null
-    get_subject_raw(): Uint8Array
+    get_subject_raw(): Uint8Array[]
     is_issuer(issuer: Certificate): boolean
     mixin_emit_notify(): void
     /* Methods of Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr.SimpleCertificate */
-    vfunc_get_der_data(): Uint8Array
+    vfunc_get_der_data(): Uint8Array[]
     vfunc_compare(other?: Comparable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -961,7 +961,7 @@ export class SimpleCertificate {
     constructor (config?: SimpleCertificate_ConstructProps)
     _init (config?: SimpleCertificate_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(data: Uint8Array): SimpleCertificate
+    static new(data: Uint8Array[]): SimpleCertificate
     static compare(first?: Comparable | null, other?: Comparable | null): number
     static $gtype: GObject.Type
 }
@@ -1415,7 +1415,7 @@ export class CertificateChainPrivate {
 export abstract class CertificateIface {
     /* Fields of Gcr.CertificateIface */
     parent: GObject.TypeInterface
-    get_der_data: (self: Certificate) => Uint8Array
+    get_der_data: (self: Certificate) => Uint8Array[]
     static name: string
 }
 export abstract class CertificateRequestClass {
@@ -1480,7 +1480,7 @@ export class Parsed {
     /* Methods of Gcr.Parsed */
     get_attributes(): Gck.Attributes | null
     get_bytes(): GLib.Bytes
-    get_data(): Uint8Array | null
+    get_data(): Uint8Array[] | null
     get_description(): string | null
     get_filename(): string
     get_format(): DataFormat

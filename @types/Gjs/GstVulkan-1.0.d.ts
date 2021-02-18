@@ -163,11 +163,11 @@ export class VulkanBufferMemoryAllocator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -270,11 +270,11 @@ export class VulkanBufferPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -381,11 +381,11 @@ export class VulkanCommandPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -482,11 +482,11 @@ export class VulkanDescriptorCache {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -585,11 +585,11 @@ export class VulkanDescriptorPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -689,11 +689,11 @@ export class VulkanDevice {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -791,11 +791,11 @@ export class VulkanDisplay {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -897,11 +897,11 @@ export class VulkanFenceCache {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1021,11 +1021,11 @@ export class VulkanFullScreenQuad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1120,11 +1120,11 @@ export class VulkanHandlePool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1229,11 +1229,11 @@ export class VulkanImageBufferPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1346,11 +1346,11 @@ export class VulkanImageMemoryAllocator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1447,11 +1447,11 @@ export class VulkanInstance {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1557,11 +1557,11 @@ export class VulkanMemoryAllocator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1667,11 +1667,11 @@ export class VulkanPhysicalDevice {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1769,11 +1769,11 @@ export class VulkanQueue {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1878,11 +1878,11 @@ export class VulkanSwapper {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1986,11 +1986,11 @@ export class VulkanTrashFenceList {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2099,11 +2099,11 @@ export class VulkanTrashList {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2317,11 +2317,11 @@ export class VulkanVideoFilter {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2470,17 +2470,17 @@ export class VulkanWindow {
     resize(width: number, height: number): void
     send_key_event(event_type: string, key_str: string): void
     send_mouse_event(event_type: string, button: number, posx: number, posy: number): void
-    set_window_handle(handle: string): void
+    set_window_handle(handle: any): void
     /* Methods of Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2523,7 +2523,7 @@ export class VulkanWindow {
     vfunc_get_surface_dimensions(width: number, height: number): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_open(): boolean
-    vfunc_set_window_handle(handle: string): void
+    vfunc_set_window_handle(handle: any): void
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -2731,14 +2731,14 @@ export class VulkanFormatInfo {
     flags: VulkanFormatFlags
     bits: number
     n_components: number
-    shift: Uint8Array
-    depth: Uint8Array
-    pixel_stride: Uint8Array
+    shift: Uint8Array[]
+    depth: Uint8Array[]
+    pixel_stride: Uint8Array[]
     n_planes: number
-    plane: Uint8Array
-    poffset: Uint8Array
-    w_sub: Uint8Array
-    h_sub: Uint8Array
+    plane: Uint8Array[]
+    poffset: Uint8Array[]
+    w_sub: Uint8Array[]
+    h_sub: Uint8Array[]
     static name: string
 }
 export abstract class VulkanFullScreenQuadClass {
@@ -2932,7 +2932,7 @@ export abstract class VulkanWindowClass {
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void
     get_presentation_support: (window: VulkanWindow, device: VulkanDevice, queue_family_idx: number) => boolean
-    set_window_handle: (window: VulkanWindow, handle: string) => void
+    set_window_handle: (window: VulkanWindow, handle: any) => void
     get_surface_dimensions: (window: VulkanWindow, width: number, height: number) => void
     handle_events: (window: VulkanWindow, handle_events: boolean) => void
     static name: string

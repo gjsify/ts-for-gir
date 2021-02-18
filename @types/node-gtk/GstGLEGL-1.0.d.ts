@@ -19,7 +19,7 @@ export function eglGetErrorString(err: number): string
 export function eglImageFromDmabuf(context: GstGL.GLContext, dmabuf: number, inInfo: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
 export function eglImageFromDmabufDirect(context: GstGL.GLContext, fd: number, offset: number, inInfo: GstVideo.VideoInfo): EGLImage
 export function eglImageFromDmabufDirectTarget(context: GstGL.GLContext, fd: number, offset: number, inInfo: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
-export function eglImageFromTexture(context: GstGL.GLContext, glMem: GstGL.GLMemory, attribs: guintptr): EGLImage
+export function eglImageFromTexture(context: GstGL.GLContext, glMem: GstGL.GLMemory, attribs: any): EGLImage
 export function glMemoryEglInitOnce(): void
 export function isGlMemoryEgl(mem: Gst.Memory): boolean
 export interface EGLImageDestroyNotify {
@@ -46,7 +46,7 @@ export class GLDisplayEGL {
     getGlApi(): GstGL.GLAPI
     getGlApiUnlocked(): GstGL.GLAPI
     getGlContextForThread(thread: GLib.Thread): GstGL.GLContext
-    getHandle(): GstGL.guintptr
+    getHandle(): any
     getHandleType(): GstGL.GLDisplayType
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
@@ -56,11 +56,11 @@ export class GLDisplayEGL {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -99,7 +99,7 @@ export class GLDisplayEGL {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): GstGL.guintptr
+    vfuncGetHandle(): any
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -155,7 +155,7 @@ export class GLDisplayEGL {
     static new(): GLDisplayEGL
     static newWithEglDisplay(display?: object | null): GLDisplayEGL
     static fromGlDisplay(display: GstGL.GLDisplay): GLDisplayEGL
-    static getFromNative(type: GstGL.GLDisplayType, display: guintptr): object | null
+    static getFromNative(type: GstGL.GLDisplayType, display: any): object | null
     static $gtype: GObject.Type
 }
 export interface GLDisplayEGLDevice_ConstructProps extends GstGL.GLDisplay_ConstructProps {
@@ -182,7 +182,7 @@ export class GLDisplayEGLDevice {
     getGlApi(): GstGL.GLAPI
     getGlApiUnlocked(): GstGL.GLAPI
     getGlContextForThread(thread: GLib.Thread): GstGL.GLContext
-    getHandle(): GstGL.guintptr
+    getHandle(): any
     getHandleType(): GstGL.GLDisplayType
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
@@ -192,11 +192,11 @@ export class GLDisplayEGLDevice {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -235,7 +235,7 @@ export class GLDisplayEGLDevice {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): GstGL.guintptr
+    vfuncGetHandle(): any
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -323,11 +323,11 @@ export class GLMemoryEGLAllocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -432,7 +432,7 @@ export class EGLImage {
     static fromDmabuf(context: GstGL.GLContext, dmabuf: number, inInfo: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
     static fromDmabufDirect(context: GstGL.GLContext, fd: number, offset: number, inInfo: GstVideo.VideoInfo): EGLImage
     static fromDmabufDirectTarget(context: GstGL.GLContext, fd: number, offset: number, inInfo: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
-    static fromTexture(context: GstGL.GLContext, glMem: GstGL.GLMemory, attribs: guintptr): EGLImage
+    static fromTexture(context: GstGL.GLContext, glMem: GstGL.GLMemory, attribs: any): EGLImage
 }
 export abstract class GLDisplayEGLClass {
     /* Fields of GstGLEGL.GLDisplayEGLClass */

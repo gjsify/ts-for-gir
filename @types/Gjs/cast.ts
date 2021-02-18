@@ -24461,6 +24461,316 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Rsvg.Handle': [
     'GObject.Object',
 ],
+    'RygelCore.ConnectionManager': [
+    'GUPnP.Service',
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
+    'GObject.Object',
+],
+    'RygelCore.BasicManagement': [
+    'GUPnP.Service',
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
+    'GObject.Object',
+],
+    'RygelCore.DescriptionFile': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.RootDevice': [
+    'GUPnP.RootDevice',
+    'GUPnP.RootDevice',
+    'Gio.Initable',
+    'GUPnP.Device',
+    'GUPnP.DeviceInfo',
+    'GObject.Object',
+],
+    'RygelCore.RootDeviceFactory': [
+    'GObject.Object',
+    'Gio.Initable',
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'RygelCore.LogHandler': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.MetaConfig': [
+    'GObject.Object',
+    'RygelCore.Configuration',
+    'GObject.Object',
+    'RygelCore.Configuration',
+],
+    'RygelCore.PluginLoader': [
+    'RygelCore.RecursiveModuleLoader',
+    'RygelCore.RecursiveModuleLoader',
+    'GObject.Object',
+],
+    'RygelCore.RecursiveModuleLoader': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.Plugin': [
+    'GUPnP.ResourceFactory',
+    'GUPnP.ResourceFactory',
+    'GObject.Object',
+],
+    'RygelCore.MediaDevice': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.BaseConfiguration': [
+    'GObject.Object',
+    'RygelCore.Configuration',
+    'GObject.Object',
+    'RygelCore.Configuration',
+],
+    'RygelCore.V1Hacks': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.PluginInformation': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelCore.EnergyManagement': [
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
+    'GObject.Object',
+],
+    'RygelCore.CmdlineConfig': [
+    'GObject.Object',
+    'RygelCore.Configuration',
+],
+    'RygelCore.EnvironmentConfig': [
+    'GObject.Object',
+    'RygelCore.Configuration',
+],
+    'RygelCore.UserConfig': [
+    'GObject.Object',
+    'RygelCore.Configuration',
+],
+    'RygelCore.XMLUtilsChildIterator': [
+    'RygelCore.XMLUtilsIterator',
+],
+    'RygelRenderer.MediaRendererPlugin': [
+    'RygelCore.Plugin',
+    'RygelCore.Plugin',
+    'GUPnP.ResourceFactory',
+    'GObject.Object',
+],
+    'RygelRenderer.MediaRenderer': [
+    'RygelCore.MediaDevice',
+    'RygelCore.MediaDevice',
+    'GObject.Object',
+],
+    'RygelRendererGst.PlaybinPlayer': [
+    'GObject.Object',
+    'RygelRenderer.MediaPlayer',
+],
+    'RygelRendererGst.PlaybinRenderer': [
+    'RygelRenderer.MediaRenderer',
+    'RygelCore.MediaDevice',
+    'GObject.Object',
+],
+    'RygelServer.AudioItem': [
+    'RygelServer.MediaItem',
+    'RygelServer.MediaFileItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.ImageItem': [
+    'RygelServer.MediaItem',
+    'RygelServer.VisualItem',
+    'RygelServer.MediaFileItem',
+    'RygelServer.VisualItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.MediaArtStore': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelServer.MediaObjects': [
+    'Gee.ArrayList',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'RygelServer.MusicItem': [
+    'RygelServer.AudioItem',
+    'RygelServer.AudioItem',
+    'RygelServer.MediaItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.PhotoItem': [
+    'RygelServer.ImageItem',
+    'RygelServer.ImageItem',
+    'RygelServer.MediaItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.SimpleContainer': [
+    'RygelServer.MediaContainer',
+    'RygelServer.SearchableContainer',
+    'RygelServer.MediaContainer',
+    'RygelServer.SearchableContainer',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.VideoItem': [
+    'RygelServer.AudioItem',
+    'RygelServer.VisualItem',
+    'RygelServer.AudioItem',
+    'RygelServer.VisualItem',
+    'RygelServer.MediaItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.MediaContainer': [
+    'RygelServer.MediaObject',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.MediaItem': [
+    'RygelServer.MediaObject',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.MediaObject': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelServer.MediaServerPlugin': [
+    'RygelCore.Plugin',
+    'RygelCore.Plugin',
+    'GUPnP.ResourceFactory',
+    'GObject.Object',
+],
+    'RygelServer.TranscodeManager': [
+    'GObject.Object',
+],
+    'RygelServer.Transcoder': [
+    'GObject.Object',
+],
+    'RygelServer.MediaServer': [
+    'RygelCore.MediaDevice',
+    'RygelCore.MediaDevice',
+    'GObject.Object',
+],
+    'RygelServer.MediaEngine': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelServer.HTTPSeek': [
+    'GObject.Object',
+],
+    'RygelServer.PlaylistItem': [
+    'RygelServer.MediaItem',
+    'RygelServer.MediaFileItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.ContentDirectory': [
+    'GUPnP.Service',
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
+    'GObject.Object',
+],
+    'RygelServer.HTTPServer': [
+    'RygelServer.TranscodeManager',
+    'RygelServer.StateMachine',
+    'GObject.Object',
+    'RygelCore.StateMachine',
+    'GObject.Object',
+],
+    'RygelServer.Serializer': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'RygelServer.LogicalExpression': [
+    'RygelServer.SearchExpression',
+],
+    'RygelServer.RelationalExpression': [
+    'RygelServer.SearchExpression',
+],
+    'RygelServer.Thumbnail': [
+    'RygelCore.IconInfo',
+],
+    'RygelServer.MediaFileItem': [
+    'RygelServer.MediaItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.MediaResource': [
+    'GObject.Object',
+],
+    'RygelServer.HTTPSeekRequest': [
+    'GObject.Object',
+],
+    'RygelServer.HTTPByteSeekRequest': [
+    'RygelServer.HTTPSeekRequest',
+    'GObject.Object',
+],
+    'RygelServer.HTTPByteSeekResponse': [
+    'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
+    'RygelServer.HTTPGetHandler': [
+    'GObject.Object',
+],
+    'RygelServer.HTTPGet': [
+    'RygelServer.HTTPRequest',
+    'GObject.Object',
+],
+    'RygelServer.HTTPItemURI': [
+    'GObject.Object',
+],
+    'RygelServer.HTTPRequest': [
+    'GObject.Object',
+    'RygelCore.StateMachine',
+],
+    'RygelServer.HTTPResponse': [
+    'GObject.Object',
+    'RygelCore.StateMachine',
+],
+    'RygelServer.HTTPResponseElement': [
+    'GObject.Object',
+],
+    'RygelServer.HTTPTimeSeekRequest': [
+    'RygelServer.HTTPSeekRequest',
+    'GObject.Object',
+],
+    'RygelServer.HTTPTimeSeekResponse': [
+    'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
+    'RygelServer.PlaySpeedRequest': [
+    'GObject.Object',
+],
+    'RygelServer.PlaySpeedResponse': [
+    'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
+    'RygelServer.DTCPCleartextRequest': [
+    'RygelServer.HTTPSeekRequest',
+    'GObject.Object',
+],
+    'RygelServer.DTCPCleartextResponse': [
+    'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
+    'RygelServer.DLNAAvailableSeekRangeRequest': [
+    'RygelServer.HTTPSeekRequest',
+    'GObject.Object',
+],
+    'RygelServer.DLNAAvailableSeekRangeResponse': [
+    'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
     'Secret.Collection': [
     'Gio.DBusProxy',
     'Gio.AsyncInitable',
@@ -25562,6 +25872,23 @@ const inheritanceTable: { [key: string]: string[] } = {
     'TotemPlParser.Playlist': [
     'GObject.Object',
 ],
+    'Tracker.SparqlBuilder': [
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+],
+    'Tracker.SparqlConnection': [
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+],
+    'Tracker.SparqlCursor': [
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+],
     'Tracker.NamespaceManager': [
     'GObject.Object',
     'GObject.Object',
@@ -25572,17 +25899,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Tracker.Resource': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'Tracker.SparqlBuilder': [
-    'GObject.Object',
-],
-    'Tracker.SparqlConnection': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'Tracker.SparqlCursor': [
     'GObject.Object',
     'GObject.Object',
 ],
@@ -25612,7 +25928,43 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'Gio.Initable',
 ],
+    'TrackerMiner.Crawler': [
+    'GObject.Object',
+],
+    'TrackerMiner.IndexingTree': [
+    'GObject.Object',
+    'GObject.Object',
+    'GObject.Object',
+],
+    'TrackerMiner.Miner': [
+    'GObject.Object',
+    'Gio.Initable',
+    'GObject.Object',
+    'Gio.Initable',
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'TrackerMiner.MinerFS': [
+    'TrackerMiner.Miner',
+    'Gio.Initable',
+    'TrackerMiner.Miner',
+    'Gio.Initable',
+    'TrackerMiner.Miner',
+    'Gio.Initable',
+    'GObject.Object',
+],
+    'TrackerMiner.MinerManager': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'TrackerMiner.MinerWeb': [
+    'TrackerMiner.Miner',
+    'Gio.Initable',
+    'GObject.Object',
+],
     'TrackerMiner.Decorator': [
+    'TrackerMiner.Miner',
+    'Gio.Initable',
     'TrackerMiner.Miner',
     'Gio.Initable',
     'GObject.Object',
@@ -25620,22 +25972,14 @@ const inheritanceTable: { [key: string]: string[] } = {
     'TrackerMiner.DecoratorFS': [
     'TrackerMiner.Decorator',
     'Gio.Initable',
-    'TrackerMiner.Miner',
-    'GObject.Object',
-],
-    'TrackerMiner.IndexingTree': [
-    'GObject.Object',
-],
-    'TrackerMiner.Miner': [
-    'GObject.Object',
+    'TrackerMiner.Decorator',
     'Gio.Initable',
-],
-    'TrackerMiner.MinerFS': [
     'TrackerMiner.Miner',
-    'Gio.Initable',
     'GObject.Object',
 ],
     'TrackerMiner.MinerOnline': [
+    'TrackerMiner.Miner',
+    'Gio.Initable',
     'TrackerMiner.Miner',
     'Gio.Initable',
     'GObject.Object',

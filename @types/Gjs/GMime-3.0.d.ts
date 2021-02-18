@@ -274,8 +274,8 @@ export function locale_language(): string | null
 export function parser_options_get_default(): ParserOptions
 export function references_parse(options: ParserOptions | null, text: string): References
 export function shutdown(): void
-export function utils_best_encoding(text: Uint8Array): ContentEncoding
-export function utils_decode_8bit(options: ParserOptions | null, text: Uint8Array): string
+export function utils_best_encoding(text: Uint8Array[]): ContentEncoding
+export function utils_decode_8bit(options: ParserOptions | null, text: Uint8Array[]): string
 export function utils_decode_message_id(message_id: string): string
 export function utils_generate_message_id(fqdn: string): string
 export function utils_header_decode_date(str: string): GLib.DateTime | null
@@ -287,7 +287,7 @@ export function utils_header_format_date(date: GLib.DateTime): string
 export function utils_header_unfold(value: string): string
 export function utils_quote_string(str: string): string
 export function utils_structured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
-export function utils_text_is_8bit(text: Uint8Array): boolean
+export function utils_text_is_8bit(text: Uint8Array[]): boolean
 export function utils_unquote_string(str: string): void
 export function utils_unstructured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
 export function ydecode_step(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
@@ -1082,10 +1082,10 @@ export class Filter {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1111,9 +1111,9 @@ export class Filter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1155,10 +1155,10 @@ export class FilterBasic {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1184,9 +1184,9 @@ export class FilterBasic {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1223,7 +1223,7 @@ export class FilterBest {
     total: number
     maxline: number
     linelen: number
-    frombuf: Uint8Array
+    frombuf: Uint8Array[]
     fromlen: number
     hadfrom: number
     startline: number
@@ -1243,10 +1243,10 @@ export class FilterBest {
     /* Methods of GMime.FilterBest */
     encoding(constraint: EncodingConstraint): ContentEncoding
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1272,9 +1272,9 @@ export class FilterBest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1319,10 +1319,10 @@ export class FilterCharset {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1348,9 +1348,9 @@ export class FilterCharset {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1397,10 +1397,10 @@ export class FilterChecksum {
     get_digest(digest: number, len: number): number
     get_string(): string
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1426,9 +1426,9 @@ export class FilterChecksum {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1473,10 +1473,10 @@ export class FilterDos2Unix {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1502,9 +1502,9 @@ export class FilterDos2Unix {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1549,10 +1549,10 @@ export class FilterEnriched {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1578,9 +1578,9 @@ export class FilterEnriched {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1625,10 +1625,10 @@ export class FilterFrom {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1654,9 +1654,9 @@ export class FilterFrom {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1706,10 +1706,10 @@ export class FilterGZip {
     set_comment(comment: string): void
     set_filename(filename: string): void
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1735,9 +1735,9 @@ export class FilterGZip {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1786,10 +1786,10 @@ export class FilterHTML {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1815,9 +1815,9 @@ export class FilterHTML {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1864,10 +1864,10 @@ export class FilterOpenPGP {
     get_data_type(): OpenPGPData
     get_end_offset(): number
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1893,9 +1893,9 @@ export class FilterOpenPGP {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1939,10 +1939,10 @@ export class FilterSmtpData {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1968,9 +1968,9 @@ export class FilterSmtpData {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2013,10 +2013,10 @@ export class FilterStrip {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2042,9 +2042,9 @@ export class FilterStrip {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2089,10 +2089,10 @@ export class FilterUnix2Dos {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2118,9 +2118,9 @@ export class FilterUnix2Dos {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2168,10 +2168,10 @@ export class FilterWindows {
     is_windows_charset(): boolean
     real_charset(): string
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2197,9 +2197,9 @@ export class FilterWindows {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2252,10 +2252,10 @@ export class FilterYenc {
     set_crc(crc: number): void
     set_state(state: number): void
     /* Methods of GMime.Filter */
-    backup(data: Uint8Array): void
-    complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2281,9 +2281,9 @@ export class FilterYenc {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfunc_complete(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_copy(): Filter
-    vfunc_filter(inbuf: Uint8Array, prespace: number): [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    vfunc_filter(inbuf: Uint8Array[], prespace: number): [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4141,13 +4141,13 @@ export class Stream {
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4184,7 +4184,7 @@ export class Stream {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4226,13 +4226,13 @@ export class StreamBuffer {
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4269,7 +4269,7 @@ export class StreamBuffer {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4311,13 +4311,13 @@ export class StreamCat {
     add_source(source: Stream): number
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4354,7 +4354,7 @@ export class StreamCat {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4397,13 +4397,13 @@ export class StreamFile {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4440,7 +4440,7 @@ export class StreamFile {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4488,13 +4488,13 @@ export class StreamFilter {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4531,7 +4531,7 @@ export class StreamFilter {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4575,12 +4575,12 @@ export class StreamFs {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4617,7 +4617,7 @@ export class StreamFs {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4665,12 +4665,12 @@ export class StreamGIO {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4707,7 +4707,7 @@ export class StreamGIO {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4742,24 +4742,24 @@ export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 export class StreamMem {
     /* Fields of GMime.StreamMem */
     parent_object: Stream
-    buffer: Uint8Array
+    buffer: Uint8Array[]
     owner: boolean
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime.StreamMem */
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_owner(): boolean
-    set_byte_array(array: Uint8Array): void
+    set_byte_array(array: Uint8Array[]): void
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4796,7 +4796,7 @@ export class StreamMem {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4823,8 +4823,8 @@ export class StreamMem {
     _init (config?: StreamMem_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): StreamMem
-    static new_with_buffer(buffer: Uint8Array): StreamMem
-    static new_with_byte_array(array: Uint8Array): StreamMem
+    static new_with_buffer(buffer: Uint8Array[]): StreamMem
+    static new_with_byte_array(array: Uint8Array[]): StreamMem
     static $gtype: GObject.Type
 }
 export interface StreamMmap_ConstructProps extends Stream_ConstructProps {
@@ -4844,12 +4844,12 @@ export class StreamMmap {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4886,7 +4886,7 @@ export class StreamMmap {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -4931,13 +4931,13 @@ export class StreamNull {
     set_count_newlines(count: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -4974,7 +4974,7 @@ export class StreamNull {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -5018,12 +5018,12 @@ export class StreamPipe {
     set_owner(owner: boolean): void
     /* Methods of GMime.Stream */
     buffer_gets(buf: string, max: number): number
-    buffer_readln(buffer: Uint8Array): void
+    buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: Uint8Array): number
+    read(buf: Uint8Array[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     set_bounds(start: number, end: number): void
@@ -5060,7 +5060,7 @@ export class StreamPipe {
     vfunc_eos(): boolean
     vfunc_flush(): number
     vfunc_length(): number
-    vfunc_read(buf: Uint8Array): number
+    vfunc_read(buf: Uint8Array[]): number
     vfunc_reset(): number
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
@@ -5302,7 +5302,7 @@ export abstract class DecryptResultClass {
 export class Encoding {
     /* Fields of GMime.Encoding */
     encoding: ContentEncoding
-    uubuf: Uint8Array
+    uubuf: Uint8Array[]
     encode: boolean
     save: number
     state: number
@@ -5349,8 +5349,8 @@ export abstract class FilterClass {
     /* Fields of GMime.FilterClass */
     parent_class: GObject.ObjectClass
     copy: (filter: Filter) => Filter
-    filter: (filter: Filter, inbuf: Uint8Array, prespace: number) => [ /* outbuf */ Uint8Array, /* outprespace */ number ]
-    complete: (filter: Filter, inbuf: Uint8Array, prespace: number) => [ /* outbuf */ Uint8Array, /* outprespace */ number ]
+    filter: (filter: Filter, inbuf: Uint8Array[], prespace: number) => [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
+    complete: (filter: Filter, inbuf: Uint8Array[], prespace: number) => [ /* outbuf */ Uint8Array[], /* outprespace */ number ]
     reset: (filter: Filter) => void
     static name: string
 }
@@ -5634,7 +5634,7 @@ export abstract class StreamCatClass {
 export abstract class StreamClass {
     /* Fields of GMime.StreamClass */
     parent_class: GObject.ObjectClass
-    read: (stream: Stream, buf: Uint8Array) => number
+    read: (stream: Stream, buf: Uint8Array[]) => number
     write: (stream: Stream, buf: string, len: number) => number
     flush: (stream: Stream) => number
     close: (stream: Stream) => number

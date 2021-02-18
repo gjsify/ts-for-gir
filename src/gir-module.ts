@@ -156,23 +156,6 @@ export class GirModule {
             }
         }
 
-        // TODO normally Sushi-1.0 has Gst-0.10 as dependency but we need the gir file for that version
-        if (this.packageName === 'Sushi-1.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Gst-1.0')) {
-                transitiveDependencies.push('Gst-1.0')
-            }
-        }
-
-        // TODO normally RygelServer-2.4 has GstPbutils-0.10 and Gst-0.10 as dependencies but we need the gir file for that version
-        if (this.packageName === 'RygelServer-2.4') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'GstPbutils-1.0')) {
-                transitiveDependencies.push('GstPbutils-1.0')
-            }
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Gst-1.0')) {
-                transitiveDependencies.push('Gst-1.0')
-            }
-        }
-
         return transitiveDependencies
     }
 
@@ -341,7 +324,7 @@ export class GirModule {
 
         const collection = girVar.array
             ? girVar.array
-            : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name)
+            : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name || '')
             ? (girVar.type as GirArray[])
             : undefined
 
@@ -359,8 +342,6 @@ export class GirModule {
             type = girVar.type[0]
         } else if (girVar.callback?.length) {
             type = null
-        } else {
-            // resValue = 'any'
         }
 
         if (girVar.$) {
@@ -371,7 +352,8 @@ export class GirModule {
         }
 
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
-        let fullTypeName: string | null = null
+        const cType = type?.$ ? type.$['c:type'] : arrCType
+        let fullTypeName: string | null = type?.$?.name || null
 
         if (!resValue && girVar.callback?.length) {
             fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
@@ -379,69 +361,52 @@ export class GirModule {
             resValue = fullTypeName
         }
 
-        if (type) {
-            if (!resValue && arr) {
-                if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-                    resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
-                }
-            }
-
-            if (!resValue && POD_TYPE_MAP[type.$.name]) {
-                resValue = POD_TYPE_MAP[type.$.name]
-            }
-
-            if (!resValue && C_TYPE_MAP(this.packageName)[type.$.name]) {
-                resValue = C_TYPE_MAP(this.packageName)[type.$.name]
-            }
-
-            let cType = type.$['c:type']
-            if (!cType && arrCType) cType = arrCType
-
-            if (cType) {
-                if (C_TYPE_MAP(this.packageName)[cType]) {
-                    resValue = C_TYPE_MAP(this.packageName)[cType]
-                }
-            }
-
-            fullTypeName = type.$.name || null
+        if (!resValue && type?.$ && arr && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+            resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
         }
 
-        if (!resValue && fullTypeName && typeof fullTypeName === 'string') {
-            if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
-                resValue = FULL_TYPE_MAP(this.config.environment)[fullTypeName]
-            }
+        if (!resValue && type?.$ && POD_TYPE_MAP[type.$.name]) {
+            resValue = POD_TYPE_MAP[type.$.name]
+        }
 
-            // Fully qualify our type name if need be
-            if (!resValue && !fullTypeName.includes('.') && type) {
-                const mod = girVar?._module || this
-                fullTypeName = `${mod.namespace}.${type.$.name}`
-            }
+        if (!resValue && cType && C_TYPE_MAP(cType)) {
+            resValue = C_TYPE_MAP(cType)
+        }
 
-            if (!resValue) {
-                const key = this.getSymTableKey(fullTypeName)
-                // Only use the fullTypeName as the type if it is found in the symTable
-                if (this.symTable[key]) {
-                    if (fullTypeName.startsWith(this.namespace + '.')) {
-                        resValue = fullTypeName.substring(this.namespace.length + 1)
-                        resValue = this.transformation.transformTypeName(resValue)
-                        // TODO check if resValue this is a class, enum, interface or unify the transformClassName method
-                        resValue = this.transformation.transformClassName(resValue)
-                    } else {
-                        const resValues = fullTypeName.split('.')
-                        resValues.map((name) => this.transformation.transformTypeName(name))
-                        // TODO check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
-                        resValues[resValues.length - 1] = this.transformation.transformClassName(
-                            resValues[resValues.length - 1],
-                        )
-                        resValue = resValues.join('.')
-                    }
+        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
+            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
+        }
+
+        // Fully qualify our type name if need be
+        if (!resValue && fullTypeName && !fullTypeName.includes('.') && type?.$) {
+            const mod = girVar?._module || this
+            fullTypeName = `${mod.namespace}.${type.$.name}`
+        }
+
+        if (!resValue && fullTypeName) {
+            const key = this.getSymTableKey(fullTypeName)
+            // Only use the fullTypeName as the type if it is found in the symTable
+            if (this.symTable[key]) {
+                if (fullTypeName.startsWith(this.namespace + '.')) {
+                    resValue = fullTypeName.substring(this.namespace.length + 1)
+                    resValue = this.transformation.transformTypeName(resValue)
+                    // TODO check if resValue this is a class, enum, interface or unify the transformClassName method
+                    resValue = this.transformation.transformClassName(resValue)
+                } else {
+                    const resValues = fullTypeName.split('.')
+                    resValues.map((name) => this.transformation.transformTypeName(name))
+                    // TODO check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                    resValues[resValues.length - 1] = this.transformation.transformClassName(
+                        resValues[resValues.length - 1],
+                    )
+                    resValue = resValues.join('.')
                 }
             }
         }
 
         if (!resValue) {
             resValue = 'any'
-            this.log.warn(`Could not find type for '${fullTypeName || girVar.$.name}'`)
+            this.log.warn(`Could not find type for '${fullTypeName || ''} ${girVar.$.name || ''} ${cType || ''}'`)
         }
 
         const result = resValue + suffix
@@ -531,7 +496,7 @@ export class GirModule {
             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
             const instanceParameter = parameters[0]['instance-parameter']
             if (instanceParameter && instanceParameter[0]) {
-                const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
+                const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$?.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                 const structFor = rec?.$['glib:is-gtype-struct-for']
                 const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'

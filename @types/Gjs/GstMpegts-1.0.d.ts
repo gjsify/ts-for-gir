@@ -643,13 +643,13 @@ export enum RegistrationId {
     AC_4,
     OTHER_HEVC,
 }
-export function descriptor_from_custom(tag: number, data: Uint8Array): Descriptor
-export function descriptor_from_custom_with_extension(tag: number, tag_extension: number, data: Uint8Array): Descriptor
+export function descriptor_from_custom(tag: number, data: Uint8Array[]): Descriptor
+export function descriptor_from_custom_with_extension(tag: number, tag_extension: number, data: Uint8Array[]): Descriptor
 export function descriptor_from_dvb_network_name(name: string): Descriptor
 export function descriptor_from_dvb_service(service_type: DVBServiceType, service_name?: string | null, service_provider?: string | null): Descriptor
 export function descriptor_from_dvb_subtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
 export function descriptor_from_iso_639_language(language: string): Descriptor
-export function descriptor_from_registration(format_identifier: string, additional_info: Uint8Array | null): Descriptor
+export function descriptor_from_registration(format_identifier: string, additional_info: Uint8Array[] | null): Descriptor
 export function descriptor_parse_audio_preselection_dump(source: AudioPreselectionDescriptor): void
 export function descriptor_parse_audio_preselection_free(source: AudioPreselectionDescriptor): void
 export function dvb_component_descriptor_free(source: ComponentDescriptor): void
@@ -955,14 +955,14 @@ export class Descriptor {
     /* Methods of GstMpegts.Descriptor */
     free(): void
     parse_audio_preselection_list(): [ /* returnType */ boolean, /* list */ AudioPreselectionDescriptor[] ]
-    parse_ca(): [ /* returnType */ boolean, /* ca_system_id */ number, /* ca_pid */ number, /* private_data */ Uint8Array | null ]
+    parse_ca(): [ /* returnType */ boolean, /* ca_system_id */ number, /* ca_pid */ number, /* private_data */ Uint8Array[] | null ]
     parse_cable_delivery_system(): [ /* returnType */ boolean, /* res */ CableDeliverySystemDescriptor ]
     parse_dvb_bouquet_name(): [ /* returnType */ boolean, /* bouquet_name */ string | null ]
     parse_dvb_ca_identifier(): [ /* returnType */ boolean, /* list */ number[] ]
     parse_dvb_component(): [ /* returnType */ boolean, /* res */ ComponentDescriptor ]
     parse_dvb_content(): [ /* returnType */ boolean, /* content */ Content[] ]
     parse_dvb_data_broadcast(): [ /* returnType */ boolean, /* res */ DataBroadcastDescriptor ]
-    parse_dvb_data_broadcast_id(): [ /* returnType */ boolean, /* data_broadcast_id */ number, /* id_selector_bytes */ Uint8Array ]
+    parse_dvb_data_broadcast_id(): [ /* returnType */ boolean, /* data_broadcast_id */ number, /* id_selector_bytes */ Uint8Array[] ]
     parse_dvb_extended_event(): [ /* returnType */ boolean, /* res */ ExtendedEventDescriptor ]
     parse_dvb_frequency_list(): [ /* returnType */ boolean, /* offset */ boolean, /* list */ number[] ]
     parse_dvb_linkage(): [ /* returnType */ boolean, /* res */ DVBLinkageDescriptor ]
@@ -972,7 +972,7 @@ export class Descriptor {
     parse_dvb_multilingual_service_name(): [ /* returnType */ boolean, /* service_name_items */ DvbMultilingualServiceNameItem[] ]
     parse_dvb_network_name(): [ /* returnType */ boolean, /* name */ string ]
     parse_dvb_parental_rating(): [ /* returnType */ boolean, /* rating */ DVBParentalRatingItem[] ]
-    parse_dvb_private_data_specifier(): [ /* returnType */ boolean, /* private_data_specifier */ number, /* private_data */ Uint8Array | null ]
+    parse_dvb_private_data_specifier(): [ /* returnType */ boolean, /* private_data_specifier */ number, /* private_data */ Uint8Array[] | null ]
     parse_dvb_scrambling(): [ /* returnType */ boolean, /* scrambling_mode */ DVBScramblingModeType ]
     parse_dvb_service(): [ /* returnType */ boolean, /* service_type */ DVBServiceType | null, /* service_name */ string | null, /* provider_name */ string | null ]
     parse_dvb_service_list(): [ /* returnType */ boolean, /* list */ DVBServiceListItem[] ]
@@ -988,18 +988,18 @@ export class Descriptor {
     parse_iso_639_language_idx(idx: number): [ /* returnType */ boolean, /* lang */ string, /* audio_type */ Iso639AudioType | null ]
     parse_iso_639_language_nb(): number
     parse_logical_channel(): [ /* returnType */ boolean, /* res */ LogicalChannelDescriptor ]
-    parse_registration(): [ /* returnType */ boolean, /* registration_id */ number, /* additional_info */ Uint8Array | null ]
+    parse_registration(): [ /* returnType */ boolean, /* registration_id */ number, /* additional_info */ Uint8Array[] | null ]
     parse_satellite_delivery_system(): [ /* returnType */ boolean, /* res */ SatelliteDeliverySystemDescriptor ]
     parse_terrestrial_delivery_system(): [ /* returnType */ boolean, /* res */ TerrestrialDeliverySystemDescriptor ]
     static name: string
     /* Static methods and pseudo-constructors */
-    static from_custom(tag: number, data: Uint8Array): Descriptor
-    static from_custom_with_extension(tag: number, tag_extension: number, data: Uint8Array): Descriptor
+    static from_custom(tag: number, data: Uint8Array[]): Descriptor
+    static from_custom_with_extension(tag: number, tag_extension: number, data: Uint8Array[]): Descriptor
     static from_dvb_network_name(name: string): Descriptor
     static from_dvb_service(service_type: DVBServiceType, service_name?: string | null, service_provider?: string | null): Descriptor
     static from_dvb_subtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
     static from_iso_639_language(language: string): Descriptor
-    static from_registration(format_identifier: string, additional_info: Uint8Array | null): Descriptor
+    static from_registration(format_identifier: string, additional_info: Uint8Array[] | null): Descriptor
     static parse_audio_preselection_dump(source: AudioPreselectionDescriptor): void
     static parse_audio_preselection_free(source: AudioPreselectionDescriptor): void
 }
@@ -1272,10 +1272,10 @@ export class Section {
     packetize(): [ /* returnType */ number, /* output_size */ number ]
     send_event(element: Gst.Element): boolean
     static name: string
-    static new(pid: number, data: Uint8Array): Section
-    constructor(pid: number, data: Uint8Array)
+    static new(pid: number, data: Uint8Array[]): Section
+    constructor(pid: number, data: Uint8Array[])
     /* Static methods and pseudo-constructors */
-    static new(pid: number, data: Uint8Array): Section
+    static new(pid: number, data: Uint8Array[]): Section
     static from_atsc_mgt(mgt: AtscMGT): Section
     static from_atsc_rrt(rrt: AtscRRT): Section
     static from_atsc_stt(stt: AtscSTT): Section

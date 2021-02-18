@@ -145,7 +145,7 @@ export function config(): Config
 export function create_chain(ops: string, op_start: Node, op_end: Node, time: number, rel_dim: number, path_root: string): void
 export function create_chain_argv(ops: string, op_start: Node, op_end: Node, time: number, rel_dim: number, path_root: string): void
 export function exit(): void
-export function format(format_name: string): any
+export function format(format_name: string): any | null
 export function format_get_name(format: any): string | null
 export function get_version(): [ /* major */ number, /* minor */ number, /* micro */ number ]
 export function graph_dump_outputs(node: Node): void
@@ -307,8 +307,8 @@ export class Buffer {
     flush(): void
     get_abyss(): Rectangle
     get_extent(): Rectangle
-    get(rect: Rectangle, scale: number, format_name: string | null, repeat_mode: AbyssPolicy): Uint8Array
-    set(rect: Rectangle, format_name: string, src: Uint8Array): void
+    get(rect: Rectangle, scale: number, format_name: string | null, repeat_mode: AbyssPolicy): Uint8Array[]
+    set(rect: Rectangle, format_name: string, src: Uint8Array[]): void
     linear_close(linear?: object | null): void
     remove_handler(handler?: object | null): void
     sample_cleanup(): void

@@ -228,7 +228,7 @@ export class Menuitem {
     propertyExist(property: string): boolean
     propertyGet(property: string): string
     propertyGetBool(property: string): boolean
-    propertyGetByteArray(property: string): any
+    propertyGetByteArray(property: string): any[]
     propertyGetInt(property: string): number
     propertyGetVariant(property: string): GLib.Variant
     propertyRemove(property: string): void
@@ -388,7 +388,7 @@ export class MenuitemProxy {
     propertyExist(property: string): boolean
     propertyGet(property: string): string
     propertyGetBool(property: string): boolean
-    propertyGetByteArray(property: string): any
+    propertyGetByteArray(property: string): any[]
     propertyGetInt(property: string): number
     propertyGetVariant(property: string): GLib.Variant
     propertyRemove(property: string): void

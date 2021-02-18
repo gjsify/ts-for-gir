@@ -4,10 +4,10 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -2919,7 +2919,7 @@ export function pointerIsGrabbed(): boolean
 export function pointerUngrab(time: number): void
 export function preParseLibgtkOnly(): void
 export function propertyDelete(window: Window, property: Atom): void
-export function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actualPropertyType */ Atom, /* actualFormat */ number, /* data */ any ]
+export function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actualPropertyType */ Atom, /* actualFormat */ number, /* data */ any[] ]
 export function queryDepths(): /* depths */ number[]
 export function queryVisualTypes(): /* visualTypes */ VisualType[]
 export function selectionConvert(requestor: Window, selection: Atom, target: Atom, time: number): void
@@ -2938,7 +2938,7 @@ export function synthesizeWindowState(window: Window, unsetFlags: WindowState, s
 export function testRenderSync(window: Window): void
 export function testSimulateButton(window: Window, x: number, y: number, button: number, modifiers: ModifierType, buttonPressrelease: EventType): boolean
 export function testSimulateKey(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, keyPressrelease: EventType): boolean
-export function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: any): [ /* returnType */ number, /* list */ string[] ]
+export function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: any[]): [ /* returnType */ number, /* list */ string[] ]
 export function threadsAddIdle(priority: number, function_: GLib.SourceFunc): number
 export function threadsAddTimeout(priority: number, interval: number, function_: GLib.SourceFunc): number
 export function threadsAddTimeoutSeconds(priority: number, interval: number, function_: GLib.SourceFunc): number

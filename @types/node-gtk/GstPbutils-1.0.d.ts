@@ -62,30 +62,30 @@ export const PLUGINS_BASE_VERSION_MAJOR: number
 export const PLUGINS_BASE_VERSION_MICRO: number
 export const PLUGINS_BASE_VERSION_MINOR: number
 export const PLUGINS_BASE_VERSION_NANO: number
-export function codecUtilsAacCapsSetLevelAndProfile(caps: Gst.Caps, audioConfig: any): boolean
-export function codecUtilsAacGetChannels(audioConfig: any): number
+export function codecUtilsAacCapsSetLevelAndProfile(caps: Gst.Caps, audioConfig: any[]): boolean
+export function codecUtilsAacGetChannels(audioConfig: any[]): number
 export function codecUtilsAacGetIndexFromSampleRate(rate: number): number
-export function codecUtilsAacGetLevel(audioConfig: any): string
-export function codecUtilsAacGetProfile(audioConfig: any): string
-export function codecUtilsAacGetSampleRate(audioConfig: any): number
+export function codecUtilsAacGetLevel(audioConfig: any[]): string
+export function codecUtilsAacGetProfile(audioConfig: any[]): string
+export function codecUtilsAacGetSampleRate(audioConfig: any[]): number
 export function codecUtilsAacGetSampleRateFromIndex(srIdx: number): number
-export function codecUtilsH264CapsSetLevelAndProfile(caps: Gst.Caps, sps: any): boolean
-export function codecUtilsH264GetLevel(sps: any): string
+export function codecUtilsH264CapsSetLevelAndProfile(caps: Gst.Caps, sps: any[]): boolean
+export function codecUtilsH264GetLevel(sps: any[]): string
 export function codecUtilsH264GetLevelIdc(level: string): number
-export function codecUtilsH264GetProfile(sps: any): string
-export function codecUtilsH265CapsSetLevelTierAndProfile(caps: Gst.Caps, profileTierLevel: any): boolean
-export function codecUtilsH265GetLevel(profileTierLevel: any): string
+export function codecUtilsH264GetProfile(sps: any[]): string
+export function codecUtilsH265CapsSetLevelTierAndProfile(caps: Gst.Caps, profileTierLevel: any[]): boolean
+export function codecUtilsH265GetLevel(profileTierLevel: any[]): string
 export function codecUtilsH265GetLevelIdc(level: string): number
-export function codecUtilsH265GetProfile(profileTierLevel: any): string
-export function codecUtilsH265GetTier(profileTierLevel: any): string
-export function codecUtilsMpeg4videoCapsSetLevelAndProfile(caps: Gst.Caps, visObjSeq: any): boolean
-export function codecUtilsMpeg4videoGetLevel(visObjSeq: any): string
-export function codecUtilsMpeg4videoGetProfile(visObjSeq: any): string
-export function codecUtilsOpusCreateCaps(rate: number, channels: number, channelMappingFamily: number, streamCount: number, coupledCount: number, channelMapping?: any | null): Gst.Caps
+export function codecUtilsH265GetProfile(profileTierLevel: any[]): string
+export function codecUtilsH265GetTier(profileTierLevel: any[]): string
+export function codecUtilsMpeg4videoCapsSetLevelAndProfile(caps: Gst.Caps, visObjSeq: any[]): boolean
+export function codecUtilsMpeg4videoGetLevel(visObjSeq: any[]): string
+export function codecUtilsMpeg4videoGetProfile(visObjSeq: any[]): string
+export function codecUtilsOpusCreateCaps(rate: number, channels: number, channelMappingFamily: number, streamCount: number, coupledCount: number, channelMapping?: any[] | null): Gst.Caps
 export function codecUtilsOpusCreateCapsFromHeader(header: Gst.Buffer, comments?: Gst.Buffer | null): Gst.Caps
-export function codecUtilsOpusCreateHeader(rate: number, channels: number, channelMappingFamily: number, streamCount: number, coupledCount: number, channelMapping: any | null, preSkip: number, outputGain: number): Gst.Buffer
-export function codecUtilsOpusParseCaps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channelMappingFamily */ number, /* streamCount */ number, /* coupledCount */ number, /* channelMapping */ any ]
-export function codecUtilsOpusParseHeader(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channelMappingFamily */ number, /* streamCount */ number, /* coupledCount */ number, /* channelMapping */ any, /* preSkip */ number, /* outputGain */ number ]
+export function codecUtilsOpusCreateHeader(rate: number, channels: number, channelMappingFamily: number, streamCount: number, coupledCount: number, channelMapping: any[] | null, preSkip: number, outputGain: number): Gst.Buffer
+export function codecUtilsOpusParseCaps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channelMappingFamily */ number, /* streamCount */ number, /* coupledCount */ number, /* channelMapping */ any[] ]
+export function codecUtilsOpusParseHeader(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channelMappingFamily */ number, /* streamCount */ number, /* coupledCount */ number, /* channelMapping */ any[], /* preSkip */ number, /* outputGain */ number ]
 export function encodingListAllTargets(categoryname?: string | null): EncodingTarget[]
 export function encodingListAvailableCategories(): string[]
 export function installPluginsAsync(details: string[], ctx: InstallPluginsContext | null, func: InstallPluginsResultFunc): InstallPluginsReturn
@@ -235,11 +235,11 @@ export class AudioVisualizer {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean

@@ -4,8 +4,8 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
@@ -345,7 +345,7 @@ export class ConnectionManager {
     getScpdUrl(): string
     getServiceType(): string
     getUdn(): string
-    getUrlBase(): Soup.URI
+    getUrlBase(): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -386,9 +386,9 @@ export class ConnectionManager {
     on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: any[], reason: GLib.Error) => void)): number
+    connect_after(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: any[], reason: GLib.Error) => void)): number
+    emit(sigName: "notify-failed", callbackUrl: any[], reason: GLib.Error): void
     on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -453,7 +453,7 @@ export class BasicManagement {
     getScpdUrl(): string
     getServiceType(): string
     getUdn(): string
-    getUrlBase(): Soup.URI
+    getUrlBase(): any
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -492,9 +492,9 @@ export class BasicManagement {
     on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
-    emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: any[], reason: GLib.Error) => void)): number
+    connect_after(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: any[], reason: GLib.Error) => void)): number
+    emit(sigName: "notify-failed", callbackUrl: any[], reason: GLib.Error): void
     on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -628,7 +628,7 @@ export class RootDevice {
     getDescriptionDir(): string
     getDescriptionPath(): string
     getRelativeLocation(): string
-    getSsdpResourceGroup(): GSSDP.ResourceGroup
+    getSsdpResourceGroup(): any
     setAvailable(available: boolean): void
     /* Methods of GUPnP.DeviceInfo */
     getContext(): GUPnP.Context
@@ -650,7 +650,7 @@ export class RootDevice {
     getService(type: string): GUPnP.ServiceInfo
     getUdn(): string
     getUpc(): string
-    getUrlBase(): Soup.URI
+    getUrlBase(): any
     listDeviceTypes(): string[]
     listDevices(): GUPnP.DeviceInfo[]
     listDlnaCapabilities(): string[]

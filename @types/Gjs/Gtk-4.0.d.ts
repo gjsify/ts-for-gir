@@ -1028,7 +1028,7 @@ export function test_accessible_has_property(accessible: Accessible, property: A
 export function test_accessible_has_relation(accessible: Accessible, relation: AccessibleRelation): boolean
 export function test_accessible_has_role(accessible: Accessible, role: AccessibleRole): boolean
 export function test_accessible_has_state(accessible: Accessible, state: AccessibleState): boolean
-export function test_list_all_types(): GObject.Type[][]
+export function test_list_all_types(): GObject.Type[]
 export function test_register_all_types(): void
 export function test_widget_wait_for_draw(widget: Widget): void
 export function tree_create_row_drag_content(tree_model: TreeModel, path: TreePath): Gdk.ContentProvider
@@ -1179,9 +1179,9 @@ export class Accessible {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     static name: string
 }
 export interface Actionable_ConstructProps extends Widget_ConstructProps {
@@ -4471,9 +4471,9 @@ export class AboutDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -4989,9 +4989,9 @@ export class ActionBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -5723,9 +5723,9 @@ export class AppChooserButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.AppChooser */
     get_app_info(): Gio.AppInfo | null
     get_content_type(): string
@@ -6235,9 +6235,9 @@ export class AppChooserDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.AppChooser */
     get_app_info(): Gio.AppInfo | null
     get_content_type(): string
@@ -6751,9 +6751,9 @@ export class AppChooserWidget {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.AppChooser */
     get_app_info(): Gio.AppInfo | null
     get_content_type(): string
@@ -7520,9 +7520,9 @@ export class ApplicationWindow {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -8047,9 +8047,9 @@ export class AspectFrame {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -8558,9 +8558,9 @@ export class Assistant {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -9359,9 +9359,9 @@ export class Box {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -9654,7 +9654,7 @@ export class Builder {
     add_objects_from_file(filename: string, object_ids: string[]): boolean
     add_objects_from_resource(resource_path: string, object_ids: string[]): boolean
     add_objects_from_string(buffer: string, length: number, object_ids: string[]): boolean
-    create_closure(function_name: string, flags: BuilderClosureFlags, object?: GObject.Object | null): Function
+    create_closure(function_name: string, flags: BuilderClosureFlags, object?: GObject.Object | null): Function | null
     expose_object(name: string, object: GObject.Object): void
     extend_with_template(object: GObject.Object, template_type: GObject.Type, buffer: string, length: number): boolean
     get_current_object(): GObject.Object | null
@@ -10093,9 +10093,9 @@ export class Button {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -10570,9 +10570,9 @@ export class Calendar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -13613,9 +13613,9 @@ export class CellView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellLayout */
@@ -14062,9 +14062,9 @@ export class CenterBox {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -14571,9 +14571,9 @@ export class CheckButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -15038,9 +15038,9 @@ export class ColorButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.ColorChooser */
@@ -15560,9 +15560,9 @@ export class ColorChooserDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.ColorChooser */
@@ -16071,9 +16071,9 @@ export class ColorChooserWidget {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.ColorChooser */
@@ -16534,9 +16534,9 @@ export class ColumnView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */
@@ -17125,9 +17125,9 @@ export class ComboBox {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellEditable */
@@ -17649,9 +17649,9 @@ export class ComboBoxText {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellEditable */
@@ -18223,7 +18223,7 @@ export class CssProvider {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gtk.CssProvider */
-    load_from_data(data: Uint8Array): void
+    load_from_data(data: Uint8Array[]): void
     load_from_file(file: Gio.File): void
     load_from_path(path: string): void
     load_from_resource(resource_path: string): void
@@ -18792,9 +18792,9 @@ export class Dialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -19376,9 +19376,9 @@ export class DragIcon {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -19959,9 +19959,9 @@ export class DrawingArea {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.DrawingArea */
@@ -20494,9 +20494,9 @@ export class DropDown {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -20702,12 +20702,12 @@ export class DropTarget {
     get_actions(): Gdk.DragAction
     get_drop(): Gdk.Drop | null
     get_formats(): Gdk.ContentFormats | null
-    get_gtypes(): GObject.Type[] | null[] | null
+    get_gtypes(): GObject.Type[] | null
     get_preload(): boolean
-    get_value(): any
+    get_value(): any | null
     reject(): void
     set_actions(actions: Gdk.DragAction): void
-    set_gtypes(types: GObject.Type[] | null[] | null): void
+    set_gtypes(types: GObject.Type[] | null): void
     set_preload(preload: boolean): void
     /* Methods of Gtk.EventController */
     get_current_event(): Gdk.Event | null
@@ -21157,9 +21157,9 @@ export class EditableLabel {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Editable */
@@ -21651,9 +21651,9 @@ export class EmojiChooser {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -22238,9 +22238,9 @@ export class Entry {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellEditable */
@@ -23696,9 +23696,9 @@ export class Expander {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -24221,9 +24221,9 @@ export class FileChooserDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.FileChooser */
@@ -24900,9 +24900,9 @@ export class FileChooserWidget {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.FileChooser */
@@ -25622,9 +25622,9 @@ export class Fixed {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -26272,9 +26272,9 @@ export class FlowBox {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -26723,9 +26723,9 @@ export class FlowBoxChild {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.FlowBoxChild */
@@ -27162,9 +27162,9 @@ export class FontButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.FontChooser */
@@ -27718,9 +27718,9 @@ export class FontChooserDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.FontChooser */
@@ -28261,9 +28261,9 @@ export class FontChooserWidget {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.FontChooser */
@@ -28725,9 +28725,9 @@ export class Frame {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Frame */
@@ -29161,9 +29161,9 @@ export class GLArea {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.GLArea */
@@ -30956,9 +30956,9 @@ export class Grid {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -31587,9 +31587,9 @@ export class GridView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -32044,9 +32044,9 @@ export class HeaderBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -33058,9 +33058,9 @@ export class IconView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellLayout */
@@ -33589,9 +33589,9 @@ export class Image {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -34034,9 +34034,9 @@ export class InfoBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -34592,9 +34592,9 @@ export class Label {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -35188,9 +35188,9 @@ export class LevelBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -35639,9 +35639,9 @@ export class LinkButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -36095,9 +36095,9 @@ export class ListBase {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -36558,9 +36558,9 @@ export class ListBox {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -37014,9 +37014,9 @@ export class ListBoxRow {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -37352,16 +37352,16 @@ export class ListStore {
     insert(position: number): /* iter */ TreeIter
     insert_after(sibling?: TreeIter | null): /* iter */ TreeIter
     insert_before(sibling?: TreeIter | null): /* iter */ TreeIter
-    insert_with_values(position: number, columns: number[], values: any): /* iter */ TreeIter | null
+    insert_with_values(position: number, columns: number[], values: any[]): /* iter */ TreeIter | null
     iter_is_valid(iter: TreeIter): boolean
     move_after(iter: TreeIter, position?: TreeIter | null): void
     move_before(iter: TreeIter, position?: TreeIter | null): void
     prepend(): /* iter */ TreeIter
     remove(iter: TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: TreeIter, column: number, value: any): void
-    set(iter: TreeIter, columns: number[], values: any): void
+    set(iter: TreeIter, columns: number[], values: any[]): void
     swap(a: TreeIter, b: TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -37507,7 +37507,7 @@ export class ListStore {
     constructor (config?: ListStore_ConstructProps)
     _init (config?: ListStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(types: GObject.Type[][]): ListStore
+    static new(types: GObject.Type[]): ListStore
     static $gtype: GObject.Type
 }
 export interface ListView_ConstructProps extends ListBase_ConstructProps {
@@ -37772,9 +37772,9 @@ export class ListView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -38248,9 +38248,9 @@ export class LockButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -38772,9 +38772,9 @@ export class MediaControls {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -39531,9 +39531,9 @@ export class MenuButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -40045,9 +40045,9 @@ export class MessageDialog {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -41430,9 +41430,9 @@ export class Notebook {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -42118,9 +42118,9 @@ export class Overlay {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -42855,9 +42855,9 @@ export class Paned {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -43354,9 +43354,9 @@ export class PasswordEntry {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Editable */
@@ -43853,9 +43853,9 @@ export class Picture {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -44305,9 +44305,9 @@ export class Popover {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -44777,9 +44777,9 @@ export class PopoverMenu {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -45221,9 +45221,9 @@ export class PopoverMenuBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -46051,9 +46051,9 @@ export class ProgressBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -46525,9 +46525,9 @@ export class Range {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -47049,9 +47049,9 @@ export class Revealer {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -47514,9 +47514,9 @@ export class Scale {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -47979,9 +47979,9 @@ export class ScaleButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -48410,9 +48410,9 @@ export class Scrollbar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -48879,9 +48879,9 @@ export class ScrolledWindow {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -49340,9 +49340,9 @@ export class SearchBar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -49770,9 +49770,9 @@ export class SearchEntry {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Editable */
@@ -50329,9 +50329,9 @@ export class Separator {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -51239,9 +51239,9 @@ export class ShortcutLabel {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -51730,9 +51730,9 @@ export class ShortcutsGroup {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -52176,9 +52176,9 @@ export class ShortcutsSection {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -52619,9 +52619,9 @@ export class ShortcutsShortcut {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -53118,9 +53118,9 @@ export class ShortcutsWindow {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -54299,9 +54299,9 @@ export class SpinButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.CellEditable */
@@ -54823,9 +54823,9 @@ export class Spinner {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -55265,9 +55265,9 @@ export class Stack {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -55516,9 +55516,9 @@ export class StackPage {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -55786,9 +55786,9 @@ export class StackSidebar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -56193,9 +56193,9 @@ export class StackSwitcher {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -56600,9 +56600,9 @@ export class Statusbar {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -57403,9 +57403,9 @@ export class Switch {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -57913,9 +57913,9 @@ export class Text {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Editable */
@@ -59346,9 +59346,9 @@ export class TextView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */
@@ -59898,9 +59898,9 @@ export class ToggleButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -60411,9 +60411,9 @@ export class TreeExpander {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -60830,7 +60830,7 @@ export class TreeModelFilter {
     convert_path_to_child_path(filter_path: TreePath): TreePath | null
     get_model(): TreeModel
     refilter(): void
-    set_modify_func(types: GObject.Type[][], func: TreeModelFilterModifyFunc): void
+    set_modify_func(types: GObject.Type[], func: TreeModelFilterModifyFunc): void
     set_visible_column(column: number): void
     set_visible_func(func: TreeModelFilterVisibleFunc): void
     /* Methods of GObject.Object */
@@ -61185,7 +61185,7 @@ export class TreeStore {
     insert(parent: TreeIter | null, position: number): /* iter */ TreeIter
     insert_after(parent?: TreeIter | null, sibling?: TreeIter | null): /* iter */ TreeIter
     insert_before(parent?: TreeIter | null, sibling?: TreeIter | null): /* iter */ TreeIter
-    insert_with_values(parent: TreeIter | null, position: number, columns: number[], values: any): /* iter */ TreeIter | null
+    insert_with_values(parent: TreeIter | null, position: number, columns: number[], values: any[]): /* iter */ TreeIter | null
     is_ancestor(iter: TreeIter, descendant: TreeIter): boolean
     iter_depth(iter: TreeIter): number
     iter_is_valid(iter: TreeIter): boolean
@@ -61193,9 +61193,9 @@ export class TreeStore {
     move_before(iter: TreeIter, position?: TreeIter | null): void
     prepend(parent?: TreeIter | null): /* iter */ TreeIter
     remove(iter: TreeIter): boolean
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: TreeIter, column: number, value: any): void
-    set(iter: TreeIter, columns: number[], values: any): void
+    set(iter: TreeIter, columns: number[], values: any[]): void
     swap(a: TreeIter, b: TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -61341,7 +61341,7 @@ export class TreeStore {
     constructor (config?: TreeStore_ConstructProps)
     _init (config?: TreeStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(types: GObject.Type[][]): TreeStore
+    static new(types: GObject.Type[]): TreeStore
     static $gtype: GObject.Type
 }
 export interface TreeView_ConstructProps extends Widget_ConstructProps {
@@ -61703,9 +61703,9 @@ export class TreeView {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */
@@ -62443,9 +62443,9 @@ export class Video {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -62873,9 +62873,9 @@ export class Viewport {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */
@@ -63315,9 +63315,9 @@ export class VolumeButton {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Orientable */
@@ -63769,9 +63769,9 @@ export class Widget {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -64366,9 +64366,9 @@ export class Window {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Native */
@@ -64856,9 +64856,9 @@ export class WindowControls {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */
@@ -65324,9 +65324,9 @@ export class WindowHandle {
     reset_property(property: AccessibleProperty): void
     reset_relation(relation: AccessibleRelation): void
     reset_state(state: AccessibleState): void
-    update_property(properties: AccessibleProperty[], values: any): void
-    update_relation(relations: AccessibleRelation[], values: any): void
-    update_state(states: AccessibleState[], values: any): void
+    update_property(properties: AccessibleProperty[], values: any[]): void
+    update_relation(relations: AccessibleRelation[], values: any[]): void
+    update_state(states: AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Gtk.Widget */

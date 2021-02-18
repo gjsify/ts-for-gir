@@ -4,9 +4,9 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { HarfBuzz } from './HarfBuzz-0.0';
 
 export declare namespace Pango {
 
@@ -501,7 +501,7 @@ export class Coverage {
     max(other: Coverage): void
     ref(): Coverage
     set(index: number, level: CoverageLevel): void
-    toBytes(): /* bytes */ any
+    toBytes(): /* bytes */ any[]
     unref(): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -551,7 +551,7 @@ export class Coverage {
     _init (config?: Coverage_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Coverage
-    static fromBytes(bytes: any): Coverage | null
+    static fromBytes(bytes: any[]): Coverage | null
     static $gtype: GObject.Type
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {

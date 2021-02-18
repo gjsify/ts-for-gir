@@ -790,7 +790,7 @@ export class CollectionParent {
     _init (config?: CollectionParent_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static add_supported_type(types: GLib.HashTable, parent_type: GObject.Type, type: GObject.Type): void
-    static add_supported_types(table: GLib.HashTable, parent_type: GObject.Type, types: GObject.Type[][]): void
+    static add_supported_types(table: GLib.HashTable, parent_type: GObject.Type, types: GObject.Type[]): void
     static $gtype: GObject.Type
 }
 export interface DomAttr_ConstructProps extends GObject.Object_ConstructProps {
@@ -8681,7 +8681,7 @@ export class CustomEvent {
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml.CustomEvent */
     get_detail(): /* result */ any
-    init_custom_event(type: string, bubbles: boolean, cancelable: boolean, detail?: any): void
+    init_custom_event(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -13103,7 +13103,7 @@ export class XDocument {
     readonly document_element: DomElement
     /* Fields of GXml.XDocument */
     doc: object | null
-    _buffer: libxml2.Buffer
+    _buffer: any
     _parser: Parser
     _implementation: DomImplementation
     _url: string
@@ -14052,7 +14052,7 @@ export class XHtmlDocument {
     value: string
     /* Fields of GXml.XDocument */
     doc: object | null
-    _buffer: libxml2.Buffer
+    _buffer: any
     _parser: Parser
     _implementation: DomImplementation
     _url: string

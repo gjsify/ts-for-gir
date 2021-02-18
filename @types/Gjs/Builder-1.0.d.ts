@@ -620,7 +620,7 @@ export class EditorView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1659,7 +1659,7 @@ export class Tree {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2829,7 +2829,7 @@ export class View {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3676,7 +3676,7 @@ export class ViewGrid {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4497,7 +4497,7 @@ export class ViewStack {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5482,7 +5482,7 @@ export class Workbench {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

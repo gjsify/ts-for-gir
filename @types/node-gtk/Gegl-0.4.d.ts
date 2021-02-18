@@ -180,7 +180,7 @@ export function config(): Config
 export function createChain(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
 export function createChainArgv(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
 export function exit(): void
-export function format(formatName: string): any
+export function format(formatName: string): any | null
 export function formatGetName(format: any): string | null
 export function getVersion(): [ /* major */ number, /* minor */ number, /* micro */ number ]
 export function graphDumpOutputs(node: Node): void
@@ -388,8 +388,8 @@ export class Buffer {
     freezeChanged(): void
     getAbyss(): Rectangle
     getExtent(): Rectangle
-    get(rect: Rectangle, scale: number, formatName: string | null, repeatMode: AbyssPolicy): any
-    set(rect: Rectangle, formatName: string, src: any): void
+    get(rect: Rectangle, scale: number, formatName: string | null, repeatMode: AbyssPolicy): any[]
+    set(rect: Rectangle, formatName: string, src: any[]): void
     linearClose(linear?: object | null): void
     removeHandler(handler?: object | null): void
     sampleCleanup(): void

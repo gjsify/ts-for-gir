@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -134,7 +134,7 @@ export class CanvasItem {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Methods of GooCanvas.CanvasItem */
@@ -327,7 +327,7 @@ export class CanvasItemModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Methods of GooCanvas.CanvasItemModel */
@@ -771,7 +771,7 @@ export class Canvas {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -1916,7 +1916,7 @@ export interface CanvasEllipse_ConstructProps extends CanvasItemSimple_Construct
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -1937,7 +1937,7 @@ export class CanvasEllipse {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -1952,7 +1952,7 @@ export class CanvasEllipse {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -1961,7 +1961,7 @@ export class CanvasEllipse {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasEllipse */
@@ -2429,7 +2429,7 @@ export interface CanvasEllipseModel_ConstructProps extends CanvasItemModelSimple
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -2450,7 +2450,7 @@ export class CanvasEllipseModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -2465,7 +2465,7 @@ export class CanvasEllipseModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -2474,7 +2474,7 @@ export class CanvasEllipseModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasEllipseModel */
@@ -2822,14 +2822,14 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     borderColor?: string
     borderColorGdkRgba?: Gdk.RGBA
     borderColorRgba?: number
-    borderPattern?: CairoPattern
+    borderPattern?: any
     borderPixbuf?: GdkPixbuf.Pixbuf
     borderWidth?: number
     height?: number
     horzGridLineColor?: string
     horzGridLineColorGdkRgba?: Gdk.RGBA
     horzGridLineColorRgba?: number
-    horzGridLinePattern?: CairoPattern
+    horzGridLinePattern?: any
     horzGridLinePixbuf?: GdkPixbuf.Pixbuf
     horzGridLineWidth?: number
     showHorzGridLines?: boolean
@@ -2837,7 +2837,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     vertGridLineColor?: string
     vertGridLineColorGdkRgba?: Gdk.RGBA
     vertGridLineColorRgba?: number
-    vertGridLinePattern?: CairoPattern
+    vertGridLinePattern?: any
     vertGridLinePixbuf?: GdkPixbuf.Pixbuf
     vertGridLineWidth?: number
     vertGridLinesOnTop?: boolean
@@ -2854,7 +2854,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -2863,14 +2863,14 @@ export class CanvasGrid {
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
     borderColorRgba: number
-    borderPattern: CairoPattern
+    borderPattern: any
     borderPixbuf: GdkPixbuf.Pixbuf
     borderWidth: number
     height: number
     horzGridLineColor: string
     horzGridLineColorGdkRgba: Gdk.RGBA
     horzGridLineColorRgba: number
-    horzGridLinePattern: CairoPattern
+    horzGridLinePattern: any
     horzGridLinePixbuf: GdkPixbuf.Pixbuf
     horzGridLineWidth: number
     showHorzGridLines: boolean
@@ -2878,7 +2878,7 @@ export class CanvasGrid {
     vertGridLineColor: string
     vertGridLineColorGdkRgba: Gdk.RGBA
     vertGridLineColorRgba: number
-    vertGridLinePattern: CairoPattern
+    vertGridLinePattern: any
     vertGridLinePixbuf: GdkPixbuf.Pixbuf
     vertGridLineWidth: number
     vertGridLinesOnTop: boolean
@@ -2896,7 +2896,7 @@ export class CanvasGrid {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -2911,7 +2911,7 @@ export class CanvasGrid {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -2920,7 +2920,7 @@ export class CanvasGrid {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasGrid */
@@ -3482,14 +3482,14 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     borderColor?: string
     borderColorGdkRgba?: Gdk.RGBA
     borderColorRgba?: number
-    borderPattern?: CairoPattern
+    borderPattern?: any
     borderPixbuf?: GdkPixbuf.Pixbuf
     borderWidth?: number
     height?: number
     horzGridLineColor?: string
     horzGridLineColorGdkRgba?: Gdk.RGBA
     horzGridLineColorRgba?: number
-    horzGridLinePattern?: CairoPattern
+    horzGridLinePattern?: any
     horzGridLinePixbuf?: GdkPixbuf.Pixbuf
     horzGridLineWidth?: number
     showHorzGridLines?: boolean
@@ -3497,7 +3497,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     vertGridLineColor?: string
     vertGridLineColorGdkRgba?: Gdk.RGBA
     vertGridLineColorRgba?: number
-    vertGridLinePattern?: CairoPattern
+    vertGridLinePattern?: any
     vertGridLinePixbuf?: GdkPixbuf.Pixbuf
     vertGridLineWidth?: number
     vertGridLinesOnTop?: boolean
@@ -3514,7 +3514,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -3523,14 +3523,14 @@ export class CanvasGridModel {
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
     borderColorRgba: number
-    borderPattern: CairoPattern
+    borderPattern: any
     borderPixbuf: GdkPixbuf.Pixbuf
     borderWidth: number
     height: number
     horzGridLineColor: string
     horzGridLineColorGdkRgba: Gdk.RGBA
     horzGridLineColorRgba: number
-    horzGridLinePattern: CairoPattern
+    horzGridLinePattern: any
     horzGridLinePixbuf: GdkPixbuf.Pixbuf
     horzGridLineWidth: number
     showHorzGridLines: boolean
@@ -3538,7 +3538,7 @@ export class CanvasGridModel {
     vertGridLineColor: string
     vertGridLineColorGdkRgba: Gdk.RGBA
     vertGridLineColorRgba: number
-    vertGridLinePattern: CairoPattern
+    vertGridLinePattern: any
     vertGridLinePixbuf: GdkPixbuf.Pixbuf
     vertGridLineWidth: number
     vertGridLinesOnTop: boolean
@@ -3556,7 +3556,7 @@ export class CanvasGridModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -3571,7 +3571,7 @@ export class CanvasGridModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -3580,7 +3580,7 @@ export class CanvasGridModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasGridModel */
@@ -4040,7 +4040,7 @@ export interface CanvasGroup_ConstructProps extends CanvasItemSimple_ConstructPr
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -4057,7 +4057,7 @@ export class CanvasGroup {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -4072,7 +4072,7 @@ export class CanvasGroup {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -4081,7 +4081,7 @@ export class CanvasGroup {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasGroup */
@@ -4525,7 +4525,7 @@ export interface CanvasGroupModel_ConstructProps extends CanvasItemModelSimple_C
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -4542,7 +4542,7 @@ export class CanvasGroupModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -4557,7 +4557,7 @@ export class CanvasGroupModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -4566,7 +4566,7 @@ export class CanvasGroupModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasGroupModel */
@@ -4893,7 +4893,7 @@ export class CanvasGroupModel {
 export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructProps {
     alpha?: number
     height?: number
-    pattern?: CairoPattern
+    pattern?: any
     pixbuf?: GdkPixbuf.Pixbuf
     scaleToFit?: boolean
     width?: number
@@ -4905,7 +4905,7 @@ export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructPr
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -4913,7 +4913,7 @@ export class CanvasImage {
     /* Properties of GooCanvas.CanvasImage */
     alpha: number
     height: number
-    pattern: CairoPattern
+    pattern: any
     pixbuf: GdkPixbuf.Pixbuf
     scaleToFit: boolean
     width: number
@@ -4926,7 +4926,7 @@ export class CanvasImage {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -4941,7 +4941,7 @@ export class CanvasImage {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -4950,7 +4950,7 @@ export class CanvasImage {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasImage */
@@ -5406,7 +5406,7 @@ export class CanvasImage {
 export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_ConstructProps {
     alpha?: number
     height?: number
-    pattern?: CairoPattern
+    pattern?: any
     pixbuf?: GdkPixbuf.Pixbuf
     scaleToFit?: boolean
     width?: number
@@ -5418,7 +5418,7 @@ export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_C
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -5426,7 +5426,7 @@ export class CanvasImageModel {
     /* Properties of GooCanvas.CanvasImageModel */
     alpha: number
     height: number
-    pattern: CairoPattern
+    pattern: any
     pixbuf: GdkPixbuf.Pixbuf
     scaleToFit: boolean
     width: number
@@ -5439,7 +5439,7 @@ export class CanvasImageModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -5454,7 +5454,7 @@ export class CanvasImageModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -5463,7 +5463,7 @@ export class CanvasImageModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasImageModel */
@@ -5876,7 +5876,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     fillColor?: string
     fillColorGdkRgba?: Gdk.RGBA
     fillColorRgba?: number
-    fillPattern?: CairoPattern
+    fillPattern?: any
     fillPixbuf?: GdkPixbuf.Pixbuf
     fillRule?: CairoFillRule
     font?: string
@@ -5891,7 +5891,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     strokeColor?: string
     strokeColorGdkRgba?: Gdk.RGBA
     strokeColorRgba?: number
-    strokePattern?: CairoPattern
+    strokePattern?: any
     strokePixbuf?: GdkPixbuf.Pixbuf
     canFocus?: boolean
     description?: string
@@ -5899,7 +5899,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -5911,7 +5911,7 @@ export class CanvasItemModelSimple {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -5926,7 +5926,7 @@ export class CanvasItemModelSimple {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -5935,7 +5935,7 @@ export class CanvasItemModelSimple {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasItemModelSimple */
@@ -6248,7 +6248,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     fillColor?: string
     fillColorGdkRgba?: Gdk.RGBA
     fillColorRgba?: number
-    fillPattern?: CairoPattern
+    fillPattern?: any
     fillPixbuf?: GdkPixbuf.Pixbuf
     fillRule?: CairoFillRule
     font?: string
@@ -6263,7 +6263,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     strokeColor?: string
     strokeColorGdkRgba?: Gdk.RGBA
     strokeColorRgba?: number
-    strokePattern?: CairoPattern
+    strokePattern?: any
     strokePixbuf?: GdkPixbuf.Pixbuf
     canFocus?: boolean
     description?: string
@@ -6271,7 +6271,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -6283,7 +6283,7 @@ export class CanvasItemSimple {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -6298,7 +6298,7 @@ export class CanvasItemSimple {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -6307,7 +6307,7 @@ export class CanvasItemSimple {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasItemSimple */
@@ -6733,7 +6733,7 @@ export interface CanvasPath_ConstructProps extends CanvasItemSimple_ConstructPro
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -6751,7 +6751,7 @@ export class CanvasPath {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -6766,7 +6766,7 @@ export class CanvasPath {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -6775,7 +6775,7 @@ export class CanvasPath {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasPath */
@@ -7224,7 +7224,7 @@ export interface CanvasPathModel_ConstructProps extends CanvasItemModelSimple_Co
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -7242,7 +7242,7 @@ export class CanvasPathModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -7257,7 +7257,7 @@ export class CanvasPathModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -7266,7 +7266,7 @@ export class CanvasPathModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasPathModel */
@@ -7613,7 +7613,7 @@ export interface CanvasPolyline_ConstructProps extends CanvasItemSimple_Construc
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -7637,7 +7637,7 @@ export class CanvasPolyline {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -7652,7 +7652,7 @@ export class CanvasPolyline {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -7661,7 +7661,7 @@ export class CanvasPolyline {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasPolyline */
@@ -8146,7 +8146,7 @@ export interface CanvasPolylineModel_ConstructProps extends CanvasItemModelSimpl
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -8170,7 +8170,7 @@ export class CanvasPolylineModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -8185,7 +8185,7 @@ export class CanvasPolylineModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -8194,7 +8194,7 @@ export class CanvasPolylineModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasPolylineModel */
@@ -8566,7 +8566,7 @@ export interface CanvasRect_ConstructProps extends CanvasItemSimple_ConstructPro
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -8585,7 +8585,7 @@ export class CanvasRect {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -8600,7 +8600,7 @@ export class CanvasRect {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -8609,7 +8609,7 @@ export class CanvasRect {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasRect */
@@ -9064,7 +9064,7 @@ export interface CanvasRectModel_ConstructProps extends CanvasItemModelSimple_Co
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -9083,7 +9083,7 @@ export class CanvasRectModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -9098,7 +9098,7 @@ export class CanvasRectModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -9107,7 +9107,7 @@ export class CanvasRectModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasRectModel */
@@ -9523,7 +9523,7 @@ export interface CanvasTable_ConstructProps extends CanvasGroup_ConstructProps {
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -9549,7 +9549,7 @@ export class CanvasTable {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -9564,7 +9564,7 @@ export class CanvasTable {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -9573,7 +9573,7 @@ export class CanvasTable {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasTable */
@@ -10063,7 +10063,7 @@ export interface CanvasTableModel_ConstructProps extends CanvasGroupModel_Constr
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -10089,7 +10089,7 @@ export class CanvasTableModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -10104,7 +10104,7 @@ export class CanvasTableModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -10113,7 +10113,7 @@ export class CanvasTableModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasTableModel */
@@ -10496,7 +10496,7 @@ export interface CanvasText_ConstructProps extends CanvasItemSimple_ConstructPro
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -10519,7 +10519,7 @@ export class CanvasText {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -10534,7 +10534,7 @@ export class CanvasText {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -10543,7 +10543,7 @@ export class CanvasText {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasText */
@@ -11025,7 +11025,7 @@ export interface CanvasTextModel_ConstructProps extends CanvasItemModelSimple_Co
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -11048,7 +11048,7 @@ export class CanvasTextModel {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -11063,7 +11063,7 @@ export class CanvasTextModel {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItemModel */
     canFocus: boolean
@@ -11072,7 +11072,7 @@ export class CanvasTextModel {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasTextModel */
@@ -11439,7 +11439,7 @@ export interface CanvasWidget_ConstructProps extends CanvasItemSimple_ConstructP
     pointerEvents?: CanvasPointerEvents
     title?: string
     tooltip?: string
-    transform?: CairoMatrix
+    transform?: any
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
@@ -11458,7 +11458,7 @@ export class CanvasWidget {
     fillColor: string
     fillColorGdkRgba: Gdk.RGBA
     fillColorRgba: number
-    fillPattern: CairoPattern
+    fillPattern: any
     fillPixbuf: GdkPixbuf.Pixbuf
     fillRule: CairoFillRule
     font: string
@@ -11473,7 +11473,7 @@ export class CanvasWidget {
     strokeColor: string
     strokeColorGdkRgba: Gdk.RGBA
     strokeColorRgba: number
-    strokePattern: CairoPattern
+    strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
     /* Properties of GooCanvas.CanvasItem */
     canFocus: boolean
@@ -11482,7 +11482,7 @@ export class CanvasWidget {
     pointerEvents: CanvasPointerEvents
     title: string
     tooltip: string
-    transform: CairoMatrix
+    transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
     /* Fields of GooCanvas.CanvasWidget */

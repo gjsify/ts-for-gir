@@ -295,7 +295,7 @@ export class Listeners {
     foreach(callback: ListenersForeach): void
     free(): void
     get_data(cnxn_id: number, listener_data_p: object | null, location_p: string): boolean
-    notify(all_above: string, callback: ListenersCallback): void
+    notify(all_above: string, callback: any): void
     remove(cnxn_id: number): void
     remove_if(predicate: ListenersPredicate): void
     static name: string

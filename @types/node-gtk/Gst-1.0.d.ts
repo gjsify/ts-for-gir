@@ -1034,7 +1034,7 @@ export function uriProtocolIsValid(protocol: string): boolean
 export function utilArrayBinarySearch(array: object | null, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData?: object | null): object | null
 export function utilDoubleToFraction(src: number): [ /* destN */ number, /* destD */ number ]
 export function utilDumpBuffer(buf: Buffer): void
-export function utilDumpMem(mem: any): void
+export function utilDumpMem(mem: any[]): void
 export function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): [ /* returnType */ boolean, /* resN */ number, /* resD */ number ]
 export function utilFractionCompare(aN: number, aD: number, bN: number, bD: number): number
 export function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): [ /* returnType */ boolean, /* resN */ number, /* resD */ number ]
@@ -1076,8 +1076,8 @@ export function valueGetFlagsetFlags(value: any): number
 export function valueGetFlagsetMask(value: any): number
 export function valueGetFractionDenominator(value: any): number
 export function valueGetFractionNumerator(value: any): number
-export function valueGetFractionRangeMax(value: any): any
-export function valueGetFractionRangeMin(value: any): any
+export function valueGetFractionRangeMax(value: any): any | null
+export function valueGetFractionRangeMin(value: any): any | null
 export function valueGetInt64RangeMax(value: any): number
 export function valueGetInt64RangeMin(value: any): number
 export function valueGetInt64RangeStep(value: any): number
@@ -1086,7 +1086,7 @@ export function valueGetIntRangeMin(value: any): number
 export function valueGetIntRangeStep(value: any): number
 export function valueGetStructure(value: any): Structure
 export function valueInitAndCopy(src: any): /* dest */ any
-export function valueIntersect(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any ]
+export function valueIntersect(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any | null ]
 export function valueIsFixed(value: any): boolean
 export function valueIsSubset(value1: any, value2: any): boolean
 export function valueRegister(table: ValueTable): void
@@ -1104,7 +1104,7 @@ export function valueSetInt64RangeStep(value: any, start: number, end: number, s
 export function valueSetIntRange(value: any, start: number, end: number): void
 export function valueSetIntRangeStep(value: any, start: number, end: number, step: number): void
 export function valueSetStructure(value: any, structure: Structure): void
-export function valueSubtract(minuend: any, subtrahend: any): [ /* returnType */ boolean, /* dest */ any ]
+export function valueSubtract(minuend: any, subtrahend: any): [ /* returnType */ boolean, /* dest */ any | null ]
 export function valueUnion(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any ]
 export function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
 export function versionString(): string
@@ -1479,11 +1479,11 @@ export class TagSetter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -1710,11 +1710,11 @@ export class TocSetter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -1844,15 +1844,6 @@ export class URIHandler {
     vfuncSetUri(uri: string): boolean
     static name: string
 }
-
-export interface Allocator_ConstructProps {}
-export interface BufferPool_ConstructProps {}
-export interface Element_ConstructProps {}
-export interface ControlSource_ConstructProps {}
-export interface Clock_ConstructProps {}
-export interface Pad_ConstructProps {}
-export interface ControlBinding_ConstructProps {}
-export interface Object_ConstructProps {}
 export interface Allocator_ConstructProps extends Object_ConstructProps {
 }
 export class Allocator {
@@ -1883,11 +1874,11 @@ export class Allocator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2115,11 +2106,11 @@ export class Bin {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2349,11 +2340,11 @@ export class BufferPool {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2500,11 +2491,11 @@ export class Bus {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2654,11 +2645,11 @@ export class Clock {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2797,8 +2788,8 @@ export class ControlBinding {
     /* Fields of GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst.ControlBinding */
-    getGValueArray(timestamp: ClockTime, interval: ClockTime, values: any): boolean
-    getValue(timestamp: ClockTime): any
+    getGValueArray(timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
+    getValue(timestamp: ClockTime): any | null
     isDisabled(): boolean
     setDisabled(disabled: boolean): void
     syncValues(object: Object, timestamp: ClockTime, lastSync: ClockTime): boolean
@@ -2807,11 +2798,11 @@ export class ControlBinding {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -2849,8 +2840,8 @@ export class ControlBinding {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gst.ControlBinding */
-    vfuncGetGValueArray(timestamp: ClockTime, interval: ClockTime, values: any): boolean
-    vfuncGetValue(timestamp: ClockTime): any
+    vfuncGetGValueArray(timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
+    vfuncGetValue(timestamp: ClockTime): any | null
     vfuncSyncValues(object: Object, timestamp: ClockTime, lastSync: ClockTime): boolean
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Object, pspec: GObject.ParamSpec): void
@@ -2921,7 +2912,7 @@ export class ControlSource {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
@@ -3037,11 +3028,11 @@ export class Device {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3164,11 +3155,11 @@ export class DeviceMonitor {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3292,11 +3283,11 @@ export class DeviceProvider {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3433,11 +3424,11 @@ export class DeviceProviderFactory {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3551,11 +3542,11 @@ export class DynamicTypeFactory {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3744,11 +3735,11 @@ export class Element {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -3921,11 +3912,11 @@ export class ElementFactory {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -4138,11 +4129,11 @@ export class GhostPad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -4290,11 +4281,11 @@ export class Object {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -4490,11 +4481,11 @@ export class Pad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -4645,11 +4636,11 @@ export class PadTemplate {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -4954,11 +4945,11 @@ export class Pipeline {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5204,11 +5195,11 @@ export class Plugin {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5321,11 +5312,11 @@ export class PluginFeature {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5523,11 +5514,11 @@ export class ProxyPad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5681,11 +5672,11 @@ export class Registry {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5812,11 +5803,11 @@ export class SharedTaskPool {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -5946,11 +5937,11 @@ export class Stream {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6080,11 +6071,11 @@ export class StreamCollection {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6234,11 +6225,11 @@ export class SystemClock {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6395,11 +6386,11 @@ export class Task {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6508,11 +6499,11 @@ export class TaskPool {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6623,11 +6614,11 @@ export class Tracer {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6743,11 +6734,11 @@ export class TracerFactory {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6849,11 +6840,11 @@ export class TracerRecord {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -6965,11 +6956,11 @@ export class TypeFindFactory {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): ControlBinding | null
     getControlRate(): ClockTime
-    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: ClockTime): any
+    getValue(propertyName: string, timestamp: ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Object): boolean
     hasAsAncestor(ancestor: Object): boolean
@@ -7149,9 +7140,9 @@ export class Buffer {
     copyDeep(): Buffer
     copyInto(src: Buffer, flags: BufferCopyFlags, offset: number, size: number): boolean
     copyRegion(flags: BufferCopyFlags, offset: number, size: number): Buffer
-    extract(offset: number): [ /* returnType */ number, /* dest */ any ]
-    extractDup(offset: number, size: number): /* dest */ any
-    fill(offset: number, src: any): number
+    extract(offset: number): [ /* returnType */ number, /* dest */ any[] ]
+    extractDup(offset: number, size: number): /* dest */ any[]
+    fill(offset: number, src: any[]): number
     findMemory(offset: number, size: number): [ /* returnType */ boolean, /* idx */ number, /* length */ number, /* skip */ number ]
     foreachMeta(func: BufferForeachMetaFunc): boolean
     getAllMemory(): Memory | null
@@ -7171,7 +7162,7 @@ export class Buffer {
     isMemoryRangeWritable(idx: number, length: number): boolean
     map(flags: MapFlags): [ /* returnType */ boolean, /* info */ MapInfo ]
     mapRange(idx: number, length: number, flags: MapFlags): [ /* returnType */ boolean, /* info */ MapInfo ]
-    memcmp(offset: number, mem: any): number
+    memcmp(offset: number, mem: any[]): number
     memset(offset: number, val: number, size: number): number
     nMemory(): number
     peekMemory(idx: number): Memory | null
@@ -7195,9 +7186,9 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(): Buffer
     static newAllocate(allocator: Allocator | null, size: number, params?: AllocationParams | null): Buffer
-    static newWrapped(data: any): Buffer
+    static newWrapped(data: any[]): Buffer
     static newWrappedBytes(bytes: any): Buffer
-    static newWrappedFull(flags: MemoryFlags, data: any, maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
+    static newWrappedFull(flags: MemoryFlags, data: any[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
     static getMaxMemory(): number
 }
 export class BufferList {
@@ -7383,8 +7374,8 @@ export abstract class ControlBindingClass {
     /* Fields of Gst.ControlBindingClass */
     parentClass: ObjectClass
     syncValues: (binding: ControlBinding, object: Object, timestamp: ClockTime, lastSync: ClockTime) => boolean
-    getValue: (binding: ControlBinding, timestamp: ClockTime) => any
-    getGValueArray: (binding: ControlBinding, timestamp: ClockTime, interval: ClockTime, values: any) => boolean
+    getValue: (binding: ControlBinding, timestamp: ClockTime) => any | null
+    getGValueArray: (binding: ControlBinding, timestamp: ClockTime, interval: ClockTime, values: any[]) => boolean
     static name: string
 }
 export class ControlBindingPrivate {
@@ -7656,7 +7647,7 @@ export class MapInfo {
     /* Fields of Gst.MapInfo */
     memory: Memory
     flags: MapFlags
-    data: any
+    data: any[]
     size: number
     maxsize: number
     userData: object[]
@@ -7683,7 +7674,7 @@ export class Memory {
     unmap(info: MapInfo): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static newWrapped(flags: MemoryFlags, data: any, maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Memory
+    static newWrapped(flags: MemoryFlags, data: any[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Memory
 }
 export class Message {
     /* Fields of Gst.Message */
@@ -7696,7 +7687,7 @@ export class Message {
     addRedirectEntry(location: string, tagList?: TagList | null, entryStruct?: Structure | null): void
     getNumRedirectEntries(): number
     getSeqnum(): number
-    getStreamStatusObject(): any
+    getStreamStatusObject(): any | null
     getStructure(): Structure | null
     hasName(name: string): boolean
     parseAsyncDone(): /* runningTime */ ClockTime | null
@@ -7717,7 +7708,7 @@ export class Message {
     parseInstantRateRequest(): /* rateMultiplier */ number | null
     parseNewClock(): /* clock */ Clock | null
     parseProgress(): [ /* type */ ProgressType | null, /* code */ string | null, /* text */ string | null ]
-    parsePropertyNotify(): [ /* object */ Object | null, /* propertyName */ string | null, /* propertyValue */ any ]
+    parsePropertyNotify(): [ /* object */ Object | null, /* propertyName */ string | null, /* propertyValue */ any | null ]
     parseQos(): [ /* live */ boolean | null, /* runningTime */ number | null, /* streamTime */ number | null, /* timestamp */ number | null, /* duration */ number | null ]
     parseQosStats(): [ /* format */ Format | null, /* processed */ number | null, /* dropped */ number | null ]
     parseQosValues(): [ /* jitter */ number | null, /* proportion */ number | null, /* quality */ number | null ]
@@ -7772,7 +7763,7 @@ export class Message {
     static newNeedContext(src: Object | null, contextType: string): Message
     static newNewClock(src: Object | null, clock: Clock): Message
     static newProgress(src: Object, type: ProgressType, code: string, text: string): Message
-    static newPropertyNotify(src: Object, propertyName: string, val?: any): Message
+    static newPropertyNotify(src: Object, propertyName: string, val?: any | null): Message
     static newQos(src: Object, live: boolean, runningTime: number, streamTime: number, timestamp: number, duration: number): Message
     static newRedirect(src: Object, location: string, tagList?: TagList | null, entryStruct?: Structure | null): Message
     static newRequestState(src: Object | null, state: State): Message
@@ -8271,11 +8262,11 @@ export class Structure {
     getString(fieldname: string): string | null
     getUint(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
     getUint64(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
-    getValue(fieldname: string): any
+    getValue(fieldname: string): any | null
     hasField(fieldname: string): boolean
     hasFieldTyped(fieldname: string, type: GObject.Type): boolean
     hasName(name: string): boolean
-    idGetValue(field: GLib.Quark): any
+    idGetValue(field: GLib.Quark): any | null
     idHasField(field: GLib.Quark): boolean
     idHasFieldTyped(field: GLib.Quark, type: GObject.Type): boolean
     idSetValue(field: GLib.Quark, value: any): void
@@ -8345,7 +8336,7 @@ export class TagList {
     getUint64(tag: string): [ /* returnType */ boolean, /* value */ number ]
     getUint64Index(tag: string, index: number): [ /* returnType */ boolean, /* value */ number ]
     getUintIndex(tag: string, index: number): [ /* returnType */ boolean, /* value */ number ]
-    getValueIndex(tag: string, index: number): any
+    getValueIndex(tag: string, index: number): any | null
     insert(from: TagList, mode: TagMergeMode): void
     isEmpty(): boolean
     isEqual(list2: TagList): boolean

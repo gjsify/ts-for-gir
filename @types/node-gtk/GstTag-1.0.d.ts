@@ -113,18 +113,18 @@ export function tagGetLicenseVersion(licenseRef: string): string
 export function tagGetLicenses(): string[]
 export function tagId3GenreCount(): number
 export function tagId3GenreGet(id: number): string
-export function tagImageDataToImageSample(imageData: any, imageType: TagImageType): Gst.Sample
-export function tagListAddId3Image(tagList: Gst.TagList, imageData: any, id3PictureType: number): boolean
+export function tagImageDataToImageSample(imageData: any[], imageType: TagImageType): Gst.Sample
+export function tagListAddId3Image(tagList: Gst.TagList, imageData: any[], id3PictureType: number): boolean
 export function tagListFromExifBuffer(buffer: Gst.Buffer, byteOrder: number, baseOffset: number): Gst.TagList
 export function tagListFromExifBufferWithTiffHeader(buffer: Gst.Buffer): Gst.TagList
 export function tagListFromId3v2Tag(buffer: Gst.Buffer): Gst.TagList
-export function tagListFromVorbiscomment(data: any, idData: any): [ /* returnType */ Gst.TagList, /* vendorString */ string | null ]
-export function tagListFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any): [ /* returnType */ Gst.TagList, /* vendorString */ string | null ]
+export function tagListFromVorbiscomment(data: any[], idData: any[]): [ /* returnType */ Gst.TagList, /* vendorString */ string | null ]
+export function tagListFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any[]): [ /* returnType */ Gst.TagList, /* vendorString */ string | null ]
 export function tagListFromXmpBuffer(buffer: Gst.Buffer): Gst.TagList
-export function tagListNewFromId3v1(data: any): Gst.TagList
+export function tagListNewFromId3v1(data: any[]): Gst.TagList
 export function tagListToExifBuffer(taglist: Gst.TagList, byteOrder: number, baseOffset: number): Gst.Buffer
 export function tagListToExifBufferWithTiffHeader(taglist: Gst.TagList): Gst.Buffer
-export function tagListToVorbiscommentBuffer(list: Gst.TagList, idData: any, vendorString?: string | null): Gst.Buffer
+export function tagListToVorbiscommentBuffer(list: Gst.TagList, idData: any[], vendorString?: string | null): Gst.Buffer
 export function tagListToXmpBuffer(list: Gst.TagList, readOnly: boolean, schemas: string[]): Gst.Buffer
 export function tagParseExtendedComment(extComment: string, failIfNoKey: boolean): [ /* returnType */ boolean, /* key */ string | null, /* lang */ string | null, /* value */ string ]
 export function tagRegisterMusicbrainzTags(): void
@@ -244,11 +244,11 @@ export class TagXmpWriter {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -473,11 +473,11 @@ export class TagDemux {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -706,11 +706,11 @@ export class TagMux {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean

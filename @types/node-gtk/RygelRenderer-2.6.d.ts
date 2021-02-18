@@ -5,9 +5,9 @@
 import "node"
 import type { RygelCore } from './RygelCore-2.6';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { GUPnP } from './GUPnP-1.2';
 import type { libxml2 } from './libxml2-2.0';
 import type { Soup } from './Soup-2.4';

@@ -35,13 +35,13 @@ export interface FileCallback {
     (file: File): boolean
 }
 export interface Cabinet_ConstructProps extends GObject.Object_ConstructProps {
-    reserved?: any
-    signature?: any
+    reserved?: any[]
+    signature?: any[]
 }
 export class Cabinet {
     /* Properties of GCab.Cabinet */
-    reserved: any
-    signature: any
+    reserved: any[]
+    signature: any[]
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCab.Cabinet */
@@ -49,7 +49,7 @@ export class Cabinet {
     extract(path?: Gio.File | null, fileCallback?: FileCallback | null, progressCallback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     extractSimple(path: Gio.File, fileCallback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
     getFolders(): Folder[]
-    getSignature(cancellable?: Gio.Cancellable | null): any
+    getSignature(cancellable?: Gio.Cancellable | null): any[]
     getSize(): number
     load(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     write(stream: Gio.OutputStream, fileCallback?: FileCallback | null, progressCallback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
@@ -209,12 +209,12 @@ export class File {
 }
 export interface Folder_ConstructProps extends GObject.Object_ConstructProps {
     comptype?: number
-    reserved?: any
+    reserved?: any[]
 }
 export class Folder {
     /* Properties of GCab.Folder */
     readonly compression: Compression
-    reserved: any
+    reserved: any[]
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCab.Folder */

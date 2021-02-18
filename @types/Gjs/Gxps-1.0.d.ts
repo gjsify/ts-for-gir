@@ -291,7 +291,7 @@ export class Page {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gxps.Page */
-    get_links(): GXPS.Link[]
+    get_links(): any[]
     get_size(): [ /* width */ number | null, /* height */ number | null ]
     render(cr: cairo.Context): boolean
     /* Methods of GObject.Object */

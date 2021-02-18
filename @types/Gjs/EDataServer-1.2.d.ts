@@ -1392,7 +1392,7 @@ export class SoupSession {
     get_ssl_error_details(): [ /* returnType */ boolean, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     new_request(method: string, uri_string: string): Soup.RequestHTTP
     new_request_uri(method: string, uri: Soup.URI): Soup.RequestHTTP
-    send_request_simple_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Uint8Array
+    send_request_simple_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Uint8Array[]
     send_request_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     set_credentials(credentials?: NamedParameters | null): void
     setup_logging(logging_level?: string | null): void
@@ -5091,20 +5091,20 @@ export class WebDAVSession {
     move_sync(source_uri: string, destination_uri: string, can_overwrite: boolean, cancellable?: Gio.Cancellable | null): boolean
     new_request(method: string, uri?: string | null): Soup.RequestHTTP
     options_sync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_capabilities */ GLib.HashTable, /* out_allows */ GLib.HashTable ]
-    post_sync(uri: string | null, data: string, data_length: number, out_content_type?: string | null, out_content?: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
-    post_with_content_type_sync(uri: string | null, data: string, data_length: number, in_content_type?: string | null, out_content_type?: string | null, out_content?: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
+    post_sync(uri: string | null, data: string, data_length: number, out_content_type?: string | null, out_content?: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
+    post_with_content_type_sync(uri: string | null, data: string, data_length: number, in_content_type?: string | null, out_content_type?: string | null, out_content?: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
     principal_property_search_sync(uri: string | null, apply_to_principal_collection_set: boolean, match_ns_uri: string | null, match_property: string, match_value: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_principals */ WebDAVResource[] ]
     propfind_sync(uri: string | null, depth: string, xml?: XmlDocument | null, cancellable?: Gio.Cancellable | null): boolean
     proppatch_sync(uri: string | null, xml: XmlDocument, cancellable?: Gio.Cancellable | null): boolean
     put_data_sync(uri: string, etag: string | null, content_type: string, bytes: string, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_href */ string | null, /* out_etag */ string | null ]
     put_sync(uri: string, etag: string | null, content_type: string, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_href */ string | null, /* out_etag */ string | null ]
     refresh_lock_sync(uri: string | null, lock_token: string, lock_timeout: number, cancellable?: Gio.Cancellable | null): boolean
-    replace_with_detailed_error(request: Soup.RequestHTTP, response_data: Uint8Array | null, ignore_multistatus: boolean, prefix?: string | null): boolean
-    report_sync(uri: string | null, depth: string | null, xml: XmlDocument, out_content_type?: string | null, out_content?: Uint8Array | null, cancellable?: Gio.Cancellable | null): boolean
+    replace_with_detailed_error(request: Soup.RequestHTTP, response_data: Uint8Array[] | null, ignore_multistatus: boolean, prefix?: string | null): boolean
+    report_sync(uri: string | null, depth: string | null, xml: XmlDocument, out_content_type?: string | null, out_content?: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): boolean
     set_acl_sync(uri: string | null, entries: WebDAVAccessControlEntry[], cancellable?: Gio.Cancellable | null): boolean
-    traverse_mkcalendar_response(message: Soup.Message | null, xml_data: Uint8Array): boolean
-    traverse_mkcol_response(message: Soup.Message | null, xml_data: Uint8Array): boolean
-    traverse_multistatus_response(message: Soup.Message | null, xml_data: Uint8Array): boolean
+    traverse_mkcalendar_response(message: Soup.Message | null, xml_data: Uint8Array[]): boolean
+    traverse_mkcol_response(message: Soup.Message | null, xml_data: Uint8Array[]): boolean
+    traverse_multistatus_response(message: Soup.Message | null, xml_data: Uint8Array[]): boolean
     unlock_sync(uri: string | null, lock_token: string, cancellable?: Gio.Cancellable | null): boolean
     update_properties_sync(uri: string | null, changes: WebDAVPropertyChange[], cancellable?: Gio.Cancellable | null): boolean
     /* Methods of EDataServer.SoupSession */
@@ -5116,7 +5116,7 @@ export class WebDAVSession {
     get_ssl_error_details(): [ /* returnType */ boolean, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     new_request(method: string, uri_string: string): Soup.RequestHTTP
     new_request_uri(method: string, uri: Soup.URI): Soup.RequestHTTP
-    send_request_simple_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Uint8Array
+    send_request_simple_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Uint8Array[]
     send_request_sync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     set_credentials(credentials?: NamedParameters | null): void
     setup_logging(logging_level?: string | null): void

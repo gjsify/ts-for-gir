@@ -90,16 +90,16 @@ export function codec_list_copy(codec_list: Codec[]): Codec[]
 export function codec_list_from_keyfile(filename: string): Codec[]
 export function error_quark(): GLib.Quark
 export function media_type_to_string(media_type: MediaType): string
-export function parse_error(object: GObject.Object, message: Gst.Message): [ /* returnType */ boolean, /* error */ Error, /* error_msg */ string ]
-export function rtp_header_extension_list_copy(extensions: RtpHeaderExtension[]): RtpHeaderExtension[]
-export function rtp_header_extension_list_from_keyfile(filename: string, media_type: MediaType): RtpHeaderExtension[]
-export function utils_get_default_codec_preferences(element: Gst.Element): Codec[]
-export function utils_get_default_element_properties(element: Gst.Element): GLib.KeyFile
-export function utils_get_default_rtp_header_extension_preferences(element: Gst.Element, media_type: MediaType): Codec[]
-export function utils_set_bitrate(element: Gst.Element, bitrate: number): void
+export function parse_error(object: GObject.Object, message: any): [ /* returnType */ boolean, /* error */ Error, /* error_msg */ string ]
+export function rtp_header_extension_list_copy(extensions: any[]): any[]
+export function rtp_header_extension_list_from_keyfile(filename: string, media_type: MediaType): any[]
+export function utils_get_default_codec_preferences(element: any): Codec[]
+export function utils_get_default_element_properties(element: any): GLib.KeyFile
+export function utils_get_default_rtp_header_extension_preferences(element: any, media_type: MediaType): Codec[]
+export function utils_set_bitrate(element: any, bitrate: number): void
 export class Conference {
     /* Fields of Farstream.Conference */
-    parent: Gst.Bin
+    parent: any
     /* Methods of Farstream.Conference */
     new_participant(): Participant
     new_session(media_type: MediaType): Session
@@ -116,9 +116,9 @@ export class ElementAddedNotifier {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.ElementAddedNotifier */
-    add(bin: Gst.Bin): void
-    remove(bin: Gst.Bin): boolean
-    set_default_properties(element: Gst.Element): void
+    add(bin: any): void
+    remove(bin: any): boolean
+    set_default_properties(element: any): void
     set_properties_from_file(filename: string): boolean
     set_properties_from_keyfile(keyfile: GLib.KeyFile): void
     /* Methods of GObject.Object */
@@ -152,9 +152,9 @@ export class ElementAddedNotifier {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Farstream.ElementAddedNotifier */
-    connect(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: Gst.Bin, element: Gst.Element) => void)): number
-    connect_after(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: Gst.Bin, element: Gst.Element) => void)): number
-    emit(sigName: "element-added", bin: Gst.Bin, element: Gst.Element): void
+    connect(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: any, element: any) => void)): number
+    connect_after(sigName: "element-added", callback: (($obj: ElementAddedNotifier, bin: any, element: any) => void)): number
+    emit(sigName: "element-added", bin: any, element: any): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: ElementAddedNotifier, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementAddedNotifier, pspec: GObject.ParamSpec) => void)): number
@@ -174,7 +174,7 @@ export interface Participant_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class Participant {
     /* Fields of Farstream.Participant */
-    parent: Gst.Object
+    parent: any
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -305,10 +305,10 @@ export class Session {
     readonly codecs: Codec[]
     readonly codecs_without_config: Codec[]
     readonly current_send_codec: Codec
-    readonly sink_pad: Gst.Pad
+    readonly sink_pad: any
     tos: number
     /* Fields of Farstream.Session */
-    parent: Gst.Object
+    parent: any
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Session */
@@ -318,10 +318,10 @@ export class Session {
     get_stream_transmitter_type(transmitter: string): GObject.Type
     list_transmitters(): string[]
     new_stream(participant: Participant, direction: StreamDirection): Stream
-    parse_codecs_changed(message: Gst.Message): boolean
-    parse_send_codec_changed(message: Gst.Message): [ /* returnType */ boolean, /* codec */ Codec, /* secondary_codecs */ Codec[] ]
-    parse_telephony_event_started(message: Gst.Message): [ /* returnType */ boolean, /* method */ DTMFMethod, /* event */ DTMFEvent, /* volume */ number ]
-    parse_telephony_event_stopped(message: Gst.Message): [ /* returnType */ boolean, /* method */ DTMFMethod ]
+    parse_codecs_changed(message: any): boolean
+    parse_send_codec_changed(message: any): [ /* returnType */ boolean, /* codec */ Codec, /* secondary_codecs */ Codec[] ]
+    parse_telephony_event_started(message: any): [ /* returnType */ boolean, /* method */ DTMFMethod, /* event */ DTMFEvent, /* volume */ number ]
+    parse_telephony_event_stopped(message: any): [ /* returnType */ boolean, /* method */ DTMFMethod ]
     set_codec_preferences(codec_preferences: Codec[]): boolean
     set_send_codec(send_codec: Codec): boolean
     start_telephony_event(event: number, volume: number): boolean
@@ -406,7 +406,7 @@ export class Stream {
     readonly negotiated_codecs: Codec[]
     readonly remote_codecs: Codec[]
     /* Fields of Farstream.Stream */
-    parent: Gst.Object
+    parent: any
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Stream */
@@ -414,13 +414,13 @@ export class Stream {
     add_remote_candidates(candidates: Candidate[]): boolean
     destroy(): void
     emit_error(error_no: number, error_msg: string): void
-    emit_src_pad_added(pad: Gst.Pad, codec: Codec): void
+    emit_src_pad_added(pad: any, codec: Codec): void
     force_remote_candidates(remote_candidates: Candidate[]): boolean
-    parse_component_state_changed(message: Gst.Message): [ /* returnType */ boolean, /* component */ number, /* state */ StreamState ]
-    parse_local_candidates_prepared(message: Gst.Message): boolean
-    parse_new_active_candidate_pair(message: Gst.Message): [ /* returnType */ boolean, /* local_candidate */ Candidate, /* remote_candidate */ Candidate ]
-    parse_new_local_candidate(message: Gst.Message): [ /* returnType */ boolean, /* candidate */ Candidate ]
-    parse_recv_codecs_changed(message: Gst.Message): [ /* returnType */ boolean, /* codecs */ Codec[] ]
+    parse_component_state_changed(message: any): [ /* returnType */ boolean, /* component */ number, /* state */ StreamState ]
+    parse_local_candidates_prepared(message: any): boolean
+    parse_new_active_candidate_pair(message: any): [ /* returnType */ boolean, /* local_candidate */ Candidate, /* remote_candidate */ Candidate ]
+    parse_new_local_candidate(message: any): [ /* returnType */ boolean, /* candidate */ Candidate ]
+    parse_recv_codecs_changed(message: any): [ /* returnType */ boolean, /* codecs */ Codec[] ]
     set_remote_codecs(remote_codecs: Codec[]): boolean
     set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
     /* Methods of GObject.Object */
@@ -463,9 +463,9 @@ export class Stream {
     connect(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Stream, errorno: Error, error_msg: string) => void)): number
     emit(sigName: "error", errorno: Error, error_msg: string): void
-    connect(sigName: "src-pad-added", callback: (($obj: Stream, pad: Gst.Pad, codec: Codec) => void)): number
-    connect_after(sigName: "src-pad-added", callback: (($obj: Stream, pad: Gst.Pad, codec: Codec) => void)): number
-    emit(sigName: "src-pad-added", pad: Gst.Pad, codec: Codec): void
+    connect(sigName: "src-pad-added", callback: (($obj: Stream, pad: any, codec: Codec) => void)): number
+    connect_after(sigName: "src-pad-added", callback: (($obj: Stream, pad: any, codec: Codec) => void)): number
+    emit(sigName: "src-pad-added", pad: any, codec: Codec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Stream, pspec: GObject.ParamSpec) => void)): number
@@ -489,14 +489,14 @@ export class Stream {
 }
 export interface StreamTransmitter_ConstructProps extends Gst.Object_ConstructProps {
     associate_on_source?: boolean
-    preferred_local_candidates?: CandidateList
+    preferred_local_candidates?: any
     sending?: boolean
 }
 export class StreamTransmitter {
     /* Properties of Farstream.StreamTransmitter */
     sending: boolean
     /* Fields of Farstream.StreamTransmitter */
-    parent: Gst.Object
+    parent: any
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.StreamTransmitter */
@@ -580,16 +580,16 @@ export interface Transmitter_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class Transmitter {
     /* Properties of Farstream.Transmitter */
-    readonly gst_sink: Gst.Element
-    readonly gst_src: Gst.Element
+    readonly gst_sink: any
+    readonly gst_src: any
     tos: number
     /* Fields of Farstream.Transmitter */
-    parent: Gst.Object
+    parent: any
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream.Transmitter */
     emit_error(error_no: number, error_msg: string): void
-    get_recvonly_filter(component: number): Gst.Element
+    get_recvonly_filter(component: number): any
     get_stream_transmitter_type(): GObject.Type
     new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
     /* Methods of GObject.Object */
@@ -629,8 +629,8 @@ export class Transmitter {
     connect(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
     connect_after(sigName: "error", callback: (($obj: Transmitter, errorno: Error, error_msg: string) => void)): number
     emit(sigName: "error", errorno: Error, error_msg: string): void
-    connect(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => Gst.Element)): number
-    connect_after(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => Gst.Element)): number
+    connect(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => any)): number
+    connect_after(sigName: "get-recvonly-filter", callback: (($obj: Transmitter, component: number) => any)): number
     emit(sigName: "get-recvonly-filter", component: number): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transmitter, pspec: GObject.ParamSpec) => void)): number
@@ -715,7 +715,7 @@ export class CodecParameter {
 }
 export abstract class ConferenceClass {
     /* Fields of Farstream.ConferenceClass */
-    parent: Gst.BinClass
+    parent: any
     new_session: (conference: Conference, media_type: MediaType) => Session
     new_participant: (conference: Conference) => Participant
     static name: string
@@ -740,7 +740,7 @@ export class FeedbackParameter {
 }
 export abstract class ParticipantClass {
     /* Fields of Farstream.ParticipantClass */
-    parent_class: Gst.ObjectClass
+    parent_class: any
     static name: string
 }
 export class ParticipantPrivate {
@@ -756,7 +756,7 @@ export class PluginPrivate {
 }
 export abstract class SessionClass {
     /* Fields of Farstream.SessionClass */
-    parent_class: Gst.ObjectClass
+    parent_class: any
     new_stream: (session: Session, participant: Participant, direction: StreamDirection) => Stream
     start_telephony_event: (session: Session, event: number, volume: number) => boolean
     stop_telephony_event: (session: Session) => boolean
@@ -772,7 +772,7 @@ export class SessionPrivate {
 }
 export abstract class StreamClass {
     /* Fields of Farstream.StreamClass */
-    parent_class: Gst.ObjectClass
+    parent_class: any
     add_remote_candidates: (stream: Stream, candidates: Candidate[]) => boolean
     force_remote_candidates: (stream: Stream, remote_candidates: Candidate[]) => boolean
     set_remote_codecs: (stream: Stream, remote_codecs: Codec[]) => boolean
@@ -785,7 +785,7 @@ export class StreamPrivate {
 }
 export abstract class StreamTransmitterClass {
     /* Fields of Farstream.StreamTransmitterClass */
-    parent_class: Gst.ObjectClass
+    parent_class: any
     add_remote_candidates: (streamtransmitter: StreamTransmitter, candidates: Candidate[]) => boolean
     force_remote_candidates: (streamtransmitter: StreamTransmitter, remote_candidates: Candidate[]) => boolean
     gather_local_candidates: (streamtransmitter: StreamTransmitter) => boolean
@@ -797,7 +797,7 @@ export class StreamTransmitterPrivate {
 }
 export abstract class TransmitterClass {
     /* Fields of Farstream.TransmitterClass */
-    parent_class: Gst.ObjectClass
+    parent_class: any
     new_stream_transmitter: (transmitter: Transmitter, participant: Participant, n_parameters: number, parameters: GObject.Parameter) => StreamTransmitter
     get_stream_transmitter_type: (transmitter: Transmitter) => GObject.Type
     static name: string

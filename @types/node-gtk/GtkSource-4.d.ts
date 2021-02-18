@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -309,7 +309,7 @@ export class Buffer {
     deleteMark(mark: Gtk.TextMark): void
     deleteMarkByName(name: string): void
     deleteSelection(interactive: boolean, defaultEditable: boolean): boolean
-    deserialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: any): boolean
+    deserialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: any[]): boolean
     deserializeGetCanCreateTags(format: Gdk.Atom): boolean
     deserializeSetCanCreateTags(format: Gdk.Atom, canCreateTags: boolean): void
     endUserAction(): void
@@ -359,7 +359,7 @@ export class Buffer {
     removeTag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     removeTagByName(name: string, start: Gtk.TextIter, end: Gtk.TextIter): void
     selectRange(ins: Gtk.TextIter, bound: Gtk.TextIter): void
-    serialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): any
+    serialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): any[]
     setModified(setting: boolean): void
     setText(text: string, len: number): void
     unregisterDeserializeFormat(format: Gdk.Atom): void
@@ -1274,7 +1274,7 @@ export class CompletionInfo {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -4231,7 +4231,7 @@ export class Map {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -6722,7 +6722,7 @@ export class StyleSchemeChooserButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -8021,7 +8021,7 @@ export class StyleSchemeChooserWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -9964,7 +9964,7 @@ export class View {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

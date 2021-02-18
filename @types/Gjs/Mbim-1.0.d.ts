@@ -948,7 +948,7 @@ export class EventEntry {
 }
 export class IPv4 {
     /* Fields of Mbim.IPv4 */
-    addr: Uint8Array
+    addr: Uint8Array[]
     static name: string
 }
 export class IPv4Element {
@@ -961,7 +961,7 @@ export class IPv4Element {
 }
 export class IPv6 {
     /* Fields of Mbim.IPv6 */
-    addr: Uint8Array
+    addr: Uint8Array[]
     static name: string
 }
 export class IPv6Element {
@@ -1006,8 +1006,8 @@ export class Message {
     atds_rat_response_parse(): [ /* returnType */ boolean, /* out_mode */ AtdsRatMode | null ]
     atds_register_state_response_parse(): [ /* returnType */ boolean, /* out_nw_error */ NwError | null, /* out_register_state */ RegisterState | null, /* out_register_mode */ RegisterMode | null, /* out_available_data_classes */ DataClass | null, /* out_current_cellular_class */ CellularClass | null, /* out_provider_id */ string | null, /* out_provider_name */ string | null, /* out_roaming_text */ string | null, /* out_registration_flag */ RegistrationFlag | null ]
     atds_signal_response_parse(): [ /* returnType */ boolean, /* out_rssi */ number | null, /* out_error_rate */ number | null, /* out_rscp */ number | null, /* out_ecno */ number | null, /* out_rsrq */ number | null, /* out_rsrp */ number | null, /* out_rssnr */ number | null ]
-    auth_aka_response_parse(): [ /* returnType */ boolean, /* out_res */ Uint8Array | null, /* out_res_len */ number | null, /* out_integrating_key */ Uint8Array | null, /* out_ciphering_key */ Uint8Array | null, /* out_auts */ Uint8Array | null ]
-    auth_akap_response_parse(): [ /* returnType */ boolean, /* out_res */ Uint8Array | null, /* out_res_len */ number | null, /* out_integrating_key */ Uint8Array | null, /* out_ciphering_key */ Uint8Array | null, /* out_auts */ Uint8Array | null ]
+    auth_aka_response_parse(): [ /* returnType */ boolean, /* out_res */ Uint8Array[] | null, /* out_res_len */ number | null, /* out_integrating_key */ Uint8Array[] | null, /* out_ciphering_key */ Uint8Array[] | null, /* out_auts */ Uint8Array[] | null ]
+    auth_akap_response_parse(): [ /* returnType */ boolean, /* out_res */ Uint8Array[] | null, /* out_res_len */ number | null, /* out_integrating_key */ Uint8Array[] | null, /* out_ciphering_key */ Uint8Array[] | null, /* out_auts */ Uint8Array[] | null ]
     auth_sim_response_parse(): [ /* returnType */ boolean, /* out_sres1 */ number | null, /* out_kc1 */ number | null, /* out_sres2 */ number | null, /* out_kc2 */ number | null, /* out_sres3 */ number | null, /* out_kc3 */ number | null, /* out_n */ number | null ]
     close_done_get_result(): boolean
     close_done_get_status_code(): StatusError
@@ -1079,15 +1079,15 @@ export class Message {
     provisioned_contexts_notification_parse(): [ /* returnType */ boolean, /* out_provisioned_contexts_count */ number | null, /* out_provisioned_contexts */ ProvisionedContextElement[] | null ]
     provisioned_contexts_response_parse(): [ /* returnType */ boolean, /* out_provisioned_contexts_count */ number | null, /* out_provisioned_contexts */ ProvisionedContextElement[] | null ]
     proxy_control_configuration_response_parse(): boolean
-    qmi_msg_notification_parse(): [ /* returnType */ boolean, /* out_qmux */ Uint8Array | null ]
-    qmi_msg_response_parse(): [ /* returnType */ boolean, /* out_qmux */ Uint8Array | null ]
+    qmi_msg_notification_parse(): [ /* returnType */ boolean, /* out_qmux */ Uint8Array[] | null ]
+    qmi_msg_response_parse(): [ /* returnType */ boolean, /* out_qmux */ Uint8Array[] | null ]
     radio_state_notification_parse(): [ /* returnType */ boolean, /* out_hw_radio_state */ RadioSwitchState | null, /* out_sw_radio_state */ RadioSwitchState | null ]
     radio_state_response_parse(): [ /* returnType */ boolean, /* out_hw_radio_state */ RadioSwitchState | null, /* out_sw_radio_state */ RadioSwitchState | null ]
     ref(): Message
     register_state_notification_parse(): [ /* returnType */ boolean, /* out_nw_error */ NwError | null, /* out_register_state */ RegisterState | null, /* out_register_mode */ RegisterMode | null, /* out_available_data_classes */ DataClass | null, /* out_current_cellular_class */ CellularClass | null, /* out_provider_id */ string | null, /* out_provider_name */ string | null, /* out_roaming_text */ string | null, /* out_registration_flag */ RegistrationFlag | null ]
     register_state_response_parse(): [ /* returnType */ boolean, /* out_nw_error */ NwError | null, /* out_register_state */ RegisterState | null, /* out_register_mode */ RegisterMode | null, /* out_available_data_classes */ DataClass | null, /* out_current_cellular_class */ CellularClass | null, /* out_provider_id */ string | null, /* out_provider_name */ string | null, /* out_roaming_text */ string | null, /* out_registration_flag */ RegistrationFlag | null ]
     response_get_result(expected: MessageType): boolean
-    service_activation_response_parse(): [ /* returnType */ boolean, /* out_nw_error */ NwError | null, /* out_buffer */ Uint8Array | null ]
+    service_activation_response_parse(): [ /* returnType */ boolean, /* out_nw_error */ NwError | null, /* out_buffer */ Uint8Array[] | null ]
     set_transaction_id(transaction_id: number): void
     signal_state_notification_parse(): [ /* returnType */ boolean, /* out_rssi */ number | null, /* out_error_rate */ number | null, /* out_signal_strength_interval */ number | null, /* out_rssi_threshold */ number | null, /* out_error_rate_threshold */ number | null ]
     signal_state_response_parse(): [ /* returnType */ boolean, /* out_rssi */ number | null, /* out_error_rate */ number | null, /* out_signal_strength_interval */ number | null, /* out_rssi_threshold */ number | null, /* out_error_rate_threshold */ number | null ]
@@ -1098,15 +1098,15 @@ export class Message {
     sms_read_notification_parse(): [ /* returnType */ boolean, /* out_format */ SmsFormat | null, /* out_messages_count */ number | null, /* out_pdu_messages */ SmsPduReadRecord[] | null, /* out_cdma_messages */ SmsCdmaReadRecord[] | null ]
     sms_read_response_parse(): [ /* returnType */ boolean, /* out_format */ SmsFormat | null, /* out_messages_count */ number | null, /* out_pdu_messages */ SmsPduReadRecord[] | null, /* out_cdma_messages */ SmsCdmaReadRecord[] | null ]
     sms_send_response_parse(): [ /* returnType */ boolean, /* out_message_reference */ number | null ]
-    stk_envelope_response_parse(): [ /* returnType */ boolean, /* out_envelope_support */ Uint8Array | null ]
-    stk_pac_notification_parse(): [ /* returnType */ boolean, /* out_pac_type */ StkPacType | null, /* out_data_buffer */ Uint8Array | null ]
-    stk_pac_response_parse(): [ /* returnType */ boolean, /* out_pac_support */ Uint8Array | null ]
-    stk_terminal_response_response_parse(): [ /* returnType */ boolean, /* out_result_data */ Uint8Array | null, /* out_status_words */ number | null ]
+    stk_envelope_response_parse(): [ /* returnType */ boolean, /* out_envelope_support */ Uint8Array[] | null ]
+    stk_pac_notification_parse(): [ /* returnType */ boolean, /* out_pac_type */ StkPacType | null, /* out_data_buffer */ Uint8Array[] | null ]
+    stk_pac_response_parse(): [ /* returnType */ boolean, /* out_pac_support */ Uint8Array[] | null ]
+    stk_terminal_response_response_parse(): [ /* returnType */ boolean, /* out_result_data */ Uint8Array[] | null, /* out_status_words */ number | null ]
     subscriber_ready_status_notification_parse(): [ /* returnType */ boolean, /* out_ready_state */ SubscriberReadyState | null, /* out_subscriber_id */ string | null, /* out_sim_icc_id */ string | null, /* out_ready_info */ ReadyInfoFlag | null, /* out_telephone_numbers_count */ number | null, /* out_telephone_numbers */ string[] | null ]
     subscriber_ready_status_response_parse(): [ /* returnType */ boolean, /* out_ready_state */ SubscriberReadyState | null, /* out_subscriber_id */ string | null, /* out_sim_icc_id */ string | null, /* out_ready_info */ ReadyInfoFlag | null, /* out_telephone_numbers_count */ number | null, /* out_telephone_numbers */ string[] | null ]
     unref(): void
-    ussd_notification_parse(): [ /* returnType */ boolean, /* out_response */ UssdResponse | null, /* out_session_state */ UssdSessionState | null, /* out_data_coding_scheme */ number | null, /* out_payload */ Uint8Array | null ]
-    ussd_response_parse(): [ /* returnType */ boolean, /* out_response */ UssdResponse | null, /* out_session_state */ UssdSessionState | null, /* out_data_coding_scheme */ number | null, /* out_payload */ Uint8Array | null ]
+    ussd_notification_parse(): [ /* returnType */ boolean, /* out_response */ UssdResponse | null, /* out_session_state */ UssdSessionState | null, /* out_data_coding_scheme */ number | null, /* out_payload */ Uint8Array[] | null ]
+    ussd_response_parse(): [ /* returnType */ boolean, /* out_response */ UssdResponse | null, /* out_session_state */ UssdSessionState | null, /* out_data_coding_scheme */ number | null, /* out_payload */ Uint8Array[] | null ]
     visible_providers_response_parse(): [ /* returnType */ boolean, /* out_providers_count */ number | null, /* out_providers */ Provider[] | null ]
     static name: string
     static new(data: number, data_length: number): Message
@@ -1118,9 +1118,9 @@ export class Message {
     static atds_rat_set_new(mode: AtdsRatMode): Message
     static atds_register_state_query_new(): Message
     static atds_signal_query_new(): Message
-    static auth_aka_query_new(rand: Uint8Array, autn: Uint8Array): Message
-    static auth_akap_query_new(rand: Uint8Array, autn: Uint8Array, network_name: string): Message
-    static auth_sim_query_new(rand1: Uint8Array, rand2: Uint8Array, rand3: Uint8Array, n: number): Message
+    static auth_aka_query_new(rand: Uint8Array[], autn: Uint8Array[]): Message
+    static auth_akap_query_new(rand: Uint8Array[], autn: Uint8Array[], network_name: string): Message
+    static auth_sim_query_new(rand1: Uint8Array[], rand2: Uint8Array[], rand3: Uint8Array[], n: number): Message
     static close_done_new(transaction_id: number, error_status_code: StatusError): Message
     static close_new(transaction_id: number): Message
     static command_new(transaction_id: number, service: Service, cid: number, command_type: MessageCommandType): Message
@@ -1173,12 +1173,12 @@ export class Message {
     static provisioned_contexts_query_new(): Message
     static provisioned_contexts_set_new(context_id: number, context_type: Uuid, access_string: string, user_name: string, password: string, compression: Compression, auth_protocol: AuthProtocol, provider_id: string): Message
     static proxy_control_configuration_set_new(device_path: string, timeout: number): Message
-    static qmi_msg_set_new(qmi_msg: Uint8Array): Message
+    static qmi_msg_set_new(qmi_msg: Uint8Array[]): Message
     static radio_state_query_new(): Message
     static radio_state_set_new(radio_state: RadioSwitchState): Message
     static register_state_query_new(): Message
     static register_state_set_new(provider_id: string, register_action: RegisterAction, data_class: DataClass): Message
-    static service_activation_set_new(buffer: Uint8Array): Message
+    static service_activation_set_new(buffer: Uint8Array[]): Message
     static signal_state_query_new(): Message
     static signal_state_set_new(signal_strength_interval: number, rssi_threshold: number, error_rate_threshold: number): Message
     static sms_configuration_query_new(): Message
@@ -1188,12 +1188,12 @@ export class Message {
     static sms_read_query_new(format: SmsFormat, flag: SmsFlag, message_index: number): Message
     static sms_send_set_new(format: SmsFormat, pdu_message: SmsPduSendRecord, cdma_message: SmsCdmaSendRecord): Message
     static stk_envelope_query_new(): Message
-    static stk_envelope_set_new(data: Uint8Array): Message
+    static stk_envelope_set_new(data: Uint8Array[]): Message
     static stk_pac_query_new(): Message
-    static stk_pac_set_new(pac_host_control: Uint8Array): Message
-    static stk_terminal_response_set_new(response: Uint8Array): Message
+    static stk_pac_set_new(pac_host_control: Uint8Array[]): Message
+    static stk_terminal_response_set_new(response: Uint8Array[]): Message
     static subscriber_ready_status_query_new(): Message
-    static ussd_set_new(action: UssdAction, data_coding_scheme: number, payload: Uint8Array): Message
+    static ussd_set_new(action: UssdAction, data_coding_scheme: number, payload: Uint8Array[]): Message
     static visible_providers_query_new(action: VisibleProvidersAction): Message
 }
 export class PacketFilter {
@@ -1324,11 +1324,11 @@ export class SmsPduSendRecord {
 }
 export class Uuid {
     /* Fields of Mbim.Uuid */
-    a: Uint8Array
-    b: Uint8Array
-    c: Uint8Array
-    d: Uint8Array
-    e: Uint8Array
+    a: Uint8Array[]
+    b: Uint8Array[]
+    c: Uint8Array[]
+    d: Uint8Array[]
+    e: Uint8Array[]
     /* Methods of Mbim.Uuid */
     cmp(b: Uuid): boolean
     get_printable(): string

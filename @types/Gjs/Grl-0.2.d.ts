@@ -398,7 +398,7 @@ export class Data {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -564,7 +564,7 @@ export class Media {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -764,7 +764,7 @@ export class MediaAudio {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -933,7 +933,7 @@ export class MediaBox {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -1119,7 +1119,7 @@ export class MediaImage {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -1319,7 +1319,7 @@ export class MediaVideo {
     get_int64(key: KeyID): number
     get_keys(): KeyID[]
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: KeyID): string
     has_key(key: KeyID): boolean
@@ -1393,7 +1393,7 @@ export class OperationOptions {
     get_flags(): ResolutionFlags
     get_key_filter(key: KeyID): any
     get_key_filter_list(): KeyID[]
-    get_key_range_filter(key: KeyID): [ /* min_value */ any, /* max_value */ any ]
+    get_key_range_filter(key: KeyID): [ /* min_value */ any | null, /* max_value */ any | null ]
     get_key_range_filter_list(): KeyID[]
     get_resolution_flags(): ResolutionFlags
     get_skip(): number
@@ -1404,7 +1404,7 @@ export class OperationOptions {
     set_flags(flags: ResolutionFlags): boolean
     set_key_filters(filters: GLib.HashTable): boolean
     set_key_filter_value(key: KeyID, value: any): boolean
-    set_key_range_filter_value(key: KeyID, min_value?: any, max_value?: any): boolean
+    set_key_range_filter_value(key: KeyID, min_value?: any | null, max_value?: any | null): boolean
     set_resolution_flags(flags: ResolutionFlags): boolean
     set_skip(skip: number): boolean
     set_type_filter(filter: TypeFilter): boolean

@@ -894,7 +894,7 @@ export function utilsFileSearchInPaths(progname: string, tryFirst: string | null
 export function utilsGvalueHashDup(hash: GLib.HashTable): GLib.HashTable
 export function utilsHex2byte(hex: string): number
 export function utilsHexstr2bin(hex: string, len: number): string
-export function utilsHwaddrAtoba(asc: string, type: number): any
+export function utilsHwaddrAtoba(asc: string, type: number): any[]
 export function utilsHwaddrAton(asc: string, type: number, buffer?: object | null): number
 export function utilsHwaddrAtonLen(asc: string, buffer: object | null, length: number): number
 export function utilsHwaddrLen(type: number): number
@@ -917,11 +917,11 @@ export function utilsIp6RoutesFromGvalue(value: any): IP6Route[]
 export function utilsIp6RoutesToGvalue(list: IP6Route[], value: any): void
 export function utilsIsEmptySsid(ssid: number, len: number): boolean
 export function utilsIsUuid(str: string): boolean
-export function utilsRsaKeyEncrypt(data: any, inPassword?: string | null): [ /* returnType */ any, /* outPassword */ string | null ]
-export function utilsRsaKeyEncryptAes(data: any, inPassword?: string | null): [ /* returnType */ any, /* outPassword */ string | null ]
-export function utilsSameSsid(ssid1: any, ssid2: any, ignoreTrailingNull: boolean): boolean
+export function utilsRsaKeyEncrypt(data: any[], inPassword?: string | null): [ /* returnType */ any[], /* outPassword */ string | null ]
+export function utilsRsaKeyEncryptAes(data: any[], inPassword?: string | null): [ /* returnType */ any[], /* outPassword */ string | null ]
+export function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
 export function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
-export function utilsSsidToUtf8(ssid: any): string
+export function utilsSsidToUtf8(ssid: any[]): string
 export function utilsUuidGenerate(): string
 export function utilsUuidGenerateFromString(s: string): string
 export function utilsWepKeyValid(key: string, wepType: WepKeyType): boolean
@@ -1239,11 +1239,11 @@ export class Setting8021x {
     clearPhase2AltsubjectMatches(): void
     getAltsubjectMatch(i: number): string
     getAnonymousIdentity(): string
-    getCaCertBlob(): any
+    getCaCertBlob(): any[]
     getCaCertPath(): string
     getCaCertScheme(): Setting8021xCKScheme
     getCaPath(): string
-    getClientCertBlob(): any
+    getClientCertBlob(): any[]
     getClientCertPath(): string
     getClientCertScheme(): Setting8021xCKScheme
     getEapMethod(i: number): string
@@ -1254,7 +1254,7 @@ export class Setting8021x {
     getPacFile(): string
     getPassword(): string
     getPasswordFlags(): SettingSecretFlags
-    getPasswordRaw(): any
+    getPasswordRaw(): any[]
     getPasswordRawFlags(): SettingSecretFlags
     getPhase1FastProvisioning(): string
     getPhase1Peaplabel(): string
@@ -1262,14 +1262,14 @@ export class Setting8021x {
     getPhase2AltsubjectMatch(i: number): string
     getPhase2Auth(): string
     getPhase2Autheap(): string
-    getPhase2CaCertBlob(): any
+    getPhase2CaCertBlob(): any[]
     getPhase2CaCertPath(): string
     getPhase2CaCertScheme(): Setting8021xCKScheme
     getPhase2CaPath(): string
-    getPhase2ClientCertBlob(): any
+    getPhase2ClientCertBlob(): any[]
     getPhase2ClientCertPath(): string
     getPhase2ClientCertScheme(): Setting8021xCKScheme
-    getPhase2PrivateKeyBlob(): any
+    getPhase2PrivateKeyBlob(): any[]
     getPhase2PrivateKeyFormat(): Setting8021xCKFormat
     getPhase2PrivateKeyPassword(): string
     getPhase2PrivateKeyPasswordFlags(): SettingSecretFlags
@@ -1278,7 +1278,7 @@ export class Setting8021x {
     getPhase2SubjectMatch(): string
     getPin(): string
     getPinFlags(): SettingSecretFlags
-    getPrivateKeyBlob(): any
+    getPrivateKeyBlob(): any[]
     getPrivateKeyFormat(): Setting8021xCKFormat
     getPrivateKeyPassword(): string
     getPrivateKeyPasswordFlags(): SettingSecretFlags
@@ -1646,7 +1646,7 @@ export class SettingBluetooth {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingBluetooth */
-    getBdaddr(): any
+    getBdaddr(): any[]
     getConnectionType(): string
     /* Methods of NetworkManager.Setting */
     clearSecrets(): void
@@ -1867,7 +1867,7 @@ export class SettingBridge {
     getForwardDelay(): number
     getHelloTime(): number
     getInterfaceName(): string
-    getMacAddress(): any
+    getMacAddress(): any[]
     getMaxAge(): number
     getPriority(): number
     getStp(): boolean
@@ -3240,7 +3240,7 @@ export class SettingInfiniband {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingInfiniband */
-    getMacAddress(): any
+    getMacAddress(): any[]
     getMtu(): number
     getPKey(): number
     getParent(): string
@@ -3358,8 +3358,8 @@ export class SettingOlpcMesh {
     gTypeInstance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingOlpcMesh */
     getChannel(): number
-    getDhcpAnycastAddress(): any
-    getSsid(): any
+    getDhcpAnycastAddress(): any[]
+    getSsid(): any[]
     /* Methods of NetworkManager.Setting */
     clearSecrets(): void
     clearSecretsWithFlags(func: SettingClearSecretsWithFlagsFn): void
@@ -4399,7 +4399,7 @@ export class SettingWimax {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingWimax */
-    getMacAddress(): any
+    getMacAddress(): any[]
     getNetworkName(): string
     /* Methods of NetworkManager.Setting */
     clearSecrets(): void
@@ -4512,10 +4512,10 @@ export class SettingWired {
     addS390Option(key: string, value: string): boolean
     clearMacBlacklistItems(): void
     getAutoNegotiate(): boolean
-    getClonedMacAddress(): any
+    getClonedMacAddress(): any[]
     getDuplex(): string
-    getMacAddress(): any
-    getMacAddressBlacklist(): any
+    getMacAddress(): any[]
+    getMacAddressBlacklist(): any[]
     getMacBlacklistItem(idx: number): string
     getMtu(): number
     getNumMacBlacklistItems(): number
@@ -4673,12 +4673,12 @@ export class SettingWireless {
     apSecurityCompatible(sWirelessSec: SettingWirelessSecurity, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags, apMode: TODO_80211Mode): boolean
     clearMacBlacklistItems(): void
     getBand(): string
-    getBssid(): any
+    getBssid(): any[]
     getChannel(): number
-    getClonedMacAddress(): any
+    getClonedMacAddress(): any[]
     getHidden(): boolean
-    getMacAddress(): any
-    getMacAddressBlacklist(): any
+    getMacAddress(): any[]
+    getMacAddressBlacklist(): any[]
     getMacBlacklistItem(idx: number): string
     getMode(): string
     getMtu(): number
@@ -4688,7 +4688,7 @@ export class SettingWireless {
     getRate(): number
     getSecurity(): string
     getSeenBssid(i: number): string
-    getSsid(): any
+    getSsid(): any[]
     getTxPower(): number
     removeMacBlacklistItem(idx: number): void
     removeMacBlacklistItemByValue(mac: string): boolean
@@ -5082,8 +5082,8 @@ export class IP6Address {
     /* Methods of NetworkManager.IP6Address */
     compare(other: IP6Address): boolean
     dup(): IP6Address
-    getAddress(): any
-    getGateway(): any
+    getAddress(): any[]
+    getGateway(): any[]
     getPrefix(): number
     ref(): void
     setAddress(addr?: object | null): void
@@ -5100,9 +5100,9 @@ export class IP6Route {
     /* Methods of NetworkManager.IP6Route */
     compare(other: IP6Route): boolean
     dup(): IP6Route
-    getDest(): any
+    getDest(): any[]
     getMetric(): number
-    getNextHop(): any
+    getNextHop(): any[]
     getPrefix(): number
     ref(): void
     setDest(dest?: object | null): void

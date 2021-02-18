@@ -361,7 +361,7 @@ export class AssistantView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1751,7 +1751,7 @@ export class BookTree {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2911,7 +2911,7 @@ export class Notebook {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3905,7 +3905,7 @@ export class SearchBar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4905,7 +4905,7 @@ export class Sidebar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5766,7 +5766,7 @@ export class Tab {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6621,7 +6621,7 @@ export class TabLabel {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7541,7 +7541,7 @@ export class WebView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

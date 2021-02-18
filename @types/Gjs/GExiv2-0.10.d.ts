@@ -73,14 +73,14 @@ export class Metadata {
     delete_gps_info(): void
     erase_exif_thumbnail(): void
     free(): void
-    from_app1_segment(data: Uint8Array): boolean
+    from_app1_segment(data: Uint8Array[]): boolean
     from_stream(stream: Gio.InputStream): boolean
     generate_xmp_packet(xmp_format_flags: XmpFormatFlags, padding: number): string | null
     get_comment(): string | null
     get_exif_data(byte_order: ByteOrder): GLib.Bytes | null
     get_exif_tag_rational(tag: string): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
     get_exif_tags(): string[]
-    get_exif_thumbnail(): [ /* returnType */ boolean, /* buffer */ Uint8Array ]
+    get_exif_thumbnail(): [ /* returnType */ boolean, /* buffer */ Uint8Array[] ]
     get_exposure_time(): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
     get_fnumber(): number
     get_focal_length(): number
@@ -112,13 +112,13 @@ export class Metadata {
     has_iptc(): boolean
     has_tag(tag: string): boolean
     has_xmp(): boolean
-    open_buf(data: Uint8Array): boolean
+    open_buf(data: Uint8Array[]): boolean
     open_path(path: string): boolean
     save_external(path: string): boolean
     save_file(path: string): boolean
     set_comment(comment: string): void
     set_exif_tag_rational(tag: string, nom: number, den: number): boolean
-    set_exif_thumbnail_from_buffer(buffer: Uint8Array): void
+    set_exif_thumbnail_from_buffer(buffer: Uint8Array[]): void
     set_exif_thumbnail_from_file(path: string): boolean
     set_gps_info(longitude: number, latitude: number, altitude: number): boolean
     set_metadata_pixel_height(height: number): void
@@ -197,7 +197,7 @@ export class PreviewImage {
     g_type_instance: GObject.TypeInstance
     /* Methods of GExiv2.PreviewImage */
     free(): void
-    get_data(): Uint8Array
+    get_data(): Uint8Array[]
     get_extension(): string
     get_height(): number
     get_mime_type(): string

@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -266,9 +266,9 @@ export class Core {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Retro.Core */
-    connect(sigName: "audio-output", callback: (($obj: Core, data: any, sampleRate: number) => void)): number
-    connect_after(sigName: "audio-output", callback: (($obj: Core, data: any, sampleRate: number) => void)): number
-    emit(sigName: "audio-output", data: any, sampleRate: number): void
+    connect(sigName: "audio-output", callback: (($obj: Core, data: any[], sampleRate: number) => void)): number
+    connect_after(sigName: "audio-output", callback: (($obj: Core, data: any[], sampleRate: number) => void)): number
+    emit(sigName: "audio-output", data: any[], sampleRate: number): void
     on(sigName: "audio-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "audio-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "audio-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -718,7 +718,7 @@ export class CoreView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

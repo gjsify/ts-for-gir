@@ -162,11 +162,11 @@ export function buffer_add_rtp_source_meta(buffer: Gst.Buffer, ssrc: number | nu
 export function buffer_get_rtp_source_meta(buffer: Gst.Buffer): RTPSourceMeta
 export function rtcp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
 export function rtcp_buffer_new(mtu: number): Gst.Buffer
-export function rtcp_buffer_new_copy_data(data: Uint8Array): Gst.Buffer
-export function rtcp_buffer_new_take_data(data: Uint8Array): Gst.Buffer
+export function rtcp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
+export function rtcp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
 export function rtcp_buffer_validate(buffer: Gst.Buffer): boolean
-export function rtcp_buffer_validate_data(data: Uint8Array): boolean
-export function rtcp_buffer_validate_data_reduced(data: Uint8Array): boolean
+export function rtcp_buffer_validate_data(data: Uint8Array[]): boolean
+export function rtcp_buffer_validate_data_reduced(data: Uint8Array[]): boolean
 export function rtcp_buffer_validate_reduced(buffer: Gst.Buffer): boolean
 export function rtcp_ntp_to_unix(ntptime: number): number
 export function rtcp_sdes_name_to_type(name: string): RTCPSDESType
@@ -179,15 +179,15 @@ export function rtp_buffer_calc_payload_len(packet_len: number, pad_len: number,
 export function rtp_buffer_compare_seqnum(seqnum1: number, seqnum2: number): number
 export function rtp_buffer_default_clock_rate(payload_type: number): number
 export function rtp_buffer_ext_timestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-export function rtp_buffer_get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array ]
+export function rtp_buffer_get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
 export function rtp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
 export function rtp_buffer_new_allocate(payload_len: number, pad_len: number, csrc_count: number): Gst.Buffer
 export function rtp_buffer_new_allocate_len(packet_len: number, pad_len: number, csrc_count: number): Gst.Buffer
-export function rtp_buffer_new_copy_data(data: Uint8Array): Gst.Buffer
-export function rtp_buffer_new_take_data(data: Uint8Array): Gst.Buffer
+export function rtp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
+export function rtp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
 export function rtp_get_header_extension_list(): RTPHeaderExtension[]
-export function rtp_hdrext_get_ntp_56(data: Uint8Array): [ /* returnType */ boolean, /* ntptime */ number ]
-export function rtp_hdrext_get_ntp_64(data: Uint8Array): [ /* returnType */ boolean, /* ntptime */ number ]
+export function rtp_hdrext_get_ntp_56(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
+export function rtp_hdrext_get_ntp_64(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
 export function rtp_hdrext_set_ntp_56(data: object | null, size: number, ntptime: number): boolean
 export function rtp_hdrext_set_ntp_64(data: object | null, size: number, ntptime: number): boolean
 export function rtp_payload_info_for_name(media: string, encoding_name: string): RTPPayloadInfo
@@ -259,7 +259,7 @@ export class RTPBaseAudioPayload {
     /* Methods of GstRtp.RTPBaseAudioPayload */
     flush(payload_len: number, timestamp: Gst.ClockTime): Gst.FlowReturn
     get_adapter(): GstBase.Adapter
-    push(data: Uint8Array, timestamp: Gst.ClockTime): Gst.FlowReturn
+    push(data: Uint8Array[], timestamp: Gst.ClockTime): Gst.FlowReturn
     set_frame_based(): void
     set_frame_options(frame_duration: number, frame_size: number): void
     set_sample_based(): void
@@ -346,11 +346,11 @@ export class RTPBaseAudioPayload {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -623,11 +623,11 @@ export class RTPBaseDepayload {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -892,11 +892,11 @@ export class RTPBasePayload {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1160,11 +1160,11 @@ export class RTPHeaderExtension {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1281,11 +1281,11 @@ export class RTCPBuffer {
     static name: string
     /* Static methods and pseudo-constructors */
     static map(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
-    static new_copy_data(data: Uint8Array): Gst.Buffer
-    static new_take_data(data: Uint8Array): Gst.Buffer
+    static new_copy_data(data: Uint8Array[]): Gst.Buffer
+    static new_take_data(data: Uint8Array[]): Gst.Buffer
     static validate(buffer: Gst.Buffer): boolean
-    static validate_data(data: Uint8Array): boolean
-    static validate_data_reduced(data: Uint8Array): boolean
+    static validate_data(data: Uint8Array[]): boolean
+    static validate_data_reduced(data: Uint8Array[]): boolean
     static validate_reduced(buffer: Gst.Buffer): boolean
 }
 export class RTCPPacket {
@@ -1293,7 +1293,7 @@ export class RTCPPacket {
     rtcp: RTCPBuffer
     offset: number
     /* Methods of GstRtp.RTCPPacket */
-    add_profile_specific_ext(data: Uint8Array): boolean
+    add_profile_specific_ext(data: Uint8Array[]): boolean
     add_rb(ssrc: number, fractionlost: number, packetslost: number, exthighestseq: number, jitter: number, lsr: number, dlsr: number): boolean
     app_get_data(): number
     app_get_data_length(): number
@@ -1311,7 +1311,7 @@ export class RTCPPacket {
     bye_get_reason_len(): number
     bye_get_ssrc_count(): number
     bye_set_reason(reason: string): boolean
-    copy_profile_specific_ext(): [ /* returnType */ boolean, /* data */ Uint8Array ]
+    copy_profile_specific_ext(): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
     fb_get_fci(): number
     fb_get_fci_length(): number
     fb_get_media_ssrc(): number
@@ -1324,7 +1324,7 @@ export class RTCPPacket {
     get_count(): number
     get_length(): number
     get_padding(): boolean
-    get_profile_specific_ext(): [ /* returnType */ boolean, /* data */ Uint8Array ]
+    get_profile_specific_ext(): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
     get_profile_specific_ext_length(): number
     get_rb(nth: number): [ /* ssrc */ number, /* fractionlost */ number, /* packetslost */ number, /* exthighestseq */ number, /* jitter */ number, /* lsr */ number, /* dlsr */ number ]
     get_rb_count(): number
@@ -1333,12 +1333,12 @@ export class RTCPPacket {
     remove(): boolean
     rr_get_ssrc(): number
     rr_set_ssrc(ssrc: number): void
-    sdes_add_entry(type: RTCPSDESType, data: Uint8Array): boolean
+    sdes_add_entry(type: RTCPSDESType, data: Uint8Array[]): boolean
     sdes_add_item(ssrc: number): boolean
-    sdes_copy_entry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ Uint8Array ]
+    sdes_copy_entry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
     sdes_first_entry(): boolean
     sdes_first_item(): boolean
-    sdes_get_entry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ Uint8Array ]
+    sdes_get_entry(type: RTCPSDESType): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
     sdes_get_item_count(): number
     sdes_get_ssrc(): number
     sdes_next_entry(): boolean
@@ -1414,14 +1414,14 @@ export class RTPBuffer {
     size: number[]
     map: Gst.MapInfo[]
     /* Methods of GstRtp.RTPBuffer */
-    add_extension_onebyte_header(id: number, data: Uint8Array): boolean
-    add_extension_twobytes_header(appbits: number, id: number, data: Uint8Array): boolean
+    add_extension_onebyte_header(id: number, data: Uint8Array[]): boolean
+    add_extension_twobytes_header(appbits: number, id: number, data: Uint8Array[]): boolean
     get_csrc(idx: number): number
     get_csrc_count(): number
     get_extension(): boolean
     get_extension_data(): [ /* returnType */ GLib.Bytes, /* bits */ number ]
-    get_extension_onebyte_header(id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array ]
-    get_extension_twobytes_header(id: number, nth: number): [ /* returnType */ boolean, /* appbits */ number, /* data */ Uint8Array ]
+    get_extension_onebyte_header(id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
+    get_extension_twobytes_header(id: number, nth: number): [ /* returnType */ boolean, /* appbits */ number, /* data */ Uint8Array[] ]
     get_header_len(): number
     get_marker(): boolean
     get_packet_len(): number
@@ -1457,12 +1457,12 @@ export class RTPBuffer {
     static compare_seqnum(seqnum1: number, seqnum2: number): number
     static default_clock_rate(payload_type: number): number
     static ext_timestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-    static get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array ]
+    static get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
     static map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
     static new_allocate(payload_len: number, pad_len: number, csrc_count: number): Gst.Buffer
     static new_allocate_len(packet_len: number, pad_len: number, csrc_count: number): Gst.Buffer
-    static new_copy_data(data: Uint8Array): Gst.Buffer
-    static new_take_data(data: Uint8Array): Gst.Buffer
+    static new_copy_data(data: Uint8Array[]): Gst.Buffer
+    static new_take_data(data: Uint8Array[]): Gst.Buffer
 }
 export abstract class RTPHeaderExtensionClass {
     /* Fields of GstRtp.RTPHeaderExtensionClass */

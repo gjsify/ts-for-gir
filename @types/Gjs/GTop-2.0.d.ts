@@ -678,10 +678,10 @@ export class glibtop_netload {
     errors_out: number
     errors_total: number
     collisions: number
-    address6: Uint8Array
-    prefix6: Uint8Array
+    address6: Uint8Array[]
+    prefix6: Uint8Array[]
     scope6: number
-    hwaddress: Uint8Array
+    hwaddress: Uint8Array[]
     static name: string
 }
 export class glibtop_open_files_entry {

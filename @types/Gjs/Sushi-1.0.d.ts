@@ -32,7 +32,6 @@ import type * as EvinceDocument from './EvinceDocument-3.0';
 import type * as CoglPango from './CoglPango-1.0';
 import type * as Cogl from './Cogl-1.0';
 import type * as Clutter from './Clutter-1.0';
-import type * as Gst from './Gst-1.0';
 
 export enum SoundPlayerState {
     UNKNOWN,
@@ -45,12 +44,12 @@ export function create_foreign_window(xid: number): Gdk.Window
 export function create_rounded_background(): Clutter.Actor
 export function query_supported_document_types(): string[]
 export interface CoverArtFetcher_ConstructProps extends GObject.Object_ConstructProps {
-    taglist?: Gst.TagList
+    taglist?: any
 }
 export class CoverArtFetcher {
     /* Properties of Sushi.CoverArtFetcher */
     readonly cover: GdkPixbuf.Pixbuf
-    taglist: Gst.TagList
+    taglist: any
     /* Fields of Sushi.CoverArtFetcher */
     parent_instance: GObject.Object
     priv: CoverArtFetcherPrivate
@@ -102,7 +101,7 @@ export class CoverArtFetcher {
     constructor (config?: CoverArtFetcher_ConstructProps)
     _init (config?: CoverArtFetcher_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(taglist: Gst.TagList): CoverArtFetcher
+    static new(taglist: any): CoverArtFetcher
     static $gtype: GObject.Type
 }
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -392,7 +391,7 @@ export class FontWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1014,7 +1013,7 @@ export class SoundPlayer {
     playing: boolean
     progress: number
     readonly state: SoundPlayerState
-    readonly taglist: Gst.TagList
+    readonly taglist: any
     uri: string
     /* Fields of Sushi.SoundPlayer */
     parent_instance: GObject.Object

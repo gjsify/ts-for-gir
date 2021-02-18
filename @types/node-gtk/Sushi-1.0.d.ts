@@ -4,8 +4,6 @@
 
 import "node"
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { libxml2 } from './libxml2-2.0';
 import type { freetype2 } from './freetype2-2.0';
 import type { fontconfig } from './fontconfig-2.0';
@@ -14,6 +12,8 @@ import type { PangoFT2 } from './PangoFT2-1.0';
 import type { PangoFc } from './PangoFc-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { PangoCairo } from './PangoCairo-1.0';
 import type { Json } from './Json-1.0';
 import type { Gio } from './Gio-2.0';
@@ -46,12 +46,12 @@ export function createForeignWindow(xid: number): Gdk.Window
 export function createRoundedBackground(): Clutter.Actor
 export function querySupportedDocumentTypes(): string[]
 export interface CoverArtFetcher_ConstructProps extends GObject.Object_ConstructProps {
-    taglist?: Gst.TagList
+    taglist?: any
 }
 export class CoverArtFetcher {
     /* Properties of Sushi.CoverArtFetcher */
     readonly cover: GdkPixbuf.Pixbuf
-    taglist: Gst.TagList
+    taglist: any
     /* Fields of Sushi.CoverArtFetcher */
     parentInstance: GObject.Object
     priv: CoverArtFetcherPrivate
@@ -115,7 +115,7 @@ export class CoverArtFetcher {
     constructor (config?: CoverArtFetcher_ConstructProps)
     _init (config?: CoverArtFetcher_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(taglist: Gst.TagList): CoverArtFetcher
+    static new(taglist: any): CoverArtFetcher
     static $gtype: GObject.Type
 }
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -429,7 +429,7 @@ export class FontWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -1399,7 +1399,7 @@ export class SoundPlayer {
     playing: boolean
     progress: number
     readonly state: SoundPlayerState
-    readonly taglist: Gst.TagList
+    readonly taglist: any
     uri: string
     /* Fields of Sushi.SoundPlayer */
     parentInstance: GObject.Object

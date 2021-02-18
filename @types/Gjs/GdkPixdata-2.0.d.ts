@@ -40,10 +40,10 @@ export class Pixdata {
     rowstride: number
     width: number
     height: number
-    pixel_data: Uint8Array
+    pixel_data: Uint8Array[]
     /* Methods of GdkPixdata.Pixdata */
-    deserialize(stream: Uint8Array): boolean
-    serialize(): Uint8Array
+    deserialize(stream: Uint8Array[]): boolean
+    serialize(): Uint8Array[]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
     static name: string
 }

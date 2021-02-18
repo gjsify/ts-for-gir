@@ -176,7 +176,7 @@ export class Dock {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -195,7 +195,7 @@ export class Dock {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -383,7 +383,7 @@ export class Dock {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -524,11 +524,11 @@ export class Dock {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -649,9 +649,9 @@ export class Dock {
     connect(sigName: "detach", callback: (($obj: Dock, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: Dock, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: Dock, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: Dock, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: Dock, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: Dock, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: Dock, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Dock, object: Gtk.Widget) => void)): number
@@ -1259,7 +1259,7 @@ export class DockBar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1957,7 +1957,7 @@ export class DockItem {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -1975,7 +1975,7 @@ export class DockItem {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -2162,7 +2162,7 @@ export class DockItem {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2307,11 +2307,11 @@ export class DockItem {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -2447,9 +2447,9 @@ export class DockItem {
     connect(sigName: "detach", callback: (($obj: DockItem, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: DockItem, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: DockItem, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: DockItem, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: DockItem, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: DockItem, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: DockItem, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DockItem, object: Gtk.Widget) => void)): number
@@ -2999,7 +2999,7 @@ export class DockItemButtonImage {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3782,7 +3782,7 @@ export class DockItemGrip {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4623,7 +4623,7 @@ export class DockNotebook {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -4641,7 +4641,7 @@ export class DockNotebook {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -4828,7 +4828,7 @@ export class DockNotebook {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4973,11 +4973,11 @@ export class DockNotebook {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -5113,9 +5113,9 @@ export class DockNotebook {
     connect(sigName: "detach", callback: (($obj: DockNotebook, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: DockNotebook, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: DockNotebook, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: DockNotebook, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: DockNotebook, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: DockNotebook, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: DockNotebook, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DockNotebook, object: Gtk.Widget) => void)): number
@@ -5534,7 +5534,7 @@ export class DockObject {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -5553,7 +5553,7 @@ export class DockObject {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -5741,7 +5741,7 @@ export class DockObject {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5880,11 +5880,11 @@ export class DockObject {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6001,9 +6001,9 @@ export class DockObject {
     connect(sigName: "detach", callback: (($obj: DockObject, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: DockObject, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: DockObject, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DockObject, object: Gtk.Widget) => void)): number
@@ -6447,7 +6447,7 @@ export class DockPaned {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -6465,7 +6465,7 @@ export class DockPaned {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -6652,7 +6652,7 @@ export class DockPaned {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6797,11 +6797,11 @@ export class DockPaned {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -6937,9 +6937,9 @@ export class DockPaned {
     connect(sigName: "detach", callback: (($obj: DockPaned, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: DockPaned, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: DockPaned, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: DockPaned, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: DockPaned, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: DockPaned, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: DockPaned, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DockPaned, object: Gtk.Widget) => void)): number
@@ -7374,7 +7374,7 @@ export class DockPlaceholder {
     bind(master: GObject.Object): void
     child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: DockRequest): boolean
     freeze(): void
     get_controller(): DockObject
@@ -7393,7 +7393,7 @@ export class DockPlaceholder {
     layout_changed_notify(): void
     present(child?: DockObject | null): void
     reduce(): void
-    reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -7581,7 +7581,7 @@ export class DockPlaceholder {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7720,11 +7720,11 @@ export class DockPlaceholder {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: DockObject, placement?: DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: DockRequest): boolean
     vfunc_present(child?: DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: DockObject, new_position: DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -7841,9 +7841,9 @@ export class DockPlaceholder {
     connect(sigName: "detach", callback: (($obj: DockPlaceholder, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: DockPlaceholder, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: DockPlaceholder, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: DockPlaceholder, requestor: DockObject, position: DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: DockPlaceholder, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: DockPlaceholder, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: DockObject, position: DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: DockPlaceholder, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: DockPlaceholder, object: Gtk.Widget) => void)): number
@@ -8430,7 +8430,7 @@ export class DockTablabel {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -9388,7 +9388,7 @@ export class PreviewWindow {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -10341,7 +10341,7 @@ export class Switcher {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11052,8 +11052,8 @@ export abstract class DockObjectClass {
     detach: (object: DockObject, recursive: boolean) => void
     reduce: (object: DockObject) => void
     dock_request: (object: DockObject, x: number, y: number, request: DockRequest) => boolean
-    dock: (object: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any) => void
-    reorder: (object: DockObject, child: DockObject, new_position: DockPlacement, other_data?: any) => boolean
+    dock: (object: DockObject, requestor: DockObject, position: DockPlacement, other_data?: any | null) => void
+    reorder: (object: DockObject, child: DockObject, new_position: DockPlacement, other_data?: any | null) => boolean
     present: (object: DockObject, child?: DockObject | null) => void
     child_placement: (object: DockObject, child: DockObject, placement?: DockPlacement | null) => boolean
     static name: string

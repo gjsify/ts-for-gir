@@ -304,7 +304,7 @@ export class Extractable {
 export class MetaContainer {
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -339,14 +339,14 @@ export class MetaContainer {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: MetaContainer, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     static name: string
 }
 export interface Asset_ConstructProps extends GObject.Object_ConstructProps {
@@ -396,7 +396,7 @@ export class Asset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -431,7 +431,7 @@ export class Asset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -463,9 +463,9 @@ export class Asset {
     connect_after(sigName: "notify", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Asset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::proxy", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-target", callback: (($obj: Asset, pspec: GObject.ParamSpec) => void)): number
@@ -600,7 +600,7 @@ export class AudioSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -635,7 +635,7 @@ export class AudioSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -697,9 +697,9 @@ export class AudioSource {
     connect_after(sigName: "notify", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: AudioSource, pspec: GObject.ParamSpec) => void)): number
@@ -856,7 +856,7 @@ export class AudioTestSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -891,7 +891,7 @@ export class AudioTestSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -953,9 +953,9 @@ export class AudioTestSource {
     connect_after(sigName: "notify", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTestSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: AudioTestSource, pspec: GObject.ParamSpec) => void)): number
@@ -1154,11 +1154,11 @@ export class AudioTrack {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1197,7 +1197,7 @@ export class AudioTrack {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1232,7 +1232,7 @@ export class AudioTrack {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -1332,9 +1332,9 @@ export class AudioTrack {
     connect_after(sigName: "notify", callback: (($obj: AudioTrack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTrack, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     /* Signals of Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: AudioTrack, object: GObject.Object, name: string) => void)): number
@@ -1485,7 +1485,7 @@ export class AudioTransition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1520,7 +1520,7 @@ export class AudioTransition {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -1580,9 +1580,9 @@ export class AudioTransition {
     connect_after(sigName: "notify", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioTransition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: AudioTransition, pspec: GObject.ParamSpec) => void)): number
@@ -1737,7 +1737,7 @@ export class AudioUriSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -1772,7 +1772,7 @@ export class AudioUriSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -1834,9 +1834,9 @@ export class AudioUriSource {
     connect_after(sigName: "notify", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: AudioUriSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: AudioUriSource, pspec: GObject.ParamSpec) => void)): number
@@ -1992,7 +1992,7 @@ export class BaseEffect {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2027,7 +2027,7 @@ export class BaseEffect {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -2087,9 +2087,9 @@ export class BaseEffect {
     connect_after(sigName: "notify", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffect, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: BaseEffect, pspec: GObject.ParamSpec) => void)): number
@@ -2253,7 +2253,7 @@ export class BaseEffectClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2288,7 +2288,7 @@ export class BaseEffectClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -2354,9 +2354,9 @@ export class BaseEffectClip {
     connect_after(sigName: "notify", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseEffectClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: BaseEffectClip, pspec: GObject.ParamSpec) => void)): number
@@ -2518,7 +2518,7 @@ export class BaseTransitionClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2553,7 +2553,7 @@ export class BaseTransitionClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -2619,9 +2619,9 @@ export class BaseTransitionClip {
     connect_after(sigName: "notify", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: BaseTransitionClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: BaseTransitionClip, pspec: GObject.ParamSpec) => void)): number
@@ -2848,7 +2848,7 @@ export class Clip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -2883,7 +2883,7 @@ export class Clip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -2949,9 +2949,9 @@ export class Clip {
     connect_after(sigName: "notify", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Clip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: Clip, pspec: GObject.ParamSpec) => void)): number
@@ -3039,7 +3039,7 @@ export class ClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3074,7 +3074,7 @@ export class ClipAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -3108,9 +3108,9 @@ export class ClipAsset {
     connect_after(sigName: "notify", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: ClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::supported-formats", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::supported-formats", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy", callback: (($obj: ClipAsset, pspec: GObject.ParamSpec) => void)): number
@@ -3294,7 +3294,7 @@ export class Container {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3329,7 +3329,7 @@ export class Container {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -3392,9 +3392,9 @@ export class Container {
     connect_after(sigName: "notify", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Container, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::height", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::duration", callback: (($obj: Container, pspec: GObject.ParamSpec) => void)): number
@@ -3545,7 +3545,7 @@ export class Effect {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3580,7 +3580,7 @@ export class Effect {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -3640,9 +3640,9 @@ export class Effect {
     connect_after(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Effect, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
@@ -3737,7 +3737,7 @@ export class EffectAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3772,7 +3772,7 @@ export class EffectAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -3806,9 +3806,9 @@ export class EffectAsset {
     connect_after(sigName: "notify", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: EffectAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::track-type", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy", callback: (($obj: EffectAsset, pspec: GObject.ParamSpec) => void)): number
@@ -3952,7 +3952,7 @@ export class EffectClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -3987,7 +3987,7 @@ export class EffectClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -4053,9 +4053,9 @@ export class EffectClip {
     connect_after(sigName: "notify", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: EffectClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: EffectClip, pspec: GObject.ParamSpec) => void)): number
@@ -4266,7 +4266,7 @@ export class Group {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4301,7 +4301,7 @@ export class Group {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -4364,9 +4364,9 @@ export class Group {
     connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Group, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::in-point", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
@@ -4515,7 +4515,7 @@ export class ImageSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4550,7 +4550,7 @@ export class ImageSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -4612,9 +4612,9 @@ export class ImageSource {
     connect_after(sigName: "notify", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: ImageSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: ImageSource, pspec: GObject.ParamSpec) => void)): number
@@ -4715,7 +4715,7 @@ export class Layer {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4750,7 +4750,7 @@ export class Layer {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -4783,9 +4783,9 @@ export class Layer {
     connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Layer, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::auto-transition", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-transition", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::priority", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
@@ -4832,7 +4832,7 @@ export class Marker {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -4867,7 +4867,7 @@ export class Marker {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -4884,9 +4884,9 @@ export class Marker {
     connect_after(sigName: "notify", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Marker, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::position", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::position", callback: (($obj: Marker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5081,7 +5081,7 @@ export class MultiFileSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5116,7 +5116,7 @@ export class MultiFileSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -5178,9 +5178,9 @@ export class MultiFileSource {
     connect_after(sigName: "notify", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: MultiFileSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: MultiFileSource, pspec: GObject.ParamSpec) => void)): number
@@ -5334,7 +5334,7 @@ export class Operation {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5369,7 +5369,7 @@ export class Operation {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -5429,9 +5429,9 @@ export class Operation {
     connect_after(sigName: "notify", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Operation, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: Operation, pspec: GObject.ParamSpec) => void)): number
@@ -5595,7 +5595,7 @@ export class OperationClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5630,7 +5630,7 @@ export class OperationClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -5696,9 +5696,9 @@ export class OperationClip {
     connect_after(sigName: "notify", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: OperationClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: OperationClip, pspec: GObject.ParamSpec) => void)): number
@@ -5860,7 +5860,7 @@ export class OverlayClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -5895,7 +5895,7 @@ export class OverlayClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -5961,9 +5961,9 @@ export class OverlayClip {
     connect_after(sigName: "notify", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: OverlayClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: OverlayClip, pspec: GObject.ParamSpec) => void)): number
@@ -6180,11 +6180,11 @@ export class Pipeline {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -6232,11 +6232,11 @@ export class Pipeline {
     set_property(name: string, value: any): void
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    got_window_handle(handle: string): void
+    got_window_handle(handle: any): void
     handle_events(handle_events: boolean): void
     prepare_window_handle(): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
-    set_window_handle(handle: string): void
+    set_window_handle(handle: any): void
     /* Virtual methods of GES.Pipeline */
     vfunc_child_added(child: GObject.Object, name: string): void
     vfunc_child_removed(child: GObject.Object, name: string): void
@@ -6246,7 +6246,7 @@ export class Pipeline {
     vfunc_expose(): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): void
-    vfunc_set_window_handle(handle: string): void
+    vfunc_set_window_handle(handle: any): void
     /* Virtual methods of Gst.Bin */
     vfunc_add_element(element: Gst.Element): boolean
     vfunc_deep_element_added(sub_bin: Gst.Bin, child: Gst.Element): void
@@ -6489,7 +6489,7 @@ export class Project {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6524,7 +6524,7 @@ export class Project {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -6589,9 +6589,9 @@ export class Project {
     connect_after(sigName: "notify", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Project, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::proxy", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-target", callback: (($obj: Project, pspec: GObject.ParamSpec) => void)): number
@@ -6721,7 +6721,7 @@ export class Source {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -6756,7 +6756,7 @@ export class Source {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -6818,9 +6818,9 @@ export class Source {
     connect_after(sigName: "notify", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Source, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: Source, pspec: GObject.ParamSpec) => void)): number
@@ -6984,7 +6984,7 @@ export class SourceClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7019,7 +7019,7 @@ export class SourceClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -7085,9 +7085,9 @@ export class SourceClip {
     connect_after(sigName: "notify", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: SourceClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration-limit", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration-limit", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::layer", callback: (($obj: SourceClip, pspec: GObject.ParamSpec) => void)): number
@@ -7178,7 +7178,7 @@ export class SourceClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7213,7 +7213,7 @@ export class SourceClipAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -7247,9 +7247,9 @@ export class SourceClipAsset {
     connect_after(sigName: "notify", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: SourceClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::supported-formats", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::supported-formats", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy", callback: (($obj: SourceClipAsset, pspec: GObject.ParamSpec) => void)): number
@@ -7409,7 +7409,7 @@ export class TestClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7444,7 +7444,7 @@ export class TestClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -7510,9 +7510,9 @@ export class TestClip {
     connect_after(sigName: "notify", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TestClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::freq", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::freq", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::mute", callback: (($obj: TestClip, pspec: GObject.ParamSpec) => void)): number
@@ -7688,7 +7688,7 @@ export class TextOverlay {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -7723,7 +7723,7 @@ export class TextOverlay {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -7783,9 +7783,9 @@ export class TextOverlay {
     connect_after(sigName: "notify", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlay, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: TextOverlay, pspec: GObject.ParamSpec) => void)): number
@@ -7981,7 +7981,7 @@ export class TextOverlayClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8016,7 +8016,7 @@ export class TextOverlayClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -8082,9 +8082,9 @@ export class TextOverlayClip {
     connect_after(sigName: "notify", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TextOverlayClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::color", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::font-desc", callback: (($obj: TextOverlayClip, pspec: GObject.ParamSpec) => void)): number
@@ -8309,11 +8309,11 @@ export class Timeline {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -8356,7 +8356,7 @@ export class Timeline {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8391,7 +8391,7 @@ export class Timeline {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -8523,9 +8523,9 @@ export class Timeline {
     connect_after(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Timeline, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     /* Signals of Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Timeline, object: GObject.Object, name: string) => void)): number
@@ -8657,7 +8657,7 @@ export class TimelineElement {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8692,7 +8692,7 @@ export class TimelineElement {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -8741,9 +8741,9 @@ export class TimelineElement {
     connect_after(sigName: "notify", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TimelineElement, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::in-point", callback: (($obj: TimelineElement, pspec: GObject.ParamSpec) => void)): number
@@ -8931,7 +8931,7 @@ export class TitleClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -8966,7 +8966,7 @@ export class TitleClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -9032,9 +9032,9 @@ export class TitleClip {
     connect_after(sigName: "notify", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TitleClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::background", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::background", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::color", callback: (($obj: TitleClip, pspec: GObject.ParamSpec) => void)): number
@@ -9221,7 +9221,7 @@ export class TitleSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9256,7 +9256,7 @@ export class TitleSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -9318,9 +9318,9 @@ export class TitleSource {
     connect_after(sigName: "notify", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TitleSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: TitleSource, pspec: GObject.ParamSpec) => void)): number
@@ -9522,11 +9522,11 @@ export class Track {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -9565,7 +9565,7 @@ export class Track {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9600,7 +9600,7 @@ export class Track {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -9700,9 +9700,9 @@ export class Track {
     connect_after(sigName: "notify", callback: (($obj: Track, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Track, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     /* Signals of Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: Track, object: GObject.Object, name: string) => void)): number
@@ -9856,7 +9856,7 @@ export class TrackElement {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -9891,7 +9891,7 @@ export class TrackElement {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -9951,9 +9951,9 @@ export class TrackElement {
     connect_after(sigName: "notify", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TrackElement, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: TrackElement, pspec: GObject.ParamSpec) => void)): number
@@ -10042,7 +10042,7 @@ export class TrackElementAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10077,7 +10077,7 @@ export class TrackElementAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -10111,9 +10111,9 @@ export class TrackElementAsset {
     connect_after(sigName: "notify", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TrackElementAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::track-type", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy", callback: (($obj: TrackElementAsset, pspec: GObject.ParamSpec) => void)): number
@@ -10243,7 +10243,7 @@ export class Transition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10278,7 +10278,7 @@ export class Transition {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -10338,9 +10338,9 @@ export class Transition {
     connect_after(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: Transition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
@@ -10507,7 +10507,7 @@ export class TransitionClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10542,7 +10542,7 @@ export class TransitionClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -10608,9 +10608,9 @@ export class TransitionClip {
     connect_after(sigName: "notify", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: TransitionClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::vtype", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vtype", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::duration-limit", callback: (($obj: TransitionClip, pspec: GObject.ParamSpec) => void)): number
@@ -10789,7 +10789,7 @@ export class UriClip {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -10824,7 +10824,7 @@ export class UriClip {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -10890,9 +10890,9 @@ export class UriClip {
     connect_after(sigName: "notify", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriClip, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::is-image", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-image", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::mute", callback: (($obj: UriClip, pspec: GObject.ParamSpec) => void)): number
@@ -10997,7 +10997,7 @@ export class UriClipAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11032,7 +11032,7 @@ export class UriClipAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -11066,9 +11066,9 @@ export class UriClipAsset {
     connect_after(sigName: "notify", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriClipAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::duration", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-nested-timeline", callback: (($obj: UriClipAsset, pspec: GObject.ParamSpec) => void)): number
@@ -11147,7 +11147,7 @@ export class UriSourceAsset {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11182,7 +11182,7 @@ export class UriSourceAsset {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -11216,9 +11216,9 @@ export class UriSourceAsset {
     connect_after(sigName: "notify", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: UriSourceAsset, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::track-type", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-type", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy", callback: (($obj: UriSourceAsset, pspec: GObject.ParamSpec) => void)): number
@@ -11350,7 +11350,7 @@ export class VideoSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11385,7 +11385,7 @@ export class VideoSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -11447,9 +11447,9 @@ export class VideoSource {
     connect_after(sigName: "notify", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: VideoSource, pspec: GObject.ParamSpec) => void)): number
@@ -11606,7 +11606,7 @@ export class VideoTestSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11641,7 +11641,7 @@ export class VideoTestSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -11703,9 +11703,9 @@ export class VideoTestSource {
     connect_after(sigName: "notify", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTestSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: VideoTestSource, pspec: GObject.ParamSpec) => void)): number
@@ -11904,11 +11904,11 @@ export class VideoTrack {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -11947,7 +11947,7 @@ export class VideoTrack {
     watch_closure(closure: GObject.Closure): void
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -11982,7 +11982,7 @@ export class VideoTrack {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -12082,9 +12082,9 @@ export class VideoTrack {
     connect_after(sigName: "notify", callback: (($obj: VideoTrack, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTrack, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     /* Signals of Gst.ChildProxy */
     connect(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
     connect_after(sigName: "child-added", callback: (($obj: VideoTrack, object: GObject.Object, name: string) => void)): number
@@ -12249,7 +12249,7 @@ export class VideoTransition {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12284,7 +12284,7 @@ export class VideoTransition {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -12344,9 +12344,9 @@ export class VideoTransition {
     connect_after(sigName: "notify", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoTransition, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::border", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::invert", callback: (($obj: VideoTransition, pspec: GObject.ParamSpec) => void)): number
@@ -12509,7 +12509,7 @@ export class VideoUriSource {
     set_asset(asset: Asset): boolean
     /* Methods of GES.MetaContainer */
     add_metas_from_string(str: string): boolean
-    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null | null ]
+    check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
     foreach(func: MetaForeachFunc): void
     get_boolean(meta_item: string): [ /* returnType */ boolean, /* dest */ boolean ]
     get_date(meta_item: string): [ /* returnType */ boolean, /* dest */ GLib.Date ]
@@ -12544,7 +12544,7 @@ export class VideoUriSource {
     set_int(meta_item: string, value: number): boolean
     set_int64(meta_item: string, value: number): boolean
     set_marker_list(meta_item: string, list: MarkerList): boolean
-    set_meta(meta_item: string, value?: any): boolean
+    set_meta(meta_item: string, value?: any | null): boolean
     set_string(meta_item: string, value: string): boolean
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
@@ -12606,9 +12606,9 @@ export class VideoUriSource {
     connect_after(sigName: "notify", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GES.MetaContainer */
-    connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any) => void)): number
-    connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any) => void)): number
-    emit(sigName: "notify-meta", key: string, value?: any): void
+    connect(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
+    connect_after(sigName: "notify-meta", callback: (($obj: VideoUriSource, key: string, value?: any | null) => void)): number
+    emit(sigName: "notify-meta", key: string, value?: any | null): void
     connect(sigName: "notify::active", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-clamp-control-sources", callback: (($obj: VideoUriSource, pspec: GObject.ParamSpec) => void)): number

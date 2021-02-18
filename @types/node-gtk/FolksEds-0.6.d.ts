@@ -5,9 +5,9 @@
 import "node"
 import type { EBookContacts } from './EBookContacts-1.2';
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { EDataServer } from './EDataServer-1.2';
 import type { Soup } from './Soup-2.4';
 import type { GData } from './GData-0.0';
@@ -305,7 +305,7 @@ export class Persona {
     getInGooglePersonalGroup(): boolean
     setInGooglePersonalGroup(value: boolean): void
     /* Methods of Folks.Persona */
-    linkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
     getUid(): string
     getDisplayId(): string
@@ -540,7 +540,7 @@ export class Persona {
     vfuncGetWebServiceAddresses(): Gee.MultiMap
     vfuncSetWebServiceAddresses(value: Gee.MultiMap): void
     /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
     vfuncGetLinkableProperties(): string[]
     vfuncGetWriteableProperties(): string[]
     /* Virtual methods of GObject.Object */

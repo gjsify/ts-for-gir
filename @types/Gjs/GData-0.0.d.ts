@@ -2437,10 +2437,10 @@ export class ContactsContact {
     get_occupation(): string
     get_organizations(): GDOrganization[]
     get_phone_numbers(): GDPhoneNumber[]
-    get_photo(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ Uint8Array, /* content_type */ string | null ]
+    get_photo(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ Uint8Array[], /* content_type */ string | null ]
     get_photo_async(service: ContactsService, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_photo_etag(): string
-    get_photo_finish(async_result: Gio.AsyncResult): [ /* returnType */ Uint8Array, /* content_type */ string | null ]
+    get_photo_finish(async_result: Gio.AsyncResult): [ /* returnType */ Uint8Array[], /* content_type */ string | null ]
     get_postal_addresses(): GDPostalAddress[]
     get_primary_calendar(): GContactCalendar
     get_primary_email_address(): GDEmailAddress
@@ -5425,11 +5425,11 @@ export class DownloadStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
@@ -5476,7 +5476,7 @@ export class DownloadStream {
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -11111,11 +11111,11 @@ export class UploadStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     splice_finish(result: Gio.AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Gio.Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes_finish(result: Gio.AsyncResult): number
@@ -11158,9 +11158,9 @@ export class UploadStream {
     vfunc_splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfunc_splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_splice_finish(result: Gio.AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_write_finish(result: Gio.AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Gio.Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): number
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]

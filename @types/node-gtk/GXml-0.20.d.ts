@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
 export declare namespace GXml {
@@ -10103,7 +10103,7 @@ export class CustomEvent {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml.CustomEvent */
     getDetail(): /* result */ any
-    initCustomEvent(type: string, bubbles: boolean, cancelable: boolean, detail?: any): void
+    initCustomEvent(type: string, bubbles: boolean, cancelable: boolean, detail?: any | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -15093,7 +15093,7 @@ export class XDocument {
     readonly documentElement: DomElement
     /* Fields of GXml.XDocument */
     doc: object | null
-    buffer: libxml2.Buffer
+    buffer: any
     parser: Parser
     constructor: DomEvent
     /* Fields of GXml.XNode */
@@ -16242,7 +16242,7 @@ export class XHtmlDocument {
     value: string
     /* Fields of GXml.XDocument */
     doc: object | null
-    buffer: libxml2.Buffer
+    buffer: any
     parser: Parser
     implementation: DomImplementation
     url: string

@@ -90,7 +90,7 @@ export function main_set_display_enabled(channel: MainChannel, id: number, enabl
 export function main_update_display(channel: MainChannel, id: number, x: number, y: number, width: number, height: number, update: boolean): void
 export function main_update_display_enabled(channel: MainChannel, id: number, enabled: boolean, update: boolean): void
 export function port_event(port: PortChannel, event: number): void
-export function port_write_async(port: PortChannel, buffer: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+export function port_write_async(port: PortChannel, buffer: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
 export function port_write_finish(port: PortChannel, result: Gio.AsyncResult): number
 export function record_send_data(channel: RecordChannel, data: object | null, bytes: number, time: number): void
 export function set_session_option(session: Session): void
@@ -101,7 +101,6 @@ export function uuid_to_string(uuid: number): string
 export interface msg_handler {
     (channel: Channel, in_: MsgIn): void
 }
-export type VReader = any // TODO
 export interface Audio_ConstructProps extends GObject.Object_ConstructProps {
     main_context?: GLib.MainContext
     session?: Session
@@ -982,7 +981,7 @@ export class PortChannel {
     g_type_instance: GObject.TypeInstance
     /* Methods of SpiceClientGLib.PortChannel */
     event(event: number): void
-    write_async(buffer: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_finish(result: Gio.AsyncResult): number
     /* Methods of SpiceClientGLib.Channel */
     connect(): boolean
@@ -1246,7 +1245,7 @@ export class RecordChannel {
     static $gtype: GObject.Type
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
-    ca?: Uint8Array
+    ca?: Uint8Array[]
     ca_file?: string
     cache_size?: number
     cert_subject?: string
@@ -1265,7 +1264,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     port?: string
     protocol?: number
     proxy?: string
-    pubkey?: Uint8Array
+    pubkey?: Uint8Array[]
     read_only?: boolean
     secure_channels?: string[]
     share_dir_ro?: boolean
@@ -1280,7 +1279,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Session {
     /* Properties of SpiceClientGLib.Session */
-    ca: Uint8Array
+    ca: Uint8Array[]
     ca_file: string
     cache_size: number
     cert_subject: string
@@ -1301,7 +1300,7 @@ export class Session {
     port: string
     protocol: number
     proxy: string
-    pubkey: Uint8Array
+    pubkey: Uint8Array[]
     read_only: boolean
     secure_channels: string[]
     share_dir_ro: boolean
@@ -1590,18 +1589,18 @@ export class SmartcardManager {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of SpiceClientGLib.SmartcardManager */
-    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "card-inserted", vreader: VReader): void
-    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "card-removed", vreader: VReader): void
-    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "reader-added", vreader: VReader): void
-    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "reader-removed", vreader: VReader): void
+    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "card-inserted", vreader: any): void
+    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "card-removed", vreader: any): void
+    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "reader-added", vreader: any): void
+    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "reader-removed", vreader: any): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: SmartcardManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SmartcardManager, pspec: GObject.ParamSpec) => void)): number
@@ -1903,7 +1902,7 @@ export class WebdavChannel {
     g_type_instance: GObject.TypeInstance
     /* Methods of SpiceClientGLib.PortChannel */
     event(event: number): void
-    write_async(buffer: Uint8Array, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_finish(result: Gio.AsyncResult): number
     /* Methods of SpiceClientGLib.Channel */
     connect(): boolean

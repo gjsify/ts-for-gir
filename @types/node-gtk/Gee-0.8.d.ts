@@ -1383,11 +1383,11 @@ export class Future {
     waitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
     waitAsync(callback?: Gio.AsyncReadyCallback | null): void
     waitFinish(res: Gio.AsyncResult): object | null
-    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureMapFunc): Future
-    lightMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    lightMapBroken(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: FutureZipFunc, second: Future): Future
-    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
+    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    lightMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    lightMapBroken(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future): Future
+    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
     getValue(): object | null
     getReady(): boolean
     getException(): GLib.Error | null
@@ -1418,11 +1418,11 @@ export class Future {
     vfuncWaitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
     vfuncWaitAsync(callback?: Gio.AsyncReadyCallback | null): void
     vfuncWaitFinish(res: Gio.AsyncResult): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureMapFunc): Future
-    vfuncLightMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    vfuncLightMapBroken(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: FutureZipFunc, second: Future): Future
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
+    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    vfuncLightMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    vfuncLightMapBroken(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
+    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future): Future
+    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Future
     vfuncGetValue(): object | null
     vfuncGetReady(): boolean
     vfuncGetException(): GLib.Error | null
@@ -8879,7 +8879,7 @@ export class HashSetPrivate {
 }
 export class HazardPointer {
     /* Fields of Gee.HazardPointer */
-    node: HazardPointerNode
+    node: any
     /* Methods of Gee.HazardPointer */
     get(otherThread: boolean): object | null
     release(notify: GLib.DestroyNotify): void
@@ -9053,11 +9053,11 @@ export abstract class FutureIface {
     waitUntil: (endTime: number) => [ /* returnType */ boolean, /* value */ object | null ]
     waitAsync: (callback?: Gio.AsyncReadyCallback | null) => void
     waitFinish: (res: Gio.AsyncResult) => object | null
-    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureMapFunc) => Future
-    lightMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
-    lightMapBroken: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
-    zip: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: FutureZipFunc, second: Future) => Future
-    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: FutureFlatMapFunc) => Future
+    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMapBroken: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    zip: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future) => Future
+    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
     getValue: () => object | null
     getReady: () => boolean
     getException: () => GLib.Error | null

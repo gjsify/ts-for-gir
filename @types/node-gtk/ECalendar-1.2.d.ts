@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { EDataServer } from './EDataServer-1.2';
 import type { Soup } from './Soup-2.4';
 import type { GData } from './GData-0.0';

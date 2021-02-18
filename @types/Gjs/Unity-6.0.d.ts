@@ -94,7 +94,7 @@ export enum MusicPreviewTrackState {
     PAUSED,
 }
 export function io_read_stream_async(input: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-export function io_read_stream_finish(_res_: Gio.AsyncResult): [ /* data */ Uint8Array, /* size */ number ]
+export function io_read_stream_finish(_res_: Gio.AsyncResult): [ /* data */ Uint8Array[], /* size */ number ]
 export function io_open_from_dirs(filename: string, dirs: string[], _callback_?: Gio.AsyncReadyCallback | null): void
 export function io_open_from_dirs_finish(_res_: Gio.AsyncResult): Gio.FileInputStream | null
 export function io_open_from_data_dirs(filename: string, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -2623,9 +2623,9 @@ export class MusicPlayer {
     connect(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     connect_after(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     emit(sigName: "next"): void
-    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: GLib.ObjectPath) => void)): number
-    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: GLib.ObjectPath) => void)): number
-    emit(sigName: "activate_playlist", playlist_id: GLib.ObjectPath): void
+    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
+    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
+    emit(sigName: "activate_playlist", playlist_id: any): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number

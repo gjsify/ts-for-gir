@@ -1009,11 +1009,11 @@ export function atomic_ref_count_compare(arc: number, val: number): boolean
 export function atomic_ref_count_dec(arc: number): boolean
 export function atomic_ref_count_inc(arc: number): void
 export function atomic_ref_count_init(arc: number): void
-export function base64_decode(text: string): Uint8Array
-export function base64_decode_inplace(text: Uint8Array): [ /* returnType */ number, /* text */ Uint8Array ]
-export function base64_encode(data: Uint8Array | null): string
-export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Uint8Array, /* state */ number, /* save */ number ]
-export function base64_encode_step(in_: Uint8Array, break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Uint8Array, /* state */ number, /* save */ number ]
+export function base64_decode(text: string): Uint8Array[]
+export function base64_decode_inplace(text: Uint8Array[]): [ /* returnType */ number, /* text */ Uint8Array[] ]
+export function base64_encode(data: Uint8Array[] | null): string
+export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* save */ number ]
+export function base64_encode_step(in_: Uint8Array[], break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* save */ number ]
 export function basename(file_name: string): string
 export function bit_lock(address: number, lock_bit: number): void
 export function bit_nth_lsf(mask: number, nth_bit: number): number
@@ -1024,12 +1024,12 @@ export function bit_unlock(address: number, lock_bit: number): void
 export function bookmark_file_error_quark(): Quark
 export function build_filenamev(args: string[]): string
 export function build_pathv(separator: string, args: string[]): string
-export function byte_array_free(array: Uint8Array, free_segment: boolean): number
-export function byte_array_free_to_bytes(array: Uint8Array): Bytes
-export function byte_array_new(): Uint8Array
-export function byte_array_new_take(data: Uint8Array): Uint8Array
-export function byte_array_steal(array: Uint8Array): [ /* returnType */ number, /* len */ number | null ]
-export function byte_array_unref(array: Uint8Array): void
+export function byte_array_free(array: Uint8Array[], free_segment: boolean): number
+export function byte_array_free_to_bytes(array: Uint8Array[]): Bytes
+export function byte_array_new(): Uint8Array[]
+export function byte_array_new_take(data: Uint8Array[]): Uint8Array[]
+export function byte_array_steal(array: Uint8Array[]): [ /* returnType */ number, /* len */ number | null ]
+export function byte_array_unref(array: Uint8Array[]): void
 export function canonicalize_filename(filename: string, relative_to?: string | null): string
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
@@ -1039,14 +1039,14 @@ export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
 export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string | null
-export function compute_checksum_for_data(checksum_type: ChecksumType, data: Uint8Array): string | null
+export function compute_checksum_for_data(checksum_type: ChecksumType, data: Uint8Array[]): string | null
 export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string | null
 export function compute_hmac_for_bytes(digest_type: ChecksumType, key: Bytes, data: Bytes): string
-export function compute_hmac_for_data(digest_type: ChecksumType, key: Uint8Array, data: Uint8Array): string
-export function compute_hmac_for_string(digest_type: ChecksumType, key: Uint8Array, str: string, length: number): string
-export function convert(str: Uint8Array, to_codeset: string, from_codeset: string): [ /* returnType */ Uint8Array, /* bytes_read */ number | null ]
+export function compute_hmac_for_data(digest_type: ChecksumType, key: Uint8Array[], data: Uint8Array[]): string
+export function compute_hmac_for_string(digest_type: ChecksumType, key: Uint8Array[], str: string, length: number): string
+export function convert(str: Uint8Array[], to_codeset: string, from_codeset: string): [ /* returnType */ Uint8Array[], /* bytes_read */ number | null ]
 export function convert_error_quark(): Quark
-export function convert_with_fallback(str: Uint8Array, to_codeset: string, from_codeset: string, fallback: string): [ /* returnType */ Uint8Array, /* bytes_read */ number | null ]
+export function convert_with_fallback(str: Uint8Array[], to_codeset: string, from_codeset: string, fallback: string): [ /* returnType */ Uint8Array[], /* bytes_read */ number | null ]
 export function datalist_foreach(datalist: Data, func: DataForeachFunc): void
 export function datalist_get_data(datalist: Data, key: string): object | null
 export function datalist_get_flags(datalist: Data): number
@@ -1082,11 +1082,11 @@ export function environ_setenv(envp: string[] | null, variable: string, value: s
 export function environ_unsetenv(envp: string[] | null, variable: string): string[]
 export function file_error_from_errno(err_no: number): FileError
 export function file_error_quark(): Quark
-export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ Uint8Array ]
+export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ Uint8Array[] ]
 export function file_open_tmp(tmpl?: string | null): [ /* returnType */ number, /* name_used */ string ]
 export function file_read_link(filename: string): string
-export function file_set_contents(filename: string, contents: Uint8Array): boolean
-export function file_set_contents_full(filename: string, contents: Uint8Array, flags: FileSetContentsFlags, mode: number): boolean
+export function file_set_contents(filename: string, contents: Uint8Array[]): boolean
+export function file_set_contents_full(filename: string, contents: Uint8Array[], flags: FileSetContentsFlags, mode: number): boolean
 export function file_test(filename: string, test: FileTest): boolean
 export function filename_display_basename(filename: string): string
 export function filename_display_name(filename: string): string
@@ -1168,8 +1168,8 @@ export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
 export function key_file_error_quark(): Quark
 export function listenv(): string[]
-export function locale_from_utf8(utf8string: string, len: number): [ /* returnType */ Uint8Array, /* bytes_read */ number | null ]
-export function locale_to_utf8(opsysstring: Uint8Array): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function locale_from_utf8(utf8string: string, len: number): [ /* returnType */ Uint8Array[], /* bytes_read */ number | null ]
+export function locale_to_utf8(opsysstring: Uint8Array[]): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
 export function log_default_handler(log_domain: string | null, log_level: LogLevelFlags, message?: string | null, unused_data?: object | null): void
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
@@ -1295,10 +1295,10 @@ export function spawn_async_with_pipes(working_directory: string | null, argv: s
 export function spawn_check_exit_status(exit_status: number): boolean
 export function spawn_close_pid(pid: Pid): void
 export function spawn_command_line_async(command_line: string): boolean
-export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Uint8Array | null, /* standard_error */ Uint8Array | null, /* exit_status */ number | null ]
+export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Uint8Array[] | null, /* standard_error */ Uint8Array[] | null, /* exit_status */ number | null ]
 export function spawn_error_quark(): Quark
 export function spawn_exit_error_quark(): Quark
-export function spawn_sync(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Uint8Array | null, /* standard_error */ Uint8Array | null, /* exit_status */ number | null ]
+export function spawn_sync(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Uint8Array[] | null, /* standard_error */ Uint8Array[] | null, /* exit_status */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function str_equal(v1: object, v2: object): boolean
 export function str_has_prefix(str: string, prefix: string): boolean
@@ -1450,7 +1450,7 @@ export function unsetenv(variable: string): void
 export function uri_build(flags: UriFlags, scheme: string, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
 export function uri_build_with_user(flags: UriFlags, scheme: string, user: string | null, password: string | null, auth_params: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
 export function uri_error_quark(): Quark
-export function uri_escape_bytes(unescaped: Uint8Array, reserved_chars_allowed?: string | null): string
+export function uri_escape_bytes(unescaped: Uint8Array[], reserved_chars_allowed?: string | null): string
 export function uri_escape_string(unescaped: string, reserved_chars_allowed: string | null, allow_utf8: boolean): string
 export function uri_is_valid(uri_string: string, flags: UriFlags): boolean
 export function uri_join(flags: UriFlags, scheme: string | null, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): string
@@ -1494,8 +1494,8 @@ export function utf8_substring(str: string, start_pos: number, end_pos: number):
 export function utf8_to_ucs4(str: string, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
 export function utf8_to_ucs4_fast(str: string, len: number): [ /* returnType */ number, /* items_written */ number | null ]
 export function utf8_to_utf16(str: string, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
-export function utf8_validate(str: Uint8Array): [ /* returnType */ boolean, /* end */ string | null ]
-export function utf8_validate_len(str: Uint8Array): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8_validate(str: Uint8Array[]): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8_validate_len(str: Uint8Array[]): [ /* returnType */ boolean, /* end */ string | null ]
 export function uuid_string_is_valid(str: string): boolean
 export function uuid_string_random(): string
 export function variant_get_gtype(): GObject.Type
@@ -1662,8 +1662,6 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
-export type BusName = string; // TODO
-export type ObjectPath = string; // TODO
 export class Array {
     /* Fields of GLib.Array */
     data: string
@@ -1720,7 +1718,7 @@ export class BookmarkFile {
     has_application(uri: string, name: string): boolean
     has_group(uri: string, group: string): boolean
     has_item(uri: string): boolean
-    load_from_data(data: Uint8Array): boolean
+    load_from_data(data: Uint8Array[]): boolean
     load_from_data_dirs(file: string): [ /* returnType */ boolean, /* full_path */ string | null ]
     load_from_file(filename: string): boolean
     move_item(old_uri: string, new_uri?: string | null): boolean
@@ -1741,7 +1739,7 @@ export class BookmarkFile {
     set_title(uri: string | null, title: string): void
     set_visited(uri: string, visited: number): void
     set_visited_date_time(uri: string, visited: DateTime): void
-    to_data(): Uint8Array
+    to_data(): Uint8Array[]
     to_file(filename: string): boolean
     static name: string
     /* Static methods and pseudo-constructors */
@@ -1753,30 +1751,30 @@ export class ByteArray {
     len: number
     static name: string
     /* Static methods and pseudo-constructors */
-    static free(array: Uint8Array, free_segment: boolean): number
-    static free_to_bytes(array: Uint8Array): Bytes
-    static new_take(data: Uint8Array): Uint8Array
-    static steal(array: Uint8Array): [ /* returnType */ number, /* len */ number | null ]
-    static unref(array: Uint8Array): void
+    static free(array: Uint8Array[], free_segment: boolean): number
+    static free_to_bytes(array: Uint8Array[]): Bytes
+    static new_take(data: Uint8Array[]): Uint8Array[]
+    static steal(array: Uint8Array[]): [ /* returnType */ number, /* len */ number | null ]
+    static unref(array: Uint8Array[]): void
 }
 export class Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
-    get_data(): Uint8Array | null
+    get_data(): Uint8Array[] | null
     get_size(): number
     hash(): number
     new_from_bytes(offset: number, length: number): Bytes
     ref(): Bytes
     unref(): void
-    unref_to_array(): Uint8Array
-    unref_to_data(): Uint8Array
+    unref_to_array(): Uint8Array[]
+    unref_to_data(): Uint8Array[]
     static name: string
-    static new(data: Uint8Array | null): Bytes
-    constructor(data: Uint8Array | null)
+    static new(data: Uint8Array[] | null): Bytes
+    constructor(data: Uint8Array[] | null)
     /* Static methods and pseudo-constructors */
-    static new(data: Uint8Array | null): Bytes
-    static new_take(data: Uint8Array | null): Bytes
+    static new(data: Uint8Array[] | null): Bytes
+    static new_take(data: Uint8Array[] | null): Bytes
 }
 export class Checksum {
     /* Methods of GLib.Checksum */
@@ -1784,7 +1782,7 @@ export class Checksum {
     free(): void
     get_string(): string
     reset(): void
-    update(data: Uint8Array): void
+    update(data: Uint8Array[]): void
     static name: string
     static new(checksum_type: ChecksumType): Checksum
     constructor(checksum_type: ChecksumType)
@@ -1982,10 +1980,10 @@ export class HashTableIter {
 }
 export class Hmac {
     /* Methods of GLib.Hmac */
-    get_digest(buffer: Uint8Array): void
+    get_digest(buffer: Uint8Array[]): void
     get_string(): string
     unref(): void
-    update(data: Uint8Array): void
+    update(data: Uint8Array[]): void
     static name: string
 }
 export class Hook {
@@ -2041,10 +2039,10 @@ export class IOChannel {
     get_line_term(length: number): string
     init(): void
     read(buf: string, count: number, bytes_read: number): IOError
-    read_chars(): [ /* returnType */ IOStatus, /* buf */ Uint8Array, /* bytes_read */ number | null ]
+    read_chars(): [ /* returnType */ IOStatus, /* buf */ Uint8Array[], /* bytes_read */ number | null ]
     read_line(): [ /* returnType */ IOStatus, /* str_return */ string, /* length */ number | null, /* terminator_pos */ number | null ]
     read_line_string(buffer: String, terminator_pos?: number | null): IOStatus
-    read_to_end(): [ /* returnType */ IOStatus, /* str_return */ Uint8Array ]
+    read_to_end(): [ /* returnType */ IOStatus, /* str_return */ Uint8Array[] ]
     read_unichar(): [ /* returnType */ IOStatus, /* thechar */ number ]
     ref(): IOChannel
     seek(offset: number, type: SeekType): IOError
@@ -2059,7 +2057,7 @@ export class IOChannel {
     unix_get_fd(): number
     unref(): void
     write(buf: string, count: number, bytes_written: number): IOError
-    write_chars(buf: Uint8Array, count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
+    write_chars(buf: Uint8Array[], count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
     write_unichar(thechar: number): IOStatus
     static name: string
     /* Static methods and pseudo-constructors */
@@ -2856,7 +2854,7 @@ export class Uri {
     static build(flags: UriFlags, scheme: string, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
     static build_with_user(flags: UriFlags, scheme: string, user: string | null, password: string | null, auth_params: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
     static error_quark(): Quark
-    static escape_bytes(unescaped: Uint8Array, reserved_chars_allowed?: string | null): string
+    static escape_bytes(unescaped: Uint8Array[], reserved_chars_allowed?: string | null): string
     static escape_string(unescaped: string, reserved_chars_allowed: string | null, allow_utf8: boolean): string
     static is_valid(uri_string: string, flags: UriFlags): boolean
     static join(flags: UriFlags, scheme: string | null, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): string
@@ -2886,7 +2884,7 @@ export class Variant {
     check_format_string(format_string: string, copy_only: boolean): boolean
     classify(): VariantClass
     compare(two: Variant): number
-    dup_bytestring(): Uint8Array
+    dup_bytestring(): Uint8Array[]
     dup_bytestring_array(): string[]
     dup_objv(): string[]
     dup_string(): [ /* returnType */ string, /* length */ number ]
@@ -2894,7 +2892,7 @@ export class Variant {
     equal(two: Variant): boolean
     get_boolean(): boolean
     get_byte(): number
-    get_bytestring(): Uint8Array
+    get_bytestring(): Uint8Array[]
     get_bytestring_array(): string[]
     get_child_value(index_: number): Variant
     get_data(): object | null
@@ -2934,13 +2932,13 @@ export class Variant {
     static new_array(child_type: VariantType | null, children: Variant[] | null): Variant
     static new_boolean(value: boolean): Variant
     static new_byte(value: number): Variant
-    static new_bytestring(string: Uint8Array): Variant
+    static new_bytestring(string: Uint8Array[]): Variant
     static new_bytestring_array(strv: string[]): Variant
     static new_dict_entry(key: Variant, value: Variant): Variant
     static new_double(value: number): Variant
     static new_fixed_array(element_type: VariantType, elements: object | null, n_elements: number, element_size: number): Variant
     static new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    static new_from_data(type: VariantType, data: Uint8Array, trusted: boolean, notify: DestroyNotify, user_data?: object | null): Variant
+    static new_from_data(type: VariantType, data: Uint8Array[], trusted: boolean, notify: DestroyNotify, user_data?: object | null): Variant
     static new_handle(value: number): Variant
     static new_int16(value: number): Variant
     static new_int32(value: number): Variant

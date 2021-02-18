@@ -768,10 +768,10 @@ export function blob_is_immutable(blob: blob_t): bool_t
 export function blob_make_immutable(blob: blob_t): void
 export function buffer_add(buffer: buffer_t, codepoint: codepoint_t, cluster: number): void
 export function buffer_add_codepoints(buffer: buffer_t, text: codepoint_t[], item_offset: number, item_length: number): void
-export function buffer_add_latin1(buffer: buffer_t, text: Uint8Array, item_offset: number, item_length: number): void
+export function buffer_add_latin1(buffer: buffer_t, text: Uint8Array[], item_offset: number, item_length: number): void
 export function buffer_add_utf16(buffer: buffer_t, text: number[], item_offset: number, item_length: number): void
 export function buffer_add_utf32(buffer: buffer_t, text: number[], item_offset: number, item_length: number): void
-export function buffer_add_utf8(buffer: buffer_t, text: Uint8Array, item_offset: number, item_length: number): void
+export function buffer_add_utf8(buffer: buffer_t, text: Uint8Array[], item_offset: number, item_length: number): void
 export function buffer_allocation_successful(buffer: buffer_t): bool_t
 export function buffer_append(buffer: buffer_t, source: buffer_t, start: number, end: number): void
 export function buffer_clear_contents(buffer: buffer_t): void
@@ -801,12 +801,12 @@ export function buffer_reset(buffer: buffer_t): void
 export function buffer_reverse(buffer: buffer_t): void
 export function buffer_reverse_clusters(buffer: buffer_t): void
 export function buffer_reverse_range(buffer: buffer_t, start: number, end: number): void
-export function buffer_serialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array, /* buf_consumed */ number | null ]
-export function buffer_serialize_format_from_string(str: Uint8Array): buffer_serialize_format_t
+export function buffer_serialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
+export function buffer_serialize_format_from_string(str: Uint8Array[]): buffer_serialize_format_t
 export function buffer_serialize_format_to_string(format: buffer_serialize_format_t): string
-export function buffer_serialize_glyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array, /* buf_consumed */ number | null ]
+export function buffer_serialize_glyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
 export function buffer_serialize_list_formats(): string[]
-export function buffer_serialize_unicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array, /* buf_consumed */ number | null ]
+export function buffer_serialize_unicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
 export function buffer_set_cluster_level(buffer: buffer_t, cluster_level: buffer_cluster_level_t): void
 export function buffer_set_content_type(buffer: buffer_t, content_type: buffer_content_type_t): void
 export function buffer_set_direction(buffer: buffer_t, direction: direction_t): void
@@ -823,7 +823,7 @@ export function color_get_alpha(color: color_t): number
 export function color_get_blue(color: color_t): number
 export function color_get_green(color: color_t): number
 export function color_get_red(color: color_t): number
-export function direction_from_string(str: Uint8Array): direction_t
+export function direction_from_string(str: Uint8Array[]): direction_t
 export function direction_to_string(direction: direction_t): string
 export function face_builder_add_table(face: face_t, tag: tag_t, blob: blob_t): bool_t
 export function face_builder_create(): face_t
@@ -845,7 +845,7 @@ export function face_reference_table(face: face_t, tag: tag_t): blob_t
 export function face_set_glyph_count(face: face_t, glyph_count: number): void
 export function face_set_index(face: face_t, index: number): void
 export function face_set_upem(face: face_t, upem: number): void
-export function feature_from_string(str: Uint8Array): [ /* returnType */ bool_t, /* feature */ feature_t ]
+export function feature_from_string(str: Uint8Array[]): [ /* returnType */ bool_t, /* feature */ feature_t ]
 export function feature_to_string(feature: feature_t): /* buf */ string[]
 export function font_add_glyph_origin_for_direction(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
 export function font_create(face: face_t): font_t
@@ -904,7 +904,7 @@ export function font_get_scale(font: font_t): [ /* x_scale */ number, /* y_scale
 export function font_get_v_extents(font: font_t): [ /* returnType */ bool_t, /* extents */ font_extents_t ]
 export function font_get_var_coords_normalized(font: font_t, length: number): number
 export function font_get_variation_glyph(font: font_t, unicode: codepoint_t, variation_selector: codepoint_t): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
-export function font_glyph_from_string(font: font_t, s: Uint8Array): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
+export function font_glyph_from_string(font: font_t, s: Uint8Array[]): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
 export function font_glyph_to_string(font: font_t, glyph: codepoint_t, s: string[]): void
 export function font_is_immutable(font: font_t): bool_t
 export function font_make_immutable(font: font_t): void
@@ -930,7 +930,7 @@ export function glib_get_unicode_funcs(): unicode_funcs_t
 export function glib_script_from_script(script: script_t): GLib.UnicodeScript
 export function glib_script_to_script(script: GLib.UnicodeScript): script_t
 export function glyph_info_get_glyph_flags(info: glyph_info_t): glyph_flags_t
-export function language_from_string(str: Uint8Array): language_t
+export function language_from_string(str: Uint8Array[]): language_t
 export function language_get_default(): language_t
 export function language_to_string(language: language_t): string
 export function map_allocation_successful(map: map_t): bool_t
@@ -1030,7 +1030,7 @@ export function ot_var_named_instance_get_subfamily_name_id(face: face_t, instan
 export function ot_var_normalize_coords(face: face_t, coords_length: number, design_coords: number): /* normalized_coords */ number
 export function ot_var_normalize_variations(face: face_t, variations: variation_t, variations_length: number): /* coords */ number[]
 export function script_from_iso15924_tag(tag: tag_t): script_t
-export function script_from_string(str: Uint8Array): script_t
+export function script_from_string(str: Uint8Array[]): script_t
 export function script_get_horizontal_direction(script: script_t): direction_t
 export function script_to_iso15924_tag(script: script_t): tag_t
 export function segment_properties_equal(a: segment_properties_t, b: segment_properties_t): bool_t
@@ -1070,8 +1070,8 @@ export function shape_plan_create_cached2(face: face_t, props: segment_propertie
 export function shape_plan_execute(shape_plan: shape_plan_t, font: font_t, buffer: buffer_t, features: feature_t[]): bool_t
 export function shape_plan_get_empty(): shape_plan_t
 export function shape_plan_get_shaper(shape_plan: shape_plan_t): string
-export function tag_from_string(str: Uint8Array): tag_t
-export function tag_to_string(tag: tag_t): /* buf */ Uint8Array
+export function tag_from_string(str: Uint8Array[]): tag_t
+export function tag_to_string(tag: tag_t): /* buf */ Uint8Array[]
 export function unicode_combining_class(ufuncs: unicode_funcs_t, unicode: codepoint_t): unicode_combining_class_t
 export function unicode_compose(ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t): [ /* returnType */ bool_t, /* ab */ codepoint_t ]
 export function unicode_decompose(ufuncs: unicode_funcs_t, ab: codepoint_t): [ /* returnType */ bool_t, /* a */ codepoint_t, /* b */ codepoint_t ]
@@ -1313,8 +1313,8 @@ export class var_int_t {
     i32: number
     u16: number[]
     i16: number[]
-    u8: Uint8Array
-    i8: Uint8Array
+    u8: Uint8Array[]
+    i8: Uint8Array[]
     static name: string
 }
 export type bool_t = number

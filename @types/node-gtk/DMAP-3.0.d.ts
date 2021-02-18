@@ -282,9 +282,9 @@ export class Db {
 }
 export class Record {
     /* Methods of DMAP.Record */
-    setFromBlob(blob: any): boolean
+    setFromBlob(blob: any[]): boolean
     /* Virtual methods of DMAP.Record */
-    vfuncSetFromBlob(blob: any): boolean
+    vfuncSetFromBlob(blob: any[]): boolean
     static name: string
 }
 export class RecordFactory {
@@ -457,11 +457,11 @@ export class GstInputStream {
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any, /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
+    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -509,7 +509,7 @@ export class GstInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncCloseFinish(result: Gio.AsyncResult): boolean
     vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
     vfuncReadFinish(result: Gio.AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -950,7 +950,7 @@ export abstract class RecordFactoryIface {
 export abstract class RecordIface {
     /* Fields of DMAP.RecordIface */
     parent: GObject.TypeInterface
-    setFromBlob: (record: Record, blob: any) => boolean
+    setFromBlob: (record: Record, blob: any[]) => boolean
     static name: string
 }
 export abstract class ShareClass {

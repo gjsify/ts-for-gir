@@ -983,7 +983,7 @@ export class EventEntry {
 }
 export class IPv4 {
     /* Fields of Mbim.IPv4 */
-    addr: any
+    addr: any[]
     static name: string
 }
 export class IPv4Element {
@@ -996,7 +996,7 @@ export class IPv4Element {
 }
 export class IPv6 {
     /* Fields of Mbim.IPv6 */
-    addr: any
+    addr: any[]
     static name: string
 }
 export class IPv6Element {
@@ -1041,8 +1041,8 @@ export class Message {
     atdsRatResponseParse(): [ /* returnType */ boolean, /* outMode */ AtdsRatMode | null ]
     atdsRegisterStateResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
     atdsSignalResponseParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outRscp */ number | null, /* outEcno */ number | null, /* outRsrq */ number | null, /* outRsrp */ number | null, /* outRssnr */ number | null ]
-    authAkaResponseParse(): [ /* returnType */ boolean, /* outRes */ any | null, /* outResLen */ number | null, /* outIntegratingKey */ any | null, /* outCipheringKey */ any | null, /* outAuts */ any | null ]
-    authAkapResponseParse(): [ /* returnType */ boolean, /* outRes */ any | null, /* outResLen */ number | null, /* outIntegratingKey */ any | null, /* outCipheringKey */ any | null, /* outAuts */ any | null ]
+    authAkaResponseParse(): [ /* returnType */ boolean, /* outRes */ any[] | null, /* outResLen */ number | null, /* outIntegratingKey */ any[] | null, /* outCipheringKey */ any[] | null, /* outAuts */ any[] | null ]
+    authAkapResponseParse(): [ /* returnType */ boolean, /* outRes */ any[] | null, /* outResLen */ number | null, /* outIntegratingKey */ any[] | null, /* outCipheringKey */ any[] | null, /* outAuts */ any[] | null ]
     authSimResponseParse(): [ /* returnType */ boolean, /* outSres1 */ number | null, /* outKc1 */ number | null, /* outSres2 */ number | null, /* outKc2 */ number | null, /* outSres3 */ number | null, /* outKc3 */ number | null, /* outN */ number | null ]
     closeDoneGetResult(): boolean
     closeDoneGetStatusCode(): StatusError
@@ -1114,15 +1114,15 @@ export class Message {
     provisionedContextsNotificationParse(): [ /* returnType */ boolean, /* outProvisionedContextsCount */ number | null, /* outProvisionedContexts */ ProvisionedContextElement[] | null ]
     provisionedContextsResponseParse(): [ /* returnType */ boolean, /* outProvisionedContextsCount */ number | null, /* outProvisionedContexts */ ProvisionedContextElement[] | null ]
     proxyControlConfigurationResponseParse(): boolean
-    qmiMsgNotificationParse(): [ /* returnType */ boolean, /* outQmux */ any | null ]
-    qmiMsgResponseParse(): [ /* returnType */ boolean, /* outQmux */ any | null ]
+    qmiMsgNotificationParse(): [ /* returnType */ boolean, /* outQmux */ any[] | null ]
+    qmiMsgResponseParse(): [ /* returnType */ boolean, /* outQmux */ any[] | null ]
     radioStateNotificationParse(): [ /* returnType */ boolean, /* outHwRadioState */ RadioSwitchState | null, /* outSwRadioState */ RadioSwitchState | null ]
     radioStateResponseParse(): [ /* returnType */ boolean, /* outHwRadioState */ RadioSwitchState | null, /* outSwRadioState */ RadioSwitchState | null ]
     ref(): Message
     registerStateNotificationParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
     registerStateResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outRegisterState */ RegisterState | null, /* outRegisterMode */ RegisterMode | null, /* outAvailableDataClasses */ DataClass | null, /* outCurrentCellularClass */ CellularClass | null, /* outProviderId */ string | null, /* outProviderName */ string | null, /* outRoamingText */ string | null, /* outRegistrationFlag */ RegistrationFlag | null ]
     responseGetResult(expected: MessageType): boolean
-    serviceActivationResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outBuffer */ any | null ]
+    serviceActivationResponseParse(): [ /* returnType */ boolean, /* outNwError */ NwError | null, /* outBuffer */ any[] | null ]
     setTransactionId(transactionId: number): void
     signalStateNotificationParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outSignalStrengthInterval */ number | null, /* outRssiThreshold */ number | null, /* outErrorRateThreshold */ number | null ]
     signalStateResponseParse(): [ /* returnType */ boolean, /* outRssi */ number | null, /* outErrorRate */ number | null, /* outSignalStrengthInterval */ number | null, /* outRssiThreshold */ number | null, /* outErrorRateThreshold */ number | null ]
@@ -1133,15 +1133,15 @@ export class Message {
     smsReadNotificationParse(): [ /* returnType */ boolean, /* outFormat */ SmsFormat | null, /* outMessagesCount */ number | null, /* outPduMessages */ SmsPduReadRecord[] | null, /* outCdmaMessages */ SmsCdmaReadRecord[] | null ]
     smsReadResponseParse(): [ /* returnType */ boolean, /* outFormat */ SmsFormat | null, /* outMessagesCount */ number | null, /* outPduMessages */ SmsPduReadRecord[] | null, /* outCdmaMessages */ SmsCdmaReadRecord[] | null ]
     smsSendResponseParse(): [ /* returnType */ boolean, /* outMessageReference */ number | null ]
-    stkEnvelopeResponseParse(): [ /* returnType */ boolean, /* outEnvelopeSupport */ any | null ]
-    stkPacNotificationParse(): [ /* returnType */ boolean, /* outPacType */ StkPacType | null, /* outDataBuffer */ any | null ]
-    stkPacResponseParse(): [ /* returnType */ boolean, /* outPacSupport */ any | null ]
-    stkTerminalResponseResponseParse(): [ /* returnType */ boolean, /* outResultData */ any | null, /* outStatusWords */ number | null ]
+    stkEnvelopeResponseParse(): [ /* returnType */ boolean, /* outEnvelopeSupport */ any[] | null ]
+    stkPacNotificationParse(): [ /* returnType */ boolean, /* outPacType */ StkPacType | null, /* outDataBuffer */ any[] | null ]
+    stkPacResponseParse(): [ /* returnType */ boolean, /* outPacSupport */ any[] | null ]
+    stkTerminalResponseResponseParse(): [ /* returnType */ boolean, /* outResultData */ any[] | null, /* outStatusWords */ number | null ]
     subscriberReadyStatusNotificationParse(): [ /* returnType */ boolean, /* outReadyState */ SubscriberReadyState | null, /* outSubscriberId */ string | null, /* outSimIccId */ string | null, /* outReadyInfo */ ReadyInfoFlag | null, /* outTelephoneNumbersCount */ number | null, /* outTelephoneNumbers */ string[] | null ]
     subscriberReadyStatusResponseParse(): [ /* returnType */ boolean, /* outReadyState */ SubscriberReadyState | null, /* outSubscriberId */ string | null, /* outSimIccId */ string | null, /* outReadyInfo */ ReadyInfoFlag | null, /* outTelephoneNumbersCount */ number | null, /* outTelephoneNumbers */ string[] | null ]
     unref(): void
-    ussdNotificationParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any | null ]
-    ussdResponseParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any | null ]
+    ussdNotificationParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any[] | null ]
+    ussdResponseParse(): [ /* returnType */ boolean, /* outResponse */ UssdResponse | null, /* outSessionState */ UssdSessionState | null, /* outDataCodingScheme */ number | null, /* outPayload */ any[] | null ]
     visibleProvidersResponseParse(): [ /* returnType */ boolean, /* outProvidersCount */ number | null, /* outProviders */ Provider[] | null ]
     static name: string
     static new(data: number, dataLength: number): Message
@@ -1153,9 +1153,9 @@ export class Message {
     static atdsRatSetNew(mode: AtdsRatMode): Message
     static atdsRegisterStateQueryNew(): Message
     static atdsSignalQueryNew(): Message
-    static authAkaQueryNew(rand: any, autn: any): Message
-    static authAkapQueryNew(rand: any, autn: any, networkName: string): Message
-    static authSimQueryNew(rand1: any, rand2: any, rand3: any, n: number): Message
+    static authAkaQueryNew(rand: any[], autn: any[]): Message
+    static authAkapQueryNew(rand: any[], autn: any[], networkName: string): Message
+    static authSimQueryNew(rand1: any[], rand2: any[], rand3: any[], n: number): Message
     static closeDoneNew(transactionId: number, errorStatusCode: StatusError): Message
     static closeNew(transactionId: number): Message
     static commandNew(transactionId: number, service: Service, cid: number, commandType: MessageCommandType): Message
@@ -1208,12 +1208,12 @@ export class Message {
     static provisionedContextsQueryNew(): Message
     static provisionedContextsSetNew(contextId: number, contextType: Uuid, accessString: string, userName: string, password: string, compression: Compression, authProtocol: AuthProtocol, providerId: string): Message
     static proxyControlConfigurationSetNew(devicePath: string, timeout: number): Message
-    static qmiMsgSetNew(qmiMsg: any): Message
+    static qmiMsgSetNew(qmiMsg: any[]): Message
     static radioStateQueryNew(): Message
     static radioStateSetNew(radioState: RadioSwitchState): Message
     static registerStateQueryNew(): Message
     static registerStateSetNew(providerId: string, registerAction: RegisterAction, dataClass: DataClass): Message
-    static serviceActivationSetNew(buffer: any): Message
+    static serviceActivationSetNew(buffer: any[]): Message
     static signalStateQueryNew(): Message
     static signalStateSetNew(signalStrengthInterval: number, rssiThreshold: number, errorRateThreshold: number): Message
     static smsConfigurationQueryNew(): Message
@@ -1223,12 +1223,12 @@ export class Message {
     static smsReadQueryNew(format: SmsFormat, flag: SmsFlag, messageIndex: number): Message
     static smsSendSetNew(format: SmsFormat, pduMessage: SmsPduSendRecord, cdmaMessage: SmsCdmaSendRecord): Message
     static stkEnvelopeQueryNew(): Message
-    static stkEnvelopeSetNew(data: any): Message
+    static stkEnvelopeSetNew(data: any[]): Message
     static stkPacQueryNew(): Message
-    static stkPacSetNew(pacHostControl: any): Message
-    static stkTerminalResponseSetNew(response: any): Message
+    static stkPacSetNew(pacHostControl: any[]): Message
+    static stkTerminalResponseSetNew(response: any[]): Message
     static subscriberReadyStatusQueryNew(): Message
-    static ussdSetNew(action: UssdAction, dataCodingScheme: number, payload: any): Message
+    static ussdSetNew(action: UssdAction, dataCodingScheme: number, payload: any[]): Message
     static visibleProvidersQueryNew(action: VisibleProvidersAction): Message
 }
 export class PacketFilter {
@@ -1359,11 +1359,11 @@ export class SmsPduSendRecord {
 }
 export class Uuid {
     /* Fields of Mbim.Uuid */
-    a: any
-    b: any
-    c: any
-    d: any
-    e: any
+    a: any[]
+    b: any[]
+    c: any[]
+    d: any[]
+    e: any[]
     /* Methods of Mbim.Uuid */
     cmp(b: Uuid): boolean
     getPrintable(): string

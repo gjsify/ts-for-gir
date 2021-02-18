@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -74,21 +74,21 @@ export class CairoFramebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: any, x: number, y: number, width: number, height: number): void
-    getBuffer(): any
+    fill(src: any[], x: number, y: number, width: number, height: number): void
+    getBuffer(): any[]
     getHeight(): number
     getLocalFormat(): GVnc.PixelFormat
     getRemoteFormat(): GVnc.PixelFormat
     getRowstride(): number
     getWidth(): number
     perfectFormatMatch(): boolean
-    rgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     setColorMap(map: GVnc.ColorMap): void
-    setPixelAt(src: any, x: number, y: number): void
+    setPixelAt(src: any[], x: number, y: number): void
     /* Virtual methods of GtkVnc.CairoFramebuffer */
     vfuncBlt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncCopyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfuncFill(src: any, x: number, y: number, width: number, height: number): void
+    vfuncFill(src: any[], x: number, y: number, width: number, height: number): void
     vfuncGetBuffer(): number
     vfuncGetHeight(): number
     vfuncGetLocalFormat(): GVnc.PixelFormat
@@ -96,9 +96,9 @@ export class CairoFramebuffer {
     vfuncGetRowstride(): number
     vfuncGetWidth(): number
     vfuncPerfectFormatMatch(): boolean
-    vfuncRgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfuncRgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncSetColorMap(map: GVnc.ColorMap): void
-    vfuncSetPixelAt(src: any, x: number, y: number): void
+    vfuncSetPixelAt(src: any[], x: number, y: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -131,7 +131,7 @@ export class CairoFramebuffer {
     _init (config?: CairoFramebuffer_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(width: number, height: number, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
-    static new(buffer: any, width: number, height: number, rowstride: number, localFormat: GVnc.PixelFormat, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
+    static new(buffer: any[], width: number, height: number, rowstride: number, localFormat: GVnc.PixelFormat, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
     static $gtype: GObject.Type
 }
 export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
@@ -409,7 +409,7 @@ export class Display {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

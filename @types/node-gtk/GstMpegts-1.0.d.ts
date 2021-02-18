@@ -645,13 +645,13 @@ export enum RegistrationId {
     AC_4,
     OTHER_HEVC,
 }
-export function descriptorFromCustom(tag: number, data: any): Descriptor
-export function descriptorFromCustomWithExtension(tag: number, tagExtension: number, data: any): Descriptor
+export function descriptorFromCustom(tag: number, data: any[]): Descriptor
+export function descriptorFromCustomWithExtension(tag: number, tagExtension: number, data: any[]): Descriptor
 export function descriptorFromDvbNetworkName(name: string): Descriptor
 export function descriptorFromDvbService(serviceType: DVBServiceType, serviceName?: string | null, serviceProvider?: string | null): Descriptor
 export function descriptorFromDvbSubtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
 export function descriptorFromIso639Language(language: string): Descriptor
-export function descriptorFromRegistration(formatIdentifier: string, additionalInfo: any | null): Descriptor
+export function descriptorFromRegistration(formatIdentifier: string, additionalInfo: any[] | null): Descriptor
 export function descriptorParseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
 export function descriptorParseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
 export function dvbComponentDescriptorFree(source: ComponentDescriptor): void
@@ -957,14 +957,14 @@ export class Descriptor {
     /* Methods of GstMpegts.Descriptor */
     free(): void
     parseAudioPreselectionList(): [ /* returnType */ boolean, /* list */ AudioPreselectionDescriptor[] ]
-    parseCa(): [ /* returnType */ boolean, /* caSystemId */ number, /* caPid */ number, /* privateData */ any | null ]
+    parseCa(): [ /* returnType */ boolean, /* caSystemId */ number, /* caPid */ number, /* privateData */ any[] | null ]
     parseCableDeliverySystem(): [ /* returnType */ boolean, /* res */ CableDeliverySystemDescriptor ]
     parseDvbBouquetName(): [ /* returnType */ boolean, /* bouquetName */ string | null ]
     parseDvbCaIdentifier(): [ /* returnType */ boolean, /* list */ number[] ]
     parseDvbComponent(): [ /* returnType */ boolean, /* res */ ComponentDescriptor ]
     parseDvbContent(): [ /* returnType */ boolean, /* content */ Content[] ]
     parseDvbDataBroadcast(): [ /* returnType */ boolean, /* res */ DataBroadcastDescriptor ]
-    parseDvbDataBroadcastId(): [ /* returnType */ boolean, /* dataBroadcastId */ number, /* idSelectorBytes */ any ]
+    parseDvbDataBroadcastId(): [ /* returnType */ boolean, /* dataBroadcastId */ number, /* idSelectorBytes */ any[] ]
     parseDvbExtendedEvent(): [ /* returnType */ boolean, /* res */ ExtendedEventDescriptor ]
     parseDvbFrequencyList(): [ /* returnType */ boolean, /* offset */ boolean, /* list */ number[] ]
     parseDvbLinkage(): [ /* returnType */ boolean, /* res */ DVBLinkageDescriptor ]
@@ -974,7 +974,7 @@ export class Descriptor {
     parseDvbMultilingualServiceName(): [ /* returnType */ boolean, /* serviceNameItems */ DvbMultilingualServiceNameItem[] ]
     parseDvbNetworkName(): [ /* returnType */ boolean, /* name */ string ]
     parseDvbParentalRating(): [ /* returnType */ boolean, /* rating */ DVBParentalRatingItem[] ]
-    parseDvbPrivateDataSpecifier(): [ /* returnType */ boolean, /* privateDataSpecifier */ number, /* privateData */ any | null ]
+    parseDvbPrivateDataSpecifier(): [ /* returnType */ boolean, /* privateDataSpecifier */ number, /* privateData */ any[] | null ]
     parseDvbScrambling(): [ /* returnType */ boolean, /* scramblingMode */ DVBScramblingModeType ]
     parseDvbService(): [ /* returnType */ boolean, /* serviceType */ DVBServiceType | null, /* serviceName */ string | null, /* providerName */ string | null ]
     parseDvbServiceList(): [ /* returnType */ boolean, /* list */ DVBServiceListItem[] ]
@@ -990,18 +990,18 @@ export class Descriptor {
     parseIso639LanguageIdx(idx: number): [ /* returnType */ boolean, /* lang */ string, /* audioType */ Iso639AudioType | null ]
     parseIso639LanguageNb(): number
     parseLogicalChannel(): [ /* returnType */ boolean, /* res */ LogicalChannelDescriptor ]
-    parseRegistration(): [ /* returnType */ boolean, /* registrationId */ number, /* additionalInfo */ any | null ]
+    parseRegistration(): [ /* returnType */ boolean, /* registrationId */ number, /* additionalInfo */ any[] | null ]
     parseSatelliteDeliverySystem(): [ /* returnType */ boolean, /* res */ SatelliteDeliverySystemDescriptor ]
     parseTerrestrialDeliverySystem(): [ /* returnType */ boolean, /* res */ TerrestrialDeliverySystemDescriptor ]
     static name: string
     /* Static methods and pseudo-constructors */
-    static fromCustom(tag: number, data: any): Descriptor
-    static fromCustomWithExtension(tag: number, tagExtension: number, data: any): Descriptor
+    static fromCustom(tag: number, data: any[]): Descriptor
+    static fromCustomWithExtension(tag: number, tagExtension: number, data: any[]): Descriptor
     static fromDvbNetworkName(name: string): Descriptor
     static fromDvbService(serviceType: DVBServiceType, serviceName?: string | null, serviceProvider?: string | null): Descriptor
     static fromDvbSubtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
     static fromIso639Language(language: string): Descriptor
-    static fromRegistration(formatIdentifier: string, additionalInfo: any | null): Descriptor
+    static fromRegistration(formatIdentifier: string, additionalInfo: any[] | null): Descriptor
     static parseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
     static parseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
 }
@@ -1274,10 +1274,10 @@ export class Section {
     packetize(): [ /* returnType */ number, /* outputSize */ number ]
     sendEvent(element: Gst.Element): boolean
     static name: string
-    static new(pid: number, data: any): Section
-    constructor(pid: number, data: any)
+    static new(pid: number, data: any[]): Section
+    constructor(pid: number, data: any[])
     /* Static methods and pseudo-constructors */
-    static new(pid: number, data: any): Section
+    static new(pid: number, data: any[]): Section
     static fromAtscMgt(mgt: AtscMGT): Section
     static fromAtscRrt(rrt: AtscRRT): Section
     static fromAtscStt(stt: AtscSTT): Section

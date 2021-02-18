@@ -491,7 +491,7 @@ export class Resource {
     getIdentifier(): string
     getProperties(): string[]
     getPropertyOverwrite(propertyUri: string): boolean
-    getValues(propertyUri: string): any
+    getValues(propertyUri: string): any[]
     identifierCompareFunc(identifier: string): number
     printJsonld(namespaces?: NamespaceManager | null): string
     printSparqlUpdate(namespaces?: NamespaceManager | null, graphId?: string | null): string

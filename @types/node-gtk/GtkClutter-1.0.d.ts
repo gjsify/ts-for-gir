@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -138,9 +138,9 @@ export class Actor {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -1332,7 +1332,7 @@ export class Embed {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -2377,13 +2377,13 @@ export class Texture {
     getPixelFormat(): Cogl.PixelFormat
     getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
     getSyncSize(): boolean
-    setAreaFromRgbData(data: any, hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
+    setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
     setCoglTexture(coglTex: Cogl.Handle): void
     setFilterQuality(filterQuality: Clutter.TextureQuality): void
     setFromFile(filename: string): boolean
-    setFromRgbData(data: any, hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
-    setFromYuvData(data: any, width: number, height: number, flags: Clutter.TextureFlags): boolean
+    setFromRgbData(data: any[], hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
+    setFromYuvData(data: any[], width: number, height: number, flags: Clutter.TextureFlags): boolean
     setKeepAspectRatio(keepAspect: boolean): void
     setLoadAsync(loadAsync: boolean): void
     setLoadDataAsync(loadAsync: boolean): void
@@ -2403,9 +2403,9 @@ export class Texture {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -3810,7 +3810,7 @@ export class Window {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

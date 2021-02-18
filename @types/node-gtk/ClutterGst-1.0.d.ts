@@ -67,7 +67,7 @@ export class Player {
     getBufferingMode(): BufferingMode
     getIdle(): boolean
     getInSeek(): boolean
-    getPipeline(): Gst.Element
+    getPipeline(): any
     getSeekFlags(): SeekFlags
     getSubtitleTrack(): number
     getSubtitleTracks(): string[]
@@ -102,7 +102,7 @@ export class Player {
     vfuncGetBufferingMode(): BufferingMode
     vfuncGetIdle(): boolean
     vfuncGetInSeek(): boolean
-    vfuncGetPipeline(): Gst.Element
+    vfuncGetPipeline(): any
     vfuncGetSeekFlags(): SeekFlags
     vfuncGetSubtitleTrack(): number
     vfuncGetSubtitleTracks(): string[]
@@ -150,7 +150,7 @@ export class VideoSink {
     static new(texture: Clutter.Texture): VideoSink
 }
 export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructProps {
-    pixelAspectRatio?: Gst.Fraction
+    pixelAspectRatio?: any
     audioVolume?: number
     playing?: boolean
     progress?: number
@@ -164,7 +164,7 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
 }
 export class VideoTexture {
     /* Properties of ClutterGst.VideoTexture */
-    pixelAspectRatio: Gst.Fraction
+    pixelAspectRatio: any
     /* Properties of Clutter.Texture */
     filename: string
     filterQuality: Clutter.TextureQuality
@@ -285,13 +285,13 @@ export class VideoTexture {
     gTypeInstance: GObject.TypeInstance
     /* Methods of ClutterGst.VideoTexture */
     getAudioStream(): number
-    getAudioStreams(): Gst.TagList[]
+    getAudioStreams(): any[]
     getBufferingMode(): BufferingMode
     getIdleMaterial(): Cogl.Handle
-    getPipeline(): Gst.Element
+    getPipeline(): any
     getSeekFlags(): SeekFlags
     getSubtitleTrack(): number
-    getSubtitleTracks(): Gst.TagList[]
+    getSubtitleTracks(): any[]
     getUserAgent(): string
     setAudioStream(index: number): void
     setBufferingMode(mode: BufferingMode): void
@@ -312,13 +312,13 @@ export class VideoTexture {
     getPixelFormat(): Cogl.PixelFormat
     getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
     getSyncSize(): boolean
-    setAreaFromRgbData(data: any, hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
+    setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
     setCoglTexture(coglTex: Cogl.Handle): void
     setFilterQuality(filterQuality: Clutter.TextureQuality): void
     setFromFile(filename: string): boolean
-    setFromRgbData(data: any, hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
-    setFromYuvData(data: any, width: number, height: number, flags: Clutter.TextureFlags): boolean
+    setFromRgbData(data: any[], hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: Clutter.TextureFlags): boolean
+    setFromYuvData(data: any[], width: number, height: number, flags: Clutter.TextureFlags): boolean
     setKeepAspectRatio(keepAspect: boolean): void
     setLoadAsync(loadAsync: boolean): void
     setLoadDataAsync(loadAsync: boolean): void
@@ -338,9 +338,9 @@ export class VideoTexture {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -664,7 +664,7 @@ export class VideoTexture {
     vfuncGetBufferingMode(): BufferingMode
     vfuncGetIdle(): boolean
     vfuncGetInSeek(): boolean
-    vfuncGetPipeline(): Gst.Element
+    vfuncGetPipeline(): any
     vfuncGetSeekFlags(): SeekFlags
     vfuncGetSubtitleTrack(): number
     vfuncGetSubtitleTracks(): string[]
@@ -1518,7 +1518,7 @@ export class VideoTexture {
 }
 export abstract class PlayerIface {
     /* Fields of ClutterGst.PlayerIface */
-    getPipeline: (player: Player) => Gst.Element
+    getPipeline: (player: Player) => any
     getUserAgent: (player: Player) => string
     setUserAgent: (player: Player, userAgent: string) => void
     getSeekFlags: (player: Player) => SeekFlags

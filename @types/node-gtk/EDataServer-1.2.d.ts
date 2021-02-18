@@ -4,10 +4,10 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { GData } from './GData-0.0';
 import type { Json } from './Json-1.0';
 import type { Goa } from './Goa-1.0';
@@ -1511,7 +1511,7 @@ export class SoupSession {
     getSslErrorDetails(): [ /* returnType */ boolean, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags ]
     newRequest(method: string, uriString: string): Soup.RequestHTTP
     newRequestUri(method: string, uri: Soup.URI): Soup.RequestHTTP
-    sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any
+    sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any[]
     sendRequestSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     setCredentials(credentials?: NamedParameters | null): void
     setupLogging(loggingLevel?: string | null): void
@@ -6020,20 +6020,20 @@ export class WebDAVSession {
     moveSync(sourceUri: string, destinationUri: string, canOverwrite: boolean, cancellable?: Gio.Cancellable | null): boolean
     newRequest(method: string, uri?: string | null): Soup.RequestHTTP
     optionsSync(uri?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outCapabilities */ GLib.HashTable, /* outAllows */ GLib.HashTable ]
-    postSync(uri: string | null, data: string, dataLength: number, outContentType?: string | null, outContent?: any | null, cancellable?: Gio.Cancellable | null): boolean
-    postWithContentTypeSync(uri: string | null, data: string, dataLength: number, inContentType?: string | null, outContentType?: string | null, outContent?: any | null, cancellable?: Gio.Cancellable | null): boolean
+    postSync(uri: string | null, data: string, dataLength: number, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
+    postWithContentTypeSync(uri: string | null, data: string, dataLength: number, inContentType?: string | null, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
     principalPropertySearchSync(uri: string | null, applyToPrincipalCollectionSet: boolean, matchNsUri: string | null, matchProperty: string, matchValue: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outPrincipals */ WebDAVResource[] ]
     propfindSync(uri: string | null, depth: string, xml?: XmlDocument | null, cancellable?: Gio.Cancellable | null): boolean
     proppatchSync(uri: string | null, xml: XmlDocument, cancellable?: Gio.Cancellable | null): boolean
     putDataSync(uri: string, etag: string | null, contentType: string, bytes: string, length: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null ]
     putSync(uri: string, etag: string | null, contentType: string, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* outHref */ string | null, /* outEtag */ string | null ]
     refreshLockSync(uri: string | null, lockToken: string, lockTimeout: number, cancellable?: Gio.Cancellable | null): boolean
-    replaceWithDetailedError(request: Soup.RequestHTTP, responseData: any | null, ignoreMultistatus: boolean, prefix?: string | null): boolean
-    reportSync(uri: string | null, depth: string | null, xml: XmlDocument, outContentType?: string | null, outContent?: any | null, cancellable?: Gio.Cancellable | null): boolean
+    replaceWithDetailedError(request: Soup.RequestHTTP, responseData: any[] | null, ignoreMultistatus: boolean, prefix?: string | null): boolean
+    reportSync(uri: string | null, depth: string | null, xml: XmlDocument, outContentType?: string | null, outContent?: any[] | null, cancellable?: Gio.Cancellable | null): boolean
     setAclSync(uri: string | null, entries: WebDAVAccessControlEntry[], cancellable?: Gio.Cancellable | null): boolean
-    traverseMkcalendarResponse(message: Soup.Message | null, xmlData: any): boolean
-    traverseMkcolResponse(message: Soup.Message | null, xmlData: any): boolean
-    traverseMultistatusResponse(message: Soup.Message | null, xmlData: any): boolean
+    traverseMkcalendarResponse(message: Soup.Message | null, xmlData: any[]): boolean
+    traverseMkcolResponse(message: Soup.Message | null, xmlData: any[]): boolean
+    traverseMultistatusResponse(message: Soup.Message | null, xmlData: any[]): boolean
     unlockSync(uri: string | null, lockToken: string, cancellable?: Gio.Cancellable | null): boolean
     updatePropertiesSync(uri: string | null, changes: WebDAVPropertyChange[], cancellable?: Gio.Cancellable | null): boolean
     /* Methods of EDataServer.SoupSession */
@@ -6045,7 +6045,7 @@ export class WebDAVSession {
     getSslErrorDetails(): [ /* returnType */ boolean, /* outCertificatePem */ string, /* outCertificateErrors */ Gio.TlsCertificateFlags ]
     newRequest(method: string, uriString: string): Soup.RequestHTTP
     newRequestUri(method: string, uri: Soup.URI): Soup.RequestHTTP
-    sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any
+    sendRequestSimpleSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): any[]
     sendRequestSync(request: Soup.RequestHTTP, cancellable?: Gio.Cancellable | null): Gio.InputStream
     setCredentials(credentials?: NamedParameters | null): void
     setupLogging(loggingLevel?: string | null): void

@@ -1650,9 +1650,9 @@ export class SqlCommandModification {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda.SqlCommandModification */
-    addFieldValue(name: string, val?: any): void
+    addFieldValue(name: string, val?: any | null): void
     addField(name: string): void
-    addValue(val?: any): void
+    addValue(val?: any | null): void
     addFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     addParameter(par: string, gtype: GObject.Type): void
     getFields(): HashModel
@@ -1680,9 +1680,9 @@ export class SqlCommandModification {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Vda.SqlCommandModification */
-    vfuncAddFieldValue(name: string, val?: any): void
+    vfuncAddFieldValue(name: string, val?: any | null): void
     vfuncAddField(name: string): void
-    vfuncAddValue(val?: any): void
+    vfuncAddValue(val?: any | null): void
     vfuncAddFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     vfuncAddParameter(par: string, gtype: GObject.Type): void
     vfuncGetFields(): HashModel
@@ -2182,7 +2182,7 @@ export class SqlExpressionOperator {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda.SqlExpressionOperator */
     createFieldExpression(name: string): SqlExpressionField
-    createValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    createValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     createParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     addAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     addOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -2241,7 +2241,7 @@ export class SqlExpressionOperator {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Vda.SqlExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -4974,7 +4974,7 @@ export class SqlParameters {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda.SqlParameters */
     setValue(name: string, val: any): void
-    getValue(name: string): any
+    getValue(name: string): any | null
     setSqlValue(name: string, val: SqlValue): void
     getSqlValue(name: string): SqlValue
     /* Methods of GObject.Object */
@@ -5001,7 +5001,7 @@ export class SqlParameters {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Vda.SqlParameters */
     vfuncSetValue(name: string, val: any): void
-    vfuncGetValue(name: string): any
+    vfuncGetValue(name: string): any | null
     vfuncSetSqlValue(name: string, val: SqlValue): void
     vfuncGetSqlValue(name: string): SqlValue
     /* Virtual methods of GObject.Object */
@@ -5304,7 +5304,7 @@ export class SqlValue {
     constructor (config?: SqlValue_ConstructProps)
     _init (config?: SqlValue_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newFromGvalue(val?: any): SqlValue
+    static newFromGvalue(val?: any | null): SqlValue
     static newFromGtype(type: GObject.Type): SqlValue | null
     static $gtype: GObject.Type
 }
@@ -7168,9 +7168,9 @@ export class CommandInsert {
     vfuncSetTable(value: string): void
     vfuncGetAllias(): string
     vfuncSetAllias(value: string): void
-    vfuncAddFieldValue(name: string, val?: any): void
+    vfuncAddFieldValue(name: string, val?: any | null): void
     vfuncAddField(name: string): void
-    vfuncAddValue(val?: any): void
+    vfuncAddValue(val?: any | null): void
     vfuncAddFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     vfuncAddParameter(par: string, gtype: GObject.Type): void
     vfuncGetFields(): HashModel
@@ -7255,9 +7255,9 @@ export class CommandModification {
     getAllias(): string
     setAllias(value: string): void
     /* Methods of Vda.SqlCommandModification */
-    addFieldValue(name: string, val?: any): void
+    addFieldValue(name: string, val?: any | null): void
     addField(name: string): void
-    addValue(val?: any): void
+    addValue(val?: any | null): void
     addFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     addParameter(par: string, gtype: GObject.Type): void
     getFields(): HashModel
@@ -7270,9 +7270,9 @@ export class CommandModification {
     vfuncSetTable(value: string): void
     vfuncGetAllias(): string
     vfuncSetAllias(value: string): void
-    vfuncAddFieldValue(name: string, val?: any): void
+    vfuncAddFieldValue(name: string, val?: any | null): void
     vfuncAddField(name: string): void
-    vfuncAddValue(val?: any): void
+    vfuncAddValue(val?: any | null): void
     vfuncAddFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     vfuncAddParameter(par: string, gtype: GObject.Type): void
     vfuncGetFields(): HashModel
@@ -7514,9 +7514,9 @@ export class CommandUpdate {
     vfuncSetTable(value: string): void
     vfuncGetAllias(): string
     vfuncSetAllias(value: string): void
-    vfuncAddFieldValue(name: string, val?: any): void
+    vfuncAddFieldValue(name: string, val?: any | null): void
     vfuncAddField(name: string): void
-    vfuncAddValue(val?: any): void
+    vfuncAddValue(val?: any | null): void
     vfuncAddFieldParameterValue(field: string, par: string, gtype: GObject.Type): void
     vfuncAddParameter(par: string, gtype: GObject.Type): void
     vfuncGetFields(): HashModel
@@ -8769,7 +8769,7 @@ export class ExpressionOperator {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Vda.SqlExpressionOperator */
     createFieldExpression(name: string): SqlExpressionField
-    createValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    createValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     createParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     addAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     addOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -8806,7 +8806,7 @@ export class ExpressionOperator {
     getOperatorType(): SqlExpressionOperatorType
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -9076,7 +9076,7 @@ export class ExpressionOperatorGroup {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -9342,7 +9342,7 @@ export class ExpressionOperatorMultiterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -9613,7 +9613,7 @@ export class ExpressionOperatorAnd {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -9884,7 +9884,7 @@ export class ExpressionOperatorOr {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -10150,7 +10150,7 @@ export class ExpressionOperatorBinaryterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -10421,7 +10421,7 @@ export class ExpressionOperatorEq {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -10692,7 +10692,7 @@ export class ExpressionOperatorNotEq {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -10963,7 +10963,7 @@ export class ExpressionOperatorDiff {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -11234,7 +11234,7 @@ export class ExpressionOperatorGt {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -11505,7 +11505,7 @@ export class ExpressionOperatorLt {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -11776,7 +11776,7 @@ export class ExpressionOperatorGeq {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -12047,7 +12047,7 @@ export class ExpressionOperatorLeq {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -12318,7 +12318,7 @@ export class ExpressionOperatorRegexp {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -12589,7 +12589,7 @@ export class ExpressionOperatorStar {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -12860,7 +12860,7 @@ export class ExpressionOperatorDiv {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -13131,7 +13131,7 @@ export class ExpressionOperatorIn {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -13402,7 +13402,7 @@ export class ExpressionOperatorNotIn {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -13673,7 +13673,7 @@ export class ExpressionOperatorConcatenate {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -13944,7 +13944,7 @@ export class ExpressionOperatorSimilarTo {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -14215,7 +14215,7 @@ export class ExpressionOperatorLike {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -14486,7 +14486,7 @@ export class ExpressionOperatorIlike {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -14752,7 +14752,7 @@ export class ExpressionOperatorBinaryUnaryterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -15023,7 +15023,7 @@ export class ExpressionOperatorMinus {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -15294,7 +15294,7 @@ export class ExpressionOperatorPlus {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -15560,7 +15560,7 @@ export class ExpressionOperatorInitialUnaryterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -15831,7 +15831,7 @@ export class ExpressionOperatorNot {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -16097,7 +16097,7 @@ export class ExpressionOperatorFinalUnaryterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -16368,7 +16368,7 @@ export class ExpressionOperatorIs {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -16643,7 +16643,7 @@ export class ExpressionOperatorIsNot {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -16918,7 +16918,7 @@ export class ExpressionOperatorIsNull {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -17197,7 +17197,7 @@ export class ExpressionOperatorIsNotNull {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -17472,7 +17472,7 @@ export class ExpressionOperatorIsTrue {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -17751,7 +17751,7 @@ export class ExpressionOperatorIsNotTrue {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -18026,7 +18026,7 @@ export class ExpressionOperatorIsFalse {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -18305,7 +18305,7 @@ export class ExpressionOperatorIsNotFalse {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -18584,7 +18584,7 @@ export class ExpressionOperatorIsNotUnknown {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -18859,7 +18859,7 @@ export class ExpressionOperatorIsUnknown {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -19134,7 +19134,7 @@ export class ExpressionOperatorIsDistinct {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -19413,7 +19413,7 @@ export class ExpressionOperatorIsNotDistinct {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -19692,7 +19692,7 @@ export class ExpressionOperatorIsDistinctFrom {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -19975,7 +19975,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -20242,7 +20242,7 @@ export class ExpressionOperatorThreeterm {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -20514,7 +20514,7 @@ export class ExpressionOperatorBetween {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -20786,7 +20786,7 @@ export class ExpressionOperatorNotBetween {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -21058,7 +21058,7 @@ export class ExpressionOperatorBetweenSymmetric {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -21330,7 +21330,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
     vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Vda.ExpressionOperator */
     vfuncCreateFieldExpression(name: string): SqlExpressionField
-    vfuncCreateValueExpression(val: any, cnc: Connection): SqlExpressionValue
+    vfuncCreateValueExpression(val: any | null, cnc: Connection): SqlExpressionValue
     vfuncCreateParameterExpression(name: string, gtype: GObject.Type): SqlExpressionValueParameter
     vfuncAddAndOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
     vfuncAddOrOperator(exp1: SqlExpression, exp2: SqlExpression): SqlExpressionOperator
@@ -22603,12 +22603,12 @@ export class Parameters {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Vda.SqlParameters */
     setValue(name: string, val: any): void
-    getValue(name: string): any
+    getValue(name: string): any | null
     setSqlValue(name: string, val: SqlValue): void
     getSqlValue(name: string): SqlValue
     /* Virtual methods of Vda.Parameters */
     vfuncSetValue(name: string, val: any): void
-    vfuncGetValue(name: string): any
+    vfuncGetValue(name: string): any | null
     vfuncSetSqlValue(name: string, val: SqlValue): void
     vfuncGetSqlValue(name: string): SqlValue
     /* Virtual methods of Gee.AbstractMap */
@@ -22952,7 +22952,7 @@ export class Value {
     _init (config?: Value_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Value
-    static newFromGvalue(val?: any): SqlValue
+    static newFromGvalue(val?: any | null): SqlValue
     static newFromGtype(type: GObject.Type): SqlValue | null
     static $gtype: GObject.Type
 }
@@ -24927,7 +24927,7 @@ export class ValueMathExp {
     _init (config?: ValueMathExp_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ValueMathExp
-    static newFromGvalue(val?: any): SqlValue
+    static newFromGvalue(val?: any | null): SqlValue
     static newFromGtype(type: GObject.Type): SqlValue | null
     static $gtype: GObject.Type
 }
@@ -25919,9 +25919,9 @@ export abstract class SqlCommandInsertIface {
 export abstract class SqlCommandModificationIface {
     /* Fields of Vda.SqlCommandModificationIface */
     parentIface: GObject.TypeInterface
-    addFieldValue: (self: SqlCommandModification, name: string, val?: any) => void
+    addFieldValue: (self: SqlCommandModification, name: string, val?: any | null) => void
     addField: (self: SqlCommandModification, name: string) => void
-    addValue: (self: SqlCommandModification, val?: any) => void
+    addValue: (self: SqlCommandModification, val?: any | null) => void
     addFieldParameterValue: (self: SqlCommandModification, field: string, par: string, gtype: GObject.Type) => void
     addParameter: (self: SqlCommandModification, par: string, gtype: GObject.Type) => void
     getFields: (self: SqlCommandModification) => HashModel
@@ -25989,7 +25989,7 @@ export abstract class SqlExpressionOperatorIface {
     /* Fields of Vda.SqlExpressionOperatorIface */
     parentIface: GObject.TypeInterface
     createFieldExpression: (self: SqlExpressionOperator, name: string) => SqlExpressionField
-    createValueExpression: (self: SqlExpressionOperator, val: any, cnc: Connection) => SqlExpressionValue
+    createValueExpression: (self: SqlExpressionOperator, val: any | null, cnc: Connection) => SqlExpressionValue
     createParameterExpression: (self: SqlExpressionOperator, name: string, gtype: GObject.Type) => SqlExpressionValueParameter
     addAndOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
     addOrOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
@@ -26282,7 +26282,7 @@ export abstract class SqlParametersIface {
     /* Fields of Vda.SqlParametersIface */
     parentIface: GObject.TypeInterface
     setValue: (self: SqlParameters, name: string, val: any) => void
-    getValue: (self: SqlParameters, name: string) => any
+    getValue: (self: SqlParameters, name: string) => any | null
     setSqlValue: (self: SqlParameters, name: string, val: SqlValue) => void
     getSqlValue: (self: SqlParameters, name: string) => SqlValue
     static name: string

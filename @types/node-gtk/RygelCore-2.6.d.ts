@@ -4,9 +4,9 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { GUPnP } from './GUPnP-1.2';
 import type { libxml2 } from './libxml2-2.0';
 import type { Soup } from './Soup-2.4';
@@ -2123,7 +2123,7 @@ export class XMLUtilsChildIterator {
 export interface PluginInformation_ConstructProps extends GObject.Object_ConstructProps {
     modulePath?: string
     name?: string
-    conflicts?: GLib.GenericSet
+    conflicts?: any
     moduleLoaded?: boolean
 }
 export class PluginInformation {
@@ -2134,7 +2134,7 @@ export class PluginInformation {
     /* Methods of RygelCore.PluginInformation */
     getModulePath(): string
     getName(): string
-    getConflicts(): GLib.GenericSet
+    getConflicts(): any
     getModuleLoaded(): boolean
     setModuleLoaded(value: boolean): void
     /* Methods of GObject.Object */

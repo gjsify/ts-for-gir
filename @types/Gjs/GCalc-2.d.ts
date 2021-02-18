@@ -998,8 +998,8 @@ export class MathParameter {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GCalc.MathParameter */
-    set_value(val?: any): void
-    get_value(): any
+    set_value(val?: any | null): void
+    get_value(): any | null
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1023,8 +1023,8 @@ export class MathParameter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GCalc.MathParameter */
-    vfunc_set_value(val?: any): void
-    vfunc_get_value(): any
+    vfunc_set_value(val?: any | null): void
+    vfunc_get_value(): any | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3706,12 +3706,12 @@ export class Parameter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GCalc.MathParameter */
-    set_value(val?: any): void
-    get_value(): any
+    set_value(val?: any | null): void
+    get_value(): any | null
     /* Virtual methods of GCalc.Parameter */
-    vfunc_set_value(val?: any): void
+    vfunc_set_value(val?: any | null): void
     vfunc_set_value(value: MathConstant): void
-    vfunc_get_value(): any
+    vfunc_get_value(): any | null
     vfunc_get_value(): MathConstant
     /* Virtual methods of GCalc.Variable */
     vfunc_evaluate(): MathExpression
@@ -4593,8 +4593,8 @@ export abstract class MathOperatorIface {
 }
 export abstract class MathParameterIface {
     /* Fields of GCalc.MathParameterIface */
-    set_value: (val?: any) => void
-    get_value: () => any
+    set_value: (val?: any | null) => void
+    get_value: () => any | null
     static name: string
 }
 export abstract class MathPlusIface {

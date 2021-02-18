@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 
 export declare namespace Camel {
 
@@ -726,9 +726,9 @@ export function pstringDumpStat(): void
 export function pstringFree(string: string): void
 export function pstringPeek(string: string): string
 export function pstringStrdup(string: string): string
-export function quotedDecodeStep(in_: any, out: any, saveme: number[]): [ /* returnType */ number, /* out */ any, /* saveme */ number[] ]
-export function quotedEncodeClose(in_: any, out: any, save: number[]): [ /* returnType */ number, /* out */ any, /* save */ number[] ]
-export function quotedEncodeStep(in_: any, out: any, save: number[]): [ /* returnType */ number, /* out */ any, /* save */ number[] ]
+export function quotedDecodeStep(in_: any[], out: any[], saveme: number[]): [ /* returnType */ number, /* out */ any[], /* saveme */ number[] ]
+export function quotedEncodeClose(in_: any[], out: any[], save: number[]): [ /* returnType */ number, /* out */ any[], /* save */ number[] ]
+export function quotedEncodeStep(in_: any[], out: any[], save: number[]): [ /* returnType */ number, /* out */ any[], /* save */ number[] ]
 export function read(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
 export function searchCamelHeaderSoundex(header: string, match: string): boolean
 export function searchGetAllHeadersDecoded(message: MimeMessage): string
@@ -785,13 +785,13 @@ export function utilBdataGetNumber(bdataPtr: string, defaultValue: number): numb
 export function utilBdataGetString(bdataPtr: string, defaultValue: string): string
 export function utilBdataPutNumber(bdataStr: GLib.String, value: number): void
 export function utilBdataPutString(bdataStr: GLib.String, value: string): void
-export function uudecodeStep(in_: any, out: any, save: number[]): [ /* returnType */ number, /* out */ any, /* save */ number[] ]
-export function uuencodeClose(in_: any, out: any, uubuf: any, save: number[]): [ /* returnType */ number, /* out */ any, /* uubuf */ any, /* save */ number[] ]
-export function uuencodeStep(in_: any, out: any, uubuf: any, save: number[]): [ /* returnType */ number, /* out */ any, /* uubuf */ any, /* save */ number[] ]
+export function uudecodeStep(in_: any[], out: any[], save: number[]): [ /* returnType */ number, /* out */ any[], /* save */ number[] ]
+export function uuencodeClose(in_: any[], out: any[], uubuf: any[], save: number[]): [ /* returnType */ number, /* out */ any[], /* uubuf */ any[], /* save */ number[] ]
+export function uuencodeStep(in_: any[], out: any[], uubuf: any[], save: number[]): [ /* returnType */ number, /* out */ any[], /* uubuf */ any[], /* save */ number[] ]
 export function write(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
-export function ydecodeStep(in_: any): [ /* returnType */ number, /* out */ any, /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencodeClose(in_: any): [ /* returnType */ number, /* out */ any, /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencodeStep(in_: any): [ /* returnType */ number, /* out */ any, /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function ydecodeStep(in_: any[]): [ /* returnType */ number, /* out */ any[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function yencodeClose(in_: any[]): [ /* returnType */ number, /* out */ any[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function yencodeStep(in_: any[]): [ /* returnType */ number, /* out */ any[], /* state */ number, /* pcrc */ number, /* crc */ number ]
 export interface CipherCloneFunc {
     (value?: object | null): object | null
 }
@@ -1929,7 +1929,7 @@ export class DataWrapper {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
     getMimeTypeField(): ContentType
@@ -2107,11 +2107,11 @@ export class FilterInputStream {
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any, /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
+    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -2146,7 +2146,7 @@ export class FilterInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncCloseFinish(result: Gio.AsyncResult): boolean
     vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
     vfuncReadFinish(result: Gio.AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -2219,11 +2219,11 @@ export class FilterOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
-    write(buffer: any, cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAllAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
@@ -2266,9 +2266,9 @@ export class FilterOutputStream {
     vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any | null, cancellable?: Gio.Cancellable | null): number
+    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
     vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
@@ -3122,7 +3122,7 @@ export class IndexName {
     priv: IndexNamePrivate
     index: Index
     name: string
-    buffer: any
+    buffer: any[]
     words: GLib.HashTable
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -3548,7 +3548,7 @@ export class Medium {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
     getMimeTypeField(): ContentType
@@ -4214,9 +4214,9 @@ export class MimeFilter {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4242,8 +4242,8 @@ export class MimeFilter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4292,9 +4292,9 @@ export class MimeFilterBasic {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4320,8 +4320,8 @@ export class MimeFilterBasic {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4375,9 +4375,9 @@ export class MimeFilterBestenc {
     getBestEncoding(required: BestencEncoding): TransferEncoding
     setFlags(flags: number): void
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4403,8 +4403,8 @@ export class MimeFilterBestenc {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4454,9 +4454,9 @@ export class MimeFilterCRLF {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4482,8 +4482,8 @@ export class MimeFilterCRLF {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4533,9 +4533,9 @@ export class MimeFilterCanon {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4561,8 +4561,8 @@ export class MimeFilterCanon {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4612,9 +4612,9 @@ export class MimeFilterCharset {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4640,8 +4640,8 @@ export class MimeFilterCharset {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4691,9 +4691,9 @@ export class MimeFilterEnriched {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4719,8 +4719,8 @@ export class MimeFilterEnriched {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4770,9 +4770,9 @@ export class MimeFilterFrom {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4798,8 +4798,8 @@ export class MimeFilterFrom {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4848,9 +4848,9 @@ export class MimeFilterGZip {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4876,8 +4876,8 @@ export class MimeFilterGZip {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4927,9 +4927,9 @@ export class MimeFilterHTML {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4955,8 +4955,8 @@ export class MimeFilterHTML {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5008,9 +5008,9 @@ export class MimeFilterIndex {
     setIndex(index: Index): void
     setName(name: IndexName): void
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5036,8 +5036,8 @@ export class MimeFilterIndex {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5087,9 +5087,9 @@ export class MimeFilterLinewrap {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5115,8 +5115,8 @@ export class MimeFilterLinewrap {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5166,9 +5166,9 @@ export class MimeFilterPgp {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5194,8 +5194,8 @@ export class MimeFilterPgp {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5243,9 +5243,9 @@ export class MimeFilterProgress {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5271,8 +5271,8 @@ export class MimeFilterProgress {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5322,9 +5322,9 @@ export class MimeFilterToHTML {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5350,8 +5350,8 @@ export class MimeFilterToHTML {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5404,9 +5404,9 @@ export class MimeFilterWindows {
     isWindowsCharset(): boolean
     realCharset(): string
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5432,8 +5432,8 @@ export class MimeFilterWindows {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5488,9 +5488,9 @@ export class MimeFilterYenc {
     setCrc(crc: number): void
     setState(state: number): void
     /* Methods of Camel.MimeFilter */
-    backup(data: any): void
-    complete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    filter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    filter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -5516,8 +5516,8 @@ export class MimeFilterYenc {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfuncComplete(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
-    vfuncFilter(in_: any, prespace: number): [ /* out */ any, /* outprespace */ number ]
+    vfuncComplete(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
+    vfuncFilter(in_: any[], prespace: number): [ /* out */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -5603,7 +5603,7 @@ export class MimeMessage {
     getDisposition(): string
     getEncoding(): TransferEncoding
     getFilename(): string
-    setContent(data: any | null, type?: string | null): void
+    setContent(data: any[] | null, type?: string | null): void
     setContentId(contentid: string): void
     setContentLanguages(contentLanguages: string[]): void
     setContentLocation(location: string): void
@@ -5637,7 +5637,7 @@ export class MimeMessage {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getMimeType(): string
     getMimeTypeField(): ContentType
     isOffline(): boolean
@@ -5774,13 +5774,13 @@ export class MimeParser {
     postface(): string
     preface(): string
     pushState(newstate: MimeParserState, boundary: string): void
-    read(len: number): [ /* returnType */ number, /* databuffer */ any ]
+    read(len: number): [ /* returnType */ number, /* databuffer */ any[] ]
     scanFrom(scanFrom: boolean): void
     scanPreFrom(scanPreFrom: boolean): void
     seek(offset: number, whence: number): number
     setHeaderRegex(matchstr: string): number
     state(): MimeParserState
-    step(databuffer?: any | null): [ /* returnType */ MimeParserState, /* databuffer */ any | null ]
+    step(databuffer?: any[] | null): [ /* returnType */ MimeParserState, /* databuffer */ any[] | null ]
     stream(): Stream | null
     tell(): number
     tellStartBoundary(): number
@@ -5876,7 +5876,7 @@ export class MimePart {
     getDisposition(): string
     getEncoding(): TransferEncoding
     getFilename(): string
-    setContent(data: any | null, type?: string | null): void
+    setContent(data: any[] | null, type?: string | null): void
     setContentId(contentid: string): void
     setContentLanguages(contentLanguages: string[]): void
     setContentLocation(location: string): void
@@ -5910,7 +5910,7 @@ export class MimePart {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getMimeType(): string
     getMimeTypeField(): ContentType
     isOffline(): boolean
@@ -6057,7 +6057,7 @@ export class Multipart {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
     getMimeTypeField(): ContentType
@@ -6177,7 +6177,7 @@ export class MultipartEncrypted {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
     getMimeTypeField(): ContentType
@@ -6301,7 +6301,7 @@ export class MultipartSigned {
     decodeToStream(stream: Stream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decodeToStreamFinish(result: Gio.AsyncResult): number
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    getByteArray(): any
+    getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
     getMimeTypeField(): ContentType
@@ -6495,11 +6495,11 @@ export class NullOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
-    write(buffer: any, cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAllAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
@@ -6542,9 +6542,9 @@ export class NullOutputStream {
     vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any | null, cancellable?: Gio.Cancellable | null): number
+    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
     vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
@@ -7638,12 +7638,12 @@ export class Sasl {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -7675,7 +7675,7 @@ export class Sasl {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -7725,12 +7725,12 @@ export class SaslAnonymous {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -7762,7 +7762,7 @@ export class SaslAnonymous {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -7810,12 +7810,12 @@ export class SaslCramMd5 {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -7847,7 +7847,7 @@ export class SaslCramMd5 {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -7892,12 +7892,12 @@ export class SaslDigestMd5 {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -7929,7 +7929,7 @@ export class SaslDigestMd5 {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -7976,12 +7976,12 @@ export class SaslGssapi {
     /* Methods of Camel.SaslGssapi */
     overrideHostAndUser(overrideHost?: string | null, overrideUser?: string | null): void
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8013,7 +8013,7 @@ export class SaslGssapi {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8060,12 +8060,12 @@ export class SaslLogin {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8097,7 +8097,7 @@ export class SaslLogin {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8142,12 +8142,12 @@ export class SaslNTLM {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8179,7 +8179,7 @@ export class SaslNTLM {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8224,12 +8224,12 @@ export class SaslPOPB4SMTP {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8261,7 +8261,7 @@ export class SaslPOPB4SMTP {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8306,12 +8306,12 @@ export class SaslPlain {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8343,7 +8343,7 @@ export class SaslPlain {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8388,12 +8388,12 @@ export class SaslXOAuth2 {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8425,7 +8425,7 @@ export class SaslXOAuth2 {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8470,12 +8470,12 @@ export class SaslXOAuth2Google {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8507,7 +8507,7 @@ export class SaslXOAuth2Google {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -8552,12 +8552,12 @@ export class SaslXOAuth2Outlook {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challengeBase64Finish(result: Gio.AsyncResult): string
     challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challengeFinish(result: Gio.AsyncResult): any
-    challengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     getAuthenticated(): boolean
     getMechanism(): string
     getService(): Service
@@ -8589,7 +8589,7 @@ export class SaslXOAuth2Outlook {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfuncChallengeSync(token: any, cancellable?: Gio.Cancellable | null): any
+    vfuncChallengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
     vfuncTryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -9807,9 +9807,9 @@ export class StreamMem {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel.StreamMem */
-    getByteArray(): any
-    setBuffer(buffer: any): void
-    setByteArray(buffer: any): void
+    getByteArray(): any[]
+    setBuffer(buffer: any[]): void
+    setByteArray(buffer: any[]): void
     setSecure(): void
     /* Methods of Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
@@ -9893,8 +9893,8 @@ export class StreamMem {
     /* Static methods and pseudo-constructors */
     static new(): StreamMem
     static new(baseStream: Gio.IOStream): StreamMem
-    static newWithBuffer(buffer: any): StreamMem
-    static newWithByteArray(buffer: any): StreamMem
+    static newWithBuffer(buffer: any[]): StreamMem
+    static newWithByteArray(buffer: any[]): StreamMem
     static $gtype: GObject.Type
 }
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
@@ -10324,7 +10324,7 @@ export class TextIndexName {
     /* Fields of Camel.IndexName */
     index: Index
     name: string
-    buffer: any
+    buffer: any[]
     words: GLib.HashTable
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12006,7 +12006,7 @@ export class Block {
     flags: BlockFlags
     refcount: number
     align00: number
-    data: any
+    data: any[]
     static name: string
 }
 export abstract class BlockFileClass {
@@ -12041,7 +12041,7 @@ export class Cert {
     /* Methods of Camel.Cert */
     loadCertFile(): boolean
     ref(): Cert
-    saveCertFile(derData: any): boolean
+    saveCertFile(derData: any[]): boolean
     unref(): void
     static name: string
     static new(): Cert
@@ -12766,8 +12766,8 @@ export class MimeFilterCharsetPrivate {
 export abstract class MimeFilterClass {
     /* Fields of Camel.MimeFilterClass */
     parentClass: GObject.ObjectClass
-    filter: (filter: MimeFilter, in_: any, prespace: number) => [ /* out */ any, /* outprespace */ number ]
-    complete: (filter: MimeFilter, in_: any, prespace: number) => [ /* out */ any, /* outprespace */ number ]
+    filter: (filter: MimeFilter, in_: any[], prespace: number) => [ /* out */ any[], /* outprespace */ number ]
+    complete: (filter: MimeFilter, in_: any[], prespace: number) => [ /* out */ any[], /* outprespace */ number ]
     reset: (filter: MimeFilter) => void
     reserved: object[]
     static name: string
@@ -13222,7 +13222,7 @@ export abstract class SaslClass {
     parentClass: GObject.ObjectClass
     authType: ServiceAuthType
     tryEmptyPasswordSync: (sasl: Sasl, cancellable?: Gio.Cancellable | null) => boolean
-    challengeSync: (sasl: Sasl, token: any, cancellable?: Gio.Cancellable | null) => any
+    challengeSync: (sasl: Sasl, token: any[], cancellable?: Gio.Cancellable | null) => any[]
     reserved: object[]
     static name: string
 }

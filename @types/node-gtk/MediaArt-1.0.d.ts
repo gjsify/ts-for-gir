@@ -41,7 +41,7 @@ export class Process {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of MediaArt.Process */
-    buffer(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any | null, mime: string, artist?: string | null, title?: string | null): boolean
+    buffer(type: Type, flags: ProcessFlags, relatedFile: Gio.File, buffer: any[] | null, mime: string, artist?: string | null, title?: string | null): boolean
     file(type: Type, flags: ProcessFlags, file: Gio.File, artist?: string | null, title?: string | null): boolean
     uri(type: Type, flags: ProcessFlags, uri: string, artist?: string | null, title?: string | null): boolean
     /* Methods of GObject.Object */

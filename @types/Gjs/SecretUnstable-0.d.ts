@@ -708,7 +708,7 @@ export class ServicePrivate {
 }
 export class Value {
     /* Methods of SecretUnstable.Value */
-    get(): Uint8Array
+    get(): Uint8Array[]
     get_content_type(): string
     get_text(): string
     ref(): Value

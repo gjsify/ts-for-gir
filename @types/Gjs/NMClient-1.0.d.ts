@@ -372,13 +372,6 @@ export interface SecretAgentGetSecretsFunc {
 export interface SecretAgentSaveSecretsFunc {
     (agent: SecretAgent, connection: NetworkManager.Connection, error: GLib.Error): void
 }
-export type StringArray = string[] // TODO
-export type ObjectArray = any[] // TODO
-export type UintArray = number[] // TODO
-export type Ssid = string; // TODO
-export type IP6AddressObjectArray = any; // TODO
-export type IP6RouteObjectArray = any; // TODO
-export type IP6AddressArray = any; // TODO
 export interface AccessPoint_ConstructProps extends Object_ConstructProps {
 }
 export class AccessPoint {
@@ -391,7 +384,7 @@ export class AccessPoint {
     readonly max_bitrate: number
     readonly mode: number
     readonly rsn_flags: number
-    readonly ssid: Ssid
+    readonly ssid: any
     readonly strength: number
     readonly wpa_flags: number
     /* Fields of NMClient.AccessPoint */
@@ -409,7 +402,7 @@ export class AccessPoint {
     get_max_bitrate(): number
     get_mode(): NetworkManager.TODO_80211Mode
     get_rsn_flags(): NetworkManager.TODO_80211ApSecurityFlags
-    get_ssid(): Uint8Array
+    get_ssid(): Uint8Array[]
     get_strength(): number
     get_wpa_flags(): NetworkManager.TODO_80211ApSecurityFlags
     /* Methods of NMClient.Object */
@@ -504,7 +497,7 @@ export class ActiveConnection {
     readonly connection: string
     readonly "default": boolean
     readonly default6: boolean
-    readonly devices: ObjectArray
+    readonly devices: any
     readonly dhcp4_config: DHCP4Config
     readonly dhcp6_config: DHCP6Config
     readonly id: string
@@ -639,9 +632,9 @@ export class Client {
     /* Properties of NMClient.Client */
     readonly activating_connection: ActiveConnection
     readonly active_connections: object[]
-    readonly all_devices: ObjectArray
+    readonly all_devices: any
     readonly connectivity: number
-    readonly devices: ObjectArray
+    readonly devices: any
     readonly manager_running: boolean
     networking_enabled: boolean
     readonly primary_connection: ActiveConnection
@@ -972,7 +965,7 @@ export class Device {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -1162,7 +1155,7 @@ export class DeviceAdsl {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -1353,11 +1346,11 @@ export class DeviceBond {
     /* Properties of NMClient.DeviceBond */
     readonly carrier: boolean
     readonly hw_address: string
-    readonly slaves: ObjectArray
+    readonly slaves: any
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -1553,11 +1546,11 @@ export class DeviceBridge {
     /* Properties of NMClient.DeviceBridge */
     readonly carrier: boolean
     readonly hw_address: string
-    readonly slaves: ObjectArray
+    readonly slaves: any
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -1757,7 +1750,7 @@ export class DeviceBt {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -1958,7 +1951,7 @@ export class DeviceEthernet {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -2160,7 +2153,7 @@ export class DeviceGeneric {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -2355,7 +2348,7 @@ export class DeviceInfiniband {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -2551,7 +2544,7 @@ export class DeviceModem {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -2747,7 +2740,7 @@ export class DeviceOlpcMesh {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -2943,11 +2936,11 @@ export class DeviceTeam {
     /* Properties of NMClient.DeviceTeam */
     readonly carrier: boolean
     readonly hw_address: string
-    readonly slaves: ObjectArray
+    readonly slaves: any
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -3148,7 +3141,7 @@ export class DeviceVlan {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -3343,7 +3336,7 @@ export interface DeviceWifi_ConstructProps extends Device_ConstructProps {
 }
 export class DeviceWifi {
     /* Properties of NMClient.DeviceWifi */
-    readonly access_points: ObjectArray
+    readonly access_points: any
     readonly active_access_point: AccessPoint
     readonly bitrate: number
     readonly hw_address: string
@@ -3353,7 +3346,7 @@ export class DeviceWifi {
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -3576,13 +3569,13 @@ export class DeviceWimax {
     readonly center_frequency: number
     readonly cinr: number
     readonly hw_address: string
-    readonly nsps: ObjectArray
+    readonly nsps: any
     readonly rssi: number
     readonly tx_power: number
     /* Properties of NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
-    readonly available_connections: ObjectArray
+    readonly available_connections: any
     readonly capabilities: number
     readonly device_type: number
     readonly dhcp4_config: DHCP4Config
@@ -3803,12 +3796,12 @@ export interface IP4Config_ConstructProps extends Object_ConstructProps {
 export class IP4Config {
     /* Properties of NMClient.IP4Config */
     readonly addresses: object
-    readonly domains: StringArray
+    readonly domains: any
     readonly gateway: string
-    readonly nameservers: UintArray
+    readonly nameservers: any
     readonly routes: object
-    readonly searches: StringArray
-    readonly wins_servers: UintArray
+    readonly searches: any
+    readonly wins_servers: any
     /* Fields of NMClient.IP4Config */
     parent: Object
     /* Fields of GObject.Object */
@@ -3902,12 +3895,12 @@ export interface IP6Config_ConstructProps extends Object_ConstructProps {
 }
 export class IP6Config {
     /* Properties of NMClient.IP6Config */
-    readonly addresses: IP6AddressObjectArray
-    readonly domains: StringArray
+    readonly addresses: any
+    readonly domains: any
     readonly gateway: string
-    readonly nameservers: IP6AddressArray
-    readonly routes: IP6RouteObjectArray
-    readonly searches: StringArray
+    readonly nameservers: any
+    readonly routes: any
+    readonly searches: any
     /* Fields of NMClient.IP6Config */
     parent: Object
     /* Fields of GObject.Object */
@@ -3916,7 +3909,7 @@ export class IP6Config {
     get_addresses(): NetworkManager.IP6Address[]
     get_domains(): string[]
     get_gateway(): string
-    get_nameserver(idx: number): Uint8Array
+    get_nameserver(idx: number): Uint8Array[]
     get_num_nameservers(): number
     get_routes(): NetworkManager.IP6Route[]
     get_searches(): string[]
@@ -4411,7 +4404,7 @@ export class VPNConnection {
     readonly connection: string
     readonly "default": boolean
     readonly default6: boolean
-    readonly devices: ObjectArray
+    readonly devices: any
     readonly dhcp4_config: DHCP4Config
     readonly dhcp6_config: DHCP6Config
     readonly id: string

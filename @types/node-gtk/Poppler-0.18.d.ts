@@ -4,9 +4,9 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 
 export declare namespace Poppler {
 
@@ -459,13 +459,13 @@ export function dateParse(date: string, timet: number): boolean
 export function errorQuark(): GLib.Quark
 export function getBackend(): Backend
 export function getVersion(): string
-export function namedDestFromBytestring(data: any): string
-export function namedDestToBytestring(name: string): any | null
+export function namedDestFromBytestring(data: any[]): string
+export function namedDestToBytestring(name: string): any[] | null
 export interface AttachmentSaveFunc {
-    (buf: any): boolean
+    (buf: any[]): boolean
 }
 export interface MediaSaveFunc {
-    (buf: any): boolean
+    (buf: any[]): boolean
 }
 export interface Annot_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1704,7 +1704,7 @@ export class Document {
     _init (config?: Document_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static newFromBytes(bytes: any, password?: string | null): Document
-    static newFromData(data: any, password?: string | null): Document
+    static newFromData(data: any[], password?: string | null): Document
     static newFromFile(uri: string, password?: string | null): Document
     static newFromGfile(file: Gio.File, password?: string | null, cancellable?: Gio.Cancellable | null): Document
     static newFromStream(stream: Gio.InputStream, length: number, password?: string | null, cancellable?: Gio.Cancellable | null): Document

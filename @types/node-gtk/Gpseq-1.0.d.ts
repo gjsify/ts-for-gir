@@ -545,11 +545,11 @@ export class Result {
     okWith(expected: object | null, equal: Gee.EqualDataFunc | null): Result
     future(): Future
     get(): object | null
-    transform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc): Result
-    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultFlatMapFunc): Result
-    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultMapFunc): Result
-    mapErr(func: ResultMapErrorFunc): Result
-    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: ResultZipFunc, second: Result): Result
+    transform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    mapErr(func: any): Result
+    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     then(func: GLib.Func): Result
     andThen(func: Func): Result
     /* Methods of Gee.Hashable */
@@ -580,11 +580,11 @@ export class Result {
     /* Virtual methods of Gpseq.Result */
     vfuncFuture(): Future
     vfuncGet(): object | null
-    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc): Result
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultFlatMapFunc): Result
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultMapFunc): Result
-    vfuncMapErr(func: ResultMapErrorFunc): Result
-    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: ResultZipFunc, second: Result): Result
+    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    vfuncMapErr(func: any): Result
+    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     vfuncThen(func: GLib.Func): Result
     vfuncAndThen(func: Func): Result
     vfuncHash(): number
@@ -1323,7 +1323,7 @@ export class Future {
     getReady(): boolean
     wait(): object | null
     waitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
-    transform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc): Result
+    transform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1358,25 +1358,25 @@ export class Future {
     okWith(expected: object | null, equal: Gee.EqualDataFunc | null): Result
     future(): Future
     get(): object | null
-    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultFlatMapFunc): Result
-    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultMapFunc): Result
-    mapErr(func: ResultMapErrorFunc): Result
-    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: ResultZipFunc, second: Result): Result
+    flatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    map(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    mapErr(func: any): Result
+    zip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     then(func: GLib.Func): Result
     andThen(func: Func): Result
     /* Virtual methods of Gpseq.Future */
     vfuncGetReady(): boolean
     vfuncWait(): object | null
     vfuncWaitUntil(endTime: number): [ /* returnType */ boolean, /* value */ object | null ]
-    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc): Result
+    vfuncTransform(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
     vfuncHash(): number
     vfuncEqualTo(object?: object | null): boolean
     vfuncFuture(): Future
     vfuncGet(): object | null
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultFlatMapFunc): Result
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultMapFunc): Result
-    vfuncMapErr(func: ResultMapErrorFunc): Result
-    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: ResultZipFunc, second: Result): Result
+    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any): Result
+    vfuncMapErr(func: any): Result
+    vfuncZip(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result): Result
     vfuncThen(func: GLib.Func): Result
     vfuncAndThen(func: Func): Result
     /* Virtual methods of GObject.Object */
@@ -2874,7 +2874,7 @@ export abstract class FutureClass {
     /* Fields of Gpseq.FutureClass */
     wait: (self: Future) => object | null
     waitUntil: (self: Future, endTime: number) => [ /* returnType */ boolean, /* value */ object | null ]
-    transform: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc) => Result
+    transform: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
     static name: string
 }
 export class FuturePrivate {
@@ -3015,11 +3015,11 @@ export abstract class ResultIface {
     /* Fields of Gpseq.ResultIface */
     future: (self: Result) => Future
     get: (self: Result) => object | null
-    transform: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultTransformFunc) => Result
-    flatMap: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultFlatMapFunc) => Result
-    map: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: ResultMapFunc) => Result
-    mapErr: (self: Result, func: ResultMapErrorFunc) => Result
-    zip: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: ResultZipFunc, second: Result) => Result
+    transform: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
+    flatMap: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
+    map: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
+    mapErr: (self: Result, func: any) => Result
+    zip: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result) => Result
     then: (self: Result, func: GLib.Func) => Result
     andThen: (self: Result, func: Func) => Result
     static name: string

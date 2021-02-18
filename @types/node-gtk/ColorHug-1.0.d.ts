@@ -422,7 +422,7 @@ export abstract class DeviceQueueClass {
 }
 export class Sha1 {
     /* Fields of ColorHug.Sha1 */
-    bytes: any
+    bytes: any[]
     /* Methods of ColorHug.Sha1 */
     toString(): string
     static name: string

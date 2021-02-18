@@ -282,10 +282,10 @@ export class X11Display {
     set_cursor_theme(theme: string | null, size: number): void
     set_startup_notification_id(startup_id: string): void
     set_surface_scale(scale: number): void
-    string_to_compound_text(str: string): [ /* returnType */ number, /* encoding */ string, /* format */ number, /* ctext */ Uint8Array ]
+    string_to_compound_text(str: string): [ /* returnType */ number, /* encoding */ string, /* format */ number, /* ctext */ Uint8Array[] ]
     text_property_to_text_list(encoding: string, format: number, text: number, length: number, list: string): number
     ungrab(): void
-    utf8_to_compound_text(str: string): [ /* returnType */ boolean, /* encoding */ string, /* format */ number, /* ctext */ Uint8Array ]
+    utf8_to_compound_text(str: string): [ /* returnType */ boolean, /* encoding */ string, /* format */ number, /* ctext */ Uint8Array[] ]
     /* Methods of Gdk.Display */
     beep(): void
     close(): void

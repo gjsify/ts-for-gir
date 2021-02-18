@@ -258,9 +258,9 @@ export class Core {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Retro.Core */
-    connect(sigName: "audio-output", callback: (($obj: Core, data: Uint8Array, sample_rate: number) => void)): number
-    connect_after(sigName: "audio-output", callback: (($obj: Core, data: Uint8Array, sample_rate: number) => void)): number
-    emit(sigName: "audio-output", data: Uint8Array, sample_rate: number): void
+    connect(sigName: "audio-output", callback: (($obj: Core, data: Uint8Array[], sample_rate: number) => void)): number
+    connect_after(sigName: "audio-output", callback: (($obj: Core, data: Uint8Array[], sample_rate: number) => void)): number
+    emit(sigName: "audio-output", data: Uint8Array[], sample_rate: number): void
     connect(sigName: "log", callback: (($obj: Core, log_domain: string, log_level: GLib.LogLevelFlags, message: string) => void)): number
     connect_after(sigName: "log", callback: (($obj: Core, log_domain: string, log_level: GLib.LogLevelFlags, message: string) => void)): number
     emit(sigName: "log", log_domain: string, log_level: GLib.LogLevelFlags, message: string): void
@@ -650,7 +650,7 @@ export class CoreView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

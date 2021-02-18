@@ -724,9 +724,9 @@ export function pstring_dump_stat(): void
 export function pstring_free(string: string): void
 export function pstring_peek(string: string): string
 export function pstring_strdup(string: string): string
-export function quoted_decode_step(in_: Uint8Array, out: Uint8Array, saveme: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* saveme */ number[] ]
-export function quoted_encode_close(in_: Uint8Array, out: Uint8Array, save: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* save */ number[] ]
-export function quoted_encode_step(in_: Uint8Array, out: Uint8Array, save: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* save */ number[] ]
+export function quoted_decode_step(in_: Uint8Array[], out: Uint8Array[], saveme: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* saveme */ number[] ]
+export function quoted_encode_close(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
+export function quoted_encode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
 export function read(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
 export function search_camel_header_soundex(header: string, match: string): boolean
 export function search_get_all_headers_decoded(message: MimeMessage): string
@@ -783,13 +783,13 @@ export function util_bdata_get_number(bdata_ptr: string, default_value: number):
 export function util_bdata_get_string(bdata_ptr: string, default_value: string): string
 export function util_bdata_put_number(bdata_str: GLib.String, value: number): void
 export function util_bdata_put_string(bdata_str: GLib.String, value: string): void
-export function uudecode_step(in_: Uint8Array, out: Uint8Array, save: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* save */ number[] ]
-export function uuencode_close(in_: Uint8Array, out: Uint8Array, uubuf: Uint8Array, save: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* uubuf */ Uint8Array, /* save */ number[] ]
-export function uuencode_step(in_: Uint8Array, out: Uint8Array, uubuf: Uint8Array, save: number[]): [ /* returnType */ number, /* out */ Uint8Array, /* uubuf */ Uint8Array, /* save */ number[] ]
+export function uudecode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
+export function uuencode_close(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
+export function uuencode_step(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
 export function write(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
-export function ydecode_step(in_: Uint8Array): [ /* returnType */ number, /* out */ Uint8Array, /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencode_close(in_: Uint8Array): [ /* returnType */ number, /* out */ Uint8Array, /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencode_step(in_: Uint8Array): [ /* returnType */ number, /* out */ Uint8Array, /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function ydecode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function yencode_close(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+export function yencode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
 export interface CipherCloneFunc {
     (value?: object | null): object | null
 }
@@ -1789,7 +1789,7 @@ export class DataWrapper {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
     get_mime_type_field(): ContentType
@@ -1955,11 +1955,11 @@ export class FilterInputStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array ]
-    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array, /* bytes_read */ number ]
-    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_all(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ Uint8Array[], /* bytes_read */ number ]
+    read_all_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array
+    read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[]
     read_bytes(count: number, cancellable?: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
@@ -1994,7 +1994,7 @@ export class FilterInputStream {
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array | null
+    vfunc_read_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ Uint8Array[] | null
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -2058,11 +2058,11 @@ export class FilterOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     splice_finish(result: Gio.AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Gio.Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes_finish(result: Gio.AsyncResult): number
@@ -2105,9 +2105,9 @@ export class FilterOutputStream {
     vfunc_splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfunc_splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_splice_finish(result: Gio.AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_write_finish(result: Gio.AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Gio.Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): number
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -2859,7 +2859,7 @@ export class IndexName {
     priv: IndexNamePrivate
     index: Index
     name: string
-    buffer: Uint8Array
+    buffer: Uint8Array[]
     words: GLib.HashTable
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -3237,7 +3237,7 @@ export class Medium {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
     get_mime_type_field(): ContentType
@@ -3768,9 +3768,9 @@ export class MimeFilter {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -3796,8 +3796,8 @@ export class MimeFilter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3840,9 +3840,9 @@ export class MimeFilterBasic {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -3868,8 +3868,8 @@ export class MimeFilterBasic {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3917,9 +3917,9 @@ export class MimeFilterBestenc {
     get_best_encoding(required: BestencEncoding): TransferEncoding
     set_flags(flags: number): void
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -3945,8 +3945,8 @@ export class MimeFilterBestenc {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -3990,9 +3990,9 @@ export class MimeFilterCRLF {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4018,8 +4018,8 @@ export class MimeFilterCRLF {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4063,9 +4063,9 @@ export class MimeFilterCanon {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4091,8 +4091,8 @@ export class MimeFilterCanon {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4136,9 +4136,9 @@ export class MimeFilterCharset {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4164,8 +4164,8 @@ export class MimeFilterCharset {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4209,9 +4209,9 @@ export class MimeFilterEnriched {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4237,8 +4237,8 @@ export class MimeFilterEnriched {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4282,9 +4282,9 @@ export class MimeFilterFrom {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4310,8 +4310,8 @@ export class MimeFilterFrom {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4354,9 +4354,9 @@ export class MimeFilterGZip {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4382,8 +4382,8 @@ export class MimeFilterGZip {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4427,9 +4427,9 @@ export class MimeFilterHTML {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4455,8 +4455,8 @@ export class MimeFilterHTML {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4502,9 +4502,9 @@ export class MimeFilterIndex {
     set_index(index: Index): void
     set_name(name: IndexName): void
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4530,8 +4530,8 @@ export class MimeFilterIndex {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4575,9 +4575,9 @@ export class MimeFilterLinewrap {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4603,8 +4603,8 @@ export class MimeFilterLinewrap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4648,9 +4648,9 @@ export class MimeFilterPgp {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4676,8 +4676,8 @@ export class MimeFilterPgp {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4719,9 +4719,9 @@ export class MimeFilterProgress {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4747,8 +4747,8 @@ export class MimeFilterProgress {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4792,9 +4792,9 @@ export class MimeFilterToHTML {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4820,8 +4820,8 @@ export class MimeFilterToHTML {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4868,9 +4868,9 @@ export class MimeFilterWindows {
     is_windows_charset(): boolean
     real_charset(): string
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4896,8 +4896,8 @@ export class MimeFilterWindows {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -4946,9 +4946,9 @@ export class MimeFilterYenc {
     set_crc(crc: number): void
     set_state(state: number): void
     /* Methods of Camel.MimeFilter */
-    backup(data: Uint8Array): void
-    complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    backup(data: Uint8Array[]): void
+    complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset(): void
     set_size(size: number, keep: number): void
     /* Methods of GObject.Object */
@@ -4974,8 +4974,8 @@ export class MimeFilterYenc {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.MimeFilter */
-    vfunc_complete(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
-    vfunc_filter(in_: Uint8Array, prespace: number): [ /* out */ Uint8Array, /* outprespace */ number ]
+    vfunc_complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
+    vfunc_filter(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
     vfunc_reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -5055,7 +5055,7 @@ export class MimeMessage {
     get_disposition(): string
     get_encoding(): TransferEncoding
     get_filename(): string
-    set_content(data: Uint8Array | null, type?: string | null): void
+    set_content(data: Uint8Array[] | null, type?: string | null): void
     set_content_id(contentid: string): void
     set_content_languages(content_languages: string[]): void
     set_content_location(location: string): void
@@ -5089,7 +5089,7 @@ export class MimeMessage {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_mime_type(): string
     get_mime_type_field(): ContentType
     is_offline(): boolean
@@ -5205,13 +5205,13 @@ export class MimeParser {
     postface(): string
     preface(): string
     push_state(newstate: MimeParserState, boundary: string): void
-    read(len: number): [ /* returnType */ number, /* databuffer */ Uint8Array ]
+    read(len: number): [ /* returnType */ number, /* databuffer */ Uint8Array[] ]
     scan_from(scan_from: boolean): void
     scan_pre_from(scan_pre_from: boolean): void
     seek(offset: number, whence: number): number
     set_header_regex(matchstr: string): number
     state(): MimeParserState
-    step(databuffer?: Uint8Array | null): [ /* returnType */ MimeParserState, /* databuffer */ Uint8Array | null ]
+    step(databuffer?: Uint8Array[] | null): [ /* returnType */ MimeParserState, /* databuffer */ Uint8Array[] | null ]
     stream(): Stream | null
     tell(): number
     tell_start_boundary(): number
@@ -5301,7 +5301,7 @@ export class MimePart {
     get_disposition(): string
     get_encoding(): TransferEncoding
     get_filename(): string
-    set_content(data: Uint8Array | null, type?: string | null): void
+    set_content(data: Uint8Array[] | null, type?: string | null): void
     set_content_id(contentid: string): void
     set_content_languages(content_languages: string[]): void
     set_content_location(location: string): void
@@ -5335,7 +5335,7 @@ export class MimePart {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_mime_type(): string
     get_mime_type_field(): ContentType
     is_offline(): boolean
@@ -5461,7 +5461,7 @@ export class Multipart {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
     get_mime_type_field(): ContentType
@@ -5575,7 +5575,7 @@ export class MultipartEncrypted {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
     get_mime_type_field(): ContentType
@@ -5693,7 +5693,7 @@ export class MultipartSigned {
     decode_to_stream(stream: Stream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     decode_to_stream_finish(result: Gio.AsyncResult): number
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
-    get_byte_array(): Uint8Array
+    get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
     get_mime_type_field(): ContentType
@@ -5875,11 +5875,11 @@ export class NullOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     splice_finish(result: Gio.AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Gio.Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes_finish(result: Gio.AsyncResult): number
@@ -5922,9 +5922,9 @@ export class NullOutputStream {
     vfunc_splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfunc_splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_splice_finish(result: Gio.AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_write_finish(result: Gio.AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Gio.Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): number
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -6862,12 +6862,12 @@ export class Sasl {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -6899,7 +6899,7 @@ export class Sasl {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -6940,12 +6940,12 @@ export class SaslAnonymous {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -6977,7 +6977,7 @@ export class SaslAnonymous {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7016,12 +7016,12 @@ export class SaslCramMd5 {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7053,7 +7053,7 @@ export class SaslCramMd5 {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7089,12 +7089,12 @@ export class SaslDigestMd5 {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7126,7 +7126,7 @@ export class SaslDigestMd5 {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7164,12 +7164,12 @@ export class SaslGssapi {
     /* Methods of Camel.SaslGssapi */
     override_host_and_user(override_host?: string | null, override_user?: string | null): void
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7201,7 +7201,7 @@ export class SaslGssapi {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7239,12 +7239,12 @@ export class SaslLogin {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7276,7 +7276,7 @@ export class SaslLogin {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7312,12 +7312,12 @@ export class SaslNTLM {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7349,7 +7349,7 @@ export class SaslNTLM {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7385,12 +7385,12 @@ export class SaslPOPB4SMTP {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7422,7 +7422,7 @@ export class SaslPOPB4SMTP {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7458,12 +7458,12 @@ export class SaslPlain {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7495,7 +7495,7 @@ export class SaslPlain {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7531,12 +7531,12 @@ export class SaslXOAuth2 {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7568,7 +7568,7 @@ export class SaslXOAuth2 {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7604,12 +7604,12 @@ export class SaslXOAuth2Google {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7641,7 +7641,7 @@ export class SaslXOAuth2Google {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -7677,12 +7677,12 @@ export class SaslXOAuth2Outlook {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.Sasl */
-    challenge(token: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     challenge_base64_finish(result: Gio.AsyncResult): string
     challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
-    challenge_finish(result: Gio.AsyncResult): Uint8Array
-    challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_authenticated(): boolean
     get_mechanism(): string
     get_service(): Service
@@ -7714,7 +7714,7 @@ export class SaslXOAuth2Outlook {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Camel.Sasl */
-    vfunc_challenge_sync(token: Uint8Array, cancellable?: Gio.Cancellable | null): Uint8Array
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
     vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -8767,9 +8767,9 @@ export class StreamMem {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel.StreamMem */
-    get_byte_array(): Uint8Array
-    set_buffer(buffer: Uint8Array): void
-    set_byte_array(buffer: Uint8Array): void
+    get_byte_array(): Uint8Array[]
+    set_buffer(buffer: Uint8Array[]): void
+    set_byte_array(buffer: Uint8Array[]): void
     set_secure(): void
     /* Methods of Camel.Stream */
     close(cancellable?: Gio.Cancellable | null): number
@@ -8844,8 +8844,8 @@ export class StreamMem {
     /* Static methods and pseudo-constructors */
     static new(): StreamMem
     static new(base_stream: Gio.IOStream): StreamMem
-    static new_with_buffer(buffer: Uint8Array): StreamMem
-    static new_with_byte_array(buffer: Uint8Array): StreamMem
+    static new_with_buffer(buffer: Uint8Array[]): StreamMem
+    static new_with_byte_array(buffer: Uint8Array[]): StreamMem
     static $gtype: GObject.Type
 }
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
@@ -9239,7 +9239,7 @@ export class TextIndexName {
     /* Fields of Camel.IndexName */
     index: Index
     name: string
-    buffer: Uint8Array
+    buffer: Uint8Array[]
     words: GLib.HashTable
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -10669,7 +10669,7 @@ export class Block {
     flags: BlockFlags
     refcount: number
     align00: number
-    data: Uint8Array
+    data: Uint8Array[]
     static name: string
 }
 export abstract class BlockFileClass {
@@ -10704,7 +10704,7 @@ export class Cert {
     /* Methods of Camel.Cert */
     load_cert_file(): boolean
     ref(): Cert
-    save_cert_file(der_data: Uint8Array): boolean
+    save_cert_file(der_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): Cert
@@ -11429,8 +11429,8 @@ export class MimeFilterCharsetPrivate {
 export abstract class MimeFilterClass {
     /* Fields of Camel.MimeFilterClass */
     parent_class: GObject.ObjectClass
-    filter: (filter: MimeFilter, in_: Uint8Array, prespace: number) => [ /* out */ Uint8Array, /* outprespace */ number ]
-    complete: (filter: MimeFilter, in_: Uint8Array, prespace: number) => [ /* out */ Uint8Array, /* outprespace */ number ]
+    filter: (filter: MimeFilter, in_: Uint8Array[], prespace: number) => [ /* out */ Uint8Array[], /* outprespace */ number ]
+    complete: (filter: MimeFilter, in_: Uint8Array[], prespace: number) => [ /* out */ Uint8Array[], /* outprespace */ number ]
     reset: (filter: MimeFilter) => void
     reserved: object[]
     static name: string
@@ -11793,7 +11793,7 @@ export class Provider {
     extra_conf: ProviderConfEntry
     port_entries: ProviderPortEntry
     auto_detect: ProviderAutoDetectFunc
-    object_types: GObject.Type[][]
+    object_types: GObject.Type[]
     authtypes: object[]
     url_hash: GLib.HashFunc
     url_equal: GLib.EqualFunc
@@ -11885,7 +11885,7 @@ export abstract class SaslClass {
     parent_class: GObject.ObjectClass
     auth_type: ServiceAuthType
     try_empty_password_sync: (sasl: Sasl, cancellable?: Gio.Cancellable | null) => boolean
-    challenge_sync: (sasl: Sasl, token: Uint8Array, cancellable?: Gio.Cancellable | null) => Uint8Array
+    challenge_sync: (sasl: Sasl, token: Uint8Array[], cancellable?: Gio.Cancellable | null) => Uint8Array[]
     reserved: object[]
     static name: string
 }

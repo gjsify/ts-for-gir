@@ -362,7 +362,7 @@ export function phone_number_get_default_region(): string
 export function phone_number_is_supported(): boolean
 export interface Contact_ConstructProps extends VCard_ConstructProps {
     Rev?: string
-    address?: ContactAttrList
+    address?: any
     address_home?: ContactAddress
     address_label_home?: string
     address_label_other?: string
@@ -384,7 +384,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     categories?: string
     category_list?: object
     company_phone?: string
-    email?: ContactAttrList
+    email?: any
     email_1?: string
     email_2?: string
     email_3?: string
@@ -401,64 +401,64 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     homepage_url?: string
     icscalendar?: string
     id?: string
-    im_aim?: ContactAttrList
+    im_aim?: any
     im_aim_home_1?: string
     im_aim_home_2?: string
     im_aim_home_3?: string
     im_aim_work_1?: string
     im_aim_work_2?: string
     im_aim_work_3?: string
-    im_gadugadu?: ContactAttrList
+    im_gadugadu?: any
     im_gadugadu_home_1?: string
     im_gadugadu_home_2?: string
     im_gadugadu_home_3?: string
     im_gadugadu_work_1?: string
     im_gadugadu_work_2?: string
     im_gadugadu_work_3?: string
-    im_google_talk?: ContactAttrList
+    im_google_talk?: any
     im_google_talk_home_1?: string
     im_google_talk_home_2?: string
     im_google_talk_home_3?: string
     im_google_talk_work_1?: string
     im_google_talk_work_2?: string
     im_google_talk_work_3?: string
-    im_groupwise?: ContactAttrList
+    im_groupwise?: any
     im_groupwise_home_1?: string
     im_groupwise_home_2?: string
     im_groupwise_home_3?: string
     im_groupwise_work_1?: string
     im_groupwise_work_2?: string
     im_groupwise_work_3?: string
-    im_icq?: ContactAttrList
+    im_icq?: any
     im_icq_home_1?: string
     im_icq_home_2?: string
     im_icq_home_3?: string
     im_icq_work_1?: string
     im_icq_work_2?: string
     im_icq_work_3?: string
-    im_jabber?: ContactAttrList
+    im_jabber?: any
     im_jabber_home_1?: string
     im_jabber_home_2?: string
     im_jabber_home_3?: string
     im_jabber_work_1?: string
     im_jabber_work_2?: string
     im_jabber_work_3?: string
-    im_msn?: ContactAttrList
+    im_msn?: any
     im_msn_home_1?: string
     im_msn_home_2?: string
     im_msn_home_3?: string
     im_msn_work_1?: string
     im_msn_work_2?: string
     im_msn_work_3?: string
-    im_skype?: ContactAttrList
+    im_skype?: any
     im_skype_home_1?: string
     im_skype_home_2?: string
     im_skype_home_3?: string
     im_skype_work_1?: string
     im_skype_work_2?: string
     im_skype_work_3?: string
-    im_twitter?: ContactAttrList
-    im_yahoo?: ContactAttrList
+    im_twitter?: any
+    im_yahoo?: any
     im_yahoo_home_1?: string
     im_yahoo_home_2?: string
     im_yahoo_home_3?: string
@@ -482,12 +482,12 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     other_phone?: string
     pager?: string
     pgpCert?: ContactCert
-    phone?: ContactAttrList
+    phone?: any
     photo?: ContactPhoto
     primary_phone?: string
     radio?: string
     role?: string
-    sip?: ContactAttrList
+    sip?: any
     spouse?: string
     telex?: string
     title?: string
@@ -499,7 +499,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
 export class Contact {
     /* Properties of EBookContacts.Contact */
     Rev: string
-    address: ContactAttrList
+    address: any
     address_home: ContactAddress
     address_label_home: string
     address_label_other: string
@@ -521,7 +521,7 @@ export class Contact {
     categories: string
     category_list: object
     company_phone: string
-    email: ContactAttrList
+    email: any
     email_1: string
     email_2: string
     email_3: string
@@ -538,64 +538,64 @@ export class Contact {
     homepage_url: string
     icscalendar: string
     id: string
-    im_aim: ContactAttrList
+    im_aim: any
     im_aim_home_1: string
     im_aim_home_2: string
     im_aim_home_3: string
     im_aim_work_1: string
     im_aim_work_2: string
     im_aim_work_3: string
-    im_gadugadu: ContactAttrList
+    im_gadugadu: any
     im_gadugadu_home_1: string
     im_gadugadu_home_2: string
     im_gadugadu_home_3: string
     im_gadugadu_work_1: string
     im_gadugadu_work_2: string
     im_gadugadu_work_3: string
-    im_google_talk: ContactAttrList
+    im_google_talk: any
     im_google_talk_home_1: string
     im_google_talk_home_2: string
     im_google_talk_home_3: string
     im_google_talk_work_1: string
     im_google_talk_work_2: string
     im_google_talk_work_3: string
-    im_groupwise: ContactAttrList
+    im_groupwise: any
     im_groupwise_home_1: string
     im_groupwise_home_2: string
     im_groupwise_home_3: string
     im_groupwise_work_1: string
     im_groupwise_work_2: string
     im_groupwise_work_3: string
-    im_icq: ContactAttrList
+    im_icq: any
     im_icq_home_1: string
     im_icq_home_2: string
     im_icq_home_3: string
     im_icq_work_1: string
     im_icq_work_2: string
     im_icq_work_3: string
-    im_jabber: ContactAttrList
+    im_jabber: any
     im_jabber_home_1: string
     im_jabber_home_2: string
     im_jabber_home_3: string
     im_jabber_work_1: string
     im_jabber_work_2: string
     im_jabber_work_3: string
-    im_msn: ContactAttrList
+    im_msn: any
     im_msn_home_1: string
     im_msn_home_2: string
     im_msn_home_3: string
     im_msn_work_1: string
     im_msn_work_2: string
     im_msn_work_3: string
-    im_skype: ContactAttrList
+    im_skype: any
     im_skype_home_1: string
     im_skype_home_2: string
     im_skype_home_3: string
     im_skype_work_1: string
     im_skype_work_2: string
     im_skype_work_3: string
-    im_twitter: ContactAttrList
-    im_yahoo: ContactAttrList
+    im_twitter: any
+    im_yahoo: any
     im_yahoo_home_1: string
     im_yahoo_home_2: string
     im_yahoo_home_3: string
@@ -620,12 +620,12 @@ export class Contact {
     other_phone: string
     pager: string
     pgpCert: ContactCert
-    phone: ContactAttrList
+    phone: any
     photo: ContactPhoto
     primary_phone: string
     radio: string
     role: string
-    sip: ContactAttrList
+    sip: any
     spouse: string
     telex: string
     title: string
@@ -1255,10 +1255,10 @@ export class ContactPhoto {
     /* Methods of EBookContacts.ContactPhoto */
     copy(): ContactPhoto
     free(): void
-    get_inlined(): Uint8Array | null
+    get_inlined(): Uint8Array[] | null
     get_mime_type(): string | null
     get_uri(): string | null
-    set_inlined(data: Uint8Array): void
+    set_inlined(data: Uint8Array[]): void
     set_mime_type(mime_type: string): void
     set_uri(uri: string): void
     static name: string

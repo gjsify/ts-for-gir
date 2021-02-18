@@ -353,7 +353,7 @@ export class Menu {
     is_sensitive(): boolean
     is_toplevel(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean

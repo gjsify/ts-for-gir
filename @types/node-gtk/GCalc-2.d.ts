@@ -1132,8 +1132,8 @@ export class MathParameter {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc.MathParameter */
-    setValue(val?: any): void
-    getValue(): any
+    setValue(val?: any | null): void
+    getValue(): any | null
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1157,8 +1157,8 @@ export class MathParameter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GCalc.MathParameter */
-    vfuncSetValue(val?: any): void
-    vfuncGetValue(): any
+    vfuncSetValue(val?: any | null): void
+    vfuncGetValue(): any | null
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -4142,12 +4142,12 @@ export class Parameter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of GCalc.MathParameter */
-    setValue(val?: any): void
-    getValue(): any
+    setValue(val?: any | null): void
+    getValue(): any | null
     /* Virtual methods of GCalc.Parameter */
-    vfuncSetValue(val?: any): void
+    vfuncSetValue(val?: any | null): void
     vfuncSetValue(value: MathConstant): void
-    vfuncGetValue(): any
+    vfuncGetValue(): any | null
     vfuncGetValue(): MathConstant
     /* Virtual methods of GCalc.Variable */
     vfuncEvaluate(): MathExpression
@@ -5098,8 +5098,8 @@ export abstract class MathOperatorIface {
 }
 export abstract class MathParameterIface {
     /* Fields of GCalc.MathParameterIface */
-    setValue: (val?: any) => void
-    getValue: () => any
+    setValue: (val?: any | null) => void
+    getValue: () => any | null
     static name: string
 }
 export abstract class MathPlusIface {

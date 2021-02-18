@@ -5,8 +5,8 @@
 import "node"
 import type { Tracker } from './Tracker-1.0';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { GModule } from './GModule-2.0';
 
 export declare namespace TrackerMiner {
@@ -803,7 +803,7 @@ export class MinerFS {
     setInitialCrawling(doInitialCrawling: boolean): void
     setMtimeChecking(mtimeChecking: boolean): void
     setThrottle(throttle: number): void
-    writebackFile(file: Gio.File, rdfTypes: string[], results: any): void
+    writebackFile(file: Gio.File, rdfTypes: string[], results: any[]): void
     writebackNotify(file: Gio.File, error: GLib.Error): void
     /* Methods of TrackerMiner.Miner */
     getConnection(): Tracker.SparqlConnection
@@ -902,9 +902,9 @@ export class MinerFS {
     on(sigName: "remove-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "remove-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "remove-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any, cancellable?: Gio.Cancellable | null) => boolean)): number
-    connect_after(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any, cancellable?: Gio.Cancellable | null) => boolean)): number
-    emit(sigName: "writeback-file", file: Gio.File, rdfTypes: string[], results: any, cancellable?: Gio.Cancellable | null): void
+    connect(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
+    connect_after(sigName: "writeback-file", callback: (($obj: MinerFS, file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null) => boolean)): number
+    emit(sigName: "writeback-file", file: Gio.File, rdfTypes: string[], results: any[], cancellable?: Gio.Cancellable | null): void
     on(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter

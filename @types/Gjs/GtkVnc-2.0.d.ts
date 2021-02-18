@@ -72,21 +72,21 @@ export class CairoFramebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
-    get_buffer(): Uint8Array
+    fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
+    get_buffer(): Uint8Array[]
     get_height(): number
     get_local_format(): GVnc.PixelFormat
     get_remote_format(): GVnc.PixelFormat
     get_rowstride(): number
     get_width(): number
     perfect_format_match(): boolean
-    rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     set_color_map(map: GVnc.ColorMap): void
-    set_pixel_at(src: Uint8Array, x: number, y: number): void
+    set_pixel_at(src: Uint8Array[], x: number, y: number): void
     /* Virtual methods of GtkVnc.CairoFramebuffer */
     vfunc_blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfunc_fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
+    vfunc_fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
     vfunc_get_buffer(): number
     vfunc_get_height(): number
     vfunc_get_local_format(): GVnc.PixelFormat
@@ -94,9 +94,9 @@ export class CairoFramebuffer {
     vfunc_get_rowstride(): number
     vfunc_get_width(): number
     vfunc_perfect_format_match(): boolean
-    vfunc_rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfunc_rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_set_color_map(map: GVnc.ColorMap): void
-    vfunc_set_pixel_at(src: Uint8Array, x: number, y: number): void
+    vfunc_set_pixel_at(src: Uint8Array[], x: number, y: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -120,7 +120,7 @@ export class CairoFramebuffer {
     _init (config?: CairoFramebuffer_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(width: number, height: number, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
-    static new(buffer: Uint8Array, width: number, height: number, rowstride: number, localFormat: GVnc.PixelFormat, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
+    static new(buffer: Uint8Array[], width: number, height: number, rowstride: number, localFormat: GVnc.PixelFormat, remoteFormat: GVnc.PixelFormat): CairoFramebuffer
     static $gtype: GObject.Type
 }
 export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
@@ -398,7 +398,7 @@ export class Display {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

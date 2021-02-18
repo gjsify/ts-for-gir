@@ -23,7 +23,7 @@ export enum ProcessFlags {
     NONE,
     FORCE,
 }
-export function buffer_to_jpeg(buffer: Uint8Array, buffer_mime: string, target: string): boolean
+export function buffer_to_jpeg(buffer: Uint8Array[], buffer_mime: string, target: string): boolean
 export function error_quark(): GLib.Quark
 export function file_to_jpeg(filename: string, target: string): boolean
 export function get_file(artist?: string | null, title?: string | null, prefix?: string | null): [ /* returnType */ boolean, /* cache_file */ Gio.File | null ]
@@ -42,8 +42,8 @@ export class Process {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of MediaArt.Process */
-    buffer(type: Type, flags: ProcessFlags, related_file: Gio.File, buffer: Uint8Array | null, mime?: string | null, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
-    buffer_async(type: Type, flags: ProcessFlags, related_file: Gio.File, buffer: Uint8Array | null, mime: string, artist: string | null, title: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    buffer(type: Type, flags: ProcessFlags, related_file: Gio.File, buffer: Uint8Array[] | null, mime?: string | null, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
+    buffer_async(type: Type, flags: ProcessFlags, related_file: Gio.File, buffer: Uint8Array[] | null, mime: string, artist: string | null, title: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     buffer_finish(result: Gio.AsyncResult): boolean
     file(type: Type, flags: ProcessFlags, file: Gio.File, artist?: string | null, title?: string | null, cancellable?: Gio.Cancellable | null): boolean
     file_async(type: Type, flags: ProcessFlags, file: Gio.File, artist: string | null, title: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void

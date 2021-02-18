@@ -5,9 +5,9 @@
 import "node"
 import type { LibvirtGLib } from './LibvirtGLib-1.0';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { LibvirtGConfig } from './LibvirtGConfig-1.0';
 import type { libxml2 } from './libxml2-2.0';
+import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
 
 export declare namespace LibvirtGObject {
@@ -132,7 +132,7 @@ export interface StreamSourceFunc {
     (stream: Stream): number
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: ConnectionHandle
+    handle?: any
     uri?: string
 }
 export class Connection {
@@ -275,7 +275,7 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export interface Domain_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: DomainHandle
+    handle?: any
 }
 export class Domain {
     /* Properties of LibvirtGObject.Domain */
@@ -619,7 +619,7 @@ export class DomainInterface {
     static $gtype: GObject.Type
 }
 export interface DomainSnapshot_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: DomainSnapshotHandle
+    handle?: any
 }
 export class DomainSnapshot {
     /* Fields of LibvirtGObject.DomainSnapshot */
@@ -688,7 +688,7 @@ export class DomainSnapshot {
     static $gtype: GObject.Type
 }
 export interface Interface_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: InterfaceHandle
+    handle?: any
 }
 export class Interface {
     /* Fields of LibvirtGObject.Interface */
@@ -830,7 +830,7 @@ export class Manager {
     static $gtype: GObject.Type
 }
 export interface Network_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: NetworkHandle
+    handle?: any
 }
 export class Network {
     /* Fields of LibvirtGObject.Network */
@@ -964,7 +964,7 @@ export class NetworkDHCPLease {
     static $gtype: GObject.Type
 }
 export interface NetworkFilter_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: NetworkFilterHandle
+    handle?: any
 }
 export class NetworkFilter {
     /* Fields of LibvirtGObject.NetworkFilter */
@@ -1026,7 +1026,7 @@ export class NetworkFilter {
     static $gtype: GObject.Type
 }
 export interface NodeDevice_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: NodeDeviceHandle
+    handle?: any
 }
 export class NodeDevice {
     /* Fields of LibvirtGObject.NodeDevice */
@@ -1087,7 +1087,7 @@ export class NodeDevice {
     static $gtype: GObject.Type
 }
 export interface Secret_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: SecretHandle
+    handle?: any
 }
 export class Secret {
     /* Fields of LibvirtGObject.Secret */
@@ -1149,7 +1149,7 @@ export class Secret {
     static $gtype: GObject.Type
 }
 export interface StoragePool_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: StoragePoolHandle
+    handle?: any
 }
 export class StoragePool {
     /* Fields of LibvirtGObject.StoragePool */
@@ -1237,7 +1237,7 @@ export class StoragePool {
     static $gtype: GObject.Type
 }
 export interface StorageVol_ConstructProps extends GObject.Object_ConstructProps {
-    handle?: StorageVolHandle
+    handle?: any
     pool?: StoragePool
 }
 export class StorageVol {
@@ -1305,7 +1305,7 @@ export class StorageVol {
     static $gtype: GObject.Type
 }
 export interface Stream_ConstructProps extends Gio.IOStream_ConstructProps {
-    handle?: StreamHandle
+    handle?: any
 }
 export class Stream {
     /* Properties of Gio.IOStream */
@@ -1319,7 +1319,7 @@ export class Stream {
     gTypeInstance: GObject.TypeInstance
     /* Methods of LibvirtGObject.Stream */
     addWatch(priority: number, cond: StreamIOCondition, func: StreamIOFunc): number
-    receive(buffer: any, cancellable?: Gio.Cancellable | null): number
+    receive(buffer: any[], cancellable?: Gio.Cancellable | null): number
     receiveAll(cancellable: Gio.Cancellable | null, func: StreamSinkFunc): number
     send(buffer: string, size: number, cancellable?: Gio.Cancellable | null): number
     sendAll(cancellable: Gio.Cancellable | null, func: StreamSourceFunc): number

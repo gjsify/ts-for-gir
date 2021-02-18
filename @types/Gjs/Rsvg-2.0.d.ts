@@ -83,8 +83,8 @@ export class Handle {
     set_base_uri(base_uri: string): void
     set_dpi(dpi: number): void
     set_dpi_x_y(dpi_x: number, dpi_y: number): void
-    set_stylesheet(css: Uint8Array): boolean
-    write(buf: Uint8Array): boolean
+    set_stylesheet(css: Uint8Array[]): boolean
+    write(buf: Uint8Array[]): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -148,7 +148,7 @@ export class Handle {
     _init (config?: Handle_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Handle
-    static new_from_data(data: Uint8Array): Handle
+    static new_from_data(data: Uint8Array[]): Handle
     static new_from_file(filename: string): Handle
     static new_from_gfile_sync(file: Gio.File, flags: HandleFlags, cancellable?: Gio.Cancellable | null): Handle
     static new_from_stream_sync(input_stream: Gio.InputStream, base_file: Gio.File | null, flags: HandleFlags, cancellable?: Gio.Cancellable | null): Handle

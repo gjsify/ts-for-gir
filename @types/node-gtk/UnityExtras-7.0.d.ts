@@ -4,8 +4,9 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Unity } from './Unity-7.0';
 
 export declare namespace UnityExtras {
 

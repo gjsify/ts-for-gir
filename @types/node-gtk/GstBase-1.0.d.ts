@@ -42,8 +42,8 @@ export const BASE_TRANSFORM_SRC_NAME: string
 export function typeFindHelper(src: Gst.Pad, size: number): Gst.Caps | null
 export function typeFindHelperForBuffer(obj: Gst.Object | null, buf: Gst.Buffer): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function typeFindHelperForBufferWithExtension(obj: Gst.Object | null, buf: Gst.Buffer, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
-export function typeFindHelperForData(obj: Gst.Object | null, data: any): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
-export function typeFindHelperForDataWithExtension(obj: Gst.Object | null, data: any, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
+export function typeFindHelperForData(obj: Gst.Object | null, data: any[]): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
+export function typeFindHelperForDataWithExtension(obj: Gst.Object | null, data: any[], extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function typeFindHelperForExtension(obj: Gst.Object | null, extension: string): Gst.Caps | null
 export function typeFindHelperGetRange(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function typeFindHelperGetRangeFull(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): [ /* returnType */ Gst.FlowReturn, /* caps */ Gst.Caps, /* prob */ Gst.TypeFindProbability | null ]
@@ -97,7 +97,7 @@ export class Adapter {
     getBufferFast(nbytes: number): Gst.Buffer | null
     getBufferList(nbytes: number): Gst.BufferList | null
     getList(nbytes: number): Gst.Buffer[] | null
-    map(): any | null
+    map(): any[] | null
     maskedScanUint32(mask: number, pattern: number, offset: number, size: number): number
     maskedScanUint32Peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number | null ]
     offsetAtDiscont(): number
@@ -108,7 +108,7 @@ export class Adapter {
     prevPtsAtOffset(offset: number): [ /* returnType */ Gst.ClockTime, /* distance */ number | null ]
     ptsAtDiscont(): Gst.ClockTime
     push(buf: Gst.Buffer): void
-    take(): any | null
+    take(): any[] | null
     takeBuffer(nbytes: number): Gst.Buffer | null
     takeBufferFast(nbytes: number): Gst.Buffer | null
     takeBufferList(nbytes: number): Gst.BufferList | null
@@ -294,11 +294,11 @@ export class Aggregator {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -589,11 +589,11 @@ export class AggregatorPad {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -852,11 +852,11 @@ export class BaseParse {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1170,11 +1170,11 @@ export class BaseSink {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1528,11 +1528,11 @@ export class BaseSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -1821,11 +1821,11 @@ export class BaseTransform {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2016,11 +2016,11 @@ export class CollectPads {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2343,11 +2343,11 @@ export class PushSrc {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -2680,7 +2680,7 @@ export class BaseTransformPrivate {
 }
 export class BitReader {
     /* Fields of GstBase.BitReader */
-    data: any
+    data: any[]
     size: number
     byte: number
     bit: number
@@ -2693,7 +2693,7 @@ export class BitReader {
     getPos(): number
     getRemaining(): number
     getSize(): number
-    init(data: any): void
+    init(data: any[]): void
     peekBitsUint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peekBitsUint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peekBitsUint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
@@ -2711,7 +2711,7 @@ export class BitWriter {
     alignBytes(trailingBit: number): boolean
     free(): void
     freeAndGetBuffer(): Gst.Buffer
-    freeAndGetData(): any
+    freeAndGetData(): any[]
     getData(): number
     getRemaining(): number
     getSize(): number
@@ -2722,22 +2722,22 @@ export class BitWriter {
     putBytes(data: number, nbytes: number): boolean
     reset(): void
     resetAndGetBuffer(): Gst.Buffer
-    resetAndGetData(): any
+    resetAndGetData(): any[]
     setPos(pos: number): boolean
     static name: string
 }
 export class ByteReader {
     /* Fields of GstBase.ByteReader */
-    data: any
+    data: any[]
     size: number
     byte: number
     /* Methods of GstBase.ByteReader */
-    dupData(): [ /* returnType */ boolean, /* val */ any ]
+    dupData(): [ /* returnType */ boolean, /* val */ any[] ]
     dupStringUtf16(): [ /* returnType */ boolean, /* str */ number[] ]
     dupStringUtf32(): [ /* returnType */ boolean, /* str */ number[] ]
     dupStringUtf8(): [ /* returnType */ boolean, /* str */ string[] ]
     free(): void
-    getData(): [ /* returnType */ boolean, /* val */ any ]
+    getData(): [ /* returnType */ boolean, /* val */ any[] ]
     getFloat32Be(): [ /* returnType */ boolean, /* val */ number ]
     getFloat32Le(): [ /* returnType */ boolean, /* val */ number ]
     getFloat64Be(): [ /* returnType */ boolean, /* val */ number ]
@@ -2764,10 +2764,10 @@ export class ByteReader {
     getUint64Be(): [ /* returnType */ boolean, /* val */ number ]
     getUint64Le(): [ /* returnType */ boolean, /* val */ number ]
     getUint8(): [ /* returnType */ boolean, /* val */ number ]
-    init(data: any): void
+    init(data: any[]): void
     maskedScanUint32(mask: number, pattern: number, offset: number, size: number): number
     maskedScanUint32Peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number ]
-    peekData(): [ /* returnType */ boolean, /* val */ any ]
+    peekData(): [ /* returnType */ boolean, /* val */ any[] ]
     peekFloat32Be(): [ /* returnType */ boolean, /* val */ number ]
     peekFloat32Le(): [ /* returnType */ boolean, /* val */ number ]
     peekFloat64Be(): [ /* returnType */ boolean, /* val */ number ]
@@ -2812,10 +2812,10 @@ export class ByteWriter {
     freeAndGetData(): number
     getRemaining(): number
     init(): void
-    initWithData(data: any, initialized: boolean): void
+    initWithData(data: any[], initialized: boolean): void
     initWithSize(size: number, fixed: boolean): void
     putBuffer(buffer: Gst.Buffer, offset: number, size: number): boolean
-    putData(data: any): boolean
+    putData(data: any[]): boolean
     putFloat32Be(val: number): boolean
     putFloat32Le(val: number): boolean
     putFloat64Be(val: number): boolean
@@ -2843,7 +2843,7 @@ export class ByteWriter {
     putUint8(val: number): boolean
     reset(): void
     resetAndGetBuffer(): Gst.Buffer
-    resetAndGetData(): any
+    resetAndGetData(): any[]
     static name: string
 }
 export class CollectData {

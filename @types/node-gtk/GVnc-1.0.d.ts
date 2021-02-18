@@ -119,21 +119,21 @@ export class Framebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: any, x: number, y: number, width: number, height: number): void
-    getBuffer(): any
+    fill(src: any[], x: number, y: number, width: number, height: number): void
+    getBuffer(): any[]
     getHeight(): number
     getLocalFormat(): PixelFormat
     getRemoteFormat(): PixelFormat
     getRowstride(): number
     getWidth(): number
     perfectFormatMatch(): boolean
-    rgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     setColorMap(map: ColorMap): void
-    setPixelAt(src: any, x: number, y: number): void
+    setPixelAt(src: any[], x: number, y: number): void
     /* Virtual methods of GVnc.Framebuffer */
     vfuncBlt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncCopyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfuncFill(src: any, x: number, y: number, width: number, height: number): void
+    vfuncFill(src: any[], x: number, y: number, width: number, height: number): void
     vfuncGetBuffer(): number
     vfuncGetHeight(): number
     vfuncGetLocalFormat(): PixelFormat
@@ -141,9 +141,9 @@ export class Framebuffer {
     vfuncGetRowstride(): number
     vfuncGetWidth(): number
     vfuncPerfectFormatMatch(): boolean
-    vfuncRgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfuncRgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncSetColorMap(map: ColorMap): void
-    vfuncSetPixelAt(src: any, x: number, y: number): void
+    vfuncSetPixelAt(src: any[], x: number, y: number): void
     static name: string
 }
 export interface BaseAudio_ConstructProps extends GObject.Object_ConstructProps {
@@ -274,21 +274,21 @@ export class BaseFramebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: any, x: number, y: number, width: number, height: number): void
-    getBuffer(): any
+    fill(src: any[], x: number, y: number, width: number, height: number): void
+    getBuffer(): any[]
     getHeight(): number
     getLocalFormat(): PixelFormat
     getRemoteFormat(): PixelFormat
     getRowstride(): number
     getWidth(): number
     perfectFormatMatch(): boolean
-    rgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     setColorMap(map: ColorMap): void
-    setPixelAt(src: any, x: number, y: number): void
+    setPixelAt(src: any[], x: number, y: number): void
     /* Virtual methods of GVnc.BaseFramebuffer */
     vfuncBlt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncCopyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfuncFill(src: any, x: number, y: number, width: number, height: number): void
+    vfuncFill(src: any[], x: number, y: number, width: number, height: number): void
     vfuncGetBuffer(): number
     vfuncGetHeight(): number
     vfuncGetLocalFormat(): PixelFormat
@@ -296,9 +296,9 @@ export class BaseFramebuffer {
     vfuncGetRowstride(): number
     vfuncGetWidth(): number
     vfuncPerfectFormatMatch(): boolean
-    vfuncRgb24Blt(src: any, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfuncRgb24Blt(src: any[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfuncSetColorMap(map: ColorMap): void
-    vfuncSetPixelAt(src: any, x: number, y: number): void
+    vfuncSetPixelAt(src: any[], x: number, y: number): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -330,7 +330,7 @@ export class BaseFramebuffer {
     constructor (config?: BaseFramebuffer_ConstructProps)
     _init (config?: BaseFramebuffer_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(buffer: any, width: number, height: number, rowstride: number, localFormat: PixelFormat, remoteFormat: PixelFormat): BaseFramebuffer
+    static new(buffer: any[], width: number, height: number, rowstride: number, localFormat: PixelFormat, remoteFormat: PixelFormat): BaseFramebuffer
     static $gtype: GObject.Type
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
@@ -599,7 +599,7 @@ export class Cursor {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GVnc.Cursor */
-    getData(): any
+    getData(): any[]
     getHeight(): number
     getHotx(): number
     getHoty(): number
@@ -677,7 +677,7 @@ export class Cursor {
     constructor (config?: Cursor_ConstructProps)
     _init (config?: Cursor_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(data: any, hotx: number, hoty: number, width: number, height: number): Cursor
+    static new(data: any[], hotx: number, hoty: number, width: number, height: number): Cursor
     static $gtype: GObject.Type
 }
 export class AudioFormat {
@@ -807,11 +807,11 @@ export abstract class FramebufferInterface {
     getLocalFormat: (fb: Framebuffer) => PixelFormat
     getRemoteFormat: (fb: Framebuffer) => PixelFormat
     perfectFormatMatch: (fb: Framebuffer) => boolean
-    setPixelAt: (fb: Framebuffer, src: any, x: number, y: number) => void
-    fill: (fb: Framebuffer, src: any, x: number, y: number, width: number, height: number) => void
+    setPixelAt: (fb: Framebuffer, src: any[], x: number, y: number) => void
+    fill: (fb: Framebuffer, src: any[], x: number, y: number, width: number, height: number) => void
     copyrect: (fb: Framebuffer, srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number) => void
     blt: (fb: Framebuffer, src: number, rowstride: number, x: number, y: number, width: number, height: number) => void
-    rgb24Blt: (fb: Framebuffer, src: any, rowstride: number, x: number, y: number, width: number, height: number) => void
+    rgb24Blt: (fb: Framebuffer, src: any[], rowstride: number, x: number, y: number, width: number, height: number) => void
     setColorMap: (fb: Framebuffer, map: ColorMap) => void
     static name: string
 }

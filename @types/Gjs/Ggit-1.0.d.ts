@@ -405,8 +405,6 @@ export interface TransferProgressCallback {
 export interface TreeWalkCallback {
     (root: string, entry: TreeEntry): number
 }
-
-export interface Object_ConstructProps {}
 export interface Blame_ConstructProps extends Native_ConstructProps {
 }
 export class Blame {
@@ -415,7 +413,7 @@ export class Blame {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ggit.Blame */
-    from_buffer(buffer: Uint8Array): Blame | null
+    from_buffer(buffer: Uint8Array[]): Blame | null
     get_hunk_by_index(idx: number): BlameHunk
     get_hunk_by_line(line: number): BlameHunk
     get_hunk_count(): number
@@ -473,7 +471,7 @@ export class Blob {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ggit.Blob */
-    get_raw_content(): Uint8Array | null
+    get_raw_content(): Uint8Array[] | null
     is_binary(): boolean
     /* Methods of Ggit.Object */
     get_id(): OId | null
@@ -546,11 +544,11 @@ export class BlobOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     splice_finish(result: Gio.AsyncResult): number
-    write(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): number
-    write_all(buffer: Uint8Array, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_all_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
+    write_all(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
+    write_all_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
-    write_async(buffer: Uint8Array, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write_async(buffer: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes(bytes: GLib.Bytes, cancellable?: Gio.Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     write_bytes_finish(result: Gio.AsyncResult): number
@@ -593,9 +591,9 @@ export class BlobOutputStream {
     vfunc_splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfunc_splice_async(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_splice_finish(result: Gio.AsyncResult): number
-    vfunc_write_async(buffer: Uint8Array | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_write_async(buffer: Uint8Array[] | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_write_finish(result: Gio.AsyncResult): number
-    vfunc_write_fn(buffer: Uint8Array | null, cancellable?: Gio.Cancellable | null): number
+    vfunc_write_fn(buffer: Uint8Array[] | null, cancellable?: Gio.Cancellable | null): number
     vfunc_writev_async(vectors: Gio.OutputVector[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_writev_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     vfunc_writev_fn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -1445,12 +1443,12 @@ export class Diff {
     constructor (config?: Diff_ConstructProps)
     _init (config?: Diff_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new_buffers(buffer1: Uint8Array | null, buffer1_as_path: string | null, buffer2: Uint8Array | null, buffer2_as_path?: string | null, diff_options?: DiffOptions | null): Diff
+    static new_buffers(buffer1: Uint8Array[] | null, buffer1_as_path: string | null, buffer2: Uint8Array[] | null, buffer2_as_path?: string | null, diff_options?: DiffOptions | null): Diff
     static new_index_to_workdir(repository: Repository, index?: Index | null, diff_options?: DiffOptions | null): Diff
     static new_tree_to_index(repository: Repository, old_tree?: Tree | null, index?: Index | null, diff_options?: DiffOptions | null): Diff
     static new_tree_to_tree(repository: Repository, old_tree?: Tree | null, new_tree?: Tree | null, diff_options?: DiffOptions | null): Diff
     static new_tree_to_workdir(repository: Repository, old_tree?: Tree | null, diff_options?: DiffOptions | null): Diff
-    static blob_to_buffer(old_blob: Blob | null, old_as_path: string | null, buffer: Uint8Array | null, buffer_as_path?: string | null, diff_options?: DiffOptions | null, file_cb?: DiffFileCallback | null, binary_cb?: DiffBinaryCallback | null, hunk_cb?: DiffHunkCallback | null, line_cb?: DiffLineCallback | null): void
+    static blob_to_buffer(old_blob: Blob | null, old_as_path: string | null, buffer: Uint8Array[] | null, buffer_as_path?: string | null, diff_options?: DiffOptions | null, file_cb?: DiffFileCallback | null, binary_cb?: DiffBinaryCallback | null, hunk_cb?: DiffHunkCallback | null, line_cb?: DiffLineCallback | null): void
     static blobs(old_blob?: Blob | null, old_as_path?: string | null, new_blob?: Blob | null, new_as_path?: string | null, diff_options?: DiffOptions | null, file_cb?: DiffFileCallback | null, binary_cb?: DiffBinaryCallback | null, hunk_cb?: DiffHunkCallback | null, line_cb?: DiffLineCallback | null): void
     static $gtype: GObject.Type
 }
@@ -2421,7 +2419,7 @@ export class Repository {
     cherry_pick(commit: Commit, options: CherryPickOptions): boolean
     cherry_pick_commit(commit: Commit, our_commit: Commit, mainline: number, merge_options?: MergeOptions | null): Index | null
     create_blob(): BlobOutputStream | null
-    create_blob_from_buffer(buffer: Uint8Array): OId | null
+    create_blob_from_buffer(buffer: Uint8Array[]): OId | null
     create_blob_from_file(file: Gio.File): OId
     create_blob_from_path(path: string): OId | null
     create_branch(branch_name: string, target: Object, flags: CreateFlags): Branch | null
@@ -3143,7 +3141,7 @@ export class DiffHunk {
 }
 export class DiffLine {
     /* Methods of Ggit.DiffLine */
-    get_content(): Uint8Array
+    get_content(): Uint8Array[]
     get_content_offset(): number
     get_new_lineno(): number
     get_old_lineno(): number
@@ -3288,7 +3286,7 @@ export class OId {
     to_string(): string | null
     static name: string
     /* Static methods and pseudo-constructors */
-    static new_from_raw(raw: Uint8Array): OId
+    static new_from_raw(raw: Uint8Array[]): OId
     static new_from_string(str: string): OId
 }
 export abstract class ObjectClass {

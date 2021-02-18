@@ -75,14 +75,14 @@ export class Metadata {
     deleteGpsInfo(): void
     eraseExifThumbnail(): void
     free(): void
-    fromApp1Segment(data: any): boolean
+    fromApp1Segment(data: any[]): boolean
     fromStream(stream: Gio.InputStream): boolean
     generateXmpPacket(xmpFormatFlags: XmpFormatFlags, padding: number): string | null
     getComment(): string | null
-    getExifData(byteOrder: ByteOrder): any
+    getExifData(byteOrder: ByteOrder): any | null
     getExifTagRational(tag: string): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
     getExifTags(): string[]
-    getExifThumbnail(): [ /* returnType */ boolean, /* buffer */ any ]
+    getExifThumbnail(): [ /* returnType */ boolean, /* buffer */ any[] ]
     getExposureTime(): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
     getFnumber(): number
     getFocalLength(): number
@@ -106,7 +106,7 @@ export class Metadata {
     getTagInterpretedString(tag: string): string | null
     getTagLong(tag: string): number
     getTagMultiple(tag: string): string[] | null
-    getTagRaw(tag: string): any
+    getTagRaw(tag: string): any | null
     getTagString(tag: string): string | null
     getXmpPacket(): string | null
     getXmpTags(): string[]
@@ -114,13 +114,13 @@ export class Metadata {
     hasIptc(): boolean
     hasTag(tag: string): boolean
     hasXmp(): boolean
-    openBuf(data: any): boolean
+    openBuf(data: any[]): boolean
     openPath(path: string): boolean
     saveExternal(path: string): boolean
     saveFile(path: string): boolean
     setComment(comment: string): void
     setExifTagRational(tag: string, nom: number, den: number): boolean
-    setExifThumbnailFromBuffer(buffer: any): void
+    setExifThumbnailFromBuffer(buffer: any[]): void
     setExifThumbnailFromFile(path: string): boolean
     setGpsInfo(longitude: number, latitude: number, altitude: number): boolean
     setMetadataPixelHeight(height: number): void
@@ -205,7 +205,7 @@ export class PreviewImage {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GExiv2.PreviewImage */
     free(): void
-    getData(): any
+    getData(): any[]
     getExtension(): string
     getHeight(): number
     getMimeType(): string

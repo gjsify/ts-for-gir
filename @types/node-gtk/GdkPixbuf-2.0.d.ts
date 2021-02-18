@@ -50,7 +50,7 @@ export const PIXBUF_MINOR: number
 export const PIXBUF_VERSION: string
 export function pixbufErrorQuark(): GLib.Quark
 export interface PixbufDestroyNotify {
-    (pixels: any): void
+    (pixels: any[]): void
 }
 export interface PixbufModuleFillInfoFunc {
     (info: PixbufFormat): void
@@ -68,7 +68,7 @@ export interface PixbufModuleUpdatedFunc {
     (pixbuf: Pixbuf, x: number, y: number, width: number, height: number): void
 }
 export interface PixbufSaveFunc {
-    (buf: any): boolean
+    (buf: any[]): boolean
 }
 export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     bitsPerSample?: number
@@ -103,7 +103,7 @@ export class Pixbuf {
     getNChannels(): number
     getOption(key: string): string
     getOptions(): GLib.HashTable
-    getPixels(): any
+    getPixels(): any[]
     getRowstride(): number
     getWidth(): number
     newSubpixbuf(srcX: number, srcY: number, width: number, height: number): Pixbuf
@@ -112,7 +112,7 @@ export class Pixbuf {
     removeOption(key: string): boolean
     rotateSimple(angle: PixbufRotation): Pixbuf | null
     saturateAndPixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    saveToBufferv(type: string, optionKeys: string[], optionValues: string[]): [ /* returnType */ boolean, /* buffer */ any ]
+    saveToBufferv(type: string, optionKeys: string[], optionValues: string[]): [ /* returnType */ boolean, /* buffer */ any[] ]
     saveToCallbackv(saveFunc: PixbufSaveFunc, type: string, optionKeys: string[], optionValues: string[]): boolean
     saveToStreamv(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null): boolean
     saveToStreamvAsync(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -185,11 +185,11 @@ export class Pixbuf {
     /* Static methods and pseudo-constructors */
     static new(colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number): Pixbuf
     static newFromBytes(data: any, colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number, rowstride: number): Pixbuf
-    static newFromData(data: any, colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number, rowstride: number, destroyFn?: PixbufDestroyNotify | null): Pixbuf
+    static newFromData(data: any[], colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number, rowstride: number, destroyFn?: PixbufDestroyNotify | null): Pixbuf
     static newFromFile(filename: string): Pixbuf
     static newFromFileAtScale(filename: string, width: number, height: number, preserveAspectRatio: boolean): Pixbuf
     static newFromFileAtSize(filename: string, width: number, height: number): Pixbuf
-    static newFromInline(data: any, copyPixels: boolean): Pixbuf
+    static newFromInline(data: any[], copyPixels: boolean): Pixbuf
     static newFromResource(resourcePath: string): Pixbuf
     static newFromResourceAtScale(resourcePath: string, width: number, height: number, preserveAspectRatio: boolean): Pixbuf
     static newFromStream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): Pixbuf
@@ -362,7 +362,7 @@ export class PixbufLoader {
     getFormat(): PixbufFormat | null
     getPixbuf(): Pixbuf
     setSize(width: number, height: number): void
-    write(buf: any): boolean
+    write(buf: any[]): boolean
     writeBytes(buffer: any): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding

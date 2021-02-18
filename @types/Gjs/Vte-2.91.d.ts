@@ -287,9 +287,9 @@ export class Terminal {
     copy_primary(): void
     event_check_gregex_simple(event: Gdk.Event, regexes: GLib.Regex[], match_flags: GLib.RegexMatchFlags): [ /* returnType */ boolean, /* matches */ string[] ]
     event_check_regex_simple(event: Gdk.Event, regexes: Regex[], match_flags: number): string[] | null
-    feed(data: Uint8Array | null): void
-    feed_child(text: Uint8Array | null): void
-    feed_child_binary(data: Uint8Array | null): void
+    feed(data: Uint8Array[] | null): void
+    feed_child(text: Uint8Array[] | null): void
+    feed_child_binary(data: Uint8Array[] | null): void
     get_allow_bold(): boolean
     get_allow_hyperlink(): boolean
     get_audible_bell(): boolean
@@ -551,7 +551,7 @@ export class Terminal {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

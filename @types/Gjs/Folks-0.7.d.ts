@@ -207,7 +207,7 @@ export class AntiLinkable {
     get_anti_links(): Gee.Set
     set_anti_links(value: Gee.Set): void
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -244,7 +244,7 @@ export class AntiLinkable {
     vfunc_get_anti_links(): Gee.Set
     vfunc_set_anti_links(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */
@@ -3243,7 +3243,7 @@ export class Persona {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -3275,7 +3275,7 @@ export class Persona {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */
@@ -4390,7 +4390,7 @@ export class PersonaStorePrivate {
 }
 export abstract class PersonaClass {
     /* Fields of Folks.PersonaClass */
-    linkable_property_to_links: (prop_name: string, callback: PersonaLinkablePropertyCallback) => void
+    linkable_property_to_links: (prop_name: string, callback: any) => void
     static name: string
 }
 export class PersonaPrivate {

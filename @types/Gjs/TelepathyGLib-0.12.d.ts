@@ -1132,7 +1132,7 @@ export const UNKNOWN_HANDLE_TYPE: HandleType
 export const USER_ACTION_TIME_NOT_USER_ACTION: number
 export function asv_get_boolean(asv: GLib.HashTable, key: string): [ /* returnType */ boolean, /* valid */ boolean ]
 export function asv_get_boxed(asv: GLib.HashTable, key: string, type: GObject.Type): object | null
-export function asv_get_bytes(asv: GLib.HashTable, key: string): Uint8Array | null
+export function asv_get_bytes(asv: GLib.HashTable, key: string): Uint8Array[] | null
 export function asv_get_double(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
 export function asv_get_int32(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
 export function asv_get_int64(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
@@ -1384,7 +1384,6 @@ export class ClientChannelFactory {
 export class HandleRepoIface {
     static name: string
 }
-export type ContactInfoList = any // TODO
 export interface Account_ConstructProps extends Proxy_ConstructProps {
 }
 export class Account {
@@ -1438,7 +1437,7 @@ export class Account {
     ensure_connection(path: string): Connection
     get_automatic_presence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* status_message */ string ]
     get_avatar_async(callback?: Gio.AsyncReadyCallback | null): void
-    get_avatar_finish(result: Gio.AsyncResult): Uint8Array
+    get_avatar_finish(result: Gio.AsyncResult): Uint8Array[]
     get_changing_presence(): boolean
     get_cm_name(): string
     get_connect_automatically(): boolean
@@ -1474,7 +1473,7 @@ export class Account {
     request_presence_finish(result: Gio.AsyncResult): boolean
     set_automatic_presence_async(type: ConnectionPresenceType, status: string, message: string, callback?: Gio.AsyncReadyCallback | null): void
     set_automatic_presence_finish(result: Gio.AsyncResult): boolean
-    set_avatar_async(avatar: Uint8Array | null, mime_type?: string | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_avatar_async(avatar: Uint8Array[] | null, mime_type?: string | null, callback?: Gio.AsyncReadyCallback | null): void
     set_avatar_finish(result: Gio.AsyncResult): boolean
     set_connect_automatically_async(connect_automatically: boolean, callback?: Gio.AsyncReadyCallback | null): void
     set_connect_automatically_finish(result: Gio.AsyncResult): boolean
@@ -1883,7 +1882,7 @@ export class AccountRequest {
     create_account_async(callback?: Gio.AsyncReadyCallback | null): void
     create_account_finish(result: Gio.AsyncResult): Account
     set_automatic_presence(presence: ConnectionPresenceType, status: string, message: string): void
-    set_avatar(avatar: Uint8Array | null, mime_type?: string | null): void
+    set_avatar(avatar: Uint8Array[] | null, mime_type?: string | null): void
     set_connect_automatically(connect_automatically: boolean): void
     set_display_name(name: string): void
     set_enabled(enabled: boolean): void
@@ -3814,7 +3813,7 @@ export class Contact {
     readonly client_types: string[]
     readonly connection: Connection
     readonly contact_groups: string[]
-    readonly contact_info: ContactInfoList
+    readonly contact_info: any
     readonly handle: number
     readonly identifier: string
     readonly is_blocked: boolean

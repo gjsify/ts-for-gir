@@ -4,10 +4,10 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
 import type { Gdk } from './Gdk-3.0';
@@ -574,9 +574,9 @@ export class Async {
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): Async
-    static thread(func: AsyncThreadFunc, callback?: Gio.AsyncReadyCallback | null): void
+    static thread(func: any, callback?: Gio.AsyncReadyCallback | null): void
     static threadFinish(res: Gio.AsyncResult): void
-    static threadTry(func: AsyncThreadFunc, callback?: Gio.AsyncReadyCallback | null): void
+    static threadTry(func: any, callback?: Gio.AsyncReadyCallback | null): void
     static threadTryFinish(res: Gio.AsyncResult): void
 }
 export interface AuthenticationDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
@@ -979,7 +979,7 @@ export class AuthenticationDialog {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -3299,7 +3299,7 @@ export class CommitListView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -5054,7 +5054,7 @@ export class DiffStat {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -6182,7 +6182,7 @@ export class DiffViewOptions {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -7478,7 +7478,7 @@ export class DiffView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -9081,7 +9081,7 @@ export class ProgressBin {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10638,7 +10638,7 @@ export class RepositoryListBox {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -11932,7 +11932,7 @@ export class RepositoryListBoxRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12946,7 +12946,7 @@ export class Repository {
     cherryPick(commit: Ggit.Commit, options: Ggit.CherryPickOptions): boolean
     cherryPickCommit(commit: Ggit.Commit, ourCommit: Ggit.Commit, mainline: number, mergeOptions?: Ggit.MergeOptions | null): Ggit.Index | null
     createBlob(): Ggit.BlobOutputStream | null
-    createBlobFromBuffer(buffer: any): Ggit.OId | null
+    createBlobFromBuffer(buffer: any[]): Ggit.OId | null
     createBlobFromFile(file: Gio.File): Ggit.OId
     createBlobFromPath(path: string): Ggit.OId | null
     createBranch(branchName: string, target: Ggit.Object, flags: Ggit.CreateFlags): Ggit.Branch | null
@@ -13136,7 +13136,7 @@ export class SidebarStore {
     insert(parent: Gtk.TreeIter | null, position: number): /* iter */ Gtk.TreeIter
     insertAfter(parent?: Gtk.TreeIter | null, sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insertBefore(parent?: Gtk.TreeIter | null, sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insertWithValues(parent: Gtk.TreeIter | null, position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insertWithValues(parent: Gtk.TreeIter | null, position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     isAncestor(iter: Gtk.TreeIter, descendant: Gtk.TreeIter): boolean
     iterDepth(iter: Gtk.TreeIter): number
     iterIsValid(iter: Gtk.TreeIter): boolean
@@ -13146,7 +13146,7 @@ export class SidebarStore {
     remove(iter: Gtk.TreeIter): boolean
     setColumnTypes(types: GObject.Type[]): void
     setValue(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -13720,7 +13720,7 @@ export class Sidebar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -15438,7 +15438,7 @@ export class Theme {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -16304,7 +16304,7 @@ export class WhenMapped {
     /* Fields of Gitg.WhenMapped */
     refCount: number
     /* Methods of Gitg.WhenMapped */
-    update(mapped: WhenMappedOnMapped, lifetime?: GObject.Object | null): void
+    update(mapped: any, lifetime?: GObject.Object | null): void
     static name: string
     static new(widget: Gtk.Widget): WhenMapped
     constructor(widget: Gtk.Widget)

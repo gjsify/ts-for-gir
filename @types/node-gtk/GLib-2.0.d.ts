@@ -1011,11 +1011,11 @@ export function atomicRefCountCompare(arc: number, val: number): boolean
 export function atomicRefCountDec(arc: number): boolean
 export function atomicRefCountInc(arc: number): void
 export function atomicRefCountInit(arc: number): void
-export function base64Decode(text: string): any
-export function base64DecodeInplace(text: any): [ /* returnType */ number, /* text */ any ]
-export function base64Encode(data: any | null): string
-export function base64EncodeClose(breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any, /* state */ number, /* save */ number ]
-export function base64EncodeStep(in_: any, breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any, /* state */ number, /* save */ number ]
+export function base64Decode(text: string): any[]
+export function base64DecodeInplace(text: any[]): [ /* returnType */ number, /* text */ any[] ]
+export function base64Encode(data: any[] | null): string
+export function base64EncodeClose(breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any[], /* state */ number, /* save */ number ]
+export function base64EncodeStep(in_: any[], breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any[], /* state */ number, /* save */ number ]
 export function basename(fileName: string): string
 export function bitLock(address: number, lockBit: number): void
 export function bitNthLsf(mask: number, nthBit: number): number
@@ -1026,12 +1026,12 @@ export function bitUnlock(address: number, lockBit: number): void
 export function bookmarkFileErrorQuark(): Quark
 export function buildFilenamev(args: string[]): string
 export function buildPathv(separator: string, args: string[]): string
-export function byteArrayFree(array: any, freeSegment: boolean): number
-export function byteArrayFreeToBytes(array: any): Bytes
-export function byteArrayNew(): any
-export function byteArrayNewTake(data: any): any
-export function byteArraySteal(array: any): [ /* returnType */ number, /* len */ number | null ]
-export function byteArrayUnref(array: any): void
+export function byteArrayFree(array: any[], freeSegment: boolean): number
+export function byteArrayFreeToBytes(array: any[]): Bytes
+export function byteArrayNew(): any[]
+export function byteArrayNewTake(data: any[]): any[]
+export function byteArraySteal(array: any[]): [ /* returnType */ number, /* len */ number | null ]
+export function byteArrayUnref(array: any[]): void
 export function canonicalizeFilename(filename: string, relativeTo?: string | null): string
 export function chdir(path: string): number
 export function checkVersion(requiredMajor: number, requiredMinor: number, requiredMicro: number): string
@@ -1041,14 +1041,14 @@ export function childWatchSourceNew(pid: Pid): Source
 export function clearError(): void
 export function close(fd: number): boolean
 export function computeChecksumForBytes(checksumType: ChecksumType, data: Bytes): string | null
-export function computeChecksumForData(checksumType: ChecksumType, data: any): string | null
+export function computeChecksumForData(checksumType: ChecksumType, data: any[]): string | null
 export function computeChecksumForString(checksumType: ChecksumType, str: string, length: number): string | null
 export function computeHmacForBytes(digestType: ChecksumType, key: Bytes, data: Bytes): string
-export function computeHmacForData(digestType: ChecksumType, key: any, data: any): string
-export function computeHmacForString(digestType: ChecksumType, key: any, str: string, length: number): string
-export function convert(str: any, toCodeset: string, fromCodeset: string): [ /* returnType */ any, /* bytesRead */ number | null ]
+export function computeHmacForData(digestType: ChecksumType, key: any[], data: any[]): string
+export function computeHmacForString(digestType: ChecksumType, key: any[], str: string, length: number): string
+export function convert(str: any[], toCodeset: string, fromCodeset: string): [ /* returnType */ any[], /* bytesRead */ number | null ]
 export function convertErrorQuark(): Quark
-export function convertWithFallback(str: any, toCodeset: string, fromCodeset: string, fallback: string): [ /* returnType */ any, /* bytesRead */ number | null ]
+export function convertWithFallback(str: any[], toCodeset: string, fromCodeset: string, fallback: string): [ /* returnType */ any[], /* bytesRead */ number | null ]
 export function datalistForeach(datalist: Data, func: DataForeachFunc): void
 export function datalistGetData(datalist: Data, key: string): object | null
 export function datalistGetFlags(datalist: Data): number
@@ -1084,11 +1084,11 @@ export function environSetenv(envp: string[] | null, variable: string, value: st
 export function environUnsetenv(envp: string[] | null, variable: string): string[]
 export function fileErrorFromErrno(errNo: number): FileError
 export function fileErrorQuark(): Quark
-export function fileGetContents(filename: string): [ /* returnType */ boolean, /* contents */ any ]
+export function fileGetContents(filename: string): [ /* returnType */ boolean, /* contents */ any[] ]
 export function fileOpenTmp(tmpl?: string | null): [ /* returnType */ number, /* nameUsed */ string ]
 export function fileReadLink(filename: string): string
-export function fileSetContents(filename: string, contents: any): boolean
-export function fileSetContentsFull(filename: string, contents: any, flags: FileSetContentsFlags, mode: number): boolean
+export function fileSetContents(filename: string, contents: any[]): boolean
+export function fileSetContentsFull(filename: string, contents: any[], flags: FileSetContentsFlags, mode: number): boolean
 export function fileTest(filename: string, test: FileTest): boolean
 export function filenameDisplayBasename(filename: string): string
 export function filenameDisplayName(filename: string): string
@@ -1170,8 +1170,8 @@ export function ioChannelErrorQuark(): Quark
 export function ioCreateWatch(channel: IOChannel, condition: IOCondition): Source
 export function keyFileErrorQuark(): Quark
 export function listenv(): string[]
-export function localeFromUtf8(utf8string: string, len: number): [ /* returnType */ any, /* bytesRead */ number | null ]
-export function localeToUtf8(opsysstring: any): [ /* returnType */ string, /* bytesRead */ number | null, /* bytesWritten */ number | null ]
+export function localeFromUtf8(utf8string: string, len: number): [ /* returnType */ any[], /* bytesRead */ number | null ]
+export function localeToUtf8(opsysstring: any[]): [ /* returnType */ string, /* bytesRead */ number | null, /* bytesWritten */ number | null ]
 export function logDefaultHandler(logDomain: string | null, logLevel: LogLevelFlags, message?: string | null, unusedData?: object | null): void
 export function logRemoveHandler(logDomain: string, handlerId: number): void
 export function logSetAlwaysFatal(fatalMask: LogLevelFlags): LogLevelFlags
@@ -1297,10 +1297,10 @@ export function spawnAsyncWithPipes(workingDirectory: string | null, argv: strin
 export function spawnCheckExitStatus(exitStatus: number): boolean
 export function spawnClosePid(pid: Pid): void
 export function spawnCommandLineAsync(commandLine: string): boolean
-export function spawnCommandLineSync(commandLine: string): [ /* returnType */ boolean, /* standardOutput */ any | null, /* standardError */ any | null, /* exitStatus */ number | null ]
+export function spawnCommandLineSync(commandLine: string): [ /* returnType */ boolean, /* standardOutput */ any[] | null, /* standardError */ any[] | null, /* exitStatus */ number | null ]
 export function spawnErrorQuark(): Quark
 export function spawnExitErrorQuark(): Quark
-export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standardOutput */ any | null, /* standardError */ any | null, /* exitStatus */ number | null ]
+export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standardOutput */ any[] | null, /* standardError */ any[] | null, /* exitStatus */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function strEqual(v1: object, v2: object): boolean
 export function strHasPrefix(str: string, prefix: string): boolean
@@ -1452,7 +1452,7 @@ export function unsetenv(variable: string): void
 export function uriBuild(flags: UriFlags, scheme: string, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
 export function uriBuildWithUser(flags: UriFlags, scheme: string, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
 export function uriErrorQuark(): Quark
-export function uriEscapeBytes(unescaped: any, reservedCharsAllowed?: string | null): string
+export function uriEscapeBytes(unescaped: any[], reservedCharsAllowed?: string | null): string
 export function uriEscapeString(unescaped: string, reservedCharsAllowed: string | null, allowUtf8: boolean): string
 export function uriIsValid(uriString: string, flags: UriFlags): boolean
 export function uriJoin(flags: UriFlags, scheme: string | null, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): string
@@ -1496,8 +1496,8 @@ export function utf8Substring(str: string, startPos: number, endPos: number): st
 export function utf8ToUcs4(str: string, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
 export function utf8ToUcs4Fast(str: string, len: number): [ /* returnType */ number, /* itemsWritten */ number | null ]
 export function utf8ToUtf16(str: string, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
-export function utf8Validate(str: any): [ /* returnType */ boolean, /* end */ string | null ]
-export function utf8ValidateLen(str: any): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8Validate(str: any[]): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8ValidateLen(str: any[]): [ /* returnType */ boolean, /* end */ string | null ]
 export function uuidStringIsValid(str: string): boolean
 export function uuidStringRandom(): string
 export function variantGetGtype(): GObject.Type
@@ -1664,8 +1664,6 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
-export type BusName = string;
-export type ObjectPath = string;
 export class Array {
     /* Fields of GLib.Array */
     data: string
@@ -1722,7 +1720,7 @@ export class BookmarkFile {
     hasApplication(uri: string, name: string): boolean
     hasGroup(uri: string, group: string): boolean
     hasItem(uri: string): boolean
-    loadFromData(data: any): boolean
+    loadFromData(data: any[]): boolean
     loadFromDataDirs(file: string): [ /* returnType */ boolean, /* fullPath */ string | null ]
     loadFromFile(filename: string): boolean
     moveItem(oldUri: string, newUri?: string | null): boolean
@@ -1743,7 +1741,7 @@ export class BookmarkFile {
     setTitle(uri: string | null, title: string): void
     setVisited(uri: string, visited: number): void
     setVisitedDateTime(uri: string, visited: DateTime): void
-    toData(): any
+    toData(): any[]
     toFile(filename: string): boolean
     static name: string
     /* Static methods and pseudo-constructors */
@@ -1755,30 +1753,30 @@ export class ByteArray {
     len: number
     static name: string
     /* Static methods and pseudo-constructors */
-    static free(array: any, freeSegment: boolean): number
-    static freeToBytes(array: any): Bytes
-    static newTake(data: any): any
-    static steal(array: any): [ /* returnType */ number, /* len */ number | null ]
-    static unref(array: any): void
+    static free(array: any[], freeSegment: boolean): number
+    static freeToBytes(array: any[]): Bytes
+    static newTake(data: any[]): any[]
+    static steal(array: any[]): [ /* returnType */ number, /* len */ number | null ]
+    static unref(array: any[]): void
 }
 export class Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
-    getData(): any | null
+    getData(): any[] | null
     getSize(): number
     hash(): number
     newFromBytes(offset: number, length: number): Bytes
     ref(): Bytes
     unref(): void
-    unrefToArray(): any
-    unrefToData(): any
+    unrefToArray(): any[]
+    unrefToData(): any[]
     static name: string
-    static new(data: any | null): Bytes
-    constructor(data: any | null)
+    static new(data: any[] | null): Bytes
+    constructor(data: any[] | null)
     /* Static methods and pseudo-constructors */
-    static new(data: any | null): Bytes
-    static newTake(data: any | null): Bytes
+    static new(data: any[] | null): Bytes
+    static newTake(data: any[] | null): Bytes
 }
 export class Checksum {
     /* Methods of GLib.Checksum */
@@ -1786,7 +1784,7 @@ export class Checksum {
     free(): void
     getString(): string
     reset(): void
-    update(data: any): void
+    update(data: any[]): void
     static name: string
     static new(checksumType: ChecksumType): Checksum
     constructor(checksumType: ChecksumType)
@@ -1984,10 +1982,10 @@ export class HashTableIter {
 }
 export class Hmac {
     /* Methods of GLib.Hmac */
-    getDigest(buffer: any): void
+    getDigest(buffer: any[]): void
     getString(): string
     unref(): void
-    update(data: any): void
+    update(data: any[]): void
     static name: string
 }
 export class Hook {
@@ -2043,10 +2041,10 @@ export class IOChannel {
     getLineTerm(length: number): string
     init(): void
     read(buf: string, count: number, bytesRead: number): IOError
-    readChars(): [ /* returnType */ IOStatus, /* buf */ any, /* bytesRead */ number | null ]
+    readChars(): [ /* returnType */ IOStatus, /* buf */ any[], /* bytesRead */ number | null ]
     readLine(): [ /* returnType */ IOStatus, /* strReturn */ string, /* length */ number | null, /* terminatorPos */ number | null ]
     readLineString(buffer: String, terminatorPos?: number | null): IOStatus
-    readToEnd(): [ /* returnType */ IOStatus, /* strReturn */ any ]
+    readToEnd(): [ /* returnType */ IOStatus, /* strReturn */ any[] ]
     readUnichar(): [ /* returnType */ IOStatus, /* thechar */ number ]
     ref(): IOChannel
     seek(offset: number, type: SeekType): IOError
@@ -2061,7 +2059,7 @@ export class IOChannel {
     unixGetFd(): number
     unref(): void
     write(buf: string, count: number, bytesWritten: number): IOError
-    writeChars(buf: any, count: number): [ /* returnType */ IOStatus, /* bytesWritten */ number ]
+    writeChars(buf: any[], count: number): [ /* returnType */ IOStatus, /* bytesWritten */ number ]
     writeUnichar(thechar: number): IOStatus
     static name: string
     /* Static methods and pseudo-constructors */
@@ -2858,7 +2856,7 @@ export class Uri {
     static build(flags: UriFlags, scheme: string, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
     static buildWithUser(flags: UriFlags, scheme: string, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): Uri
     static errorQuark(): Quark
-    static escapeBytes(unescaped: any, reservedCharsAllowed?: string | null): string
+    static escapeBytes(unescaped: any[], reservedCharsAllowed?: string | null): string
     static escapeString(unescaped: string, reservedCharsAllowed: string | null, allowUtf8: boolean): string
     static isValid(uriString: string, flags: UriFlags): boolean
     static join(flags: UriFlags, scheme: string | null, userinfo: string | null, host: string | null, port: number, path: string, query?: string | null, fragment?: string | null): string
@@ -2888,7 +2886,7 @@ export class Variant {
     checkFormatString(formatString: string, copyOnly: boolean): boolean
     classify(): VariantClass
     compare(two: Variant): number
-    dupBytestring(): any
+    dupBytestring(): any[]
     dupBytestringArray(): string[]
     dupObjv(): string[]
     dupString(): [ /* returnType */ string, /* length */ number ]
@@ -2896,7 +2894,7 @@ export class Variant {
     equal(two: Variant): boolean
     getBoolean(): boolean
     getByte(): number
-    getBytestring(): any
+    getBytestring(): any[]
     getBytestringArray(): string[]
     getChildValue(index: number): Variant
     getData(): object | null
@@ -2936,13 +2934,13 @@ export class Variant {
     static newArray(childType: VariantType | null, children: Variant[] | null): Variant
     static newBoolean(value: boolean): Variant
     static newByte(value: number): Variant
-    static newBytestring(string: any): Variant
+    static newBytestring(string: any[]): Variant
     static newBytestringArray(strv: string[]): Variant
     static newDictEntry(key: Variant, value: Variant): Variant
     static newDouble(value: number): Variant
     static newFixedArray(elementType: VariantType, elements: object | null, nElements: number, elementSize: number): Variant
     static newFromBytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    static newFromData(type: VariantType, data: any, trusted: boolean, notify: DestroyNotify, userData?: object | null): Variant
+    static newFromData(type: VariantType, data: any[], trusted: boolean, notify: DestroyNotify, userData?: object | null): Variant
     static newHandle(value: number): Variant
     static newInt16(value: number): Variant
     static newInt32(value: number): Variant

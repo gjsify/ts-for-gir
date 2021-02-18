@@ -40,7 +40,7 @@ export class GLDisplayWayland {
     getGlApi(): GstGL.GLAPI
     getGlApiUnlocked(): GstGL.GLAPI
     getGlContextForThread(thread: GLib.Thread): GstGL.GLContext
-    getHandle(): GstGL.guintptr
+    getHandle(): any
     getHandleType(): GstGL.GLDisplayType
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
@@ -50,11 +50,11 @@ export class GLDisplayWayland {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -93,7 +93,7 @@ export class GLDisplayWayland {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): GstGL.guintptr
+    vfuncGetHandle(): any
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */

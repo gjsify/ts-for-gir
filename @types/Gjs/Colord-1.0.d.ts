@@ -841,7 +841,7 @@ export class Icc {
     get_version(): number
     get_warnings(): ProfileWarning[]
     get_white(): ColorXYZ
-    load_data(data: Uint8Array, flags: IccLoadFlags): boolean
+    load_data(data: Uint8Array[], flags: IccLoadFlags): boolean
     load_fd(fd: number, flags: IccLoadFlags): boolean
     load_file(file: Gio.File, flags: IccLoadFlags, cancellable?: Gio.Cancellable | null): boolean
     load_handle(handle: object | null, flags: IccLoadFlags): boolean

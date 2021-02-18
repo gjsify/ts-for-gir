@@ -398,9 +398,9 @@ export class CustomMarker {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -1416,7 +1416,7 @@ export class ErrorTileRenderer {
     setTileSize(size: number): void
     /* Methods of Champlain.Renderer */
     render(tile: Tile): void
-    setData(data: any): void
+    setData(data: any[]): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1441,7 +1441,7 @@ export class ErrorTileRenderer {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Champlain.Renderer */
     vfuncRender(tile: Tile): void
-    vfuncSetData(data: any): void
+    vfuncSetData(data: any[]): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1785,7 +1785,7 @@ export class ImageRenderer {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Champlain.Renderer */
     render(tile: Tile): void
-    setData(data: any): void
+    setData(data: any[]): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1810,7 +1810,7 @@ export class ImageRenderer {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Champlain.Renderer */
     vfuncRender(tile: Tile): void
-    vfuncSetData(data: any): void
+    vfuncSetData(data: any[]): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -1952,9 +1952,9 @@ export class KineticScrollView {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -3104,9 +3104,9 @@ export class Label {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -4283,9 +4283,9 @@ export class Layer {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -5349,9 +5349,9 @@ export class License {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -6789,9 +6789,9 @@ export class Marker {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -7928,9 +7928,9 @@ export class MarkerLayer {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -9754,9 +9754,9 @@ export class PathLayer {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -10880,9 +10880,9 @@ export class Point {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -11908,7 +11908,7 @@ export class Renderer {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Champlain.Renderer */
     render(tile: Tile): void
-    setData(data: any): void
+    setData(data: any[]): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -11933,7 +11933,7 @@ export class Renderer {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Champlain.Renderer */
     vfuncRender(tile: Tile): void
-    vfuncSetData(data: any): void
+    vfuncSetData(data: any[]): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -12079,9 +12079,9 @@ export class Scale {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -13178,9 +13178,9 @@ export class Tile {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -14636,9 +14636,9 @@ export class View {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -15805,9 +15805,9 @@ export class Viewport {
     allocateAlignFill(box: Clutter.ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: Clutter.AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: Clutter.AllocationFlags): void
     allocatePreferredSize(flags: Clutter.AllocationFlags): void
-    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any): Clutter.Animation
-    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any): Clutter.Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Clutter.Animation
+    animateWithAlphav(alpha: Clutter.Alpha, properties: string[], values: any[]): Clutter.Animation
+    animateWithTimelinev(mode: number, timeline: Clutter.Timeline, properties: string[], values: any[]): Clutter.Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Clutter.Animation
     applyRelativeTransformToPoint(ancestor: Clutter.Actor | null, point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     applyTransformToPoint(point: Clutter.Vertex): /* vertex */ Clutter.Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: Clutter.ActorCreateChildFunc): void
@@ -17007,7 +17007,7 @@ export class PointPrivate {
 export abstract class RendererClass {
     /* Fields of Champlain.RendererClass */
     parentClass: GObject.InitiallyUnownedClass
-    setData: (renderer: Renderer, data: any) => void
+    setData: (renderer: Renderer, data: any[]) => void
     render: (renderer: Renderer, tile: Tile) => void
     static name: string
 }

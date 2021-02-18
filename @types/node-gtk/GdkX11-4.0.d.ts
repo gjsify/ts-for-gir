@@ -4,12 +4,12 @@
 
 import "node"
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-4.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -341,10 +341,10 @@ export class X11Display {
     setCursorTheme(theme: string | null, size: number): void
     setStartupNotificationId(startupId: string): void
     setSurfaceScale(scale: number): void
-    stringToCompoundText(str: string): [ /* returnType */ number, /* encoding */ string, /* format */ number, /* ctext */ any ]
+    stringToCompoundText(str: string): [ /* returnType */ number, /* encoding */ string, /* format */ number, /* ctext */ any[] ]
     textPropertyToTextList(encoding: string, format: number, text: number, length: number, list: string): number
     ungrab(): void
-    utf8ToCompoundText(str: string): [ /* returnType */ boolean, /* encoding */ string, /* format */ number, /* ctext */ any ]
+    utf8ToCompoundText(str: string): [ /* returnType */ boolean, /* encoding */ string, /* format */ number, /* ctext */ any[] ]
     /* Methods of Gdk.Display */
     beep(): void
     close(): void

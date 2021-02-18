@@ -235,7 +235,7 @@ export class Data {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -243,7 +243,7 @@ export class Data {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean
@@ -386,7 +386,7 @@ export class Media {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -394,7 +394,7 @@ export class Media {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean
@@ -561,7 +561,7 @@ export class MediaAudio {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -569,7 +569,7 @@ export class MediaAudio {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean
@@ -715,7 +715,7 @@ export class MediaBox {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -723,7 +723,7 @@ export class MediaBox {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean
@@ -886,7 +886,7 @@ export class MediaImage {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -894,7 +894,7 @@ export class MediaImage {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean
@@ -1270,7 +1270,7 @@ export class MediaVideo {
     add_string(key: GObject.ParamSpec, strvalue: string): void
     dup(): Data
     get(key: GObject.ParamSpec): any
-    get_all_single_related_keys(key: KeyID): any
+    get_all_single_related_keys(key: KeyID): any[]
     get_all_single_related_keys_string(key: KeyID): string[]
     get_binary(key: GObject.ParamSpec): [ /* returnType */ number, /* size */ number ]
     get_float(key: GObject.ParamSpec): number
@@ -1278,7 +1278,7 @@ export class MediaVideo {
     get_keys(): GObject.ParamSpec[]
     get_overwrite(): boolean
     get_related_keys(key: KeyID, index: number): RelatedKeys
-    get_single_values_for_key(key: KeyID): any
+    get_single_values_for_key(key: KeyID): any[]
     get_single_values_for_key_string(key: KeyID): string[]
     get_string(key: GObject.ParamSpec): string
     has_key(key: GObject.ParamSpec): boolean

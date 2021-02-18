@@ -148,12 +148,12 @@ export class DataEntry {
     get_value_type(): GObject.Type
     grab_focus(): void
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Widget */
@@ -308,7 +308,7 @@ export class DataEntry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -453,7 +453,7 @@ export class DataEntry {
     vfunc_set_editable(editable: boolean): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -1202,7 +1202,7 @@ export class BasicForm {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2089,7 +2089,7 @@ export class Cloud {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3007,7 +3007,7 @@ export class Combo {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5168,7 +5168,7 @@ export class DataFilter {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6016,7 +6016,7 @@ export class DataProxyInfo {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6618,7 +6618,7 @@ export class DataStore {
     /* Methods of Gdaui.DataStore */
     append(iter: Gtk.TreeIter): boolean
     delete(iter: Gtk.TreeIter): void
-    get_iter_from_values(values: any, cols_index: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
+    get_iter_from_values(values: any[], cols_index: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     get_proxy(): Gda.DataProxy
     get_row_from_iter(iter: Gtk.TreeIter): number
     set_value(iter: Gtk.TreeIter, col: number, value: any): boolean
@@ -7075,7 +7075,7 @@ export class Entry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8109,7 +8109,7 @@ export class EntryBin {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8246,12 +8246,12 @@ export class EntryBin {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -8293,7 +8293,7 @@ export class EntryBin {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -9044,7 +9044,7 @@ export class EntryBoolean {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -9181,12 +9181,12 @@ export class EntryBoolean {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -9228,7 +9228,7 @@ export class EntryBoolean {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -9781,12 +9781,12 @@ export class EntryCombo {
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdaui.EntryCombo */
-    get_all_values(): any
-    get_reference_values(): any
-    get_values(): any
-    set_default_values(values: any): void
-    set_reference_values(values: any): void
-    set_values(values?: any): boolean
+    get_all_values(): any[]
+    get_reference_values(): any[]
+    get_values(): any[]
+    set_default_values(values: any[]): void
+    set_reference_values(values: any[]): void
+    set_values(values?: any[] | null): boolean
     /* Methods of Gdaui.EntryShell */
     pack_entry(main_widget: Gtk.Widget): void
     refresh(): void
@@ -9984,7 +9984,7 @@ export class EntryCombo {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -10121,12 +10121,12 @@ export class EntryCombo {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -10163,7 +10163,7 @@ export class EntryCombo {
     vfunc_set_editable(editable: boolean): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -10920,7 +10920,7 @@ export class EntryCommonTime {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11057,12 +11057,12 @@ export class EntryCommonTime {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -11112,7 +11112,7 @@ export class EntryCommonTime {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -11876,7 +11876,7 @@ export class EntryDate {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -12013,12 +12013,12 @@ export class EntryDate {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -12068,7 +12068,7 @@ export class EntryDate {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -12830,7 +12830,7 @@ export class EntryNone {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -12967,12 +12967,12 @@ export class EntryNone {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -13014,7 +13014,7 @@ export class EntryNone {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -13770,7 +13770,7 @@ export class EntryNumber {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -13907,12 +13907,12 @@ export class EntryNumber {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -13962,7 +13962,7 @@ export class EntryNumber {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -14723,7 +14723,7 @@ export class EntryShell {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -15600,7 +15600,7 @@ export class EntryString {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -15737,12 +15737,12 @@ export class EntryString {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -15792,7 +15792,7 @@ export class EntryString {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -16561,7 +16561,7 @@ export class EntryTime {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -16698,12 +16698,12 @@ export class EntryTime {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -16753,7 +16753,7 @@ export class EntryTime {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -17520,7 +17520,7 @@ export class EntryTimestamp {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -17657,12 +17657,12 @@ export class EntryTimestamp {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -17712,7 +17712,7 @@ export class EntryTimestamp {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -18475,7 +18475,7 @@ export class EntryWrapper {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -18612,12 +18612,12 @@ export class EntryWrapper {
     get_value(): any
     get_value_type(): GObject.Type
     set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    set_default_value(value?: any): void
+    set_default_value(value?: any | null): void
     set_editable(editable: boolean): void
     set_reference_current(): void
-    set_reference_value(value?: any): void
+    set_reference_value(value?: any | null): void
     set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    set_value(value?: any): void
+    set_value(value?: any | null): void
     set_value_type(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -18659,7 +18659,7 @@ export class EntryWrapper {
     vfunc_set_attributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfunc_set_ref_value(value: any): void
     vfunc_set_unknown_color(red: number, green: number, blue: number, alpha: number): void
-    vfunc_set_value(value?: any): void
+    vfunc_set_value(value?: any | null): void
     vfunc_set_value_default(value: any): void
     vfunc_set_value_type(type: GObject.Type): void
     vfunc_status_changed(): void
@@ -19396,7 +19396,7 @@ export class Form {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -20369,7 +20369,7 @@ export class FormattedEntry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -21398,7 +21398,7 @@ export class Grid {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -22293,7 +22293,7 @@ export class Login {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -23236,7 +23236,7 @@ export class NumericEntry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -24306,7 +24306,7 @@ export class ProviderSelector {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -25268,7 +25268,7 @@ export class RawForm {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -26296,7 +26296,7 @@ export class RawGrid {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -27308,7 +27308,7 @@ export class RtEditor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -28167,7 +28167,7 @@ export class ServerOperation {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -29053,7 +29053,7 @@ export abstract class DataEntryIface {
     contents_valid: (de: DataEntry) => boolean
     set_value_type: (de: DataEntry, type: GObject.Type) => void
     get_value_type: (de: DataEntry) => GObject.Type
-    set_value: (de: DataEntry, value?: any) => void
+    set_value: (de: DataEntry, value?: any | null) => void
     get_value: (de: DataEntry) => any
     set_ref_value: (de: DataEntry, value: any) => void
     get_ref_value: (de: DataEntry) => any

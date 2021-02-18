@@ -48,7 +48,7 @@ export const PIXBUF_MINOR: number
 export const PIXBUF_VERSION: string
 export function pixbuf_error_quark(): GLib.Quark
 export interface PixbufDestroyNotify {
-    (pixels: Uint8Array): void
+    (pixels: Uint8Array[]): void
 }
 export interface PixbufModuleFillInfoFunc {
     (info: PixbufFormat): void
@@ -66,7 +66,7 @@ export interface PixbufModuleUpdatedFunc {
     (pixbuf: Pixbuf, x: number, y: number, width: number, height: number): void
 }
 export interface PixbufSaveFunc {
-    (buf: Uint8Array): boolean
+    (buf: Uint8Array[]): boolean
 }
 export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     bits_per_sample?: number
@@ -101,7 +101,7 @@ export class Pixbuf {
     get_n_channels(): number
     get_option(key: string): string
     get_options(): GLib.HashTable
-    get_pixels(): Uint8Array
+    get_pixels(): Uint8Array[]
     get_rowstride(): number
     get_width(): number
     new_subpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
@@ -110,7 +110,7 @@ export class Pixbuf {
     remove_option(key: string): boolean
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Uint8Array ]
+    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Uint8Array[] ]
     save_to_callbackv(save_func: PixbufSaveFunc, type: string, option_keys: string[], option_values: string[]): boolean
     save_to_streamv(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null): boolean
     save_to_streamv_async(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -177,11 +177,11 @@ export class Pixbuf {
     /* Static methods and pseudo-constructors */
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     static new_from_bytes(data: GLib.Bytes, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
-    static new_from_data(data: Uint8Array, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
+    static new_from_data(data: Uint8Array[], colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
     static new_from_file(filename: string): Pixbuf
     static new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     static new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
-    static new_from_inline(data: Uint8Array, copy_pixels: boolean): Pixbuf
+    static new_from_inline(data: Uint8Array[], copy_pixels: boolean): Pixbuf
     static new_from_resource(resource_path: string): Pixbuf
     static new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     static new_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): Pixbuf
@@ -342,7 +342,7 @@ export class PixbufLoader {
     get_format(): PixbufFormat | null
     get_pixbuf(): Pixbuf
     set_size(width: number, height: number): void
-    write(buf: Uint8Array): boolean
+    write(buf: Uint8Array[]): boolean
     write_bytes(buffer: GLib.Bytes): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding

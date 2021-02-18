@@ -764,9 +764,9 @@ export class CompletionCell {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of GtkSource.CompletionCell */
@@ -1670,9 +1670,9 @@ export class Gutter {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of GtkSource.Gutter */
@@ -2162,9 +2162,9 @@ export class GutterRenderer {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of GtkSource.GutterRenderer */
@@ -2635,9 +2635,9 @@ export class GutterRendererPixbuf {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of GtkSource.GutterRenderer */
@@ -3109,9 +3109,9 @@ export class GutterRendererText {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of GtkSource.GutterRenderer */
@@ -3846,9 +3846,9 @@ export class Map {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */
@@ -5487,9 +5487,9 @@ export class StyleSchemeChooserButton {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Actionable */
     get_action_name(): string | null
     get_action_target_value(): GLib.Variant | null
@@ -5931,9 +5931,9 @@ export class StyleSchemeChooserWidget {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of GtkSource.StyleSchemeChooser */
@@ -6883,9 +6883,9 @@ export class View {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Gtk.Scrollable */

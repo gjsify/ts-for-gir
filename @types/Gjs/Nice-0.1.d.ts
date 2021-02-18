@@ -186,10 +186,10 @@ export class Agent {
     parse_remote_sdp(sdp: string): number
     parse_remote_stream_sdp(stream_id: number, sdp: string, ufrag: string, pwd: string): Candidate[]
     peer_candidate_gathering_done(stream_id: number): boolean
-    recv(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ Uint8Array ]
+    recv(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ Uint8Array[] ]
     recv_messages(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
     recv_messages_nonblocking(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* messages */ InputMessage[] ]
-    recv_nonblocking(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ Uint8Array ]
+    recv_nonblocking(stream_id: number, component_id: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buf */ Uint8Array[] ]
     remove_stream(stream_id: number): void
     restart(): boolean
     restart_stream(stream_id: number): boolean

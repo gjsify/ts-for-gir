@@ -32,7 +32,6 @@ import type { CoglPango as CoglPango20 } from "./CoglPango-2.0";
 import type { ColorHug as ColorHug10 } from "./ColorHug-1.0";
 import type { Colord as Colord10 } from "./Colord-1.0";
 import type { ColordGtk as ColordGtk10 } from "./ColordGtk-1.0";
-import type { Colorhug as Colorhug10 } from "./Colorhug-1.0";
 import type { DBus as DBus10 } from "./DBus-1.0";
 import type { DBusGLib as DBusGLib10 } from "./DBusGLib-1.0";
 import type { DMAP as DMAP30 } from "./DMAP-3.0";
@@ -379,7 +378,6 @@ declare module 'node-gtk' {
         export function require(ns: 'ColorHug10', ver?: '1.0'): typeof ColorHug10;
         export function require(ns: 'Colord10', ver?: '1.0'): typeof Colord10;
         export function require(ns: 'ColordGtk10', ver?: '1.0'): typeof ColordGtk10;
-        export function require(ns: 'Colorhug10', ver?: '1.0'): typeof Colorhug10;
         export function require(ns: 'DBus10', ver?: '1.0'): typeof DBus10;
         export function require(ns: 'DBusGLib10', ver?: '1.0'): typeof DBusGLib10;
         export function require(ns: 'DMAP30', ver?: '3.0'): typeof DMAP30;

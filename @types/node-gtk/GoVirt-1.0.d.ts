@@ -54,7 +54,7 @@ export class Proxy {
     /* Methods of GoVirt.Proxy */
     fetchCaCertificate(): boolean
     fetchCaCertificateAsync(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    fetchCaCertificateFinish(result: Gio.AsyncResult): any
+    fetchCaCertificateFinish(result: Gio.AsyncResult): any[]
     fetchVms(): boolean
     fetchVmsAsync(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     fetchVmsFinish(result: Gio.AsyncResult): Vm[]

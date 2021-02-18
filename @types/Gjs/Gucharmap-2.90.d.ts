@@ -89,16 +89,16 @@ export class BlockChaptersModel {
     insert(position: number): /* iter */ Gtk.TreeIter
     insert_after(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insert_before(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insert_with_valuesv(position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insert_with_valuesv(position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     iter_is_valid(iter: Gtk.TreeIter): boolean
     move_after(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -258,7 +258,7 @@ export class BlockChaptersModel {
     _init (config?: BlockChaptersModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): BlockChaptersModel
-    static new(types: GObject.Type[][]): BlockChaptersModel
+    static new(types: GObject.Type[]): BlockChaptersModel
     static $gtype: GObject.Type
 }
 export interface BlockCodepointList_ConstructProps extends CodepointList_ConstructProps {
@@ -344,16 +344,16 @@ export class ChaptersModel {
     insert(position: number): /* iter */ Gtk.TreeIter
     insert_after(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insert_before(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insert_with_valuesv(position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insert_with_valuesv(position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     iter_is_valid(iter: Gtk.TreeIter): boolean
     move_after(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -882,7 +882,7 @@ export class ChaptersView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -1865,7 +1865,7 @@ export class Charmap {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2740,7 +2740,7 @@ export class Chartable {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4190,16 +4190,16 @@ export class ScriptChaptersModel {
     insert(position: number): /* iter */ Gtk.TreeIter
     insert_after(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insert_before(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insert_with_valuesv(position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insert_with_valuesv(position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     iter_is_valid(iter: Gtk.TreeIter): boolean
     move_after(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4359,7 +4359,7 @@ export class ScriptChaptersModel {
     _init (config?: ScriptChaptersModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ScriptChaptersModel
-    static new(types: GObject.Type[][]): ScriptChaptersModel
+    static new(types: GObject.Type[]): ScriptChaptersModel
     static $gtype: GObject.Type
 }
 export interface ScriptCodepointList_ConstructProps extends CodepointList_ConstructProps {

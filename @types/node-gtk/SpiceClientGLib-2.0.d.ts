@@ -92,7 +92,7 @@ export function mainSetDisplayEnabled(channel: MainChannel, id: number, enabled:
 export function mainUpdateDisplay(channel: MainChannel, id: number, x: number, y: number, width: number, height: number, update: boolean): void
 export function mainUpdateDisplayEnabled(channel: MainChannel, id: number, enabled: boolean, update: boolean): void
 export function portEvent(port: PortChannel, event: number): void
-export function portWriteAsync(port: PortChannel, buffer: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+export function portWriteAsync(port: PortChannel, buffer: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
 export function portWriteFinish(port: PortChannel, result: Gio.AsyncResult): number
 export function recordSendData(channel: RecordChannel, data: object | null, bytes: number, time: number): void
 export function setSessionOption(session: Session): void
@@ -1262,7 +1262,7 @@ export class PortChannel {
     gTypeInstance: GObject.TypeInstance
     /* Methods of SpiceClientGLib.PortChannel */
     event(event: number): void
-    writeAsync(buffer: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeFinish(result: Gio.AsyncResult): number
     /* Methods of SpiceClientGLib.Channel */
     connect(): boolean
@@ -1601,7 +1601,7 @@ export class RecordChannel {
     static $gtype: GObject.Type
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
-    ca?: any
+    ca?: any[]
     caFile?: string
     cacheSize?: number
     certSubject?: string
@@ -1620,7 +1620,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     port?: string
     protocol?: number
     proxy?: string
-    pubkey?: any
+    pubkey?: any[]
     readOnly?: boolean
     secureChannels?: string[]
     shareDirRo?: boolean
@@ -1635,7 +1635,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Session {
     /* Properties of SpiceClientGLib.Session */
-    ca: any
+    ca: any[]
     caFile: string
     cacheSize: number
     certSubject: string
@@ -1656,7 +1656,7 @@ export class Session {
     port: string
     protocol: number
     proxy: string
-    pubkey: any
+    pubkey: any[]
     readOnly: boolean
     secureChannels: string[]
     shareDirRo: boolean
@@ -2083,27 +2083,27 @@ export class SmartcardManager {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of SpiceClientGLib.SmartcardManager */
-    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "card-inserted", vreader: VReader): void
+    connect(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "card-inserted", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "card-inserted", vreader: any): void
     on(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "card-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "card-removed", vreader: VReader): void
+    connect(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "card-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "card-removed", vreader: any): void
     on(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "card-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "reader-added", vreader: VReader): void
+    connect(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "reader-added", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "reader-added", vreader: any): void
     on(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reader-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: VReader) => void)): number
-    emit(sigName: "reader-removed", vreader: VReader): void
+    connect(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    connect_after(sigName: "reader-removed", callback: (($obj: SmartcardManager, vreader: any) => void)): number
+    emit(sigName: "reader-removed", vreader: any): void
     on(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reader-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2483,7 +2483,7 @@ export class WebdavChannel {
     gTypeInstance: GObject.TypeInstance
     /* Methods of SpiceClientGLib.PortChannel */
     event(event: number): void
-    writeAsync(buffer: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeFinish(result: Gio.AsyncResult): number
     /* Methods of SpiceClientGLib.Channel */
     connect(): boolean

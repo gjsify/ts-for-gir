@@ -918,9 +918,9 @@ export class Param {
     unref(): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static newFull(name: string, use: MemoryUse, data: any, contentType: string, filename: string): Param
+    static newFull(name: string, use: MemoryUse, data: any[], contentType: string, filename: string): Param
     static newString(name: string, use: MemoryUse, string: string): Param
-    static newWithOwner(name: string, data: any, contentType: string, filename?: string | null, owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Param
+    static newWithOwner(name: string, data: any[], contentType: string, filename?: string | null, owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Param
 }
 export class Params {
     /* Methods of Rest.Params */

@@ -276,8 +276,8 @@ export function localeLanguage(): string | null
 export function parserOptionsGetDefault(): ParserOptions
 export function referencesParse(options: ParserOptions | null, text: string): References
 export function shutdown(): void
-export function utilsBestEncoding(text: any): ContentEncoding
-export function utilsDecode8bit(options: ParserOptions | null, text: any): string
+export function utilsBestEncoding(text: any[]): ContentEncoding
+export function utilsDecode8bit(options: ParserOptions | null, text: any[]): string
 export function utilsDecodeMessageId(messageId: string): string
 export function utilsGenerateMessageId(fqdn: string): string
 export function utilsHeaderDecodeDate(str: string): GLib.DateTime | null
@@ -289,7 +289,7 @@ export function utilsHeaderFormatDate(date: GLib.DateTime): string
 export function utilsHeaderUnfold(value: string): string
 export function utilsQuoteString(str: string): string
 export function utilsStructuredHeaderFold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
-export function utilsTextIs8bit(text: any): boolean
+export function utilsTextIs8bit(text: any[]): boolean
 export function utilsUnquoteString(str: string): void
 export function utilsUnstructuredHeaderFold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
 export function ydecodeStep(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
@@ -1144,10 +1144,10 @@ export class Filter {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1173,9 +1173,9 @@ export class Filter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1223,10 +1223,10 @@ export class FilterBasic {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1252,9 +1252,9 @@ export class FilterBasic {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1297,7 +1297,7 @@ export class FilterBest {
     total: number
     maxline: number
     linelen: number
-    frombuf: any
+    frombuf: any[]
     fromlen: number
     hadfrom: number
     startline: number
@@ -1317,10 +1317,10 @@ export class FilterBest {
     /* Methods of GMime.FilterBest */
     encoding(constraint: EncodingConstraint): ContentEncoding
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1346,9 +1346,9 @@ export class FilterBest {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1399,10 +1399,10 @@ export class FilterCharset {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1428,9 +1428,9 @@ export class FilterCharset {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1483,10 +1483,10 @@ export class FilterChecksum {
     getDigest(digest: number, len: number): number
     getString(): string
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1512,9 +1512,9 @@ export class FilterChecksum {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1565,10 +1565,10 @@ export class FilterDos2Unix {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1594,9 +1594,9 @@ export class FilterDos2Unix {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1647,10 +1647,10 @@ export class FilterEnriched {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1676,9 +1676,9 @@ export class FilterEnriched {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1729,10 +1729,10 @@ export class FilterFrom {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1758,9 +1758,9 @@ export class FilterFrom {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1816,10 +1816,10 @@ export class FilterGZip {
     setComment(comment: string): void
     setFilename(filename: string): void
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1845,9 +1845,9 @@ export class FilterGZip {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1902,10 +1902,10 @@ export class FilterHTML {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -1931,9 +1931,9 @@ export class FilterHTML {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -1986,10 +1986,10 @@ export class FilterOpenPGP {
     getDataType(): OpenPGPData
     getEndOffset(): number
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2015,9 +2015,9 @@ export class FilterOpenPGP {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2067,10 +2067,10 @@ export class FilterSmtpData {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2096,9 +2096,9 @@ export class FilterSmtpData {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2147,10 +2147,10 @@ export class FilterStrip {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2176,9 +2176,9 @@ export class FilterStrip {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2229,10 +2229,10 @@ export class FilterUnix2Dos {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2258,9 +2258,9 @@ export class FilterUnix2Dos {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2314,10 +2314,10 @@ export class FilterWindows {
     isWindowsCharset(): boolean
     realCharset(): string
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2343,9 +2343,9 @@ export class FilterWindows {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -2404,10 +2404,10 @@ export class FilterYenc {
     setCrc(crc: number): void
     setState(state: number): void
     /* Methods of GMime.Filter */
-    backup(data: any): void
-    complete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    backup(data: any[]): void
+    complete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     copy(): Filter
-    filter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    filter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     reset(): void
     setSize(size: number, keep: boolean): void
     /* Methods of GObject.Object */
@@ -2433,9 +2433,9 @@ export class FilterYenc {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GMime.Filter */
-    vfuncComplete(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncComplete(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncCopy(): Filter
-    vfuncFilter(inbuf: any, prespace: number): [ /* outbuf */ any, /* outprespace */ number ]
+    vfuncFilter(inbuf: any[], prespace: number): [ /* outbuf */ any[], /* outprespace */ number ]
     vfuncReset(): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -4425,13 +4425,13 @@ export class Stream {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4468,7 +4468,7 @@ export class Stream {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4516,13 +4516,13 @@ export class StreamBuffer {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4559,7 +4559,7 @@ export class StreamBuffer {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4607,13 +4607,13 @@ export class StreamCat {
     addSource(source: Stream): number
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4650,7 +4650,7 @@ export class StreamCat {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4699,13 +4699,13 @@ export class StreamFile {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4742,7 +4742,7 @@ export class StreamFile {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4796,13 +4796,13 @@ export class StreamFilter {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4839,7 +4839,7 @@ export class StreamFilter {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4889,12 +4889,12 @@ export class StreamFs {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -4931,7 +4931,7 @@ export class StreamFs {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -4985,12 +4985,12 @@ export class StreamGIO {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -5027,7 +5027,7 @@ export class StreamGIO {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -5068,24 +5068,24 @@ export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 export class StreamMem {
     /* Fields of GMime.StreamMem */
     parentObject: Stream
-    buffer: any
+    buffer: any[]
     owner: boolean
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GMime.StreamMem */
-    getByteArray(): any
+    getByteArray(): any[]
     getOwner(): boolean
-    setByteArray(array: any): void
+    setByteArray(array: any[]): void
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -5122,7 +5122,7 @@ export class StreamMem {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -5155,8 +5155,8 @@ export class StreamMem {
     _init (config?: StreamMem_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): StreamMem
-    static newWithBuffer(buffer: any): StreamMem
-    static newWithByteArray(array: any): StreamMem
+    static newWithBuffer(buffer: any[]): StreamMem
+    static newWithByteArray(array: any[]): StreamMem
     static $gtype: GObject.Type
 }
 export interface StreamMmap_ConstructProps extends Stream_ConstructProps {
@@ -5176,12 +5176,12 @@ export class StreamMmap {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -5218,7 +5218,7 @@ export class StreamMmap {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -5269,13 +5269,13 @@ export class StreamNull {
     setCountNewlines(count: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     eos(): boolean
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -5312,7 +5312,7 @@ export class StreamNull {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -5362,12 +5362,12 @@ export class StreamPipe {
     setOwner(owner: boolean): void
     /* Methods of GMime.Stream */
     bufferGets(buf: string, max: number): number
-    bufferReadln(buffer: any): void
+    bufferReadln(buffer: any[]): void
     close(): number
     construct(start: number, end: number): void
     flush(): number
     length(): number
-    read(buf: any): number
+    read(buf: any[]): number
     reset(): number
     seek(offset: number, whence: SeekWhence): number
     setBounds(start: number, end: number): void
@@ -5404,7 +5404,7 @@ export class StreamPipe {
     vfuncEos(): boolean
     vfuncFlush(): number
     vfuncLength(): number
-    vfuncRead(buf: any): number
+    vfuncRead(buf: any[]): number
     vfuncReset(): number
     vfuncSeek(offset: number, whence: SeekWhence): number
     vfuncSubstream(start: number, end: number): Stream
@@ -5658,7 +5658,7 @@ export abstract class DecryptResultClass {
 export class Encoding {
     /* Fields of GMime.Encoding */
     encoding: ContentEncoding
-    uubuf: any
+    uubuf: any[]
     encode: boolean
     save: number
     state: number
@@ -5705,8 +5705,8 @@ export abstract class FilterClass {
     /* Fields of GMime.FilterClass */
     parentClass: GObject.ObjectClass
     copy: (filter: Filter) => Filter
-    filter: (filter: Filter, inbuf: any, prespace: number) => [ /* outbuf */ any, /* outprespace */ number ]
-    complete: (filter: Filter, inbuf: any, prespace: number) => [ /* outbuf */ any, /* outprespace */ number ]
+    filter: (filter: Filter, inbuf: any[], prespace: number) => [ /* outbuf */ any[], /* outprespace */ number ]
+    complete: (filter: Filter, inbuf: any[], prespace: number) => [ /* outbuf */ any[], /* outprespace */ number ]
     reset: (filter: Filter) => void
     static name: string
 }
@@ -5990,7 +5990,7 @@ export abstract class StreamCatClass {
 export abstract class StreamClass {
     /* Fields of GMime.StreamClass */
     parentClass: GObject.ObjectClass
-    read: (stream: Stream, buf: any) => number
+    read: (stream: Stream, buf: any[]) => number
     write: (stream: Stream, buf: string, len: number) => number
     flush: (stream: Stream) => number
     close: (stream: Stream) => number

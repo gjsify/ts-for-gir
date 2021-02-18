@@ -199,7 +199,7 @@ export class Menuitem {
     property_exist(property: string): boolean
     property_get(property: string): string
     property_get_bool(property: string): boolean
-    property_get_byte_array(property: string): Uint8Array
+    property_get_byte_array(property: string): Uint8Array[]
     property_get_int(property: string): number
     property_get_variant(property: string): GLib.Variant
     property_remove(property: string): void
@@ -326,7 +326,7 @@ export class MenuitemProxy {
     property_exist(property: string): boolean
     property_get(property: string): string
     property_get_bool(property: string): boolean
-    property_get_byte_array(property: string): Uint8Array
+    property_get_byte_array(property: string): Uint8Array[]
     property_get_int(property: string): number
     property_get_variant(property: string): GLib.Variant
     property_remove(property: string): void

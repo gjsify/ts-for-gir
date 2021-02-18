@@ -680,10 +680,10 @@ export class glibtop_netload {
     errorsOut: number
     errorsTotal: number
     collisions: number
-    address6: any
-    prefix6: any
+    address6: any[]
+    prefix6: any[]
     scope6: number
-    hwaddress: any
+    hwaddress: any[]
     static name: string
 }
 export class glibtop_open_files_entry {

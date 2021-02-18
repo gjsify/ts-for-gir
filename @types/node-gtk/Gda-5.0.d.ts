@@ -588,17 +588,17 @@ export class DataHandler {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.DataHandler */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     static name: string
@@ -609,7 +609,7 @@ export class DataModel {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -628,9 +628,9 @@ export class DataModel {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -643,37 +643,37 @@ export class DataModel {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModel */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -891,16 +891,16 @@ export class Column {
     getAttribute(attribute: string): any
     getAutoIncrement(): boolean
     getDbmsType(): string
-    getDefaultValue(): any
+    getDefaultValue(): any | null
     getDescription(): string
     getGType(): GObject.Type
     getName(): string
     getPosition(): number
     setAllowNull(allow: boolean): void
-    setAttribute(attribute: string, value?: any, destroy?: GLib.DestroyNotify | null): void
+    setAttribute(attribute: string, value?: any | null, destroy?: GLib.DestroyNotify | null): void
     setAutoIncrement(isAuto: boolean): void
     setDbmsType(dbmsType: string): void
-    setDefaultValue(defaultValue?: any): void
+    setDefaultValue(defaultValue?: any | null): void
     setDescription(title: string): void
     setGType(type: GObject.Type): void
     setName(name: string): void
@@ -1157,7 +1157,7 @@ export class Connection {
     getProvider(): ServerProvider
     getProviderName(): string
     getTransactionStatus(): TransactionStatus
-    insertRowIntoTableV(table: string, colNames: string[], values: any): boolean
+    insertRowIntoTableV(table: string, colNames: string[], values: any[]): boolean
     isOpened(): boolean
     open(): boolean
     parseSqlString(sql: string): [ /* returnType */ Statement, /* params */ Set | null ]
@@ -1175,7 +1175,7 @@ export class Connection {
     statementToSql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* paramsUsed */ Holder[] | null ]
     supportsFeature(feature: ConnectionFeature): boolean
     updateMetaStore(context?: MetaContext | null): boolean
-    updateRowInTableV(table: string, conditionColumnName: string, conditionValue: any, colNames: string[], values: any): boolean
+    updateRowInTableV(table: string, conditionColumnName: string, conditionValue: any, colNames: string[], values: any[]): boolean
     valueToSqlString(from: any): string
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1454,7 +1454,7 @@ export class DataAccessWrapper {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -1473,9 +1473,9 @@ export class DataAccessWrapper {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -1488,37 +1488,37 @@ export class DataAccessWrapper {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataAccessWrapper */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -1720,7 +1720,7 @@ export class DataModelArray {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -1739,9 +1739,9 @@ export class DataModelArray {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -1754,37 +1754,37 @@ export class DataModelArray {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModelArray */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -1902,7 +1902,7 @@ export class DataModelDir {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -1921,9 +1921,9 @@ export class DataModelDir {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -1936,37 +1936,37 @@ export class DataModelDir {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModelDir */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -2081,7 +2081,7 @@ export class DataModelImport {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -2100,9 +2100,9 @@ export class DataModelImport {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -2115,37 +2115,37 @@ export class DataModelImport {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModelImport */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -2255,9 +2255,9 @@ export class DataModelIter {
     getColumnForParam(param: Holder): number
     getHolderForField(col: number): Holder
     getRow(): number
-    getValueAt(col: number): any
-    getValueAtE(col: number): any
-    getValueForField(fieldName: string): any
+    getValueAt(col: number): any | null
+    getValueAtE(col: number): any | null
+    getValueForField(fieldName: string): any | null
     invalidateContents(): void
     isValid(): boolean
     moveNext(): boolean
@@ -2269,7 +2269,7 @@ export class DataModelIter {
     copy(): Set
     getGroup(holder: Holder): SetGroup
     getHolder(holderId: string): Holder
-    getHolderValue(holderId: string): any
+    getHolderValue(holderId: string): any | null
     getNode(holder: Holder): SetNode
     getNthHolder(pos: number): Holder
     getSource(holder: Holder): SetSource
@@ -2473,7 +2473,7 @@ export class DataModelLdap {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -2492,9 +2492,9 @@ export class DataModelLdap {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -2507,37 +2507,37 @@ export class DataModelLdap {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModelLdap */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -2650,7 +2650,7 @@ export class DataPivot {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -2669,9 +2669,9 @@ export class DataPivot {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -2684,37 +2684,37 @@ export class DataPivot {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataPivot */
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -2828,7 +2828,7 @@ export class DataProxy {
     getSampleSize(): number
     getSampleStart(): number
     getValueAttributes(proxyRow: number, col: number): ValueAttribute
-    getValues(proxyRow: number, colsIndex: number[]): any
+    getValues(proxyRow: number, colsIndex: number[]): any[]
     hasChanged(): boolean
     isReadOnly(): boolean
     rowHasChanged(proxyRow: number): boolean
@@ -2864,7 +2864,7 @@ export class DataProxy {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -2883,9 +2883,9 @@ export class DataProxy {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -2898,12 +2898,12 @@ export class DataProxy {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataProxy */
     vfuncFilterChanged(): void
@@ -2915,26 +2915,26 @@ export class DataProxy {
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -3135,7 +3135,7 @@ export class DataSelect {
     /* Methods of Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
-    appendValues(values?: any): number
+    appendValues(values?: any[] | null): number
     arrayCopyModel(): DataModelArray | null
     arrayCopyModelExt(cols: number[]): DataModelArray | null
     createIter(): DataModelIter
@@ -3154,9 +3154,9 @@ export class DataSelect {
     getNColumns(): number
     getNRows(): number
     getNotify(): boolean
-    getRowFromValues(values: any, colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any
-    getValueAt(col: number, row: number): any
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
     importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
     importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
     importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
@@ -3169,12 +3169,12 @@ export class DataSelect {
     rowInserted(row: number): void
     rowRemoved(row: number): void
     rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
     setColumnName(col: number, name: string): void
     setColumnTitle(col: number, title: string): void
     setNotify(doNotifyChanges: boolean): void
     setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataSelect */
     vfuncFetchAt(prow: Row, rownum: number): boolean
@@ -3186,26 +3186,26 @@ export class DataSelect {
     vfuncAccessChanged(): void
     vfuncChanged(): void
     vfuncIAppendRow(): number
-    vfuncIAppendValues(values?: any): number
+    vfuncIAppendValues(values?: any[] | null): number
     vfuncICreateIter(): DataModelIter
     vfuncIDescribeColumn(col: number): Column | null
-    vfuncIFindRow(values: any, colsIndex: number[]): number
+    vfuncIFindRow(values: any[], colsIndex: number[]): number
     vfuncIGetAccessFlags(): DataModelAccessFlags
     vfuncIGetAttributesAt(col: number, row: number): ValueAttribute
     vfuncIGetExceptions(): GLib.Error[]
     vfuncIGetNColumns(): number
     vfuncIGetNRows(): number
     vfuncIGetNotify(): boolean
-    vfuncIGetValueAt(col: number, row: number): any
+    vfuncIGetValueAt(col: number, row: number): any | null
     vfuncIIterAtRow(iter: DataModelIter, row: number): boolean
     vfuncIIterNext(iter: DataModelIter): boolean
     vfuncIIterPrev(iter: DataModelIter): boolean
     vfuncIIterSetValue(iter: DataModelIter, col: number, value: any): boolean
     vfuncIRemoveRow(row: number): boolean
-    vfuncISendHint(hint: DataModelHint, hintValue?: any): void
+    vfuncISendHint(hint: DataModelHint, hintValue?: any | null): void
     vfuncISetNotify(doNotifyChanges: boolean): void
     vfuncISetValueAt(col: number, row: number, value: any): boolean
-    vfuncISetValues(row: number, values?: any): boolean
+    vfuncISetValues(row: number, values?: any[] | null): boolean
     vfuncReset(): void
     vfuncRowInserted(row: number): void
     vfuncRowRemoved(row: number): void
@@ -3349,17 +3349,17 @@ export class HandlerBin {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerBin */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3424,17 +3424,17 @@ export class HandlerBoolean {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerBoolean */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3499,17 +3499,17 @@ export class HandlerNumerical {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerNumerical */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3574,17 +3574,17 @@ export class HandlerString {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerString */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3655,17 +3655,17 @@ export class HandlerTime {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerTime */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3731,17 +3731,17 @@ export class HandlerType {
     /* Methods of Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
-    getSaneInitValue(type: GObject.Type): any
-    getSqlFromValue(value?: any): string
-    getStrFromValue(value?: any): string
+    getSaneInitValue(type: GObject.Type): any | null
+    getSqlFromValue(value?: any | null): string
+    getStrFromValue(value?: any | null): string
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerType */
     vfuncAcceptsGType(type: GObject.Type): boolean
     vfuncGetDescr(): string
-    vfuncGetSaneInitValue(type: GObject.Type): any
-    vfuncGetSqlFromValue(value?: any): string
-    vfuncGetStrFromValue(value?: any): string
+    vfuncGetSaneInitValue(type: GObject.Type): any | null
+    vfuncGetSqlFromValue(value?: any | null): string
+    vfuncGetStrFromValue(value?: any | null): string
     vfuncGetValueFromSql(sql: string | null, type: GObject.Type): any
     vfuncGetValueFromStr(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -3814,7 +3814,7 @@ export class Holder {
     getId(): string
     getNotNull(): boolean
     getSourceModel(col: number): DataModel
-    getValue(): any
+    getValue(): any | null
     getValueStr(dh?: DataHandler | null): string
     isValid(): boolean
     isValidE(): boolean
@@ -3823,7 +3823,7 @@ export class Holder {
     setDefaultValue(value: any): void
     setNotNull(notNull: boolean): void
     setSourceModel(model: DataModel, col: number): boolean
-    setValue(value?: any): boolean
+    setValue(value?: any | null): boolean
     setValueStr(dh: DataHandler, value: string): boolean
     setValueToDefault(): boolean
     takeStaticValue(value: any, valueChanged: boolean): any
@@ -3987,7 +3987,7 @@ export class MetaStore {
     getAttributeValue(attName: string): [ /* returnType */ boolean, /* attValue */ string ]
     getInternalConnection(): Connection
     getVersion(): number
-    modify(tableName: string, newData: DataModel | null, condition: string | null, valueNames: string[], values: any): boolean
+    modify(tableName: string, newData: DataModel | null, condition: string | null, valueNames: string[], values: any[]): boolean
     modifyWithContext(context: MetaContext, newData?: DataModel | null): boolean
     schemaAddCustomObject(xmlDescription: string): boolean
     schemaGetAllTables(): string[]
@@ -4085,14 +4085,14 @@ export class MetaStruct {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.MetaStruct */
-    complement(type: MetaDbObjectType, catalog: any, schema: any, name: any): MetaDbObject
+    complement(type: MetaDbObjectType, catalog: any | null, schema: any | null, name: any): MetaDbObject
     complementAll(): boolean
     complementDefault(): boolean
     complementDepend(dbo: MetaDbObject): boolean
-    complementSchema(catalog?: any, schema?: any): boolean
+    complementSchema(catalog?: any | null, schema?: any | null): boolean
     dumpAsGraph(info: MetaGraphInfo): string
     getAllDbObjects(): MetaDbObject[]
-    getDbObject(catalog: any, schema: any, name: any): MetaDbObject
+    getDbObject(catalog: any | null, schema: any | null, name: any): MetaDbObject
     loadFromXmlFile(catalog: string | null, schema: string | null, xmlSpecFile: string): boolean
     sortDbObjects(sortType: MetaSortType): boolean
     /* Methods of GObject.Object */
@@ -4156,7 +4156,7 @@ export class PStmt {
     sql: string
     paramIds: string[]
     ncols: number
-    types: GType
+    types: GObject.Type
     tmplColumns: Column[]
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -4289,7 +4289,7 @@ export class Row {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.Row */
     getLength(): number
-    getValue(num: number): any
+    getValue(num: number): any | null
     invalidateValue(value: any): void
     invalidateValueE(value: any, error?: GLib.Error | null): void
     valueIsValid(value: any): boolean
@@ -4376,7 +4376,7 @@ export class ServerOperation {
     getSequenceName(path: string): string
     getSequenceSize(path: string): number
     getSqlIdentifierAt(cnc: Connection | null, prov: ServerProvider | null, path: string): string
-    getValueAt(path: string): any
+    getValueAt(path: string): any | null
     isValid(xmlFile?: string | null): boolean
     loadDataFromXml(node: libxml2.NodePtr): boolean
     performCreateDatabase(provider?: string | null): boolean
@@ -4592,7 +4592,7 @@ export class Set {
     copy(): Set
     getGroup(holder: Holder): SetGroup
     getHolder(holderId: string): Holder
-    getHolderValue(holderId: string): any
+    getHolderValue(holderId: string): any | null
     getNode(holder: Holder): SetNode
     getNthHolder(pos: number): Holder
     getSource(holder: Holder): SetSource
@@ -4742,9 +4742,9 @@ export class SqlBuilder {
     addCase(testExpr: SqlBuilderId, elseExpr: SqlBuilderId, whenArray: SqlBuilderId[], thenArray: SqlBuilderId[]): SqlBuilderId
     addCond(op: SqlOperatorType, op1: SqlBuilderId, op2: SqlBuilderId, op3: SqlBuilderId): SqlBuilderId
     addCondV(op: SqlOperatorType, opIds: SqlBuilderId[]): SqlBuilderId
-    addExprValue(dh?: DataHandler | null, value?: any): SqlBuilderId
+    addExprValue(dh?: DataHandler | null, value?: any | null): SqlBuilderId
     addFieldId(fieldName: string, tableName?: string | null): SqlBuilderId
-    addFieldValueAsGvalue(fieldName: string, value?: any): void
+    addFieldValueAsGvalue(fieldName: string, value?: any | null): void
     addFieldValueId(fieldId: SqlBuilderId, valueId: SqlBuilderId): void
     addFunction(funcName: string, args: SqlBuilderId[]): SqlBuilderId
     addId(str: string): SqlBuilderId
@@ -5274,7 +5274,7 @@ export class TreeManager {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5355,7 +5355,7 @@ export class TreeMgrColumns {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5433,7 +5433,7 @@ export class TreeMgrLabel {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5511,7 +5511,7 @@ export class TreeMgrLdap {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5590,7 +5590,7 @@ export class TreeMgrSchemas {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5670,7 +5670,7 @@ export class TreeMgrSelect {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5750,7 +5750,7 @@ export class TreeMgrTables {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
     createNode(parent?: TreeNode | null, name?: string | null): TreeNode
     getManagers(): TreeManager[]
     /* Methods of GObject.Object */
@@ -5832,7 +5832,7 @@ export class TreeNode {
     getChildren(): TreeNode[]
     getNodeAttribute(attribute: string): any
     getParent(): TreeNode
-    setNodeAttribute(attribute: string, value: any, destroy: GLib.DestroyNotify): void
+    setNodeAttribute(attribute: string, value: any | null, destroy: GLib.DestroyNotify): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6015,7 +6015,7 @@ export class BatchPrivate {
 }
 export class Binary {
     /* Fields of Gda.Binary */
-    data: any
+    data: any[]
     binaryLength: number
     /* Methods of Gda.Binary */
     toString(maxlen: number): string
@@ -6109,11 +6109,11 @@ export class DataComparatorPrivate {
 export abstract class DataHandlerIface {
     /* Fields of Gda.DataHandlerIface */
     gIface: GObject.TypeInterface
-    getSqlFromValue: (dh: DataHandler, value?: any) => string
-    getStrFromValue: (dh: DataHandler, value?: any) => string
+    getSqlFromValue: (dh: DataHandler, value?: any | null) => string
+    getStrFromValue: (dh: DataHandler, value?: any | null) => string
     getValueFromSql: (dh: DataHandler, sql: string | null, type: GObject.Type) => any
     getValueFromStr: (dh: DataHandler, str: string | null, type: GObject.Type) => any
-    getSaneInitValue: (dh: DataHandler, type: GObject.Type) => any
+    getSaneInitValue: (dh: DataHandler, type: GObject.Type) => any | null
     acceptsGType: (dh: DataHandler, type: GObject.Type) => boolean
     getDescr: (dh: DataHandler) => string
     static name: string
@@ -6141,7 +6141,7 @@ export abstract class DataModelIface {
     iGetNColumns: (model: DataModel) => number
     iDescribeColumn: (model: DataModel, col: number) => Column | null
     iGetAccessFlags: (model: DataModel) => DataModelAccessFlags
-    iGetValueAt: (model: DataModel, col: number, row: number) => any
+    iGetValueAt: (model: DataModel, col: number, row: number) => any | null
     iGetAttributesAt: (model: DataModel, col: number, row: number) => ValueAttribute
     iCreateIter: (model: DataModel) => DataModelIter
     iIterAtRow: (model: DataModel, iter: DataModelIter, row: number) => boolean
@@ -6149,14 +6149,14 @@ export abstract class DataModelIface {
     iIterPrev: (model: DataModel, iter: DataModelIter) => boolean
     iSetValueAt: (model: DataModel, col: number, row: number, value: any) => boolean
     iIterSetValue: (model: DataModel, iter: DataModelIter, col: number, value: any) => boolean
-    iSetValues: (model: DataModel, row: number, values?: any) => boolean
-    iAppendValues: (model: DataModel, values?: any) => number
+    iSetValues: (model: DataModel, row: number, values?: any[] | null) => boolean
+    iAppendValues: (model: DataModel, values?: any[] | null) => number
     iAppendRow: (model: DataModel) => number
     iRemoveRow: (model: DataModel, row: number) => boolean
-    iFindRow: (model: DataModel, values: any, colsIndex: number[]) => number
+    iFindRow: (model: DataModel, values: any[], colsIndex: number[]) => number
     iSetNotify: (model: DataModel, doNotifyChanges: boolean) => void
     iGetNotify: (model: DataModel) => boolean
-    iSendHint: (model: DataModel, hint: DataModelHint, hintValue?: any) => void
+    iSendHint: (model: DataModel, hint: DataModelHint, hintValue?: any | null) => void
     rowInserted: (model: DataModel, row: number) => void
     rowUpdated: (model: DataModel, row: number) => void
     rowRemoved: (model: DataModel, row: number) => void
@@ -6335,7 +6335,7 @@ export class MetaContext {
     tableName: string
     size: number
     columnNames: string[]
-    columnValues: any
+    columnValues: any[]
     columns: GLib.HashTable
     /* Methods of Gda.MetaContext */
     copy(): MetaContext
@@ -6412,7 +6412,7 @@ export class MetaTableColumn {
     /* Methods of Gda.MetaTableColumn */
     foreachAttribute(func: AttributesManagerFunc): void
     getAttribute(attribute: string): any
-    setAttribute(attribute: string, value?: any, destroy?: GLib.DestroyNotify | null): void
+    setAttribute(attribute: string, value?: any | null, destroy?: GLib.DestroyNotify | null): void
     static name: string
 }
 export class MetaTableForeignKey {
@@ -6681,8 +6681,8 @@ export class SetSource {
 }
 export class SqlAnyPart {
     /* Fields of Gda.SqlAnyPart */
-    type: SqlAnyPartType
-    parent: SqlAnyPart
+    type: any
+    parent: any
     /* Methods of Gda.SqlAnyPart */
     checkStructure(): boolean
     static name: string
@@ -6697,11 +6697,11 @@ export class SqlBuilderPrivate {
 }
 export class SqlCase {
     /* Fields of Gda.SqlCase */
-    any: SqlAnyPart
-    baseExpr: SqlExpr
+    any: any
+    baseExpr: any
     whenExprList: object[]
     thenExprList: object[]
-    elseExpr: SqlExpr
+    elseExpr: any
     /* Methods of Gda.SqlCase */
     free(): void
     serialize(): string
@@ -6709,13 +6709,13 @@ export class SqlCase {
 }
 export class SqlExpr {
     /* Fields of Gda.SqlExpr */
-    any: SqlAnyPart
+    any: any
     value: any
     paramSpec: any
-    func: SqlFunction
-    cond: SqlOperation
-    select: SqlAnyPart
-    caseS: SqlCase
+    func: any
+    cond: any
+    select: any
+    caseS: any
     castAs: string
     valueIsIdent: boolean
     /* Methods of Gda.SqlExpr */
@@ -6726,7 +6726,7 @@ export class SqlExpr {
 }
 export class SqlField {
     /* Fields of Gda.SqlField */
-    any: SqlAnyPart
+    any: any
     fieldName: string
     validityMetaTableColumn: MetaTableColumn
     /* Methods of Gda.SqlField */
@@ -6737,7 +6737,7 @@ export class SqlField {
 }
 export class SqlFunction {
     /* Fields of Gda.SqlFunction */
-    any: SqlAnyPart
+    any: any
     functionName: string
     argsList: object[]
     /* Methods of Gda.SqlFunction */
@@ -6750,7 +6750,7 @@ export class SqlFunction {
 }
 export class SqlOperation {
     /* Fields of Gda.SqlOperation */
-    any: SqlAnyPart
+    any: any
     operatorType: SqlOperatorType
     operands: object[]
     /* Methods of Gda.SqlOperation */
@@ -6797,8 +6797,8 @@ export class SqlRenderingContext {
 }
 export class SqlSelectField {
     /* Fields of Gda.SqlSelectField */
-    any: SqlAnyPart
-    expr: SqlExpr
+    any: any
+    expr: any
     fieldName: string
     tableName: string
     as: string
@@ -6813,9 +6813,9 @@ export class SqlSelectField {
 }
 export class SqlSelectFrom {
     /* Fields of Gda.SqlSelectFrom */
-    any: SqlAnyPart
-    targets: SqlSelectTarget[]
-    joins: SqlSelectJoin[]
+    any: any
+    targets: any[]
+    joins: any[]
     /* Methods of Gda.SqlSelectFrom */
     free(): void
     serialize(): string
@@ -6823,10 +6823,10 @@ export class SqlSelectFrom {
 }
 export class SqlSelectJoin {
     /* Fields of Gda.SqlSelectJoin */
-    any: SqlAnyPart
+    any: any
     type: SqlSelectJoinType
     position: number
-    expr: SqlExpr
+    expr: any
     use: object[]
     /* Methods of Gda.SqlSelectJoin */
     free(): void
@@ -6837,8 +6837,8 @@ export class SqlSelectJoin {
 }
 export class SqlSelectOrder {
     /* Fields of Gda.SqlSelectOrder */
-    any: SqlAnyPart
-    expr: SqlExpr
+    any: any
+    expr: any
     asc: boolean
     collationName: string
     /* Methods of Gda.SqlSelectOrder */
@@ -6848,8 +6848,8 @@ export class SqlSelectOrder {
 }
 export class SqlSelectTarget {
     /* Fields of Gda.SqlSelectTarget */
-    any: SqlAnyPart
-    expr: SqlExpr
+    any: any
+    expr: any
     tableName: string
     as: string
     validityMetaObject: MetaDbObject
@@ -6876,7 +6876,7 @@ export class SqlStatementCheckValidityData {
 }
 export class SqlStatementCompound {
     /* Fields of Gda.SqlStatementCompound */
-    any: SqlAnyPart
+    any: any
     compoundType: SqlStatementCompoundType
     stmtList: object[]
     static name: string
@@ -6889,8 +6889,8 @@ export class SqlStatementContentsInfo {
     free: (stm: object) => void
     copy: (stm: object) => object
     serialize: (stm: object) => string
-    checkStructureFunc: SqlForeachFunc
-    checkValidityFunc: SqlForeachFunc
+    checkStructureFunc: any
+    checkValidityFunc: any
     static name: string
 }
 export class SqlStatementDelete {
@@ -6913,7 +6913,7 @@ export class SqlStatementUpdate {
 }
 export class SqlTable {
     /* Fields of Gda.SqlTable */
-    any: SqlAnyPart
+    any: any
     tableName: string
     validityMetaObject: MetaDbObject
     /* Methods of Gda.SqlTable */

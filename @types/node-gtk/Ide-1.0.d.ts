@@ -1456,8 +1456,8 @@ export class Subprocess {
     /* Methods of Ide.Subprocess */
     checkExitStatus(): boolean
     communicate(stdinBuf: any, cancellable: Gio.Cancellable | null, stdoutBuf: any, stderrBuf: any): boolean
-    communicateAsync(stdinBuf?: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    communicateFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any, /* stderrBuf */ any ]
+    communicateAsync(stdinBuf?: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    communicateFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
     communicateUtf8(stdinBuf?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
     communicateUtf8Async(stdinBuf?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     communicateUtf8Finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
@@ -1481,8 +1481,8 @@ export class Subprocess {
     waitFinish(result: Gio.AsyncResult): boolean
     /* Virtual methods of Ide.Subprocess */
     vfuncCommunicate(stdinBuf: any, cancellable: Gio.Cancellable | null, stdoutBuf: any, stderrBuf: any): boolean
-    vfuncCommunicateAsync(stdinBuf?: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncCommunicateFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any, /* stderrBuf */ any ]
+    vfuncCommunicateAsync(stdinBuf?: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncCommunicateFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
     vfuncCommunicateUtf8(stdinBuf?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
     vfuncCommunicateUtf8Async(stdinBuf?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncCommunicateUtf8Finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
@@ -2476,7 +2476,7 @@ export class Buffer {
     deleteMark(mark: Gtk.TextMark): void
     deleteMarkByName(name: string): void
     deleteSelection(interactive: boolean, defaultEditable: boolean): boolean
-    deserialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: any): boolean
+    deserialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: any[]): boolean
     deserializeGetCanCreateTags(format: Gdk.Atom): boolean
     deserializeSetCanCreateTags(format: Gdk.Atom, canCreateTags: boolean): void
     endUserAction(): void
@@ -2526,7 +2526,7 @@ export class Buffer {
     removeTag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     removeTagByName(name: string, start: Gtk.TextIter, end: Gtk.TextIter): void
     selectRange(ins: Gtk.TextIter, bound: Gtk.TextIter): void
-    serialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): any
+    serialize(contentBuffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): any[]
     setModified(setting: boolean): void
     setText(text: string, len: number): void
     unregisterDeserializeFormat(format: Gdk.Atom): void
@@ -6369,7 +6369,7 @@ export class EditorPerspective {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -7688,7 +7688,7 @@ export class EditorView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10685,7 +10685,7 @@ export class Layout {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -11938,7 +11938,7 @@ export class LayoutGrid {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -13129,7 +13129,7 @@ export class LayoutPane {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -14397,7 +14397,7 @@ export class LayoutStack {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -15610,7 +15610,7 @@ export class LayoutView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -17017,7 +17017,7 @@ export class OmniBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -18228,7 +18228,7 @@ export class OmniSearchDisplay {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -19521,7 +19521,7 @@ export class OmniSearchEntry {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -21103,7 +21103,7 @@ export class OmniSearchGroup {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -22317,7 +22317,7 @@ export class OmniSearchRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -23625,7 +23625,7 @@ export class PreferencesPerspective {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -25659,7 +25659,7 @@ export class RunButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -27916,7 +27916,7 @@ export class SourceMap {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -30173,7 +30173,7 @@ export class SourceView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -32184,7 +32184,7 @@ export class SourceViewMode {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -34277,7 +34277,7 @@ export class TransferButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -35720,7 +35720,7 @@ export class TransferRow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -36984,7 +36984,7 @@ export class TransfersButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -38294,7 +38294,7 @@ export class TransfersProgressIcon {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -39671,7 +39671,7 @@ export class Workbench {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -41156,7 +41156,7 @@ export class WorkbenchHeaderBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -42407,7 +42407,7 @@ export class WorkbenchMessage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -44481,8 +44481,8 @@ export abstract class SubprocessInterface {
     forceExit: (self: Subprocess) => void
     communicate: (self: Subprocess, stdinBuf: any, cancellable: Gio.Cancellable | null, stdoutBuf: any, stderrBuf: any) => boolean
     communicateUtf8: (self: Subprocess, stdinBuf?: string | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
-    communicateAsync: (self: Subprocess, stdinBuf?: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    communicateFinish: (self: Subprocess, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* stdoutBuf */ any, /* stderrBuf */ any ]
+    communicateAsync: (self: Subprocess, stdinBuf?: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    communicateFinish: (self: Subprocess, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
     communicateUtf8Async: (self: Subprocess, stdinBuf?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     communicateUtf8Finish: (self: Subprocess, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
     static name: string

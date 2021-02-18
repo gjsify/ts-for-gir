@@ -10,15 +10,9 @@ import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 import type * as GModule from './GModule-2.0';
 
-// export type ServiceClass = any // TODO
-// export type Context = any // TODO
-// export type ServiceIntrospectionCallback = any // TODO
-// export type ServiceIntrospection = any // TODO
-// export type Service_ConstructProps = any // TODO
-// export type ResourceFactory_ConstructProps = any // TODO
 export class DLNADiscoverer {
     /* Fields of GUPnP.DLNADiscoverer */
-    parent: GstPbutils.Discoverer
+    parent: any
     /* Methods of GUPnP.DLNADiscoverer */
     discover_uri(uri: string): boolean
     discover_uri_sync(uri: string): DLNAInformation
@@ -33,13 +27,13 @@ export class DLNADiscoverer {
     connect_after(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
     emit(sigName: "done", dlna: DLNAInformation, err: GLib.Error): void
     static name: string
-    static new(timeout: Gst.ClockTime, relaxed_mode: boolean, extended_mode: boolean): DLNADiscoverer
-    constructor(timeout: Gst.ClockTime, relaxed_mode: boolean, extended_mode: boolean)
+    static new(timeout: any, relaxed_mode: boolean, extended_mode: boolean): DLNADiscoverer
+    constructor(timeout: any, relaxed_mode: boolean, extended_mode: boolean)
     /* Static methods and pseudo-constructors */
-    static new(timeout: Gst.ClockTime, relaxed_mode: boolean, extended_mode: boolean): DLNADiscoverer
+    static new(timeout: any, relaxed_mode: boolean, extended_mode: boolean): DLNADiscoverer
 }
 export interface DLNAInformation_ConstructProps extends GObject.Object_ConstructProps {
-    info?: GstPbutils.DiscovererInfo
+    info?: any
     mime?: string
     name?: string
 }
@@ -49,7 +43,7 @@ export class DLNAInformation {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GUPnP.DLNAInformation */
-    get_info(): GstPbutils.DiscovererInfo
+    get_info(): any
     get_mime(): string
     get_name(): string
     /* Methods of GObject.Object */
@@ -94,7 +88,7 @@ export class DLNAInformation {
     constructor (config?: DLNAInformation_ConstructProps)
     _init (config?: DLNAInformation_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(name: string, mime: string, info: GstPbutils.DiscovererInfo): DLNAInformation
+    static new(name: string, mime: string, info: any): DLNAInformation
     static $gtype: GObject.Type
 }
 export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProps {
@@ -104,13 +98,13 @@ export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProp
 }
 export class DLNAProfile {
     /* Properties of GUPnP.DLNAProfile */
-    readonly encoding_profile: GstPbutils.EncodingProfile
+    readonly encoding_profile: any
     /* Fields of GUPnP.DLNAProfile */
     parent: GObject.Object
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GUPnP.DLNAProfile */
-    get_encoding_profile(): GstPbutils.EncodingProfile
+    get_encoding_profile(): any
     get_extended(): boolean
     get_mime(): string
     get_name(): string
@@ -161,7 +155,7 @@ export class DLNAProfile {
 }
 export abstract class DLNADiscovererClass {
     /* Fields of GUPnP.DLNADiscovererClass */
-    parent_class: GstPbutils.DiscovererClass
+    parent_class: any
     done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
     static name: string
 }

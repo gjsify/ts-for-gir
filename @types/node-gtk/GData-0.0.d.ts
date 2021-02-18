@@ -4,10 +4,10 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Json } from './Json-1.0';
 import type { Goa } from './Goa-1.0';
 
@@ -2979,10 +2979,10 @@ export class ContactsContact {
     getOccupation(): string
     getOrganizations(): GDOrganization[]
     getPhoneNumbers(): GDPhoneNumber[]
-    getPhoto(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ any, /* contentType */ string | null ]
+    getPhoto(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ any[], /* contentType */ string | null ]
     getPhotoAsync(service: ContactsService, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getPhotoEtag(): string
-    getPhotoFinish(asyncResult: Gio.AsyncResult): [ /* returnType */ any, /* contentType */ string | null ]
+    getPhotoFinish(asyncResult: Gio.AsyncResult): [ /* returnType */ any[], /* contentType */ string | null ]
     getPostalAddresses(): GDPostalAddress[]
     getPrimaryCalendar(): GContactCalendar
     getPrimaryEmailAddress(): GDEmailAddress
@@ -6945,11 +6945,11 @@ export class DownloadStream {
     closeFinish(result: Gio.AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any ]
-    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any, /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    read(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
+    readAll(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
+    readAllAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any
+    readAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[]
     readBytes(count: number, cancellable?: Gio.Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readBytesFinish(result: Gio.AsyncResult): any
@@ -6996,7 +6996,7 @@ export class DownloadStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncCloseFinish(result: Gio.AsyncResult): boolean
     vfuncCloseFn(cancellable?: Gio.Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): /* buffer */ any[] | null
     vfuncReadFinish(result: Gio.AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Gio.Cancellable | null): number
@@ -14083,11 +14083,11 @@ export class UploadStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
-    write(buffer: any, cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAllAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
@@ -14130,9 +14130,9 @@ export class UploadStream {
     vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any | null, cancellable?: Gio.Cancellable | null): number
+    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
     vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]

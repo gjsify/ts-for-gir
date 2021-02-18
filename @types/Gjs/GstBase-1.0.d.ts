@@ -40,8 +40,8 @@ export const BASE_TRANSFORM_SRC_NAME: string
 export function type_find_helper(src: Gst.Pad, size: number): Gst.Caps | null
 export function type_find_helper_for_buffer(obj: Gst.Object | null, buf: Gst.Buffer): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function type_find_helper_for_buffer_with_extension(obj: Gst.Object | null, buf: Gst.Buffer, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
-export function type_find_helper_for_data(obj: Gst.Object | null, data: Uint8Array): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
-export function type_find_helper_for_data_with_extension(obj: Gst.Object | null, data: Uint8Array, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
+export function type_find_helper_for_data(obj: Gst.Object | null, data: Uint8Array[]): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
+export function type_find_helper_for_data_with_extension(obj: Gst.Object | null, data: Uint8Array[], extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function type_find_helper_for_extension(obj: Gst.Object | null, extension: string): Gst.Caps | null
 export function type_find_helper_get_range(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): [ /* returnType */ Gst.Caps | null, /* prob */ Gst.TypeFindProbability | null ]
 export function type_find_helper_get_range_full(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): [ /* returnType */ Gst.FlowReturn, /* caps */ Gst.Caps, /* prob */ Gst.TypeFindProbability | null ]
@@ -95,7 +95,7 @@ export class Adapter {
     get_buffer_fast(nbytes: number): Gst.Buffer | null
     get_buffer_list(nbytes: number): Gst.BufferList | null
     get_list(nbytes: number): Gst.Buffer[] | null
-    map(): Uint8Array | null
+    map(): Uint8Array[] | null
     masked_scan_uint32(mask: number, pattern: number, offset: number, size: number): number
     masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number | null ]
     offset_at_discont(): number
@@ -106,7 +106,7 @@ export class Adapter {
     prev_pts_at_offset(offset: number): [ /* returnType */ Gst.ClockTime, /* distance */ number | null ]
     pts_at_discont(): Gst.ClockTime
     push(buf: Gst.Buffer): void
-    take(): Uint8Array | null
+    take(): Uint8Array[] | null
     take_buffer(nbytes: number): Gst.Buffer | null
     take_buffer_fast(nbytes: number): Gst.Buffer | null
     take_buffer_list(nbytes: number): Gst.BufferList | null
@@ -286,11 +286,11 @@ export class Aggregator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -539,11 +539,11 @@ export class AggregatorPad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -766,11 +766,11 @@ export class BaseParse {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1057,11 +1057,11 @@ export class BaseSink {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1352,11 +1352,11 @@ export class BaseSrc {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1609,11 +1609,11 @@ export class BaseTransform {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1777,11 +1777,11 @@ export class CollectPads {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2068,11 +2068,11 @@ export class PushSrc {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2369,7 +2369,7 @@ export class BaseTransformPrivate {
 }
 export class BitReader {
     /* Fields of GstBase.BitReader */
-    data: Uint8Array
+    data: Uint8Array[]
     size: number
     byte: number
     bit: number
@@ -2382,7 +2382,7 @@ export class BitReader {
     get_pos(): number
     get_remaining(): number
     get_size(): number
-    init(data: Uint8Array): void
+    init(data: Uint8Array[]): void
     peek_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peek_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peek_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
@@ -2400,7 +2400,7 @@ export class BitWriter {
     align_bytes(trailing_bit: number): boolean
     free(): void
     free_and_get_buffer(): Gst.Buffer
-    free_and_get_data(): Uint8Array
+    free_and_get_data(): Uint8Array[]
     get_data(): number
     get_remaining(): number
     get_size(): number
@@ -2411,22 +2411,22 @@ export class BitWriter {
     put_bytes(data: number, nbytes: number): boolean
     reset(): void
     reset_and_get_buffer(): Gst.Buffer
-    reset_and_get_data(): Uint8Array
+    reset_and_get_data(): Uint8Array[]
     set_pos(pos: number): boolean
     static name: string
 }
 export class ByteReader {
     /* Fields of GstBase.ByteReader */
-    data: Uint8Array
+    data: Uint8Array[]
     size: number
     byte: number
     /* Methods of GstBase.ByteReader */
-    dup_data(): [ /* returnType */ boolean, /* val */ Uint8Array ]
+    dup_data(): [ /* returnType */ boolean, /* val */ Uint8Array[] ]
     dup_string_utf16(): [ /* returnType */ boolean, /* str */ number[] ]
     dup_string_utf32(): [ /* returnType */ boolean, /* str */ number[] ]
     dup_string_utf8(): [ /* returnType */ boolean, /* str */ string[] ]
     free(): void
-    get_data(): [ /* returnType */ boolean, /* val */ Uint8Array ]
+    get_data(): [ /* returnType */ boolean, /* val */ Uint8Array[] ]
     get_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     get_float32_le(): [ /* returnType */ boolean, /* val */ number ]
     get_float64_be(): [ /* returnType */ boolean, /* val */ number ]
@@ -2453,10 +2453,10 @@ export class ByteReader {
     get_uint64_be(): [ /* returnType */ boolean, /* val */ number ]
     get_uint64_le(): [ /* returnType */ boolean, /* val */ number ]
     get_uint8(): [ /* returnType */ boolean, /* val */ number ]
-    init(data: Uint8Array): void
+    init(data: Uint8Array[]): void
     masked_scan_uint32(mask: number, pattern: number, offset: number, size: number): number
     masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number ]
-    peek_data(): [ /* returnType */ boolean, /* val */ Uint8Array ]
+    peek_data(): [ /* returnType */ boolean, /* val */ Uint8Array[] ]
     peek_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_float32_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_float64_be(): [ /* returnType */ boolean, /* val */ number ]
@@ -2501,10 +2501,10 @@ export class ByteWriter {
     free_and_get_data(): number
     get_remaining(): number
     init(): void
-    init_with_data(data: Uint8Array, initialized: boolean): void
+    init_with_data(data: Uint8Array[], initialized: boolean): void
     init_with_size(size: number, fixed: boolean): void
     put_buffer(buffer: Gst.Buffer, offset: number, size: number): boolean
-    put_data(data: Uint8Array): boolean
+    put_data(data: Uint8Array[]): boolean
     put_float32_be(val: number): boolean
     put_float32_le(val: number): boolean
     put_float64_be(val: number): boolean
@@ -2532,7 +2532,7 @@ export class ByteWriter {
     put_uint8(val: number): boolean
     reset(): void
     reset_and_get_buffer(): Gst.Buffer
-    reset_and_get_data(): Uint8Array
+    reset_and_get_data(): Uint8Array[]
     static name: string
 }
 export class CollectData {

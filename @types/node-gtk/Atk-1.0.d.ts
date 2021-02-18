@@ -4177,6 +4177,6 @@ export abstract class WindowIface {
     parent: GObject.TypeInterface
     static name: string
 }
-export type AttributeSet = any
+export type AttributeSet = any[]
 export type State = number
 }

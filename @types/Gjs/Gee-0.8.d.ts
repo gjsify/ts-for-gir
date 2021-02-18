@@ -1237,11 +1237,11 @@ export class Future {
     wait_until(end_time: number): [ /* returnType */ boolean, /* value */ object | null ]
     wait_async(_callback_?: Gio.AsyncReadyCallback | null): void
     wait_finish(_res_: Gio.AsyncResult): object | null
-    map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc): Future
-    light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future): Future
-    flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
+    map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future): Future
+    flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
     get_value(): object | null
     get_ready(): boolean
     get_exception(): GLib.Error | null
@@ -1272,11 +1272,11 @@ export class Future {
     vfunc_wait_until(end_time: number): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_wait_async(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_wait_finish(_res_: Gio.AsyncResult): object | null
-    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc): Future
-    vfunc_light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    vfunc_light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc): Future
-    vfunc_zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future): Future
-    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc): Future
+    vfunc_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    vfunc_light_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    vfunc_light_map_broken(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
+    vfunc_zip(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future): Future
+    vfunc_flat_map(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any): Future
     vfunc_get_value(): object | null
     vfunc_get_ready(): boolean
     vfunc_get_exception(): GLib.Error | null
@@ -8002,7 +8002,7 @@ export class HashSetPrivate {
 }
 export class HazardPointer {
     /* Fields of Gee.HazardPointer */
-    _node: HazardPointerNode
+    _node: any
     /* Methods of Gee.HazardPointer */
     get(other_thread: boolean): object | null
     release(notify: GLib.DestroyNotify): void
@@ -8176,11 +8176,11 @@ export abstract class FutureIface {
     wait_until: (end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
     wait_async: (_callback_?: Gio.AsyncReadyCallback | null) => void
     wait_finish: (_res_: Gio.AsyncResult) => object | null
-    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureMapFunc) => Future
-    light_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
-    light_map_broken: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureLightMapFunc) => Future
-    zip: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: FutureZipFunc, second: Future) => Future
-    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: FutureFlatMapFunc) => Future
+    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
+    light_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
+    light_map_broken: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
+    zip: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future) => Future
+    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
     get_value: () => object | null
     get_ready: () => boolean
     get_exception: () => GLib.Error | null

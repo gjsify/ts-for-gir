@@ -4,8 +4,8 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Dbusmenu } from './Dbusmenu-0.4';
+import type { GObject } from './GObject-2.0';
 import type { Dee } from './Dee-1.0';
 import type { Gio } from './Gio-2.0';
 
@@ -96,7 +96,7 @@ export enum MusicPreviewTrackState {
     PAUSED,
 }
 export function ioReadStreamAsync(input: Gio.InputStream, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function ioReadStreamFinish(res: Gio.AsyncResult): [ /* data */ any, /* size */ number ]
+export function ioReadStreamFinish(res: Gio.AsyncResult): [ /* data */ any[], /* size */ number ]
 export function ioOpenFromDirs(filename: string, dirs: string[], callback?: Gio.AsyncReadyCallback | null): void
 export function ioOpenFromDirsFinish(res: Gio.AsyncResult): Gio.FileInputStream | null
 export function ioOpenFromDataDirs(filename: string, callback?: Gio.AsyncReadyCallback | null): void
@@ -3285,9 +3285,9 @@ export class MusicPlayer {
     on(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
-    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
-    emit(sigName: "activate_playlist", playlistId: GLib.ObjectPath): void
+    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
+    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
+    emit(sigName: "activate_playlist", playlistId: any): void
     on(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "activate_playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter

@@ -4,9 +4,9 @@
 
 import "node"
 import type { xlib } from './xlib-2.0';
+import type { Xkl } from './Xkl-1.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Xkl } from './Xkl-1.0';
 import type { Gtk } from './Gtk-3.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
@@ -445,7 +445,7 @@ export class Indicator {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -1699,7 +1699,7 @@ export class KeyboardDrawing {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

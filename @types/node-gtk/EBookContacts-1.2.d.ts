@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { EDataServer } from './EDataServer-1.2';
 import type { Soup } from './Soup-2.4';
 import type { GData } from './GData-0.0';
@@ -364,7 +364,7 @@ export function phoneNumberGetDefaultRegion(): string
 export function phoneNumberIsSupported(): boolean
 export interface Contact_ConstructProps extends VCard_ConstructProps {
     rev?: string
-    address?: ContactAttrList
+    address?: any
     addressHome?: ContactAddress
     addressLabelHome?: string
     addressLabelOther?: string
@@ -386,7 +386,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     categories?: string
     categoryList?: object
     companyPhone?: string
-    email?: ContactAttrList
+    email?: any
     email1?: string
     email2?: string
     email3?: string
@@ -403,64 +403,64 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     homepageUrl?: string
     icscalendar?: string
     id?: string
-    imAim?: ContactAttrList
+    imAim?: any
     imAimHome1?: string
     imAimHome2?: string
     imAimHome3?: string
     imAimWork1?: string
     imAimWork2?: string
     imAimWork3?: string
-    imGadugadu?: ContactAttrList
+    imGadugadu?: any
     imGadugaduHome1?: string
     imGadugaduHome2?: string
     imGadugaduHome3?: string
     imGadugaduWork1?: string
     imGadugaduWork2?: string
     imGadugaduWork3?: string
-    imGoogleTalk?: ContactAttrList
+    imGoogleTalk?: any
     imGoogleTalkHome1?: string
     imGoogleTalkHome2?: string
     imGoogleTalkHome3?: string
     imGoogleTalkWork1?: string
     imGoogleTalkWork2?: string
     imGoogleTalkWork3?: string
-    imGroupwise?: ContactAttrList
+    imGroupwise?: any
     imGroupwiseHome1?: string
     imGroupwiseHome2?: string
     imGroupwiseHome3?: string
     imGroupwiseWork1?: string
     imGroupwiseWork2?: string
     imGroupwiseWork3?: string
-    imIcq?: ContactAttrList
+    imIcq?: any
     imIcqHome1?: string
     imIcqHome2?: string
     imIcqHome3?: string
     imIcqWork1?: string
     imIcqWork2?: string
     imIcqWork3?: string
-    imJabber?: ContactAttrList
+    imJabber?: any
     imJabberHome1?: string
     imJabberHome2?: string
     imJabberHome3?: string
     imJabberWork1?: string
     imJabberWork2?: string
     imJabberWork3?: string
-    imMsn?: ContactAttrList
+    imMsn?: any
     imMsnHome1?: string
     imMsnHome2?: string
     imMsnHome3?: string
     imMsnWork1?: string
     imMsnWork2?: string
     imMsnWork3?: string
-    imSkype?: ContactAttrList
+    imSkype?: any
     imSkypeHome1?: string
     imSkypeHome2?: string
     imSkypeHome3?: string
     imSkypeWork1?: string
     imSkypeWork2?: string
     imSkypeWork3?: string
-    imTwitter?: ContactAttrList
-    imYahoo?: ContactAttrList
+    imTwitter?: any
+    imYahoo?: any
     imYahooHome1?: string
     imYahooHome2?: string
     imYahooHome3?: string
@@ -484,12 +484,12 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     otherPhone?: string
     pager?: string
     pgpCert?: ContactCert
-    phone?: ContactAttrList
+    phone?: any
     photo?: ContactPhoto
     primaryPhone?: string
     radio?: string
     role?: string
-    sip?: ContactAttrList
+    sip?: any
     spouse?: string
     telex?: string
     title?: string
@@ -501,7 +501,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
 export class Contact {
     /* Properties of EBookContacts.Contact */
     rev: string
-    address: ContactAttrList
+    address: any
     addressHome: ContactAddress
     addressLabelHome: string
     addressLabelOther: string
@@ -523,7 +523,7 @@ export class Contact {
     categories: string
     categoryList: object
     companyPhone: string
-    email: ContactAttrList
+    email: any
     email1: string
     email2: string
     email3: string
@@ -540,64 +540,64 @@ export class Contact {
     homepageUrl: string
     icscalendar: string
     id: string
-    imAim: ContactAttrList
+    imAim: any
     imAimHome1: string
     imAimHome2: string
     imAimHome3: string
     imAimWork1: string
     imAimWork2: string
     imAimWork3: string
-    imGadugadu: ContactAttrList
+    imGadugadu: any
     imGadugaduHome1: string
     imGadugaduHome2: string
     imGadugaduHome3: string
     imGadugaduWork1: string
     imGadugaduWork2: string
     imGadugaduWork3: string
-    imGoogleTalk: ContactAttrList
+    imGoogleTalk: any
     imGoogleTalkHome1: string
     imGoogleTalkHome2: string
     imGoogleTalkHome3: string
     imGoogleTalkWork1: string
     imGoogleTalkWork2: string
     imGoogleTalkWork3: string
-    imGroupwise: ContactAttrList
+    imGroupwise: any
     imGroupwiseHome1: string
     imGroupwiseHome2: string
     imGroupwiseHome3: string
     imGroupwiseWork1: string
     imGroupwiseWork2: string
     imGroupwiseWork3: string
-    imIcq: ContactAttrList
+    imIcq: any
     imIcqHome1: string
     imIcqHome2: string
     imIcqHome3: string
     imIcqWork1: string
     imIcqWork2: string
     imIcqWork3: string
-    imJabber: ContactAttrList
+    imJabber: any
     imJabberHome1: string
     imJabberHome2: string
     imJabberHome3: string
     imJabberWork1: string
     imJabberWork2: string
     imJabberWork3: string
-    imMsn: ContactAttrList
+    imMsn: any
     imMsnHome1: string
     imMsnHome2: string
     imMsnHome3: string
     imMsnWork1: string
     imMsnWork2: string
     imMsnWork3: string
-    imSkype: ContactAttrList
+    imSkype: any
     imSkypeHome1: string
     imSkypeHome2: string
     imSkypeHome3: string
     imSkypeWork1: string
     imSkypeWork2: string
     imSkypeWork3: string
-    imTwitter: ContactAttrList
-    imYahoo: ContactAttrList
+    imTwitter: any
+    imYahoo: any
     imYahooHome1: string
     imYahooHome2: string
     imYahooHome3: string
@@ -622,12 +622,12 @@ export class Contact {
     otherPhone: string
     pager: string
     pgpCert: ContactCert
-    phone: ContactAttrList
+    phone: any
     photo: ContactPhoto
     primaryPhone: string
     radio: string
     role: string
-    sip: ContactAttrList
+    sip: any
     spouse: string
     telex: string
     title: string
@@ -1686,10 +1686,10 @@ export class ContactPhoto {
     /* Methods of EBookContacts.ContactPhoto */
     copy(): ContactPhoto
     free(): void
-    getInlined(): any | null
+    getInlined(): any[] | null
     getMimeType(): string | null
     getUri(): string | null
-    setInlined(data: any): void
+    setInlined(data: any[]): void
     setMimeType(mimeType: string): void
     setUri(uri: string): void
     static name: string

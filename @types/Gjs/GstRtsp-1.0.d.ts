@@ -417,7 +417,7 @@ export class RTSPMessage {
     copy(): [ /* returnType */ RTSPResult, /* copy */ RTSPMessage ]
     dump(): RTSPResult
     free(): RTSPResult
-    get_body(): [ /* returnType */ RTSPResult, /* data */ Uint8Array ]
+    get_body(): [ /* returnType */ RTSPResult, /* data */ Uint8Array[] ]
     get_body_buffer(): [ /* returnType */ RTSPResult, /* buffer */ Gst.Buffer ]
     get_header(field: RTSPHeaderField, indx: number): [ /* returnType */ RTSPResult, /* value */ string ]
     get_header_by_name(header: string, index: number): [ /* returnType */ RTSPResult, /* value */ string ]
@@ -433,11 +433,11 @@ export class RTSPMessage {
     parse_response(): [ /* returnType */ RTSPResult, /* code */ RTSPStatusCode | null, /* reason */ string | null, /* version */ RTSPVersion | null ]
     remove_header(field: RTSPHeaderField, indx: number): RTSPResult
     remove_header_by_name(header: string, index: number): RTSPResult
-    set_body(data: Uint8Array): RTSPResult
+    set_body(data: Uint8Array[]): RTSPResult
     set_body_buffer(buffer: Gst.Buffer): RTSPResult
-    steal_body(): [ /* returnType */ RTSPResult, /* data */ Uint8Array ]
+    steal_body(): [ /* returnType */ RTSPResult, /* data */ Uint8Array[] ]
     steal_body_buffer(): [ /* returnType */ RTSPResult, /* buffer */ Gst.Buffer ]
-    take_body(data: Uint8Array): RTSPResult
+    take_body(data: Uint8Array[]): RTSPResult
     take_body_buffer(buffer: Gst.Buffer): RTSPResult
     take_header(field: RTSPHeaderField, value: string): RTSPResult
     take_header_by_name(header: string, value: string): RTSPResult
@@ -541,7 +541,7 @@ export class RTSPWatch {
     unref(): void
     wait_backlog(timeout: GLib.TimeVal): RTSPResult
     wait_backlog_usec(timeout: number): RTSPResult
-    write_data(data: Uint8Array): [ /* returnType */ RTSPResult, /* id */ number | null ]
+    write_data(data: Uint8Array[]): [ /* returnType */ RTSPResult, /* id */ number | null ]
     static name: string
 }
 export class RTSPWatchFuncs {

@@ -1032,7 +1032,7 @@ export function uri_protocol_is_valid(protocol: string): boolean
 export function util_array_binary_search(array: object | null, num_elements: number, element_size: number, search_func: GLib.CompareDataFunc, mode: SearchMode, search_data?: object | null): object | null
 export function util_double_to_fraction(src: number): [ /* dest_n */ number, /* dest_d */ number ]
 export function util_dump_buffer(buf: Buffer): void
-export function util_dump_mem(mem: Uint8Array): void
+export function util_dump_mem(mem: Uint8Array[]): void
 export function util_fraction_add(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ number, /* res_d */ number ]
 export function util_fraction_compare(a_n: number, a_d: number, b_n: number, b_d: number): number
 export function util_fraction_multiply(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ number, /* res_d */ number ]
@@ -1074,8 +1074,8 @@ export function value_get_flagset_flags(value: any): number
 export function value_get_flagset_mask(value: any): number
 export function value_get_fraction_denominator(value: any): number
 export function value_get_fraction_numerator(value: any): number
-export function value_get_fraction_range_max(value: any): any
-export function value_get_fraction_range_min(value: any): any
+export function value_get_fraction_range_max(value: any): any | null
+export function value_get_fraction_range_min(value: any): any | null
 export function value_get_int64_range_max(value: any): number
 export function value_get_int64_range_min(value: any): number
 export function value_get_int64_range_step(value: any): number
@@ -1084,7 +1084,7 @@ export function value_get_int_range_min(value: any): number
 export function value_get_int_range_step(value: any): number
 export function value_get_structure(value: any): Structure
 export function value_init_and_copy(src: any): /* dest */ any
-export function value_intersect(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any ]
+export function value_intersect(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any | null ]
 export function value_is_fixed(value: any): boolean
 export function value_is_subset(value1: any, value2: any): boolean
 export function value_register(table: ValueTable): void
@@ -1102,7 +1102,7 @@ export function value_set_int64_range_step(value: any, start: number, end: numbe
 export function value_set_int_range(value: any, start: number, end: number): void
 export function value_set_int_range_step(value: any, start: number, end: number, step: number): void
 export function value_set_structure(value: any, structure: Structure): void
-export function value_subtract(minuend: any, subtrahend: any): [ /* returnType */ boolean, /* dest */ any ]
+export function value_subtract(minuend: any, subtrahend: any): [ /* returnType */ boolean, /* dest */ any | null ]
 export function value_union(value1: any, value2: any): [ /* returnType */ boolean, /* dest */ any ]
 export function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
 export function version_string(): string
@@ -1471,11 +1471,11 @@ export class TagSetter {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -1678,11 +1678,11 @@ export class TocSetter {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -1788,15 +1788,6 @@ export class URIHandler {
     vfunc_set_uri(uri: string): boolean
     static name: string
 }
-
-export interface Allocator_ConstructProps {}
-export interface BufferPool_ConstructProps {}
-export interface Element_ConstructProps {}
-export interface ControlSource_ConstructProps {}
-export interface Clock_ConstructProps {}
-export interface Pad_ConstructProps {}
-export interface ControlBinding_ConstructProps {}
-export interface Object_ConstructProps {}
 export interface Allocator_ConstructProps extends Object_ConstructProps {
 }
 export class Allocator {
@@ -1827,11 +1818,11 @@ export class Allocator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2044,11 +2035,11 @@ export class Bin {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2227,11 +2218,11 @@ export class BufferPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2363,11 +2354,11 @@ export class Bus {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2496,11 +2487,11 @@ export class Clock {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2612,8 +2603,8 @@ export class ControlBinding {
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gst.ControlBinding */
-    get_g_value_array(timestamp: ClockTime, interval: ClockTime, values: any): boolean
-    get_value(timestamp: ClockTime): any
+    get_g_value_array(timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
+    get_value(timestamp: ClockTime): any | null
     is_disabled(): boolean
     set_disabled(disabled: boolean): void
     sync_values(object: Object, timestamp: ClockTime, last_sync: ClockTime): boolean
@@ -2622,11 +2613,11 @@ export class ControlBinding {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2664,8 +2655,8 @@ export class ControlBinding {
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gst.ControlBinding */
-    vfunc_get_g_value_array(timestamp: ClockTime, interval: ClockTime, values: any): boolean
-    vfunc_get_value(timestamp: ClockTime): any
+    vfunc_get_g_value_array(timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
+    vfunc_get_value(timestamp: ClockTime): any | null
     vfunc_sync_values(object: Object, timestamp: ClockTime, last_sync: ClockTime): boolean
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Object, pspec: GObject.ParamSpec): void
@@ -2721,7 +2712,7 @@ export class ControlSource {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
@@ -2822,11 +2813,11 @@ export class Device {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -2931,11 +2922,11 @@ export class DeviceMonitor {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3041,11 +3032,11 @@ export class DeviceProvider {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3161,11 +3152,11 @@ export class DeviceProviderFactory {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3264,11 +3255,11 @@ export class DynamicTypeFactory {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3442,11 +3433,11 @@ export class Element {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3595,11 +3586,11 @@ export class ElementFactory {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3797,11 +3788,11 @@ export class GhostPad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -3919,11 +3910,11 @@ export class Object {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4104,11 +4095,11 @@ export class Pad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4229,11 +4220,11 @@ export class PadTemplate {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4520,11 +4511,11 @@ export class Pipeline {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4710,11 +4701,11 @@ export class Plugin {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4812,11 +4803,11 @@ export class PluginFeature {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -4999,11 +4990,11 @@ export class ProxyPad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5127,11 +5118,11 @@ export class Registry {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5237,11 +5228,11 @@ export class SharedTaskPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5356,11 +5347,11 @@ export class Stream {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5463,11 +5454,11 @@ export class StreamCollection {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5596,11 +5587,11 @@ export class SystemClock {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5727,11 +5718,11 @@ export class Task {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5825,11 +5816,11 @@ export class TaskPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -5925,11 +5916,11 @@ export class Tracer {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -6027,11 +6018,11 @@ export class TracerFactory {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -6118,11 +6109,11 @@ export class TracerRecord {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -6219,11 +6210,11 @@ export class TypeFindFactory {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): ControlBinding | null
     get_control_rate(): ClockTime
-    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: ClockTime, interval: ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: ClockTime): any
+    get_value(property_name: string, timestamp: ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Object): boolean
     has_as_ancestor(ancestor: Object): boolean
@@ -6388,9 +6379,9 @@ export class Buffer {
     copy_deep(): Buffer
     copy_into(src: Buffer, flags: BufferCopyFlags, offset: number, size: number): boolean
     copy_region(flags: BufferCopyFlags, offset: number, size: number): Buffer
-    extract(offset: number): [ /* returnType */ number, /* dest */ Uint8Array ]
-    extract_dup(offset: number, size: number): /* dest */ Uint8Array
-    fill(offset: number, src: Uint8Array): number
+    extract(offset: number): [ /* returnType */ number, /* dest */ Uint8Array[] ]
+    extract_dup(offset: number, size: number): /* dest */ Uint8Array[]
+    fill(offset: number, src: Uint8Array[]): number
     find_memory(offset: number, size: number): [ /* returnType */ boolean, /* idx */ number, /* length */ number, /* skip */ number ]
     foreach_meta(func: BufferForeachMetaFunc): boolean
     get_all_memory(): Memory | null
@@ -6410,7 +6401,7 @@ export class Buffer {
     is_memory_range_writable(idx: number, length: number): boolean
     map(flags: MapFlags): [ /* returnType */ boolean, /* info */ MapInfo ]
     map_range(idx: number, length: number, flags: MapFlags): [ /* returnType */ boolean, /* info */ MapInfo ]
-    memcmp(offset: number, mem: Uint8Array): number
+    memcmp(offset: number, mem: Uint8Array[]): number
     memset(offset: number, val: number, size: number): number
     n_memory(): number
     peek_memory(idx: number): Memory | null
@@ -6434,9 +6425,9 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(): Buffer
     static new_allocate(allocator: Allocator | null, size: number, params?: AllocationParams | null): Buffer
-    static new_wrapped(data: Uint8Array): Buffer
+    static new_wrapped(data: Uint8Array[]): Buffer
     static new_wrapped_bytes(bytes: GLib.Bytes): Buffer
-    static new_wrapped_full(flags: MemoryFlags, data: Uint8Array, maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
+    static new_wrapped_full(flags: MemoryFlags, data: Uint8Array[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
     static get_max_memory(): number
 }
 export class BufferList {
@@ -6622,8 +6613,8 @@ export abstract class ControlBindingClass {
     /* Fields of Gst.ControlBindingClass */
     parent_class: ObjectClass
     sync_values: (binding: ControlBinding, object: Object, timestamp: ClockTime, last_sync: ClockTime) => boolean
-    get_value: (binding: ControlBinding, timestamp: ClockTime) => any
-    get_g_value_array: (binding: ControlBinding, timestamp: ClockTime, interval: ClockTime, values: any) => boolean
+    get_value: (binding: ControlBinding, timestamp: ClockTime) => any | null
+    get_g_value_array: (binding: ControlBinding, timestamp: ClockTime, interval: ClockTime, values: any[]) => boolean
     static name: string
 }
 export class ControlBindingPrivate {
@@ -6895,7 +6886,7 @@ export class MapInfo {
     /* Fields of Gst.MapInfo */
     memory: Memory
     flags: MapFlags
-    data: Uint8Array
+    data: Uint8Array[]
     size: number
     maxsize: number
     user_data: object[]
@@ -6922,7 +6913,7 @@ export class Memory {
     unmap(info: MapInfo): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static new_wrapped(flags: MemoryFlags, data: Uint8Array, maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Memory
+    static new_wrapped(flags: MemoryFlags, data: Uint8Array[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Memory
 }
 export class Message {
     /* Fields of Gst.Message */
@@ -6935,7 +6926,7 @@ export class Message {
     add_redirect_entry(location: string, tag_list?: TagList | null, entry_struct?: Structure | null): void
     get_num_redirect_entries(): number
     get_seqnum(): number
-    get_stream_status_object(): any
+    get_stream_status_object(): any | null
     get_structure(): Structure | null
     has_name(name: string): boolean
     parse_async_done(): /* running_time */ ClockTime | null
@@ -6956,7 +6947,7 @@ export class Message {
     parse_instant_rate_request(): /* rate_multiplier */ number | null
     parse_new_clock(): /* clock */ Clock | null
     parse_progress(): [ /* type */ ProgressType | null, /* code */ string | null, /* text */ string | null ]
-    parse_property_notify(): [ /* object */ Object | null, /* property_name */ string | null, /* property_value */ any ]
+    parse_property_notify(): [ /* object */ Object | null, /* property_name */ string | null, /* property_value */ any | null ]
     parse_qos(): [ /* live */ boolean | null, /* running_time */ number | null, /* stream_time */ number | null, /* timestamp */ number | null, /* duration */ number | null ]
     parse_qos_stats(): [ /* format */ Format | null, /* processed */ number | null, /* dropped */ number | null ]
     parse_qos_values(): [ /* jitter */ number | null, /* proportion */ number | null, /* quality */ number | null ]
@@ -7011,7 +7002,7 @@ export class Message {
     static new_need_context(src: Object | null, context_type: string): Message
     static new_new_clock(src: Object | null, clock: Clock): Message
     static new_progress(src: Object, type: ProgressType, code: string, text: string): Message
-    static new_property_notify(src: Object, property_name: string, val?: any): Message
+    static new_property_notify(src: Object, property_name: string, val?: any | null): Message
     static new_qos(src: Object, live: boolean, running_time: number, stream_time: number, timestamp: number, duration: number): Message
     static new_redirect(src: Object, location: string, tag_list?: TagList | null, entry_struct?: Structure | null): Message
     static new_request_state(src: Object | null, state: State): Message
@@ -7510,11 +7501,11 @@ export class Structure {
     get_string(fieldname: string): string | null
     get_uint(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
     get_uint64(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
-    get_value(fieldname: string): any
+    get_value(fieldname: string): any | null
     has_field(fieldname: string): boolean
     has_field_typed(fieldname: string, type: GObject.Type): boolean
     has_name(name: string): boolean
-    id_get_value(field: GLib.Quark): any
+    id_get_value(field: GLib.Quark): any | null
     id_has_field(field: GLib.Quark): boolean
     id_has_field_typed(field: GLib.Quark, type: GObject.Type): boolean
     id_set_value(field: GLib.Quark, value: any): void
@@ -7584,7 +7575,7 @@ export class TagList {
     get_uint64(tag: string): [ /* returnType */ boolean, /* value */ number ]
     get_uint64_index(tag: string, index: number): [ /* returnType */ boolean, /* value */ number ]
     get_uint_index(tag: string, index: number): [ /* returnType */ boolean, /* value */ number ]
-    get_value_index(tag: string, index: number): any
+    get_value_index(tag: string, index: number): any | null
     insert(from: TagList, mode: TagMergeMode): void
     is_empty(): boolean
     is_equal(list2: TagList): boolean

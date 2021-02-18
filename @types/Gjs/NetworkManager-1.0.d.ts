@@ -892,7 +892,7 @@ export function utils_file_search_in_paths(progname: string, try_first: string |
 export function utils_gvalue_hash_dup(hash: GLib.HashTable): GLib.HashTable
 export function utils_hex2byte(hex: string): number
 export function utils_hexstr2bin(hex: string, len: number): string
-export function utils_hwaddr_atoba(asc: string, type: number): Uint8Array
+export function utils_hwaddr_atoba(asc: string, type: number): Uint8Array[]
 export function utils_hwaddr_aton(asc: string, type: number, buffer?: object | null): number
 export function utils_hwaddr_aton_len(asc: string, buffer: object | null, length: number): number
 export function utils_hwaddr_len(type: number): number
@@ -915,11 +915,11 @@ export function utils_ip6_routes_from_gvalue(value: any): IP6Route[]
 export function utils_ip6_routes_to_gvalue(list: IP6Route[], value: any): void
 export function utils_is_empty_ssid(ssid: number, len: number): boolean
 export function utils_is_uuid(str: string): boolean
-export function utils_rsa_key_encrypt(data: Uint8Array, in_password?: string | null): [ /* returnType */ Uint8Array, /* out_password */ string | null ]
-export function utils_rsa_key_encrypt_aes(data: Uint8Array, in_password?: string | null): [ /* returnType */ Uint8Array, /* out_password */ string | null ]
-export function utils_same_ssid(ssid1: Uint8Array, ssid2: Uint8Array, ignore_trailing_null: boolean): boolean
+export function utils_rsa_key_encrypt(data: Uint8Array[], in_password?: string | null): [ /* returnType */ Uint8Array[], /* out_password */ string | null ]
+export function utils_rsa_key_encrypt_aes(data: Uint8Array[], in_password?: string | null): [ /* returnType */ Uint8Array[], /* out_password */ string | null ]
+export function utils_same_ssid(ssid1: Uint8Array[], ssid2: Uint8Array[], ignore_trailing_null: boolean): boolean
 export function utils_security_valid(type: UtilsSecurityType, wifi_caps: DeviceWifiCapabilities, have_ap: boolean, adhoc: boolean, ap_flags: TODO_80211ApFlags, ap_wpa: TODO_80211ApSecurityFlags, ap_rsn: TODO_80211ApSecurityFlags): boolean
-export function utils_ssid_to_utf8(ssid: Uint8Array): string
+export function utils_ssid_to_utf8(ssid: Uint8Array[]): string
 export function utils_uuid_generate(): string
 export function utils_uuid_generate_from_string(s: string): string
 export function utils_wep_key_valid(key: string, wep_type: WepKeyType): boolean
@@ -1210,11 +1210,11 @@ export class Setting8021x {
     clear_phase2_altsubject_matches(): void
     get_altsubject_match(i: number): string
     get_anonymous_identity(): string
-    get_ca_cert_blob(): Uint8Array
+    get_ca_cert_blob(): Uint8Array[]
     get_ca_cert_path(): string
     get_ca_cert_scheme(): Setting8021xCKScheme
     get_ca_path(): string
-    get_client_cert_blob(): Uint8Array
+    get_client_cert_blob(): Uint8Array[]
     get_client_cert_path(): string
     get_client_cert_scheme(): Setting8021xCKScheme
     get_eap_method(i: number): string
@@ -1225,7 +1225,7 @@ export class Setting8021x {
     get_pac_file(): string
     get_password(): string
     get_password_flags(): SettingSecretFlags
-    get_password_raw(): Uint8Array
+    get_password_raw(): Uint8Array[]
     get_password_raw_flags(): SettingSecretFlags
     get_phase1_fast_provisioning(): string
     get_phase1_peaplabel(): string
@@ -1233,14 +1233,14 @@ export class Setting8021x {
     get_phase2_altsubject_match(i: number): string
     get_phase2_auth(): string
     get_phase2_autheap(): string
-    get_phase2_ca_cert_blob(): Uint8Array
+    get_phase2_ca_cert_blob(): Uint8Array[]
     get_phase2_ca_cert_path(): string
     get_phase2_ca_cert_scheme(): Setting8021xCKScheme
     get_phase2_ca_path(): string
-    get_phase2_client_cert_blob(): Uint8Array
+    get_phase2_client_cert_blob(): Uint8Array[]
     get_phase2_client_cert_path(): string
     get_phase2_client_cert_scheme(): Setting8021xCKScheme
-    get_phase2_private_key_blob(): Uint8Array
+    get_phase2_private_key_blob(): Uint8Array[]
     get_phase2_private_key_format(): Setting8021xCKFormat
     get_phase2_private_key_password(): string
     get_phase2_private_key_password_flags(): SettingSecretFlags
@@ -1249,7 +1249,7 @@ export class Setting8021x {
     get_phase2_subject_match(): string
     get_pin(): string
     get_pin_flags(): SettingSecretFlags
-    get_private_key_blob(): Uint8Array
+    get_private_key_blob(): Uint8Array[]
     get_private_key_format(): Setting8021xCKFormat
     get_private_key_password(): string
     get_private_key_password_flags(): SettingSecretFlags
@@ -1512,7 +1512,7 @@ export class SettingBluetooth {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingBluetooth */
-    get_bdaddr(): Uint8Array
+    get_bdaddr(): Uint8Array[]
     get_connection_type(): string
     /* Methods of NetworkManager.Setting */
     clear_secrets(): void
@@ -1709,7 +1709,7 @@ export class SettingBridge {
     get_forward_delay(): number
     get_hello_time(): number
     get_interface_name(): string
-    get_mac_address(): Uint8Array
+    get_mac_address(): Uint8Array[]
     get_max_age(): number
     get_priority(): number
     get_stp(): boolean
@@ -2812,7 +2812,7 @@ export class SettingInfiniband {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingInfiniband */
-    get_mac_address(): Uint8Array
+    get_mac_address(): Uint8Array[]
     get_mtu(): number
     get_p_key(): number
     get_parent(): string
@@ -2909,8 +2909,8 @@ export class SettingOlpcMesh {
     g_type_instance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingOlpcMesh */
     get_channel(): number
-    get_dhcp_anycast_address(): Uint8Array
-    get_ssid(): Uint8Array
+    get_dhcp_anycast_address(): Uint8Array[]
+    get_ssid(): Uint8Array[]
     /* Methods of NetworkManager.Setting */
     clear_secrets(): void
     clear_secrets_with_flags(func: SettingClearSecretsWithFlagsFn): void
@@ -3764,7 +3764,7 @@ export class SettingWimax {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NetworkManager.SettingWimax */
-    get_mac_address(): Uint8Array
+    get_mac_address(): Uint8Array[]
     get_network_name(): string
     /* Methods of NetworkManager.Setting */
     clear_secrets(): void
@@ -3865,10 +3865,10 @@ export class SettingWired {
     add_s390_option(key: string, value: string): boolean
     clear_mac_blacklist_items(): void
     get_auto_negotiate(): boolean
-    get_cloned_mac_address(): Uint8Array
+    get_cloned_mac_address(): Uint8Array[]
     get_duplex(): string
-    get_mac_address(): Uint8Array
-    get_mac_address_blacklist(): any
+    get_mac_address(): Uint8Array[]
+    get_mac_address_blacklist(): any[]
     get_mac_blacklist_item(idx: number): string
     get_mtu(): number
     get_num_mac_blacklist_items(): number
@@ -3999,12 +3999,12 @@ export class SettingWireless {
     ap_security_compatible(s_wireless_sec: SettingWirelessSecurity, ap_flags: TODO_80211ApFlags, ap_wpa: TODO_80211ApSecurityFlags, ap_rsn: TODO_80211ApSecurityFlags, ap_mode: TODO_80211Mode): boolean
     clear_mac_blacklist_items(): void
     get_band(): string
-    get_bssid(): Uint8Array
+    get_bssid(): Uint8Array[]
     get_channel(): number
-    get_cloned_mac_address(): Uint8Array
+    get_cloned_mac_address(): Uint8Array[]
     get_hidden(): boolean
-    get_mac_address(): Uint8Array
-    get_mac_address_blacklist(): any
+    get_mac_address(): Uint8Array[]
+    get_mac_address_blacklist(): any[]
     get_mac_blacklist_item(idx: number): string
     get_mode(): string
     get_mtu(): number
@@ -4014,7 +4014,7 @@ export class SettingWireless {
     get_rate(): number
     get_security(): string
     get_seen_bssid(i: number): string
-    get_ssid(): Uint8Array
+    get_ssid(): Uint8Array[]
     get_tx_power(): number
     remove_mac_blacklist_item(idx: number): void
     remove_mac_blacklist_item_by_value(mac: string): boolean
@@ -4321,8 +4321,8 @@ export class IP6Address {
     /* Methods of NetworkManager.IP6Address */
     compare(other: IP6Address): boolean
     dup(): IP6Address
-    get_address(): Uint8Array
-    get_gateway(): Uint8Array
+    get_address(): Uint8Array[]
+    get_gateway(): Uint8Array[]
     get_prefix(): number
     ref(): void
     set_address(addr?: object | null): void
@@ -4339,9 +4339,9 @@ export class IP6Route {
     /* Methods of NetworkManager.IP6Route */
     compare(other: IP6Route): boolean
     dup(): IP6Route
-    get_dest(): Uint8Array
+    get_dest(): Uint8Array[]
     get_metric(): number
-    get_next_hop(): Uint8Array
+    get_next_hop(): Uint8Array[]
     get_prefix(): number
     ref(): void
     set_dest(dest?: object | null): void

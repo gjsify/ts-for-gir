@@ -109,7 +109,7 @@ export function sdpMediaSetMediaFromCaps(caps: Gst.Caps, media: SDPMedia): SDPRe
 export function sdpMessageAsUri(scheme: string, msg: SDPMessage): string
 export function sdpMessageNew(): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
 export function sdpMessageNewFromText(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
-export function sdpMessageParseBuffer(data: any, msg: SDPMessage): SDPResult
+export function sdpMessageParseBuffer(data: any[], msg: SDPMessage): SDPResult
 export function sdpMessageParseUri(uri: string, msg: SDPMessage): SDPResult
 export class MIKEYDecryptInfo {
     static name: string
@@ -137,10 +137,10 @@ export class MIKEYMessage {
     /* Methods of GstSdp.MIKEYMessage */
     addCsSrtp(policy: number, ssrc: number, roc: number): boolean
     addPayload(payload: MIKEYPayload): boolean
-    addPke(c: MIKEYCacheType, data: any): boolean
-    addRand(rand: any): boolean
+    addPke(c: MIKEYCacheType, data: any[]): boolean
+    addRand(rand: any[]): boolean
     addRandLen(len: number): boolean
-    addT(type: MIKEYTSType, tsValue: any): boolean
+    addT(type: MIKEYTSType, tsValue: any[]): boolean
     addTNowNtpUtc(): boolean
     base64Encode(): string
     findPayload(type: MIKEYPayloadType, nth: number): MIKEYPayload
@@ -164,7 +164,7 @@ export class MIKEYMessage {
     static new(): MIKEYMessage
     static newFromBytes(bytes: any, info: MIKEYDecryptInfo): MIKEYMessage
     static newFromCaps(caps: Gst.Caps): MIKEYMessage
-    static newFromData(data: any, info: MIKEYDecryptInfo): MIKEYMessage
+    static newFromData(data: any[], info: MIKEYDecryptInfo): MIKEYMessage
 }
 export class MIKEYPayload {
     /* Fields of GstSdp.MIKEYPayload */
@@ -176,18 +176,18 @@ export class MIKEYPayload {
     kemacGetSub(idx: number): MIKEYPayload
     kemacRemoveSub(idx: number): boolean
     kemacSet(encAlg: MIKEYEncAlg, macAlg: MIKEYMacAlg): boolean
-    keyDataSetInterval(vfLen: number, vtData: any): boolean
-    keyDataSetKey(keyType: MIKEYKeyDataType, keyData: any): boolean
-    keyDataSetSalt(saltData?: any | null): boolean
-    keyDataSetSpi(spiData: any): boolean
-    pkeSet(c: MIKEYCacheType, data: any): boolean
-    randSet(rand: any): boolean
-    spAddParam(type: number, val: any): boolean
+    keyDataSetInterval(vfLen: number, vtData: any[]): boolean
+    keyDataSetKey(keyType: MIKEYKeyDataType, keyData: any[]): boolean
+    keyDataSetSalt(saltData?: any[] | null): boolean
+    keyDataSetSpi(spiData: any[]): boolean
+    pkeSet(c: MIKEYCacheType, data: any[]): boolean
+    randSet(rand: any[]): boolean
+    spAddParam(type: number, val: any[]): boolean
     spGetNParams(): number
     spGetParam(idx: number): MIKEYPayloadSPParam
     spRemoveParam(idx: number): boolean
     spSet(policy: number, proto: MIKEYSecProto): boolean
-    tSet(type: MIKEYTSType, tsValue: any): boolean
+    tSet(type: MIKEYTSType, tsValue: any[]): boolean
     static name: string
     static new(type: MIKEYPayloadType): MIKEYPayload
     constructor(type: MIKEYPayloadType)
@@ -211,8 +211,8 @@ export class MIKEYPayloadKeyData {
     saltLen: number
     saltData: number
     kvType: MIKEYKVType
-    kvLen: any
-    kvData: any
+    kvLen: any[]
+    kvData: any[]
     static name: string
 }
 export class MIKEYPayloadPKE {
@@ -434,7 +434,7 @@ export class SDPMessage {
     /* Static methods and pseudo-constructors */
     static asUri(scheme: string, msg: SDPMessage): string
     static newFromText(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
-    static parseBuffer(data: any, msg: SDPMessage): SDPResult
+    static parseBuffer(data: any[], msg: SDPMessage): SDPResult
     static parseUri(uri: string, msg: SDPMessage): SDPResult
 }
 export class SDPOrigin {

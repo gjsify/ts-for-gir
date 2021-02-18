@@ -194,12 +194,12 @@ export class FullPersona {
     /* Methods of FolksDummy.Persona */
     update_writeable_properties(writeable_properties: string[]): void
     update_linkable_properties(linkable_properties: string[]): void
-    change_property(property_name: string, callback: PersonaChangePropertyCallback, _callback_?: Gio.AsyncReadyCallback | null): void
+    change_property(property_name: string, callback: any, _callback_?: Gio.AsyncReadyCallback | null): void
     change_property_finish(_res_: Gio.AsyncResult): void
     get_property_change_delay(): number
     set_property_change_delay(value: number): void
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -414,7 +414,7 @@ export class FullPersona {
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */
@@ -522,9 +522,9 @@ export class PersonaStore {
     reach_quiescence(): void
     update_is_user_set_default(is_user_set_default: boolean): void
     update_trust_level(trust_level: Folks.PersonaStoreTrust): void
-    set_add_persona_from_details_mock(mock?: PersonaStoreAddPersonaFromDetailsMock | null): void
-    set_remove_persona_mock(mock?: PersonaStoreRemovePersonaMock | null): void
-    set_prepare_mock(mock?: PersonaStorePrepareMock | null): void
+    set_add_persona_from_details_mock(mock?: any | null): void
+    set_remove_persona_mock(mock?: any | null): void
+    set_prepare_mock(mock?: any | null): void
     get_persona_type(): GObject.Type
     set_persona_type(value: GObject.Type): void
     /* Methods of Folks.PersonaStore */
@@ -667,12 +667,12 @@ export class Persona {
     /* Methods of FolksDummy.Persona */
     update_writeable_properties(writeable_properties: string[]): void
     update_linkable_properties(linkable_properties: string[]): void
-    change_property(property_name: string, callback: PersonaChangePropertyCallback, _callback_?: Gio.AsyncReadyCallback | null): void
+    change_property(property_name: string, callback: any, _callback_?: Gio.AsyncReadyCallback | null): void
     change_property_finish(_res_: Gio.AsyncResult): void
     get_property_change_delay(): number
     set_property_change_delay(value: number): void
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -704,7 +704,7 @@ export class Persona {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */

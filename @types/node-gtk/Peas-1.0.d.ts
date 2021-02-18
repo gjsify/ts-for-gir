@@ -50,7 +50,7 @@ export class Engine {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Peas.Engine */
     addSearchPath(moduleDir: string, dataDir?: string | null): void
-    createExtension(info: PluginInfo, extensionType: GObject.Type, propNames: string[], propValues: any): Extension
+    createExtension(info: PluginInfo, extensionType: GObject.Type, propNames: string[], propValues: any[]): Extension
     enableLoader(loaderName: string): void
     garbageCollect(): void
     getLoadedPlugins(): string[]
@@ -288,7 +288,7 @@ export class ExtensionSet {
     constructor (config?: ExtensionSet_ConstructProps)
     _init (config?: ExtensionSet_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(engine: Engine | null, extenType: GObject.Type, propNames: string[], propValues: any): ExtensionSet
+    static new(engine: Engine | null, extenType: GObject.Type, propNames: string[], propValues: any[]): ExtensionSet
     static $gtype: GObject.Type
 }
 export interface ObjectModule_ConstructProps extends GObject.TypeModule_ConstructProps {

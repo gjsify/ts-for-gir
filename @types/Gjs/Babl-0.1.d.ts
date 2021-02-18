@@ -65,7 +65,7 @@ export function model_with_space(name: string, space: Object): Object
 export function new_palette(name: string, format_u8: Object, format_u8_with_alpha: Object): Object
 export function new_palette_with_space(name: string, space: Object, format_u8: Object, format_u8_with_alpha: Object): Object
 export function palette_reset(babl: Object): void
-export function palette_set_palette(babl: Object, format: Object, data: Uint8Array, count: number): void
+export function palette_set_palette(babl: Object, format: Object, data: Uint8Array[], count: number): void
 export function process(babl_fish: Object, source: object | null, destination: object | null, n: number): number
 export function process_rows(babl_fish: Object, source: object | null, source_stride: number, dest: object | null, dest_stride: number, n: number, rows: number): number
 export function sampling(horizontal: number, vertical: number): Object

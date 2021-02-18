@@ -5,9 +5,9 @@
 import "node"
 import type { RygelCore } from './RygelCore-2.6';
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { GUPnP } from './GUPnP-1.2';
 import type { libxml2 } from './libxml2-2.0';
 import type { Soup } from './Soup-2.4';
@@ -1436,9 +1436,9 @@ export class DataSource {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of RygelServer.DataSource */
-    connect(sigName: "data-available", callback: (($obj: DataSource, data: any) => void)): number
-    connect_after(sigName: "data-available", callback: (($obj: DataSource, data: any) => void)): number
-    emit(sigName: "data-available", data: any): void
+    connect(sigName: "data-available", callback: (($obj: DataSource, data: any[]) => void)): number
+    connect_after(sigName: "data-available", callback: (($obj: DataSource, data: any[]) => void)): number
+    emit(sigName: "data-available", data: any[]): void
     on(sigName: "data-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "data-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "data-available", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2281,7 +2281,7 @@ export class MediaArtStore {
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.MediaArtStore */
     lookupMediaArt(item: MusicItem): Thumbnail | null
-    add(item: MusicItem, file: Gio.File, data: any, mime: string): void
+    add(item: MusicItem, file: Gio.File, data: any[], mime: string): void
     searchMediaArtForFile(item: MusicItem, file: Gio.File): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -5996,7 +5996,7 @@ export class HTTPGet {
     msg: Soup.Message
     uri: HTTPItemURI
     object: MediaObject
-    hack: ClientHacks
+    hack: any
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.HTTPRequest */
@@ -6194,7 +6194,7 @@ export class HTTPRequest {
     msg: Soup.Message
     uri: HTTPItemURI
     object: MediaObject
-    hack: ClientHacks
+    hack: any
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer.HTTPRequest */

@@ -1834,14 +1834,14 @@ export function settings_error_quark(): GLib.Quark
 export function sriov_vf_attribute_validate(name: string, value: GLib.Variant): [ /* returnType */ boolean, /* known */ boolean ]
 export function utils_ap_mode_security_valid(type: UtilsSecurityType, wifi_caps: DeviceWifiCapabilities): boolean
 export function utils_base64secret_decode(base64_key: string, required_key_len: number, out_key?: number | null): boolean
-export function utils_bin2hexstr(src: Uint8Array, final_len: number): string
+export function utils_bin2hexstr(src: Uint8Array[], final_len: number): string
 export function utils_bond_mode_int_to_string(mode: number): string
 export function utils_bond_mode_string_to_int(mode: string): number
 export function utils_check_virtual_device_compatibility(virtual_type: GObject.Type, other_type: GObject.Type): boolean
 export function utils_enum_from_str(type: GObject.Type, str: string): [ /* returnType */ boolean, /* out_value */ number | null, /* err_token */ string | null ]
 export function utils_enum_get_values(type: GObject.Type, from: number, to: number): string[]
 export function utils_enum_to_str(type: GObject.Type, value: number): string
-export function utils_escape_ssid(ssid: Uint8Array): string
+export function utils_escape_ssid(ssid: Uint8Array[]): string
 export function utils_file_is_certificate(filename: string): boolean
 export function utils_file_is_pkcs12(filename: string): boolean
 export function utils_file_is_private_key(filename: string): [ /* returnType */ boolean, /* out_encrypted */ boolean ]
@@ -1849,12 +1849,12 @@ export function utils_file_search_in_paths(progname: string, try_first: string |
 export function utils_format_variant_attributes(attributes: GLib.HashTable, attr_separator: number, key_value_separator: number): string
 export function utils_get_timestamp_msec(): number
 export function utils_hexstr2bin(hex: string): GLib.Bytes
-export function utils_hwaddr_atoba(asc: string, length: number): Uint8Array
-export function utils_hwaddr_aton(asc: string, buffer: Uint8Array): number
+export function utils_hwaddr_atoba(asc: string, length: number): Uint8Array[]
+export function utils_hwaddr_aton(asc: string, buffer: Uint8Array[]): number
 export function utils_hwaddr_canonical(asc: string, length: number): string
 export function utils_hwaddr_len(type: number): number
 export function utils_hwaddr_matches(hwaddr1: object | null, hwaddr1_len: number, hwaddr2: object | null, hwaddr2_len: number): boolean
-export function utils_hwaddr_ntoa(addr: Uint8Array): string
+export function utils_hwaddr_ntoa(addr: Uint8Array[]): string
 export function utils_hwaddr_valid(asc: string, length: number): boolean
 export function utils_iface_valid_name(name?: string | null): boolean
 export function utils_ip4_addresses_from_variant(value: GLib.Variant): [ /* returnType */ IPAddress[], /* out_gateway */ string | null ]
@@ -1877,17 +1877,17 @@ export function utils_ip_addresses_to_variant(addresses: IPAddress[]): GLib.Vari
 export function utils_ip_routes_from_variant(value: GLib.Variant, family: number): IPRoute[]
 export function utils_ip_routes_to_variant(routes: IPRoute[]): GLib.Variant
 export function utils_ipaddr_valid(family: number, ip: string): boolean
-export function utils_is_empty_ssid(ssid: Uint8Array): boolean
+export function utils_is_empty_ssid(ssid: Uint8Array[]): boolean
 export function utils_is_json_object(str: string): boolean
 export function utils_is_uuid(str?: string | null): boolean
 export function utils_is_valid_iface_name(name?: string | null): boolean
 export function utils_parse_variant_attributes(string: string, attr_separator: number, key_value_separator: number, ignore_unknown: boolean, spec: VariantAttributeSpec): GLib.HashTable
 export function utils_print(output_mode: number, msg: string): void
-export function utils_same_ssid(ssid1: Uint8Array, ssid2: Uint8Array, ignore_trailing_null: boolean): boolean
+export function utils_same_ssid(ssid1: Uint8Array[], ssid2: Uint8Array[], ignore_trailing_null: boolean): boolean
 export function utils_security_valid(type: UtilsSecurityType, wifi_caps: DeviceWifiCapabilities, have_ap: boolean, adhoc: boolean, ap_flags: TODO_80211ApFlags, ap_wpa: TODO_80211ApSecurityFlags, ap_rsn: TODO_80211ApSecurityFlags): boolean
 export function utils_sriov_vf_from_str(str: string): SriovVF
 export function utils_sriov_vf_to_str(vf: SriovVF, omit_index: boolean): string
-export function utils_ssid_to_utf8(ssid: Uint8Array): string
+export function utils_ssid_to_utf8(ssid: Uint8Array[]): string
 export function utils_tc_action_from_str(str: string): TCAction
 export function utils_tc_action_to_str(action: TCAction): string
 export function utils_tc_qdisc_from_str(str: string): TCQdisc

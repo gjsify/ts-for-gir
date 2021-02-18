@@ -416,7 +416,7 @@ export class Data {
     getInt64(key: KeyID): number
     getKeys(): KeyID[]
     getRelatedKeys(key: KeyID, index: number): RelatedKeys
-    getSingleValuesForKey(key: KeyID): any
+    getSingleValuesForKey(key: KeyID): any[]
     getSingleValuesForKeyString(key: KeyID): string[]
     getString(key: KeyID): string
     hasKey(key: KeyID): boolean
@@ -677,7 +677,7 @@ export class Media {
     getInt64(key: KeyID): number
     getKeys(): KeyID[]
     getRelatedKeys(key: KeyID, index: number): RelatedKeys
-    getSingleValuesForKey(key: KeyID): any
+    getSingleValuesForKey(key: KeyID): any[]
     getSingleValuesForKeyString(key: KeyID): string[]
     getString(key: KeyID): string
     hasKey(key: KeyID): boolean
@@ -767,7 +767,7 @@ export class OperationOptions {
     getCount(): number
     getKeyFilter(key: KeyID): any
     getKeyFilterList(): KeyID[]
-    getKeyRangeFilter(key: KeyID): [ /* minValue */ any, /* maxValue */ any ]
+    getKeyRangeFilter(key: KeyID): [ /* minValue */ any | null, /* maxValue */ any | null ]
     getKeyRangeFilterList(): KeyID[]
     getResolutionFlags(): ResolutionFlags
     getSkip(): number
@@ -776,7 +776,7 @@ export class OperationOptions {
     setCount(count: number): boolean
     setKeyFilters(filters: GLib.HashTable): boolean
     setKeyFilterValue(key: KeyID, value: any): boolean
-    setKeyRangeFilterValue(key: KeyID, minValue?: any, maxValue?: any): boolean
+    setKeyRangeFilterValue(key: KeyID, minValue?: any | null, maxValue?: any | null): boolean
     setResolutionFlags(flags: ResolutionFlags): boolean
     setSkip(skip: number): boolean
     setTypeFilter(filter: TypeFilter): boolean

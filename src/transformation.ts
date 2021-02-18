@@ -3,7 +3,7 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, CTypeMap, GType, GenerateConfig } from './types'
+import { Transformations, Environment, ConstructName, GType, GenerateConfig } from './types'
 import Path from 'path'
 import { Utils } from './utils'
 import { Logger } from './logger'
@@ -17,6 +17,9 @@ export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; 
     }
 }
 
+/**
+ * @see https://developer.gnome.org/glib/stable/glib-Basic-Types.html
+ */
 export const POD_TYPE_MAP = {
     utf8: 'string',
     none: 'void',
@@ -32,7 +35,9 @@ export const POD_TYPE_MAP = {
     gfloat: 'number',
     gboolean: 'boolean',
     gpointer: 'object',
+    gconstpointer: 'object',
     gchar: 'number',
+    guchar: 'number',
     guint: 'number',
     glong: 'number',
     gulong: 'number',
@@ -48,28 +53,27 @@ export const POD_TYPE_MAP = {
     gshort: 'number',
     filename: 'string',
     va_list: 'any',
+    guintptr: 'number',
 }
 
-export const C_TYPE_MAP = (targetFullName?: string): CTypeMap => {
-    return {
+export const C_TYPE_MAP = (value: string): string => {
+    const cTypeMap = {
         'char*': 'string',
         'gchar*': 'string',
-        'gchar**': 'any', // FIXME
-        guintptr: 'string', // TODO
-        GType: (targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') as GType,
+        'gchar**': 'string', // TODO CHECKME
+        'const gchar*': 'string', // TODO readonly?
     }
-}
-
-interface FullTypeMap {
-    'GObject.Value': string
-    'GObject.Closure': string
-    'GLib.ByteArray': string
-    'GLib.Bytes'?: string
+    return cTypeMap[value]
 }
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
 // See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
-export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap => {
+export const FULL_TYPE_MAP = (
+    environment: Environment,
+    packageName: string,
+    value: string,
+    out = true,
+): string | GType | undefined => {
     let ba: string
     let gb: string | undefined
     if (environment === 'gjs') {
@@ -85,12 +89,20 @@ export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap
         ba = 'any'
         gb = 'any'
     }
-    return {
+
+    if (value.endsWith('GType')) {
+        value = 'GType'
+    }
+
+    const fullTypeMap = {
         'GObject.Value': 'any',
         'GObject.Closure': 'Function',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
+        GType: (packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type') as GType,
     }
+
+    return fullTypeMap[value]
 }
 
 export const RESERVED_VARIABLE_NAMES = [

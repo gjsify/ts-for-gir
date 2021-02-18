@@ -184,13 +184,13 @@ export class Device {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GUsb.Device */
-    bulk_transfer(endpoint: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
-    bulk_transfer_async(endpoint: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    bulk_transfer(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
+    bulk_transfer_async(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     bulk_transfer_finish(res: Gio.AsyncResult): number
     claim_interface(interface: number, flags: DeviceClaimInterfaceFlags): boolean
     close(): boolean
-    control_transfer(direction: DeviceDirection, request_type: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
-    control_transfer_async(direction: DeviceDirection, request_type: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    control_transfer(direction: DeviceDirection, request_type: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
+    control_transfer_async(direction: DeviceDirection, request_type: DeviceRequestType, recipient: DeviceRecipient, request: number, value: number, idx: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     control_transfer_finish(res: Gio.AsyncResult): number
     get_address(): number
     get_bus(): number
@@ -217,8 +217,8 @@ export class Device {
     get_string_descriptor_bytes(desc_index: number, langid: number): GLib.Bytes
     get_vid(): number
     get_vid_as_str(): string
-    interrupt_transfer(endpoint: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
-    interrupt_transfer_async(endpoint: number, data: Uint8Array, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    interrupt_transfer(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]
+    interrupt_transfer_async(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     interrupt_transfer_finish(res: Gio.AsyncResult): number
     open(): boolean
     release_interface(interface: number, flags: DeviceClaimInterfaceFlags): boolean

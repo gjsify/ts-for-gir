@@ -117,21 +117,21 @@ export class Framebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
-    get_buffer(): Uint8Array
+    fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
+    get_buffer(): Uint8Array[]
     get_height(): number
     get_local_format(): PixelFormat
     get_remote_format(): PixelFormat
     get_rowstride(): number
     get_width(): number
     perfect_format_match(): boolean
-    rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     set_color_map(map: ColorMap): void
-    set_pixel_at(src: Uint8Array, x: number, y: number): void
+    set_pixel_at(src: Uint8Array[], x: number, y: number): void
     /* Virtual methods of GVnc.Framebuffer */
     vfunc_blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfunc_fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
+    vfunc_fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
     vfunc_get_buffer(): number
     vfunc_get_height(): number
     vfunc_get_local_format(): PixelFormat
@@ -139,9 +139,9 @@ export class Framebuffer {
     vfunc_get_rowstride(): number
     vfunc_get_width(): number
     vfunc_perfect_format_match(): boolean
-    vfunc_rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfunc_rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_set_color_map(map: ColorMap): void
-    vfunc_set_pixel_at(src: Uint8Array, x: number, y: number): void
+    vfunc_set_pixel_at(src: Uint8Array[], x: number, y: number): void
     static name: string
 }
 export interface BaseAudio_ConstructProps extends GObject.Object_ConstructProps {
@@ -257,21 +257,21 @@ export class BaseFramebuffer {
     /* Methods of GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
-    get_buffer(): Uint8Array
+    fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
+    get_buffer(): Uint8Array[]
     get_height(): number
     get_local_format(): PixelFormat
     get_remote_format(): PixelFormat
     get_rowstride(): number
     get_width(): number
     perfect_format_match(): boolean
-    rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     set_color_map(map: ColorMap): void
-    set_pixel_at(src: Uint8Array, x: number, y: number): void
+    set_pixel_at(src: Uint8Array[], x: number, y: number): void
     /* Virtual methods of GVnc.BaseFramebuffer */
     vfunc_blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
-    vfunc_fill(src: Uint8Array, x: number, y: number, width: number, height: number): void
+    vfunc_fill(src: Uint8Array[], x: number, y: number, width: number, height: number): void
     vfunc_get_buffer(): number
     vfunc_get_height(): number
     vfunc_get_local_format(): PixelFormat
@@ -279,9 +279,9 @@ export class BaseFramebuffer {
     vfunc_get_rowstride(): number
     vfunc_get_width(): number
     vfunc_perfect_format_match(): boolean
-    vfunc_rgb24_blt(src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number): void
+    vfunc_rgb24_blt(src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number): void
     vfunc_set_color_map(map: ColorMap): void
-    vfunc_set_pixel_at(src: Uint8Array, x: number, y: number): void
+    vfunc_set_pixel_at(src: Uint8Array[], x: number, y: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -304,7 +304,7 @@ export class BaseFramebuffer {
     constructor (config?: BaseFramebuffer_ConstructProps)
     _init (config?: BaseFramebuffer_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(buffer: Uint8Array, width: number, height: number, rowstride: number, localFormat: PixelFormat, remoteFormat: PixelFormat): BaseFramebuffer
+    static new(buffer: Uint8Array[], width: number, height: number, rowstride: number, localFormat: PixelFormat, remoteFormat: PixelFormat): BaseFramebuffer
     static $gtype: GObject.Type
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
@@ -504,7 +504,7 @@ export class Cursor {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GVnc.Cursor */
-    get_data(): Uint8Array
+    get_data(): Uint8Array[]
     get_height(): number
     get_hotx(): number
     get_hoty(): number
@@ -561,7 +561,7 @@ export class Cursor {
     constructor (config?: Cursor_ConstructProps)
     _init (config?: Cursor_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(data: Uint8Array, hotx: number, hoty: number, width: number, height: number): Cursor
+    static new(data: Uint8Array[], hotx: number, hoty: number, width: number, height: number): Cursor
     static $gtype: GObject.Type
 }
 export class AudioFormat {
@@ -691,11 +691,11 @@ export abstract class FramebufferInterface {
     get_local_format: (fb: Framebuffer) => PixelFormat
     get_remote_format: (fb: Framebuffer) => PixelFormat
     perfect_format_match: (fb: Framebuffer) => boolean
-    set_pixel_at: (fb: Framebuffer, src: Uint8Array, x: number, y: number) => void
-    fill: (fb: Framebuffer, src: Uint8Array, x: number, y: number, width: number, height: number) => void
+    set_pixel_at: (fb: Framebuffer, src: Uint8Array[], x: number, y: number) => void
+    fill: (fb: Framebuffer, src: Uint8Array[], x: number, y: number, width: number, height: number) => void
     copyrect: (fb: Framebuffer, srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number) => void
     blt: (fb: Framebuffer, src: number, rowstride: number, x: number, y: number, width: number, height: number) => void
-    rgb24_blt: (fb: Framebuffer, src: Uint8Array, rowstride: number, x: number, y: number, width: number, height: number) => void
+    rgb24_blt: (fb: Framebuffer, src: Uint8Array[], rowstride: number, x: number, y: number, width: number, height: number) => void
     set_color_map: (fb: Framebuffer, map: ColorMap) => void
     static name: string
 }

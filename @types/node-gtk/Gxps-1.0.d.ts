@@ -4,9 +4,9 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 
 export declare namespace Gxps {
 
@@ -317,7 +317,7 @@ export class Page {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gxps.Page */
-    getLinks(): GXPS.Link[]
+    getLinks(): any[]
     getSize(): [ /* width */ number | null, /* height */ number | null ]
     render(cr: cairo.Context): boolean
     /* Methods of GObject.Object */

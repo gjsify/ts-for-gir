@@ -561,7 +561,7 @@ export const VIDEO_TILE_Y_TILES_SHIFT: number
 export function buffer_add_video_afd_meta(buffer: Gst.Buffer, field: number, spec: VideoAFDSpec, afd: VideoAFDValue): VideoAFDMeta
 export function buffer_add_video_affine_transformation_meta(buffer: Gst.Buffer): VideoAffineTransformationMeta
 export function buffer_add_video_bar_meta(buffer: Gst.Buffer, field: number, is_letterbox: boolean, bar_data1: number, bar_data2: number): VideoBarMeta
-export function buffer_add_video_caption_meta(buffer: Gst.Buffer, caption_type: VideoCaptionType, data: Uint8Array): VideoCaptionMeta
+export function buffer_add_video_caption_meta(buffer: Gst.Buffer, caption_type: VideoCaptionType, data: Uint8Array[]): VideoCaptionMeta
 export function buffer_add_video_gl_texture_upload_meta(buffer: Gst.Buffer, texture_orientation: VideoGLTextureOrientation, n_textures: number, texture_type: VideoGLTextureType, upload: VideoGLTextureUpload, user_data_copy: GObject.BoxedCopyFunc, user_data_free: GObject.BoxedFreeFunc): VideoGLTextureUploadMeta
 export function buffer_add_video_hdr_meta(buffer: Gst.Buffer, format: VideoHDRFormat, data: number, size: number): VideoHDRMeta
 export function buffer_add_video_meta(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number): VideoMeta
@@ -787,16 +787,16 @@ export class VideoOrientation {
 export class VideoOverlay {
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    got_window_handle(handle: string): void
+    got_window_handle(handle: any): void
     handle_events(handle_events: boolean): void
     prepare_window_handle(): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
-    set_window_handle(handle: string): void
+    set_window_handle(handle: any): void
     /* Virtual methods of GstVideo.VideoOverlay */
     vfunc_expose(): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): void
-    vfunc_set_window_handle(handle: string): void
+    vfunc_set_window_handle(handle: any): void
     static name: string
     /* Static methods and pseudo-constructors */
     static install_properties(oclass: GObject.ObjectClass, last_prop_id: number): void
@@ -988,11 +988,11 @@ export class VideoAggregator {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1261,11 +1261,11 @@ export class VideoAggregatorConvertPad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1502,11 +1502,11 @@ export class VideoAggregatorPad {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1641,11 +1641,11 @@ export class VideoBufferPool {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -1877,11 +1877,11 @@ export class VideoDecoder {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2137,11 +2137,11 @@ export class VideoEncoder {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2414,11 +2414,11 @@ export class VideoFilter {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2720,11 +2720,11 @@ export class VideoSink {
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
     get_control_rate(): Gst.ClockTime
-    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    get_g_value_array(property_name: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     get_name(): string | null
     get_parent(): Gst.Object | null
     get_path_string(): string
-    get_value(property_name: string, timestamp: Gst.ClockTime): any
+    get_value(property_name: string, timestamp: Gst.ClockTime): any | null
     has_active_control_bindings(): boolean
     has_ancestor(ancestor: Gst.Object): boolean
     has_as_ancestor(ancestor: Gst.Object): boolean
@@ -2961,7 +2961,7 @@ export class VideoAncillary {
     DID: number
     SDID_block_number: number
     data_count: number
-    data: Uint8Array
+    data: Uint8Array[]
     static name: string
 }
 export class VideoBarMeta {
@@ -2987,7 +2987,7 @@ export class VideoCaptionMeta {
     /* Fields of GstVideo.VideoCaptionMeta */
     meta: Gst.Meta
     caption_type: VideoCaptionType
-    data: Uint8Array
+    data: Uint8Array[]
     size: number
     static name: string
     /* Static methods and pseudo-constructors */
@@ -3056,7 +3056,7 @@ export class VideoColorVolumeTransformation {
     maxscl: number[]
     average_maxrgb: number
     num_distribution_maxrgb_percentiles: number
-    distribution_maxrgb_percentages: Uint8Array
+    distribution_maxrgb_percentages: Uint8Array[]
     distribution_maxrgb_percentiles: number[]
     fraction_bright_pixels: number
     tone_mapping_flag: number
@@ -3252,11 +3252,11 @@ export class VideoHDR10Plus {
     targeted_system_display_actual_peak_luminance_flag: number
     num_rows_targeted_system_display_actual_peak_luminance: number
     num_cols_targeted_system_display_actual_peak_luminance: number
-    targeted_system_display_actual_peak_luminance: Uint8Array
+    targeted_system_display_actual_peak_luminance: Uint8Array[]
     mastering_display_actual_peak_luminance_flag: number
     num_rows_mastering_display_actual_peak_luminance: number
     num_cols_mastering_display_actual_peak_luminance: number
-    mastering_display_actual_peak_luminance: Uint8Array
+    mastering_display_actual_peak_luminance: Uint8Array[]
     static name: string
 }
 export class VideoHDRMeta {
@@ -3399,7 +3399,7 @@ export abstract class VideoOverlayInterface {
     expose: (overlay: VideoOverlay) => void
     handle_events: (overlay: VideoOverlay, handle_events: boolean) => void
     set_render_rectangle: (overlay: VideoOverlay, x: number, y: number, width: number, height: number) => void
-    set_window_handle: (overlay: VideoOverlay, handle: string) => void
+    set_window_handle: (overlay: VideoOverlay, handle: any) => void
     static name: string
 }
 export class VideoOverlayRectangle {
@@ -3552,7 +3552,7 @@ export class VideoTimeCodeMeta {
 }
 export class VideoVBIEncoder {
     /* Methods of GstVideo.VideoVBIEncoder */
-    add_ancillary(composite: boolean, DID: number, SDID_block_number: number, data: Uint8Array): boolean
+    add_ancillary(composite: boolean, DID: number, SDID_block_number: number, data: Uint8Array[]): boolean
     copy(): VideoVBIEncoder
     free(): void
     write_line(data: number): void
@@ -3564,7 +3564,7 @@ export class VideoVBIEncoder {
 }
 export class VideoVBIParser {
     /* Methods of GstVideo.VideoVBIParser */
-    add_line(data: Uint8Array): void
+    add_line(data: Uint8Array[]): void
     copy(): VideoVBIParser
     free(): void
     get_ancillary(): [ /* returnType */ VideoVBIParserResult, /* anc */ VideoAncillary ]

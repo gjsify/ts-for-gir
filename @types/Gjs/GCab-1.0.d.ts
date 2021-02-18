@@ -33,13 +33,13 @@ export interface FileCallback {
     (file: File): boolean
 }
 export interface Cabinet_ConstructProps extends GObject.Object_ConstructProps {
-    reserved?: Uint8Array
-    signature?: Uint8Array
+    reserved?: Uint8Array[]
+    signature?: Uint8Array[]
 }
 export class Cabinet {
     /* Properties of GCab.Cabinet */
-    reserved: Uint8Array
-    signature: Uint8Array
+    reserved: Uint8Array[]
+    signature: Uint8Array[]
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GCab.Cabinet */
@@ -47,7 +47,7 @@ export class Cabinet {
     extract(path?: Gio.File | null, file_callback?: FileCallback | null, progress_callback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
     extract_simple(path: Gio.File, file_callback?: FileCallback | null, cancellable?: Gio.Cancellable | null): boolean
     get_folders(): Folder[]
-    get_signature(cancellable?: Gio.Cancellable | null): Uint8Array
+    get_signature(cancellable?: Gio.Cancellable | null): Uint8Array[]
     get_size(): number
     load(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     write(stream: Gio.OutputStream, file_callback?: FileCallback | null, progress_callback?: Gio.FileProgressCallback | null, cancellable?: Gio.Cancellable | null): boolean
@@ -180,12 +180,12 @@ export class File {
 }
 export interface Folder_ConstructProps extends GObject.Object_ConstructProps {
     comptype?: number
-    reserved?: Uint8Array
+    reserved?: Uint8Array[]
 }
 export class Folder {
     /* Properties of GCab.Folder */
     readonly compression: Compression
-    reserved: Uint8Array
+    reserved: Uint8Array[]
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GCab.Folder */

@@ -222,7 +222,7 @@ export class Scope {
     set_resolver(resolver: ScopeResolver): void
     set_string(name: string, value?: string | null): void
     set_strv(name: string, value?: string[] | null): void
-    set_value(name: string, value?: any): void
+    set_value(name: string, value?: any | null): void
     set_variant(name: string, value?: GLib.Variant | null): void
     take(name: string, symbol?: Symbol | null): void
     unref(): void

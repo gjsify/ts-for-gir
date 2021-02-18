@@ -4,17 +4,17 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
 export declare namespace GUPnP {
 
 export class DLNADiscoverer {
     /* Fields of GUPnP.DLNADiscoverer */
-    parent: GstPbutils.Discoverer
+    parent: any
     /* Methods of GUPnP.DLNADiscoverer */
     discoverUri(uri: string): boolean
     discoverUriSync(uri: string): DLNAInformation
@@ -32,13 +32,13 @@ export class DLNADiscoverer {
     once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
-    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
-    constructor(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean)
+    static new(timeout: any, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
+    constructor(timeout: any, relaxedMode: boolean, extendedMode: boolean)
     /* Static methods and pseudo-constructors */
-    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
+    static new(timeout: any, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
 }
 export interface DLNAInformation_ConstructProps extends GObject.Object_ConstructProps {
-    info?: GstPbutils.DiscovererInfo
+    info?: any
     mime?: string
     name?: string
 }
@@ -48,7 +48,7 @@ export class DLNAInformation {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.DLNAInformation */
-    getInfo(): GstPbutils.DiscovererInfo
+    getInfo(): any
     getMime(): string
     getName(): string
     /* Methods of GObject.Object */
@@ -99,7 +99,7 @@ export class DLNAInformation {
     constructor (config?: DLNAInformation_ConstructProps)
     _init (config?: DLNAInformation_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(name: string, mime: string, info: GstPbutils.DiscovererInfo): DLNAInformation
+    static new(name: string, mime: string, info: any): DLNAInformation
     static $gtype: GObject.Type
 }
 export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProps {
@@ -109,13 +109,13 @@ export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProp
 }
 export class DLNAProfile {
     /* Properties of GUPnP.DLNAProfile */
-    readonly encodingProfile: GstPbutils.EncodingProfile
+    readonly encodingProfile: any
     /* Fields of GUPnP.DLNAProfile */
     parent: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP.DLNAProfile */
-    getEncodingProfile(): GstPbutils.EncodingProfile
+    getEncodingProfile(): any
     getExtended(): boolean
     getMime(): string
     getName(): string
@@ -175,7 +175,7 @@ export class DLNAProfile {
 }
 export abstract class DLNADiscovererClass {
     /* Fields of GUPnP.DLNADiscovererClass */
-    parentClass: GstPbutils.DiscovererClass
+    parentClass: any
     done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
     static name: string
 }
@@ -189,7 +189,8 @@ export abstract class DLNAProfileClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
-}args: any[]) => void): NodeJS.EventEmitter
+}(...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::host-ip", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host-ip", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
@@ -901,7 +902,7 @@ export class Service {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -998,7 +999,7 @@ export class ServiceInfo {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -1132,14 +1133,14 @@ export class ServiceProxy {
     /* Methods of GUPnP.ServiceProxy */
     addNotify(variable: string, type: GObject.Type, callback: ServiceProxyNotifyCallback): boolean
     addRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    beginActionList(action: string, inNames: string[], inValues: any, callback: ServiceProxyActionCallback): ServiceProxyAction
+    beginActionList(action: string, inNames: string[], inValues: any[], callback: ServiceProxyActionCallback): ServiceProxyAction
     cancelAction(action: ServiceProxyAction): void
     endActionHash(action: ServiceProxyAction, hash: GLib.HashTable): [ /* returnType */ boolean, /* hash */ GLib.HashTable ]
-    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
+    endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GObject.Type[]): [ /* returnType */ boolean, /* outValues */ any[] ]
     getSubscribed(): boolean
     removeNotify(variable: string, callback: ServiceProxyNotifyCallback): boolean
     removeRawNotify(callback: ServiceProxyNotifyCallback): boolean
-    sendActionList(action: string, inNames: string[], inValues: any, outNames: string[], outTypes: GType[]): [ /* returnType */ boolean, /* outValues */ any ]
+    sendActionList(action: string, inNames: string[], inValues: any[], outNames: string[], outTypes: GObject.Type[]): [ /* returnType */ boolean, /* outValues */ any[] ]
     setSubscribed(subscribed: boolean): void
     /* Methods of GUPnP.ServiceInfo */
     getContext(): Context
@@ -1148,7 +1149,7 @@ export class ServiceProxy {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -1359,8 +1360,8 @@ export abstract class AclInterface {
     /* Fields of GUPnP.AclInterface */
     parent: GObject.TypeInterface
     isAllowed: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null) => boolean
-    isAllowedAsync: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    isAllowedFinish: (self: Acl, res: Gio.AsyncResult) => boolean
+    isAllowedAsync: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: any | null, callback?: any | null) => void
+    isAllowedFinish: (self: Acl, res: any) => boolean
     canSync: (self: Acl) => boolean
     static name: string
 }
@@ -1439,11 +1440,11 @@ export class ServiceAction {
     getLocales(): string[]
     getMessage(): Soup.Message
     getName(): string
-    getValues(argNames: string[], argTypes: GType[]): any
+    getValues(argNames: string[], argTypes: GObject.Type[]): any[]
     return(): void
     returnError(errorCode: number, errorDescription: string): void
     setValue(argument: string, value: any): void
-    setValues(argNames: string[], argValues: any): void
+    setValues(argNames: string[], argValues: any[]): void
     static name: string
 }
 export class ServiceActionArgInfo {

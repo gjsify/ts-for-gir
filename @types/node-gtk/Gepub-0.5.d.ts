@@ -4,11 +4,11 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { WebKit2 } from './WebKit2-4.0';
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { JavaScriptCore } from './JavaScriptCore-4.0';
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
@@ -439,7 +439,7 @@ export class Widget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

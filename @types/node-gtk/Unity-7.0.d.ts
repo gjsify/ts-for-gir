@@ -4,8 +4,8 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Dbusmenu } from './Dbusmenu-0.4';
+import type { GObject } from './GObject-2.0';
 import type { Dee } from './Dee-1.0';
 import type { Gio } from './Gio-2.0';
 
@@ -2057,7 +2057,7 @@ export class Preview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2086,7 +2086,7 @@ export class Preview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2331,7 +2331,7 @@ export class GenericPreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2357,7 +2357,7 @@ export class GenericPreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2456,7 +2456,7 @@ export class ApplicationPreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2482,7 +2482,7 @@ export class ApplicationPreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2584,7 +2584,7 @@ export class MusicPreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2610,7 +2610,7 @@ export class MusicPreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2716,7 +2716,7 @@ export class PaymentPreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2742,7 +2742,7 @@ export class PaymentPreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2863,7 +2863,7 @@ export class MoviePreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2889,7 +2889,7 @@ export class MoviePreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2989,7 +2989,7 @@ export class SocialPreview {
     getImage(): Gio.Icon | null
     setImage(value?: Gio.Icon | null): void
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3015,7 +3015,7 @@ export class SocialPreview {
     /* Virtual methods of Unity.Preview */
     vfuncSerialize(): GLib.Variant
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3709,7 +3709,7 @@ export class AbstractPreview {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Unity.AbstractPreview */
-    serializeAs(serializationType: SerializationType): any
+    serializeAs(serializationType: SerializationType): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3733,7 +3733,7 @@ export class AbstractPreview {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Unity.AbstractPreview */
-    vfuncSerializeAs(serializationType: SerializationType): any
+    vfuncSerializeAs(serializationType: SerializationType): any[]
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -4771,11 +4771,11 @@ export class SimpleScope {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Unity.SimpleScope */
-    setSearchFunc(func: SimpleScopeSearchRunFunc): void
-    setSearchAsyncFunc(func: SimpleScopeSearchRunAsyncFunc | null): void
-    setActivateFunc(func: SimpleScopeActivateFunc | null): void
-    setPreviewFunc(func: SimpleScopePreviewRunFunc): void
-    setPreviewAsyncFunc(func: SimpleScopePreviewRunAsyncFunc | null): void
+    setSearchFunc(func: any): void
+    setSearchAsyncFunc(func: any | null): void
+    setActivateFunc(func: any | null): void
+    setPreviewFunc(func: any): void
+    setPreviewAsyncFunc(func: any | null): void
     getFilterSet(): FilterSet
     setFilterSet(value: FilterSet): void
     getCategorySet(): CategorySet
@@ -5312,9 +5312,9 @@ export class MusicPlayer {
     on(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "next", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
-    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: GLib.ObjectPath) => void)): number
-    emit(sigName: "activate-playlist", playlistId: GLib.ObjectPath): void
+    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
+    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
+    emit(sigName: "activate-playlist", playlistId: any): void
     on(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "activate-playlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5654,7 +5654,7 @@ export class ResultSetPrivate {
 }
 export abstract class AbstractPreviewClass {
     /* Fields of Unity.AbstractPreviewClass */
-    serializeAs: (self: AbstractPreview, serializationType: SerializationType) => any
+    serializeAs: (self: AbstractPreview, serializationType: SerializationType) => any[]
     static name: string
 }
 export class AbstractPreviewPrivate {

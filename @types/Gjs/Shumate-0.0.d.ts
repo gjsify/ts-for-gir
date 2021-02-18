@@ -593,9 +593,9 @@ export class Layer {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Layer */
@@ -1004,9 +1004,9 @@ export class License {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.License */
@@ -1411,9 +1411,9 @@ export class MapLayer {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Layer */
@@ -2130,9 +2130,9 @@ export class Marker {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Shumate.Location */
@@ -2570,9 +2570,9 @@ export class MarkerLayer {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Layer */
@@ -3265,9 +3265,9 @@ export class PathLayer {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Layer */
@@ -3695,9 +3695,9 @@ export class Point {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Methods of Shumate.Location */
@@ -4121,9 +4121,9 @@ export class Scale {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Scale */
@@ -4563,9 +4563,9 @@ export class Tile {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.Tile */
@@ -5236,9 +5236,9 @@ export class View {
     reset_property(property: Gtk.AccessibleProperty): void
     reset_relation(relation: Gtk.AccessibleRelation): void
     reset_state(state: Gtk.AccessibleState): void
-    update_property(properties: Gtk.AccessibleProperty[], values: any): void
-    update_relation(relations: Gtk.AccessibleRelation[], values: any): void
-    update_state(states: Gtk.AccessibleState[], values: any): void
+    update_property(properties: Gtk.AccessibleProperty[], values: any[]): void
+    update_relation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    update_state(states: Gtk.AccessibleState[], values: any[]): void
     /* Methods of Gtk.Buildable */
     get_buildable_id(): string
     /* Virtual methods of Shumate.View */

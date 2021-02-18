@@ -5,9 +5,9 @@
 import "node"
 import type { Pango } from './Pango-1.0';
 import type { cairo } from './cairo-1.0';
+import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
 import type { Gtk } from './Gtk-3.0';
@@ -1541,7 +1541,7 @@ export class GtkPatchAboutDialog {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -2792,7 +2792,7 @@ export class ServicesContractorProxy {
     constructor (config?: ServicesContractorProxy_ConstructProps)
     _init (config?: ServicesContractorProxy_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static getInstance(): GraniteServicesContractorProxy
+    static getInstance(): any
     static getAllContracts(): Gee.List
     static getContractsByMime(mimeType: string): Gee.List
     static getContractsByMimelist(mimeTypes: string[]): Gee.List
@@ -2857,7 +2857,7 @@ export class ServicesIconFactory {
     _init (config?: ServicesIconFactory_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ServicesIconFactory
-    static getDefault(): GraniteServicesIconFactory
+    static getDefault(): any
     static $gtype: GObject.Type
 }
 export interface ServicesLogger_ConstructProps extends GObject.Object_ConstructProps {
@@ -2914,8 +2914,8 @@ export class ServicesLogger {
     _init (config?: ServicesLogger_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ServicesLogger
-    static getDisplayLevel(): GraniteServicesLogLevel
-    static setDisplayLevel(value: GraniteServicesLogLevel): void
+    static getDisplayLevel(): any
+    static setDisplayLevel(value: any): void
     static initialize(appName: string): void
     static notification(msg: string): void
     static $gtype: GObject.Type
@@ -3663,7 +3663,7 @@ export class WidgetsAboutDialog {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -5146,7 +5146,7 @@ export class WidgetsAlertView {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -6403,7 +6403,7 @@ export class WidgetsAppMenu {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -7710,7 +7710,7 @@ export class WidgetsAvatar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -9326,7 +9326,7 @@ export class WidgetsCollapsiblePaned {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10680,7 +10680,7 @@ export class WidgetsCompositedWindow {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12137,7 +12137,7 @@ export class WidgetsDatePicker {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -13670,7 +13670,7 @@ export class WidgetsTab {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -14958,7 +14958,7 @@ export class WidgetsDynamicNotebook {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -16284,7 +16284,7 @@ export class WidgetsModeButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -17494,7 +17494,7 @@ export class WidgetsOverlayBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -18510,7 +18510,7 @@ export class WidgetsSourceList {
     setEllipsizeMode(value: Pango.EllipsizeMode): void
     getEditing(): boolean
     hasItem(item: WidgetsSourceListItem): boolean
-    setFilterFunc(visibleFunc: WidgetsSourceListVisibleFunc | null, refilter: boolean): void
+    setFilterFunc(visibleFunc: any | null, refilter: boolean): void
     refilter(): void
     isItemExpanded(item: WidgetsSourceListItem): boolean
     startEditingItem(item: WidgetsSourceListItem): boolean
@@ -18741,7 +18741,7 @@ export class WidgetsSourceList {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -20448,7 +20448,7 @@ export class WidgetsStorageBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -21719,7 +21719,7 @@ export class WidgetsTimePicker {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -23197,7 +23197,7 @@ export class WidgetsToast {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -24423,7 +24423,7 @@ export class WidgetsWelcomeButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -25696,7 +25696,7 @@ export class WidgetsWelcome {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -27261,7 +27261,7 @@ export class SettingsPage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -28605,7 +28605,7 @@ export class SimpleSettingsPage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -29907,7 +29907,7 @@ export class AccelLabel {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -31114,7 +31114,7 @@ export class AsyncImage {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -32346,7 +32346,7 @@ export class HeaderLabel {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -33771,7 +33771,7 @@ export class MessageDialog {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -35198,7 +35198,7 @@ export class ModeSwitch {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -36450,7 +36450,7 @@ export class SeekBar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -37774,7 +37774,7 @@ export class SettingsSidebar {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -38836,7 +38836,7 @@ export class ServicesPathsPrivate {
 }
 export abstract class ServicesSettingsClass {
     /* Fields of Granite.ServicesSettingsClass */
-    verify: (self: GraniteServicesSettings, key: string) => void
+    verify: (self: any, key: string) => void
     static name: string
 }
 export class ServicesSettingsPrivate {
@@ -38856,17 +38856,17 @@ export class ServicesSystemPrivate {
 }
 export abstract class ServicesContractIface {
     /* Fields of Granite.ServicesContractIface */
-    getDisplayName: (self: GraniteServicesContract) => string
-    getDescription: (self: GraniteServicesContract) => string
-    getIcon: (self: GraniteServicesContract) => Gio.Icon
-    executeWithFile: (self: GraniteServicesContract, file: Gio.File) => void
-    executeWithFiles: (self: GraniteServicesContract, files: Gio.File[]) => void
+    getDisplayName: (self: any) => string
+    getDescription: (self: any) => string
+    getIcon: (self: any) => Gio.Icon
+    executeWithFile: (self: any, file: Gio.File) => void
+    executeWithFiles: (self: any, files: Gio.File[]) => void
     static name: string
 }
 export abstract class ServicesSettingsSerializableIface {
     /* Fields of Granite.ServicesSettingsSerializableIface */
-    settingsSerialize: (self: GraniteServicesSettingsSerializable) => string
-    settingsDeserialize: (self: GraniteServicesSettingsSerializable, s: string) => void
+    settingsSerialize: (self: any) => string
+    settingsDeserialize: (self: any, s: string) => void
     static name: string
 }
 export abstract class WidgetsAboutDialogClass {

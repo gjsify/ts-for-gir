@@ -4,9 +4,9 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 
 export declare namespace Gsf {
 
@@ -107,11 +107,11 @@ export const META_NAME_TEMPLATE: string
 export const META_NAME_THUMBNAIL: string
 export const META_NAME_TITLE: string
 export const META_NAME_WORD_COUNT: string
-export function base64DecodeSimple(data: any, len: number): number
-export function base64DecodeStep(in_: any, len: number, out: any, state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
-export function base64EncodeClose(in_: any, breakLines: boolean, out: any, state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
-export function base64EncodeSimple(data: any, len: number): number
-export function base64EncodeStep(in_: any, len: number, breakLines: boolean, out: any, state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
+export function base64DecodeSimple(data: any[], len: number): number
+export function base64DecodeStep(in_: any[], len: number, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
+export function base64EncodeClose(in_: any[], breakLines: boolean, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
+export function base64EncodeSimple(data: any[], len: number): number
+export function base64EncodeStep(in_: any[], len: number, breakLines: boolean, out: any[], state: number, save: number): [ /* returnType */ number, /* state */ number, /* save */ number ]
 export function debugFlag(flag: string): boolean
 export function docMetaDump(meta: DocMetaData): void
 export function errorQuark(): GLib.Quark
@@ -127,7 +127,7 @@ export function leSetFloat(p: object | null, f: number): void
 export function memDump(ptr: number, len: number): void
 export function msoleCodepageToLid(codepage: number): number
 export function msoleIconvWinCodepage(): number
-export function msoleInflate(input: Input, offset: gsf_off_t): any
+export function msoleInflate(input: Input, offset: gsf_off_t): any[]
 export function msoleLanguageForLid(lid: number): string
 export function msoleLidForLanguage(lang?: string | null): number
 export function msoleLidToCodepage(lid: number): number
@@ -145,7 +145,7 @@ export function propertySettingsFind(name: string, params: GObject.Parameter[]):
 export function propertySettingsFree(params: GObject.Parameter[]): void
 export function shutdown(): void
 export function shutdownDynamic(module: GObject.TypeModule): void
-export function valueGetDocpropArray(value: any): any
+export function valueGetDocpropArray(value: any): any[] | null
 export function valueGetDocpropVarray(value: any): GObject.ValueArray
 export function valueGetDocpropVector(value: any): DocPropVector
 export function vbaInflate(input: Input, offset: gsf_off_t, size: number, addNullTerminator: boolean): number
@@ -223,7 +223,7 @@ export class Blob {
     constructor (config?: Blob_ConstructProps)
     _init (config?: Blob_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(dataToCopy: any): Blob
+    static new(dataToCopy: any[]): Blob
     static $gtype: GObject.Type
 }
 export interface ClipData_ConstructProps extends GObject.Object_ConstructProps {
@@ -448,7 +448,7 @@ export class Infile {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -583,7 +583,7 @@ export class InfileMSOle {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -721,7 +721,7 @@ export class InfileMSVBA {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -856,7 +856,7 @@ export class InfileStdio {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -992,7 +992,7 @@ export class InfileTar {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1131,7 +1131,7 @@ export class InfileZip {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1263,7 +1263,7 @@ export class Input {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1391,7 +1391,7 @@ export class InputGZip {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1515,7 +1515,7 @@ export class InputGio {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1646,7 +1646,7 @@ export class InputHTTP {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1770,7 +1770,7 @@ export class InputMemory {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -1869,8 +1869,8 @@ export class InputMemory {
     constructor (config?: InputMemory_ConstructProps)
     _init (config?: InputMemory_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(buf: any, needsFree: boolean): InputMemory
-    static newClone(buf: any): InputMemory
+    static new(buf: any[], needsFree: boolean): InputMemory
+    static newClone(buf: any[]): InputMemory
     static newFromBzip(source: Input): InputMemory
     static newFromIochannel(channel: GLib.IOChannel): InputMemory
     static $gtype: GObject.Type
@@ -1897,7 +1897,7 @@ export class InputProxy {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -2022,7 +2022,7 @@ export class InputStdio {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -2142,15 +2142,15 @@ export class InputTextline {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf.InputTextline */
-    asciiGets(): any | null
-    utf8Gets(): any | null
+    asciiGets(): any[] | null
+    utf8Gets(): any[] | null
     /* Methods of Gsf.Input */
     copy(output: Output): boolean
     dump(dumpAsHex: boolean): void
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -2269,7 +2269,7 @@ export class ODFOut {
     getVersion(): number
     getVersionString(): string
     /* Methods of Gsf.XMLOut */
-    addBase64(id: string | null, data: any): void
+    addBase64(id: string | null, data: any[]): void
     addBool(id: string | null, val: boolean): void
     addColor(id: string | null, r: number, g: number, b: number): void
     addCstr(id?: string | null, valUtf8?: string | null): void
@@ -2377,7 +2377,7 @@ export class Outfile {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2403,7 +2403,7 @@ export class Outfile {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2481,7 +2481,7 @@ export class OutfileMSOle {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf.OutfileMSOle */
-    setClassId(clsid: any): boolean
+    setClassId(clsid: any[]): boolean
     /* Methods of Gsf.Outfile */
     newChild(name: string, isDir: boolean): Output
     openPkgAddRel(name: string, contentType: string, parent: Outfile, type: string): Output
@@ -2496,7 +2496,7 @@ export class OutfileMSOle {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2522,7 +2522,7 @@ export class OutfileMSOle {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2621,7 +2621,7 @@ export class OutfileOpenPkg {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2647,7 +2647,7 @@ export class OutfileOpenPkg {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2737,7 +2737,7 @@ export class OutfileStdio {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2763,7 +2763,7 @@ export class OutfileStdio {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2860,7 +2860,7 @@ export class OutfileZip {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -2886,7 +2886,7 @@ export class OutfileZip {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2974,7 +2974,7 @@ export class Output {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3000,7 +3000,7 @@ export class Output {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3087,7 +3087,7 @@ export class OutputBzip {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3113,7 +3113,7 @@ export class OutputBzip {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3223,7 +3223,7 @@ export class OutputCsv {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3249,7 +3249,7 @@ export class OutputCsv {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3372,7 +3372,7 @@ export class OutputGZip {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3398,7 +3398,7 @@ export class OutputGZip {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3488,7 +3488,7 @@ export class OutputGio {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3514,7 +3514,7 @@ export class OutputGio {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3601,7 +3601,7 @@ export class OutputIOChannel {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3627,7 +3627,7 @@ export class OutputIOChannel {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3718,7 +3718,7 @@ export class OutputIconv {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3744,7 +3744,7 @@ export class OutputIconv {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3824,8 +3824,8 @@ export class OutputMemory {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf.OutputMemory */
-    getBytes(): any | null
-    stealBytes(): any | null
+    getBytes(): any[] | null
+    stealBytes(): any[] | null
     /* Methods of Gsf.Output */
     close(): boolean
     error(): GLib.Error | null
@@ -3837,7 +3837,7 @@ export class OutputMemory {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3863,7 +3863,7 @@ export class OutputMemory {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3948,7 +3948,7 @@ export class OutputStdio {
     setName(name?: string | null): boolean
     setNameFromFilename(filename?: string | null): boolean
     tell(): gsf_off_t
-    write(data: any): boolean
+    write(data: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3974,7 +3974,7 @@ export class OutputStdio {
     /* Virtual methods of Gsf.Output */
     vfuncClose(): boolean
     vfuncSeek(offset: gsf_off_t, whence: GLib.SeekType): boolean
-    vfuncWrite(data: any): boolean
+    vfuncWrite(data: any[]): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -4124,7 +4124,7 @@ export class StructuredBlob {
     dup(): Input | null
     findVba(): InfileMSVBA | null
     getModtime(): GLib.DateTime
-    read(numBytes: number): any
+    read(numBytes: number): any[]
     seek(offset: gsf_off_t, whence: GLib.SeekType): boolean
     seekEmulate(pos: gsf_off_t): boolean
     setContainer(container?: Infile | null): boolean
@@ -4243,7 +4243,7 @@ export class XMLOut {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf.XMLOut */
-    addBase64(id: string | null, data: any): void
+    addBase64(id: string | null, data: any[]): void
     addBool(id: string | null, val: boolean): void
     addColor(id: string | null, r: number, g: number, b: number): void
     addCstr(id?: string | null, valUtf8?: string | null): void
@@ -4357,7 +4357,7 @@ export abstract class InputClass {
     /* Fields of Gsf.InputClass */
     gObjectClass: GObject.ObjectClass
     dup: (input: Input) => Input | null
-    read: (input: Input, numBytes: number, optionalBuffer?: any | null) => any | null
+    read: (input: Input, numBytes: number, optionalBuffer?: any[] | null) => any[] | null
     seek: (input: Input, offset: gsf_off_t, whence: GLib.SeekType) => boolean
     openSibling: (input: Input, name: string) => Input
     static name: string
@@ -4397,7 +4397,7 @@ export abstract class OutputClass {
     gObjectClass: GObject.ObjectClass
     close: (output: Output) => boolean
     seek: (output: Output, offset: gsf_off_t, whence: GLib.SeekType) => boolean
-    write: (output: Output, data: any) => boolean
+    write: (output: Output, data: any[]) => boolean
     static name: string
 }
 export abstract class OutputCsvClass {

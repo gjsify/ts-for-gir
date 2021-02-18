@@ -4,9 +4,9 @@
 
 import "node"
 import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
 import type { TelepathyGLib } from './TelepathyGLib-0.12';
 import type { Folks } from './Folks-0.6';
 
@@ -278,7 +278,7 @@ export class Persona {
     setIsInContactList(value: boolean): void
     getContact(): TelepathyGLib.Contact | null
     /* Methods of Folks.Persona */
-    linkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
     getUid(): string
     getDisplayId(): string
@@ -456,7 +456,7 @@ export class Persona {
     vfuncGetUrls(): Gee.Set
     vfuncSetUrls(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfuncLinkablePropertyToLinks(propName: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfuncLinkablePropertyToLinks(propName: string, callback: any): void
     vfuncGetLinkableProperties(): string[]
     vfuncGetWriteableProperties(): string[]
     /* Virtual methods of GObject.Object */

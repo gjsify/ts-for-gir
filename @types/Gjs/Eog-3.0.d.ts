@@ -928,7 +928,7 @@ export class FileChooser {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2584,16 +2584,16 @@ export class ListStore {
     insert(position: number): /* iter */ Gtk.TreeIter
     insert_after(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insert_before(sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insert_with_valuesv(position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insert_with_valuesv(position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     iter_is_valid(iter: Gtk.TreeIter): boolean
     move_after(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
     reorder(new_order: number[]): void
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2750,7 +2750,7 @@ export class ListStore {
     _init (config?: ListStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ListStore
-    static new(types: GObject.Type[][]): ListStore
+    static new(types: GObject.Type[]): ListStore
     static new_from_glist(list: Image[]): ListStore
     static $gtype: GObject.Type
 }
@@ -3158,7 +3158,7 @@ export class PropertiesDialog {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4141,7 +4141,7 @@ export class ScrollView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5032,7 +5032,7 @@ export class Sidebar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5896,7 +5896,7 @@ export class Statusbar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6759,7 +6759,7 @@ export class ThumbNav {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7681,7 +7681,7 @@ export class ThumbView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8914,7 +8914,7 @@ export class Window {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

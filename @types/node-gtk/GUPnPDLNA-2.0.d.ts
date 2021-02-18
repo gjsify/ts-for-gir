@@ -606,7 +606,7 @@ export class ValueList {
     /* Methods of GUPnPDLNA.ValueList */
     copy(): ValueList
     free(): void
-    getGValues(): any
+    getGValues(): any[]
     isEmpty(): boolean
     toString(): string
     static name: string

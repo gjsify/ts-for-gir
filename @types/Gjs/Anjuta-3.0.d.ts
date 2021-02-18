@@ -1322,7 +1322,7 @@ export class CloseButton {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2222,7 +2222,7 @@ export class ColumnTextView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3187,7 +3187,7 @@ export class CommandBar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4036,7 +4036,7 @@ export class Dock {
     bind(master: GObject.Object): void
     child_placement(child: Gdl.DockObject, placement?: Gdl.DockPlacement | null): boolean
     detach(recursive: boolean): void
-    dock(requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any): void
+    dock(requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any | null): void
     dock_request(x: number, y: number, request: Gdl.DockRequest): boolean
     freeze(): void
     get_controller(): Gdl.DockObject
@@ -4055,7 +4055,7 @@ export class Dock {
     layout_changed_notify(): void
     present(child?: Gdl.DockObject | null): void
     reduce(): void
-    reorder(child: Gdl.DockObject, new_position: Gdl.DockPlacement, other_data?: any): boolean
+    reorder(child: Gdl.DockObject, new_position: Gdl.DockPlacement, other_data?: any | null): boolean
     set_long_name(name: string): void
     set_manual(): void
     set_name(name: string): void
@@ -4243,7 +4243,7 @@ export class Dock {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4384,11 +4384,11 @@ export class Dock {
     /* Virtual methods of Gdl.DockObject */
     vfunc_child_placement(child: Gdl.DockObject, placement?: Gdl.DockPlacement | null): boolean
     vfunc_detach(recursive: boolean): void
-    vfunc_dock(requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any): void
+    vfunc_dock(requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any | null): void
     vfunc_dock_request(x: number, y: number, request: Gdl.DockRequest): boolean
     vfunc_present(child?: Gdl.DockObject | null): void
     vfunc_reduce(): void
-    vfunc_reorder(child: Gdl.DockObject, new_position: Gdl.DockPlacement, other_data?: any): boolean
+    vfunc_reorder(child: Gdl.DockObject, new_position: Gdl.DockPlacement, other_data?: any | null): boolean
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -4509,9 +4509,9 @@ export class Dock {
     connect(sigName: "detach", callback: (($obj: Dock, recursive: boolean) => void)): number
     connect_after(sigName: "detach", callback: (($obj: Dock, recursive: boolean) => void)): number
     emit(sigName: "detach", recursive: boolean): void
-    connect(sigName: "dock", callback: (($obj: Dock, requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any) => void)): number
-    connect_after(sigName: "dock", callback: (($obj: Dock, requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any) => void)): number
-    emit(sigName: "dock", requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any): void
+    connect(sigName: "dock", callback: (($obj: Dock, requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any | null) => void)): number
+    connect_after(sigName: "dock", callback: (($obj: Dock, requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any | null) => void)): number
+    emit(sigName: "dock", requestor: Gdl.DockObject, position: Gdl.DockPlacement, other_data?: any | null): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: (($obj: Dock, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: (($obj: Dock, object: Gtk.Widget) => void)): number
@@ -5260,7 +5260,7 @@ export class DropEntry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6348,7 +6348,7 @@ export class Entry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7340,7 +7340,7 @@ export class EnvironmentEditor {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8256,7 +8256,7 @@ export class FileDropEntry {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -9275,7 +9275,7 @@ export class FileList {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -10357,7 +10357,7 @@ export class PkgConfigChooser {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11896,7 +11896,7 @@ export class PreferencesDialog {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -13254,7 +13254,7 @@ export class SavePrompt {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -14338,7 +14338,7 @@ export class Status {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -15255,7 +15255,7 @@ export class Tabber {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -16188,7 +16188,7 @@ export class TreeComboBox {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -17383,7 +17383,7 @@ export class VcsStatusTreeView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

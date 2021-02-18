@@ -163,11 +163,11 @@ export class WebRTCDTLSTransport {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -312,10 +312,10 @@ export class WebRTCDataChannel {
     onBufferedAmountLow(): void
     onClose(): void
     onError(error: GLib.Error): void
-    onMessageData(data?: any): void
+    onMessageData(data?: any | null): void
     onMessageString(str?: string | null): void
     onOpen(): void
-    sendData(data?: any): void
+    sendData(data?: any | null): void
     sendString(str?: string | null): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -341,7 +341,7 @@ export class WebRTCDataChannel {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstWebRTC.WebRTCDataChannel */
     vfuncClose(): void
-    vfuncSendData(data?: any): void
+    vfuncSendData(data?: any | null): void
     vfuncSendString(str?: string | null): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
@@ -376,9 +376,9 @@ export class WebRTCDataChannel {
     on(sigName: "on-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "on-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "on-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "on-message-data", callback: (($obj: WebRTCDataChannel, data?: any) => void)): number
-    connect_after(sigName: "on-message-data", callback: (($obj: WebRTCDataChannel, data?: any) => void)): number
-    emit(sigName: "on-message-data", data?: any): void
+    connect(sigName: "on-message-data", callback: (($obj: WebRTCDataChannel, data?: any | null) => void)): number
+    connect_after(sigName: "on-message-data", callback: (($obj: WebRTCDataChannel, data?: any | null) => void)): number
+    emit(sigName: "on-message-data", data?: any | null): void
     on(sigName: "on-message-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "on-message-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "on-message-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -394,9 +394,9 @@ export class WebRTCDataChannel {
     on(sigName: "on-open", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "on-open", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "on-open", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "send-data", callback: (($obj: WebRTCDataChannel, data?: any) => void)): number
-    connect_after(sigName: "send-data", callback: (($obj: WebRTCDataChannel, data?: any) => void)): number
-    emit(sigName: "send-data", data?: any): void
+    connect(sigName: "send-data", callback: (($obj: WebRTCDataChannel, data?: any | null) => void)): number
+    connect_after(sigName: "send-data", callback: (($obj: WebRTCDataChannel, data?: any | null) => void)): number
+    emit(sigName: "send-data", data?: any | null): void
     on(sigName: "send-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "send-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "send-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -472,11 +472,11 @@ export class WebRTCICETransport {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -605,11 +605,11 @@ export class WebRTCRTPReceiver {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -725,11 +725,11 @@ export class WebRTCRTPSender {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -857,11 +857,11 @@ export class WebRTCRTPTransceiver {
     defaultError(error: GLib.Error, debug?: string | null): void
     getControlBinding(propertyName: string): Gst.ControlBinding | null
     getControlRate(): Gst.ClockTime
-    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any): boolean
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
     getName(): string | null
     getParent(): Gst.Object | null
     getPathString(): string
-    getValue(propertyName: string, timestamp: Gst.ClockTime): any
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
     hasActiveControlBindings(): boolean
     hasAncestor(ancestor: Gst.Object): boolean
     hasAsAncestor(ancestor: Gst.Object): boolean
@@ -958,7 +958,7 @@ export abstract class WebRTCDTLSTransportClass {
 export abstract class WebRTCDataChannelClass {
     /* Fields of GstWebRTC.WebRTCDataChannelClass */
     parentClass: GObject.ObjectClass
-    sendData: (channel: WebRTCDataChannel, data?: any) => void
+    sendData: (channel: WebRTCDataChannel, data?: any | null) => void
     sendString: (channel: WebRTCDataChannel, str?: string | null) => void
     close: (channel: WebRTCDataChannel) => void
     padding: object[]

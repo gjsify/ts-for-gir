@@ -2877,16 +2877,16 @@ export class CdmaManualActivationProperties {
     getMnAaaKey(): string
     getMnHaKey(): string
     getPrl(): [ /* returnType */ number, /* prlLen */ number ]
-    getPrlBytearray(): any
+    getPrlBytearray(): any[]
     getSid(): number
     getSpc(): string
-    peekPrlBytearray(): any
+    peekPrlBytearray(): any[]
     setMdn(mdn: string): boolean
     setMin(min: string): boolean
     setMnAaaKey(mnAaaKey: string): boolean
     setMnHaKey(mnHaKey: string): boolean
     setPrl(prl: number, prlLength: number): boolean
-    setPrlBytearray(prl: any): boolean
+    setPrlBytearray(prl: any[]): boolean
     setSid(sid: number): void
     setSpc(spc: string): boolean
     /* Methods of GObject.Object */
@@ -12549,9 +12549,9 @@ export class ModemLocation {
     getPath(): string
     getSuplServer(): string
     getSupportedAssistanceData(): ModemLocationAssistanceDataType
-    injectAssistanceData(data: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    injectAssistanceData(data: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     injectAssistanceDataFinish(res: Gio.AsyncResult): boolean
-    injectAssistanceDataSync(data: any, cancellable?: Gio.Cancellable | null): boolean
+    injectAssistanceDataSync(data: any[], cancellable?: Gio.Cancellable | null): boolean
     setGpsRefreshRate(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setGpsRefreshRateFinish(res: Gio.AsyncResult): boolean
     setGpsRefreshRateSync(rate: number, cancellable?: Gio.Cancellable | null): boolean
@@ -15000,7 +15000,7 @@ export class Sms {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager.Sms */
-    dupData(): any
+    dupData(): any[]
     dupDischargeTimestamp(): string
     dupNumber(): string
     dupPath(): string
@@ -15008,7 +15008,7 @@ export class Sms {
     dupText(): string
     dupTimestamp(): string
     getClass(): number
-    getData(): any
+    getData(): any[]
     getDeliveryReportRequest(): boolean
     getDeliveryState(): number
     getDischargeTimestamp(): string
@@ -15267,7 +15267,7 @@ export class SmsProperties {
     /* Methods of ModemManager.SmsProperties */
     getClass(): number
     getData(): [ /* returnType */ number, /* dataLen */ number ]
-    getDataBytearray(): any
+    getDataBytearray(): any[]
     getDeliveryReportRequest(): boolean
     getNumber(): string
     getServiceCategory(): SmsCdmaServiceCategory
@@ -15276,10 +15276,10 @@ export class SmsProperties {
     getText(): string
     getValidityRelative(): number
     getValidityType(): SmsValidityType
-    peekDataBytearray(): any
+    peekDataBytearray(): any[]
     setClass(messageClass: number): void
     setData(data: number, dataLength: number): void
-    setDataBytearray(data: any): void
+    setDataBytearray(data: any[]): void
     setDeliveryReportRequest(request: boolean): void
     setNumber(number: string): void
     setServiceCategory(serviceCategory: SmsCdmaServiceCategory): void

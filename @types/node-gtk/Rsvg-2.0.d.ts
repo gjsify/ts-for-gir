@@ -4,9 +4,9 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
@@ -85,8 +85,8 @@ export class Handle {
     setBaseUri(baseUri: string): void
     setDpi(dpi: number): void
     setDpiXY(dpiX: number, dpiY: number): void
-    setStylesheet(css: any): boolean
-    write(buf: any): boolean
+    setStylesheet(css: any[]): boolean
+    write(buf: any[]): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -186,7 +186,7 @@ export class Handle {
     _init (config?: Handle_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Handle
-    static newFromData(data: any): Handle
+    static newFromData(data: any[]): Handle
     static newFromFile(filename: string): Handle
     static newFromGfileSync(file: Gio.File, flags: HandleFlags, cancellable?: Gio.Cancellable | null): Handle
     static newFromStreamSync(inputStream: Gio.InputStream, baseFile: Gio.File | null, flags: HandleFlags, cancellable?: Gio.Cancellable | null): Handle

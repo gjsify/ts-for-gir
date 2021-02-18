@@ -4,7 +4,6 @@
 
 import "node"
 import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 
 export declare namespace Babl {
 
@@ -68,7 +67,7 @@ export function modelWithSpace(name: string, space: Object): Object
 export function newPalette(name: string, formatU8: Object, formatU8WithAlpha: Object): Object
 export function newPaletteWithSpace(name: string, space: Object, formatU8: Object, formatU8WithAlpha: Object): Object
 export function paletteReset(babl: Object): void
-export function paletteSetPalette(babl: Object, format: Object, data: any, count: number): void
+export function paletteSetPalette(babl: Object, format: Object, data: any[], count: number): void
 export function process(bablFish: Object, source: object | null, destination: object | null, n: number): number
 export function processRows(bablFish: Object, source: object | null, sourceStride: number, dest: object | null, destStride: number, n: number, rows: number): number
 export function sampling(horizontal: number, vertical: number): Object

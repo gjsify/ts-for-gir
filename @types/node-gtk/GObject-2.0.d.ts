@@ -73,7 +73,7 @@ export const PARAM_STATIC_STRINGS: number
 export const PARAM_USER_SHIFT: number
 export const SIGNAL_FLAGS_MASK: number
 export const SIGNAL_MATCH_MASK: number
-export const TYPE_FLAG_RESERVED_ID_BIT: Type
+export const TYPE_FLAG_RESERVED_ID_BIT: GLib.Type
 export const TYPE_FUNDAMENTAL_MAX: number
 export const TYPE_FUNDAMENTAL_SHIFT: number
 export const TYPE_RESERVED_BSE_FIRST: number
@@ -1689,7 +1689,7 @@ export class _Value__data__union {
     static name: string
 }
 export type SignalCMarshaller = ClosureMarshal
-export type SignalCVaMarshaller = VaClosureMarshal
+export type SignalCVaMarshaller = any
 export interface Type {
     name: string
 }

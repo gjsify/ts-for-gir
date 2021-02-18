@@ -29,7 +29,7 @@ export function file_info_lookup(location: Gio.File): FileInfo
 export function file_info_lookup_for_uri(uri: string): FileInfo
 export function info_provider_update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 export function module_initialize(module: GObject.TypeModule): void
-export function module_list_types(): /* types */ GObject.Type[][]
+export function module_list_types(): /* types */ GObject.Type[]
 export function module_shutdown(): void
 export class ColumnProvider {
     /* Methods of Nautilus.ColumnProvider */

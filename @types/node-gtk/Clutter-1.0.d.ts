@@ -4,10 +4,10 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Json } from './Json-1.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { GL } from './GL-1.0';
 import type { CoglPango } from './CoglPango-1.0';
 import type { PangoCairo } from './PangoCairo-1.0';
@@ -5618,9 +5618,9 @@ export class Actor {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -8602,7 +8602,7 @@ export class Box {
     /* Methods of Clutter.Box */
     getColor(): /* color */ Color
     getLayoutManager(): LayoutManager
-    packv(actor: Actor, properties: string[], values: any): void
+    packv(actor: Actor, properties: string[], values: any[]): void
     setColor(color?: Color | null): void
     setLayoutManager(manager: LayoutManager): void
     /* Methods of Clutter.Actor */
@@ -8618,9 +8618,9 @@ export class Box {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -9995,13 +9995,13 @@ export class CairoTexture {
     getPixelFormat(): Cogl.PixelFormat
     getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
     getSyncSize(): boolean
-    setAreaFromRgbData(data: any, hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
+    setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
     setCoglTexture(coglTex: Cogl.Handle): void
     setFilterQuality(filterQuality: TextureQuality): void
     setFromFile(filename: string): boolean
-    setFromRgbData(data: any, hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
-    setFromYuvData(data: any, width: number, height: number, flags: TextureFlags): boolean
+    setFromRgbData(data: any[], hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
+    setFromYuvData(data: any[], width: number, height: number, flags: TextureFlags): boolean
     setKeepAspectRatio(keepAspect: boolean): void
     setLoadAsync(loadAsync: boolean): void
     setLoadDataAsync(loadAsync: boolean): void
@@ -10021,9 +10021,9 @@ export class CairoTexture {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -11507,9 +11507,9 @@ export class Clone {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -13999,9 +13999,9 @@ export class Group {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -14948,9 +14948,9 @@ export class Image {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Clutter.Image */
-    setArea(data: any, pixelFormat: Cogl.PixelFormat, rect: cairo.RectangleInt, rowStride: number): boolean
+    setArea(data: any[], pixelFormat: Cogl.PixelFormat, rect: cairo.RectangleInt, rowStride: number): boolean
     setBytes(data: any, pixelFormat: Cogl.PixelFormat, width: number, height: number, rowStride: number): boolean
-    setData(data: any, pixelFormat: Cogl.PixelFormat, width: number, height: number, rowStride: number): boolean
+    setData(data: any[], pixelFormat: Cogl.PixelFormat, width: number, height: number, rowStride: number): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -15224,7 +15224,7 @@ export class Interval {
     constructor (config?: Interval_ConstructProps)
     _init (config?: Interval_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newWithValues(gtype: GObject.Type, initial?: any, final?: any): Interval
+    static newWithValues(gtype: GObject.Type, initial?: any | null, final?: any | null): Interval
     static $gtype: GObject.Type
 }
 export interface KeyframeTransition_ConstructProps extends PropertyTransition_ConstructProps {
@@ -15253,7 +15253,7 @@ export class KeyframeTransition {
     setKeyFrame(index: number, key: number, mode: AnimationMode, value: any): void
     setKeyFrames(keyFrames: number[]): void
     setModes(modes: AnimationMode[]): void
-    setValues(values: any): void
+    setValues(values: any[]): void
     /* Methods of Clutter.PropertyTransition */
     getPropertyName(): string
     setPropertyName(propertyName?: string | null): void
@@ -15628,7 +15628,7 @@ export class ListModel {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Clutter.Model */
-    appendv(columns: number[], values: any): void
+    appendv(columns: number[], values: any[]): void
     filterIter(iter: ModelIter): boolean
     filterRow(row: number): boolean
     foreach(func: ModelForeachFunc): void
@@ -15642,8 +15642,8 @@ export class ListModel {
     getNRows(): number
     getSortingColumn(): number
     insertValue(row: number, column: number, value: any): void
-    insertv(row: number, columns: number[], values: any): void
-    prependv(columns: number[], values: any): void
+    insertv(row: number, columns: number[], values: any[]): void
+    prependv(columns: number[], values: any[]): void
     remove(row: number): void
     resort(): void
     setFilter(func: ModelFilterFunc | null): void
@@ -15768,7 +15768,7 @@ export class Model {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Clutter.Model */
-    appendv(columns: number[], values: any): void
+    appendv(columns: number[], values: any[]): void
     filterIter(iter: ModelIter): boolean
     filterRow(row: number): boolean
     foreach(func: ModelForeachFunc): void
@@ -15782,8 +15782,8 @@ export class Model {
     getNRows(): number
     getSortingColumn(): number
     insertValue(row: number, column: number, value: any): void
-    insertv(row: number, columns: number[], values: any): void
-    prependv(columns: number[], values: any): void
+    insertv(row: number, columns: number[], values: any[]): void
+    prependv(columns: number[], values: any[]): void
     remove(row: number): void
     resort(): void
     setFilter(func: ModelFilterFunc | null): void
@@ -17095,9 +17095,9 @@ export class Rectangle {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -18529,9 +18529,9 @@ export class ScrollActor {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -20112,7 +20112,7 @@ export class Stage {
     hideCursor(): void
     isDefault(): boolean
     queueRedraw(): void
-    readPixels(x: number, y: number, width: number, height: number): any
+    readPixels(x: number, y: number, width: number, height: number): any[]
     setAcceptFocus(acceptFocus: boolean): void
     setColor(color: Color): void
     setFog(fog: Fog): void
@@ -20145,9 +20145,9 @@ export class Stage {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -22055,9 +22055,9 @@ export class Text {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
@@ -23431,13 +23431,13 @@ export class Texture {
     getPixelFormat(): Cogl.PixelFormat
     getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
     getSyncSize(): boolean
-    setAreaFromRgbData(data: any, hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
+    setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
     setCoglTexture(coglTex: Cogl.Handle): void
     setFilterQuality(filterQuality: TextureQuality): void
     setFromFile(filename: string): boolean
-    setFromRgbData(data: any, hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
-    setFromYuvData(data: any, width: number, height: number, flags: TextureFlags): boolean
+    setFromRgbData(data: any[], hasAlpha: boolean, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
+    setFromYuvData(data: any[], width: number, height: number, flags: TextureFlags): boolean
     setKeepAspectRatio(keepAspect: boolean): void
     setLoadAsync(loadAsync: boolean): void
     setLoadDataAsync(loadAsync: boolean): void
@@ -23457,9 +23457,9 @@ export class Texture {
     allocateAlignFill(box: ActorBox, xAlign: number, yAlign: number, xFill: boolean, yFill: boolean, flags: AllocationFlags): void
     allocateAvailableSize(x: number, y: number, availableWidth: number, availableHeight: number, flags: AllocationFlags): void
     allocatePreferredSize(flags: AllocationFlags): void
-    animateWithAlphav(alpha: Alpha, properties: string[], values: any): Animation
-    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any): Animation
-    animatev(mode: number, duration: number, properties: string[], values: any): Animation
+    animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
+    animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
+    animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
     applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
     applyTransformToPoint(point: Vertex): /* vertex */ Vertex
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void

@@ -4,8 +4,6 @@
 
 import "node"
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { xft } from './xft-2.0';
 import type { PangoOT } from './PangoOT-1.0';
 import type { freetype2 } from './freetype2-2.0';
@@ -14,6 +12,8 @@ import type { fontconfig } from './fontconfig-2.0';
 import type { Pango } from './Pango-1.0';
 import type { cairo } from './cairo-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { PangoFT2 } from './PangoFT2-1.0';
 
 export declare namespace PangoXft {

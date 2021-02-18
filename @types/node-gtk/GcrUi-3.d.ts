@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -262,7 +262,7 @@ export class Viewer {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -1166,25 +1166,25 @@ export class CertificateRenderer {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gcr.Certificate */
     getBasicConstraints(): [ /* returnType */ boolean, /* isCa */ boolean | null, /* pathLen */ number | null ]
-    getDerData(): any
+    getDerData(): any[]
     getExpiryDate(): GLib.Date
-    getFingerprint(type: GLib.ChecksumType): any
+    getFingerprint(type: GLib.ChecksumType): any[]
     getFingerprintHex(type: GLib.ChecksumType): string
     getIssuedDate(): GLib.Date
     getIssuerCn(): string
     getIssuerDn(): string
     getIssuerName(): string
     getIssuerPart(part: string): string | null
-    getIssuerRaw(): any
+    getIssuerRaw(): any[]
     getKeySize(): number
     getMarkupText(): string
-    getSerialNumber(): any
+    getSerialNumber(): any[]
     getSerialNumberHex(): string
     getSubjectCn(): string
     getSubjectDn(): string
     getSubjectName(): string
     getSubjectPart(part: string): string | null
-    getSubjectRaw(): any
+    getSubjectRaw(): any[]
     isIssuer(issuer: Gcr.Certificate): boolean
     mixinEmitNotify(): void
     /* Methods of Gcr.Comparable */
@@ -1196,7 +1196,7 @@ export class CertificateRenderer {
     renderView(viewer: Viewer): void
     setAttributes(attrs?: Gck.Attributes | null): void
     /* Virtual methods of GcrUi.CertificateRenderer */
-    vfuncGetDerData(): any
+    vfuncGetDerData(): any[]
     vfuncCompare(other?: Gcr.Comparable | null): number
     vfuncDataChanged(): void
     vfuncPopulatePopup(viewer: Viewer, menu: Gtk.Menu): void
@@ -1535,7 +1535,7 @@ export class CertificateWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -2934,7 +2934,7 @@ export class ComboSelector {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -4379,7 +4379,7 @@ export class ImportButton {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -5789,7 +5789,7 @@ export class KeyWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -7078,7 +7078,7 @@ export class ListSelector {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -8644,7 +8644,7 @@ export class PromptDialog {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10365,7 +10365,7 @@ export class TreeSelector {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -11762,7 +11762,7 @@ export class UnlockOptionsWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12765,7 +12765,7 @@ export class ViewerWidget {
     getParser(): Gcr.Parser
     getViewer(): Viewer
     loadBytes(displayName: string | null, data: any): void
-    loadData(displayName: string | null, data: any): void
+    loadData(displayName: string | null, data: any[]): void
     loadFile(file: Gio.File): void
     setDisplayName(displayName: string): void
     showError(message: string, error?: GLib.Error | null): void
@@ -12964,7 +12964,7 @@ export class ViewerWidget {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void

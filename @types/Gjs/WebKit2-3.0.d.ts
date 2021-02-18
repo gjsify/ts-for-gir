@@ -2205,7 +2205,7 @@ export class WebResource {
     g_type_instance: GObject.TypeInstance
     /* Methods of WebKit2.WebResource */
     get_data(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
-    get_data_finish(result: Gio.AsyncResult): Uint8Array
+    get_data_finish(result: Gio.AsyncResult): Uint8Array[]
     get_response(): URIResponse
     get_uri(): string
     /* Methods of GObject.Object */
@@ -2569,7 +2569,7 @@ export class WebView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3480,7 +3480,7 @@ export class WebViewBase {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void

@@ -11,7 +11,7 @@ import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
-    lsw_contact?: SocialWebClient.Contact
+    lsw_contact?: any
     avatar?: Gio.LoadableIcon
     gender?: Folks.Gender
     im_addresses?: Gee.MultiMap
@@ -46,10 +46,10 @@ export class Persona {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of FolksLibsocialweb.Persona */
-    update(contact: SocialWebClient.Contact): void
-    get_lsw_contact(): SocialWebClient.Contact
+    update(contact: any): void
+    get_lsw_contact(): any
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -152,7 +152,7 @@ export class Persona {
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */
@@ -197,13 +197,13 @@ export class Persona {
     constructor (config?: Persona_ConstructProps)
     _init (config?: Persona_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(store: PersonaStore, contact: SocialWebClient.Contact): Persona
-    static get_contact_id(contact: SocialWebClient.Contact): string | null
+    static new(store: PersonaStore, contact: any): Persona
+    static get_contact_id(contact: any): string | null
     static normalise_im_address(im_address: string, protocol: string): string
     static $gtype: GObject.Type
 }
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
-    service?: SocialWebClient.ClientService
+    service?: any
 }
 export class PersonaStore {
     /* Properties of Folks.PersonaStore */
@@ -226,7 +226,7 @@ export class PersonaStore {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of FolksLibsocialweb.PersonaStore */
-    get_service(): SocialWebClient.ClientService
+    get_service(): any
     /* Methods of Folks.PersonaStore */
     _emit_personas_changed(added: Gee.Set | null, removed: Gee.Set | null, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason): void
     prepare(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -347,7 +347,7 @@ export class PersonaStore {
     constructor (config?: PersonaStore_ConstructProps)
     _init (config?: PersonaStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(service: SocialWebClient.ClientService): PersonaStore
+    static new(service: any): PersonaStore
     static $gtype: GObject.Type
 }
 export abstract class PersonaClass {

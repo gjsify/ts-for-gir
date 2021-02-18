@@ -493,7 +493,7 @@ export class Coverage {
     max(other: Coverage): void
     ref(): Coverage
     set(index_: number, level: CoverageLevel): void
-    to_bytes(): /* bytes */ Uint8Array
+    to_bytes(): /* bytes */ Uint8Array[]
     unref(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -537,7 +537,7 @@ export class Coverage {
     _init (config?: Coverage_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): Coverage
-    static from_bytes(bytes: Uint8Array): Coverage | null
+    static from_bytes(bytes: Uint8Array[]): Coverage | null
     static $gtype: GObject.Type
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {

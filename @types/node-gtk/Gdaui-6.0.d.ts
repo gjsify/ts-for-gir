@@ -5,12 +5,12 @@
 import "node"
 import type { Gtk } from './Gtk-3.0';
 import type { xlib } from './xlib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-3.0';
 import type { cairo } from './cairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
@@ -161,12 +161,12 @@ export class DataEntry {
     getValueType(): GObject.Type
     grabFocus(): void
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Widget */
@@ -321,7 +321,7 @@ export class DataEntry {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -465,7 +465,7 @@ export class DataEntry {
     vfuncSetEditable(editable: boolean): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -1424,7 +1424,7 @@ export class DataProxy {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -2597,7 +2597,7 @@ export class BasicForm {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -3864,7 +3864,7 @@ export class Cloud {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -5163,7 +5163,7 @@ export class Combo {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -8442,7 +8442,7 @@ export class DataFilter {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -9658,7 +9658,7 @@ export class DataProxyInfo {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -10674,7 +10674,7 @@ export class DataStore {
     /* Methods of Gdaui.DataStore */
     append(iter: Gtk.TreeIter): boolean
     delete(iter: Gtk.TreeIter): void
-    getIterFromValues(values: any, colsIndex: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
+    getIterFromValues(values: any[], colsIndex: number): [ /* returnType */ boolean, /* iter */ Gtk.TreeIter ]
     getProxy(): Gda.DataProxy
     getRowFromIter(iter: Gtk.TreeIter): number
     setValue(iter: Gtk.TreeIter, col: number, value: any): boolean
@@ -11155,7 +11155,7 @@ export class Entry {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12729,7 +12729,7 @@ export class EntryBin {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -12865,12 +12865,12 @@ export class EntryBin {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -12906,7 +12906,7 @@ export class EntryBin {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -14024,7 +14024,7 @@ export class EntryBoolean {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -14160,12 +14160,12 @@ export class EntryBoolean {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -14201,7 +14201,7 @@ export class EntryBoolean {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -15120,12 +15120,12 @@ export class EntryCombo {
     /* Fields of GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdaui.EntryCombo */
-    getAllValues(): any
-    getReferenceValues(): any
-    getValues(): any
-    setDefaultValues(values: any): void
-    setReferenceValues(values: any): void
-    setValues(values?: any): boolean
+    getAllValues(): any[]
+    getReferenceValues(): any[]
+    getValues(): any[]
+    setDefaultValues(values: any[]): void
+    setReferenceValues(values: any[]): void
+    setValues(values?: any[] | null): boolean
     /* Methods of Gdaui.EntryShell */
     packEntry(entry: Gtk.Widget): void
     setInvalidColor(red: number, green: number, blue: number, alpha: number): void
@@ -15324,7 +15324,7 @@ export class EntryCombo {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -15460,12 +15460,12 @@ export class EntryCombo {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -15496,7 +15496,7 @@ export class EntryCombo {
     vfuncSetEditable(editable: boolean): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -16620,7 +16620,7 @@ export class EntryCommonTime {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -16756,12 +16756,12 @@ export class EntryCommonTime {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -16805,7 +16805,7 @@ export class EntryCommonTime {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -17947,7 +17947,7 @@ export class EntryDate {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -18083,12 +18083,12 @@ export class EntryDate {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -18132,7 +18132,7 @@ export class EntryDate {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -19273,7 +19273,7 @@ export class EntryNone {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -19409,12 +19409,12 @@ export class EntryNone {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -19450,7 +19450,7 @@ export class EntryNone {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -20573,7 +20573,7 @@ export class EntryNumber {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -20709,12 +20709,12 @@ export class EntryNumber {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -20758,7 +20758,7 @@ export class EntryNumber {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -21897,7 +21897,7 @@ export class EntryShell {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -23124,7 +23124,7 @@ export class EntryString {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -23260,12 +23260,12 @@ export class EntryString {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -23309,7 +23309,7 @@ export class EntryString {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -24459,7 +24459,7 @@ export class EntryTime {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -24595,12 +24595,12 @@ export class EntryTime {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -24644,7 +24644,7 @@ export class EntryTime {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -25789,7 +25789,7 @@ export class EntryTimestamp {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -25925,12 +25925,12 @@ export class EntryTimestamp {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -25974,7 +25974,7 @@ export class EntryTimestamp {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -27116,7 +27116,7 @@ export class EntryWrapper {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -27252,12 +27252,12 @@ export class EntryWrapper {
     getValue(): any
     getValueType(): GObject.Type
     setAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
-    setDefaultValue(value?: any): void
+    setDefaultValue(value?: any | null): void
     setEditable(editable: boolean): void
     setReferenceCurrent(): void
-    setReferenceValue(value?: any): void
+    setReferenceValue(value?: any | null): void
     setUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    setValue(value?: any): void
+    setValue(value?: any | null): void
     setValueType(type: GObject.Type): void
     validate(): boolean
     /* Methods of Gtk.Buildable */
@@ -27293,7 +27293,7 @@ export class EntryWrapper {
     vfuncSetAttributes(attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute): void
     vfuncSetRefValue(value: any): void
     vfuncSetUnknownColor(red: number, green: number, blue: number, alpha: number): void
-    vfuncSetValue(value?: any): void
+    vfuncSetValue(value?: any | null): void
     vfuncSetValueDefault(value: any): void
     vfuncSetValueType(type: GObject.Type): void
     vfuncStatusChanged(): void
@@ -28403,7 +28403,7 @@ export class Form {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -29747,7 +29747,7 @@ export class FormattedEntry {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -31328,7 +31328,7 @@ export class Grid {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -32598,7 +32598,7 @@ export class Login {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -33910,7 +33910,7 @@ export class NumericEntry {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -35537,7 +35537,7 @@ export class ProviderSelector {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -36918,7 +36918,7 @@ export class RawForm {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -38332,7 +38332,7 @@ export class RawGrid {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -39818,7 +39818,7 @@ export class RtEditor {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -41055,7 +41055,7 @@ export class ServerOperation {
     isToplevel(): boolean
     isVisible(): boolean
     keynavFailed(direction: Gtk.DirectionType): boolean
-    listAccelClosures(): Function
+    listAccelClosures(): Function[]
     listActionPrefixes(): string[]
     listMnemonicLabels(): Gtk.Widget[]
     map(): void
@@ -42269,7 +42269,7 @@ export class TreeStore {
     constructor (config?: TreeStore_ConstructProps)
     _init (config?: TreeStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newv(tree: Gda.Tree, nColumns: number, types: GType, attributeNames: string): Gtk.TreeModel
+    static newv(tree: Gda.Tree, nColumns: number, types: GObject.Type, attributeNames: string): Gtk.TreeModel
     static $gtype: GObject.Type
 }
 export abstract class BasicFormClass {
@@ -42330,7 +42330,7 @@ export abstract class DataEntryInterface {
     statusChanged: (de: DataEntry) => void
     setValueType: (de: DataEntry, type: GObject.Type) => void
     getValueType: (de: DataEntry) => GObject.Type
-    setValue: (de: DataEntry, value?: any) => void
+    setValue: (de: DataEntry, value?: any | null) => void
     getValue: (de: DataEntry) => any
     setRefValue: (de: DataEntry, value: any) => void
     getRefValue: (de: DataEntry) => any
@@ -42501,7 +42501,7 @@ export class Plugin {
     pluginDescr: string
     pluginFile: string
     nbGTypes: number
-    validGTypes: GType
+    validGTypes: GObject.Type
     optionsXmlSpec: string
     /* Methods of Gdaui.Plugin */
     declare(): void

@@ -252,7 +252,7 @@ export class Persona {
     get_in_google_personal_group(): boolean
     set_in_google_personal_group(value: boolean): void
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -487,7 +487,7 @@ export class Persona {
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */

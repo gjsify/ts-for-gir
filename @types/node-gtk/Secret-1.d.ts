@@ -935,7 +935,7 @@ export class ServicePrivate {
 }
 export class Value {
     /* Methods of Secret.Value */
-    get(): any
+    get(): any[]
     getContentType(): string
     getText(): string | null
     ref(): Value

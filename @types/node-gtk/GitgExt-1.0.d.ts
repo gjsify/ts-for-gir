@@ -5,10 +5,10 @@
 import "node"
 import type { Gitg } from './Gitg-1.0';
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
 import type { Gdk } from './Gdk-3.0';

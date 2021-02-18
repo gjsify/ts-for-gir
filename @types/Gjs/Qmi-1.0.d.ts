@@ -2966,8 +2966,8 @@ export function message_is_indication(self: Message): boolean
 export function message_is_request(self: Message): boolean
 export function message_is_response(self: Message): boolean
 export function message_new(service: Service, client_id: number, transaction_id: number, message_id: number): Message
-export function message_new_from_data(service: Service, client_id: number, qmi_data: Uint8Array): [ /* returnType */ Message, /* qmi_data */ Uint8Array ]
-export function message_new_from_raw(raw: Uint8Array): [ /* returnType */ Message, /* raw */ Uint8Array ]
+export function message_new_from_data(service: Service, client_id: number, qmi_data: Uint8Array[]): [ /* returnType */ Message, /* qmi_data */ Uint8Array[] ]
+export function message_new_from_raw(raw: Uint8Array[]): [ /* returnType */ Message, /* raw */ Uint8Array[] ]
 export function message_ref(self: Message): Message
 export function message_response_new(request: Message, error: ProtocolError): Message
 export function message_set_transaction_id(self: Message, transaction_id: number): void
@@ -3043,8 +3043,8 @@ export function nas_ps_attach_action_get_string(val: NasPsAttachAction): string
 export function nas_radio_interface_get_string(val: NasRadioInterface): string
 export function nas_radio_technology_preference_build_string_from_mask(mask: NasRadioTechnologyPreference): string
 export function nas_rat_mode_preference_build_string_from_mask(mask: NasRatModePreference): string
-export function nas_read_string_from_network_description_encoded_array(encoding: NasNetworkDescriptionEncoding, array: Uint8Array): string
-export function nas_read_string_from_plmn_encoded_array(encoding: NasPlmnEncodingScheme, array: Uint8Array): string
+export function nas_read_string_from_network_description_encoded_array(encoding: NasNetworkDescriptionEncoding, array: Uint8Array[]): string
+export function nas_read_string_from_plmn_encoded_array(encoding: NasPlmnEncodingScheme, array: Uint8Array[]): string
 export function nas_registration_state_get_string(val: NasRegistrationState): string
 export function nas_roaming_indicator_status_get_string(val: NasRoamingIndicatorStatus): string
 export function nas_roaming_preference_get_string(val: NasRoamingPreference): string
@@ -5414,9 +5414,9 @@ export class Device {
     connect(sigName: "device-removed", callback: (($obj: Device) => void)): number
     connect_after(sigName: "device-removed", callback: (($obj: Device) => void)): number
     emit(sigName: "device-removed"): void
-    connect(sigName: "indication", callback: (($obj: Device, output: Uint8Array) => void)): number
-    connect_after(sigName: "indication", callback: (($obj: Device, output: Uint8Array) => void)): number
-    emit(sigName: "indication", output: Uint8Array): void
+    connect(sigName: "indication", callback: (($obj: Device, output: Uint8Array[]) => void)): number
+    connect_after(sigName: "indication", callback: (($obj: Device, output: Uint8Array[]) => void)): number
+    emit(sigName: "indication", output: Uint8Array[]): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
@@ -5813,7 +5813,7 @@ export class IndicationNasNetworkTimeOutput {
 }
 export class IndicationNasOperatorNameOutput {
     /* Methods of Qmi.IndicationNasOperatorNameOutput */
-    get_nitz_information(): [ /* returnType */ boolean, /* value_nitz_information_name_encoding */ NasPlmnEncodingScheme, /* value_nitz_information_short_country_initials */ NasPlmnNameCountryInitials, /* value_nitz_information_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_long_name */ Uint8Array, /* value_nitz_information_short_name */ Uint8Array ]
+    get_nitz_information(): [ /* returnType */ boolean, /* value_nitz_information_name_encoding */ NasPlmnEncodingScheme, /* value_nitz_information_short_country_initials */ NasPlmnNameCountryInitials, /* value_nitz_information_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_long_name */ Uint8Array[], /* value_nitz_information_short_name */ Uint8Array[] ]
     get_operator_plmn_list(): [ /* returnType */ boolean, /* value_operator_plmn_list */ IndicationNasOperatorNameOutputOperatorPlmnListElement[] ]
     get_operator_plmn_name(): [ /* returnType */ boolean, /* value_operator_plmn_name */ IndicationNasOperatorNameOutputOperatorPlmnNameElement[] ]
     get_operator_string_name(): [ /* returnType */ boolean, /* value_operator_string_name */ string ]
@@ -5962,9 +5962,9 @@ export class IndicationPdcGetConfigInfoOutput {
 }
 export class IndicationPdcGetSelectedConfigOutput {
     /* Methods of Qmi.IndicationPdcGetSelectedConfigOutput */
-    get_active_id(): [ /* returnType */ boolean, /* value_active_id */ Uint8Array ]
+    get_active_id(): [ /* returnType */ boolean, /* value_active_id */ Uint8Array[] ]
     get_indication_result(): [ /* returnType */ boolean, /* value_indication_result */ number ]
-    get_pending_id(): [ /* returnType */ boolean, /* value_pending_id */ Uint8Array ]
+    get_pending_id(): [ /* returnType */ boolean, /* value_pending_id */ Uint8Array[] ]
     get_token(): [ /* returnType */ boolean, /* value_token */ number ]
     ref(): IndicationPdcGetSelectedConfigOutput
     unref(): void
@@ -6064,7 +6064,7 @@ export class IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElem
 }
 export class IndicationUimRefreshOutput {
     /* Methods of Qmi.IndicationUimRefreshOutput */
-    get_event(): [ /* returnType */ boolean, /* value_event_stage */ UimRefreshStage, /* value_event_mode */ UimRefreshMode, /* value_event_session_type */ UimSessionType, /* value_event_application_identifier */ Uint8Array, /* value_event_files */ IndicationUimRefreshOutputEventFilesElement[] ]
+    get_event(): [ /* returnType */ boolean, /* value_event_stage */ UimRefreshStage, /* value_event_mode */ UimRefreshMode, /* value_event_session_type */ UimSessionType, /* value_event_application_identifier */ Uint8Array[], /* value_event_files */ IndicationUimRefreshOutputEventFilesElement[] ]
     ref(): IndicationUimRefreshOutput
     unref(): void
     static name: string
@@ -6079,7 +6079,7 @@ export class IndicationUimSlotStatusOutput {
     /* Methods of Qmi.IndicationUimSlotStatusOutput */
     get_physical_slot_information(): [ /* returnType */ boolean, /* value_physical_slot_information */ PhysicalSlotInformationSlot[] ]
     get_physical_slot_status(): [ /* returnType */ boolean, /* value_physical_slot_status */ PhysicalSlotStatusSlot[] ]
-    get_slot_eid_information(): [ /* returnType */ boolean, /* value_slot_eid_information */ any ]
+    get_slot_eid_information(): [ /* returnType */ boolean, /* value_slot_eid_information */ any[] ]
     ref(): IndicationUimSlotStatusOutput
     unref(): void
     static name: string
@@ -6112,10 +6112,10 @@ export class IndicationVoiceAllCallStatusOutputRemotePartyNumberCall {
 }
 export class IndicationVoiceOriginateUssdNoWaitOutput {
     /* Methods of Qmi.IndicationVoiceOriginateUssdNoWaitOutput */
-    get_alpha_identifier(): [ /* returnType */ boolean, /* value_alpha_identifier_data_coding_scheme */ VoiceAlphaDataCodingScheme, /* value_alpha_identifier_alpha */ Uint8Array ]
+    get_alpha_identifier(): [ /* returnType */ boolean, /* value_alpha_identifier_data_coding_scheme */ VoiceAlphaDataCodingScheme, /* value_alpha_identifier_alpha */ Uint8Array[] ]
     get_error_code(): [ /* returnType */ boolean, /* value_error_code */ number ]
     get_failure_cause(): [ /* returnType */ boolean, /* value_failure_cause */ VoiceCallEndReason ]
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     get_uss_data_utf16(): [ /* returnType */ boolean, /* value_uss_data_utf16 */ number[] ]
     ref(): IndicationVoiceOriginateUssdNoWaitOutput
     unref(): void
@@ -6124,7 +6124,7 @@ export class IndicationVoiceOriginateUssdNoWaitOutput {
 export class IndicationVoiceUssdOutput {
     /* Methods of Qmi.IndicationVoiceUssdOutput */
     get_user_action(): [ /* returnType */ boolean, /* value_user_action */ VoiceUserAction ]
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     get_uss_data_utf16(): [ /* returnType */ boolean, /* value_uss_data_utf16 */ number[] ]
     ref(): IndicationVoiceUssdOutput
     unref(): void
@@ -6188,13 +6188,13 @@ export class IndicationWdsSetLteAttachPdnListOutput {
 }
 export class IndicationWmsEventReportOutput {
     /* Methods of Qmi.IndicationWmsEventReportOutput */
-    get_etws_message(): [ /* returnType */ boolean, /* value_etws_message_notification_type */ WmsNotificationType, /* value_etws_message_raw_data */ Uint8Array ]
+    get_etws_message(): [ /* returnType */ boolean, /* value_etws_message_notification_type */ WmsNotificationType, /* value_etws_message_raw_data */ Uint8Array[] ]
     get_etws_plmn_information(): [ /* returnType */ boolean, /* value_etws_plmn_information_mcc */ number, /* value_etws_plmn_information_mnc */ number ]
     get_message_mode(): [ /* returnType */ boolean, /* value_message_mode */ WmsMessageMode ]
     get_mt_message(): [ /* returnType */ boolean, /* value_mt_message_storage_type */ WmsStorageType, /* value_mt_message_memory_index */ number ]
     get_sms_on_ims(): [ /* returnType */ boolean, /* value_sms_on_ims */ boolean ]
     get_smsc_address(): [ /* returnType */ boolean, /* value_smsc_address */ string ]
-    get_transfer_route_mt_message(): [ /* returnType */ boolean, /* value_transfer_route_mt_message_ack_indicator */ WmsAckIndicator, /* value_transfer_route_mt_message_transaction_id */ number, /* value_transfer_route_mt_message_format */ WmsMessageFormat, /* value_transfer_route_mt_message_raw_data */ Uint8Array ]
+    get_transfer_route_mt_message(): [ /* returnType */ boolean, /* value_transfer_route_mt_message_ack_indicator */ WmsAckIndicator, /* value_transfer_route_mt_message_transaction_id */ number, /* value_transfer_route_mt_message_format */ WmsMessageFormat, /* value_transfer_route_mt_message_raw_data */ Uint8Array[] ]
     ref(): IndicationWmsEventReportOutput
     unref(): void
     static name: string
@@ -6365,12 +6365,12 @@ export class MessageDmsActivateManualInput {
     get_info(): [ /* returnType */ boolean, /* value_info_service_programming_code */ string, /* value_info_system_identification_number */ number, /* value_info_mobile_directory_number */ string, /* value_info_mobile_identification_number */ string ]
     get_mn_aaa_key(): [ /* returnType */ boolean, /* value_mn_aaa_key */ string ]
     get_mn_ha_key(): [ /* returnType */ boolean, /* value_mn_ha_key */ string ]
-    get_prl(): [ /* returnType */ boolean, /* value_prl_prl_total_length */ number, /* value_prl_prl_segment_sequence */ number, /* value_prl_prl_segment */ Uint8Array ]
+    get_prl(): [ /* returnType */ boolean, /* value_prl_prl_total_length */ number, /* value_prl_prl_segment_sequence */ number, /* value_prl_prl_segment */ Uint8Array[] ]
     ref(): MessageDmsActivateManualInput
     set_info(value_info_service_programming_code: string, value_info_system_identification_number: number, value_info_mobile_directory_number: string, value_info_mobile_identification_number: string): boolean
     set_mn_aaa_key(value_mn_aaa_key: string): boolean
     set_mn_ha_key(value_mn_ha_key: string): boolean
-    set_prl(value_prl_prl_total_length: number, value_prl_prl_segment_sequence: number, value_prl_prl_segment: Uint8Array): boolean
+    set_prl(value_prl_prl_total_length: number, value_prl_prl_segment_sequence: number, value_prl_prl_segment: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageDmsActivateManualInput
@@ -6548,7 +6548,7 @@ export class MessageDmsGetMacAddressInput {
 }
 export class MessageDmsGetMacAddressOutput {
     /* Methods of Qmi.MessageDmsGetMacAddressOutput */
-    get_mac_address(): [ /* returnType */ boolean, /* value_mac_address */ Uint8Array ]
+    get_mac_address(): [ /* returnType */ boolean, /* value_mac_address */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageDmsGetMacAddressOutput
     unref(): void
@@ -6652,7 +6652,7 @@ export class MessageDmsGetStoredImageInfoOutput {
 }
 export class MessageDmsGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageDmsGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageDmsGetSupportedMessagesOutput
     unref(): void
@@ -6721,7 +6721,7 @@ export class MessageDmsListStoredImagesOutputListImageSublistSublistElement {
 }
 export class MessageDmsReadEriFileOutput {
     /* Methods of Qmi.MessageDmsReadEriFileOutput */
-    get_eri_file(): [ /* returnType */ boolean, /* value_eri_file */ Uint8Array ]
+    get_eri_file(): [ /* returnType */ boolean, /* value_eri_file */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageDmsReadEriFileOutput
     unref(): void
@@ -6730,7 +6730,7 @@ export class MessageDmsReadEriFileOutput {
 export class MessageDmsReadUserDataOutput {
     /* Methods of Qmi.MessageDmsReadUserDataOutput */
     get_result(): boolean
-    get_user_data(): [ /* returnType */ boolean, /* value_user_data */ Uint8Array ]
+    get_user_data(): [ /* returnType */ boolean, /* value_user_data */ Uint8Array[] ]
     ref(): MessageDmsReadUserDataOutput
     unref(): void
     static name: string
@@ -7215,9 +7215,9 @@ export class MessageDmsValidateServiceProgrammingCodeOutput {
 }
 export class MessageDmsWriteUserDataInput {
     /* Methods of Qmi.MessageDmsWriteUserDataInput */
-    get_user_data(): [ /* returnType */ boolean, /* value_user_data */ Uint8Array ]
+    get_user_data(): [ /* returnType */ boolean, /* value_user_data */ Uint8Array[] ]
     ref(): MessageDmsWriteUserDataInput
-    set_user_data(value_user_data: Uint8Array): boolean
+    set_user_data(value_user_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageDmsWriteUserDataInput
@@ -7442,13 +7442,13 @@ export class MessageLocGetServerOutput {
 export class MessageLocInjectPredictedOrbitsDataInput {
     /* Methods of Qmi.MessageLocInjectPredictedOrbitsDataInput */
     get_format_type(): [ /* returnType */ boolean, /* value_format_type */ LocPredictedOrbitsDataFormat ]
-    get_part_data(): [ /* returnType */ boolean, /* value_part_data */ Uint8Array ]
+    get_part_data(): [ /* returnType */ boolean, /* value_part_data */ Uint8Array[] ]
     get_part_number(): [ /* returnType */ boolean, /* value_part_number */ number ]
     get_total_parts(): [ /* returnType */ boolean, /* value_total_parts */ number ]
     get_total_size(): [ /* returnType */ boolean, /* value_total_size */ number ]
     ref(): MessageLocInjectPredictedOrbitsDataInput
     set_format_type(value_format_type: LocPredictedOrbitsDataFormat): boolean
-    set_part_data(value_part_data: Uint8Array): boolean
+    set_part_data(value_part_data: Uint8Array[]): boolean
     set_part_number(value_part_number: number): boolean
     set_total_parts(value_total_parts: number): boolean
     set_total_size(value_total_size: number): boolean
@@ -7468,12 +7468,12 @@ export class MessageLocInjectPredictedOrbitsDataOutput {
 }
 export class MessageLocInjectXtraDataInput {
     /* Methods of Qmi.MessageLocInjectXtraDataInput */
-    get_part_data(): [ /* returnType */ boolean, /* value_part_data */ Uint8Array ]
+    get_part_data(): [ /* returnType */ boolean, /* value_part_data */ Uint8Array[] ]
     get_part_number(): [ /* returnType */ boolean, /* value_part_number */ number ]
     get_total_parts(): [ /* returnType */ boolean, /* value_total_parts */ number ]
     get_total_size(): [ /* returnType */ boolean, /* value_total_size */ number ]
     ref(): MessageLocInjectXtraDataInput
-    set_part_data(value_part_data: Uint8Array): boolean
+    set_part_data(value_part_data: Uint8Array[]): boolean
     set_part_number(value_part_number: number): boolean
     set_total_parts(value_total_parts: number): boolean
     set_total_size(value_total_size: number): boolean
@@ -7661,21 +7661,21 @@ export class MessageNasConfigSignalInfoInput {
     get_io_threshold(): [ /* returnType */ boolean, /* value_io_threshold */ number[] ]
     get_lte_report(): [ /* returnType */ boolean, /* value_lte_report_rate */ number, /* value_lte_report_average_period */ number ]
     get_lte_snr_threshold(): [ /* returnType */ boolean, /* value_lte_snr_threshold */ number[] ]
-    get_rscp_threshold(): [ /* returnType */ boolean, /* value_rscp_threshold */ Uint8Array ]
+    get_rscp_threshold(): [ /* returnType */ boolean, /* value_rscp_threshold */ Uint8Array[] ]
     get_rsrp_threshold(): [ /* returnType */ boolean, /* value_rsrp_threshold */ number[] ]
-    get_rsrq_threshold(): [ /* returnType */ boolean, /* value_rsrq_threshold */ Uint8Array ]
-    get_rssi_threshold(): [ /* returnType */ boolean, /* value_rssi_threshold */ Uint8Array ]
-    get_sinr_threshold(): [ /* returnType */ boolean, /* value_sinr_threshold */ Uint8Array ]
+    get_rsrq_threshold(): [ /* returnType */ boolean, /* value_rsrq_threshold */ Uint8Array[] ]
+    get_rssi_threshold(): [ /* returnType */ boolean, /* value_rssi_threshold */ Uint8Array[] ]
+    get_sinr_threshold(): [ /* returnType */ boolean, /* value_sinr_threshold */ Uint8Array[] ]
     ref(): MessageNasConfigSignalInfoInput
     set_ecio_threshold(value_ecio_threshold: number[]): boolean
     set_io_threshold(value_io_threshold: number[]): boolean
     set_lte_report(value_lte_report_rate: number, value_lte_report_average_period: number): boolean
     set_lte_snr_threshold(value_lte_snr_threshold: number[]): boolean
-    set_rscp_threshold(value_rscp_threshold: Uint8Array): boolean
+    set_rscp_threshold(value_rscp_threshold: Uint8Array[]): boolean
     set_rsrp_threshold(value_rsrp_threshold: number[]): boolean
-    set_rsrq_threshold(value_rsrq_threshold: Uint8Array): boolean
-    set_rssi_threshold(value_rssi_threshold: Uint8Array): boolean
-    set_sinr_threshold(value_sinr_threshold: Uint8Array): boolean
+    set_rsrq_threshold(value_rsrq_threshold: Uint8Array[]): boolean
+    set_rssi_threshold(value_rssi_threshold: Uint8Array[]): boolean
+    set_sinr_threshold(value_sinr_threshold: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageNasConfigSignalInfoInput
@@ -7721,16 +7721,16 @@ export class MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBase
 export class MessageNasGetCellLocationInfoOutput {
     /* Methods of Qmi.MessageNasGetCellLocationInfoOutput */
     get_cdma_info(): [ /* returnType */ boolean, /* value_cdma_info_system_id */ number, /* value_cdma_info_network_id */ number, /* value_cdma_info_base_station_id */ number, /* value_cdma_info_reference_pn */ number, /* value_cdma_info_latitude */ number, /* value_cdma_info_longitude */ number ]
-    get_geran_info_v2(): [ /* returnType */ boolean, /* value_geran_info_v2_cell_id */ number, /* value_geran_info_v2_plmn */ Uint8Array, /* value_geran_info_v2_lac */ number, /* value_geran_info_v2_geran_absolute_rf_channel_number */ number, /* value_geran_info_v2_base_station_identity_code */ number, /* value_geran_info_v2_timing_advance */ number, /* value_geran_info_v2_rx_level */ number, /* value_geran_info_v2_cell */ MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement[] ]
+    get_geran_info_v2(): [ /* returnType */ boolean, /* value_geran_info_v2_cell_id */ number, /* value_geran_info_v2_plmn */ Uint8Array[], /* value_geran_info_v2_lac */ number, /* value_geran_info_v2_geran_absolute_rf_channel_number */ number, /* value_geran_info_v2_base_station_identity_code */ number, /* value_geran_info_v2_timing_advance */ number, /* value_geran_info_v2_rx_level */ number, /* value_geran_info_v2_cell */ MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement[] ]
     get_interfrequency_lte_info(): [ /* returnType */ boolean, /* value_interfrequency_lte_info_ue_in_idle */ boolean, /* value_interfrequency_lte_info_frequency */ MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement[] ]
-    get_intrafrequency_lte_info_v2(): [ /* returnType */ boolean, /* value_intrafrequency_lte_info_v2_ue_in_idle */ boolean, /* value_intrafrequency_lte_info_v2_plmn */ Uint8Array, /* value_intrafrequency_lte_info_v2_tracking_area_code */ number, /* value_intrafrequency_lte_info_v2_global_cell_id */ number, /* value_intrafrequency_lte_info_v2_eutra_absolute_rf_channel_number */ number, /* value_intrafrequency_lte_info_v2_serving_cell_id */ number, /* value_intrafrequency_lte_info_v2_cell_reselection_priority */ number, /* value_intrafrequency_lte_info_v2_s_non_intra_search_threshold */ number, /* value_intrafrequency_lte_info_v2_serving_cell_low_threshold */ number, /* value_intrafrequency_lte_info_v2_s_intra_search_threshold */ number, /* value_intrafrequency_lte_info_v2_cell */ MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement[] ]
+    get_intrafrequency_lte_info_v2(): [ /* returnType */ boolean, /* value_intrafrequency_lte_info_v2_ue_in_idle */ boolean, /* value_intrafrequency_lte_info_v2_plmn */ Uint8Array[], /* value_intrafrequency_lte_info_v2_tracking_area_code */ number, /* value_intrafrequency_lte_info_v2_global_cell_id */ number, /* value_intrafrequency_lte_info_v2_eutra_absolute_rf_channel_number */ number, /* value_intrafrequency_lte_info_v2_serving_cell_id */ number, /* value_intrafrequency_lte_info_v2_cell_reselection_priority */ number, /* value_intrafrequency_lte_info_v2_s_non_intra_search_threshold */ number, /* value_intrafrequency_lte_info_v2_serving_cell_low_threshold */ number, /* value_intrafrequency_lte_info_v2_s_intra_search_threshold */ number, /* value_intrafrequency_lte_info_v2_cell */ MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement[] ]
     get_lte_info_neighboring_gsm(): [ /* returnType */ boolean, /* value_lte_info_neighboring_gsm_ue_in_idle */ boolean, /* value_lte_info_neighboring_gsm_frequency */ MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement[] ]
     get_lte_info_neighboring_wcdma(): [ /* returnType */ boolean, /* value_lte_info_neighboring_wcdma_ue_in_idle */ boolean, /* value_lte_info_neighboring_wcdma_frequency */ MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement[] ]
     get_lte_info_timing_advance(): [ /* returnType */ boolean, /* value_lte_info_timing_advance */ number ]
     get_result(): boolean
     get_umts_cell_id(): [ /* returnType */ boolean, /* value_umts_cell_id */ number ]
     get_umts_info_neighboring_lte(): [ /* returnType */ boolean, /* value_umts_info_neighboring_lte_rrc_state */ NasWcdmaRrcState, /* value_umts_info_neighboring_lte_frequency */ MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement[] ]
-    get_umts_info_v2(): [ /* returnType */ boolean, /* value_umts_info_v2_cell_id */ number, /* value_umts_info_v2_plmn */ Uint8Array, /* value_umts_info_v2_lac */ number, /* value_umts_info_v2_utra_absolute_rf_channel_number */ number, /* value_umts_info_v2_primary_scrambling_code */ number, /* value_umts_info_v2_rscp */ number, /* value_umts_info_v2_ecio */ number, /* value_umts_info_v2_cell */ MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement[], /* value_umts_info_v2_neighboring_geran */ MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement[] ]
+    get_umts_info_v2(): [ /* returnType */ boolean, /* value_umts_info_v2_cell_id */ number, /* value_umts_info_v2_plmn */ Uint8Array[], /* value_umts_info_v2_lac */ number, /* value_umts_info_v2_utra_absolute_rf_channel_number */ number, /* value_umts_info_v2_primary_scrambling_code */ number, /* value_umts_info_v2_rscp */ number, /* value_umts_info_v2_ecio */ number, /* value_umts_info_v2_cell */ MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement[], /* value_umts_info_v2_neighboring_geran */ MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement[] ]
     ref(): MessageNasGetCellLocationInfoOutput
     unref(): void
     static name: string
@@ -7845,7 +7845,7 @@ export class MessageNasGetDrxOutput {
 export class MessageNasGetHomeNetworkOutput {
     /* Methods of Qmi.MessageNasGetHomeNetworkOutput */
     get_home_network(): [ /* returnType */ boolean, /* value_home_network_mcc */ number, /* value_home_network_mnc */ number, /* value_home_network_description */ string ]
-    get_home_network_3gpp2_ext(): [ /* returnType */ boolean, /* value_home_network_3gpp2_ext_mcc */ number, /* value_home_network_3gpp2_ext_mnc */ number, /* value_home_network_3gpp2_ext_display_description */ NasNetworkDescriptionDisplay, /* value_home_network_3gpp2_ext_description_encoding */ NasNetworkDescriptionEncoding, /* value_home_network_3gpp2_ext_description */ Uint8Array ]
+    get_home_network_3gpp2_ext(): [ /* returnType */ boolean, /* value_home_network_3gpp2_ext_mcc */ number, /* value_home_network_3gpp2_ext_mnc */ number, /* value_home_network_3gpp2_ext_display_description */ NasNetworkDescriptionDisplay, /* value_home_network_3gpp2_ext_description_encoding */ NasNetworkDescriptionEncoding, /* value_home_network_3gpp2_ext_description */ Uint8Array[] ]
     get_home_network_3gpp_mnc(): [ /* returnType */ boolean, /* value_home_network_3gpp_mnc_is_3gpp */ boolean, /* value_home_network_3gpp_mnc_includes_pcs_digit */ boolean ]
     get_home_system_id(): [ /* returnType */ boolean, /* value_home_system_id_sid */ number, /* value_home_system_id_nid */ number ]
     get_network_name_source(): [ /* returnType */ boolean, /* value_network_name_source */ NasNetworkNameSource ]
@@ -7878,7 +7878,7 @@ export class MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc {
 }
 export class MessageNasGetOperatorNameOutput {
     /* Methods of Qmi.MessageNasGetOperatorNameOutput */
-    get_nitz_information(): [ /* returnType */ boolean, /* value_nitz_information_name_encoding */ NasPlmnEncodingScheme, /* value_nitz_information_short_country_initials */ NasPlmnNameCountryInitials, /* value_nitz_information_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_long_name */ Uint8Array, /* value_nitz_information_short_name */ Uint8Array ]
+    get_nitz_information(): [ /* returnType */ boolean, /* value_nitz_information_name_encoding */ NasPlmnEncodingScheme, /* value_nitz_information_short_country_initials */ NasPlmnNameCountryInitials, /* value_nitz_information_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_nitz_information_long_name */ Uint8Array[], /* value_nitz_information_short_name */ Uint8Array[] ]
     get_operator_plmn_list(): [ /* returnType */ boolean, /* value_operator_plmn_list */ MessageNasGetOperatorNameOutputOperatorPlmnListElement[] ]
     get_operator_plmn_name(): [ /* returnType */ boolean, /* value_operator_plmn_name */ MessageNasGetOperatorNameOutputOperatorPlmnNameElement[] ]
     get_operator_string_name(): [ /* returnType */ boolean, /* value_operator_string_name */ string ]
@@ -7935,7 +7935,7 @@ export class MessageNasGetPlmnNameInput {
 }
 export class MessageNasGetPlmnNameOutput {
     /* Methods of Qmi.MessageNasGetPlmnNameOutput */
-    get_3gpp_eons_plmn_name(): [ /* returnType */ boolean, /* value_3gpp_eons_plmn_name_service_provider_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_service_provider_name */ Uint8Array, /* value_3gpp_eons_plmn_name_short_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_short_name_country_initials */ NasPlmnNameCountryInitials, /* value_3gpp_eons_plmn_name_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_3gpp_eons_plmn_name_short_name */ Uint8Array, /* value_3gpp_eons_plmn_name_long_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_long_name_country_initials */ NasPlmnNameCountryInitials, /* value_3gpp_eons_plmn_name_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_3gpp_eons_plmn_name_long_name */ Uint8Array ]
+    get_3gpp_eons_plmn_name(): [ /* returnType */ boolean, /* value_3gpp_eons_plmn_name_service_provider_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_service_provider_name */ Uint8Array[], /* value_3gpp_eons_plmn_name_short_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_short_name_country_initials */ NasPlmnNameCountryInitials, /* value_3gpp_eons_plmn_name_short_name_spare_bits */ NasPlmnNameSpareBits, /* value_3gpp_eons_plmn_name_short_name */ Uint8Array[], /* value_3gpp_eons_plmn_name_long_name_encoding */ NasNetworkDescriptionEncoding, /* value_3gpp_eons_plmn_name_long_name_country_initials */ NasPlmnNameCountryInitials, /* value_3gpp_eons_plmn_name_long_name_spare_bits */ NasPlmnNameSpareBits, /* value_3gpp_eons_plmn_name_long_name */ Uint8Array[] ]
     get_additional_information(): [ /* returnType */ boolean, /* value_additional_information */ number[] ]
     get_display_bit_information(): [ /* returnType */ boolean, /* value_display_bit_information_service_provider_name_set */ NasBoolean, /* value_display_bit_information_plmn_name_set */ NasBoolean ]
     get_network_information(): [ /* returnType */ boolean, /* value_network_information */ NasBoolean ]
@@ -8092,7 +8092,7 @@ export class MessageNasGetSignalStrengthOutputStrengthListElement {
 }
 export class MessageNasGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageNasGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageNasGetSupportedMessagesOutput
     unref(): void
@@ -8331,9 +8331,9 @@ export class MessageNasSetEventReportInput {
     get_registration_reject_reason(): [ /* returnType */ boolean, /* value_registration_reject_reason */ boolean ]
     get_rf_band_information(): [ /* returnType */ boolean, /* value_rf_band_information */ boolean ]
     get_rssi_indicator(): [ /* returnType */ boolean, /* value_rssi_indicator_report */ boolean, /* value_rssi_indicator_rssi_delta */ number ]
-    get_signal_strength_indicator(): [ /* returnType */ boolean, /* value_signal_strength_indicator_report */ boolean, /* value_signal_strength_indicator_thresholds */ Uint8Array ]
+    get_signal_strength_indicator(): [ /* returnType */ boolean, /* value_signal_strength_indicator_report */ boolean, /* value_signal_strength_indicator_thresholds */ Uint8Array[] ]
     get_sinr_indicator(): [ /* returnType */ boolean, /* value_sinr_indicator_report */ boolean, /* value_sinr_indicator_sinr_delta */ number ]
-    get_sinr_threshold(): [ /* returnType */ boolean, /* value_sinr_threshold_report */ boolean, /* value_sinr_threshold_thresholds */ Uint8Array ]
+    get_sinr_threshold(): [ /* returnType */ boolean, /* value_sinr_threshold_report */ boolean, /* value_sinr_threshold_thresholds */ Uint8Array[] ]
     ref(): MessageNasSetEventReportInput
     set_ecio_indicator(value_ecio_indicator_report: boolean, value_ecio_indicator_ecio_delta: number): boolean
     set_ecio_threshold(value_ecio_threshold_report: boolean, value_ecio_threshold_thresholds: number[]): boolean
@@ -8344,9 +8344,9 @@ export class MessageNasSetEventReportInput {
     set_registration_reject_reason(value_registration_reject_reason: boolean): boolean
     set_rf_band_information(value_rf_band_information: boolean): boolean
     set_rssi_indicator(value_rssi_indicator_report: boolean, value_rssi_indicator_rssi_delta: number): boolean
-    set_signal_strength_indicator(value_signal_strength_indicator_report: boolean, value_signal_strength_indicator_thresholds: Uint8Array): boolean
+    set_signal_strength_indicator(value_signal_strength_indicator_report: boolean, value_signal_strength_indicator_thresholds: Uint8Array[]): boolean
     set_sinr_indicator(value_sinr_indicator_report: boolean, value_sinr_indicator_sinr_delta: number): boolean
-    set_sinr_threshold(value_sinr_threshold_report: boolean, value_sinr_threshold_thresholds: Uint8Array): boolean
+    set_sinr_threshold(value_sinr_threshold_report: boolean, value_sinr_threshold_thresholds: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageNasSetEventReportInput
@@ -8752,11 +8752,11 @@ export class MessagePdcDeactivateConfigOutput {
 export class MessagePdcDeleteConfigInput {
     /* Methods of Qmi.MessagePdcDeleteConfigInput */
     get_config_type(): [ /* returnType */ boolean, /* value_config_type */ PdcConfigurationType ]
-    get_id(): [ /* returnType */ boolean, /* value_id */ Uint8Array ]
+    get_id(): [ /* returnType */ boolean, /* value_id */ Uint8Array[] ]
     get_token(): [ /* returnType */ boolean, /* value_token */ number ]
     ref(): MessagePdcDeleteConfigInput
     set_config_type(value_config_type: PdcConfigurationType): boolean
-    set_id(value_id: Uint8Array): boolean
+    set_id(value_id: Uint8Array[]): boolean
     set_token(value_token: number): boolean
     unref(): void
     static name: string
@@ -8888,10 +8888,10 @@ export class MessagePdcListConfigsOutput {
 }
 export class MessagePdcLoadConfigInput {
     /* Methods of Qmi.MessagePdcLoadConfigInput */
-    get_config_chunk(): [ /* returnType */ boolean, /* value_config_chunk_type */ PdcConfigurationType, /* value_config_chunk_id */ Uint8Array, /* value_config_chunk_total_size */ number, /* value_config_chunk_chunk */ Uint8Array ]
+    get_config_chunk(): [ /* returnType */ boolean, /* value_config_chunk_type */ PdcConfigurationType, /* value_config_chunk_id */ Uint8Array[], /* value_config_chunk_total_size */ number, /* value_config_chunk_chunk */ Uint8Array[] ]
     get_token(): [ /* returnType */ boolean, /* value_token */ number ]
     ref(): MessagePdcLoadConfigInput
-    set_config_chunk(value_config_chunk_type: PdcConfigurationType, value_config_chunk_id: Uint8Array, value_config_chunk_total_size: number, value_config_chunk_chunk: Uint8Array): boolean
+    set_config_chunk(value_config_chunk_type: PdcConfigurationType, value_config_chunk_id: Uint8Array[], value_config_chunk_total_size: number, value_config_chunk_chunk: Uint8Array[]): boolean
     set_token(value_token: number): boolean
     unref(): void
     static name: string
@@ -8971,7 +8971,7 @@ export class MessagePdsGetAgpsConfigInput {
 export class MessagePdsGetAgpsConfigOutput {
     /* Methods of Qmi.MessagePdsGetAgpsConfigOutput */
     get_location_server_address(): [ /* returnType */ boolean, /* value_location_server_address_ip */ number, /* value_location_server_address_port */ number ]
-    get_location_server_url(): [ /* returnType */ boolean, /* value_location_server_url */ Uint8Array ]
+    get_location_server_url(): [ /* returnType */ boolean, /* value_location_server_url */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessagePdsGetAgpsConfigOutput
     unref(): void
@@ -9011,11 +9011,11 @@ export class MessagePdsResetOutput {
 export class MessagePdsSetAgpsConfigInput {
     /* Methods of Qmi.MessagePdsSetAgpsConfigInput */
     get_location_server_address(): [ /* returnType */ boolean, /* value_location_server_address_ip */ number, /* value_location_server_address_port */ number ]
-    get_location_server_url(): [ /* returnType */ boolean, /* value_location_server_url */ Uint8Array ]
+    get_location_server_url(): [ /* returnType */ boolean, /* value_location_server_url */ Uint8Array[] ]
     get_network_mode(): [ /* returnType */ boolean, /* value_network_mode */ PdsNetworkMode ]
     ref(): MessagePdsSetAgpsConfigInput
     set_location_server_address(value_location_server_address_ip: number, value_location_server_address_port: number): boolean
-    set_location_server_url(value_location_server_url: Uint8Array): boolean
+    set_location_server_url(value_location_server_url: Uint8Array[]): boolean
     set_network_mode(value_network_mode: PdsNetworkMode): boolean
     unref(): void
     static name: string
@@ -9241,11 +9241,11 @@ export class MessageUimChangePinInput {
     /* Methods of Qmi.MessageUimChangePinInput */
     get_info(): [ /* returnType */ boolean, /* value_info_pin_id */ UimPinId, /* value_info_old_pin */ string, /* value_info_new_pin */ string ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimChangePinInput
     set_info(value_info_pin_id: UimPinId, value_info_old_pin: string, value_info_new_pin: string): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimChangePinInput
@@ -9265,10 +9265,10 @@ export class MessageUimChangePinOutput {
 }
 export class MessageUimChangeProvisioningSessionInput {
     /* Methods of Qmi.MessageUimChangeProvisioningSessionInput */
-    get_application_information(): [ /* returnType */ boolean, /* value_application_information_slot */ number, /* value_application_information_application_identifier */ Uint8Array ]
+    get_application_information(): [ /* returnType */ boolean, /* value_application_information_slot */ number, /* value_application_information_application_identifier */ Uint8Array[] ]
     get_session_change(): [ /* returnType */ boolean, /* value_session_change_session_type */ UimSessionType, /* value_session_change_activate */ boolean ]
     ref(): MessageUimChangeProvisioningSessionInput
-    set_application_information(value_application_information_slot: number, value_application_information_application_identifier: Uint8Array): boolean
+    set_application_information(value_application_information_slot: number, value_application_information_application_identifier: Uint8Array[]): boolean
     set_session_change(value_session_change_session_type: UimSessionType, value_session_change_activate: boolean): boolean
     unref(): void
     static name: string
@@ -9322,13 +9322,13 @@ export class MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElem
 }
 export class MessageUimGetFileAttributesInput {
     /* Methods of Qmi.MessageUimGetFileAttributesInput */
-    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array ]
+    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array[] ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimGetFileAttributesInput
-    set_file(value_file_file_id: number, value_file_file_path: Uint8Array): boolean
+    set_file(value_file_file_id: number, value_file_file_path: Uint8Array[]): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimGetFileAttributesInput
@@ -9339,7 +9339,7 @@ export class MessageUimGetFileAttributesInput {
 export class MessageUimGetFileAttributesOutput {
     /* Methods of Qmi.MessageUimGetFileAttributesOutput */
     get_card_result(): [ /* returnType */ boolean, /* value_card_result_sw1 */ number, /* value_card_result_sw2 */ number ]
-    get_file_attributes(): [ /* returnType */ boolean, /* value_file_attributes_file_size */ number, /* value_file_attributes_file_id */ number, /* value_file_attributes_file_type */ UimFileType, /* value_file_attributes_record_size */ number, /* value_file_attributes_record_count */ number, /* value_file_attributes_read_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_read_security_attributes */ UimSecurityAttribute, /* value_file_attributes_write_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_write_security_attributes */ UimSecurityAttribute, /* value_file_attributes_increase_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_increase_security_attributes */ UimSecurityAttribute, /* value_file_attributes_deactivate_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_deactivate_security_attributes */ UimSecurityAttribute, /* value_file_attributes_activate_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_activate_security_attributes */ UimSecurityAttribute, /* value_file_attributes_raw_data */ Uint8Array ]
+    get_file_attributes(): [ /* returnType */ boolean, /* value_file_attributes_file_size */ number, /* value_file_attributes_file_id */ number, /* value_file_attributes_file_type */ UimFileType, /* value_file_attributes_record_size */ number, /* value_file_attributes_record_count */ number, /* value_file_attributes_read_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_read_security_attributes */ UimSecurityAttribute, /* value_file_attributes_write_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_write_security_attributes */ UimSecurityAttribute, /* value_file_attributes_increase_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_increase_security_attributes */ UimSecurityAttribute, /* value_file_attributes_deactivate_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_deactivate_security_attributes */ UimSecurityAttribute, /* value_file_attributes_activate_security_attributes_logic */ UimSecurityAttributeLogic, /* value_file_attributes_activate_security_attributes */ UimSecurityAttribute, /* value_file_attributes_raw_data */ Uint8Array[] ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
     get_result(): boolean
     ref(): MessageUimGetFileAttributesOutput
@@ -9351,14 +9351,14 @@ export class MessageUimGetSlotStatusOutput {
     get_physical_slot_information(): [ /* returnType */ boolean, /* value_physical_slot_information */ PhysicalSlotInformationSlot[] ]
     get_physical_slot_status(): [ /* returnType */ boolean, /* value_physical_slot_status */ PhysicalSlotStatusSlot[] ]
     get_result(): boolean
-    get_slot_eid_information(): [ /* returnType */ boolean, /* value_slot_eid_information */ any ]
+    get_slot_eid_information(): [ /* returnType */ boolean, /* value_slot_eid_information */ any[] ]
     ref(): MessageUimGetSlotStatusOutput
     unref(): void
     static name: string
 }
 export class MessageUimGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageUimGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageUimGetSupportedMessagesOutput
     unref(): void
@@ -9404,17 +9404,17 @@ export class MessageUimPowerOnSimOutput {
 }
 export class MessageUimReadRecordInput {
     /* Methods of Qmi.MessageUimReadRecordInput */
-    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array ]
+    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array[] ]
     get_last_record(): [ /* returnType */ boolean, /* value_last_record */ number ]
     get_record(): [ /* returnType */ boolean, /* value_record_record_number */ number, /* value_record_record_length */ number ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimReadRecordInput
-    set_file(value_file_file_id: number, value_file_file_path: Uint8Array): boolean
+    set_file(value_file_file_id: number, value_file_file_path: Uint8Array[]): boolean
     set_last_record(value_last_record: number): boolean
     set_record(value_record_record_number: number, value_record_record_length: number): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimReadRecordInput
@@ -9424,9 +9424,9 @@ export class MessageUimReadRecordInput {
 }
 export class MessageUimReadRecordOutput {
     /* Methods of Qmi.MessageUimReadRecordOutput */
-    get_additional_read_result(): [ /* returnType */ boolean, /* value_additional_read_result */ Uint8Array ]
+    get_additional_read_result(): [ /* returnType */ boolean, /* value_additional_read_result */ Uint8Array[] ]
     get_card_result(): [ /* returnType */ boolean, /* value_card_result_sw1 */ number, /* value_card_result_sw2 */ number ]
-    get_read_result(): [ /* returnType */ boolean, /* value_read_result */ Uint8Array ]
+    get_read_result(): [ /* returnType */ boolean, /* value_read_result */ Uint8Array[] ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
     get_result(): boolean
     ref(): MessageUimReadRecordOutput
@@ -9436,16 +9436,16 @@ export class MessageUimReadRecordOutput {
 export class MessageUimReadTransparentInput {
     /* Methods of Qmi.MessageUimReadTransparentInput */
     get_encrypt_data(): [ /* returnType */ boolean, /* value_encrypt_data */ boolean ]
-    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array ]
+    get_file(): [ /* returnType */ boolean, /* value_file_file_id */ number, /* value_file_file_path */ Uint8Array[] ]
     get_read_information(): [ /* returnType */ boolean, /* value_read_information_offset */ number, /* value_read_information_length */ number ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimReadTransparentInput
     set_encrypt_data(value_encrypt_data: boolean): boolean
-    set_file(value_file_file_id: number, value_file_file_path: Uint8Array): boolean
+    set_file(value_file_file_id: number, value_file_file_path: Uint8Array[]): boolean
     set_read_information(value_read_information_offset: number, value_read_information_length: number): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimReadTransparentInput
@@ -9457,7 +9457,7 @@ export class MessageUimReadTransparentOutput {
     /* Methods of Qmi.MessageUimReadTransparentOutput */
     get_card_result(): [ /* returnType */ boolean, /* value_card_result_sw1 */ number, /* value_card_result_sw2 */ number ]
     get_encrypted_data(): [ /* returnType */ boolean, /* value_encrypted_data */ boolean ]
-    get_read_result(): [ /* returnType */ boolean, /* value_read_result */ Uint8Array ]
+    get_read_result(): [ /* returnType */ boolean, /* value_read_result */ Uint8Array[] ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
     get_result(): boolean
     ref(): MessageUimReadTransparentOutput
@@ -9467,10 +9467,10 @@ export class MessageUimReadTransparentOutput {
 export class MessageUimRefreshCompleteInput {
     /* Methods of Qmi.MessageUimRefreshCompleteInput */
     get_info(): [ /* returnType */ boolean, /* value_info_refresh_success */ boolean ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimRefreshCompleteInput
     set_info(value_info_refresh_success: boolean): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimRefreshCompleteInput
@@ -9488,10 +9488,10 @@ export class MessageUimRefreshCompleteOutput {
 export class MessageUimRefreshRegisterAllInput {
     /* Methods of Qmi.MessageUimRefreshRegisterAllInput */
     get_info(): [ /* returnType */ boolean, /* value_info_register_flag */ boolean ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimRefreshRegisterAllInput
     set_info(value_info_register_flag: boolean): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimRefreshRegisterAllInput
@@ -9509,10 +9509,10 @@ export class MessageUimRefreshRegisterAllOutput {
 export class MessageUimRefreshRegisterInput {
     /* Methods of Qmi.MessageUimRefreshRegisterInput */
     get_info(): [ /* returnType */ boolean, /* value_info_register_flag */ boolean, /* value_info_vote_for_init */ boolean, /* value_info_files */ MessageUimRefreshRegisterInputInfoFilesElement[] ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimRefreshRegisterInput
     set_info(value_info_register_flag: boolean, value_info_vote_for_init: boolean, value_info_files: MessageUimRefreshRegisterInputInfoFilesElement[]): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimRefreshRegisterInput
@@ -9564,11 +9564,11 @@ export class MessageUimSetPinProtectionInput {
     /* Methods of Qmi.MessageUimSetPinProtectionInput */
     get_info(): [ /* returnType */ boolean, /* value_info_pin_id */ UimPinId, /* value_info_pin_enabled */ boolean, /* value_info_pin_value */ string ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimSetPinProtectionInput
     set_info(value_info_pin_id: UimPinId, value_info_pin_enabled: boolean, value_info_pin_value: string): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimSetPinProtectionInput
@@ -9610,11 +9610,11 @@ export class MessageUimUnblockPinInput {
     /* Methods of Qmi.MessageUimUnblockPinInput */
     get_info(): [ /* returnType */ boolean, /* value_info_pin_id */ UimPinId, /* value_info_puk */ string, /* value_info_new_pin */ string ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimUnblockPinInput
     set_info(value_info_pin_id: UimPinId, value_info_puk: string, value_info_new_pin: string): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimUnblockPinInput
@@ -9636,11 +9636,11 @@ export class MessageUimVerifyPinInput {
     /* Methods of Qmi.MessageUimVerifyPinInput */
     get_info(): [ /* returnType */ boolean, /* value_info_pin_id */ UimPinId, /* value_info_pin_value */ string ]
     get_response_in_indication_token(): [ /* returnType */ boolean, /* value_response_in_indication_token */ number ]
-    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array ]
+    get_session(): [ /* returnType */ boolean, /* value_session_session_type */ UimSessionType, /* value_session_application_identifier */ Uint8Array[] ]
     ref(): MessageUimVerifyPinInput
     set_info(value_info_pin_id: UimPinId, value_info_pin_value: string): boolean
     set_response_in_indication_token(value_response_in_indication_token: number): boolean
-    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array): boolean
+    set_session(value_session_session_type: UimSessionType, value_session_application_identifier: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageUimVerifyPinInput
@@ -9680,9 +9680,9 @@ export class MessageVoiceAnswerCallOutput {
 }
 export class MessageVoiceAnswerUssdInput {
     /* Methods of Qmi.MessageVoiceAnswerUssdInput */
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     ref(): MessageVoiceAnswerUssdInput
-    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array): boolean
+    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageVoiceAnswerUssdInput
@@ -9789,7 +9789,7 @@ export class MessageVoiceGetConfigOutput {
 }
 export class MessageVoiceGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageVoiceGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageVoiceGetSupportedMessagesOutput
     unref(): void
@@ -9840,9 +9840,9 @@ export class MessageVoiceIndicationRegisterOutput {
 }
 export class MessageVoiceOriginateUssdInput {
     /* Methods of Qmi.MessageVoiceOriginateUssdInput */
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     ref(): MessageVoiceOriginateUssdInput
-    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array): boolean
+    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageVoiceOriginateUssdInput
@@ -9852,9 +9852,9 @@ export class MessageVoiceOriginateUssdInput {
 }
 export class MessageVoiceOriginateUssdNoWaitInput {
     /* Methods of Qmi.MessageVoiceOriginateUssdNoWaitInput */
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     ref(): MessageVoiceOriginateUssdNoWaitInput
-    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array): boolean
+    set_uss_data(value_uss_data_data_coding_scheme: VoiceUssDataCodingScheme, value_uss_data_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageVoiceOriginateUssdNoWaitInput
@@ -9871,13 +9871,13 @@ export class MessageVoiceOriginateUssdNoWaitOutput {
 }
 export class MessageVoiceOriginateUssdOutput {
     /* Methods of Qmi.MessageVoiceOriginateUssdOutput */
-    get_alpha_identifier(): [ /* returnType */ boolean, /* value_alpha_identifier_data_coding_scheme */ VoiceAlphaDataCodingScheme, /* value_alpha_identifier_alpha */ Uint8Array ]
+    get_alpha_identifier(): [ /* returnType */ boolean, /* value_alpha_identifier_data_coding_scheme */ VoiceAlphaDataCodingScheme, /* value_alpha_identifier_alpha */ Uint8Array[] ]
     get_call_control_result_type(): [ /* returnType */ boolean, /* value_call_control_result_type */ VoiceCallControlResultType ]
     get_call_control_supplementary_service_type(): [ /* returnType */ boolean, /* value_call_control_supplementary_service_type */ VoiceCallControlSupplementaryServiceType ]
     get_call_id(): [ /* returnType */ boolean, /* value_call_id */ number ]
     get_failure_cause(): [ /* returnType */ boolean, /* value_failure_cause */ VoiceCallEndReason ]
     get_result(): boolean
-    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array ]
+    get_uss_data(): [ /* returnType */ boolean, /* value_uss_data_data_coding_scheme */ VoiceUssDataCodingScheme, /* value_uss_data_data */ Uint8Array[] ]
     get_uss_data_utf16(): [ /* returnType */ boolean, /* value_uss_data_utf16 */ number[] ]
     ref(): MessageVoiceOriginateUssdOutput
     unref(): void
@@ -9911,7 +9911,7 @@ export class MessageWdaGetDataFormatOutput {
 }
 export class MessageWdaGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageWdaGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageWdaGetSupportedMessagesOutput
     unref(): void
@@ -10427,7 +10427,7 @@ export class MessageWdsGetProfileSettingsOutput {
 }
 export class MessageWdsGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageWdsGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageWdsGetSupportedMessagesOutput
     unref(): void
@@ -10827,7 +10827,7 @@ export class MessageWmsGetRoutesOutputRouteListElement {
 }
 export class MessageWmsGetSupportedMessagesOutput {
     /* Methods of Qmi.MessageWmsGetSupportedMessagesOutput */
-    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array ]
+    get_list(): [ /* returnType */ boolean, /* value_list */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageWmsGetSupportedMessagesOutput
     unref(): void
@@ -10902,7 +10902,7 @@ export class MessageWmsRawReadInput {
 }
 export class MessageWmsRawReadOutput {
     /* Methods of Qmi.MessageWmsRawReadOutput */
-    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_message_tag */ WmsMessageTagType, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array ]
+    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_message_tag */ WmsMessageTagType, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array[] ]
     get_result(): boolean
     ref(): MessageWmsRawReadOutput
     unref(): void
@@ -10913,13 +10913,13 @@ export class MessageWmsRawSendInput {
     get_cdma_follow_on_dc(): [ /* returnType */ boolean, /* value_cdma_follow_on_dc_follow */ boolean ]
     get_cdma_force_on_dc(): [ /* returnType */ boolean, /* value_cdma_force_on_dc_force */ boolean, /* value_cdma_force_on_dc_service_option */ WmsCdmaServiceOption ]
     get_gsm_wcdma_link_timer(): [ /* returnType */ boolean, /* value_gsm_wcdma_link_timer */ number ]
-    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array ]
+    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array[] ]
     get_sms_on_ims(): [ /* returnType */ boolean, /* value_sms_on_ims */ boolean ]
     ref(): MessageWmsRawSendInput
     set_cdma_follow_on_dc(value_cdma_follow_on_dc_follow: boolean): boolean
     set_cdma_force_on_dc(value_cdma_force_on_dc_force: boolean, value_cdma_force_on_dc_service_option: WmsCdmaServiceOption): boolean
     set_gsm_wcdma_link_timer(value_gsm_wcdma_link_timer: number): boolean
-    set_raw_message_data(value_raw_message_data_format: WmsMessageFormat, value_raw_message_data_raw_data: Uint8Array): boolean
+    set_raw_message_data(value_raw_message_data_format: WmsMessageFormat, value_raw_message_data_raw_data: Uint8Array[]): boolean
     set_sms_on_ims(value_sms_on_ims: boolean): boolean
     unref(): void
     static name: string
@@ -10942,9 +10942,9 @@ export class MessageWmsRawSendOutput {
 }
 export class MessageWmsRawWriteInput {
     /* Methods of Qmi.MessageWmsRawWriteInput */
-    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_storage_type */ WmsStorageType, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array ]
+    get_raw_message_data(): [ /* returnType */ boolean, /* value_raw_message_data_storage_type */ WmsStorageType, /* value_raw_message_data_format */ WmsMessageFormat, /* value_raw_message_data_raw_data */ Uint8Array[] ]
     ref(): MessageWmsRawWriteInput
-    set_raw_message_data(value_raw_message_data_storage_type: WmsStorageType, value_raw_message_data_format: WmsMessageFormat, value_raw_message_data_raw_data: Uint8Array): boolean
+    set_raw_message_data(value_raw_message_data_storage_type: WmsStorageType, value_raw_message_data_format: WmsMessageFormat, value_raw_message_data_raw_data: Uint8Array[]): boolean
     unref(): void
     static name: string
     static new(): MessageWmsRawWriteInput

@@ -457,13 +457,13 @@ export function date_parse(date: string, timet: number): boolean
 export function error_quark(): GLib.Quark
 export function get_backend(): Backend
 export function get_version(): string
-export function named_dest_from_bytestring(data: Uint8Array): string
-export function named_dest_to_bytestring(name: string): Uint8Array | null
+export function named_dest_from_bytestring(data: Uint8Array[]): string
+export function named_dest_to_bytestring(name: string): Uint8Array[] | null
 export interface AttachmentSaveFunc {
-    (buf: Uint8Array): boolean
+    (buf: Uint8Array[]): boolean
 }
 export interface MediaSaveFunc {
-    (buf: Uint8Array): boolean
+    (buf: Uint8Array[]): boolean
 }
 export interface Annot_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1546,7 +1546,7 @@ export class Document {
     _init (config?: Document_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new_from_bytes(bytes: GLib.Bytes, password?: string | null): Document
-    static new_from_data(data: Uint8Array, password?: string | null): Document
+    static new_from_data(data: Uint8Array[], password?: string | null): Document
     static new_from_file(uri: string, password?: string | null): Document
     static new_from_gfile(file: Gio.File, password?: string | null, cancellable?: Gio.Cancellable | null): Document
     static new_from_stream(stream: Gio.InputStream, length: number, password?: string | null, cancellable?: Gio.Cancellable | null): Document

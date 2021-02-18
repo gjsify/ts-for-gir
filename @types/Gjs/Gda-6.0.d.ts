@@ -686,14 +686,14 @@ export function sql_value_stringify(value: any): string
 export function string_to_binary(str?: string | null): Binary
 export function string_to_blob(str: string): Blob
 export function text_to_alphanum(text: string): string
-export function utility_check_data_model(model: DataModel, types: GObject.Type[][]): boolean
+export function utility_check_data_model(model: DataModel, types: GObject.Type[]): boolean
 export function utility_data_model_dump_data_to_xml(model: DataModel, parent: libxml2.NodePtr, cols: number[] | null, rows: number[] | null, use_col_ids: boolean): boolean
 export function utility_data_model_find_column_description(model: DataSelect, field_name: string): string | null
 export function utility_holder_load_attributes(holder: Holder, node: libxml2.NodePtr, sources?: DataModel[] | null): boolean
 export function value_compare(value1: any, value2: any): number
 export function value_copy(value: any): any
 export function value_differ(value1: any, value2: any): number
-export function value_free(value?: any): void
+export function value_free(value?: any | null): void
 export function value_get_binary(value: any): Binary
 export function value_get_blob(value: any): Blob
 export function value_get_geometric_point(value: any): GeometricPoint
@@ -757,17 +757,17 @@ export class DataHandler {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.DataHandler */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     static name: string
@@ -778,7 +778,7 @@ export class DataModel {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -797,9 +797,9 @@ export class DataModel {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -811,11 +811,11 @@ export class DataModel {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Signals of Gda.DataModel */
     connect(sigName: "access-changed", callback: (($obj: DataModel) => void)): number
@@ -1196,7 +1196,7 @@ export class Column {
     get_allow_null(): boolean
     get_auto_increment(): boolean
     get_dbms_type(): string
-    get_default_value(): any
+    get_default_value(): any | null
     get_description(): string
     get_g_type(): GObject.Type
     get_name(): string
@@ -1204,7 +1204,7 @@ export class Column {
     set_allow_null(allow: boolean): void
     set_auto_increment(is_auto: boolean): void
     set_dbms_type(dbms_type: string): void
-    set_default_value(default_value?: any): void
+    set_default_value(default_value?: any | null): void
     set_description(descr: string): void
     set_g_type(type: GObject.Type): void
     set_name(name: string): void
@@ -1417,7 +1417,7 @@ export class Connection {
     get_provider_name(): string
     get_status(): ConnectionStatus
     get_transaction_status(): TransactionStatus
-    insert_row_into_table_v(table: string, col_names: string[], values: any): boolean
+    insert_row_into_table_v(table: string, col_names: string[], values: any[]): boolean
     internal_change_transaction_state(newstate: TransactionStatusState): void
     internal_get_provider_data_error(): ServerProviderConnectionData | null
     internal_reset_transaction_status(): void
@@ -1439,19 +1439,19 @@ export class Connection {
     prepare_operation_create_table(table_name: string, arguments_: ServerOperationCreateTableArg[]): ServerOperation | null
     prepare_operation_drop_table(table_name: string): ServerOperation | null
     quote_sql_identifier(id: string): string
-    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null[] | null, stop_on_error: boolean): GObject.Object[]
+    repetitive_statement_execute(rstmt: RepetitiveStatement, model_usage: StatementModelUsage, col_types: GObject.Type[] | null, stop_on_error: boolean): GObject.Object[]
     rollback_savepoint(name?: string | null): boolean
     rollback_transaction(name?: string | null): boolean
     set_main_context(thread?: GLib.Thread | null, context?: GLib.MainContext | null): void
     statement_execute(stmt: Statement, params: Set | null, model_usage: StatementModelUsage): [ /* returnType */ GObject.Object, /* last_insert_row */ Set | null ]
     statement_execute_non_select(stmt: Statement, params?: Set | null): [ /* returnType */ number, /* last_insert_row */ Set | null ]
     statement_execute_select(stmt: Statement, params?: Set | null): DataModel
-    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null[] | null): DataModel
+    statement_execute_select_full(stmt: Statement, params: Set | null, model_usage: StatementModelUsage, col_types?: GObject.Type[] | null): DataModel
     statement_prepare(stmt: Statement): boolean
     statement_to_sql(stmt: Statement, params: Set | null, flags: StatementSqlFlag): [ /* returnType */ string, /* params_used */ Holder[] | null ]
     supports_feature(feature: ConnectionFeature): boolean
     update_meta_store(context?: MetaContext | null): boolean
-    update_row_in_table_v(table: string, condition_column_name: string, condition_value: any, col_names: string[], values: any): boolean
+    update_row_in_table_v(table: string, condition_column_name: string, condition_value: any, col_names: string[], values: any[]): boolean
     value_to_sql_string(from: any): string
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1659,7 +1659,7 @@ export class DataAccessWrapper {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -1678,9 +1678,9 @@ export class DataAccessWrapper {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -1692,11 +1692,11 @@ export class DataAccessWrapper {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1854,7 +1854,7 @@ export class DataModelArray {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -1873,9 +1873,9 @@ export class DataModelArray {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -1887,11 +1887,11 @@ export class DataModelArray {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -1936,7 +1936,7 @@ export class DataModelArray {
     constructor (config?: DataModelArray_ConstructProps)
     _init (config?: DataModelArray_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new_with_g_types(cols: number, types: GObject.Type[][]): DataModel
+    static new_with_g_types(cols: number, types: GObject.Type[]): DataModel
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
@@ -1976,7 +1976,7 @@ export class DataModelDir {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -1995,9 +1995,9 @@ export class DataModelDir {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -2009,11 +2009,11 @@ export class DataModelDir {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2100,7 +2100,7 @@ export class DataModelImport {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -2119,9 +2119,9 @@ export class DataModelImport {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -2133,11 +2133,11 @@ export class DataModelImport {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2205,9 +2205,9 @@ export class DataModelImportIter {
     /* Methods of Gda.DataModelIter */
     get_holder_for_field(col: number): Holder
     get_row(): number
-    get_value_at(col: number): any
-    get_value_at_e(col: number): any
-    get_value_for_field(field_name: string): any
+    get_value_at(col: number): any | null
+    get_value_at_e(col: number): any | null
+    get_value_for_field(field_name: string): any | null
     invalidate_contents(): void
     is_valid(): boolean
     move_next(): boolean
@@ -2220,7 +2220,7 @@ export class DataModelImportIter {
     get_group(holder: Holder): SetGroup
     get_groups(): SetGroup[]
     get_holder(holder_id: string): Holder
-    get_holder_value(holder_id: string): any
+    get_holder_value(holder_id: string): any | null
     get_holders(): Holder[]
     get_node(holder: Holder): SetNode
     get_nodes(): SetNode[]
@@ -2354,9 +2354,9 @@ export class DataModelIter {
     /* Methods of Gda.DataModelIter */
     get_holder_for_field(col: number): Holder
     get_row(): number
-    get_value_at(col: number): any
-    get_value_at_e(col: number): any
-    get_value_for_field(field_name: string): any
+    get_value_at(col: number): any | null
+    get_value_at_e(col: number): any | null
+    get_value_for_field(field_name: string): any | null
     invalidate_contents(): void
     is_valid(): boolean
     move_next(): boolean
@@ -2369,7 +2369,7 @@ export class DataModelIter {
     get_group(holder: Holder): SetGroup
     get_groups(): SetGroup[]
     get_holder(holder_id: string): Holder
-    get_holder_value(holder_id: string): any
+    get_holder_value(holder_id: string): any | null
     get_holders(): Holder[]
     get_node(holder: Holder): SetNode
     get_nodes(): SetNode[]
@@ -2521,7 +2521,7 @@ export class DataModelSelect {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -2540,9 +2540,9 @@ export class DataModelSelect {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -2554,11 +2554,11 @@ export class DataModelSelect {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataModelSelect */
     vfunc_updated(): void
@@ -2651,7 +2651,7 @@ export class DataPivot {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -2670,9 +2670,9 @@ export class DataPivot {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -2684,11 +2684,11 @@ export class DataPivot {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2771,7 +2771,7 @@ export class DataProxy {
     get_sample_size(): number
     get_sample_start(): number
     get_value_attributes(proxy_row: number, col: number): ValueAttribute
-    get_values(proxy_row: number, cols_index: number[]): any
+    get_values(proxy_row: number, cols_index: number[]): any[]
     has_changed(): boolean
     is_read_only(): boolean
     row_has_changed(proxy_row: number): boolean
@@ -2807,7 +2807,7 @@ export class DataProxy {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -2826,9 +2826,9 @@ export class DataProxy {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -2840,11 +2840,11 @@ export class DataProxy {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataProxy */
     vfunc_filter_changed(): void
@@ -2990,7 +2990,7 @@ export class DataSelect {
     /* Methods of Gda.DataModel */
     add_data_from_xml_node(node: libxml2.NodePtr): boolean
     append_row(): number
-    append_values(values?: any): number
+    append_values(values?: any[] | null): number
     array_copy_model(): DataModelArray | null
     array_copy_model_ext(cols: number[]): DataModelArray | null
     create_iter(): DataModelIter
@@ -3009,9 +3009,9 @@ export class DataSelect {
     get_n_columns(): number
     get_n_rows(): number
     get_notify(): boolean
-    get_row_from_values(values: any, cols_index: number[]): number
-    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any
-    get_value_at(col: number, row: number): any
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
     import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
     import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
     import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
@@ -3023,11 +3023,11 @@ export class DataSelect {
     row_inserted(row: number): void
     row_removed(row: number): void
     row_updated(row: number): void
-    send_hint(hint: DataModelHint, hint_value?: any): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
     set_column_name(col: number, name: string): void
     set_column_title(col: number, title: string): void
     set_value_at(col: number, row: number, value: any): boolean
-    set_values(row: number, values?: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
     thaw(): void
     /* Virtual methods of Gda.DataSelect */
     vfunc_fetch_at(prow: Row, rownum: number): boolean
@@ -3111,9 +3111,9 @@ export class DataSelectIter {
     /* Methods of Gda.DataModelIter */
     get_holder_for_field(col: number): Holder
     get_row(): number
-    get_value_at(col: number): any
-    get_value_at_e(col: number): any
-    get_value_for_field(field_name: string): any
+    get_value_at(col: number): any | null
+    get_value_at_e(col: number): any | null
+    get_value_for_field(field_name: string): any | null
     invalidate_contents(): void
     is_valid(): boolean
     move_next(): boolean
@@ -3126,7 +3126,7 @@ export class DataSelectIter {
     get_group(holder: Holder): SetGroup
     get_groups(): SetGroup[]
     get_holder(holder_id: string): Holder
-    get_holder_value(holder_id: string): any
+    get_holder_value(holder_id: string): any | null
     get_holders(): Holder[]
     get_node(holder: Holder): SetNode
     get_nodes(): SetNode[]
@@ -3953,17 +3953,17 @@ export class HandlerBin {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerBin */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4020,17 +4020,17 @@ export class HandlerBoolean {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerBoolean */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4087,17 +4087,17 @@ export class HandlerNumerical {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerNumerical */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4154,17 +4154,17 @@ export class HandlerString {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerString */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4224,17 +4224,17 @@ export class HandlerText {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerText */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4297,17 +4297,17 @@ export class HandlerTime {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerTime */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4365,17 +4365,17 @@ export class HandlerType {
     /* Methods of Gda.DataHandler */
     accepts_g_type(type: GObject.Type): boolean
     get_descr(): string
-    get_sane_init_value(type: GObject.Type): any
-    get_sql_from_value(value?: any): string
-    get_str_from_value(value?: any): string
+    get_sane_init_value(type: GObject.Type): any | null
+    get_sql_from_value(value?: any | null): string
+    get_str_from_value(value?: any | null): string
     get_value_from_sql(sql: string | null, type: GObject.Type): any
     get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of Gda.HandlerType */
     vfunc_accepts_g_type(type: GObject.Type): boolean
     vfunc_get_descr(): string
-    vfunc_get_sane_init_value(type: GObject.Type): any
-    vfunc_get_sql_from_value(value?: any): string
-    vfunc_get_str_from_value(value?: any): string
+    vfunc_get_sane_init_value(type: GObject.Type): any | null
+    vfunc_get_sql_from_value(value?: any | null): string
+    vfunc_get_str_from_value(value?: any | null): string
     vfunc_get_value_from_sql(sql: string | null, type: GObject.Type): any
     vfunc_get_value_from_str(str: string | null, type: GObject.Type): any
     /* Virtual methods of GObject.Object */
@@ -4443,7 +4443,7 @@ export class Holder {
     get_id(): string
     get_not_null(): boolean
     get_source_model(col: number): DataModel
-    get_value(): any
+    get_value(): any | null
     get_value_str(dh?: DataHandler | null): string
     is_valid(): boolean
     is_valid_e(): boolean
@@ -4451,7 +4451,7 @@ export class Holder {
     set_default_value(value: any): void
     set_not_null(not_null: boolean): void
     set_source_model(model: DataModel, col: number): boolean
-    set_value(value?: any): boolean
+    set_value(value?: any | null): boolean
     set_value_str(dh: DataHandler, value: string): boolean
     set_value_to_default(): boolean
     take_static_value(value: any, value_changed: boolean): any
@@ -4569,7 +4569,7 @@ export class MetaStore {
     get_attribute_value(att_name: string): [ /* returnType */ boolean, /* att_value */ string ]
     get_internal_connection(): Connection
     get_version(): number
-    modify(table_name: string, new_data: DataModel | null, condition: string | null, value_names: string[], values: any): boolean
+    modify(table_name: string, new_data: DataModel | null, condition: string | null, value_names: string[], values: any[]): boolean
     modify_with_context(context: MetaContext, new_data?: DataModel | null): boolean
     schema_add_custom_object(xml_description: string): boolean
     schema_get_all_tables(): string[]
@@ -4651,14 +4651,14 @@ export class MetaStruct {
     /* Fields of GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.MetaStruct */
-    complement(type: MetaDbObjectType, catalog: any, schema: any, name: any): MetaDbObject | null
+    complement(type: MetaDbObjectType, catalog: any | null, schema: any | null, name: any): MetaDbObject | null
     complement_all(): boolean
     complement_default(): boolean
     complement_depend(dbo: MetaDbObject): boolean
-    complement_schema(catalog?: any, schema?: any): boolean
+    complement_schema(catalog?: any | null, schema?: any | null): boolean
     dump_as_graph(info: MetaGraphInfo): string | null
     get_all_db_objects(): MetaDbObject[] | null
-    get_db_object(catalog: any, schema: any, name: any): MetaDbObject | null
+    get_db_object(catalog: any | null, schema: any | null, name: any): MetaDbObject | null
     get_table_column(table: MetaTable, col_name: any): MetaTableColumn | null
     load_from_xml_file(catalog: string | null, schema: string | null, xml_spec_file: string): boolean
     sort_db_objects(sort_type: MetaSortType): boolean
@@ -4721,8 +4721,8 @@ export class PStmt {
     get_param_ids(): string[]
     get_sql(): string
     get_tmpl_columns(): Column[]
-    get_types(): GObject.Type[][]
-    set_cols(types: GObject.Type[][]): void
+    get_types(): GObject.Type[]
+    set_cols(types: GObject.Type[]): void
     set_gda_statement(stmt?: Statement | null): void
     set_param_ids(params: string[]): void
     set_sql(sql: string): void
@@ -4839,7 +4839,7 @@ export class Row {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.Row */
     get_length(): number
-    get_value(num: number): any
+    get_value(num: number): any | null
     invalidate_value(value: any): void
     invalidate_value_e(value: any, error?: GLib.Error | null): void
     value_is_valid(value: any): boolean
@@ -4916,7 +4916,7 @@ export class ServerOperation {
     get_sequence_name(path: string): string
     get_sequence_size(path: string): number
     get_sql_identifier_at_path(path: string): string
-    get_value_at(path: string): any
+    get_value_at(path: string): any | null
     is_valid(xml_file?: string | null): boolean
     is_valid_from_resource(resource?: string | null): boolean
     load_data_from_xml(node: libxml2.NodePtr): boolean
@@ -5094,7 +5094,7 @@ export class Set {
     get_group(holder: Holder): SetGroup
     get_groups(): SetGroup[]
     get_holder(holder_id: string): Holder
-    get_holder_value(holder_id: string): any
+    get_holder_value(holder_id: string): any | null
     get_holders(): Holder[]
     get_node(holder: Holder): SetNode
     get_nodes(): SetNode[]
@@ -5207,9 +5207,9 @@ export class SqlBuilder {
     add_case(test_expr: SqlBuilderId, else_expr: SqlBuilderId, when_array: SqlBuilderId[], then_array: SqlBuilderId[]): SqlBuilderId
     add_cond(op: SqlOperatorType, op1: SqlBuilderId, op2: SqlBuilderId, op3: SqlBuilderId): SqlBuilderId
     add_cond_v(op: SqlOperatorType, op_ids: SqlBuilderId[]): SqlBuilderId
-    add_expr_value(value?: any): SqlBuilderId
+    add_expr_value(value?: any | null): SqlBuilderId
     add_field_id(field_name: string, table_name?: string | null): SqlBuilderId
-    add_field_value_as_gvalue(field_name: string, value?: any): void
+    add_field_value_as_gvalue(field_name: string, value?: any | null): void
     add_field_value_id(field_id: SqlBuilderId, value_id: SqlBuilderId): void
     add_function(func_name: string, args: SqlBuilderId[]): SqlBuilderId
     add_id(str: string): SqlBuilderId
@@ -5610,7 +5610,7 @@ export class TreeManager {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -5680,7 +5680,7 @@ export class TreeMgrColumns {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -5746,7 +5746,7 @@ export class TreeMgrLabel {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -5813,7 +5813,7 @@ export class TreeMgrSchemas {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -5881,7 +5881,7 @@ export class TreeMgrSelect {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -5949,7 +5949,7 @@ export class TreeMgrTables {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gda.TreeManager */
     add_manager(sub: TreeManager): void
-    add_new_node_attribute(attribute: string, value?: any): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
     create_node(parent?: TreeNode | null, name?: string | null): TreeNode
     get_managers(): TreeManager[]
     set_node_create_func(func?: TreeManagerNodeFunc | null): void
@@ -6019,7 +6019,7 @@ export class TreeNode {
     get_children(): TreeNode[]
     get_node_attribute(attribute: string): any
     get_parent(): TreeNode
-    set_node_attribute(attribute: string, value: any, destroy: GLib.DestroyNotify): void
+    set_node_attribute(attribute: string, value: any | null, destroy: GLib.DestroyNotify): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6167,8 +6167,8 @@ export class Binary {
     get_data(): object | null
     get_size(): number
     reset_data(): void
-    set_data(val: Uint8Array): void
-    take_data(val: Uint8Array): void
+    set_data(val: Uint8Array[]): void
+    take_data(val: Uint8Array[]): void
     to_string(maxlen: number): string
     static name: string
     static new(): Binary
@@ -6252,11 +6252,11 @@ export abstract class DataComparatorClass {
 export abstract class DataHandlerInterface {
     /* Fields of Gda.DataHandlerInterface */
     g_iface: GObject.TypeInterface
-    get_sql_from_value: (dh: DataHandler, value?: any) => string
-    get_str_from_value: (dh: DataHandler, value?: any) => string
+    get_sql_from_value: (dh: DataHandler, value?: any | null) => string
+    get_str_from_value: (dh: DataHandler, value?: any | null) => string
     get_value_from_sql: (dh: DataHandler, sql: string | null, type: GObject.Type) => any
     get_value_from_str: (dh: DataHandler, str: string | null, type: GObject.Type) => any
-    get_sane_init_value: (dh: DataHandler, type: GObject.Type) => any
+    get_sane_init_value: (dh: DataHandler, type: GObject.Type) => any | null
     accepts_g_type: (dh: DataHandler, type: GObject.Type) => boolean
     get_descr: (dh: DataHandler) => string
     static name: string
@@ -6509,7 +6509,7 @@ export class MetaContext {
     table_name: string
     size: number
     column_names: string[]
-    column_values: any
+    column_values: any[]
     columns: GLib.HashTable
     /* Methods of Gda.MetaContext */
     copy(): MetaContext

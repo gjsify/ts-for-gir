@@ -5,10 +5,10 @@
 import "node"
 import type { Clutter } from './Clutter-1.0';
 import type { cairo } from './cairo-1.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
 import type { Json } from './Json-1.0';
 import type { Gio } from './Gio-2.0';
+import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
 import type { GL } from './GL-1.0';
 import type { CoglPango } from './CoglPango-1.0';
 import type { PangoCairo } from './PangoCairo-1.0';

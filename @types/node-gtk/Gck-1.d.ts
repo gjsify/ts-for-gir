@@ -63,8 +63,8 @@ export function slotsEnumerateObjects(slots: Slot[], match: Attributes, options:
 export function uriBuild(uriData: UriData, flags: UriFlags): string
 export function uriErrorGetQuark(): GLib.Quark
 export function uriParse(string: string, flags: UriFlags): UriData
-export function valueToBoolean(value: any, result: boolean): boolean
-export function valueToUlong(value: any, result: number): boolean
+export function valueToBoolean(value: any[], result: boolean): boolean
+export function valueToUlong(value: any[], result: number): boolean
 export interface Allocator {
     (data: object | null, length: number): object | null
 }
@@ -93,9 +93,9 @@ export class ObjectCache {
     destroyFinish(result: Gio.AsyncResult): boolean
     equal(object2: Object): boolean
     getAsync(attrTypes: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getData(attrType: number, cancellable?: Gio.Cancellable | null): any
+    getData(attrType: number, cancellable?: Gio.Cancellable | null): any[]
     getDataAsync(attrType: number, allocator: Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getDataFinish(result: Gio.AsyncResult): any
+    getDataFinish(result: Gio.AsyncResult): any[]
     getFinish(result: Gio.AsyncResult): Attributes
     getFull(attrTypes: number[], cancellable?: Gio.Cancellable | null): Attributes
     getHandle(): number
@@ -353,9 +353,9 @@ export class Object {
     destroyFinish(result: Gio.AsyncResult): boolean
     equal(object2: Object): boolean
     getAsync(attrTypes: number[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getData(attrType: number, cancellable?: Gio.Cancellable | null): any
+    getData(attrType: number, cancellable?: Gio.Cancellable | null): any[]
     getDataAsync(attrType: number, allocator: Allocator, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getDataFinish(result: Gio.AsyncResult): any
+    getDataFinish(result: Gio.AsyncResult): any[]
     getFinish(result: Gio.AsyncResult): Attributes
     getFull(attrTypes: number[], cancellable?: Gio.Cancellable | null): Attributes
     getHandle(): number
@@ -451,8 +451,8 @@ export class Password {
     getWarning(): string
     setDescription(description: string): void
     setFlags(flags: Gio.TlsPasswordFlags): void
-    setValue(value: any): void
-    setValueFull(value: any, destroy?: GLib.DestroyNotify | null): void
+    setValue(value: any[]): void
+    setValueFull(value: any[], destroy?: GLib.DestroyNotify | null): void
     setWarning(warning: string): void
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -479,7 +479,7 @@ export class Password {
     /* Virtual methods of Gio.TlsPassword */
     vfuncGetDefaultWarning(): string
     vfuncGetValue(length?: number | null): number
-    vfuncSetValue(value: any, destroy?: GLib.DestroyNotify | null): void
+    vfuncSetValue(value: any[], destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -547,18 +547,18 @@ export class Session {
     createObject(attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
     createObjectAsync(attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createObjectFinish(result: Gio.AsyncResult): Object
-    decrypt(key: Object, mechType: number, input: any, cancellable?: Gio.Cancellable | null): any
-    decryptAsync(key: Object, mechanism: Mechanism, input: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    decryptFinish(result: Gio.AsyncResult): any
-    decryptFull(key: Object, mechanism: Mechanism, input: any, cancellable?: Gio.Cancellable | null): any
+    decrypt(key: Object, mechType: number, input: any[], cancellable?: Gio.Cancellable | null): any[]
+    decryptAsync(key: Object, mechanism: Mechanism, input: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    decryptFinish(result: Gio.AsyncResult): any[]
+    decryptFull(key: Object, mechanism: Mechanism, input: any[], cancellable?: Gio.Cancellable | null): any[]
     deriveKey(base: Object, mechType: number, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
     deriveKeyAsync(base: Object, mechanism: Mechanism, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     deriveKeyFinish(result: Gio.AsyncResult): Object
     deriveKeyFull(base: Object, mechanism: Mechanism, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    encrypt(key: Object, mechType: number, input: any, cancellable?: Gio.Cancellable | null): any
-    encryptAsync(key: Object, mechanism: Mechanism, input: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    encryptFinish(result: Gio.AsyncResult): any
-    encryptFull(key: Object, mechanism: Mechanism, input: any, cancellable?: Gio.Cancellable | null): any
+    encrypt(key: Object, mechType: number, input: any[], cancellable?: Gio.Cancellable | null): any[]
+    encryptAsync(key: Object, mechanism: Mechanism, input: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    encryptFinish(result: Gio.AsyncResult): any[]
+    encryptFull(key: Object, mechanism: Mechanism, input: any[], cancellable?: Gio.Cancellable | null): any[]
     enumerateObjects(match: Attributes): Enumerator
     findHandles(match: Attributes, cancellable?: Gio.Cancellable | null): number[] | null
     findHandlesAsync(match: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -577,11 +577,11 @@ export class Session {
     getOptions(): SessionOptions
     getSlot(): Slot
     getState(): number
-    initPin(pin: any | null, cancellable?: Gio.Cancellable | null): boolean
-    initPinAsync(pin: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    initPin(pin: any[] | null, cancellable?: Gio.Cancellable | null): boolean
+    initPinAsync(pin: any[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initPinFinish(result: Gio.AsyncResult): boolean
-    login(userType: number, pin: any | null, cancellable?: Gio.Cancellable | null): boolean
-    loginAsync(userType: number, pin: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    login(userType: number, pin: any[] | null, cancellable?: Gio.Cancellable | null): boolean
+    loginAsync(userType: number, pin: any[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     loginFinish(result: Gio.AsyncResult): boolean
     loginInteractive(userType: number, interaction?: Gio.TlsInteraction | null, cancellable?: Gio.Cancellable | null): boolean
     loginInteractiveAsync(userType: number, interaction?: Gio.TlsInteraction | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -590,25 +590,25 @@ export class Session {
     logoutAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     logoutFinish(result: Gio.AsyncResult): boolean
     setInteraction(interaction?: Gio.TlsInteraction | null): void
-    setPin(oldPin: any | null, newPin: any | null, cancellable?: Gio.Cancellable | null): boolean
-    setPinAsync(oldPin: any | null, nOldPin: number, newPin: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    setPin(oldPin: any[] | null, newPin: any[] | null, cancellable?: Gio.Cancellable | null): boolean
+    setPinAsync(oldPin: any[] | null, nOldPin: number, newPin: any[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setPinFinish(result: Gio.AsyncResult): boolean
-    sign(key: Object, mechType: number, input: any, cancellable?: Gio.Cancellable | null): any
-    signAsync(key: Object, mechanism: Mechanism, input: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    signFinish(result: Gio.AsyncResult): any
-    signFull(key: Object, mechanism: Mechanism, input: any, nResult: number, cancellable?: Gio.Cancellable | null): number
-    unwrapKey(wrapper: Object, mechType: number, input: any, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    unwrapKeyAsync(wrapper: Object, mechanism: Mechanism, input: any, attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    sign(key: Object, mechType: number, input: any[], cancellable?: Gio.Cancellable | null): any[]
+    signAsync(key: Object, mechanism: Mechanism, input: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    signFinish(result: Gio.AsyncResult): any[]
+    signFull(key: Object, mechanism: Mechanism, input: any[], nResult: number, cancellable?: Gio.Cancellable | null): number
+    unwrapKey(wrapper: Object, mechType: number, input: any[], attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
+    unwrapKeyAsync(wrapper: Object, mechanism: Mechanism, input: any[], attrs: Attributes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unwrapKeyFinish(result: Gio.AsyncResult): Object
-    unwrapKeyFull(wrapper: Object, mechanism: Mechanism, input: any, attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
-    verify(key: Object, mechType: number, input: any, signature: any, cancellable?: Gio.Cancellable | null): boolean
-    verifyAsync(key: Object, mechanism: Mechanism, input: any, signature: any, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    unwrapKeyFull(wrapper: Object, mechanism: Mechanism, input: any[], attrs: Attributes, cancellable?: Gio.Cancellable | null): Object
+    verify(key: Object, mechType: number, input: any[], signature: any[], cancellable?: Gio.Cancellable | null): boolean
+    verifyAsync(key: Object, mechanism: Mechanism, input: any[], signature: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verifyFinish(result: Gio.AsyncResult): boolean
-    verifyFull(key: Object, mechanism: Mechanism, input: any, signature: any, cancellable?: Gio.Cancellable | null): boolean
-    wrapKey(wrapper: Object, mechType: number, wrapped: Object, cancellable?: Gio.Cancellable | null): any
+    verifyFull(key: Object, mechanism: Mechanism, input: any[], signature: any[], cancellable?: Gio.Cancellable | null): boolean
+    wrapKey(wrapper: Object, mechType: number, wrapped: Object, cancellable?: Gio.Cancellable | null): any[]
     wrapKeyAsync(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    wrapKeyFinish(result: Gio.AsyncResult): any
-    wrapKeyFull(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null): any
+    wrapKeyFinish(result: Gio.AsyncResult): any[]
+    wrapKeyFull(wrapper: Object, mechanism: Mechanism, wrapped: Object, cancellable?: Gio.Cancellable | null): any[]
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -770,7 +770,7 @@ export class Slot {
 export class Attribute {
     /* Fields of Gck.Attribute */
     type: number
-    value: any
+    value: any[]
     length: number
     /* Methods of Gck.Attribute */
     clear(): void
@@ -779,7 +779,7 @@ export class Attribute {
     equal(attr2: Attribute): boolean
     free(): void
     getBoolean(): boolean
-    getData(): any
+    getData(): any[]
     getDate(value: GLib.Date): void
     getString(): string | null
     getUlong(): number
@@ -824,7 +824,7 @@ export class Builder {
     addAll(attrs: Attributes): void
     addAttribute(attr: Attribute): void
     addBoolean(attrType: number, value: boolean): void
-    addData(attrType: number, value: any | null): void
+    addData(attrType: number, value: any[] | null): void
     addDate(attrType: number, value: GLib.Date): void
     addEmpty(attrType: number): void
     addInvalid(attrType: number): void
@@ -844,14 +844,14 @@ export class Builder {
     ref(): Builder
     setAll(attrs: Attributes): void
     setBoolean(attrType: number, value: boolean): void
-    setData(attrType: number, value: any | null): void
+    setData(attrType: number, value: any[] | null): void
     setDate(attrType: number, value: GLib.Date): void
     setEmpty(attrType: number): void
     setInvalid(attrType: number): void
     setString(attrType: number, value: string): void
     setUlong(attrType: number, value: number): void
     steal(): Attributes
-    takeData(attrType: number, value: any | null): void
+    takeData(attrType: number, value: any[] | null): void
     static name: string
     static new(flags: BuilderFlags): Builder
     constructor(flags: BuilderFlags)

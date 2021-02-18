@@ -74,7 +74,7 @@ export class Account {
     select_service(service?: Service | null): void
     set_display_name(display_name: string): void
     set_enabled(enabled: boolean): void
-    set_value(key: string, value?: any): void
+    set_value(key: string, value?: any | null): void
     set_variant(key: string, value?: GLib.Variant | null): void
     settings_iter_init(iter: AccountSettingIter, key_prefix?: string | null): void
     sign(key: string, token: string): void
@@ -171,7 +171,7 @@ export class AccountService {
     get_settings_iter(key_prefix?: string | null): AccountSettingIter
     get_value(key: string, value: any): [ /* returnType */ SettingSource, /* value */ any ]
     get_variant(key: string): [ /* returnType */ GLib.Variant, /* source */ SettingSource | null ]
-    set_value(key: string, value?: any): void
+    set_value(key: string, value?: any | null): void
     set_variant(key: string, value?: GLib.Variant | null): void
     settings_iter_init(iter: AccountSettingIter, key_prefix?: string | null): void
     /* Methods of GObject.Object */

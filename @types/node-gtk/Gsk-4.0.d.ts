@@ -1105,10 +1105,10 @@ export class ShaderArgsBuilder {
     toArgs(): any
     unref(): void
     static name: string
-    static new(shader: GLShader, initialValues?: any): ShaderArgsBuilder
-    constructor(shader: GLShader, initialValues?: any)
+    static new(shader: GLShader, initialValues?: any | null): ShaderArgsBuilder
+    constructor(shader: GLShader, initialValues?: any | null)
     /* Static methods and pseudo-constructors */
-    static new(shader: GLShader, initialValues?: any): ShaderArgsBuilder
+    static new(shader: GLShader, initialValues?: any | null): ShaderArgsBuilder
 }
 export class Shadow {
     /* Fields of Gsk.Shadow */

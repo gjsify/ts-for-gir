@@ -407,8 +407,6 @@ export interface TransferProgressCallback {
 export interface TreeWalkCallback {
     (root: string, entry: TreeEntry): number
 }
-
-export interface Object_ConstructProps {}
 export interface Blame_ConstructProps extends Native_ConstructProps {
 }
 export class Blame {
@@ -417,7 +415,7 @@ export class Blame {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Ggit.Blame */
-    fromBuffer(buffer: any): Blame | null
+    fromBuffer(buffer: any[]): Blame | null
     getHunkByIndex(idx: number): BlameHunk
     getHunkByLine(line: number): BlameHunk
     getHunkCount(): number
@@ -481,7 +479,7 @@ export class Blob {
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Ggit.Blob */
-    getRawContent(): any | null
+    getRawContent(): any[] | null
     isBinary(): boolean
     /* Methods of Ggit.Object */
     getId(): OId | null
@@ -560,11 +558,11 @@ export class BlobOutputStream {
     splice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     spliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     spliceFinish(result: Gio.AsyncResult): number
-    write(buffer: any, cancellable?: Gio.Cancellable | null): number
-    writeAll(buffer: any, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAllAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    write(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    writeAll(buffer: any[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeAllFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writeAsync(buffer: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    writeAsync(buffer: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Gio.Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     writeBytesFinish(result: Gio.AsyncResult): number
@@ -607,9 +605,9 @@ export class BlobOutputStream {
     vfuncSplice(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, cancellable?: Gio.Cancellable | null): number
     vfuncSpliceAsync(source: Gio.InputStream, flags: Gio.OutputStreamSpliceFlags, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncSpliceFinish(result: Gio.AsyncResult): number
-    vfuncWriteAsync(buffer: any | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncWriteAsync(buffer: any[] | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWriteFinish(result: Gio.AsyncResult): number
-    vfuncWriteFn(buffer: any | null, cancellable?: Gio.Cancellable | null): number
+    vfuncWriteFn(buffer: any[] | null, cancellable?: Gio.Cancellable | null): number
     vfuncWritevAsync(vectors: Gio.OutputVector[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfuncWritevFinish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: Gio.OutputVector[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
@@ -1582,12 +1580,12 @@ export class Diff {
     constructor (config?: Diff_ConstructProps)
     _init (config?: Diff_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newBuffers(buffer1: any | null, buffer1AsPath: string | null, buffer2: any | null, buffer2AsPath?: string | null, diffOptions?: DiffOptions | null): Diff
+    static newBuffers(buffer1: any[] | null, buffer1AsPath: string | null, buffer2: any[] | null, buffer2AsPath?: string | null, diffOptions?: DiffOptions | null): Diff
     static newIndexToWorkdir(repository: Repository, index?: Index | null, diffOptions?: DiffOptions | null): Diff
     static newTreeToIndex(repository: Repository, oldTree?: Tree | null, index?: Index | null, diffOptions?: DiffOptions | null): Diff
     static newTreeToTree(repository: Repository, oldTree?: Tree | null, newTree?: Tree | null, diffOptions?: DiffOptions | null): Diff
     static newTreeToWorkdir(repository: Repository, oldTree?: Tree | null, diffOptions?: DiffOptions | null): Diff
-    static blobToBuffer(oldBlob: Blob | null, oldAsPath: string | null, buffer: any | null, bufferAsPath?: string | null, diffOptions?: DiffOptions | null, fileCb?: DiffFileCallback | null, binaryCb?: DiffBinaryCallback | null, hunkCb?: DiffHunkCallback | null, lineCb?: DiffLineCallback | null): void
+    static blobToBuffer(oldBlob: Blob | null, oldAsPath: string | null, buffer: any[] | null, bufferAsPath?: string | null, diffOptions?: DiffOptions | null, fileCb?: DiffFileCallback | null, binaryCb?: DiffBinaryCallback | null, hunkCb?: DiffHunkCallback | null, lineCb?: DiffLineCallback | null): void
     static blobs(oldBlob?: Blob | null, oldAsPath?: string | null, newBlob?: Blob | null, newAsPath?: string | null, diffOptions?: DiffOptions | null, fileCb?: DiffFileCallback | null, binaryCb?: DiffBinaryCallback | null, hunkCb?: DiffHunkCallback | null, lineCb?: DiffLineCallback | null): void
     static $gtype: GObject.Type
 }
@@ -2717,7 +2715,7 @@ export class Repository {
     cherryPick(commit: Commit, options: CherryPickOptions): boolean
     cherryPickCommit(commit: Commit, ourCommit: Commit, mainline: number, mergeOptions?: MergeOptions | null): Index | null
     createBlob(): BlobOutputStream | null
-    createBlobFromBuffer(buffer: any): OId | null
+    createBlobFromBuffer(buffer: any[]): OId | null
     createBlobFromFile(file: Gio.File): OId
     createBlobFromPath(path: string): OId | null
     createBranch(branchName: string, target: Object, flags: CreateFlags): Branch | null
@@ -3496,7 +3494,7 @@ export class DiffHunk {
 }
 export class DiffLine {
     /* Methods of Ggit.DiffLine */
-    getContent(): any
+    getContent(): any[]
     getContentOffset(): number
     getNewLineno(): number
     getOldLineno(): number
@@ -3641,7 +3639,7 @@ export class OId {
     toString(): string | null
     static name: string
     /* Static methods and pseudo-constructors */
-    static newFromRaw(raw: any): OId
+    static newFromRaw(raw: any[]): OId
     static newFromString(str: string): OId
 }
 export abstract class ObjectClass {

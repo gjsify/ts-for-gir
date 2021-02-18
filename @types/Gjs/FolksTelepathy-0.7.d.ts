@@ -228,7 +228,7 @@ export class Persona {
     set_is_in_contact_list(value: boolean): void
     get_contact(): TelepathyGLib.Contact | null
     /* Methods of Folks.Persona */
-    linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
     get_display_id(): string
@@ -406,7 +406,7 @@ export class Persona {
     vfunc_get_urls(): Gee.Set
     vfunc_set_urls(value: Gee.Set): void
     /* Virtual methods of Folks.Persona */
-    vfunc_linkable_property_to_links(prop_name: string, callback: Folks.PersonaLinkablePropertyCallback): void
+    vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
     /* Virtual methods of GObject.Object */

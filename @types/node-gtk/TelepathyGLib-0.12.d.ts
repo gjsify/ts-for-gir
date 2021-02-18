@@ -1134,7 +1134,7 @@ export const UNKNOWN_HANDLE_TYPE: HandleType
 export const USER_ACTION_TIME_NOT_USER_ACTION: number
 export function asvGetBoolean(asv: GLib.HashTable, key: string): [ /* returnType */ boolean, /* valid */ boolean ]
 export function asvGetBoxed(asv: GLib.HashTable, key: string, type: GObject.Type): object | null
-export function asvGetBytes(asv: GLib.HashTable, key: string): any | null
+export function asvGetBytes(asv: GLib.HashTable, key: string): any[] | null
 export function asvGetDouble(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
 export function asvGetInt32(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
 export function asvGetInt64(asv: GLib.HashTable, key: string): [ /* returnType */ number, /* valid */ boolean ]
@@ -1439,7 +1439,7 @@ export class Account {
     ensureConnection(path: string): Connection
     getAutomaticPresence(): [ /* returnType */ ConnectionPresenceType, /* status */ string, /* statusMessage */ string ]
     getAvatarAsync(callback?: Gio.AsyncReadyCallback | null): void
-    getAvatarFinish(result: Gio.AsyncResult): any
+    getAvatarFinish(result: Gio.AsyncResult): any[]
     getChangingPresence(): boolean
     getCmName(): string
     getConnectAutomatically(): boolean
@@ -1475,7 +1475,7 @@ export class Account {
     requestPresenceFinish(result: Gio.AsyncResult): boolean
     setAutomaticPresenceAsync(type: ConnectionPresenceType, status: string, message: string, callback?: Gio.AsyncReadyCallback | null): void
     setAutomaticPresenceFinish(result: Gio.AsyncResult): boolean
-    setAvatarAsync(avatar: any | null, mimeType?: string | null, callback?: Gio.AsyncReadyCallback | null): void
+    setAvatarAsync(avatar: any[] | null, mimeType?: string | null, callback?: Gio.AsyncReadyCallback | null): void
     setAvatarFinish(result: Gio.AsyncResult): boolean
     setConnectAutomaticallyAsync(connectAutomatically: boolean, callback?: Gio.AsyncReadyCallback | null): void
     setConnectAutomaticallyFinish(result: Gio.AsyncResult): boolean
@@ -2052,7 +2052,7 @@ export class AccountRequest {
     createAccountAsync(callback?: Gio.AsyncReadyCallback | null): void
     createAccountFinish(result: Gio.AsyncResult): Account
     setAutomaticPresence(presence: ConnectionPresenceType, status: string, message: string): void
-    setAvatar(avatar: any | null, mimeType?: string | null): void
+    setAvatar(avatar: any[] | null, mimeType?: string | null): void
     setConnectAutomatically(connectAutomatically: boolean): void
     setDisplayName(name: string): void
     setEnabled(enabled: boolean): void
@@ -4562,7 +4562,7 @@ export class Contact {
     readonly clientTypes: string[]
     readonly connection: Connection
     readonly contactGroups: string[]
-    readonly contactInfo: ContactInfoList
+    readonly contactInfo: any
     readonly handle: number
     readonly identifier: string
     readonly isBlocked: boolean
@@ -7271,7 +7271,7 @@ export class TLSCertificate {
     acceptAsync(callback?: Gio.AsyncReadyCallback | null): void
     acceptFinish(result: Gio.AsyncResult): boolean
     addRejection(reason: TLSCertificateRejectReason, dbusError: string, details?: GLib.Variant | null): void
-    getCertData(): any
+    getCertData(): any[]
     getCertType(): string
     getNthRejection(n: number): TLSCertificateRejection | null
     getRejection(): TLSCertificateRejection | null

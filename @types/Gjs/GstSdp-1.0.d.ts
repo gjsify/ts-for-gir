@@ -107,7 +107,7 @@ export function sdp_media_set_media_from_caps(caps: Gst.Caps, media: SDPMedia): 
 export function sdp_message_as_uri(scheme: string, msg: SDPMessage): string
 export function sdp_message_new(): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
 export function sdp_message_new_from_text(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
-export function sdp_message_parse_buffer(data: Uint8Array, msg: SDPMessage): SDPResult
+export function sdp_message_parse_buffer(data: Uint8Array[], msg: SDPMessage): SDPResult
 export function sdp_message_parse_uri(uri: string, msg: SDPMessage): SDPResult
 export class MIKEYDecryptInfo {
     static name: string
@@ -135,10 +135,10 @@ export class MIKEYMessage {
     /* Methods of GstSdp.MIKEYMessage */
     add_cs_srtp(policy: number, ssrc: number, roc: number): boolean
     add_payload(payload: MIKEYPayload): boolean
-    add_pke(C: MIKEYCacheType, data: Uint8Array): boolean
-    add_rand(rand: Uint8Array): boolean
+    add_pke(C: MIKEYCacheType, data: Uint8Array[]): boolean
+    add_rand(rand: Uint8Array[]): boolean
     add_rand_len(len: number): boolean
-    add_t(type: MIKEYTSType, ts_value: Uint8Array): boolean
+    add_t(type: MIKEYTSType, ts_value: Uint8Array[]): boolean
     add_t_now_ntp_utc(): boolean
     base64_encode(): string
     find_payload(type: MIKEYPayloadType, nth: number): MIKEYPayload
@@ -162,7 +162,7 @@ export class MIKEYMessage {
     static new(): MIKEYMessage
     static new_from_bytes(bytes: GLib.Bytes, info: MIKEYDecryptInfo): MIKEYMessage
     static new_from_caps(caps: Gst.Caps): MIKEYMessage
-    static new_from_data(data: Uint8Array, info: MIKEYDecryptInfo): MIKEYMessage
+    static new_from_data(data: Uint8Array[], info: MIKEYDecryptInfo): MIKEYMessage
 }
 export class MIKEYPayload {
     /* Fields of GstSdp.MIKEYPayload */
@@ -174,18 +174,18 @@ export class MIKEYPayload {
     kemac_get_sub(idx: number): MIKEYPayload
     kemac_remove_sub(idx: number): boolean
     kemac_set(enc_alg: MIKEYEncAlg, mac_alg: MIKEYMacAlg): boolean
-    key_data_set_interval(vf_len: number, vt_data: Uint8Array): boolean
-    key_data_set_key(key_type: MIKEYKeyDataType, key_data: Uint8Array): boolean
-    key_data_set_salt(salt_data?: Uint8Array | null): boolean
-    key_data_set_spi(spi_data: Uint8Array): boolean
-    pke_set(C: MIKEYCacheType, data: Uint8Array): boolean
-    rand_set(rand: Uint8Array): boolean
-    sp_add_param(type: number, val: Uint8Array): boolean
+    key_data_set_interval(vf_len: number, vt_data: Uint8Array[]): boolean
+    key_data_set_key(key_type: MIKEYKeyDataType, key_data: Uint8Array[]): boolean
+    key_data_set_salt(salt_data?: Uint8Array[] | null): boolean
+    key_data_set_spi(spi_data: Uint8Array[]): boolean
+    pke_set(C: MIKEYCacheType, data: Uint8Array[]): boolean
+    rand_set(rand: Uint8Array[]): boolean
+    sp_add_param(type: number, val: Uint8Array[]): boolean
     sp_get_n_params(): number
     sp_get_param(idx: number): MIKEYPayloadSPParam
     sp_remove_param(idx: number): boolean
     sp_set(policy: number, proto: MIKEYSecProto): boolean
-    t_set(type: MIKEYTSType, ts_value: Uint8Array): boolean
+    t_set(type: MIKEYTSType, ts_value: Uint8Array[]): boolean
     static name: string
     static new(type: MIKEYPayloadType): MIKEYPayload
     constructor(type: MIKEYPayloadType)
@@ -209,8 +209,8 @@ export class MIKEYPayloadKeyData {
     salt_len: number
     salt_data: number
     kv_type: MIKEYKVType
-    kv_len: Uint8Array
-    kv_data: Uint8Array
+    kv_len: Uint8Array[]
+    kv_data: Uint8Array[]
     static name: string
 }
 export class MIKEYPayloadPKE {
@@ -432,7 +432,7 @@ export class SDPMessage {
     /* Static methods and pseudo-constructors */
     static as_uri(scheme: string, msg: SDPMessage): string
     static new_from_text(text: string): [ /* returnType */ SDPResult, /* msg */ SDPMessage ]
-    static parse_buffer(data: Uint8Array, msg: SDPMessage): SDPResult
+    static parse_buffer(data: Uint8Array[], msg: SDPMessage): SDPResult
     static parse_uri(uri: string, msg: SDPMessage): SDPResult
 }
 export class SDPOrigin {

@@ -506,9 +506,9 @@ export class Async {
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): Async
-    static thread(func: AsyncThreadFunc, _callback_?: Gio.AsyncReadyCallback | null): void
+    static thread(func: any, _callback_?: Gio.AsyncReadyCallback | null): void
     static thread_finish(_res_: Gio.AsyncResult): void
-    static thread_try(func: AsyncThreadFunc, _callback_?: Gio.AsyncReadyCallback | null): void
+    static thread_try(func: any, _callback_?: Gio.AsyncReadyCallback | null): void
     static thread_try_finish(_res_: Gio.AsyncResult): void
 }
 export interface AuthenticationDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
@@ -911,7 +911,7 @@ export class AuthenticationDialog {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -2493,7 +2493,7 @@ export class CommitListView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -3717,7 +3717,7 @@ export class DiffStat {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -4509,7 +4509,7 @@ export class DiffViewOptions {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -5424,7 +5424,7 @@ export class DiffView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -6553,7 +6553,7 @@ export class ProgressBin {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -7690,7 +7690,7 @@ export class RepositoryListBox {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -8585,7 +8585,7 @@ export class RepositoryListBoxRow {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -9206,7 +9206,7 @@ export class Repository {
     cherry_pick(commit: Ggit.Commit, options: Ggit.CherryPickOptions): boolean
     cherry_pick_commit(commit: Ggit.Commit, our_commit: Ggit.Commit, mainline: number, merge_options?: Ggit.MergeOptions | null): Ggit.Index | null
     create_blob(): Ggit.BlobOutputStream | null
-    create_blob_from_buffer(buffer: Uint8Array): Ggit.OId | null
+    create_blob_from_buffer(buffer: Uint8Array[]): Ggit.OId | null
     create_blob_from_file(file: Gio.File): Ggit.OId
     create_blob_from_path(path: string): Ggit.OId | null
     create_branch(branch_name: string, target: Ggit.Object, flags: Ggit.CreateFlags): Ggit.Branch | null
@@ -9378,7 +9378,7 @@ export class SidebarStore {
     insert(parent: Gtk.TreeIter | null, position: number): /* iter */ Gtk.TreeIter
     insert_after(parent?: Gtk.TreeIter | null, sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     insert_before(parent?: Gtk.TreeIter | null, sibling?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
-    insert_with_values(parent: Gtk.TreeIter | null, position: number, columns: number[], values: any): /* iter */ Gtk.TreeIter | null
+    insert_with_values(parent: Gtk.TreeIter | null, position: number, columns: number[], values: any[]): /* iter */ Gtk.TreeIter | null
     is_ancestor(iter: Gtk.TreeIter, descendant: Gtk.TreeIter): boolean
     iter_depth(iter: Gtk.TreeIter): number
     iter_is_valid(iter: Gtk.TreeIter): boolean
@@ -9386,9 +9386,9 @@ export class SidebarStore {
     move_before(iter: Gtk.TreeIter, position?: Gtk.TreeIter | null): void
     prepend(parent?: Gtk.TreeIter | null): /* iter */ Gtk.TreeIter
     remove(iter: Gtk.TreeIter): boolean
-    set_column_types(types: GObject.Type[][]): void
+    set_column_types(types: GObject.Type[]): void
     set_value(iter: Gtk.TreeIter, column: number, value: any): void
-    set(iter: Gtk.TreeIter, columns: number[], values: any): void
+    set(iter: Gtk.TreeIter, columns: number[], values: any[]): void
     swap(a: Gtk.TreeIter, b: Gtk.TreeIter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -9435,7 +9435,7 @@ export class SidebarStore {
     _init (config?: SidebarStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SidebarStore
-    static new(types: GObject.Type[][]): SidebarStore
+    static new(types: GObject.Type[]): SidebarStore
     static $gtype: GObject.Type
 }
 export interface SidebarStoreSidebarText_ConstructProps extends GObject.Object_ConstructProps {
@@ -9929,7 +9929,7 @@ export class Sidebar {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11125,7 +11125,7 @@ export class Theme {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): Function
+    list_accel_closures(): Function[]
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
@@ -11661,7 +11661,7 @@ export class WhenMapped {
     /* Fields of Gitg.WhenMapped */
     ref_count: number
     /* Methods of Gitg.WhenMapped */
-    update(mapped: WhenMappedOnMapped, lifetime?: GObject.Object | null): void
+    update(mapped: any, lifetime?: GObject.Object | null): void
     static name: string
     static new(widget: Gtk.Widget): WhenMapped
     constructor(widget: Gtk.Widget)

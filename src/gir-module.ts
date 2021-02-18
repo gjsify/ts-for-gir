@@ -332,11 +332,12 @@ export class GirModule {
     }
 
     private typeLookup(girVar: GirVariable): string {
-        let type: GirType | null
+        let type: GirType | null = null
 
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
+        let resValue = ''
 
         const collection = girVar.array
             ? girVar.array
@@ -346,19 +347,20 @@ export class GirModule {
 
         if (collection && collection.length > 0) {
             const typeArray = collection[0].type
-            if (!typeArray || typeArray.length === 0) return 'any'
             if (collection[0].$) {
                 const ea = collection[0].$
                 arrCType = ea['c:type']
             }
-            type = typeArray[0]
+            if (typeArray && typeArray.length > 0) {
+                type = typeArray[0]
+            }
             arr = '[]'
         } else if (girVar.type) {
             type = girVar.type[0]
         } else if (girVar.callback?.length) {
             type = null
         } else {
-            return 'any'
+            // resValue = 'any'
         }
 
         if (girVar.$) {
@@ -369,80 +371,81 @@ export class GirModule {
         }
 
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
-        let fullTypeName: string | null
+        let fullTypeName: string | null = null
 
-        if (girVar.callback?.length) {
+        if (!resValue && girVar.callback?.length) {
             fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
             if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
-        } else {
-            if (!type?.$) return 'any'
+            resValue = fullTypeName
+        }
 
-            if (arr) {
+        if (type) {
+            if (!resValue && arr) {
                 if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-                    return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
+                    resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
                 }
             }
 
-            if (POD_TYPE_MAP[type.$.name]) {
-                return POD_TYPE_MAP[type.$.name] + suffix
+            if (!resValue && POD_TYPE_MAP[type.$.name]) {
+                resValue = POD_TYPE_MAP[type.$.name]
             }
 
-            if (C_TYPE_MAP(this.packageName, suffix)[type.$.name]) {
-                return C_TYPE_MAP(this.packageName, suffix)[type.$.name] + suffix
+            if (!resValue && C_TYPE_MAP(this.packageName)[type.$.name]) {
+                resValue = C_TYPE_MAP(this.packageName)[type.$.name]
             }
-
-            if (!this.namespace) return 'any'
 
             let cType = type.$['c:type']
             if (!cType && arrCType) cType = arrCType
 
             if (cType) {
-                if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
-                    return C_TYPE_MAP(this.packageName, suffix)[cType]
+                if (C_TYPE_MAP(this.packageName)[cType]) {
+                    resValue = C_TYPE_MAP(this.packageName)[cType]
                 }
             }
 
             fullTypeName = type.$.name || null
+        }
 
-            if (typeof fullTypeName === 'string') {
-                if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
-                    return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
-                }
-
-                // Fully qualify our type name if need be
-                if (!fullTypeName.includes('.')) {
-                    // eslint-disable-next-line @typescript-eslint/no-this-alias
-                    let mod: GirModule = this
-                    if (girVar._module) mod = girVar._module
-                    fullTypeName = `${mod.namespace}.${type.$.name}`
-                }
+        if (!resValue && fullTypeName && typeof fullTypeName === 'string') {
+            if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
+                resValue = FULL_TYPE_MAP(this.config.environment)[fullTypeName]
             }
 
-            if (!fullTypeName) {
-                this.log.warn(`Could not find type for '${girVar.$.name}'`)
-                return ('any' + arr) as 'any' | 'any[]'
+            // Fully qualify our type name if need be
+            if (!resValue && !fullTypeName.includes('.') && type) {
+                const mod = girVar?._module || this
+                fullTypeName = `${mod.namespace}.${type.$.name}`
             }
 
-            if (fullTypeName.startsWith(this.namespace + '.')) {
-                const ret = fullTypeName.substring(this.namespace.length + 1)
-                // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.namespace} -- ${girVar._module}`)
-                const result = ret + suffix
-                return result
+            if (!resValue) {
+                const key = this.getSymTableKey(fullTypeName)
+                // Only use the fullTypeName as the type if it is found in the symTable
+                if (this.symTable[key]) {
+                    if (fullTypeName.startsWith(this.namespace + '.')) {
+                        resValue = fullTypeName.substring(this.namespace.length + 1)
+                        resValue = this.transformation.transformTypeName(resValue)
+                        // TODO check if resValue this is a class, enum, interface or unify the transformClassName method
+                        resValue = this.transformation.transformClassName(resValue)
+                    } else {
+                        const resValues = fullTypeName.split('.')
+                        resValues.map((name) => this.transformation.transformTypeName(name))
+                        // TODO check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                        resValues[resValues.length - 1] = this.transformation.transformClassName(
+                            resValues[resValues.length - 1],
+                        )
+                        resValue = resValues.join('.')
+                    }
+                }
             }
         }
 
-        const result = fullTypeName + suffix
-        return result
-    }
+        if (!resValue) {
+            resValue = 'any'
+            this.log.warn(`Could not find type for '${fullTypeName || girVar.$.name}'`)
+        }
 
-    /**
-     * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager.TODO_80211ApFlags`
-     * @param girVar
-     */
-    private typeLookupTransformed(girVar: GirVariable): string {
-        let names = this.typeLookup(girVar).split('.')
-        names = names.map((name) => this.transformation.transformTypeName(name))
-        return names.join('.')
+        const result = resValue + suffix
+        return result
     }
 
     private girBool(e: string | undefined, defaultVal = false): boolean {
@@ -459,7 +462,7 @@ export class GirModule {
 
         const returnVal = func['return-value'] ? func['return-value'][0] : null
         if (returnVal) {
-            returnType = this.typeLookupTransformed(returnVal)
+            returnType = this.typeLookup(returnVal)
             outArrayLengthIndex =
                 returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
         }
@@ -553,7 +556,7 @@ export class GirModule {
                     const out = optDirection === 'out' || optDirection == 'inout'
                     // I think it's safest to force inout params to have the
                     // same type for in and out
-                    const paramType = this.typeLookupTransformed(param)
+                    const paramType = this.typeLookup(param)
 
                     if (out) {
                         outParams.push(`/* ${paramName} */ ${paramType}`)
@@ -607,7 +610,7 @@ export class GirModule {
         }
         // Use the out type because in can be a union which isn't appropriate
         // for a property
-        let typeName = this.typeLookupTransformed(v)
+        let typeName = this.typeLookup(v)
         const nameSuffix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
@@ -1554,7 +1557,7 @@ export class GirModule {
     public exportAlias(girAlias: GirAlias): string[] {
         if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
 
-        const typeName = this.typeLookupTransformed(girAlias)
+        const typeName = this.typeLookup(girAlias)
         const name = girAlias.$.name
         return [`export type ${name} = ${typeName}`]
     }

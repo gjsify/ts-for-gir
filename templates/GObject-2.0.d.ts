@@ -28,4 +28,3 @@ export const signals: symbol
 export function registerClass(metaInfo: MetaInfo, cls: Function): Function
 export function registerClass(cls: Function): Function
 export function registerClass<T extends MetaInfo | Function>(a: T, b?: Function): Function
-export type VaClosureMarshal = any // TODO

@@ -3,7 +3,7 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType, GenerateConfig } from './types'
+import { Transformations, Environment, ConstructName, CTypeMap, GType, GenerateConfig } from './types'
 import Path from 'path'
 import { Utils } from './utils'
 import { Logger } from './logger'
@@ -50,13 +50,13 @@ export const POD_TYPE_MAP = {
     va_list: 'any',
 }
 
-export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CTypeMap => {
+export const C_TYPE_MAP = (targetFullName?: string): CTypeMap => {
     return {
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'any', // FIXME
         guintptr: 'string', // TODO
-        GType: ((targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') + suffix) as GType,
+        GType: (targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') as GType,
     }
 }
 

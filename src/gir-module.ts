@@ -339,8 +339,6 @@ export class GirModule {
             arr = '[]'
         } else if (girVar.type) {
             type = girVar.type[0]
-        } else if (girVar.callback?.length) {
-            type = null
         }
 
         if (girVar.$) {
@@ -837,7 +835,7 @@ export class GirModule {
                 // This can be happen on node bindings, e.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
                 // See issue https://github.com/romgrk/node-gtk/issues/256
                 // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
-                // TODO prefer functions over properties (Overwrite the properties with the functions of they have the same name)
+                // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
                 if (debugMe)
                     this.log.warn(
                         `Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`,

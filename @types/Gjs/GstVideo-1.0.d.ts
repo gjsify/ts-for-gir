@@ -787,16 +787,16 @@ export class VideoOrientation {
 export class VideoOverlay {
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    got_window_handle(handle: any): void
+    got_window_handle(handle: number): void
     handle_events(handle_events: boolean): void
     prepare_window_handle(): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
-    set_window_handle(handle: any): void
+    set_window_handle(handle: number): void
     /* Virtual methods of GstVideo.VideoOverlay */
     vfunc_expose(): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): void
-    vfunc_set_window_handle(handle: any): void
+    vfunc_set_window_handle(handle: number): void
     static name: string
     /* Static methods and pseudo-constructors */
     static install_properties(oclass: GObject.ObjectClass, last_prop_id: number): void
@@ -3399,7 +3399,7 @@ export abstract class VideoOverlayInterface {
     expose: (overlay: VideoOverlay) => void
     handle_events: (overlay: VideoOverlay, handle_events: boolean) => void
     set_render_rectangle: (overlay: VideoOverlay, x: number, y: number, width: number, height: number) => void
-    set_window_handle: (overlay: VideoOverlay, handle: any) => void
+    set_window_handle: (overlay: VideoOverlay, handle: number) => void
     static name: string
 }
 export class VideoOverlayRectangle {

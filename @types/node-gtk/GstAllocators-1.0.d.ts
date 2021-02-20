@@ -24,7 +24,7 @@ export function fdMemoryGetFd(mem: Gst.Memory): number
 export function isDmabufMemory(mem: Gst.Memory): boolean
 export function isFdMemory(mem: Gst.Memory): boolean
 export function isPhysMemory(mem: Gst.Memory): boolean
-export function physMemoryGetPhysAddr(mem: Gst.Memory): any
+export function physMemoryGetPhysAddr(mem: Gst.Memory): number
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class PhysMemoryAllocator {
@@ -97,7 +97,7 @@ export class PhysMemoryAllocator {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstAllocators.PhysMemoryAllocator */
-    vfuncGetPhysAddr(mem: Gst.Memory): any
+    vfuncGetPhysAddr(mem: Gst.Memory): number
     /* Virtual methods of Gst.Allocator */
     vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfuncFree(memory: Gst.Memory): void
@@ -407,7 +407,7 @@ export abstract class FdAllocatorClass {
 }
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstAllocators.PhysMemoryAllocatorInterface */
-    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => any
+    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
 }

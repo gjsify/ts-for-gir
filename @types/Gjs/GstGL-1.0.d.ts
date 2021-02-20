@@ -1305,7 +1305,7 @@ export class GLContext {
     fill_info(): boolean
     get_display(): GLDisplay
     get_gl_api(): GLAPI
-    get_gl_context(): any
+    get_gl_context(): number
     get_gl_platform(): GLPlatform
     get_gl_platform_version(): [ /* major */ number, /* minor */ number ]
     get_gl_version(): [ /* maj */ number, /* min */ number ]
@@ -1373,7 +1373,7 @@ export class GLContext {
     vfunc_create_context(gl_api: GLAPI, other_context: GLContext): boolean
     vfunc_destroy_context(): void
     vfunc_get_gl_api(): GLAPI
-    vfunc_get_gl_context(): any
+    vfunc_get_gl_context(): number
     vfunc_get_gl_platform(): GLPlatform
     vfunc_get_gl_platform_version(): [ /* major */ number, /* minor */ number ]
     vfunc_swap_buffers(): void
@@ -1408,11 +1408,11 @@ export class GLContext {
     _init (config?: GLContext_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(display: GLDisplay): GLContext
-    static new_wrapped(display: GLDisplay, handle: any, context_type: GLPlatform, available_apis: GLAPI): GLContext
+    static new_wrapped(display: GLDisplay, handle: number, context_type: GLPlatform, available_apis: GLAPI): GLContext
     static default_get_proc_address(gl_api: GLAPI, name: string): object | null
     static get_current(): GLContext
     static get_current_gl_api(platform: GLPlatform): [ /* returnType */ GLAPI, /* major */ number | null, /* minor */ number | null ]
-    static get_current_gl_context(context_type: GLPlatform): any
+    static get_current_gl_context(context_type: GLPlatform): number
     static get_proc_address_with_platform(context_type: GLPlatform, gl_api: GLAPI, name: string): object | null
     static $gtype: GObject.Type
 }
@@ -1437,7 +1437,7 @@ export class GLDisplay {
     get_gl_api(): GLAPI
     get_gl_api_unlocked(): GLAPI
     get_gl_context_for_thread(thread: GLib.Thread): GLContext
-    get_handle(): any
+    get_handle(): number
     get_handle_type(): GLDisplayType
     remove_context(context: GLContext): void
     remove_window(window: GLWindow): boolean
@@ -1490,7 +1490,7 @@ export class GLDisplay {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfunc_create_window(): GLWindow
-    vfunc_get_handle(): any
+    vfunc_get_handle(): number
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -2849,9 +2849,9 @@ export class GLWindow {
     controls_viewport(): boolean
     draw(): void
     get_context(): GLContext
-    get_display(): any
+    get_display(): number
     get_surface_dimensions(): [ /* width */ number, /* height */ number ]
-    get_window_handle(): any
+    get_window_handle(): number
     handle_events(handle_events: boolean): void
     has_output_surface(): boolean
     queue_resize(): void
@@ -2868,7 +2868,7 @@ export class GLWindow {
     set_preferred_size(width: number, height: number): void
     set_render_rectangle(x: number, y: number, width: number, height: number): boolean
     set_resize_callback(callback: GLWindowResizeCB): void
-    set_window_handle(handle: any): void
+    set_window_handle(handle: number): void
     show(): void
     /* Methods of Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
@@ -2920,8 +2920,8 @@ export class GLWindow {
     vfunc_close(): void
     vfunc_controls_viewport(): boolean
     vfunc_draw(): void
-    vfunc_get_display(): any
-    vfunc_get_window_handle(): any
+    vfunc_get_display(): number
+    vfunc_get_window_handle(): number
     vfunc_handle_events(handle_events: boolean): void
     vfunc_has_output_surface(): boolean
     vfunc_open(): boolean
@@ -2932,7 +2932,7 @@ export class GLWindow {
     vfunc_send_message_async(callback: GLWindowCB): void
     vfunc_set_preferred_size(width: number, height: number): void
     vfunc_set_render_rectangle(x: number, y: number, width: number, height: number): boolean
-    vfunc_set_window_handle(handle: any): void
+    vfunc_set_window_handle(handle: number): void
     vfunc_show(): void
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -3102,8 +3102,8 @@ export class GLColorConvertPrivate {
 export abstract class GLContextClass {
     /* Fields of GstGL.GLContextClass */
     parent_class: Gst.ObjectClass
-    get_current_context: () => any
-    get_gl_context: (context: GLContext) => any
+    get_current_context: () => number
+    get_gl_context: (context: GLContext) => number
     get_gl_api: (context: GLContext) => GLAPI
     get_gl_platform: (context: GLContext) => GLPlatform
     get_proc_address: (gl_api: GLAPI, name: string) => object
@@ -3122,7 +3122,7 @@ export class GLContextPrivate {
 export abstract class GLDisplayClass {
     /* Fields of GstGL.GLDisplayClass */
     object_class: Gst.ObjectClass
-    get_handle: (display: GLDisplay) => any
+    get_handle: (display: GLDisplay) => number
     create_window: (display: GLDisplay) => GLWindow
     static name: string
 }
@@ -3317,9 +3317,9 @@ export class GLViewConvertPrivate {
 export abstract class GLWindowClass {
     /* Fields of GstGL.GLWindowClass */
     parent_class: Gst.ObjectClass
-    get_display: (window: GLWindow) => any
-    set_window_handle: (window: GLWindow, handle: any) => void
-    get_window_handle: (window: GLWindow) => any
+    get_display: (window: GLWindow) => number
+    set_window_handle: (window: GLWindow, handle: number) => void
+    get_window_handle: (window: GLWindow) => number
     draw: (window: GLWindow) => void
     run: (window: GLWindow) => void
     quit: (window: GLWindow) => void

@@ -34,7 +34,7 @@ export class GLDisplayX11 {
     getGlApi(): GstGL.GLAPI
     getGlApiUnlocked(): GstGL.GLAPI
     getGlContextForThread(thread: GLib.Thread): GstGL.GLContext
-    getHandle(): any
+    getHandle(): number
     getHandleType(): GstGL.GLDisplayType
     removeContext(context: GstGL.GLContext): void
     removeWindow(window: GstGL.GLWindow): boolean
@@ -87,7 +87,7 @@ export class GLDisplayX11 {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfuncCreateWindow(): GstGL.GLWindow
-    vfuncGetHandle(): any
+    vfuncGetHandle(): number
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */

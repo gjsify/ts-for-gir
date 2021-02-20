@@ -17,7 +17,7 @@ export function egl_get_error_string(err: number): string
 export function egl_image_from_dmabuf(context: GstGL.GLContext, dmabuf: number, in_info: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
 export function egl_image_from_dmabuf_direct(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo): EGLImage
 export function egl_image_from_dmabuf_direct_target(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
-export function egl_image_from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: any): EGLImage
+export function egl_image_from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: number): EGLImage
 export function gl_memory_egl_init_once(): void
 export function is_gl_memory_egl(mem: Gst.Memory): boolean
 export interface EGLImageDestroyNotify {
@@ -44,7 +44,7 @@ export class GLDisplayEGL {
     get_gl_api(): GstGL.GLAPI
     get_gl_api_unlocked(): GstGL.GLAPI
     get_gl_context_for_thread(thread: GLib.Thread): GstGL.GLContext
-    get_handle(): any
+    get_handle(): number
     get_handle_type(): GstGL.GLDisplayType
     remove_context(context: GstGL.GLContext): void
     remove_window(window: GstGL.GLWindow): boolean
@@ -97,7 +97,7 @@ export class GLDisplayEGL {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfunc_create_window(): GstGL.GLWindow
-    vfunc_get_handle(): any
+    vfunc_get_handle(): number
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -135,7 +135,7 @@ export class GLDisplayEGL {
     static new(): GLDisplayEGL
     static new_with_egl_display(display?: object | null): GLDisplayEGL
     static from_gl_display(display: GstGL.GLDisplay): GLDisplayEGL
-    static get_from_native(type: GstGL.GLDisplayType, display: any): object | null
+    static get_from_native(type: GstGL.GLDisplayType, display: number): object | null
     static $gtype: GObject.Type
 }
 export interface GLDisplayEGLDevice_ConstructProps extends GstGL.GLDisplay_ConstructProps {
@@ -162,7 +162,7 @@ export class GLDisplayEGLDevice {
     get_gl_api(): GstGL.GLAPI
     get_gl_api_unlocked(): GstGL.GLAPI
     get_gl_context_for_thread(thread: GLib.Thread): GstGL.GLContext
-    get_handle(): any
+    get_handle(): number
     get_handle_type(): GstGL.GLDisplayType
     remove_context(context: GstGL.GLContext): void
     remove_window(window: GstGL.GLWindow): boolean
@@ -215,7 +215,7 @@ export class GLDisplayEGLDevice {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GstGL.GLDisplay */
     vfunc_create_window(): GstGL.GLWindow
-    vfunc_get_handle(): any
+    vfunc_get_handle(): number
     /* Virtual methods of Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -379,7 +379,7 @@ export class EGLImage {
     static from_dmabuf(context: GstGL.GLContext, dmabuf: number, in_info: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
     static from_dmabuf_direct(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo): EGLImage
     static from_dmabuf_direct_target(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
-    static from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: any): EGLImage
+    static from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: number): EGLImage
 }
 export abstract class GLDisplayEGLClass {
     /* Fields of GstGLEGL.GLDisplayEGLClass */

@@ -2,6 +2,7 @@ import TemplateProcessor from './template-processor'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Logger } from './logger'
 import { Utils } from './utils'
+import { SymTable } from './symtable'
 
 import {
     GirRepository,
@@ -18,7 +19,6 @@ import {
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
-    SymTable,
     GirConstruct,
     InheritanceTable,
     ParsedGir,
@@ -78,7 +78,7 @@ export class GirModule {
     /**
      * Used to find namespaces that are used in other modules
      */
-    symTable: SymTable = {}
+    symTable: SymTable
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
     extends?: string
@@ -120,6 +120,8 @@ export class GirModule {
             this.packageName,
             this.config,
         )
+
+        this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 
     private loadDependencies(girInclude: GirInclude[]): string[] {
@@ -209,7 +211,7 @@ export class GirModule {
             }
     }
 
-    private loadTypesInternal(symTable: SymTable, girConstructs?: GirConstruct[]): void {
+    private loadTypesInternal(girConstructs?: GirConstruct[]): void {
         if (girConstructs) {
             for (const girConstruct of girConstructs) {
                 if (girConstruct?.$) {
@@ -217,31 +219,30 @@ export class GirModule {
                         if (!this.girBool((girConstruct as GirVariable | GirFunction).$.introspectable, true)) continue
                     }
                     const symName = `${this.namespace}.${girConstruct.$.name}`
-                    const key = this.getSymTableKey(symName)
-                    if (symTable[key]) {
+                    if (this.symTable.get(this.allDependencies, symName)) {
                         this.log.warn(`Duplicate symbol: ${symName}`)
                         debugger
                     }
 
                     girConstruct._module = this
                     girConstruct._fullSymName = symName
-                    symTable[key] = girConstruct
+                    this.symTable.set(this.allDependencies, symName, girConstruct)
                 }
             }
         }
     }
 
-    public loadTypes(symTable: SymTable): void {
-        this.loadTypesInternal(symTable, this.ns.bitfield)
-        this.loadTypesInternal(symTable, this.ns.callback)
-        this.loadTypesInternal(symTable, this.ns.class)
-        this.loadTypesInternal(symTable, this.ns.constant)
-        this.loadTypesInternal(symTable, this.ns.enumeration)
-        this.loadTypesInternal(symTable, this.ns.function)
-        this.loadTypesInternal(symTable, this.ns.interface)
-        this.loadTypesInternal(symTable, this.ns.record)
-        this.loadTypesInternal(symTable, this.ns.union)
-        this.loadTypesInternal(symTable, this.ns.alias)
+    public loadTypes(): void {
+        this.loadTypesInternal(this.ns.bitfield)
+        this.loadTypesInternal(this.ns.callback)
+        this.loadTypesInternal(this.ns.class)
+        this.loadTypesInternal(this.ns.constant)
+        this.loadTypesInternal(this.ns.enumeration)
+        this.loadTypesInternal(this.ns.function)
+        this.loadTypesInternal(this.ns.interface)
+        this.loadTypesInternal(this.ns.record)
+        this.loadTypesInternal(this.ns.union)
+        this.loadTypesInternal(this.ns.alias)
 
         if (this.ns.callback) for (const func of this.ns.callback) this.annotateFunctionArguments(func)
 
@@ -268,8 +269,6 @@ export class GirModule {
 
         // if (this.ns.)
         // props
-
-        this.symTable = symTable
     }
 
     public loadInheritance(inheritanceTable: InheritanceTable): void {
@@ -384,9 +383,8 @@ export class GirModule {
         }
 
         if (!resValue && fullTypeName) {
-            const key = this.getSymTableKey(fullTypeName)
             // Only use the fullTypeName as the type if it is found in the symTable
-            if (this.symTable[key]) {
+            if (this.symTable.get(this.allDependencies, fullTypeName)) {
                 if (fullTypeName.startsWith(this.namespace + '.')) {
                     resValue = fullTypeName.substring(this.namespace.length + 1)
                     resValue = this.transformation.transformTypeName(resValue)
@@ -711,14 +709,12 @@ export class GirModule {
         }
 
         if (parentName && qualifiedParentName) {
-            const key = this.getSymTableKey(qualifiedParentName)
-
-            if (this.symTable[key]) {
-                parentPtr = (this.symTable[key] as GirClass | null) || null
+            if (this.symTable.get(this.allDependencies, qualifiedParentName)) {
+                parentPtr = (this.symTable.get(this.allDependencies, qualifiedParentName) as GirClass) || null
             }
 
             if (!parentPtr && parentName == 'Object') {
-                parentPtr = (this.symTable['GObject-2.0.GObject.Object'] as GirClass) || null
+                parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClass) || null
             }
 
             // check circular dependency
@@ -731,10 +727,6 @@ export class GirModule {
                     recursive = false
                 }
             }
-
-            // this.log.log(
-            //     `[traverseInheritanceTree] (depth: ${depth}) ${girClass.$.name} : ${parentName} : ${parent?.$?.parent}`,
-            // )
         }
 
         callback(girClass)
@@ -746,37 +738,6 @@ export class GirModule {
                 this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
             }
         }
-    }
-
-    /**
-     * Get4 symTable key, we use this method to prepend the package version to each key for version conflicts
-     * @param implementation E.g. Gtk.Window
-     */
-    private getSymTableKey(implementation: string) {
-        if (implementation.startsWith(this.packageName + '.')) {
-            return implementation
-        }
-
-        if (implementation.startsWith(this.namespace + '.')) {
-            return this.packageName + '.' + implementation
-        }
-
-        if (!implementation.includes('.')) {
-            return this.packageName + '.' + this.namespace + '.' + implementation
-        }
-
-        const split = implementation.split('.')
-        // const typeName = split[split.length - 1]
-        const namespace = split.slice(0, split.length - 1).join('.')
-        const packageName = this.allDependencies.find((dependency) => dependency.startsWith(namespace + '-'))
-        if (!packageName) {
-            this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
-            if (namespace === 'Atk') {
-                console.log('dependencies', this.dependencies)
-            }
-            return implementation
-        }
-        return packageName + '.' + implementation
     }
 
     private forEachInterface(
@@ -794,9 +755,9 @@ export class GirModule {
             if (Object.prototype.hasOwnProperty.call(dups, name)) {
                 continue
             }
-            const key = this.getSymTableKey(name)
+            const key = this.symTable.getKey(this.allDependencies, name)
             dups[key] = true
-            const iface: GirClass | null = this.symTable[key] as GirClass | null
+            const iface = this.symTable.get(this.allDependencies, name) as GirClass | undefined
 
             if (iface) {
                 callback(iface)
@@ -812,8 +773,7 @@ export class GirModule {
                 parentName = this.namespace + '.' + parentName
             }
             if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
-            const key = this.getSymTableKey(parentName)
-            const parentPtr = this.symTable[key]
+            const parentPtr = this.symTable.get(this.allDependencies, parentName)
             if (parentPtr && ((parentPtr as GirClass).prerequisite || recurseObjects)) {
                 // iface's prerequisite is also an interface, or it's
                 // a class and we also want to recurse classes

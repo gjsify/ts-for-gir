@@ -7518,11 +7518,11 @@ export class Pipeline {
     setProperty(name: string, value: any): void
     /* Methods of GstVideo.VideoOverlay */
     expose(): void
-    gotWindowHandle(handle: any): void
+    gotWindowHandle(handle: number): void
     handleEvents(handleEvents: boolean): void
     prepareWindowHandle(): void
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
-    setWindowHandle(handle: any): void
+    setWindowHandle(handle: number): void
     /* Virtual methods of GES.Pipeline */
     vfuncChildAdded(child: GObject.Object, name: string): void
     vfuncChildRemoved(child: GObject.Object, name: string): void
@@ -7532,7 +7532,7 @@ export class Pipeline {
     vfuncExpose(): void
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncSetRenderRectangle(x: number, y: number, width: number, height: number): void
-    vfuncSetWindowHandle(handle: any): void
+    vfuncSetWindowHandle(handle: number): void
     /* Virtual methods of Gst.Bin */
     vfuncAddElement(element: Gst.Element): boolean
     vfuncDeepElementAdded(subBin: Gst.Bin, child: Gst.Element): void

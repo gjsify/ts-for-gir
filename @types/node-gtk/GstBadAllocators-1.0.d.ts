@@ -11,7 +11,7 @@ import type { GModule } from './GModule-2.0';
 export declare namespace GstBadAllocators {
 
 export function isPhysMemory(mem: Gst.Memory): boolean
-export function physMemoryGetPhysAddr(mem: Gst.Memory): any
+export function physMemoryGetPhysAddr(mem: Gst.Memory): number
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class PhysMemoryAllocator {
@@ -84,7 +84,7 @@ export class PhysMemoryAllocator {
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of GstBadAllocators.PhysMemoryAllocator */
-    vfuncGetPhysAddr(mem: Gst.Memory): any
+    vfuncGetPhysAddr(mem: Gst.Memory): number
     /* Virtual methods of Gst.Allocator */
     vfuncAlloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfuncFree(memory: Gst.Memory): void
@@ -137,7 +137,7 @@ export class PhysMemoryAllocator {
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstBadAllocators.PhysMemoryAllocatorInterface */
     parentIface: GObject.TypeInterface
-    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => any
+    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
 }

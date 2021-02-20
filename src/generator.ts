@@ -6,7 +6,7 @@ import TemplateProcessor from './template-processor'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 
-import { InheritanceTable, SymTable, GenerateConfig } from './types'
+import { InheritanceTable, GenerateConfig } from './types'
 
 export class Generator {
     log: Logger
@@ -73,8 +73,7 @@ export class Generator {
 
         this.log.info('Files parsed, loading types...')
 
-        const symTable: SymTable = {}
-        for (const girModule of girModules) girModule.loadTypes(symTable)
+        for (const girModule of girModules) girModule.loadTypes()
 
         const inheritanceTable: InheritanceTable = {}
         for (const girModule of girModules) girModule.loadInheritance(inheritanceTable)

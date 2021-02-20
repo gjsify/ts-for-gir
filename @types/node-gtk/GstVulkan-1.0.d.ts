@@ -2796,7 +2796,7 @@ export class VulkanWindow {
     resize(width: number, height: number): void
     sendKeyEvent(eventType: string, keyStr: string): void
     sendMouseEvent(eventType: string, button: number, posx: number, posy: number): void
-    setWindowHandle(handle: any): void
+    setWindowHandle(handle: number): void
     /* Methods of Gst.Object */
     addControlBinding(binding: Gst.ControlBinding): boolean
     defaultError(error: GLib.Error, debug?: string | null): void
@@ -2849,7 +2849,7 @@ export class VulkanWindow {
     vfuncGetSurfaceDimensions(width: number, height: number): void
     vfuncHandleEvents(handleEvents: boolean): void
     vfuncOpen(): boolean
-    vfuncSetWindowHandle(handle: any): void
+    vfuncSetWindowHandle(handle: number): void
     /* Virtual methods of Gst.Object */
     vfuncDeepNotify(orig: Gst.Object, pspec: GObject.ParamSpec): void
     /* Virtual methods of GObject.Object */
@@ -3291,7 +3291,7 @@ export abstract class VulkanWindowClass {
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void
     getPresentationSupport: (window: VulkanWindow, device: VulkanDevice, queueFamilyIdx: number) => boolean
-    setWindowHandle: (window: VulkanWindow, handle: any) => void
+    setWindowHandle: (window: VulkanWindow, handle: number) => void
     getSurfaceDimensions: (window: VulkanWindow, width: number, height: number) => void
     handleEvents: (window: VulkanWindow, handleEvents: boolean) => void
     static name: string

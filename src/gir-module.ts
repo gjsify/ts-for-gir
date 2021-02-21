@@ -889,7 +889,8 @@ export class GirModule {
             }
         }
         if (def.length) {
-            def.unshift(`    /* Fields of ${cls._module?.packageName}.${cls._fullSymName} */`)
+            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
+            def.unshift(`    /* Fields of ${versionPrefix}${cls._fullSymName} */`)
         }
         return def
     }
@@ -907,7 +908,8 @@ export class GirModule {
             }
         }
         if (def.length) {
-            def.unshift(`    /* Properties of ${cls._module?.packageName}.${cls._fullSymName} */`)
+            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
+            def.unshift(`    /* Properties of ${versionPrefix}${cls._fullSymName} */`)
         }
         return def
     }
@@ -926,7 +928,8 @@ export class GirModule {
             }
         }
         if (def.length) {
-            def.unshift(`    /* Methods of ${cls._module?.packageName}.${cls._fullSymName} */`)
+            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
+            def.unshift(`    /* Methods of ${versionPrefix}${cls._fullSymName} */`)
         }
         return def
     }
@@ -955,7 +958,8 @@ export class GirModule {
         })
         const def = this.exportOverloadableMethods(fnMap, explicits)
         if (def.length) {
-            def.unshift(`    /* Virtual methods of ${cls._module?.packageName}.${cls._fullSymName} */`)
+            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
+            def.unshift(`    /* Virtual methods of ${versionPrefix}${cls._fullSymName} */`)
         }
         return def
     }
@@ -967,7 +971,8 @@ export class GirModule {
             for (const s of signals) def.push(...this.getSignalFunc(s, clsName))
         }
         if (def.length) {
-            def.unshift(`    /* Signals of ${cls._module?.packageName}.${cls._fullSymName} */`)
+            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
+            def.unshift(`    /* Signals of ${versionPrefix}${cls._fullSymName} */`)
         }
         return def
     }

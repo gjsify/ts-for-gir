@@ -948,6 +948,11 @@ export class GirModule {
      * @param cls
      */
     private processVirtualMethods(cls: GirClass): string[] {
+        // Virtual methods currently not supported in node-gtk
+        // See point 4 on https://github.com/sammydre/ts-for-gjs/issues/21
+        if (this.config.environment === 'node') {
+            return []
+        }
         const [fnMap, explicits] = this.processOverloadableMethods(cls, (e) => {
             let methods = (e['virtual-method'] || []).map((f) => {
                 const desc = this.getFunction(f, '    ', 'vfunc_')

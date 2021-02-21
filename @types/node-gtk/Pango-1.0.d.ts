@@ -460,14 +460,6 @@ export class Context {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -522,14 +514,6 @@ export class Coverage {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Coverage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -578,14 +562,6 @@ export class Engine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Engine, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -631,16 +607,6 @@ export class EngineLang {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.EngineLang */
-    vfuncScriptBreak(text: string, len: number, analysis: Analysis, attrs: LogAttr, attrsLen: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EngineLang, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -688,17 +654,6 @@ export class EngineShape {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.EngineShape */
-    vfuncCovers(font: Font, language: Language, wc: number): CoverageLevel
-    vfuncScriptShape(font: Font, itemText: string, itemLength: number, analysis: Analysis, glyphs: GlyphString, paragraphText: string, paragraphLength: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EngineShape, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -757,23 +712,6 @@ export class Font {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.Font */
-    vfuncCreateHbFont(): HarfBuzz.font_t
-    vfuncDescribe(): FontDescription
-    vfuncDescribeAbsolute(): FontDescription
-    vfuncGetCoverage(language: Language): Coverage
-    vfuncGetFeatures(numFeatures: number): { features: HarfBuzz.feature_t[], numFeatures: number }
-    vfuncGetFontMap(): FontMap | null
-    vfuncGetGlyphExtents(glyph: Glyph): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
-    vfuncGetMetrics(language?: Language | null): FontMetrics
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Font, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -829,20 +767,6 @@ export class FontFace {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.FontFace */
-    vfuncDescribe(): FontDescription
-    vfuncGetFaceName(): string
-    vfuncGetFamily(): FontFamily
-    vfuncIsSynthesized(): boolean
-    vfuncListSizes(): { sizes: number[] | null }
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontFace, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -896,20 +820,6 @@ export class FontFamily {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.FontFamily */
-    vfuncGetFace(name?: string | null): FontFace | null
-    vfuncGetName(): string
-    vfuncIsMonospace(): boolean
-    vfuncIsVariable(): boolean
-    vfuncListFaces(): { faces: FontFace[] | null }
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontFamily, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -965,21 +875,6 @@ export class FontMap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.FontMap */
-    vfuncChanged(): void
-    vfuncGetFamily(name: string): FontFamily
-    vfuncGetSerial(): number
-    vfuncListFamilies(): { families: FontFamily[] }
-    vfuncLoadFont(context: Context, desc: FontDescription): Font | null
-    vfuncLoadFontset(context: Context, desc: FontDescription, language: Language): Fontset | null
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1031,19 +926,6 @@ export class Fontset {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.Fontset */
-    vfuncForeach(func: FontsetForeachFunc): void
-    vfuncGetFont(wc: number): Font
-    vfuncGetLanguage(): Language
-    vfuncGetMetrics(): FontMetrics
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Fontset, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1098,19 +980,6 @@ export class FontsetSimple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.Fontset */
-    vfuncForeach(func: FontsetForeachFunc): void
-    vfuncGetFont(wc: number): Font
-    vfuncGetLanguage(): Language
-    vfuncGetMetrics(): FontMetrics
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontsetSimple, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1218,14 +1087,6 @@ export class Layout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1295,26 +1156,6 @@ export class Renderer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Pango-1.0.Pango.Renderer */
-    vfuncBegin(): void
-    vfuncDrawErrorUnderline(x: number, y: number, width: number, height: number): void
-    vfuncDrawGlyph(font: Font, glyph: Glyph, x: number, y: number): void
-    vfuncDrawGlyphItem(text: string | null, glyphItem: GlyphItem, x: number, y: number): void
-    vfuncDrawGlyphs(font: Font, glyphs: GlyphString, x: number, y: number): void
-    vfuncDrawRectangle(part: RenderPart, x: number, y: number, width: number, height: number): void
-    vfuncDrawShape(attr: AttrShape, x: number, y: number): void
-    vfuncDrawTrapezoid(part: RenderPart, y1: number, x11: number, x21: number, y2: number, x12: number, x22: number): void
-    vfuncEnd(): void
-    vfuncPartChanged(part: RenderPart): void
-    vfuncPrepareRun(run: LayoutRun): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Renderer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

@@ -378,14 +378,6 @@ export class Action {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Virtual methods of Atk-1.0.Atk.Action */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
     static name: string
 }
 export class Component {
@@ -405,23 +397,6 @@ export class Component {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Component */
-    vfuncBoundsChanged(bounds: Rectangle): void
-    vfuncContains(x: number, y: number, coordType: CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetSize(): { width: number | null, height: number | null }
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: ScrollType): boolean
-    vfuncScrollToPoint(coords: CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
     /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Component, arg1: Rectangle) => void)): number
     on(sigName: "bounds-changed", callback: (arg1: Rectangle) => void, after?: boolean): NodeJS.EventEmitter
@@ -440,15 +415,6 @@ export class Document {
     getLocale(): string
     getPageCount(): number
     setAttributeValue(attributeName: string, attributeValue: string): boolean
-    /* Virtual methods of Atk-1.0.Atk.Document */
-    vfuncGetCurrentPageNumber(): number
-    vfuncGetDocument(): object | null
-    vfuncGetDocumentAttributeValue(attributeName: string): string | null
-    vfuncGetDocumentAttributes(): AttributeSet
-    vfuncGetDocumentLocale(): string
-    vfuncGetDocumentType(): string
-    vfuncGetPageCount(): number
-    vfuncSetDocumentAttribute(attributeName: string, attributeValue: string): boolean
     /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: Document) => void)): number
     on(sigName: "load-complete", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -481,21 +447,11 @@ export class EditableText {
     pasteText(position: number): void
     setRunAttributes(attribSet: AttributeSet, startOffset: number, endOffset: number): boolean
     setTextContents(string: string): void
-    /* Virtual methods of Atk-1.0.Atk.EditableText */
-    vfuncCopyText(startPos: number, endPos: number): void
-    vfuncCutText(startPos: number, endPos: number): void
-    vfuncDeleteText(startPos: number, endPos: number): void
-    vfuncInsertText(string: string, length: number, position: number): void
-    vfuncPasteText(position: number): void
-    vfuncSetRunAttributes(attribSet: AttributeSet, startOffset: number, endOffset: number): boolean
-    vfuncSetTextContents(string: string): void
     static name: string
 }
 export class HyperlinkImpl {
     /* Methods of Atk-1.0.Atk.HyperlinkImpl */
     getHyperlink(): Hyperlink
-    /* Virtual methods of Atk-1.0.Atk.HyperlinkImpl */
-    vfuncGetHyperlink(): Hyperlink
     static name: string
 }
 export class Hypertext {
@@ -503,11 +459,6 @@ export class Hypertext {
     getLink(linkIndex: number): Hyperlink
     getLinkIndex(charIndex: number): number
     getNLinks(): number
-    /* Virtual methods of Atk-1.0.Atk.Hypertext */
-    vfuncGetLink(linkIndex: number): Hyperlink
-    vfuncGetLinkIndex(charIndex: number): number
-    vfuncGetNLinks(): number
-    vfuncLinkSelected(linkIndex: number): void
     /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: Hypertext, arg1: number) => void)): number
     on(sigName: "link-selected", callback: (arg1: number) => void, after?: boolean): NodeJS.EventEmitter
@@ -523,12 +474,6 @@ export class Image {
     getImagePosition(coordType: CoordType): { x: number | null, y: number | null }
     getImageSize(): { width: number | null, height: number | null }
     setImageDescription(description: string): boolean
-    /* Virtual methods of Atk-1.0.Atk.Image */
-    vfuncGetImageDescription(): string
-    vfuncGetImageLocale(): string | null
-    vfuncGetImagePosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetImageSize(): { width: number | null, height: number | null }
-    vfuncSetImageDescription(description: string): boolean
     static name: string
 }
 export class ImplementorIface {
@@ -543,15 +488,6 @@ export class Selection {
     refSelection(i: number): Object | null
     removeSelection(i: number): boolean
     selectAllSelection(): boolean
-    /* Virtual methods of Atk-1.0.Atk.Selection */
-    vfuncAddSelection(i: number): boolean
-    vfuncClearSelection(): boolean
-    vfuncGetSelectionCount(): number
-    vfuncIsChildSelected(i: number): boolean
-    vfuncRefSelection(i: number): Object | null
-    vfuncRemoveSelection(i: number): boolean
-    vfuncSelectAllSelection(): boolean
-    vfuncSelectionChanged(): void
     /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: Selection) => void)): number
     on(sigName: "selection-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -566,11 +502,6 @@ export class StreamableContent {
     getNMimeTypes(): number
     getStream(mimeType: string): GLib.IOChannel
     getUri(mimeType: string): string | null
-    /* Virtual methods of Atk-1.0.Atk.StreamableContent */
-    vfuncGetMimeType(i: number): string
-    vfuncGetNMimeTypes(): number
-    vfuncGetStream(mimeType: string): GLib.IOChannel
-    vfuncGetUri(mimeType: string): string | null
     static name: string
 }
 export class Table {
@@ -604,43 +535,6 @@ export class Table {
     setRowDescription(row: number, description: string): void
     setRowHeader(row: number, header: Object): void
     setSummary(accessible: Object): void
-    /* Virtual methods of Atk-1.0.Atk.Table */
-    vfuncAddColumnSelection(column: number): boolean
-    vfuncAddRowSelection(row: number): boolean
-    vfuncColumnDeleted(column: number, numDeleted: number): void
-    vfuncColumnInserted(column: number, numInserted: number): void
-    vfuncColumnReordered(): void
-    vfuncGetCaption(): Object | null
-    vfuncGetColumnAtIndex(index: number): number
-    vfuncGetColumnDescription(column: number): string
-    vfuncGetColumnExtentAt(row: number, column: number): number
-    vfuncGetColumnHeader(column: number): Object | null
-    vfuncGetIndexAt(row: number, column: number): number
-    vfuncGetNColumns(): number
-    vfuncGetNRows(): number
-    vfuncGetRowAtIndex(index: number): number
-    vfuncGetRowDescription(row: number): string | null
-    vfuncGetRowExtentAt(row: number, column: number): number
-    vfuncGetRowHeader(row: number): Object | null
-    vfuncGetSelectedColumns(selected: number): number
-    vfuncGetSelectedRows(selected: number): number
-    vfuncGetSummary(): Object
-    vfuncIsColumnSelected(column: number): boolean
-    vfuncIsRowSelected(row: number): boolean
-    vfuncIsSelected(row: number, column: number): boolean
-    vfuncModelChanged(): void
-    vfuncRefAt(row: number, column: number): Object
-    vfuncRemoveColumnSelection(column: number): boolean
-    vfuncRemoveRowSelection(row: number): boolean
-    vfuncRowDeleted(row: number, numDeleted: number): void
-    vfuncRowInserted(row: number, numInserted: number): void
-    vfuncRowReordered(): void
-    vfuncSetCaption(caption: Object): void
-    vfuncSetColumnDescription(column: number, description: string): void
-    vfuncSetColumnHeader(column: number, header: Object): void
-    vfuncSetRowDescription(row: number, description: string): void
-    vfuncSetRowHeader(row: number, header: Object): void
-    vfuncSetSummary(accessible: Object): void
     /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: Table, arg1: number, arg2: number) => void)): number
     on(sigName: "column-deleted", callback: (arg1: number, arg2: number) => void, after?: boolean): NodeJS.EventEmitter
@@ -763,47 +657,6 @@ export class TableCell {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.TableCell */
-    vfuncGetColumnHeaderCells(): Object[]
-    vfuncGetColumnSpan(): number
-    vfuncGetPosition(): { returnType: boolean, row: number, column: number }
-    vfuncGetRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
-    vfuncGetRowHeaderCells(): Object[]
-    vfuncGetRowSpan(): number
-    vfuncGetTable(): Object
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: TableCell, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -952,33 +805,6 @@ export class Text {
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     setCaretOffset(offset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Text */
-    vfuncAddSelection(startOffset: number, endOffset: number): boolean
-    vfuncGetBoundedRanges(rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType): TextRange[]
-    vfuncGetCaretOffset(): number
-    vfuncGetCharacterAtOffset(offset: number): number
-    vfuncGetCharacterCount(): number
-    vfuncGetCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetDefaultAttributes(): AttributeSet
-    vfuncGetNSelections(): number
-    vfuncGetOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
-    vfuncGetRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
-    vfuncGetSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
-    vfuncGetText(startOffset: number, endOffset: number): string
-    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncRemoveSelection(selectionNum: number): boolean
-    vfuncScrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
-    vfuncScrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
-    vfuncSetCaretOffset(offset: number): boolean
-    vfuncSetSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    vfuncTextAttributesChanged(): void
-    vfuncTextCaretMoved(location: number): void
-    vfuncTextChanged(position: number, length: number): void
-    vfuncTextSelectionChanged(): void
     /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     on(sigName: "text-attributes-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -1026,17 +852,6 @@ export class Value {
     getValueAndText(): { value: number, text: string | null }
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
-    /* Virtual methods of Atk-1.0.Atk.Value */
-    vfuncGetCurrentValue(): { value: any }
-    vfuncGetIncrement(): number
-    vfuncGetMaximumValue(): { value: any }
-    vfuncGetMinimumIncrement(): { value: any }
-    vfuncGetMinimumValue(): { value: any }
-    vfuncGetRange(): Range | null
-    vfuncGetSubRanges(): Range[]
-    vfuncGetValueAndText(): { value: number, text: string | null }
-    vfuncSetCurrentValue(value: any): boolean
-    vfuncSetValue(newValue: number): void
     /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: Value, value: number, text: string) => void)): number
     on(sigName: "value-changed", callback: (value: number, text: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -1121,39 +936,6 @@ export class Window {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: Window) => void)): number
     on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -1403,39 +1185,6 @@ export class GObjectAccessible {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: GObjectAccessible, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1613,31 +1362,6 @@ export class Hyperlink {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Virtual methods of Atk-1.0.Atk.Hyperlink */
-    vfuncGetEndIndex(): number
-    vfuncGetNAnchors(): number
-    vfuncGetObject(i: number): Object
-    vfuncGetStartIndex(): number
-    vfuncGetUri(i: number): string
-    vfuncIsSelectedLink(): boolean
-    vfuncIsValid(): boolean
-    vfuncLinkActivated(): void
-    vfuncLinkState(): number
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Hyperlink */
     connect(sigName: "link-activated", callback: (($obj: Hyperlink) => void)): number
     on(sigName: "link-activated", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -1714,17 +1438,6 @@ export class Misc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.Misc */
-    vfuncThreadsEnter(): void
-    vfuncThreadsLeave(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Misc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1950,176 +1663,6 @@ export class NoOpObject {
     getValueAndText(): { value: number, text: string | null }
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
-    /* Virtual methods of Atk-1.0.Atk.NoOpObject */
-    vfuncDoAction(i: number): boolean
-    vfuncGetDescription(i: number): string | null
-    vfunc_get_description(): string | null
-    vfuncGetKeybinding(i: number): string | null
-    vfuncGetLocalizedName(i: number): string | null
-    vfuncGetNActions(): number
-    vfuncGetName(i: number): string | null
-    vfunc_get_name(): string | null
-    vfuncSetDescription(i: number, desc: string): boolean
-    vfunc_set_description(description: string): boolean | null
-    vfuncBoundsChanged(bounds: Rectangle): void
-    vfuncContains(x: number, y: number, coordType: CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetPosition(): { returnType: boolean, row: number, column: number }
-    vfuncGetSize(): { width: number | null, height: number | null }
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: ScrollType): boolean
-    vfuncScrollToPoint(coords: CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    vfuncGetCurrentPageNumber(): number
-    vfuncGetDocument(): object | null
-    vfuncGetDocumentAttributeValue(attributeName: string): string | null
-    vfuncGetDocumentAttributes(): AttributeSet
-    vfuncGetDocumentLocale(): string
-    vfuncGetDocumentType(): string
-    vfuncGetPageCount(): number
-    vfuncSetDocumentAttribute(attributeName: string, attributeValue: string): boolean
-    vfuncCopyText(startPos: number, endPos: number): void
-    vfuncCutText(startPos: number, endPos: number): void
-    vfuncDeleteText(startPos: number, endPos: number): void
-    vfuncInsertText(string: string, length: number, position: number): void
-    vfuncPasteText(position: number): void
-    vfuncSetRunAttributes(attribSet: AttributeSet, startOffset: number, endOffset: number): boolean
-    vfuncSetTextContents(string: string): void
-    vfuncGetLink(linkIndex: number): Hyperlink
-    vfuncGetLinkIndex(charIndex: number): number
-    vfuncGetNLinks(): number
-    vfuncLinkSelected(linkIndex: number): void
-    vfuncGetImageDescription(): string
-    vfuncGetImageLocale(): string | null
-    vfuncGetImagePosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetImageSize(): { width: number | null, height: number | null }
-    vfuncSetImageDescription(description: string): boolean
-    vfuncAddSelection(i: number): boolean
-    vfuncAddSelection(startOffset: number, endOffset: number): boolean
-    vfuncClearSelection(): boolean
-    vfuncGetSelectionCount(): number
-    vfuncIsChildSelected(i: number): boolean
-    vfuncRefSelection(i: number): Object | null
-    vfuncRemoveSelection(i: number): boolean
-    vfuncSelectAllSelection(): boolean
-    vfuncSelectionChanged(): void
-    vfuncAddColumnSelection(column: number): boolean
-    vfuncAddRowSelection(row: number): boolean
-    vfuncColumnDeleted(column: number, numDeleted: number): void
-    vfuncColumnInserted(column: number, numInserted: number): void
-    vfuncColumnReordered(): void
-    vfuncGetCaption(): Object | null
-    vfuncGetColumnAtIndex(index: number): number
-    vfuncGetColumnDescription(column: number): string
-    vfuncGetColumnExtentAt(row: number, column: number): number
-    vfuncGetColumnHeader(column: number): Object | null
-    vfuncGetIndexAt(row: number, column: number): number
-    vfuncGetNColumns(): number
-    vfuncGetNRows(): number
-    vfuncGetRowAtIndex(index: number): number
-    vfuncGetRowDescription(row: number): string | null
-    vfuncGetRowExtentAt(row: number, column: number): number
-    vfuncGetRowHeader(row: number): Object | null
-    vfuncGetSelectedColumns(selected: number): number
-    vfuncGetSelectedRows(selected: number): number
-    vfuncGetSummary(): Object
-    vfuncIsColumnSelected(column: number): boolean
-    vfuncIsRowSelected(row: number): boolean
-    vfuncIsSelected(row: number, column: number): boolean
-    vfuncModelChanged(): void
-    vfuncRefAt(row: number, column: number): Object
-    vfuncRemoveColumnSelection(column: number): boolean
-    vfuncRemoveRowSelection(row: number): boolean
-    vfuncRowDeleted(row: number, numDeleted: number): void
-    vfuncRowInserted(row: number, numInserted: number): void
-    vfuncRowReordered(): void
-    vfuncSetCaption(caption: Object): void
-    vfuncSetColumnDescription(column: number, description: string): void
-    vfuncSetColumnHeader(column: number, header: Object): void
-    vfuncSetRowDescription(row: number, description: string): void
-    vfuncSetRowHeader(row: number, header: Object): void
-    vfuncSetSummary(accessible: Object): void
-    vfuncGetColumnHeaderCells(): Object[]
-    vfuncGetColumnSpan(): number
-    vfuncGetRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
-    vfuncGetRowHeaderCells(): Object[]
-    vfuncGetRowSpan(): number
-    vfuncGetTable(): Object
-    vfuncGetBoundedRanges(rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType): TextRange[]
-    vfuncGetCaretOffset(): number
-    vfuncGetCharacterAtOffset(offset: number): number
-    vfuncGetCharacterCount(): number
-    vfuncGetCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetDefaultAttributes(): AttributeSet
-    vfuncGetNSelections(): number
-    vfuncGetOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
-    vfuncGetRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
-    vfuncGetSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
-    vfuncGetText(startOffset: number, endOffset: number): string
-    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
-    vfuncScrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
-    vfuncScrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
-    vfuncSetCaretOffset(offset: number): boolean
-    vfuncSetSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    vfuncTextAttributesChanged(): void
-    vfuncTextCaretMoved(location: number): void
-    vfuncTextChanged(position: number, length: number): void
-    vfuncTextSelectionChanged(): void
-    vfuncGetCurrentValue(): { value: any }
-    vfuncGetIncrement(): number
-    vfuncGetMaximumValue(): { value: any }
-    vfuncGetMinimumIncrement(): { value: any }
-    vfuncGetMinimumValue(): { value: any }
-    vfuncGetRange(): Range | null
-    vfuncGetSubRanges(): Range[]
-    vfuncGetValueAndText(): { value: number, text: string | null }
-    vfuncSetCurrentValue(value: any): boolean
-    vfuncSetValue(newValue: number): void
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: NoOpObject, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2438,16 +1981,6 @@ export class NoOpObjectFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
-    vfuncInvalidate(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -2556,39 +2089,6 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Object, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2746,16 +2246,6 @@ export class ObjectFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
-    vfuncInvalidate(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -2868,57 +2358,6 @@ export class Plug {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Plug */
-    vfuncGetObjectId(): string
-    vfuncBoundsChanged(bounds: Rectangle): void
-    vfuncContains(x: number, y: number, coordType: CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetSize(): { width: number | null, height: number | null }
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: ScrollType): boolean
-    vfuncScrollToPoint(coords: CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Plug, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3086,14 +2525,6 @@ export class Registry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3152,14 +2583,6 @@ export class Relation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3229,14 +2652,6 @@ export class RelationSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3351,57 +2766,6 @@ export class Socket {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Socket */
-    vfuncEmbed(plugId: string): void
-    vfuncBoundsChanged(bounds: Rectangle): void
-    vfuncContains(x: number, y: number, coordType: CoordType): boolean
-    vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
-    vfuncGetSize(): { width: number | null, height: number | null }
-    vfuncGrabFocus(): boolean
-    vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
-    vfuncRemoveFocusHandler(handlerId: number): void
-    vfuncScrollTo(type: ScrollType): boolean
-    vfuncScrollToPoint(coords: CoordType, x: number, y: number): boolean
-    vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
-    vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
-    vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk-1.0.Atk.Object */
-    vfuncActiveDescendantChanged(child?: object | null): void
-    vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
-    vfuncFocusEvent(focusIn: boolean): void
-    vfuncGetAttributes(): AttributeSet
-    vfunc_get_description(): string | null
-    vfuncGetIndexInParent(): number
-    vfuncGetLayer(): Layer
-    vfuncGetMdiZorder(): number
-    vfuncGetNChildren(): number
-    vfunc_get_name(): string | null
-    vfuncGetObjectLocale(): string
-    vfuncGetParent(): Object
-    vfuncGetRole(): Role
-    vfuncInitialize(data?: object | null): void
-    vfuncPropertyChange(values: PropertyValues): void
-    vfuncRefRelationSet(): RelationSet
-    vfuncRefStateSet(): StateSet
-    vfuncRemovePropertyChangeHandler(handlerId: number): void
-    vfunc_set_description(description: string): boolean | null
-    vfuncSetName(name: string): void
-    vfuncSetParent(parent: Object): void
-    vfuncSetRole(role: Role): void
-    vfuncStateChange(name: string, stateSet: boolean): void
-    vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Socket, arg1: Object) => void)): number
     on(sigName: "active-descendant-changed", callback: (arg1: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3574,14 +2938,6 @@ export class StateSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3631,14 +2987,6 @@ export class Util {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

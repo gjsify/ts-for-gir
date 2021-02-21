@@ -130,21 +130,6 @@ export class Pixbuf {
     load(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
     loadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     loadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.Pixbuf */
-    vfuncEqual(icon2?: Gio.Icon | null): boolean
-    vfuncHash(): number
-    vfuncSerialize(): GLib.Variant
-    vfuncLoad(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
-    vfuncLoadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pixbuf, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -222,14 +207,6 @@ export class PixbufAnimation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -286,14 +263,6 @@ export class PixbufAnimationIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -349,19 +318,6 @@ export class PixbufLoader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufLoader */
-    vfuncAreaPrepared(): void
-    vfuncAreaUpdated(x: number, y: number, width: number, height: number): void
-    vfuncClosed(): void
-    vfuncSizePrepared(width: number, height: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GdkPixbuf-2.0.GdkPixbuf.PixbufLoader */
     connect(sigName: "area-prepared", callback: (($obj: PixbufLoader) => void)): number
     on(sigName: "area-prepared", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -445,14 +401,6 @@ export class PixbufSimpleAnim {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -510,14 +458,6 @@ export class PixbufSimpleAnimIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

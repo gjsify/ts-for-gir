@@ -393,14 +393,6 @@ export class Binding {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
-    vfuncNotify(pspec: ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Binding, pspec: ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -446,14 +438,6 @@ export class InitiallyUnowned {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
-    vfuncNotify(pspec: ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -499,14 +483,6 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
-    vfuncNotify(pspec: ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -554,11 +530,6 @@ export class ParamSpec {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
     /* Static methods and pseudo-constructors */
     static isValidName(name: string): boolean
@@ -584,11 +555,6 @@ export class ParamSpecBoolean {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecBoxed {
@@ -611,11 +577,6 @@ export class ParamSpecBoxed {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecChar {
@@ -641,11 +602,6 @@ export class ParamSpecChar {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecDouble {
@@ -672,11 +628,6 @@ export class ParamSpecDouble {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecEnum {
@@ -701,11 +652,6 @@ export class ParamSpecEnum {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecFlags {
@@ -730,11 +676,6 @@ export class ParamSpecFlags {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecFloat {
@@ -761,11 +702,6 @@ export class ParamSpecFloat {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecGType {
@@ -789,11 +725,6 @@ export class ParamSpecGType {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecInt {
@@ -819,11 +750,6 @@ export class ParamSpecInt {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecInt64 {
@@ -849,11 +775,6 @@ export class ParamSpecInt64 {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecLong {
@@ -879,11 +800,6 @@ export class ParamSpecLong {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecObject {
@@ -906,11 +822,6 @@ export class ParamSpecObject {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecOverride {
@@ -931,11 +842,6 @@ export class ParamSpecOverride {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecParam {
@@ -958,11 +864,6 @@ export class ParamSpecParam {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecPointer {
@@ -985,11 +886,6 @@ export class ParamSpecPointer {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecString {
@@ -1018,11 +914,6 @@ export class ParamSpecString {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUChar {
@@ -1048,11 +939,6 @@ export class ParamSpecUChar {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUInt {
@@ -1078,11 +964,6 @@ export class ParamSpecUInt {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUInt64 {
@@ -1108,11 +989,6 @@ export class ParamSpecUInt64 {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecULong {
@@ -1138,11 +1014,6 @@ export class ParamSpecULong {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUnichar {
@@ -1166,11 +1037,6 @@ export class ParamSpecUnichar {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecValueArray {
@@ -1195,11 +1061,6 @@ export class ParamSpecValueArray {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecVariant {
@@ -1224,11 +1085,6 @@ export class ParamSpecVariant {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: Value): void
-    vfuncValueValidate(value: Value): boolean
-    vfuncValuesCmp(value1: Value, value2: Value): number
     static name: string
 }
 export interface TypeModule_ConstructProps extends Object_ConstructProps {
@@ -1276,17 +1132,6 @@ export class TypeModule {
     completeInterfaceInfo(instanceType: Type, interfaceType: Type, info: InterfaceInfo): void
     completeTypeInfo(gType: Type, info: TypeInfo, valueTable: TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject-2.0.GObject.TypeModule */
-    vfuncLoad(): boolean
-    vfuncUnload(): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
-    vfuncNotify(pspec: ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TypeModule, pspec: ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

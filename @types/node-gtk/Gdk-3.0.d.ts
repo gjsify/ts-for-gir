@@ -3030,14 +3030,6 @@ export class DevicePad {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: DevicePad) => void)): number
     on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -3141,19 +3133,6 @@ export class AppLaunchContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio-2.0.Gio.AppLaunchContext */
-    vfuncGetDisplay(info: Gio.AppInfo, files: Gio.File[]): string
-    vfuncGetStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string
-    vfuncLaunchFailed(startupNotifyId: string): void
-    vfuncLaunched(info: Gio.AppInfo, platformData: GLib.Variant): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio-2.0.Gio.AppLaunchContext */
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startupNotifyId: string) => void)): number
     on(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -3220,14 +3199,6 @@ export class Cursor {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3326,14 +3297,6 @@ export class Device {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: Device) => void)): number
     on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -3427,14 +3390,6 @@ export class DeviceManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DeviceManager */
     connect(sigName: "device-added", callback: (($obj: DeviceManager, device: Device) => void)): number
     on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
@@ -3504,14 +3459,6 @@ export class DeviceTool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceTool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3603,14 +3550,6 @@ export class Display {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Display */
     connect(sigName: "closed", callback: (($obj: Display, isError: boolean) => void)): number
     on(sigName: "closed", callback: (isError: boolean) => void, after?: boolean): NodeJS.EventEmitter
@@ -3699,14 +3638,6 @@ export class DisplayManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DisplayManager */
     connect(sigName: "display-opened", callback: (($obj: DisplayManager, display: Display) => void)): number
     on(sigName: "display-opened", callback: (display: Display) => void, after?: boolean): NodeJS.EventEmitter
@@ -3778,14 +3709,6 @@ export class DragContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DragContext */
     connect(sigName: "action-changed", callback: (($obj: DragContext, action: DragAction) => void)): number
     on(sigName: "action-changed", callback: (action: DragAction) => void, after?: boolean): NodeJS.EventEmitter
@@ -3859,14 +3782,6 @@ export class DrawingContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DrawingContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3922,14 +3837,6 @@ export class FrameClock {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.FrameClock */
     connect(sigName: "after-paint", callback: (($obj: FrameClock) => void)): number
     on(sigName: "after-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -4030,14 +3937,6 @@ export class GLContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -4100,14 +3999,6 @@ export class Keymap {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Keymap */
     connect(sigName: "direction-changed", callback: (($obj: Keymap) => void)): number
     on(sigName: "direction-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -4195,14 +4086,6 @@ export class Monitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Monitor */
     connect(sigName: "invalidate", callback: (($obj: Monitor) => void)): number
     on(sigName: "invalidate", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -4335,14 +4218,6 @@ export class Screen {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Screen */
     connect(sigName: "composited-changed", callback: (($obj: Screen) => void)): number
     on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -4431,14 +4306,6 @@ export class Seat {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Seat */
     connect(sigName: "device-added", callback: (($obj: Seat, device: Device) => void)): number
     on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
@@ -4515,14 +4382,6 @@ export class Visual {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Visual, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -4734,18 +4593,6 @@ export class Window {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gdk-3.0.Gdk.Window */
-    vfuncCreateSurface(width: number, height: number): cairo.Surface
-    vfuncFromEmbedder(embedderX: number, embedderY: number, offscreenX: number, offscreenY: number): void
-    vfuncToEmbedder(offscreenX: number, offscreenY: number, embedderX: number, embedderY: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Window */
     connect(sigName: "create-surface", callback: (($obj: Window, width: number, height: number) => cairo.Surface)): number
     on(sigName: "create-surface", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter

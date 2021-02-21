@@ -23,7 +23,7 @@ export interface ModuleUnload {
     (module: Module): void
 }
 export class Module {
-    /* Methods of GModule.Module */
+    /* Methods of GModule-2.0.GModule.Module */
     close(): boolean
     makeResident(): void
     name(): string

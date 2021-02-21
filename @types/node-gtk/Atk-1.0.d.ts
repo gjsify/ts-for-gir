@@ -370,7 +370,7 @@ export interface PropertyChangeHandler {
     (obj: Object, vals: PropertyValues): void
 }
 export class Action {
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -378,7 +378,7 @@ export class Action {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Virtual methods of Atk.Action */
+    /* Virtual methods of Atk-1.0.Atk.Action */
     vfuncDoAction(i: number): boolean
     vfuncGetDescription(i: number): string | null
     vfuncGetKeybinding(i: number): string | null
@@ -389,7 +389,7 @@ export class Action {
     static name: string
 }
 export class Component {
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
     getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -405,7 +405,7 @@ export class Component {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Component */
+    /* Virtual methods of Atk-1.0.Atk.Component */
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
     vfuncGetAlpha(): number
@@ -422,7 +422,7 @@ export class Component {
     vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
     vfuncSetSize(width: number, height: number): boolean
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Component, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Component, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
@@ -432,7 +432,7 @@ export class Component {
     static name: string
 }
 export class Document {
-    /* Methods of Atk.Document */
+    /* Methods of Atk-1.0.Atk.Document */
     getAttributeValue(attributeName: string): string | null
     getAttributes(): AttributeSet
     getCurrentPageNumber(): number
@@ -441,7 +441,7 @@ export class Document {
     getLocale(): string
     getPageCount(): number
     setAttributeValue(attributeName: string, attributeValue: string): boolean
-    /* Virtual methods of Atk.Document */
+    /* Virtual methods of Atk-1.0.Atk.Document */
     vfuncGetCurrentPageNumber(): number
     vfuncGetDocument(): object | null
     vfuncGetDocumentAttributeValue(attributeName: string): string | null
@@ -450,7 +450,7 @@ export class Document {
     vfuncGetDocumentType(): string
     vfuncGetPageCount(): number
     vfuncSetDocumentAttribute(attributeName: string, attributeValue: string): boolean
-    /* Signals of Atk.Document */
+    /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: Document) => void)): number
     connect_after(sigName: "load-complete", callback: (($obj: Document) => void)): number
     emit(sigName: "load-complete"): void
@@ -478,7 +478,7 @@ export class Document {
     static name: string
 }
 export class EditableText {
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copyText(startPos: number, endPos: number): void
     cutText(startPos: number, endPos: number): void
     deleteText(startPos: number, endPos: number): void
@@ -486,7 +486,7 @@ export class EditableText {
     pasteText(position: number): void
     setRunAttributes(attribSet: AttributeSet, startOffset: number, endOffset: number): boolean
     setTextContents(string: string): void
-    /* Virtual methods of Atk.EditableText */
+    /* Virtual methods of Atk-1.0.Atk.EditableText */
     vfuncCopyText(startPos: number, endPos: number): void
     vfuncCutText(startPos: number, endPos: number): void
     vfuncDeleteText(startPos: number, endPos: number): void
@@ -497,23 +497,23 @@ export class EditableText {
     static name: string
 }
 export class HyperlinkImpl {
-    /* Methods of Atk.HyperlinkImpl */
+    /* Methods of Atk-1.0.Atk.HyperlinkImpl */
     getHyperlink(): Hyperlink
-    /* Virtual methods of Atk.HyperlinkImpl */
+    /* Virtual methods of Atk-1.0.Atk.HyperlinkImpl */
     vfuncGetHyperlink(): Hyperlink
     static name: string
 }
 export class Hypertext {
-    /* Methods of Atk.Hypertext */
+    /* Methods of Atk-1.0.Atk.Hypertext */
     getLink(linkIndex: number): Hyperlink
     getLinkIndex(charIndex: number): number
     getNLinks(): number
-    /* Virtual methods of Atk.Hypertext */
+    /* Virtual methods of Atk-1.0.Atk.Hypertext */
     vfuncGetLink(linkIndex: number): Hyperlink
     vfuncGetLinkIndex(charIndex: number): number
     vfuncGetNLinks(): number
     vfuncLinkSelected(linkIndex: number): void
-    /* Signals of Atk.Hypertext */
+    /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: Hypertext, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: (($obj: Hypertext, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
@@ -523,13 +523,13 @@ export class Hypertext {
     static name: string
 }
 export class Image {
-    /* Methods of Atk.Image */
+    /* Methods of Atk-1.0.Atk.Image */
     getImageDescription(): string
     getImageLocale(): string | null
     getImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
     getImageSize(): [ /* width */ number | null, /* height */ number | null ]
     setImageDescription(description: string): boolean
-    /* Virtual methods of Atk.Image */
+    /* Virtual methods of Atk-1.0.Atk.Image */
     vfuncGetImageDescription(): string
     vfuncGetImageLocale(): string | null
     vfuncGetImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
@@ -541,7 +541,7 @@ export class ImplementorIface {
     static name: string
 }
 export class Selection {
-    /* Methods of Atk.Selection */
+    /* Methods of Atk-1.0.Atk.Selection */
     addSelection(i: number): boolean
     clearSelection(): boolean
     getSelectionCount(): number
@@ -549,7 +549,7 @@ export class Selection {
     refSelection(i: number): Object | null
     removeSelection(i: number): boolean
     selectAllSelection(): boolean
-    /* Virtual methods of Atk.Selection */
+    /* Virtual methods of Atk-1.0.Atk.Selection */
     vfuncAddSelection(i: number): boolean
     vfuncClearSelection(): boolean
     vfuncGetSelectionCount(): number
@@ -558,7 +558,7 @@ export class Selection {
     vfuncRemoveSelection(i: number): boolean
     vfuncSelectAllSelection(): boolean
     vfuncSelectionChanged(): void
-    /* Signals of Atk.Selection */
+    /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: Selection) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Selection) => void)): number
     emit(sigName: "selection-changed"): void
@@ -568,12 +568,12 @@ export class Selection {
     static name: string
 }
 export class StreamableContent {
-    /* Methods of Atk.StreamableContent */
+    /* Methods of Atk-1.0.Atk.StreamableContent */
     getMimeType(i: number): string
     getNMimeTypes(): number
     getStream(mimeType: string): GLib.IOChannel
     getUri(mimeType: string): string | null
-    /* Virtual methods of Atk.StreamableContent */
+    /* Virtual methods of Atk-1.0.Atk.StreamableContent */
     vfuncGetMimeType(i: number): string
     vfuncGetNMimeTypes(): number
     vfuncGetStream(mimeType: string): GLib.IOChannel
@@ -581,7 +581,7 @@ export class StreamableContent {
     static name: string
 }
 export class Table {
-    /* Methods of Atk.Table */
+    /* Methods of Atk-1.0.Atk.Table */
     addColumnSelection(column: number): boolean
     addRowSelection(row: number): boolean
     getCaption(): Object | null
@@ -611,7 +611,7 @@ export class Table {
     setRowDescription(row: number, description: string): void
     setRowHeader(row: number, header: Object): void
     setSummary(accessible: Object): void
-    /* Virtual methods of Atk.Table */
+    /* Virtual methods of Atk-1.0.Atk.Table */
     vfuncAddColumnSelection(column: number): boolean
     vfuncAddRowSelection(row: number): boolean
     vfuncColumnDeleted(column: number, numDeleted: number): void
@@ -648,7 +648,7 @@ export class Table {
     vfuncSetRowDescription(row: number, description: string): void
     vfuncSetRowHeader(row: number, header: Object): void
     vfuncSetSummary(accessible: Object): void
-    /* Signals of Atk.Table */
+    /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: (($obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
@@ -696,7 +696,7 @@ export class Table {
 export interface TableCell_ConstructProps extends Object_ConstructProps {
 }
 export class TableCell {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -712,16 +712,16 @@ export class TableCell {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.TableCell */
+    /* Methods of Atk-1.0.Atk.TableCell */
     getColumnHeaderCells(): Object[]
     getColumnSpan(): number
     getPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -729,7 +729,7 @@ export class TableCell {
     getRowHeaderCells(): Object[]
     getRowSpan(): number
     getTable(): Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -755,7 +755,7 @@ export class TableCell {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -777,7 +777,7 @@ export class TableCell {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.TableCell */
+    /* Virtual methods of Atk-1.0.Atk.TableCell */
     vfuncGetColumnHeaderCells(): Object[]
     vfuncGetColumnSpan(): number
     vfuncGetPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -785,7 +785,7 @@ export class TableCell {
     vfuncGetRowHeaderCells(): Object[]
     vfuncGetRowSpan(): number
     vfuncGetTable(): Object
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -810,7 +810,7 @@ export class TableCell {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -818,7 +818,7 @@ export class TableCell {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: TableCell, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: TableCell, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -855,7 +855,7 @@ export class TableCell {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableCell, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TableCell, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -950,7 +950,7 @@ export class TableCell {
     static $gtype: GObject.Type
 }
 export class Text {
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     addSelection(startOffset: number, endOffset: number): boolean
     getBoundedRanges(rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType): TextRange[]
     getCaretOffset(): number
@@ -973,7 +973,7 @@ export class Text {
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     setCaretOffset(offset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    /* Virtual methods of Atk.Text */
+    /* Virtual methods of Atk-1.0.Atk.Text */
     vfuncAddSelection(startOffset: number, endOffset: number): boolean
     vfuncGetBoundedRanges(rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType): TextRange[]
     vfuncGetCaretOffset(): number
@@ -1000,7 +1000,7 @@ export class Text {
     vfuncTextCaretMoved(location: number): void
     vfuncTextChanged(position: number, length: number): void
     vfuncTextSelectionChanged(): void
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -1042,7 +1042,7 @@ export class Text {
     static freeRanges(ranges: TextRange[]): void
 }
 export class Value {
-    /* Methods of Atk.Value */
+    /* Methods of Atk-1.0.Atk.Value */
     getCurrentValue(): /* value */ any
     getIncrement(): number
     getMaximumValue(): /* value */ any
@@ -1053,7 +1053,7 @@ export class Value {
     getValueAndText(): [ /* value */ number, /* text */ string | null ]
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
-    /* Virtual methods of Atk.Value */
+    /* Virtual methods of Atk-1.0.Atk.Value */
     vfuncGetCurrentValue(): /* value */ any
     vfuncGetIncrement(): number
     vfuncGetMaximumValue(): /* value */ any
@@ -1064,7 +1064,7 @@ export class Value {
     vfuncGetValueAndText(): [ /* value */ number, /* text */ string | null ]
     vfuncSetCurrentValue(value: any): boolean
     vfuncSetValue(newValue: number): void
-    /* Signals of Atk.Value */
+    /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: Value, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: Value, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
@@ -1076,7 +1076,7 @@ export class Value {
 export interface Window_ConstructProps extends Object_ConstructProps {
 }
 export class Window {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1092,16 +1092,16 @@ export class Window {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -1127,7 +1127,7 @@ export class Window {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1149,7 +1149,7 @@ export class Window {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -1174,7 +1174,7 @@ export class Window {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -1182,7 +1182,7 @@ export class Window {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: Window) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Window) => void)): number
     emit(sigName: "activate"): void
@@ -1237,7 +1237,7 @@ export class Window {
     on(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "restore", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Window, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Window, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -1274,7 +1274,7 @@ export class Window {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1371,7 +1371,7 @@ export class Window {
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
 }
 export class GObjectAccessible {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1387,19 +1387,19 @@ export class GObjectAccessible {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     getObject(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -1425,7 +1425,7 @@ export class GObjectAccessible {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1447,7 +1447,7 @@ export class GObjectAccessible {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -1472,7 +1472,7 @@ export class GObjectAccessible {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -1480,7 +1480,7 @@ export class GObjectAccessible {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: GObjectAccessible, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: GObjectAccessible, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -1517,7 +1517,7 @@ export class GObjectAccessible {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1616,16 +1616,16 @@ export class GObjectAccessible {
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Hyperlink {
-    /* Properties of Atk.Hyperlink */
+    /* Properties of Atk-1.0.Atk.Hyperlink */
     readonly endIndex: number
     readonly numberOfAnchors: number
     readonly selectedLink: boolean
     readonly startIndex: number
-    /* Fields of Atk.Hyperlink */
+    /* Fields of Atk-1.0.Atk.Hyperlink */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Hyperlink */
+    /* Methods of Atk-1.0.Atk.Hyperlink */
     getEndIndex(): number
     getNAnchors(): number
     getObject(i: number): Object
@@ -1634,7 +1634,7 @@ export class Hyperlink {
     isInline(): boolean
     isSelectedLink(): boolean
     isValid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1656,7 +1656,7 @@ export class Hyperlink {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -1664,7 +1664,7 @@ export class Hyperlink {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Virtual methods of Atk.Hyperlink */
+    /* Virtual methods of Atk-1.0.Atk.Hyperlink */
     vfuncGetEndIndex(): number
     vfuncGetNAnchors(): number
     vfuncGetObject(i: number): Object
@@ -1681,7 +1681,7 @@ export class Hyperlink {
     vfuncGetNActions(): number
     vfuncGetName(i: number): string | null
     vfuncSetDescription(i: number, desc: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -1689,14 +1689,14 @@ export class Hyperlink {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Hyperlink */
+    /* Signals of Atk-1.0.Atk.Hyperlink */
     connect(sigName: "link-activated", callback: (($obj: Hyperlink) => void)): number
     connect_after(sigName: "link-activated", callback: (($obj: Hyperlink) => void)): number
     emit(sigName: "link-activated"): void
     on(sigName: "link-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "link-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "link-activated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1738,14 +1738,14 @@ export class Hyperlink {
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Misc {
-    /* Fields of Atk.Misc */
+    /* Fields of Atk-1.0.Atk.Misc */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Misc */
+    /* Methods of Atk-1.0.Atk.Misc */
     threadsEnter(): void
     threadsLeave(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1767,10 +1767,10 @@ export class Misc {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Misc */
+    /* Virtual methods of Atk-1.0.Atk.Misc */
     vfuncThreadsEnter(): void
     vfuncThreadsLeave(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -1778,7 +1778,7 @@ export class Misc {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Misc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Misc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1802,7 +1802,7 @@ export class Misc {
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
 }
 export class NoOpObject {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -1818,17 +1818,17 @@ export class NoOpObject {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.NoOpObject */
+    /* Fields of Atk-1.0.Atk.NoOpObject */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -1854,7 +1854,7 @@ export class NoOpObject {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1876,7 +1876,7 @@ export class NoOpObject {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     doAction(i: number): boolean
     getDescription(i: number): string | null
     getKeybinding(i: number): string | null
@@ -1884,7 +1884,7 @@ export class NoOpObject {
     getNActions(): number
     getName(i: number): string | null
     setDescription(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
     getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -1898,7 +1898,7 @@ export class NoOpObject {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Methods of Atk.Document */
+    /* Methods of Atk-1.0.Atk.Document */
     getAttributeValue(attributeName: string): string | null
     getCurrentPageNumber(): number
     getDocument(): object | null
@@ -1906,7 +1906,7 @@ export class NoOpObject {
     getLocale(): string
     getPageCount(): number
     setAttributeValue(attributeName: string, attributeValue: string): boolean
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copyText(startPos: number, endPos: number): void
     cutText(startPos: number, endPos: number): void
     deleteText(startPos: number, endPos: number): void
@@ -1914,17 +1914,17 @@ export class NoOpObject {
     pasteText(position: number): void
     setRunAttributes(attribSet: AttributeSet, startOffset: number, endOffset: number): boolean
     setTextContents(string: string): void
-    /* Methods of Atk.Hypertext */
+    /* Methods of Atk-1.0.Atk.Hypertext */
     getLink(linkIndex: number): Hyperlink
     getLinkIndex(charIndex: number): number
     getNLinks(): number
-    /* Methods of Atk.Image */
+    /* Methods of Atk-1.0.Atk.Image */
     getImageDescription(): string
     getImageLocale(): string | null
     getImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
     getImageSize(): [ /* width */ number | null, /* height */ number | null ]
     setImageDescription(description: string): boolean
-    /* Methods of Atk.Selection */
+    /* Methods of Atk-1.0.Atk.Selection */
     addSelection(i: number): boolean
     clearSelection(): boolean
     getSelectionCount(): number
@@ -1932,7 +1932,7 @@ export class NoOpObject {
     refSelection(i: number): Object | null
     removeSelection(i: number): boolean
     selectAllSelection(): boolean
-    /* Methods of Atk.Table */
+    /* Methods of Atk-1.0.Atk.Table */
     addColumnSelection(column: number): boolean
     addRowSelection(row: number): boolean
     getCaption(): Object | null
@@ -1962,7 +1962,7 @@ export class NoOpObject {
     setRowDescription(row: number, description: string): void
     setRowHeader(row: number, header: Object): void
     setSummary(accessible: Object): void
-    /* Methods of Atk.TableCell */
+    /* Methods of Atk-1.0.Atk.TableCell */
     getColumnHeaderCells(): Object[]
     getColumnSpan(): number
     getPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -1970,7 +1970,7 @@ export class NoOpObject {
     getRowHeaderCells(): Object[]
     getRowSpan(): number
     getTable(): Object
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     addSelection(startOffset: number, endOffset: number): boolean
     getBoundedRanges(rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType): TextRange[]
     getCaretOffset(): number
@@ -1993,7 +1993,7 @@ export class NoOpObject {
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     setCaretOffset(offset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
-    /* Methods of Atk.Value */
+    /* Methods of Atk-1.0.Atk.Value */
     getCurrentValue(): /* value */ any
     getIncrement(): number
     getMaximumValue(): /* value */ any
@@ -2004,7 +2004,7 @@ export class NoOpObject {
     getValueAndText(): [ /* value */ number, /* text */ string | null ]
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
-    /* Virtual methods of Atk.NoOpObject */
+    /* Virtual methods of Atk-1.0.Atk.NoOpObject */
     vfuncDoAction(i: number): boolean
     vfuncGetDescription(i: number): string | null
     vfunc_get_description(): string | null
@@ -2141,7 +2141,7 @@ export class NoOpObject {
     vfuncGetValueAndText(): [ /* value */ number, /* text */ string | null ]
     vfuncSetCurrentValue(value: any): boolean
     vfuncSetValue(newValue: number): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -2166,7 +2166,7 @@ export class NoOpObject {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2174,7 +2174,7 @@ export class NoOpObject {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: NoOpObject, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: NoOpObject, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -2211,21 +2211,21 @@ export class NoOpObject {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: NoOpObject, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: NoOpObject, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
     on(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "bounds-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Document */
+    /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "load-complete", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "load-complete"): void
@@ -2250,21 +2250,21 @@ export class NoOpObject {
     on(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Hypertext */
+    /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: NoOpObject, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: (($obj: NoOpObject, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
     on(sigName: "link-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "link-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "link-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Selection */
+    /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "selection-changed"): void
     on(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Table */
+    /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: (($obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
@@ -2307,7 +2307,7 @@ export class NoOpObject {
     on(sigName: "row-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "row-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "row-reordered", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -2344,14 +2344,14 @@ export class NoOpObject {
     on(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "text-selection-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Value */
+    /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: NoOpObject, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: NoOpObject, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
     on(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "activate", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "activate"): void
@@ -2499,15 +2499,15 @@ export class NoOpObject {
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
 }
 export class NoOpObjectFactory {
-    /* Fields of Atk.NoOpObjectFactory */
+    /* Fields of Atk-1.0.Atk.NoOpObjectFactory */
     parent: ObjectFactory
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     createAccessible(obj: GObject.Object): Object
     getAccessibleType(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2529,9 +2529,9 @@ export class NoOpObjectFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
+    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
     vfuncInvalidate(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2539,7 +2539,7 @@ export class NoOpObjectFactory {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2575,7 +2575,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessibleValue?: number
 }
 export class Object {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -2591,16 +2591,16 @@ export class Object {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -2626,7 +2626,7 @@ export class Object {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2648,7 +2648,7 @@ export class Object {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -2673,7 +2673,7 @@ export class Object {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2681,7 +2681,7 @@ export class Object {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Object, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Object, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -2718,7 +2718,7 @@ export class Object {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2815,15 +2815,15 @@ export class Object {
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ObjectFactory {
-    /* Fields of Atk.ObjectFactory */
+    /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     createAccessible(obj: GObject.Object): Object
     getAccessibleType(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2845,9 +2845,9 @@ export class ObjectFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
+    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
     vfuncInvalidate(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2855,7 +2855,7 @@ export class ObjectFactory {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2877,7 +2877,7 @@ export class ObjectFactory {
 export interface Plug_ConstructProps extends Object_ConstructProps {
 }
 export class Plug {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -2893,20 +2893,20 @@ export class Plug {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.Plug */
+    /* Fields of Atk-1.0.Atk.Plug */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Plug */
+    /* Methods of Atk-1.0.Atk.Plug */
     getId(): string
     setChild(child: Object): void
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -2932,7 +2932,7 @@ export class Plug {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2954,7 +2954,7 @@ export class Plug {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
     getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -2968,7 +2968,7 @@ export class Plug {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Plug */
+    /* Virtual methods of Atk-1.0.Atk.Plug */
     vfuncGetObjectId(): string
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
@@ -2986,7 +2986,7 @@ export class Plug {
     vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
     vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -3011,7 +3011,7 @@ export class Plug {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3019,7 +3019,7 @@ export class Plug {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Plug, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Plug, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -3056,14 +3056,14 @@ export class Plug {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plug, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Plug, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Plug, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
@@ -3162,17 +3162,17 @@ export class Plug {
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Registry {
-    /* Fields of Atk.Registry */
+    /* Fields of Atk-1.0.Atk.Registry */
     parent: GObject.Object
     factoryTypeRegistry: GLib.HashTable
     factorySingletonCache: GLib.HashTable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Registry */
+    /* Methods of Atk-1.0.Atk.Registry */
     getFactory(type: GObject.Type): ObjectFactory
     getFactoryType(type: GObject.Type): GObject.Type
     setFactoryType(type: GObject.Type, factoryType: GObject.Type): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3194,7 +3194,7 @@ export class Registry {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3202,7 +3202,7 @@ export class Registry {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3226,20 +3226,20 @@ export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     target?: GObject.ValueArray
 }
 export class Relation {
-    /* Properties of Atk.Relation */
+    /* Properties of Atk-1.0.Atk.Relation */
     relationType: RelationType
     target: GObject.ValueArray
-    /* Fields of Atk.Relation */
+    /* Fields of Atk-1.0.Atk.Relation */
     parent: GObject.Object
     relationship: RelationType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Relation */
+    /* Methods of Atk-1.0.Atk.Relation */
     addTarget(target: Object): void
     getRelationType(): RelationType
     getTarget(): Object[]
     removeTarget(target: Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3261,7 +3261,7 @@ export class Relation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3269,7 +3269,7 @@ export class Relation {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3303,12 +3303,12 @@ export class Relation {
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RelationSet {
-    /* Fields of Atk.RelationSet */
+    /* Fields of Atk-1.0.Atk.RelationSet */
     parent: GObject.Object
     relations: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.RelationSet */
+    /* Methods of Atk-1.0.Atk.RelationSet */
     add(relation: Relation): void
     addRelationByType(relationship: RelationType, target: Object): void
     contains(relationship: RelationType): boolean
@@ -3317,7 +3317,7 @@ export class RelationSet {
     getRelation(i: number): Relation
     getRelationByType(relationship: RelationType): Relation
     remove(relation: Relation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3339,7 +3339,7 @@ export class RelationSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3347,7 +3347,7 @@ export class RelationSet {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3371,7 +3371,7 @@ export class RelationSet {
 export interface Socket_ConstructProps extends Object_ConstructProps {
 }
 export class Socket {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
     accessibleDescription: string
@@ -3387,20 +3387,20 @@ export class Socket {
     accessibleTableRowHeader: Object
     accessibleTableSummary: Object
     accessibleValue: number
-    /* Fields of Atk.Socket */
+    /* Fields of Atk-1.0.Atk.Socket */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relationSet: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.Socket */
+    /* Methods of Atk-1.0.Atk.Socket */
     embed(plugId: string): void
     isOccupied(): boolean
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
@@ -3426,7 +3426,7 @@ export class Socket {
     setName(name: string): void
     setParent(parent: Object): void
     setRole(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3448,7 +3448,7 @@ export class Socket {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
     getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -3462,7 +3462,7 @@ export class Socket {
     setExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     setPosition(x: number, y: number, coordType: CoordType): boolean
     setSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Socket */
+    /* Virtual methods of Atk-1.0.Atk.Socket */
     vfuncEmbed(plugId: string): void
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
@@ -3480,7 +3480,7 @@ export class Socket {
     vfuncSetExtents(x: number, y: number, width: number, height: number, coordType: CoordType): boolean
     vfuncSetPosition(x: number, y: number, coordType: CoordType): boolean
     vfuncSetSize(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfuncActiveDescendantChanged(child?: object | null): void
     vfuncChildrenChanged(changeIndex: number, changedChild?: object | null): void
     vfuncFocusEvent(focusIn: boolean): void
@@ -3505,7 +3505,7 @@ export class Socket {
     vfuncSetRole(role: Role): void
     vfuncStateChange(name: string, stateSet: boolean): void
     vfuncVisibleDataChanged(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3513,7 +3513,7 @@ export class Socket {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Socket, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Socket, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -3550,14 +3550,14 @@ export class Socket {
     on(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "visible-data-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Socket, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Socket, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
@@ -3656,11 +3656,11 @@ export class Socket {
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StateSet {
-    /* Fields of Atk.StateSet */
+    /* Fields of Atk-1.0.Atk.StateSet */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.StateSet */
+    /* Methods of Atk-1.0.Atk.StateSet */
     addState(type: StateType): boolean
     addStates(types: StateType[]): void
     andSets(compareSet: StateSet): StateSet
@@ -3671,7 +3671,7 @@ export class StateSet {
     orSets(compareSet: StateSet): StateSet | null
     removeState(type: StateType): boolean
     xorSets(compareSet: StateSet): StateSet
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3693,7 +3693,7 @@ export class StateSet {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3701,7 +3701,7 @@ export class StateSet {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3725,11 +3725,11 @@ export class StateSet {
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Util {
-    /* Fields of Atk.Util */
+    /* Fields of Atk-1.0.Atk.Util */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3751,7 +3751,7 @@ export class Util {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3759,7 +3759,7 @@ export class Util {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3779,7 +3779,7 @@ export class Util {
     static $gtype: GObject.Type
 }
 export abstract class ActionIface {
-    /* Fields of Atk.ActionIface */
+    /* Fields of Atk-1.0.Atk.ActionIface */
     doAction: (action: Action, i: number) => boolean
     getNActions: (action: Action) => number
     getDescription: (action: Action, i: number) => string | null
@@ -3790,7 +3790,7 @@ export abstract class ActionIface {
     static name: string
 }
 export class Attribute {
-    /* Fields of Atk.Attribute */
+    /* Fields of Atk-1.0.Atk.Attribute */
     name: string
     value: string
     static name: string
@@ -3798,7 +3798,7 @@ export class Attribute {
     static setFree(attribSet: AttributeSet): void
 }
 export abstract class ComponentIface {
-    /* Fields of Atk.ComponentIface */
+    /* Fields of Atk-1.0.Atk.ComponentIface */
     contains: (component: Component, x: number, y: number, coordType: CoordType) => boolean
     refAccessibleAtPoint: (component: Component, x: number, y: number, coordType: CoordType) => Object | null
     getExtents: (component: Component, coordType: CoordType) => [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -3818,7 +3818,7 @@ export abstract class ComponentIface {
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of Atk.DocumentIface */
+    /* Fields of Atk-1.0.Atk.DocumentIface */
     parent: GObject.TypeInterface
     getDocumentType: (document: Document) => string
     getDocument: (document: Document) => object | null
@@ -3831,7 +3831,7 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class EditableTextIface {
-    /* Fields of Atk.EditableTextIface */
+    /* Fields of Atk-1.0.Atk.EditableTextIface */
     parentInterface: GObject.TypeInterface
     setRunAttributes: (text: EditableText, attribSet: AttributeSet, startOffset: number, endOffset: number) => boolean
     setTextContents: (text: EditableText, string: string) => void
@@ -3843,14 +3843,14 @@ export abstract class EditableTextIface {
     static name: string
 }
 export abstract class GObjectAccessibleClass {
-    /* Fields of Atk.GObjectAccessibleClass */
+    /* Fields of Atk-1.0.Atk.GObjectAccessibleClass */
     parentClass: ObjectClass
     pad1: Function
     pad2: Function
     static name: string
 }
 export abstract class HyperlinkClass {
-    /* Fields of Atk.HyperlinkClass */
+    /* Fields of Atk-1.0.Atk.HyperlinkClass */
     parent: GObject.ObjectClass
     getUri: (link: Hyperlink, i: number) => string
     getObject: (link: Hyperlink, i: number) => Object
@@ -3865,13 +3865,13 @@ export abstract class HyperlinkClass {
     static name: string
 }
 export abstract class HyperlinkImplIface {
-    /* Fields of Atk.HyperlinkImplIface */
+    /* Fields of Atk-1.0.Atk.HyperlinkImplIface */
     parent: GObject.TypeInterface
     getHyperlink: (impl: HyperlinkImpl) => Hyperlink
     static name: string
 }
 export abstract class HypertextIface {
-    /* Fields of Atk.HypertextIface */
+    /* Fields of Atk-1.0.Atk.HypertextIface */
     parent: GObject.TypeInterface
     getLink: (hypertext: Hypertext, linkIndex: number) => Hyperlink
     getNLinks: (hypertext: Hypertext) => number
@@ -3880,7 +3880,7 @@ export abstract class HypertextIface {
     static name: string
 }
 export abstract class ImageIface {
-    /* Fields of Atk.ImageIface */
+    /* Fields of Atk-1.0.Atk.ImageIface */
     parent: GObject.TypeInterface
     getImagePosition: (image: Image, coordType: CoordType) => [ /* x */ number | null, /* y */ number | null ]
     getImageDescription: (image: Image) => string
@@ -3890,12 +3890,12 @@ export abstract class ImageIface {
     static name: string
 }
 export class Implementor {
-    /* Methods of Atk.Implementor */
+    /* Methods of Atk-1.0.Atk.Implementor */
     refAccessible(): Object
     static name: string
 }
 export class KeyEventStruct {
-    /* Fields of Atk.KeyEventStruct */
+    /* Fields of Atk-1.0.Atk.KeyEventStruct */
     type: number
     state: number
     keyval: number
@@ -3906,7 +3906,7 @@ export class KeyEventStruct {
     static name: string
 }
 export abstract class MiscClass {
-    /* Fields of Atk.MiscClass */
+    /* Fields of Atk-1.0.Atk.MiscClass */
     parent: GObject.ObjectClass
     threadsEnter: (misc: Misc) => void
     threadsLeave: (misc: Misc) => void
@@ -3914,17 +3914,17 @@ export abstract class MiscClass {
     static name: string
 }
 export abstract class NoOpObjectClass {
-    /* Fields of Atk.NoOpObjectClass */
+    /* Fields of Atk-1.0.Atk.NoOpObjectClass */
     parentClass: ObjectClass
     static name: string
 }
 export abstract class NoOpObjectFactoryClass {
-    /* Fields of Atk.NoOpObjectFactoryClass */
+    /* Fields of Atk-1.0.Atk.NoOpObjectFactoryClass */
     parentClass: ObjectFactoryClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Atk.ObjectClass */
+    /* Fields of Atk-1.0.Atk.ObjectClass */
     parent: GObject.ObjectClass
     getName: (accessible: Object) => string
     getDescription: (accessible: Object) => string
@@ -3954,7 +3954,7 @@ export abstract class ObjectClass {
     static name: string
 }
 export abstract class ObjectFactoryClass {
-    /* Fields of Atk.ObjectFactoryClass */
+    /* Fields of Atk-1.0.Atk.ObjectFactoryClass */
     parentClass: GObject.ObjectClass
     invalidate: (factory: ObjectFactory) => void
     getAccessibleType: () => GObject.Type
@@ -3963,20 +3963,20 @@ export abstract class ObjectFactoryClass {
     static name: string
 }
 export abstract class PlugClass {
-    /* Fields of Atk.PlugClass */
+    /* Fields of Atk-1.0.Atk.PlugClass */
     parentClass: ObjectClass
     getObjectId: (obj: Plug) => string
     static name: string
 }
 export class PropertyValues {
-    /* Fields of Atk.PropertyValues */
+    /* Fields of Atk-1.0.Atk.PropertyValues */
     propertyName: string
     oldValue: any
     newValue: any
     static name: string
 }
 export class Range {
-    /* Methods of Atk.Range */
+    /* Methods of Atk-1.0.Atk.Range */
     copy(): Range
     free(): void
     getDescription(): string
@@ -3989,7 +3989,7 @@ export class Range {
     static new(lowerLimit: number, upperLimit: number, description: string): Range
 }
 export class Rectangle {
-    /* Fields of Atk.Rectangle */
+    /* Fields of Atk-1.0.Atk.Rectangle */
     x: number
     y: number
     width: number
@@ -3997,24 +3997,24 @@ export class Rectangle {
     static name: string
 }
 export abstract class RegistryClass {
-    /* Fields of Atk.RegistryClass */
+    /* Fields of Atk-1.0.Atk.RegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class RelationClass {
-    /* Fields of Atk.RelationClass */
+    /* Fields of Atk-1.0.Atk.RelationClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class RelationSetClass {
-    /* Fields of Atk.RelationSetClass */
+    /* Fields of Atk-1.0.Atk.RelationSetClass */
     parent: GObject.ObjectClass
     pad1: Function
     pad2: Function
     static name: string
 }
 export abstract class SelectionIface {
-    /* Fields of Atk.SelectionIface */
+    /* Fields of Atk-1.0.Atk.SelectionIface */
     parent: GObject.TypeInterface
     addSelection: (selection: Selection, i: number) => boolean
     clearSelection: (selection: Selection) => boolean
@@ -4027,18 +4027,18 @@ export abstract class SelectionIface {
     static name: string
 }
 export abstract class SocketClass {
-    /* Fields of Atk.SocketClass */
+    /* Fields of Atk-1.0.Atk.SocketClass */
     parentClass: ObjectClass
     embed: (obj: Socket, plugId: string) => void
     static name: string
 }
 export abstract class StateSetClass {
-    /* Fields of Atk.StateSetClass */
+    /* Fields of Atk-1.0.Atk.StateSetClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class StreamableContentIface {
-    /* Fields of Atk.StreamableContentIface */
+    /* Fields of Atk-1.0.Atk.StreamableContentIface */
     parent: GObject.TypeInterface
     getNMimeTypes: (streamable: StreamableContent) => number
     getMimeType: (streamable: StreamableContent, i: number) => string
@@ -4050,7 +4050,7 @@ export abstract class StreamableContentIface {
     static name: string
 }
 export abstract class TableCellIface {
-    /* Fields of Atk.TableCellIface */
+    /* Fields of Atk-1.0.Atk.TableCellIface */
     getColumnSpan: (cell: TableCell) => number
     getColumnHeaderCells: (cell: TableCell) => Object[]
     getPosition: (cell: TableCell) => [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -4061,7 +4061,7 @@ export abstract class TableCellIface {
     static name: string
 }
 export abstract class TableIface {
-    /* Fields of Atk.TableIface */
+    /* Fields of Atk-1.0.Atk.TableIface */
     parent: GObject.TypeInterface
     refAt: (table: Table, row: number, column: number) => Object
     getIndexAt: (table: Table, row: number, column: number) => number
@@ -4102,7 +4102,7 @@ export abstract class TableIface {
     static name: string
 }
 export abstract class TextIface {
-    /* Fields of Atk.TextIface */
+    /* Fields of Atk-1.0.Atk.TextIface */
     parent: GObject.TypeInterface
     getText: (text: Text, startOffset: number, endOffset: number) => string
     getTextAfterOffset: (text: Text, offset: number, boundaryType: TextBoundary) => [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
@@ -4133,7 +4133,7 @@ export abstract class TextIface {
     static name: string
 }
 export class TextRange {
-    /* Fields of Atk.TextRange */
+    /* Fields of Atk-1.0.Atk.TextRange */
     bounds: TextRectangle
     startOffset: number
     endOffset: number
@@ -4141,7 +4141,7 @@ export class TextRange {
     static name: string
 }
 export class TextRectangle {
-    /* Fields of Atk.TextRectangle */
+    /* Fields of Atk-1.0.Atk.TextRectangle */
     x: number
     y: number
     width: number
@@ -4149,7 +4149,7 @@ export class TextRectangle {
     static name: string
 }
 export abstract class UtilClass {
-    /* Fields of Atk.UtilClass */
+    /* Fields of Atk-1.0.Atk.UtilClass */
     parent: GObject.ObjectClass
     removeGlobalEventListener: (listenerId: number) => void
     removeKeyEventListener: (listenerId: number) => void
@@ -4158,7 +4158,7 @@ export abstract class UtilClass {
     static name: string
 }
 export abstract class ValueIface {
-    /* Fields of Atk.ValueIface */
+    /* Fields of Atk-1.0.Atk.ValueIface */
     parent: GObject.TypeInterface
     getCurrentValue: (obj: Value) => /* value */ any
     getMaximumValue: (obj: Value) => /* value */ any
@@ -4173,7 +4173,7 @@ export abstract class ValueIface {
     static name: string
 }
 export abstract class WindowIface {
-    /* Fields of Atk.WindowIface */
+    /* Fields of Atk-1.0.Atk.WindowIface */
     parent: GObject.TypeInterface
     static name: string
 }

@@ -417,7 +417,6 @@ export enum DBusConnectionFlags {
     AUTHENTICATION_ALLOW_ANONYMOUS,
     MESSAGE_BUS_CONNECTION,
     DELAY_MESSAGE_PROCESSING,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusInterfaceSkeletonFlags {
     NONE,
@@ -454,7 +453,6 @@ export enum DBusServerFlags {
     NONE,
     RUN_IN_THREAD,
     AUTHENTICATION_ALLOW_ANONYMOUS,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusSignalFlags {
     NONE,
@@ -582,8 +580,6 @@ export enum TlsPasswordFlags {
     MANY_TRIES,
     FINAL_TRY,
 }
-export const DBUS_METHOD_INVOCATION_HANDLED: boolean
-export const DBUS_METHOD_INVOCATION_UNHANDLED: boolean
 export const DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME: string
 export const DRIVE_IDENTIFIER_KIND_UNIX_DEVICE: string
 export const FILE_ATTRIBUTE_ACCESS_CAN_DELETE: string
@@ -738,9 +734,9 @@ export function dbusAddressGetForBusSync(busType: BusType, cancellable?: Cancell
 export function dbusAddressGetStream(address: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function dbusAddressGetStreamFinish(res: AsyncResult): [ /* returnType */ IOStream, /* outGuid */ string | null ]
 export function dbusAddressGetStreamSync(address: string, cancellable?: Cancellable | null): [ /* returnType */ IOStream, /* outGuid */ string | null ]
-export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
+export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 export function dbusErrorEncodeGerror(error: GLib.Error): string
-export function dbusErrorGetRemoteError(error: GLib.Error): string | null
+export function dbusErrorGetRemoteError(error: GLib.Error): string
 export function dbusErrorIsRemoteError(error: GLib.Error): boolean
 export function dbusErrorNewForDbusError(dbusErrorName: string, dbusErrorMessage: string): GLib.Error
 export function dbusErrorQuark(): GLib.Quark
@@ -748,8 +744,6 @@ export function dbusErrorRegisterError(errorDomain: GLib.Quark, errorCode: numbe
 export function dbusErrorRegisterErrorDomain(errorDomainQuarkName: string, quarkVolatile: number, entries: DBusErrorEntry[]): void
 export function dbusErrorStripRemoteError(error: GLib.Error): boolean
 export function dbusErrorUnregisterError(errorDomain: GLib.Quark, errorCode: number, dbusErrorName: string): boolean
-export function dbusEscapeObjectPath(s: string): string
-export function dbusEscapeObjectPathBytestring(bytes: any[]): string
 export function dbusGenerateGuid(): string
 export function dbusGvalueToGvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbusGvariantToGvalue(value: GLib.Variant): /* outGvalue */ any
@@ -760,7 +754,6 @@ export function dbusIsMemberName(string: string): boolean
 export function dbusIsName(string: string): boolean
 export function dbusIsSupportedAddress(string: string): boolean
 export function dbusIsUniqueName(string: string): boolean
-export function dbusUnescapeObjectPath(s: string): any[] | null
 export function dtlsClientConnectionNew(baseSocket: DatagramBased, serverIdentity?: SocketConnectable | null): DtlsClientConnection
 export function dtlsServerConnectionNew(baseSocket: DatagramBased, certificate?: TlsCertificate | null): DtlsServerConnection
 export function fileNewForCommandlineArg(arg: string): File
@@ -769,7 +762,7 @@ export function fileNewForPath(path: string): File
 export function fileNewForUri(uri: string): File
 export function fileNewTmp(tmpl?: string | null): [ /* returnType */ File, /* iostream */ FileIOStream ]
 export function fileParseName(parseName: string): File
-export function iconDeserialize(value: GLib.Variant): Icon | null
+export function iconDeserialize(value: GLib.Variant): Icon
 export function iconHash(icon: object): number
 export function iconNewForString(str: string): Icon
 export function initableNewv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
@@ -795,7 +788,7 @@ export function pollableSourceNewFull(pollableStream: GObject.Object, childSourc
 export function pollableStreamRead(stream: InputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWrite(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number ]
-export function proxyGetDefaultForProtocol(protocol: string): Proxy | null
+export function proxyGetDefaultForProtocol(protocol: string): Proxy
 export function proxyResolverGetDefault(): ProxyResolver
 export function resolverErrorQuark(): GLib.Quark
 export function resourceErrorQuark(): GLib.Quark
@@ -879,13 +872,10 @@ export interface DBusSignalCallback {
     (connection: DBusConnection, senderName: string | null, objectPath: string, interfaceName: string, signalName: string, parameters: GLib.Variant): void
 }
 export interface DBusSubtreeDispatchFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable | null
-}
-export interface DBusSubtreeEnumerateFunc {
-    (connection: DBusConnection, sender: string, objectPath: string): string[]
+    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable
 }
 export interface DBusSubtreeIntrospectFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo[] | null
+    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo
 }
 export interface DatagramBasedSourceFunc {
     (datagramBased: DatagramBased, condition: GLib.IOCondition): boolean
@@ -933,28 +923,28 @@ export interface VfsFileLookupFunc {
     (vfs: Vfs, identifier: string): File
 }
 export class Action {
-    /* Properties of Gio.Action */
+    /* Properties of Gio-2.0.Gio.Action */
     readonly enabled: boolean
     readonly name: string
     readonly parameterType: GLib.VariantType
     readonly state: GLib.Variant
     readonly stateType: GLib.VariantType
-    /* Methods of Gio.Action */
+    /* Methods of Gio-2.0.Gio.Action */
     activate(parameter?: GLib.Variant | null): void
     changeState(value: GLib.Variant): void
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
-    /* Virtual methods of Gio.Action */
+    /* Virtual methods of Gio-2.0.Gio.Action */
     vfuncActivate(parameter?: GLib.Variant | null): void
     vfuncChangeState(value: GLib.Variant): void
     vfuncGetEnabled(): boolean
     vfuncGetName(): string
     vfuncGetParameterType(): GLib.VariantType | null
-    vfuncGetState(): GLib.Variant | null
+    vfuncGetState(): GLib.Variant
     vfuncGetStateHint(): GLib.Variant | null
     vfuncGetStateType(): GLib.VariantType | null
     static name: string
@@ -964,7 +954,7 @@ export class Action {
     static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
 }
 export class ActionGroup {
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -979,7 +969,7 @@ export class ActionGroup {
     hasAction(actionName: string): boolean
     listActions(): string[]
     queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Virtual methods of Gio.ActionGroup */
+    /* Virtual methods of Gio-2.0.Gio.ActionGroup */
     vfuncActionAdded(actionName: string): void
     vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
     vfuncActionRemoved(actionName: string): void
@@ -994,7 +984,7 @@ export class ActionGroup {
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
     vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: ActionGroup, actionName: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: ActionGroup, actionName: string) => void)): number
     emit(sigName: "action-added", actionName: string): void
@@ -1022,31 +1012,31 @@ export class ActionGroup {
     static name: string
 }
 export class ActionMap {
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
-    /* Virtual methods of Gio.ActionMap */
+    /* Virtual methods of Gio-2.0.Gio.ActionMap */
     vfuncAddAction(action: Action): void
-    vfuncLookupAction(actionName: string): Action | null
+    vfuncLookupAction(actionName: string): Action
     vfuncRemoveAction(actionName: string): void
     static name: string
 }
 export class AppInfo {
-    /* Methods of Gio.AppInfo */
+    /* Methods of Gio-2.0.Gio.AppInfo */
     addSupportsType(contentType: string): boolean
     canDelete(): boolean
     canRemoveSupportsType(): boolean
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -1060,19 +1050,19 @@ export class AppInfo {
     shouldShow(): boolean
     supportsFiles(): boolean
     supportsUris(): boolean
-    /* Virtual methods of Gio.AppInfo */
+    /* Virtual methods of Gio-2.0.Gio.AppInfo */
     vfuncAddSupportsType(contentType: string): boolean
     vfuncCanDelete(): boolean
     vfuncCanRemoveSupportsType(): boolean
     vfuncDoDelete(): boolean
     vfuncDup(): AppInfo
     vfuncEqual(appinfo2: AppInfo): boolean
-    vfuncGetCommandline(): string | null
-    vfuncGetDescription(): string | null
+    vfuncGetCommandline(): string
+    vfuncGetDescription(): string
     vfuncGetDisplayName(): string
     vfuncGetExecutable(): string
-    vfuncGetIcon(): Icon | null
-    vfuncGetId(): string | null
+    vfuncGetIcon(): Icon
+    vfuncGetId(): string
     vfuncGetName(): string
     vfuncGetSupportedTypes(): string[]
     vfuncLaunch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -1101,11 +1091,11 @@ export class AppInfo {
     static resetTypeAssociations(contentType: string): void
 }
 export class AsyncInitable {
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
-    /* Virtual methods of Gio.AsyncInitable */
+    /* Virtual methods of Gio-2.0.Gio.AsyncInitable */
     vfuncInitAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncInitFinish(res: AsyncResult): boolean
     static name: string
@@ -1113,49 +1103,49 @@ export class AsyncInitable {
     static newvAsync(objectType: GObject.Type, nParameters: number, parameters: GObject.Parameter, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 }
 export class AsyncResult {
-    /* Methods of Gio.AsyncResult */
+    /* Methods of Gio-2.0.Gio.AsyncResult */
     getSourceObject(): GObject.Object | null
     getUserData(): object | null
     isTagged(sourceTag?: object | null): boolean
     legacyPropagateError(): boolean
-    /* Virtual methods of Gio.AsyncResult */
+    /* Virtual methods of Gio-2.0.Gio.AsyncResult */
     vfuncGetSourceObject(): GObject.Object | null
     vfuncGetUserData(): object | null
     vfuncIsTagged(sourceTag?: object | null): boolean
     static name: string
 }
 export class Converter {
-    /* Methods of Gio.Converter */
+    /* Methods of Gio-2.0.Gio.Converter */
     convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     reset(): void
-    /* Virtual methods of Gio.Converter */
+    /* Virtual methods of Gio-2.0.Gio.Converter */
     vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     vfuncReset(): void
     static name: string
 }
 export class DBusInterface {
-    /* Methods of Gio.DBusInterface */
-    getObject(): DBusObject | null
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterface */
-    vfuncDupObject(): DBusObject | null
+    /* Virtual methods of Gio-2.0.Gio.DBusInterface */
+    vfuncDupObject(): DBusObject
     vfuncGetInfo(): DBusInterfaceInfo
     vfuncSetObject(object?: DBusObject | null): void
     static name: string
 }
 export class DBusObject {
-    /* Methods of Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    /* Methods of Gio-2.0.Gio.DBusObject */
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObject */
-    vfuncGetInterface(interfaceName: string): DBusInterface | null
+    /* Virtual methods of Gio-2.0.Gio.DBusObject */
+    vfuncGetInterface(interfaceName: string): DBusInterface
     vfuncGetInterfaces(): DBusInterface[]
     vfuncGetObjectPath(): string
     vfuncInterfaceAdded(interface: DBusInterface): void
     vfuncInterfaceRemoved(interface: DBusInterface): void
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
@@ -1171,12 +1161,12 @@ export class DBusObject {
     static name: string
 }
 export class DBusObjectManager {
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): DBusInterface
     getObject(objectPath: string): DBusObject
     getObjectPath(): string
     getObjects(): DBusObject[]
-    /* Virtual methods of Gio.DBusObjectManager */
+    /* Virtual methods of Gio-2.0.Gio.DBusObjectManager */
     vfuncGetInterface(objectPath: string, interfaceName: string): DBusInterface
     vfuncGetObject(objectPath: string): DBusObject
     vfuncGetObjectPath(): string
@@ -1185,7 +1175,7 @@ export class DBusObjectManager {
     vfuncInterfaceRemoved(object: DBusObject, interface: DBusInterface): void
     vfuncObjectAdded(object: DBusObject): void
     vfuncObjectRemoved(object: DBusObject): void
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
@@ -1213,13 +1203,13 @@ export class DBusObjectManager {
     static name: string
 }
 export class DatagramBased {
-    /* Methods of Gio.DatagramBased */
+    /* Methods of Gio-2.0.Gio.DatagramBased */
     conditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     conditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     createSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     receiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     sendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.DatagramBased */
+    /* Virtual methods of Gio-2.0.Gio.DatagramBased */
     vfuncConditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     vfuncConditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     vfuncCreateSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
@@ -1228,14 +1218,14 @@ export class DatagramBased {
     static name: string
 }
 export class DesktopAppInfoLookup {
-    /* Methods of Gio.DesktopAppInfoLookup */
+    /* Methods of Gio-2.0.Gio.DesktopAppInfoLookup */
     getDefaultForUriScheme(uriScheme: string): AppInfo | null
-    /* Virtual methods of Gio.DesktopAppInfoLookup */
+    /* Virtual methods of Gio-2.0.Gio.DesktopAppInfoLookup */
     vfuncGetDefaultForUriScheme(uriScheme: string): AppInfo | null
     static name: string
 }
 export class Drive {
-    /* Methods of Gio.Drive */
+    /* Methods of Gio-2.0.Gio.Drive */
     canEject(): boolean
     canPollForMedia(): boolean
     canStart(): boolean
@@ -1264,7 +1254,7 @@ export class Drive {
     startFinish(result: AsyncResult): boolean
     stop(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     stopFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.Drive */
+    /* Virtual methods of Gio-2.0.Gio.Drive */
     vfuncCanEject(): boolean
     vfuncCanPollForMedia(): boolean
     vfuncCanStart(): boolean
@@ -1297,7 +1287,7 @@ export class Drive {
     vfuncStop(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncStopButton(): void
     vfuncStopFinish(result: AsyncResult): boolean
-    /* Signals of Gio.Drive */
+    /* Signals of Gio-2.0.Gio.Drive */
     connect(sigName: "changed", callback: (($obj: Drive) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Drive) => void)): number
     emit(sigName: "changed"): void
@@ -1325,23 +1315,23 @@ export class Drive {
     static name: string
 }
 export class DtlsClientConnection {
-    /* Properties of Gio.DtlsClientConnection */
+    /* Properties of Gio-2.0.Gio.DtlsClientConnection */
     readonly acceptedCas: object[]
     serverIdentity: SocketConnectable
     validationFlags: TlsCertificateFlags
-    /* Methods of Gio.DtlsClientConnection */
+    /* Methods of Gio-2.0.Gio.DtlsClientConnection */
     getAcceptedCas(): any[]
     getServerIdentity(): SocketConnectable
     getValidationFlags(): TlsCertificateFlags
     setServerIdentity(identity: SocketConnectable): void
     setValidationFlags(flags: TlsCertificateFlags): void
-    /* Methods of Gio.DatagramBased */
+    /* Methods of Gio-2.0.Gio.DatagramBased */
     conditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     conditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     createSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     receiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     sendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.DatagramBased */
+    /* Virtual methods of Gio-2.0.Gio.DatagramBased */
     vfuncConditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     vfuncConditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     vfuncCreateSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
@@ -1350,7 +1340,7 @@ export class DtlsClientConnection {
     static name: string
 }
 export class DtlsConnection {
-    /* Properties of Gio.DtlsConnection */
+    /* Properties of Gio-2.0.Gio.DtlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
     database: TlsDatabase
@@ -1360,7 +1350,7 @@ export class DtlsConnection {
     readonly peerCertificateErrors: TlsCertificateFlags
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
-    /* Methods of Gio.DtlsConnection */
+    /* Methods of Gio-2.0.Gio.DtlsConnection */
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     closeFinish(result: AsyncResult): boolean
@@ -1386,13 +1376,13 @@ export class DtlsConnection {
     shutdown(shutdownRead: boolean, shutdownWrite: boolean, cancellable?: Cancellable | null): boolean
     shutdownAsync(shutdownRead: boolean, shutdownWrite: boolean, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     shutdownFinish(result: AsyncResult): boolean
-    /* Methods of Gio.DatagramBased */
+    /* Methods of Gio-2.0.Gio.DatagramBased */
     conditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     conditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     createSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     receiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     sendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.DtlsConnection */
+    /* Virtual methods of Gio-2.0.Gio.DtlsConnection */
     vfuncAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfuncGetBindingData(type: TlsChannelBindingType, data: any[]): boolean
     vfuncGetNegotiatedProtocol(): string | null
@@ -1403,13 +1393,13 @@ export class DtlsConnection {
     vfuncShutdown(shutdownRead: boolean, shutdownWrite: boolean, cancellable?: Cancellable | null): boolean
     vfuncShutdownAsync(shutdownRead: boolean, shutdownWrite: boolean, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncShutdownFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.DatagramBased */
+    /* Virtual methods of Gio-2.0.Gio.DatagramBased */
     vfuncConditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     vfuncConditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     vfuncCreateSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     vfuncReceiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     vfuncSendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Signals of Gio.DtlsConnection */
+    /* Signals of Gio-2.0.Gio.DtlsConnection */
     connect(sigName: "accept-certificate", callback: (($obj: DtlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: (($obj: DtlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peerCert: TlsCertificate, errors: TlsCertificateFlags): void
@@ -1419,15 +1409,15 @@ export class DtlsConnection {
     static name: string
 }
 export class DtlsServerConnection {
-    /* Properties of Gio.DtlsServerConnection */
+    /* Properties of Gio-2.0.Gio.DtlsServerConnection */
     authenticationMode: TlsAuthenticationMode
-    /* Methods of Gio.DatagramBased */
+    /* Methods of Gio-2.0.Gio.DatagramBased */
     conditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     conditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     createSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     receiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     sendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.DatagramBased */
+    /* Virtual methods of Gio-2.0.Gio.DatagramBased */
     vfuncConditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     vfuncConditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     vfuncCreateSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
@@ -1436,11 +1426,10 @@ export class DtlsServerConnection {
     static name: string
 }
 export class File {
-    /* Methods of Gio.File */
+    /* Methods of Gio-2.0.Gio.File */
     appendTo(flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     appendToAsync(flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     appendToFinish(res: AsyncResult): FileOutputStream
-    buildAttributeListForCopy(flags: FileCopyFlags, cancellable?: Cancellable | null): string
     copy(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null, progressCallback?: FileProgressCallback | null): boolean
     copyAsync(destination: File, flags: FileCopyFlags, ioPriority: number, cancellable?: Cancellable | null): void
     copyAttributes(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null): boolean
@@ -1474,7 +1463,7 @@ export class File {
     getPath(): string | null
     getRelativePath(descendant: File): string | null
     getUri(): string
-    getUriScheme(): string | null
+    getUriScheme(): string
     hasParent(parent?: File | null): boolean
     hasPrefix(prefix: File): boolean
     hasUriScheme(uriScheme: string): boolean
@@ -1559,7 +1548,7 @@ export class File {
     unmountMountableFinish(result: AsyncResult): boolean
     unmountMountableWithOperation(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     unmountMountableWithOperationFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.File */
+    /* Virtual methods of Gio-2.0.Gio.File */
     vfuncAppendTo(flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     vfuncAppendToAsync(flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncAppendToFinish(res: AsyncResult): FileOutputStream
@@ -1587,14 +1576,14 @@ export class File {
     vfuncFindEnclosingMount(cancellable?: Cancellable | null): Mount
     vfuncFindEnclosingMountAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncFindEnclosingMountFinish(res: AsyncResult): Mount
-    vfuncGetBasename(): string | null
+    vfuncGetBasename(): string
     vfuncGetChildForDisplayName(displayName: string): File
     vfuncGetParent(): File | null
     vfuncGetParseName(): string
-    vfuncGetPath(): string | null
-    vfuncGetRelativePath(descendant: File): string | null
+    vfuncGetPath(): string
+    vfuncGetRelativePath(descendant: File): string
     vfuncGetUri(): string
-    vfuncGetUriScheme(): string | null
+    vfuncGetUriScheme(): string
     vfuncHasUriScheme(uriScheme: string): boolean
     vfuncHash(): number
     vfuncIsNative(): boolean
@@ -1662,47 +1651,47 @@ export class File {
     static parseName(parseName: string): File
 }
 export class FileDescriptorBased {
-    /* Methods of Gio.FileDescriptorBased */
+    /* Methods of Gio-2.0.Gio.FileDescriptorBased */
     getFd(): number
-    /* Virtual methods of Gio.FileDescriptorBased */
+    /* Virtual methods of Gio-2.0.Gio.FileDescriptorBased */
     vfuncGetFd(): number
     static name: string
 }
 export class Icon {
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Virtual methods of Gio.Icon */
+    /* Virtual methods of Gio-2.0.Gio.Icon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
+    vfuncSerialize(): GLib.Variant
     static name: string
     /* Static methods and pseudo-constructors */
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
 }
 export class Initable {
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.Initable */
+    /* Virtual methods of Gio-2.0.Gio.Initable */
     vfuncInit(cancellable?: Cancellable | null): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
 }
 export class ListModel {
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     getItemType(): GObject.Type
     getNItems(): number
     getItem(position: number): GObject.Object | null
     itemsChanged(position: number, removed: number, added: number): void
-    /* Virtual methods of Gio.ListModel */
+    /* Virtual methods of Gio-2.0.Gio.ListModel */
     vfuncGetItem(position: number): GObject.Object | null
     vfuncGetItemType(): GObject.Type
     vfuncGetNItems(): number
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: ListModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: ListModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -1712,32 +1701,32 @@ export class ListModel {
     static name: string
 }
 export class LoadableIcon {
-    /* Methods of Gio.LoadableIcon */
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Virtual methods of Gio.LoadableIcon */
+    /* Virtual methods of Gio-2.0.Gio.LoadableIcon */
     vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Virtual methods of Gio.Icon */
+    /* Virtual methods of Gio-2.0.Gio.Icon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
+    vfuncSerialize(): GLib.Variant
     static name: string
 }
 export class MemoryMonitor {
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.MemoryMonitor */
+    /* Virtual methods of Gio-2.0.Gio.MemoryMonitor */
     vfuncLowMemoryWarning(level: MemoryMonitorWarningLevel): void
-    /* Virtual methods of Gio.Initable */
+    /* Virtual methods of Gio-2.0.Gio.Initable */
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Signals of Gio.MemoryMonitor */
+    /* Signals of Gio-2.0.Gio.MemoryMonitor */
     connect(sigName: "low-memory-warning", callback: (($obj: MemoryMonitor, level: MemoryMonitorWarningLevel) => void)): number
     connect_after(sigName: "low-memory-warning", callback: (($obj: MemoryMonitor, level: MemoryMonitorWarningLevel) => void)): number
     emit(sigName: "low-memory-warning", level: MemoryMonitorWarningLevel): void
@@ -1749,7 +1738,7 @@ export class MemoryMonitor {
     static dupDefault(): MemoryMonitor
 }
 export class Mount {
-    /* Methods of Gio.Mount */
+    /* Methods of Gio-2.0.Gio.Mount */
     canEject(): boolean
     canUnmount(): boolean
     eject(flags: MountUnmountFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1777,7 +1766,7 @@ export class Mount {
     unmountWithOperation(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     unmountWithOperationFinish(result: AsyncResult): boolean
     unshadow(): void
-    /* Virtual methods of Gio.Mount */
+    /* Virtual methods of Gio-2.0.Gio.Mount */
     vfuncCanEject(): boolean
     vfuncCanUnmount(): boolean
     vfuncChanged(): void
@@ -1805,7 +1794,7 @@ export class Mount {
     vfuncUnmountWithOperation(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncUnmountWithOperationFinish(result: AsyncResult): boolean
     vfuncUnmounted(): void
-    /* Signals of Gio.Mount */
+    /* Signals of Gio-2.0.Gio.Mount */
     connect(sigName: "changed", callback: (($obj: Mount) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Mount) => void)): number
     emit(sigName: "changed"): void
@@ -1827,27 +1816,27 @@ export class Mount {
     static name: string
 }
 export class NetworkMonitor {
-    /* Properties of Gio.NetworkMonitor */
+    /* Properties of Gio-2.0.Gio.NetworkMonitor */
     readonly connectivity: NetworkConnectivity
     readonly networkAvailable: boolean
     readonly networkMetered: boolean
-    /* Methods of Gio.NetworkMonitor */
+    /* Methods of Gio-2.0.Gio.NetworkMonitor */
     canReach(connectable: SocketConnectable, cancellable?: Cancellable | null): boolean
     canReachAsync(connectable: SocketConnectable, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     canReachFinish(result: AsyncResult): boolean
     getConnectivity(): NetworkConnectivity
     getNetworkAvailable(): boolean
     getNetworkMetered(): boolean
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.NetworkMonitor */
+    /* Virtual methods of Gio-2.0.Gio.NetworkMonitor */
     vfuncCanReach(connectable: SocketConnectable, cancellable?: Cancellable | null): boolean
     vfuncCanReachAsync(connectable: SocketConnectable, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCanReachFinish(result: AsyncResult): boolean
     vfuncNetworkChanged(networkAvailable: boolean): void
-    /* Virtual methods of Gio.Initable */
+    /* Virtual methods of Gio-2.0.Gio.Initable */
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Signals of Gio.NetworkMonitor */
+    /* Signals of Gio-2.0.Gio.NetworkMonitor */
     connect(sigName: "network-changed", callback: (($obj: NetworkMonitor, networkAvailable: boolean) => void)): number
     connect_after(sigName: "network-changed", callback: (($obj: NetworkMonitor, networkAvailable: boolean) => void)): number
     emit(sigName: "network-changed", networkAvailable: boolean): void
@@ -1861,16 +1850,16 @@ export class NetworkMonitor {
 export interface PollableInputStream_ConstructProps extends InputStream_ConstructProps {
 }
 export class PollableInputStream {
-    /* Fields of Gio.InputStream */
+    /* Fields of Gio-2.0.Gio.InputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.PollableInputStream */
+    /* Methods of Gio-2.0.Gio.PollableInputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
     readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1890,7 +1879,7 @@ export class PollableInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1912,12 +1901,12 @@ export class PollableInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.PollableInputStream */
+    /* Virtual methods of Gio-2.0.Gio.PollableInputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsReadable(): boolean
     vfuncReadNonblocking(buffer: any[] | null): number
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -1927,7 +1916,7 @@ export class PollableInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -1935,7 +1924,7 @@ export class PollableInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PollableInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PollableInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1957,17 +1946,17 @@ export class PollableInputStream {
 export interface PollableOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
 export class PollableOutputStream {
-    /* Fields of Gio.OutputStream */
+    /* Fields of Gio-2.0.Gio.OutputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.PollableOutputStream */
+    /* Methods of Gio-2.0.Gio.PollableOutputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
     writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1997,7 +1986,7 @@ export class PollableOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2019,13 +2008,13 @@ export class PollableOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.PollableOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.PollableOutputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
     vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -2041,7 +2030,7 @@ export class PollableOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2049,7 +2038,7 @@ export class PollableOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PollableOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PollableOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2069,27 +2058,27 @@ export class PollableOutputStream {
     static $gtype: GObject.Type
 }
 export class Proxy {
-    /* Methods of Gio.Proxy */
+    /* Methods of Gio-2.0.Gio.Proxy */
     connect(connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null): IOStream
     connectAsync(connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     connectFinish(result: AsyncResult): IOStream
     supportsHostname(): boolean
-    /* Virtual methods of Gio.Proxy */
+    /* Virtual methods of Gio-2.0.Gio.Proxy */
     vfuncConnect(connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null): IOStream
     vfuncConnectAsync(connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncConnectFinish(result: AsyncResult): IOStream
     vfuncSupportsHostname(): boolean
     static name: string
     /* Static methods and pseudo-constructors */
-    static getDefaultForProtocol(protocol: string): Proxy | null
+    static getDefaultForProtocol(protocol: string): Proxy
 }
 export class ProxyResolver {
-    /* Methods of Gio.ProxyResolver */
+    /* Methods of Gio-2.0.Gio.ProxyResolver */
     isSupported(): boolean
     lookup(uri: string, cancellable?: Cancellable | null): string[]
     lookupAsync(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookupFinish(result: AsyncResult): string[]
-    /* Virtual methods of Gio.ProxyResolver */
+    /* Virtual methods of Gio-2.0.Gio.ProxyResolver */
     vfuncIsSupported(): boolean
     vfuncLookup(uri: string, cancellable?: Cancellable | null): string[]
     vfuncLookupAsync(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2099,10 +2088,10 @@ export class ProxyResolver {
     static getDefault(): ProxyResolver
 }
 export class RemoteActionGroup {
-    /* Methods of Gio.RemoteActionGroup */
+    /* Methods of Gio-2.0.Gio.RemoteActionGroup */
     activateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     changeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -2117,10 +2106,10 @@ export class RemoteActionGroup {
     hasAction(actionName: string): boolean
     listActions(): string[]
     queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Virtual methods of Gio.RemoteActionGroup */
+    /* Virtual methods of Gio-2.0.Gio.RemoteActionGroup */
     vfuncActivateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     vfuncChangeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
-    /* Virtual methods of Gio.ActionGroup */
+    /* Virtual methods of Gio-2.0.Gio.ActionGroup */
     vfuncActionAdded(actionName: string): void
     vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
     vfuncActionRemoved(actionName: string): void
@@ -2135,7 +2124,7 @@ export class RemoteActionGroup {
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
     vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: RemoteActionGroup, actionName: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: RemoteActionGroup, actionName: string) => void)): number
     emit(sigName: "action-added", actionName: string): void
@@ -2163,13 +2152,13 @@ export class RemoteActionGroup {
     static name: string
 }
 export class Seekable {
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.Seekable */
+    /* Virtual methods of Gio-2.0.Gio.Seekable */
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
@@ -2178,18 +2167,18 @@ export class Seekable {
     static name: string
 }
 export class SocketConnectable {
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketConnectable */
+    /* Virtual methods of Gio-2.0.Gio.SocketConnectable */
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
     static name: string
 }
 export class TlsBackend {
-    /* Methods of Gio.TlsBackend */
+    /* Methods of Gio-2.0.Gio.TlsBackend */
     getCertificateType(): GObject.Type
     getClientConnectionType(): GObject.Type
     getDefaultDatabase(): TlsDatabase
@@ -2200,7 +2189,7 @@ export class TlsBackend {
     setDefaultDatabase(database?: TlsDatabase | null): void
     supportsDtls(): boolean
     supportsTls(): boolean
-    /* Virtual methods of Gio.TlsBackend */
+    /* Virtual methods of Gio-2.0.Gio.TlsBackend */
     vfuncGetDefaultDatabase(): TlsDatabase
     vfuncSupportsDtls(): boolean
     vfuncSupportsTls(): boolean
@@ -2214,12 +2203,12 @@ export interface TlsClientConnection_ConstructProps extends TlsConnection_Constr
     validationFlags?: TlsCertificateFlags
 }
 export class TlsClientConnection {
-    /* Properties of Gio.TlsClientConnection */
+    /* Properties of Gio-2.0.Gio.TlsClientConnection */
     readonly acceptedCas: object[]
     serverIdentity: SocketConnectable
     useSsl3: boolean
     validationFlags: TlsCertificateFlags
-    /* Properties of Gio.TlsConnection */
+    /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
     database: TlsDatabase
@@ -2230,25 +2219,25 @@ export class TlsClientConnection {
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.TlsConnection */
+    /* Fields of Gio-2.0.Gio.TlsConnection */
     parentInstance: IOStream
     priv: TlsConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsClientConnection */
+    /* Methods of Gio-2.0.Gio.TlsClientConnection */
     copySessionState(source: TlsClientConnection): void
     getAcceptedCas(): any[]
-    getServerIdentity(): SocketConnectable | null
+    getServerIdentity(): SocketConnectable
     getUseSsl3(): boolean
     getValidationFlags(): TlsCertificateFlags
     setServerIdentity(identity: SocketConnectable): void
     setUseSsl3(useSsl3: boolean): void
     setValidationFlags(flags: TlsCertificateFlags): void
-    /* Methods of Gio.TlsConnection */
+    /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
@@ -2270,7 +2259,7 @@ export class TlsClientConnection {
     setRehandshakeMode(mode: TlsRehandshakeMode): void
     setRequireCloseNotify(requireCloseNotify: boolean): void
     setUseSystemCertdb(useSystemCertdb: boolean): void
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2281,7 +2270,7 @@ export class TlsClientConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2303,21 +2292,21 @@ export class TlsClientConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsClientConnection */
+    /* Virtual methods of Gio-2.0.Gio.TlsClientConnection */
     vfuncCopySessionState(source: TlsClientConnection): void
-    /* Virtual methods of Gio.TlsConnection */
+    /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfuncAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfuncGetBindingData(type: TlsChannelBindingType, data: any[]): boolean
     vfuncHandshake(cancellable?: Cancellable | null): boolean
     vfuncHandshakeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncHandshakeFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2325,14 +2314,14 @@ export class TlsClientConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.TlsConnection */
+    /* Signals of Gio-2.0.Gio.TlsConnection */
     connect(sigName: "accept-certificate", callback: (($obj: TlsClientConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: (($obj: TlsClientConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peerCert: TlsCertificate, errors: TlsCertificateFlags): void
     on(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2440,14 +2429,14 @@ export interface TlsFileDatabase_ConstructProps extends TlsDatabase_ConstructPro
     anchors?: string
 }
 export class TlsFileDatabase {
-    /* Properties of Gio.TlsFileDatabase */
+    /* Properties of Gio-2.0.Gio.TlsFileDatabase */
     anchors: string
-    /* Fields of Gio.TlsDatabase */
+    /* Fields of Gio-2.0.Gio.TlsDatabase */
     parentInstance: GObject.Object
     priv: TlsDatabasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsDatabase */
+    /* Methods of Gio-2.0.Gio.TlsDatabase */
     createCertificateHandle(certificate: TlsCertificate): string | null
     lookupCertificateForHandle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate | null
     lookupCertificateForHandleAsync(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2461,7 +2450,7 @@ export class TlsFileDatabase {
     verifyChain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     verifyChainAsync(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     verifyChainFinish(result: AsyncResult): TlsCertificateFlags
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2483,7 +2472,7 @@ export class TlsFileDatabase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsDatabase */
+    /* Virtual methods of Gio-2.0.Gio.TlsDatabase */
     vfuncCreateCertificateHandle(certificate: TlsCertificate): string | null
     vfuncLookupCertificateForHandle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate | null
     vfuncLookupCertificateForHandleAsync(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2497,7 +2486,7 @@ export class TlsFileDatabase {
     vfuncVerifyChain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     vfuncVerifyChainAsync(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncVerifyChainFinish(result: AsyncResult): TlsCertificateFlags
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2505,7 +2494,7 @@ export class TlsFileDatabase {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsFileDatabase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsFileDatabase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2533,9 +2522,9 @@ export interface TlsServerConnection_ConstructProps extends TlsConnection_Constr
     authenticationMode?: TlsAuthenticationMode
 }
 export class TlsServerConnection {
-    /* Properties of Gio.TlsServerConnection */
+    /* Properties of Gio-2.0.Gio.TlsServerConnection */
     authenticationMode: TlsAuthenticationMode
-    /* Properties of Gio.TlsConnection */
+    /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
     database: TlsDatabase
@@ -2546,16 +2535,16 @@ export class TlsServerConnection {
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.TlsConnection */
+    /* Fields of Gio-2.0.Gio.TlsConnection */
     parentInstance: IOStream
     priv: TlsConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsConnection */
+    /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
@@ -2577,7 +2566,7 @@ export class TlsServerConnection {
     setRehandshakeMode(mode: TlsRehandshakeMode): void
     setRequireCloseNotify(requireCloseNotify: boolean): void
     setUseSystemCertdb(useSystemCertdb: boolean): void
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2588,7 +2577,7 @@ export class TlsServerConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2610,19 +2599,19 @@ export class TlsServerConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsConnection */
+    /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfuncAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfuncGetBindingData(type: TlsChannelBindingType, data: any[]): boolean
     vfuncHandshake(cancellable?: Cancellable | null): boolean
     vfuncHandshakeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncHandshakeFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2630,14 +2619,14 @@ export class TlsServerConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.TlsConnection */
+    /* Signals of Gio-2.0.Gio.TlsConnection */
     connect(sigName: "accept-certificate", callback: (($obj: TlsServerConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: (($obj: TlsServerConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peerCert: TlsCertificate, errors: TlsCertificateFlags): void
     on(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2727,7 +2716,7 @@ export class TlsServerConnection {
     static $gtype: GObject.Type
 }
 export class Volume {
-    /* Methods of Gio.Volume */
+    /* Methods of Gio-2.0.Gio.Volume */
     canEject(): boolean
     canMount(): boolean
     eject(flags: MountUnmountFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2747,7 +2736,7 @@ export class Volume {
     mount(flags: MountMountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     mountFinish(result: AsyncResult): boolean
     shouldAutomount(): boolean
-    /* Virtual methods of Gio.Volume */
+    /* Virtual methods of Gio-2.0.Gio.Volume */
     vfuncCanEject(): boolean
     vfuncCanMount(): boolean
     vfuncChanged(): void
@@ -2769,7 +2758,7 @@ export class Volume {
     vfuncMountFn(flags: MountMountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncRemoved(): void
     vfuncShouldAutomount(): boolean
-    /* Signals of Gio.Volume */
+    /* Signals of Gio-2.0.Gio.Volume */
     connect(sigName: "changed", callback: (($obj: Volume) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Volume) => void)): number
     emit(sigName: "changed"): void
@@ -2787,9 +2776,9 @@ export class Volume {
 export interface AppInfoMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AppInfoMonitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2811,7 +2800,7 @@ export class AppInfoMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2819,14 +2808,14 @@ export class AppInfoMonitor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.AppInfoMonitor */
+    /* Signals of Gio-2.0.Gio.AppInfoMonitor */
     connect(sigName: "changed", callback: (($obj: AppInfoMonitor) => void)): number
     connect_after(sigName: "changed", callback: (($obj: AppInfoMonitor) => void)): number
     emit(sigName: "changed"): void
     on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2850,18 +2839,18 @@ export class AppInfoMonitor {
 export interface AppLaunchContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AppLaunchContext {
-    /* Fields of Gio.AppLaunchContext */
+    /* Fields of Gio-2.0.Gio.AppLaunchContext */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.AppLaunchContext */
-    getDisplay(info: AppInfo, files: File[]): string | null
+    /* Methods of Gio-2.0.Gio.AppLaunchContext */
+    getDisplay(info: AppInfo, files: File[]): string
     getEnvironment(): string[]
-    getStartupNotifyId(info: AppInfo, files: File[]): string | null
+    getStartupNotifyId(info: AppInfo, files: File[]): string
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2883,12 +2872,12 @@ export class AppLaunchContext {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.AppLaunchContext */
-    vfuncGetDisplay(info: AppInfo, files: File[]): string | null
-    vfuncGetStartupNotifyId(info: AppInfo, files: File[]): string | null
+    /* Virtual methods of Gio-2.0.Gio.AppLaunchContext */
+    vfuncGetDisplay(info: AppInfo, files: File[]): string
+    vfuncGetStartupNotifyId(info: AppInfo, files: File[]): string
     vfuncLaunchFailed(startupNotifyId: string): void
     vfuncLaunched(info: AppInfo, platformData: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -2896,7 +2885,7 @@ export class AppLaunchContext {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.AppLaunchContext */
+    /* Signals of Gio-2.0.Gio.AppLaunchContext */
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startupNotifyId: string) => void)): number
     connect_after(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startupNotifyId: string) => void)): number
     emit(sigName: "launch-failed", startupNotifyId: string): void
@@ -2909,7 +2898,7 @@ export class AppLaunchContext {
     on(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2938,7 +2927,7 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     resourceBasePath?: string
 }
 export class Application {
-    /* Properties of Gio.Application */
+    /* Properties of Gio-2.0.Gio.Application */
     actionGroup: ActionGroup
     applicationId: string
     flags: ApplicationFlags
@@ -2947,17 +2936,17 @@ export class Application {
     readonly isRegistered: boolean
     readonly isRemote: boolean
     resourceBasePath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Application */
+    /* Methods of Gio-2.0.Gio.Application */
     activate(): void
     addMainOption(longName: string, shortName: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, argDescription?: string | null): void
     addMainOptionEntries(entries: GLib.OptionEntry[]): void
     addOptionGroup(group: GLib.OptionGroup): void
     bindBusyProperty(object: GObject.Object, property: string): void
-    getApplicationId(): string | null
-    getDbusConnection(): DBusConnection | null
-    getDbusObjectPath(): string | null
+    getApplicationId(): string
+    getDbusConnection(): DBusConnection
+    getDbusObjectPath(): string
     getFlags(): ApplicationFlags
     getInactivityTimeout(): number
     getIsBusy(): boolean
@@ -2984,7 +2973,7 @@ export class Application {
     unbindBusyProperty(object: GObject.Object, property: string): void
     unmarkBusy(): void
     withdrawNotification(id: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3006,7 +2995,7 @@ export class Application {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -3021,12 +3010,12 @@ export class Application {
     hasAction(actionName: string): boolean
     listActions(): string[]
     queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
-    /* Virtual methods of Gio.Application */
+    /* Virtual methods of Gio-2.0.Gio.Application */
     vfuncActivate(): void
     vfuncAddPlatformData(builder: GLib.VariantBuilder): void
     vfuncAfterEmit(platformData: GLib.Variant): void
@@ -3057,9 +3046,9 @@ export class Application {
     vfuncListActions(): string[]
     vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     vfuncAddAction(action: Action): void
-    vfuncLookupAction(actionName: string): Action | null
+    vfuncLookupAction(actionName: string): Action
     vfuncRemoveAction(actionName: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3067,7 +3056,7 @@ export class Application {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Application */
+    /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Application) => void)): number
     emit(sigName: "activate"): void
@@ -3110,14 +3099,14 @@ export class Application {
     on(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: Application, actionName: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: Application, actionName: string) => void)): number
     emit(sigName: "action-added", actionName: string): void
@@ -3194,7 +3183,7 @@ export class Application {
     _init (config?: Application_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(applicationId: string | null, flags: ApplicationFlags): Application
-    static getDefault(): Application | null
+    static getDefault(): Application
     static idIsValid(applicationId: string): boolean
     static $gtype: GObject.Type
 }
@@ -3204,11 +3193,11 @@ export interface ApplicationCommandLine_ConstructProps extends GObject.Object_Co
     platformData?: GLib.Variant
 }
 export class ApplicationCommandLine {
-    /* Properties of Gio.ApplicationCommandLine */
+    /* Properties of Gio-2.0.Gio.ApplicationCommandLine */
     readonly isRemote: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ApplicationCommandLine */
+    /* Methods of Gio-2.0.Gio.ApplicationCommandLine */
     createFileForArg(arg: string): File
     getArguments(): string[]
     getCwd(): string | null
@@ -3217,10 +3206,10 @@ export class ApplicationCommandLine {
     getIsRemote(): boolean
     getOptionsDict(): GLib.VariantDict
     getPlatformData(): GLib.Variant | null
-    getStdin(): InputStream | null
-    getenv(name: string): string | null
+    getStdin(): InputStream
+    getenv(name: string): string
     setExitStatus(exitStatus: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3242,11 +3231,11 @@ export class ApplicationCommandLine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.ApplicationCommandLine */
-    vfuncGetStdin(): InputStream | null
+    /* Virtual methods of Gio-2.0.Gio.ApplicationCommandLine */
+    vfuncGetStdin(): InputStream
     vfuncPrintLiteral(message: string): void
     vfuncPrinterrLiteral(message: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3254,7 +3243,7 @@ export class ApplicationCommandLine {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3282,17 +3271,17 @@ export interface BufferedInputStream_ConstructProps extends FilterInputStream_Co
     bufferSize?: number
 }
 export class BufferedInputStream {
-    /* Properties of Gio.BufferedInputStream */
+    /* Properties of Gio-2.0.Gio.BufferedInputStream */
     bufferSize: number
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
-    /* Fields of Gio.BufferedInputStream */
+    /* Fields of Gio-2.0.Gio.BufferedInputStream */
     parentInstance: FilterInputStream
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     baseStream: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.BufferedInputStream */
+    /* Methods of Gio-2.0.Gio.BufferedInputStream */
     fill(count: number, cancellable?: Cancellable | null): number
     fillAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     fillFinish(result: AsyncResult): number
@@ -3302,11 +3291,11 @@ export class BufferedInputStream {
     peekBuffer(): any[]
     readByte(cancellable?: Cancellable | null): number
     setBufferSize(size: number): void
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     getBaseStream(): InputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3326,7 +3315,7 @@ export class BufferedInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3348,13 +3337,13 @@ export class BufferedInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.BufferedInputStream */
+    /* Virtual methods of Gio-2.0.Gio.BufferedInputStream */
     vfuncFill(count: number, cancellable?: Cancellable | null): number
     vfuncFillAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncFillFinish(result: AsyncResult): number
@@ -3363,7 +3352,7 @@ export class BufferedInputStream {
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -3373,7 +3362,7 @@ export class BufferedInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3381,7 +3370,7 @@ export class BufferedInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3418,26 +3407,26 @@ export interface BufferedOutputStream_ConstructProps extends FilterOutputStream_
     bufferSize?: number
 }
 export class BufferedOutputStream {
-    /* Properties of Gio.BufferedOutputStream */
+    /* Properties of Gio-2.0.Gio.BufferedOutputStream */
     autoGrow: boolean
     bufferSize: number
-    /* Fields of Gio.BufferedOutputStream */
+    /* Fields of Gio-2.0.Gio.BufferedOutputStream */
     parentInstance: FilterOutputStream
     priv: BufferedOutputStreamPrivate
-    /* Fields of Gio.FilterOutputStream */
+    /* Fields of Gio-2.0.Gio.FilterOutputStream */
     baseStream: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.BufferedOutputStream */
+    /* Methods of Gio-2.0.Gio.BufferedOutputStream */
     getAutoGrow(): boolean
     getBufferSize(): number
     setAutoGrow(autoGrow: boolean): void
     setBufferSize(size: number): void
-    /* Methods of Gio.FilterOutputStream */
+    /* Methods of Gio-2.0.Gio.FilterOutputStream */
     getBaseStream(): OutputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3467,7 +3456,7 @@ export class BufferedOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3489,19 +3478,19 @@ export class BufferedOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.BufferedOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.BufferedOutputStream */
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -3517,7 +3506,7 @@ export class BufferedOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3525,7 +3514,7 @@ export class BufferedOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3561,11 +3550,11 @@ export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps 
     bytes?: any
 }
 export class BytesIcon {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.BytesIcon */
+    /* Methods of Gio-2.0.Gio.BytesIcon */
     getBytes(): any
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3587,22 +3576,22 @@ export class BytesIcon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Methods of Gio.LoadableIcon */
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Virtual methods of Gio.BytesIcon */
+    /* Virtual methods of Gio-2.0.Gio.BytesIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
+    vfuncSerialize(): GLib.Variant
     vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3610,7 +3599,7 @@ export class BytesIcon {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BytesIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BytesIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3629,7 +3618,7 @@ export class BytesIcon {
     _init (config?: BytesIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(bytes: any): BytesIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -3637,11 +3626,11 @@ export class BytesIcon {
 export interface Cancellable_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Cancellable {
-    /* Fields of Gio.Cancellable */
+    /* Fields of Gio-2.0.Gio.Cancellable */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Cancellable */
+    /* Methods of Gio-2.0.Gio.Cancellable */
     cancel(): void
     connect(callback: GObject.Callback): number
     disconnect(handlerId: number): void
@@ -3654,7 +3643,7 @@ export class Cancellable {
     reset(): void
     setErrorIfCancelled(): boolean
     sourceNew(): GLib.Source
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3676,9 +3665,9 @@ export class Cancellable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Cancellable */
+    /* Virtual methods of Gio-2.0.Gio.Cancellable */
     vfuncCancelled(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3686,14 +3675,14 @@ export class Cancellable {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Cancellable */
+    /* Signals of Gio-2.0.Gio.Cancellable */
     connect(sigName: "cancelled", callback: (($obj: Cancellable) => void)): number
     connect_after(sigName: "cancelled", callback: (($obj: Cancellable) => void)): number
     emit(sigName: "cancelled"): void
     on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cancellable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Cancellable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3721,15 +3710,15 @@ export interface CharsetConverter_ConstructProps extends GObject.Object_Construc
     useFallback?: boolean
 }
 export class CharsetConverter {
-    /* Properties of Gio.CharsetConverter */
+    /* Properties of Gio-2.0.Gio.CharsetConverter */
     useFallback: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.CharsetConverter */
+    /* Methods of Gio-2.0.Gio.CharsetConverter */
     getNumFallbacks(): number
     getUseFallback(): boolean
     setUseFallback(useFallback: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3751,16 +3740,16 @@ export class CharsetConverter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Converter */
+    /* Methods of Gio-2.0.Gio.Converter */
     convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     reset(): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.CharsetConverter */
+    /* Virtual methods of Gio-2.0.Gio.CharsetConverter */
     vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     vfuncReset(): void
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3768,7 +3757,7 @@ export class CharsetConverter {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3799,21 +3788,21 @@ export interface ConverterInputStream_ConstructProps extends FilterInputStream_C
     converter?: Converter
 }
 export class ConverterInputStream {
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
-    /* Fields of Gio.ConverterInputStream */
+    /* Fields of Gio-2.0.Gio.ConverterInputStream */
     parentInstance: FilterInputStream
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     baseStream: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ConverterInputStream */
+    /* Methods of Gio-2.0.Gio.ConverterInputStream */
     getConverter(): Converter
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     getBaseStream(): InputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3833,7 +3822,7 @@ export class ConverterInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3855,17 +3844,17 @@ export class ConverterInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableInputStream */
+    /* Methods of Gio-2.0.Gio.PollableInputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
     readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.ConverterInputStream */
+    /* Virtual methods of Gio-2.0.Gio.ConverterInputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsReadable(): boolean
     vfuncReadNonblocking(buffer: any[] | null): number
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -3875,7 +3864,7 @@ export class ConverterInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -3883,7 +3872,7 @@ export class ConverterInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3913,19 +3902,19 @@ export interface ConverterOutputStream_ConstructProps extends FilterOutputStream
     converter?: Converter
 }
 export class ConverterOutputStream {
-    /* Fields of Gio.ConverterOutputStream */
+    /* Fields of Gio-2.0.Gio.ConverterOutputStream */
     parentInstance: FilterOutputStream
-    /* Fields of Gio.FilterOutputStream */
+    /* Fields of Gio-2.0.Gio.FilterOutputStream */
     baseStream: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ConverterOutputStream */
+    /* Methods of Gio-2.0.Gio.ConverterOutputStream */
     getConverter(): Converter
-    /* Methods of Gio.FilterOutputStream */
+    /* Methods of Gio-2.0.Gio.FilterOutputStream */
     getBaseStream(): OutputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3955,7 +3944,7 @@ export class ConverterOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3977,19 +3966,19 @@ export class ConverterOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableOutputStream */
+    /* Methods of Gio-2.0.Gio.PollableOutputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
     writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Virtual methods of Gio.ConverterOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.ConverterOutputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
     vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -4005,7 +3994,7 @@ export class ConverterOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4013,7 +4002,7 @@ export class ConverterOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4037,16 +4026,16 @@ export class ConverterOutputStream {
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Credentials {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Credentials */
+    /* Methods of Gio-2.0.Gio.Credentials */
     getUnixPid(): number
     getUnixUser(): number
     isSameUser(otherCredentials: Credentials): boolean
     setNative(nativeType: CredentialsType, native: object): void
     setUnixUser(uid: number): boolean
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4068,7 +4057,7 @@ export class Credentials {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4076,7 +4065,7 @@ export class Credentials {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Credentials, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Credentials, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4100,9 +4089,9 @@ export class Credentials {
 export interface DBusActionGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusActionGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4124,7 +4113,7 @@ export class DBusActionGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -4139,10 +4128,10 @@ export class DBusActionGroup {
     hasAction(actionName: string): boolean
     listActions(): string[]
     queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.RemoteActionGroup */
+    /* Methods of Gio-2.0.Gio.RemoteActionGroup */
     activateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     changeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
-    /* Virtual methods of Gio.DBusActionGroup */
+    /* Virtual methods of Gio-2.0.Gio.DBusActionGroup */
     vfuncActionAdded(actionName: string): void
     vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
     vfuncActionRemoved(actionName: string): void
@@ -4159,7 +4148,7 @@ export class DBusActionGroup {
     vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     vfuncActivateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     vfuncChangeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4167,14 +4156,14 @@ export class DBusActionGroup {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusActionGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusActionGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: DBusActionGroup, actionName: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: DBusActionGroup, actionName: string) => void)): number
     emit(sigName: "action-added", actionName: string): void
@@ -4216,12 +4205,12 @@ export class DBusActionGroup {
 export interface DBusAuthObserver_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusAuthObserver {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusAuthObserver */
+    /* Methods of Gio-2.0.Gio.DBusAuthObserver */
     allowMechanism(mechanism: string): boolean
     authorizeAuthenticatedPeer(stream: IOStream, credentials?: Credentials | null): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4243,7 +4232,7 @@ export class DBusAuthObserver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4251,7 +4240,7 @@ export class DBusAuthObserver {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusAuthObserver */
+    /* Signals of Gio-2.0.Gio.DBusAuthObserver */
     connect(sigName: "allow-mechanism", callback: (($obj: DBusAuthObserver, mechanism: string) => boolean)): number
     connect_after(sigName: "allow-mechanism", callback: (($obj: DBusAuthObserver, mechanism: string) => boolean)): number
     emit(sigName: "allow-mechanism", mechanism: string): void
@@ -4264,7 +4253,7 @@ export class DBusAuthObserver {
     on(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4294,14 +4283,14 @@ export interface DBusConnection_ConstructProps extends GObject.Object_ConstructP
     stream?: IOStream
 }
 export class DBusConnection {
-    /* Properties of Gio.DBusConnection */
+    /* Properties of Gio-2.0.Gio.DBusConnection */
     readonly capabilities: DBusCapabilityFlags
     readonly closed: boolean
     exitOnClose: boolean
     readonly uniqueName: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusConnection */
+    /* Methods of Gio-2.0.Gio.DBusConnection */
     addFilter(filterFunction: DBusMessageFilterFunction): number
     call(busName: string | null, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant | null, replyType: GLib.VariantType | null, flags: DBusCallFlags, timeoutMsec: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     callFinish(res: AsyncResult): GLib.Variant
@@ -4342,7 +4331,7 @@ export class DBusConnection {
     unexportMenuModel(exportId: number): void
     unregisterObject(registrationId: number): boolean
     unregisterSubtree(registrationId: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4364,17 +4353,17 @@ export class DBusConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusConnection */
+    /* Virtual methods of Gio-2.0.Gio.DBusConnection */
     vfuncInitAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncInitFinish(res: AsyncResult): boolean
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4382,14 +4371,14 @@ export class DBusConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusConnection */
+    /* Signals of Gio-2.0.Gio.DBusConnection */
     connect(sigName: "closed", callback: (($obj: DBusConnection, remotePeerVanished: boolean, error?: GLib.Error | null) => void)): number
     connect_after(sigName: "closed", callback: (($obj: DBusConnection, remotePeerVanished: boolean, error?: GLib.Error | null) => void)): number
     emit(sigName: "closed", remotePeerVanished: boolean, error?: GLib.Error | null): void
     on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4440,24 +4429,24 @@ export interface DBusInterfaceSkeleton_ConstructProps extends GObject.Object_Con
     gFlags?: DBusInterfaceSkeletonFlags
 }
 export class DBusInterfaceSkeleton {
-    /* Properties of Gio.DBusInterfaceSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: DBusInterfaceSkeletonFlags
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusInterfaceSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: DBusConnection, objectPath: string): boolean
     flush(): void
-    getConnection(): DBusConnection | null
+    getConnection(): DBusConnection
     getConnections(): DBusConnection[]
     getFlags(): DBusInterfaceSkeletonFlags
     getInfo(): DBusInterfaceInfo
-    getObjectPath(): string | null
+    getObjectPath(): string
     getProperties(): GLib.Variant
     hasConnection(connection: DBusConnection): boolean
     setFlags(flags: DBusInterfaceSkeletonFlags): void
     unexport(): void
     unexportFromConnection(connection: DBusConnection): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4479,17 +4468,17 @@ export class DBusInterfaceSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusInterface */
-    getObject(): DBusObject | null
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    getObject(): DBusObject
     setObject(object?: DBusObject | null): void
-    /* Virtual methods of Gio.DBusInterfaceSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfuncFlush(): void
     vfuncGAuthorizeMethod(invocation: DBusMethodInvocation): boolean
     vfuncGetInfo(): DBusInterfaceInfo
     vfuncGetProperties(): GLib.Variant
-    vfuncDupObject(): DBusObject | null
+    vfuncDupObject(): DBusObject
     vfuncSetObject(object?: DBusObject | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4497,14 +4486,14 @@ export class DBusInterfaceSkeleton {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusInterfaceSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: (($obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: DBusMethodInvocation): void
     on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4531,20 +4520,20 @@ export class DBusInterfaceSkeleton {
 export interface DBusMenuModel_ConstructProps extends MenuModel_ConstructProps {
 }
 export class DBusMenuModel {
-    /* Fields of Gio.MenuModel */
+    /* Fields of Gio-2.0.Gio.MenuModel */
     parentInstance: GObject.Object
     priv: MenuModelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    /* Methods of Gio-2.0.Gio.MenuModel */
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
     iterateItemAttributes(itemIndex: number): MenuAttributeIter
     iterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4566,16 +4555,16 @@ export class DBusMenuModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MenuModel */
-    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
+    /* Virtual methods of Gio-2.0.Gio.MenuModel */
+    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
     vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
-    vfuncGetItemLink(itemIndex: number, link: string): MenuModel | null
+    vfuncGetItemLink(itemIndex: number, link: string): MenuModel
     vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
     vfuncIterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4583,14 +4572,14 @@ export class DBusMenuModel {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.MenuModel */
+    /* Signals of Gio-2.0.Gio.MenuModel */
     connect(sigName: "items-changed", callback: (($obj: DBusMenuModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: DBusMenuModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusMenuModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusMenuModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4614,54 +4603,54 @@ export class DBusMenuModel {
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusMessage {
-    /* Properties of Gio.DBusMessage */
+    /* Properties of Gio-2.0.Gio.DBusMessage */
     readonly locked: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusMessage */
+    /* Methods of Gio-2.0.Gio.DBusMessage */
     copy(): DBusMessage
-    getArg0(): string | null
-    getBody(): GLib.Variant | null
+    getArg0(): string
+    getBody(): GLib.Variant
     getByteOrder(): DBusMessageByteOrder
-    getDestination(): string | null
-    getErrorName(): string | null
+    getDestination(): string
+    getErrorName(): string
     getFlags(): DBusMessageFlags
     getHeader(headerField: DBusMessageHeaderField): GLib.Variant | null
     getHeaderFields(): any[]
-    getInterface(): string | null
+    getInterface(): string
     getLocked(): boolean
-    getMember(): string | null
+    getMember(): string
     getMessageType(): DBusMessageType
     getNumUnixFds(): number
-    getPath(): string | null
+    getPath(): string
     getReplySerial(): number
-    getSender(): string | null
+    getSender(): string
     getSerial(): number
     getSignature(): string
-    getUnixFdList(): UnixFDList | null
+    getUnixFdList(): UnixFDList
     lock(): void
     newMethodErrorLiteral(errorName: string, errorMessage: string): DBusMessage
     newMethodReply(): DBusMessage
     print(indent: number): string
     setBody(body: GLib.Variant): void
     setByteOrder(byteOrder: DBusMessageByteOrder): void
-    setDestination(value?: string | null): void
+    setDestination(value: string): void
     setErrorName(value: string): void
     setFlags(flags: DBusMessageFlags): void
     setHeader(headerField: DBusMessageHeaderField, value?: GLib.Variant | null): void
-    setInterface(value?: string | null): void
-    setMember(value?: string | null): void
+    setInterface(value: string): void
+    setMember(value: string): void
     setMessageType(type: DBusMessageType): void
     setNumUnixFds(value: number): void
-    setPath(value?: string | null): void
+    setPath(value: string): void
     setReplySerial(value: number): void
-    setSender(value?: string | null): void
+    setSender(value: string): void
     setSerial(serial: number): void
-    setSignature(value?: string | null): void
+    setSignature(value: string): void
     setUnixFdList(fdList?: UnixFDList | null): void
     toBlob(capabilities: DBusCapabilityFlags): any[]
     toGerror(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4683,7 +4672,7 @@ export class DBusMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4691,7 +4680,7 @@ export class DBusMessage {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4724,24 +4713,24 @@ export class DBusMessage {
 export interface DBusMethodInvocation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusMethodInvocation {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusMethodInvocation */
+    /* Methods of Gio-2.0.Gio.DBusMethodInvocation */
     getConnection(): DBusConnection
     getInterfaceName(): string
     getMessage(): DBusMessage
-    getMethodInfo(): DBusMethodInfo | null
+    getMethodInfo(): DBusMethodInfo
     getMethodName(): string
     getObjectPath(): string
     getParameters(): GLib.Variant
-    getPropertyInfo(): DBusPropertyInfo | null
+    getPropertyInfo(): DBusPropertyInfo
     getSender(): string
     returnDbusError(errorName: string, errorMessage: string): void
     returnErrorLiteral(domain: GLib.Quark, code: number, message: string): void
     returnGerror(error: GLib.Error): void
     returnValue(parameters?: GLib.Variant | null): void
     returnValueWithUnixFdList(parameters?: GLib.Variant | null, fdList?: UnixFDList | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4763,7 +4752,7 @@ export class DBusMethodInvocation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4771,7 +4760,7 @@ export class DBusMethodInvocation {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4801,16 +4790,16 @@ export interface DBusObjectManagerClient_ConstructProps extends GObject.Object_C
     objectPath?: string
 }
 export class DBusObjectManagerClient {
-    /* Properties of Gio.DBusObjectManagerClient */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectManagerClient */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerClient */
     getConnection(): DBusConnection
     getFlags(): DBusObjectManagerClientFlags
     getName(): string
     getNameOwner(): string | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4832,18 +4821,18 @@ export class DBusObjectManagerClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): DBusInterface
     getObject(objectPath: string): DBusObject
     getObjectPath(): string
     getObjects(): DBusObject[]
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusObjectManagerClient */
+    /* Virtual methods of Gio-2.0.Gio.DBusObjectManagerClient */
     vfuncInterfaceProxyPropertiesChanged(objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string): void
     vfuncInterfaceProxySignal(objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant): void
     vfuncInitAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -4857,7 +4846,7 @@ export class DBusObjectManagerClient {
     vfuncObjectAdded(object: DBusObject): void
     vfuncObjectRemoved(object: DBusObject): void
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4865,7 +4854,7 @@ export class DBusObjectManagerClient {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectManagerClient */
+    /* Signals of Gio-2.0.Gio.DBusObjectManagerClient */
     connect(sigName: "interface-proxy-properties-changed", callback: (($obj: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
     connect_after(sigName: "interface-proxy-properties-changed", callback: (($obj: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
     emit(sigName: "interface-proxy-properties-changed", objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]): void
@@ -4878,14 +4867,14 @@ export class DBusObjectManagerClient {
     on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
@@ -4940,18 +4929,18 @@ export interface DBusObjectManagerServer_ConstructProps extends GObject.Object_C
     objectPath?: string
 }
 export class DBusObjectManagerServer {
-    /* Properties of Gio.DBusObjectManagerServer */
+    /* Properties of Gio-2.0.Gio.DBusObjectManagerServer */
     connection: DBusConnection
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectManagerServer */
+    /* Methods of Gio-2.0.Gio.DBusObjectManagerServer */
     export(object: DBusObjectSkeleton): void
     exportUniquely(object: DBusObjectSkeleton): void
     getConnection(): DBusConnection
     isExported(object: DBusObjectSkeleton): boolean
     setConnection(connection?: DBusConnection | null): void
     unexport(objectPath: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4973,12 +4962,12 @@ export class DBusObjectManagerServer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObjectManager */
+    /* Methods of Gio-2.0.Gio.DBusObjectManager */
     getInterface(objectPath: string, interfaceName: string): DBusInterface
     getObject(objectPath: string): DBusObject
     getObjectPath(): string
     getObjects(): DBusObject[]
-    /* Virtual methods of Gio.DBusObjectManagerServer */
+    /* Virtual methods of Gio-2.0.Gio.DBusObjectManagerServer */
     vfuncGetInterface(objectPath: string, interfaceName: string): DBusInterface
     vfuncGetObject(objectPath: string): DBusObject
     vfuncGetObjectPath(): string
@@ -4987,7 +4976,7 @@ export class DBusObjectManagerServer {
     vfuncInterfaceRemoved(object: DBusObject, interface: DBusInterface): void
     vfuncObjectAdded(object: DBusObject): void
     vfuncObjectRemoved(object: DBusObject): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -4995,14 +4984,14 @@ export class DBusObjectManagerServer {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObjectManager */
+    /* Signals of Gio-2.0.Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: (($obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
@@ -5051,11 +5040,11 @@ export interface DBusObjectProxy_ConstructProps extends GObject.Object_Construct
     gObjectPath?: string
 }
 export class DBusObjectProxy {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectProxy */
+    /* Methods of Gio-2.0.Gio.DBusObjectProxy */
     getConnection(): DBusConnection
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5077,17 +5066,17 @@ export class DBusObjectProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    /* Methods of Gio-2.0.Gio.DBusObject */
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObjectProxy */
-    vfuncGetInterface(interfaceName: string): DBusInterface | null
+    /* Virtual methods of Gio-2.0.Gio.DBusObjectProxy */
+    vfuncGetInterface(interfaceName: string): DBusInterface
     vfuncGetInterfaces(): DBusInterface[]
     vfuncGetObjectPath(): string
     vfuncInterfaceAdded(interface: DBusInterface): void
     vfuncInterfaceRemoved(interface: DBusInterface): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5095,14 +5084,14 @@ export class DBusObjectProxy {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
@@ -5133,17 +5122,17 @@ export interface DBusObjectSkeleton_ConstructProps extends GObject.Object_Constr
     gObjectPath?: string
 }
 export class DBusObjectSkeleton {
-    /* Properties of Gio.DBusObjectSkeleton */
+    /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusObjectSkeleton */
+    /* Methods of Gio-2.0.Gio.DBusObjectSkeleton */
     addInterface(interface: DBusInterfaceSkeleton): void
     flush(): void
     removeInterface(interface: DBusInterfaceSkeleton): void
     removeInterfaceByName(interfaceName: string): void
     setObjectPath(objectPath: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5165,18 +5154,18 @@ export class DBusObjectSkeleton {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    /* Methods of Gio-2.0.Gio.DBusObject */
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
-    /* Virtual methods of Gio.DBusObjectSkeleton */
+    /* Virtual methods of Gio-2.0.Gio.DBusObjectSkeleton */
     vfuncAuthorizeMethod(interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): boolean
-    vfuncGetInterface(interfaceName: string): DBusInterface | null
+    vfuncGetInterface(interfaceName: string): DBusInterface
     vfuncGetInterfaces(): DBusInterface[]
     vfuncGetObjectPath(): string
     vfuncInterfaceAdded(interface: DBusInterface): void
     vfuncInterfaceRemoved(interface: DBusInterface): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5184,21 +5173,21 @@ export class DBusObjectSkeleton {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusObjectSkeleton */
+    /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
     connect(sigName: "authorize-method", callback: (($obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "authorize-method", callback: (($obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     emit(sigName: "authorize-method", interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): void
     on(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.DBusObject */
+    /* Signals of Gio-2.0.Gio.DBusObject */
     connect(sigName: "interface-added", callback: (($obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: (($obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
@@ -5241,13 +5230,13 @@ export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps 
     gObjectPath?: string
 }
 export class DBusProxy {
-    /* Properties of Gio.DBusProxy */
+    /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: DBusInterfaceInfo
     readonly gNameOwner: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusProxy */
+    /* Methods of Gio-2.0.Gio.DBusProxy */
     call(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     callFinish(res: AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, cancellable?: Cancellable | null): GLib.Variant
@@ -5267,7 +5256,7 @@ export class DBusProxy {
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
     setDefaultTimeout(timeoutMsec: number): void
     setInterfaceInfo(info?: DBusInterfaceInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5289,26 +5278,26 @@ export class DBusProxy {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncInitable */
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
-    /* Methods of Gio.DBusInterface */
-    getObject(): DBusObject | null
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusProxy */
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfuncGPropertiesChanged(changedProperties: GLib.Variant, invalidatedProperties: string): void
     vfuncGSignal(senderName: string, signalName: string, parameters: GLib.Variant): void
     vfuncInitAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncInitFinish(res: AsyncResult): boolean
-    vfuncDupObject(): DBusObject | null
+    vfuncDupObject(): DBusObject
     vfuncGetInfo(): DBusInterfaceInfo
     vfuncSetObject(object?: DBusObject | null): void
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5316,7 +5305,7 @@ export class DBusProxy {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusProxy */
+    /* Signals of Gio-2.0.Gio.DBusProxy */
     connect(sigName: "g-properties-changed", callback: (($obj: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
     connect_after(sigName: "g-properties-changed", callback: (($obj: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string[]) => void)): number
     emit(sigName: "g-properties-changed", changedProperties: GLib.Variant, invalidatedProperties: string[]): void
@@ -5329,7 +5318,7 @@ export class DBusProxy {
     on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5378,19 +5367,19 @@ export interface DBusServer_ConstructProps extends GObject.Object_ConstructProps
     guid?: string
 }
 export class DBusServer {
-    /* Properties of Gio.DBusServer */
+    /* Properties of Gio-2.0.Gio.DBusServer */
     readonly active: boolean
     readonly clientAddress: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DBusServer */
+    /* Methods of Gio-2.0.Gio.DBusServer */
     getClientAddress(): string
     getFlags(): DBusServerFlags
     getGuid(): string
     isActive(): boolean
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5412,11 +5401,11 @@ export class DBusServer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.DBusServer */
+    /* Virtual methods of Gio-2.0.Gio.DBusServer */
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5424,14 +5413,14 @@ export class DBusServer {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.DBusServer */
+    /* Signals of Gio-2.0.Gio.DBusServer */
     connect(sigName: "new-connection", callback: (($obj: DBusServer, connection: DBusConnection) => boolean)): number
     connect_after(sigName: "new-connection", callback: (($obj: DBusServer, connection: DBusConnection) => boolean)): number
     emit(sigName: "new-connection", connection: DBusConnection): void
     on(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5468,20 +5457,20 @@ export interface DataInputStream_ConstructProps extends BufferedInputStream_Cons
     newlineType?: DataStreamNewlineType
 }
 export class DataInputStream {
-    /* Properties of Gio.DataInputStream */
+    /* Properties of Gio-2.0.Gio.DataInputStream */
     byteOrder: DataStreamByteOrder
     newlineType: DataStreamNewlineType
-    /* Properties of Gio.BufferedInputStream */
+    /* Properties of Gio-2.0.Gio.BufferedInputStream */
     bufferSize: number
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
-    /* Fields of Gio.DataInputStream */
+    /* Fields of Gio-2.0.Gio.DataInputStream */
     parentInstance: BufferedInputStream
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     baseStream: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DataInputStream */
+    /* Methods of Gio-2.0.Gio.DataInputStream */
     getByteOrder(): DataStreamByteOrder
     getNewlineType(): DataStreamNewlineType
     readByte(cancellable?: Cancellable | null): number
@@ -5504,7 +5493,7 @@ export class DataInputStream {
     readUptoFinish(result: AsyncResult): [ /* returnType */ string, /* length */ number | null ]
     setByteOrder(order: DataStreamByteOrder): void
     setNewlineType(type: DataStreamNewlineType): void
-    /* Methods of Gio.BufferedInputStream */
+    /* Methods of Gio-2.0.Gio.BufferedInputStream */
     fill(count: number, cancellable?: Cancellable | null): number
     fillAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     fillFinish(result: AsyncResult): number
@@ -5513,11 +5502,11 @@ export class DataInputStream {
     peek(buffer: any[], offset: number): number
     peekBuffer(): any[]
     setBufferSize(size: number): void
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     getBaseStream(): InputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -5537,7 +5526,7 @@ export class DataInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5559,13 +5548,13 @@ export class DataInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.BufferedInputStream */
+    /* Virtual methods of Gio-2.0.Gio.BufferedInputStream */
     vfuncFill(count: number, cancellable?: Cancellable | null): number
     vfuncFillAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncFillFinish(result: AsyncResult): number
@@ -5574,7 +5563,7 @@ export class DataInputStream {
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -5584,7 +5573,7 @@ export class DataInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5592,7 +5581,7 @@ export class DataInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5637,15 +5626,15 @@ export interface DataOutputStream_ConstructProps extends FilterOutputStream_Cons
     byteOrder?: DataStreamByteOrder
 }
 export class DataOutputStream {
-    /* Properties of Gio.DataOutputStream */
+    /* Properties of Gio-2.0.Gio.DataOutputStream */
     byteOrder: DataStreamByteOrder
-    /* Fields of Gio.DataOutputStream */
+    /* Fields of Gio-2.0.Gio.DataOutputStream */
     parentInstance: FilterOutputStream
-    /* Fields of Gio.FilterOutputStream */
+    /* Fields of Gio-2.0.Gio.FilterOutputStream */
     baseStream: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DataOutputStream */
+    /* Methods of Gio-2.0.Gio.DataOutputStream */
     getByteOrder(): DataStreamByteOrder
     putByte(data: number, cancellable?: Cancellable | null): boolean
     putInt16(data: number, cancellable?: Cancellable | null): boolean
@@ -5656,11 +5645,11 @@ export class DataOutputStream {
     putUint32(data: number, cancellable?: Cancellable | null): boolean
     putUint64(data: number, cancellable?: Cancellable | null): boolean
     setByteOrder(order: DataStreamByteOrder): void
-    /* Methods of Gio.FilterOutputStream */
+    /* Methods of Gio-2.0.Gio.FilterOutputStream */
     getBaseStream(): OutputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -5690,7 +5679,7 @@ export class DataOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5712,19 +5701,19 @@ export class DataOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.DataOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.DataOutputStream */
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -5740,7 +5729,7 @@ export class DataOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5748,7 +5737,7 @@ export class DataOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5778,28 +5767,28 @@ export interface DesktopAppInfo_ConstructProps extends GObject.Object_ConstructP
     filename?: string
 }
 export class DesktopAppInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.DesktopAppInfo */
+    /* Methods of Gio-2.0.Gio.DesktopAppInfo */
     getActionName(actionName: string): string
     getBoolean(key: string): boolean
-    getCategories(): string | null
-    getFilename(): string | null
-    getGenericName(): string | null
+    getCategories(): string
+    getFilename(): string
+    getGenericName(): string
     getIsHidden(): boolean
     getKeywords(): string[]
     getLocaleString(key: string): string | null
     getNodisplay(): boolean
     getShowIn(desktopEnv?: string | null): boolean
-    getStartupWmClass(): string | null
-    getString(key: string): string | null
+    getStartupWmClass(): string
+    getString(key: string): string
     getStringList(key: string): string[]
     hasKey(key: string): boolean
     launchAction(actionName: string, launchContext?: AppLaunchContext | null): void
     launchUrisAsManager(uris: string[], launchContext: AppLaunchContext | null, spawnFlags: GLib.SpawnFlags): boolean
     launchUrisAsManagerWithFds(uris: string[], launchContext: AppLaunchContext | null, spawnFlags: GLib.SpawnFlags, stdinFd: number, stdoutFd: number, stderrFd: number): boolean
     listActions(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5821,19 +5810,19 @@ export class DesktopAppInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AppInfo */
+    /* Methods of Gio-2.0.Gio.AppInfo */
     addSupportsType(contentType: string): boolean
     canDelete(): boolean
     canRemoveSupportsType(): boolean
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -5847,19 +5836,19 @@ export class DesktopAppInfo {
     shouldShow(): boolean
     supportsFiles(): boolean
     supportsUris(): boolean
-    /* Virtual methods of Gio.DesktopAppInfo */
+    /* Virtual methods of Gio-2.0.Gio.DesktopAppInfo */
     vfuncAddSupportsType(contentType: string): boolean
     vfuncCanDelete(): boolean
     vfuncCanRemoveSupportsType(): boolean
     vfuncDoDelete(): boolean
     vfuncDup(): AppInfo
     vfuncEqual(appinfo2: AppInfo): boolean
-    vfuncGetCommandline(): string | null
-    vfuncGetDescription(): string | null
+    vfuncGetCommandline(): string
+    vfuncGetDescription(): string
     vfuncGetDisplayName(): string
     vfuncGetExecutable(): string
-    vfuncGetIcon(): Icon | null
-    vfuncGetId(): string | null
+    vfuncGetIcon(): Icon
+    vfuncGetId(): string
     vfuncGetName(): string
     vfuncGetSupportedTypes(): string[]
     vfuncLaunch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -5873,7 +5862,7 @@ export class DesktopAppInfo {
     vfuncShouldShow(): boolean
     vfuncSupportsFiles(): boolean
     vfuncSupportsUris(): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5881,7 +5870,7 @@ export class DesktopAppInfo {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5923,12 +5912,12 @@ export interface Emblem_ConstructProps extends GObject.Object_ConstructProps {
     origin?: EmblemOrigin
 }
 export class Emblem {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Emblem */
+    /* Methods of Gio-2.0.Gio.Emblem */
     getIcon(): Icon
     getOrigin(): EmblemOrigin
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5950,15 +5939,15 @@ export class Emblem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Virtual methods of Gio.Emblem */
+    /* Virtual methods of Gio-2.0.Gio.Emblem */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
-    /* Virtual methods of GObject.Object */
+    vfuncSerialize(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -5966,7 +5955,7 @@ export class Emblem {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Emblem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Emblem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5986,7 +5975,7 @@ export class Emblem {
     /* Static methods and pseudo-constructors */
     static new(icon: Icon): Emblem
     static newWithOrigin(icon: Icon, origin: EmblemOrigin): Emblem
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -5995,16 +5984,16 @@ export interface EmblemedIcon_ConstructProps extends GObject.Object_ConstructPro
     gicon?: Icon
 }
 export class EmblemedIcon {
-    /* Fields of Gio.EmblemedIcon */
+    /* Fields of Gio-2.0.Gio.EmblemedIcon */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.EmblemedIcon */
+    /* Methods of Gio-2.0.Gio.EmblemedIcon */
     addEmblem(emblem: Emblem): void
     clearEmblems(): void
     getEmblems(): Emblem[]
     getIcon(): Icon
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6026,15 +6015,15 @@ export class EmblemedIcon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Virtual methods of Gio.EmblemedIcon */
+    /* Virtual methods of Gio-2.0.Gio.EmblemedIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
-    /* Virtual methods of GObject.Object */
+    vfuncSerialize(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6042,7 +6031,7 @@ export class EmblemedIcon {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6061,7 +6050,7 @@ export class EmblemedIcon {
     _init (config?: EmblemedIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(icon: Icon, emblem?: Emblem | null): EmblemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -6070,11 +6059,11 @@ export interface FileEnumerator_ConstructProps extends GObject.Object_ConstructP
     container?: File
 }
 export class FileEnumerator {
-    /* Fields of Gio.FileEnumerator */
+    /* Fields of Gio-2.0.Gio.FileEnumerator */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileEnumerator */
+    /* Methods of Gio-2.0.Gio.FileEnumerator */
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     closeFinish(result: AsyncResult): boolean
@@ -6087,7 +6076,7 @@ export class FileEnumerator {
     nextFilesAsync(numFiles: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     nextFilesFinish(result: AsyncResult): FileInfo[]
     setPending(pending: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6109,14 +6098,14 @@ export class FileEnumerator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.FileEnumerator */
+    /* Virtual methods of Gio-2.0.Gio.FileEnumerator */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncNextFile(cancellable?: Cancellable | null): FileInfo | null
     vfuncNextFilesAsync(numFiles: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncNextFilesFinish(result: AsyncResult): FileInfo[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6124,7 +6113,7 @@ export class FileEnumerator {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6146,20 +6135,20 @@ export class FileEnumerator {
 export interface FileIOStream_ConstructProps extends IOStream_ConstructProps {
 }
 export class FileIOStream {
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.FileIOStream */
+    /* Fields of Gio-2.0.Gio.FileIOStream */
     parentInstance: IOStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileIOStream */
-    getEtag(): string | null
+    /* Methods of Gio-2.0.Gio.FileIOStream */
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6170,7 +6159,7 @@ export class FileIOStream {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6192,29 +6181,29 @@ export class FileIOStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.FileIOStream */
+    /* Virtual methods of Gio-2.0.Gio.FileIOStream */
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
-    vfuncGetEtag(): string | null
+    vfuncGetEtag(): string
     vfuncQueryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     vfuncQueryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncQueryInfoFinish(result: AsyncResult): FileInfo
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(size: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6222,7 +6211,7 @@ export class FileIOStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6260,11 +6249,11 @@ export interface FileIcon_ConstructProps extends GObject.Object_ConstructProps {
     file?: File
 }
 export class FileIcon {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileIcon */
+    /* Methods of Gio-2.0.Gio.FileIcon */
     getFile(): File
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6286,22 +6275,22 @@ export class FileIcon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Methods of Gio.LoadableIcon */
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Virtual methods of Gio.FileIcon */
+    /* Virtual methods of Gio-2.0.Gio.FileIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
+    vfuncSerialize(): GLib.Variant
     vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6309,7 +6298,7 @@ export class FileIcon {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6328,7 +6317,7 @@ export class FileIcon {
     _init (config?: FileIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(file: File): FileIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -6336,9 +6325,9 @@ export class FileIcon {
 export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FileInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileInfo */
+    /* Methods of Gio-2.0.Gio.FileInfo */
     clearStatus(): void
     copyInto(destInfo: FileInfo): void
     dup(): FileInfo
@@ -6359,9 +6348,9 @@ export class FileInfo {
     getDeletionDate(): GLib.DateTime | null
     getDisplayName(): string
     getEditName(): string
-    getEtag(): string | null
+    getEtag(): string
     getFileType(): FileType
-    getIcon(): Icon | null
+    getIcon(): Icon
     getIsBackup(): boolean
     getIsHidden(): boolean
     getIsSymlink(): boolean
@@ -6370,8 +6359,8 @@ export class FileInfo {
     getName(): string
     getSize(): number
     getSortOrder(): number
-    getSymbolicIcon(): Icon | null
-    getSymlinkTarget(): string | null
+    getSymbolicIcon(): Icon
+    getSymlinkTarget(): string
     hasAttribute(attribute: string): boolean
     hasNamespace(nameSpace: string): boolean
     listAttributes(nameSpace?: string | null): string[] | null
@@ -6403,7 +6392,7 @@ export class FileInfo {
     setSymbolicIcon(icon: Icon): void
     setSymlinkTarget(symlinkTarget: string): void
     unsetAttributeMask(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6425,7 +6414,7 @@ export class FileInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6433,7 +6422,7 @@ export class FileInfo {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6457,15 +6446,15 @@ export class FileInfo {
 export interface FileInputStream_ConstructProps extends InputStream_ConstructProps {
 }
 export class FileInputStream {
-    /* Fields of Gio.FileInputStream */
+    /* Fields of Gio-2.0.Gio.FileInputStream */
     parentInstance: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileInputStream */
+    /* Methods of Gio-2.0.Gio.FileInputStream */
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6485,7 +6474,7 @@ export class FileInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6507,13 +6496,13 @@ export class FileInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.FileInputStream */
+    /* Virtual methods of Gio-2.0.Gio.FileInputStream */
     vfuncCanSeek(): boolean
     vfuncQueryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     vfuncQueryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6522,7 +6511,7 @@ export class FileInputStream {
     vfuncTell(): number
     vfuncCanTruncate(): boolean
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -6532,7 +6521,7 @@ export class FileInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6540,7 +6529,7 @@ export class FileInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6563,19 +6552,19 @@ export interface FileMonitor_ConstructProps extends GObject.Object_ConstructProp
     rateLimit?: number
 }
 export class FileMonitor {
-    /* Properties of Gio.FileMonitor */
+    /* Properties of Gio-2.0.Gio.FileMonitor */
     readonly cancelled: boolean
     rateLimit: number
-    /* Fields of Gio.FileMonitor */
+    /* Fields of Gio-2.0.Gio.FileMonitor */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileMonitor */
+    /* Methods of Gio-2.0.Gio.FileMonitor */
     cancel(): boolean
     emitEvent(child: File, otherFile: File, eventType: FileMonitorEvent): void
     isCancelled(): boolean
     setRateLimit(limitMsecs: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6597,10 +6586,10 @@ export class FileMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.FileMonitor */
+    /* Virtual methods of Gio-2.0.Gio.FileMonitor */
     vfuncCancel(): boolean
     vfuncChanged(file: File, otherFile: File, eventType: FileMonitorEvent): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6608,14 +6597,14 @@ export class FileMonitor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.FileMonitor */
+    /* Signals of Gio-2.0.Gio.FileMonitor */
     connect(sigName: "changed", callback: (($obj: FileMonitor, file: File, otherFile: File | null, eventType: FileMonitorEvent) => void)): number
     connect_after(sigName: "changed", callback: (($obj: FileMonitor, file: File, otherFile: File | null, eventType: FileMonitorEvent) => void)): number
     emit(sigName: "changed", file: File, otherFile: File | null, eventType: FileMonitorEvent): void
     on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6647,16 +6636,16 @@ export class FileMonitor {
 export interface FileOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
 export class FileOutputStream {
-    /* Fields of Gio.FileOutputStream */
+    /* Fields of Gio-2.0.Gio.FileOutputStream */
     parentInstance: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FileOutputStream */
-    getEtag(): string | null
+    /* Methods of Gio-2.0.Gio.FileOutputStream */
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6686,7 +6675,7 @@ export class FileOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6708,23 +6697,23 @@ export class FileOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.FileOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.FileOutputStream */
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
-    vfuncGetEtag(): string | null
+    vfuncGetEtag(): string
     vfuncQueryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     vfuncQueryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncQueryInfoFinish(result: AsyncResult): FileInfo
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(size: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -6740,7 +6729,7 @@ export class FileOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6748,7 +6737,7 @@ export class FileOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6770,13 +6759,13 @@ export class FileOutputStream {
 export interface FilenameCompleter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FilenameCompleter {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FilenameCompleter */
-    getCompletionSuffix(initialText: string): string | null
+    /* Methods of Gio-2.0.Gio.FilenameCompleter */
+    getCompletionSuffix(initialText: string): string
     getCompletions(initialText: string): string[]
     setDirsOnly(dirsOnly: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6798,9 +6787,9 @@ export class FilenameCompleter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.FilenameCompleter */
+    /* Virtual methods of Gio-2.0.Gio.FilenameCompleter */
     vfuncGotCompletionData(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6808,14 +6797,14 @@ export class FilenameCompleter {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.FilenameCompleter */
+    /* Signals of Gio-2.0.Gio.FilenameCompleter */
     connect(sigName: "got-completion-data", callback: (($obj: FilenameCompleter) => void)): number
     connect_after(sigName: "got-completion-data", callback: (($obj: FilenameCompleter) => void)): number
     emit(sigName: "got-completion-data"): void
     on(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilenameCompleter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilenameCompleter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6841,18 +6830,18 @@ export interface FilterInputStream_ConstructProps extends InputStream_ConstructP
     closeBaseStream?: boolean
 }
 export class FilterInputStream {
-    /* Properties of Gio.FilterInputStream */
+    /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
-    /* Fields of Gio.FilterInputStream */
+    /* Fields of Gio-2.0.Gio.FilterInputStream */
     parentInstance: InputStream
     baseStream: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FilterInputStream */
+    /* Methods of Gio-2.0.Gio.FilterInputStream */
     getBaseStream(): InputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6872,7 +6861,7 @@ export class FilterInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6894,7 +6883,7 @@ export class FilterInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -6904,7 +6893,7 @@ export class FilterInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -6912,7 +6901,7 @@ export class FilterInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6941,16 +6930,16 @@ export interface FilterOutputStream_ConstructProps extends OutputStream_Construc
     closeBaseStream?: boolean
 }
 export class FilterOutputStream {
-    /* Fields of Gio.FilterOutputStream */
+    /* Fields of Gio-2.0.Gio.FilterOutputStream */
     parentInstance: OutputStream
     baseStream: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.FilterOutputStream */
+    /* Methods of Gio-2.0.Gio.FilterOutputStream */
     getBaseStream(): OutputStream
     getCloseBaseStream(): boolean
     setCloseBaseStream(closeBase: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6980,7 +6969,7 @@ export class FilterOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7002,7 +6991,7 @@ export class FilterOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -7018,7 +7007,7 @@ export class FilterOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7026,7 +7015,7 @@ export class FilterOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7048,18 +7037,18 @@ export class FilterOutputStream {
 export interface IOModule_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
 export class IOModule {
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parentInstance: GObject.Object
     useCount: number
     typeInfos: object[]
     interfaceInfos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.IOModule */
+    /* Methods of Gio-2.0.Gio.IOModule */
     load(): void
     unload(): void
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     addInterface(instanceType: GObject.Type, interfaceType: GObject.Type, interfaceInfo: GObject.InterfaceInfo): void
     registerEnum(name: string, constStaticValues: GObject.EnumValue): GObject.Type
     registerFlags(name: string, constStaticValues: GObject.FlagsValue): GObject.Type
@@ -7067,7 +7056,7 @@ export class IOModule {
     setName(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7089,14 +7078,14 @@ export class IOModule {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     completeInterfaceInfo(instanceType: GObject.Type, interfaceType: GObject.Type, info: GObject.InterfaceInfo): void
     completeTypeInfo(gType: GObject.Type, info: GObject.TypeInfo, valueTable: GObject.TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
+    /* Virtual methods of GObject-2.0.GObject.TypeModule */
     vfuncLoad(): boolean
     vfuncUnload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7104,7 +7093,7 @@ export class IOModule {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IOModule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IOModule, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7129,15 +7118,15 @@ export class IOModule {
 export interface IOStream_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class IOStream {
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.IOStream */
+    /* Fields of Gio-2.0.Gio.IOStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -7148,7 +7137,7 @@ export class IOStream {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7170,13 +7159,13 @@ export class IOStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7184,7 +7173,7 @@ export class IOStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7225,7 +7214,7 @@ export interface InetAddress_ConstructProps extends GObject.Object_ConstructProp
     family?: SocketFamily
 }
 export class InetAddress {
-    /* Properties of Gio.InetAddress */
+    /* Properties of Gio-2.0.Gio.InetAddress */
     readonly isAny: boolean
     readonly isLinkLocal: boolean
     readonly isLoopback: boolean
@@ -7236,11 +7225,11 @@ export class InetAddress {
     readonly isMcSiteLocal: boolean
     readonly isMulticast: boolean
     readonly isSiteLocal: boolean
-    /* Fields of Gio.InetAddress */
+    /* Fields of Gio-2.0.Gio.InetAddress */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.InetAddress */
+    /* Methods of Gio-2.0.Gio.InetAddress */
     equal(otherAddress: InetAddress): boolean
     getFamily(): SocketFamily
     getIsAny(): boolean
@@ -7255,7 +7244,7 @@ export class InetAddress {
     getIsSiteLocal(): boolean
     getNativeSize(): number
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7277,9 +7266,9 @@ export class InetAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InetAddress */
+    /* Virtual methods of Gio-2.0.Gio.InetAddress */
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7287,7 +7276,7 @@ export class InetAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7366,22 +7355,22 @@ export interface InetAddressMask_ConstructProps extends GObject.Object_Construct
     length?: number
 }
 export class InetAddressMask {
-    /* Properties of Gio.InetAddressMask */
+    /* Properties of Gio-2.0.Gio.InetAddressMask */
     address: InetAddress
     readonly family: SocketFamily
     length: number
-    /* Fields of Gio.InetAddressMask */
+    /* Fields of Gio-2.0.Gio.InetAddressMask */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.InetAddressMask */
+    /* Methods of Gio-2.0.Gio.InetAddressMask */
     equal(mask2: InetAddressMask): boolean
     getAddress(): InetAddress
     getFamily(): SocketFamily
     getLength(): number
     matches(address: InetAddress): boolean
     toString(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7403,11 +7392,11 @@ export class InetAddressMask {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.InetAddressMask */
+    /* Virtual methods of Gio-2.0.Gio.InetAddressMask */
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7415,7 +7404,7 @@ export class InetAddressMask {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7460,22 +7449,22 @@ export interface InetSocketAddress_ConstructProps extends SocketAddress_Construc
     scopeId?: number
 }
 export class InetSocketAddress {
-    /* Properties of Gio.SocketAddress */
+    /* Properties of Gio-2.0.Gio.SocketAddress */
     readonly family: SocketFamily
-    /* Fields of Gio.InetSocketAddress */
+    /* Fields of Gio-2.0.Gio.InetSocketAddress */
     parentInstance: SocketAddress
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.InetSocketAddress */
+    /* Methods of Gio-2.0.Gio.InetSocketAddress */
     getAddress(): InetAddress
     getFlowinfo(): number
     getPort(): number
     getScopeId(): number
-    /* Methods of Gio.SocketAddress */
+    /* Methods of Gio-2.0.Gio.SocketAddress */
     getFamily(): SocketFamily
     getNativeSize(): number
     toNative(dest: object | null, destlen: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7497,18 +7486,18 @@ export class InetSocketAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketAddress */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddress */
     vfuncGetFamily(): SocketFamily
     vfuncGetNativeSize(): number
     vfuncToNative(dest: object | null, destlen: number): boolean
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7516,7 +7505,7 @@ export class InetSocketAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7546,11 +7535,11 @@ export class InetSocketAddress {
 export interface InputStream_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InputStream {
-    /* Fields of Gio.InputStream */
+    /* Fields of Gio-2.0.Gio.InputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -7570,7 +7559,7 @@ export class InputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7592,7 +7581,7 @@ export class InputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -7602,7 +7591,7 @@ export class InputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7610,7 +7599,7 @@ export class InputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7633,9 +7622,9 @@ export interface ListStore_ConstructProps extends GObject.Object_ConstructProps 
     itemType?: GObject.Type
 }
 export class ListStore {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ListStore */
+    /* Methods of Gio-2.0.Gio.ListStore */
     append(item: GObject.Object): void
     find(item: GObject.Object): [ /* returnType */ boolean, /* position */ number | null ]
     findWithEqualFunc(item: GObject.Object, equalFunc: GLib.EqualFunc): [ /* returnType */ boolean, /* position */ number | null ]
@@ -7645,7 +7634,7 @@ export class ListStore {
     removeAll(): void
     sort(compareFunc: GLib.CompareDataFunc): void
     splice(position: number, nRemovals: number, additions: GObject.Object[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7667,16 +7656,16 @@ export class ListStore {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ListModel */
+    /* Methods of Gio-2.0.Gio.ListModel */
     getItemType(): GObject.Type
     getNItems(): number
     getItem(position: number): GObject.Object | null
     itemsChanged(position: number, removed: number, added: number): void
-    /* Virtual methods of Gio.ListStore */
+    /* Virtual methods of Gio-2.0.Gio.ListStore */
     vfuncGetItem(position: number): GObject.Object | null
     vfuncGetItemType(): GObject.Type
     vfuncGetNItems(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7684,14 +7673,14 @@ export class ListStore {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ListStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ListStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ListModel */
+    /* Signals of Gio-2.0.Gio.ListModel */
     connect(sigName: "items-changed", callback: (($obj: ListStore, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: ListStore, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
@@ -7715,14 +7704,14 @@ export class ListStore {
 export interface MemoryInputStream_ConstructProps extends InputStream_ConstructProps {
 }
 export class MemoryInputStream {
-    /* Fields of Gio.MemoryInputStream */
+    /* Fields of Gio-2.0.Gio.MemoryInputStream */
     parentInstance: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MemoryInputStream */
+    /* Methods of Gio-2.0.Gio.MemoryInputStream */
     addBytes(bytes: any): void
     addData(data: any[], destroy?: GLib.DestroyNotify | null): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -7742,7 +7731,7 @@ export class MemoryInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7764,18 +7753,18 @@ export class MemoryInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableInputStream */
+    /* Methods of Gio-2.0.Gio.PollableInputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
     readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.MemoryInputStream */
+    /* Virtual methods of Gio-2.0.Gio.MemoryInputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsReadable(): boolean
@@ -7785,7 +7774,7 @@ export class MemoryInputStream {
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -7795,7 +7784,7 @@ export class MemoryInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7803,7 +7792,7 @@ export class MemoryInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MemoryInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MemoryInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7831,19 +7820,19 @@ export interface MemoryOutputStream_ConstructProps extends OutputStream_Construc
     size?: number
 }
 export class MemoryOutputStream {
-    /* Properties of Gio.MemoryOutputStream */
+    /* Properties of Gio-2.0.Gio.MemoryOutputStream */
     readonly dataSize: number
-    /* Fields of Gio.MemoryOutputStream */
+    /* Fields of Gio-2.0.Gio.MemoryOutputStream */
     parentInstance: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MemoryOutputStream */
+    /* Methods of Gio-2.0.Gio.MemoryOutputStream */
     getData(): object | null
     getDataSize(): number
     getSize(): number
     stealAsBytes(): any
     stealData(): object | null
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -7873,7 +7862,7 @@ export class MemoryOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7895,19 +7884,19 @@ export class MemoryOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableOutputStream */
+    /* Methods of Gio-2.0.Gio.PollableOutputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
     writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Methods of Gio.Seekable */
+    /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
     seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     tell(): number
     truncate(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.MemoryOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.MemoryOutputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
@@ -7918,7 +7907,7 @@ export class MemoryOutputStream {
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
     vfuncTell(): number
     vfuncTruncateFn(offset: number, cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -7934,7 +7923,7 @@ export class MemoryOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -7942,7 +7931,7 @@ export class MemoryOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -7971,12 +7960,12 @@ export class MemoryOutputStream {
 export interface Menu_ConstructProps extends MenuModel_ConstructProps {
 }
 export class Menu {
-    /* Fields of Gio.MenuModel */
+    /* Fields of Gio-2.0.Gio.MenuModel */
     parentInstance: GObject.Object
     priv: MenuModelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Menu */
+    /* Methods of Gio-2.0.Gio.Menu */
     append(label?: string | null, detailedAction?: string | null): void
     appendItem(item: MenuItem): void
     appendSection(label: string | null, section: MenuModel): void
@@ -7992,15 +7981,15 @@ export class Menu {
     prependSubmenu(label: string | null, submenu: MenuModel): void
     remove(position: number): void
     removeAll(): void
-    /* Methods of Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    /* Methods of Gio-2.0.Gio.MenuModel */
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
     iterateItemAttributes(itemIndex: number): MenuAttributeIter
     iterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8022,16 +8011,16 @@ export class Menu {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MenuModel */
-    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
+    /* Virtual methods of Gio-2.0.Gio.MenuModel */
+    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
     vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
-    vfuncGetItemLink(itemIndex: number, link: string): MenuModel | null
+    vfuncGetItemLink(itemIndex: number, link: string): MenuModel
     vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
     vfuncIterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8039,14 +8028,14 @@ export class Menu {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.MenuModel */
+    /* Signals of Gio-2.0.Gio.MenuModel */
     connect(sigName: "items-changed", callback: (($obj: Menu, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: Menu, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Menu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8070,17 +8059,17 @@ export class Menu {
 export interface MenuAttributeIter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MenuAttributeIter {
-    /* Fields of Gio.MenuAttributeIter */
+    /* Fields of Gio-2.0.Gio.MenuAttributeIter */
     parentInstance: GObject.Object
     priv: MenuAttributeIterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MenuAttributeIter */
+    /* Methods of Gio-2.0.Gio.MenuAttributeIter */
     getName(): string
     getNext(): [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
     getValue(): GLib.Variant
     next(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8102,9 +8091,9 @@ export class MenuAttributeIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MenuAttributeIter */
+    /* Virtual methods of Gio-2.0.Gio.MenuAttributeIter */
     vfuncGetNext(): [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8112,7 +8101,7 @@ export class MenuAttributeIter {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8134,11 +8123,11 @@ export class MenuAttributeIter {
 export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MenuItem {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MenuItem */
-    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getLink(link: string): MenuModel | null
+    /* Methods of Gio-2.0.Gio.MenuItem */
+    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getLink(link: string): MenuModel
     setActionAndTargetValue(action?: string | null, targetValue?: GLib.Variant | null): void
     setAttributeValue(attribute: string, value?: GLib.Variant | null): void
     setDetailedAction(detailedAction: string): void
@@ -8147,7 +8136,7 @@ export class MenuItem {
     setLink(link: string, model?: MenuModel | null): void
     setSection(section?: MenuModel | null): void
     setSubmenu(submenu?: MenuModel | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8169,7 +8158,7 @@ export class MenuItem {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8177,7 +8166,7 @@ export class MenuItem {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8204,17 +8193,17 @@ export class MenuItem {
 export interface MenuLinkIter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MenuLinkIter {
-    /* Fields of Gio.MenuLinkIter */
+    /* Fields of Gio-2.0.Gio.MenuLinkIter */
     parentInstance: GObject.Object
     priv: MenuLinkIterPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MenuLinkIter */
+    /* Methods of Gio-2.0.Gio.MenuLinkIter */
     getName(): string
     getNext(): [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
     getValue(): MenuModel
     next(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8236,9 +8225,9 @@ export class MenuLinkIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MenuLinkIter */
+    /* Virtual methods of Gio-2.0.Gio.MenuLinkIter */
     vfuncGetNext(): [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8246,7 +8235,7 @@ export class MenuLinkIter {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuLinkIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MenuLinkIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8268,20 +8257,20 @@ export class MenuLinkIter {
 export interface MenuModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MenuModel {
-    /* Fields of Gio.MenuModel */
+    /* Fields of Gio-2.0.Gio.MenuModel */
     parentInstance: GObject.Object
     priv: MenuModelPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    /* Methods of Gio-2.0.Gio.MenuModel */
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
     iterateItemAttributes(itemIndex: number): MenuAttributeIter
     iterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8303,16 +8292,16 @@ export class MenuModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MenuModel */
-    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
+    /* Virtual methods of Gio-2.0.Gio.MenuModel */
+    vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
     vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
-    vfuncGetItemLink(itemIndex: number, link: string): MenuModel | null
+    vfuncGetItemLink(itemIndex: number, link: string): MenuModel
     vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
     vfuncIterateItemLinks(itemIndex: number): MenuLinkIter
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8320,14 +8309,14 @@ export class MenuModel {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.MenuModel */
+    /* Signals of Gio-2.0.Gio.MenuModel */
     connect(sigName: "items-changed", callback: (($obj: MenuModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: (($obj: MenuModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MenuModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MenuModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8358,7 +8347,7 @@ export interface MountOperation_ConstructProps extends GObject.Object_ConstructP
     username?: string
 }
 export class MountOperation {
-    /* Properties of Gio.MountOperation */
+    /* Properties of Gio-2.0.Gio.MountOperation */
     anonymous: boolean
     choice: number
     domain: string
@@ -8368,32 +8357,32 @@ export class MountOperation {
     passwordSave: PasswordSave
     pim: number
     username: string
-    /* Fields of Gio.MountOperation */
+    /* Fields of Gio-2.0.Gio.MountOperation */
     parentInstance: GObject.Object
     priv: MountOperationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.MountOperation */
+    /* Methods of Gio-2.0.Gio.MountOperation */
     getAnonymous(): boolean
     getChoice(): number
-    getDomain(): string | null
+    getDomain(): string
     getIsTcryptHiddenVolume(): boolean
     getIsTcryptSystemVolume(): boolean
-    getPassword(): string | null
+    getPassword(): string
     getPasswordSave(): PasswordSave
     getPim(): number
-    getUsername(): string | null
+    getUsername(): string
     reply(result: MountOperationResult): void
     setAnonymous(anonymous: boolean): void
     setChoice(choice: number): void
-    setDomain(domain?: string | null): void
+    setDomain(domain: string): void
     setIsTcryptHiddenVolume(hiddenVolume: boolean): void
     setIsTcryptSystemVolume(systemVolume: boolean): void
-    setPassword(password?: string | null): void
+    setPassword(password: string): void
     setPasswordSave(save: PasswordSave): void
     setPim(pim: number): void
-    setUsername(username?: string | null): void
-    /* Methods of GObject.Object */
+    setUsername(username: string): void
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8415,14 +8404,14 @@ export class MountOperation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.MountOperation */
+    /* Virtual methods of Gio-2.0.Gio.MountOperation */
     vfuncAborted(): void
     vfuncAskPassword(message: string, defaultUser: string, defaultDomain: string, flags: AskPasswordFlags): void
     vfuncAskQuestion(message: string, choices: string[]): void
     vfuncReply(result: MountOperationResult): void
     vfuncShowProcesses(message: string, processes: GLib.Pid[], choices: string[]): void
     vfuncShowUnmountProgress(message: string, timeLeft: number, bytesLeft: number): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8430,7 +8419,7 @@ export class MountOperation {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.MountOperation */
+    /* Signals of Gio-2.0.Gio.MountOperation */
     connect(sigName: "aborted", callback: (($obj: MountOperation) => void)): number
     connect_after(sigName: "aborted", callback: (($obj: MountOperation) => void)): number
     emit(sigName: "aborted"): void
@@ -8467,7 +8456,7 @@ export class MountOperation {
     on(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8536,17 +8525,17 @@ export class MountOperation {
 export interface NativeSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
 }
 export class NativeSocketAddress {
-    /* Properties of Gio.SocketAddress */
+    /* Properties of Gio-2.0.Gio.SocketAddress */
     readonly family: SocketFamily
-    /* Fields of Gio.NativeSocketAddress */
+    /* Fields of Gio-2.0.Gio.NativeSocketAddress */
     parentInstance: SocketAddress
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketAddress */
+    /* Methods of Gio-2.0.Gio.SocketAddress */
     getFamily(): SocketFamily
     getNativeSize(): number
     toNative(dest: object | null, destlen: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8568,18 +8557,18 @@ export class NativeSocketAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketAddress */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddress */
     vfuncGetFamily(): SocketFamily
     vfuncGetNativeSize(): number
     vfuncToNative(dest: object | null, destlen: number): boolean
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8587,7 +8576,7 @@ export class NativeSocketAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8616,17 +8605,17 @@ export class NativeSocketAddress {
 export interface NativeVolumeMonitor_ConstructProps extends VolumeMonitor_ConstructProps {
 }
 export class NativeVolumeMonitor {
-    /* Fields of Gio.NativeVolumeMonitor */
+    /* Fields of Gio-2.0.Gio.NativeVolumeMonitor */
     parentInstance: VolumeMonitor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.VolumeMonitor */
+    /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8648,16 +8637,16 @@ export class NativeVolumeMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.VolumeMonitor */
+    /* Virtual methods of Gio-2.0.Gio.VolumeMonitor */
     vfuncDriveChanged(drive: Drive): void
     vfuncDriveConnected(drive: Drive): void
     vfuncDriveDisconnected(drive: Drive): void
     vfuncDriveEjectButton(drive: Drive): void
     vfuncDriveStopButton(drive: Drive): void
     vfuncGetConnectedDrives(): Drive[]
-    vfuncGetMountForUuid(uuid: string): Mount | null
+    vfuncGetMountForUuid(uuid: string): Mount
     vfuncGetMounts(): Mount[]
-    vfuncGetVolumeForUuid(uuid: string): Volume | null
+    vfuncGetVolumeForUuid(uuid: string): Volume
     vfuncGetVolumes(): Volume[]
     vfuncMountAdded(mount: Mount): void
     vfuncMountChanged(mount: Mount): void
@@ -8666,7 +8655,7 @@ export class NativeVolumeMonitor {
     vfuncVolumeAdded(volume: Volume): void
     vfuncVolumeChanged(volume: Volume): void
     vfuncVolumeRemoved(volume: Volume): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8674,7 +8663,7 @@ export class NativeVolumeMonitor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.VolumeMonitor */
+    /* Signals of Gio-2.0.Gio.VolumeMonitor */
     connect(sigName: "drive-changed", callback: (($obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-changed", callback: (($obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-changed", drive: Drive): void
@@ -8747,7 +8736,7 @@ export class NativeVolumeMonitor {
     on(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8772,15 +8761,15 @@ export interface NetworkAddress_ConstructProps extends GObject.Object_ConstructP
     scheme?: string
 }
 export class NetworkAddress {
-    /* Fields of Gio.NetworkAddress */
+    /* Fields of Gio-2.0.Gio.NetworkAddress */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.NetworkAddress */
+    /* Methods of Gio-2.0.Gio.NetworkAddress */
     getHostname(): string
     getPort(): number
-    getScheme(): string | null
-    /* Methods of GObject.Object */
+    getScheme(): string
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8802,15 +8791,15 @@ export class NetworkAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.NetworkAddress */
+    /* Virtual methods of Gio-2.0.Gio.NetworkAddress */
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8818,7 +8807,7 @@ export class NetworkAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8849,19 +8838,19 @@ export interface NetworkService_ConstructProps extends GObject.Object_ConstructP
     service?: string
 }
 export class NetworkService {
-    /* Properties of Gio.NetworkService */
+    /* Properties of Gio-2.0.Gio.NetworkService */
     scheme: string
-    /* Fields of Gio.NetworkService */
+    /* Fields of Gio-2.0.Gio.NetworkService */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.NetworkService */
+    /* Methods of Gio-2.0.Gio.NetworkService */
     getDomain(): string
     getProtocol(): string
     getScheme(): string
     getService(): string
     setScheme(scheme: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8883,15 +8872,15 @@ export class NetworkService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.NetworkService */
+    /* Virtual methods of Gio-2.0.Gio.NetworkService */
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8899,7 +8888,7 @@ export class NetworkService {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8928,9 +8917,9 @@ export class NetworkService {
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notification {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Notification */
+    /* Methods of Gio-2.0.Gio.Notification */
     addButton(label: string, detailedAction: string): void
     addButtonWithTarget(label: string, action: string, target?: GLib.Variant | null): void
     setBody(body?: string | null): void
@@ -8940,7 +8929,7 @@ export class Notification {
     setPriority(priority: NotificationPriority): void
     setTitle(title: string): void
     setUrgent(urgent: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8962,7 +8951,7 @@ export class Notification {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -8970,7 +8959,7 @@ export class Notification {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8994,11 +8983,11 @@ export class Notification {
 export interface OutputStream_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class OutputStream {
-    /* Fields of Gio.OutputStream */
+    /* Fields of Gio-2.0.Gio.OutputStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -9028,7 +9017,7 @@ export class OutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9050,7 +9039,7 @@ export class OutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -9066,7 +9055,7 @@ export class OutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9074,7 +9063,7 @@ export class OutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: OutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9096,15 +9085,15 @@ export class OutputStream {
 export interface Permission_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Permission {
-    /* Properties of Gio.Permission */
+    /* Properties of Gio-2.0.Gio.Permission */
     readonly allowed: boolean
     readonly canAcquire: boolean
     readonly canRelease: boolean
-    /* Fields of Gio.Permission */
+    /* Fields of Gio-2.0.Gio.Permission */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Permission */
+    /* Methods of Gio-2.0.Gio.Permission */
     acquire(cancellable?: Cancellable | null): boolean
     acquireAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     acquireFinish(result: AsyncResult): boolean
@@ -9115,7 +9104,7 @@ export class Permission {
     release(cancellable?: Cancellable | null): boolean
     releaseAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     releaseFinish(result: AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9137,14 +9126,14 @@ export class Permission {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Permission */
+    /* Virtual methods of Gio-2.0.Gio.Permission */
     vfuncAcquire(cancellable?: Cancellable | null): boolean
     vfuncAcquireAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncAcquireFinish(result: AsyncResult): boolean
     vfuncRelease(cancellable?: Cancellable | null): boolean
     vfuncReleaseAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncReleaseFinish(result: AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9152,7 +9141,7 @@ export class Permission {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Permission, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9193,16 +9182,16 @@ export interface PropertyAction_ConstructProps extends GObject.Object_ConstructP
     propertyName?: string
 }
 export class PropertyAction {
-    /* Properties of Gio.PropertyAction */
+    /* Properties of Gio-2.0.Gio.PropertyAction */
     readonly enabled: boolean
     readonly parameterType: GLib.VariantType
     readonly state: GLib.Variant
     readonly stateType: GLib.VariantType
-    /* Properties of Gio.Action */
+    /* Properties of Gio-2.0.Gio.Action */
     readonly name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9224,25 +9213,25 @@ export class PropertyAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Action */
+    /* Methods of Gio-2.0.Gio.Action */
     activate(parameter?: GLib.Variant | null): void
     changeState(value: GLib.Variant): void
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
-    /* Virtual methods of Gio.PropertyAction */
+    /* Virtual methods of Gio-2.0.Gio.PropertyAction */
     vfuncActivate(parameter?: GLib.Variant | null): void
     vfuncChangeState(value: GLib.Variant): void
     vfuncGetEnabled(): boolean
     vfuncGetName(): string
     vfuncGetParameterType(): GLib.VariantType | null
-    vfuncGetState(): GLib.Variant | null
+    vfuncGetState(): GLib.Variant
     vfuncGetStateHint(): GLib.Variant | null
     vfuncGetStateType(): GLib.VariantType | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9250,7 +9239,7 @@ export class PropertyAction {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9309,30 +9298,30 @@ export interface ProxyAddress_ConstructProps extends InetSocketAddress_Construct
     username?: string
 }
 export class ProxyAddress {
-    /* Properties of Gio.SocketAddress */
+    /* Properties of Gio-2.0.Gio.SocketAddress */
     readonly family: SocketFamily
-    /* Fields of Gio.ProxyAddress */
+    /* Fields of Gio-2.0.Gio.ProxyAddress */
     parentInstance: InetSocketAddress
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ProxyAddress */
+    /* Methods of Gio-2.0.Gio.ProxyAddress */
     getDestinationHostname(): string
     getDestinationPort(): number
     getDestinationProtocol(): string
-    getPassword(): string | null
+    getPassword(): string
     getProtocol(): string
-    getUri(): string | null
-    getUsername(): string | null
-    /* Methods of Gio.InetSocketAddress */
+    getUri(): string
+    getUsername(): string
+    /* Methods of Gio-2.0.Gio.InetSocketAddress */
     getAddress(): InetAddress
     getFlowinfo(): number
     getPort(): number
     getScopeId(): number
-    /* Methods of Gio.SocketAddress */
+    /* Methods of Gio-2.0.Gio.SocketAddress */
     getFamily(): SocketFamily
     getNativeSize(): number
     toNative(dest: object | null, destlen: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9354,18 +9343,18 @@ export class ProxyAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketAddress */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddress */
     vfuncGetFamily(): SocketFamily
     vfuncGetNativeSize(): number
     vfuncToNative(dest: object | null, destlen: number): boolean
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9373,7 +9362,7 @@ export class ProxyAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9407,15 +9396,15 @@ export interface ProxyAddressEnumerator_ConstructProps extends SocketAddressEnum
     uri?: string
 }
 export class ProxyAddressEnumerator {
-    /* Properties of Gio.ProxyAddressEnumerator */
+    /* Properties of Gio-2.0.Gio.ProxyAddressEnumerator */
     proxyResolver: ProxyResolver
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketAddressEnumerator */
+    /* Methods of Gio-2.0.Gio.SocketAddressEnumerator */
     next(cancellable?: Cancellable | null): SocketAddress
     nextAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     nextFinish(result: AsyncResult): SocketAddress
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9437,11 +9426,11 @@ export class ProxyAddressEnumerator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketAddressEnumerator */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddressEnumerator */
     vfuncNext(cancellable?: Cancellable | null): SocketAddress
     vfuncNextAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncNextFinish(result: AsyncResult): SocketAddress
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9449,7 +9438,7 @@ export class ProxyAddressEnumerator {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9476,12 +9465,12 @@ export class ProxyAddressEnumerator {
 export interface Resolver_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Resolver {
-    /* Fields of Gio.Resolver */
+    /* Fields of Gio-2.0.Gio.Resolver */
     parentInstance: GObject.Object
     priv: ResolverPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Resolver */
+    /* Methods of Gio-2.0.Gio.Resolver */
     lookupByAddress(address: InetAddress, cancellable?: Cancellable | null): string
     lookupByAddressAsync(address: InetAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookupByAddressFinish(result: AsyncResult): string
@@ -9498,7 +9487,7 @@ export class Resolver {
     lookupServiceAsync(service: string, protocol: string, domain: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookupServiceFinish(result: AsyncResult): SrvTarget[]
     setDefault(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9520,7 +9509,7 @@ export class Resolver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Resolver */
+    /* Virtual methods of Gio-2.0.Gio.Resolver */
     vfuncLookupByAddress(address: InetAddress, cancellable?: Cancellable | null): string
     vfuncLookupByAddressAsync(address: InetAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLookupByAddressFinish(result: AsyncResult): string
@@ -9536,7 +9525,7 @@ export class Resolver {
     vfuncLookupServiceAsync(rrname: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLookupServiceFinish(result: AsyncResult): SrvTarget[]
     vfuncReload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9544,14 +9533,14 @@ export class Resolver {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Resolver */
+    /* Signals of Gio-2.0.Gio.Resolver */
     connect(sigName: "reload", callback: (($obj: Resolver) => void)): number
     connect_after(sigName: "reload", callback: (($obj: Resolver) => void)): number
     emit(sigName: "reload"): void
     on(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9580,15 +9569,15 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     settingsSchema?: SettingsSchema
 }
 export class Settings {
-    /* Properties of Gio.Settings */
+    /* Properties of Gio-2.0.Gio.Settings */
     readonly delayApply: boolean
     readonly hasUnapplied: boolean
-    /* Fields of Gio.Settings */
+    /* Fields of Gio-2.0.Gio.Settings */
     parentInstance: GObject.Object
     priv: SettingsPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Settings */
+    /* Methods of Gio-2.0.Gio.Settings */
     apply(): void
     bind(key: string, object: GObject.Object, property: string, flags: SettingsBindFlags): void
     bindWritable(key: string, object: GObject.Object, property: string, inverted: boolean): void
@@ -9628,7 +9617,7 @@ export class Settings {
     setUint(key: string, value: number): boolean
     setUint64(key: string, value: number): boolean
     setValue(key: string, value: GLib.Variant): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9650,12 +9639,12 @@ export class Settings {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Settings */
+    /* Virtual methods of Gio-2.0.Gio.Settings */
     vfuncChangeEvent(keys: GLib.Quark, nKeys: number): boolean
     vfuncChanged(key: string): void
     vfuncWritableChangeEvent(key: GLib.Quark): boolean
     vfuncWritableChanged(key: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9663,7 +9652,7 @@ export class Settings {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.Settings */
+    /* Signals of Gio-2.0.Gio.Settings */
     connect(sigName: "change-event", callback: (($obj: Settings, keys: GLib.Quark[] | null) => boolean)): number
     connect_after(sigName: "change-event", callback: (($obj: Settings, keys: GLib.Quark[] | null) => boolean)): number
     emit(sigName: "change-event", keys: GLib.Quark[] | null): void
@@ -9688,7 +9677,7 @@ export class Settings {
     on(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9730,18 +9719,18 @@ export class Settings {
 export interface SettingsBackend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SettingsBackend {
-    /* Fields of Gio.SettingsBackend */
+    /* Fields of Gio-2.0.Gio.SettingsBackend */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SettingsBackend */
+    /* Methods of Gio-2.0.Gio.SettingsBackend */
     changed(key: string, originTag?: object | null): void
     changedTree(tree: GLib.Tree, originTag?: object | null): void
     keysChanged(path: string, items: string[], originTag?: object | null): void
     pathChanged(path: string, originTag?: object | null): void
     pathWritableChanged(path: string): void
     writableChanged(key: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9763,7 +9752,7 @@ export class SettingsBackend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SettingsBackend */
+    /* Virtual methods of Gio-2.0.Gio.SettingsBackend */
     vfuncGetWritable(key: string): boolean
     vfuncRead(key: string, expectedType: GLib.VariantType, defaultValue: boolean): GLib.Variant
     vfuncReadUserValue(key: string, expectedType: GLib.VariantType): GLib.Variant
@@ -9773,7 +9762,7 @@ export class SettingsBackend {
     vfuncUnsubscribe(name: string): void
     vfuncWrite(key: string, value: GLib.Variant, originTag?: object | null): boolean
     vfuncWriteTree(tree: GLib.Tree, originTag?: object | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9781,7 +9770,7 @@ export class SettingsBackend {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SettingsBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SettingsBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9810,20 +9799,20 @@ export interface SimpleAction_ConstructProps extends GObject.Object_ConstructPro
     state?: GLib.Variant
 }
 export class SimpleAction {
-    /* Properties of Gio.SimpleAction */
+    /* Properties of Gio-2.0.Gio.SimpleAction */
     enabled: boolean
     state: GLib.Variant
     readonly stateType: GLib.VariantType
-    /* Properties of Gio.Action */
+    /* Properties of Gio-2.0.Gio.Action */
     readonly name: string
     readonly parameterType: GLib.VariantType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SimpleAction */
+    /* Methods of Gio-2.0.Gio.SimpleAction */
     setEnabled(enabled: boolean): void
     setState(value: GLib.Variant): void
     setStateHint(stateHint?: GLib.Variant | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9845,25 +9834,25 @@ export class SimpleAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Action */
+    /* Methods of Gio-2.0.Gio.Action */
     activate(parameter?: GLib.Variant | null): void
     changeState(value: GLib.Variant): void
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
-    /* Virtual methods of Gio.SimpleAction */
+    /* Virtual methods of Gio-2.0.Gio.SimpleAction */
     vfuncActivate(parameter?: GLib.Variant | null): void
     vfuncChangeState(value: GLib.Variant): void
     vfuncGetEnabled(): boolean
     vfuncGetName(): string
     vfuncGetParameterType(): GLib.VariantType | null
-    vfuncGetState(): GLib.Variant | null
+    vfuncGetState(): GLib.Variant
     vfuncGetStateHint(): GLib.Variant | null
     vfuncGetStateType(): GLib.VariantType | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -9871,7 +9860,7 @@ export class SimpleAction {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.SimpleAction */
+    /* Signals of Gio-2.0.Gio.SimpleAction */
     connect(sigName: "activate", callback: (($obj: SimpleAction, parameter?: GLib.Variant | null) => void)): number
     connect_after(sigName: "activate", callback: (($obj: SimpleAction, parameter?: GLib.Variant | null) => void)): number
     emit(sigName: "activate", parameter?: GLib.Variant | null): void
@@ -9884,7 +9873,7 @@ export class SimpleAction {
     on(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9937,14 +9926,14 @@ export class SimpleAction {
 export interface SimpleActionGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleActionGroup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SimpleActionGroup */
+    /* Methods of Gio-2.0.Gio.SimpleActionGroup */
     addEntries(entries: ActionEntry[], userData?: object | null): void
     insert(action: Action): void
     lookup(actionName: string): Action
     remove(actionName: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9966,7 +9955,7 @@ export class SimpleActionGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ActionGroup */
+    /* Methods of Gio-2.0.Gio.ActionGroup */
     actionAdded(actionName: string): void
     actionEnabledChanged(actionName: string, enabled: boolean): void
     actionRemoved(actionName: string): void
@@ -9981,12 +9970,12 @@ export class SimpleActionGroup {
     hasAction(actionName: string): boolean
     listActions(): string[]
     queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
-    /* Methods of Gio.ActionMap */
+    /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
-    /* Virtual methods of Gio.SimpleActionGroup */
+    /* Virtual methods of Gio-2.0.Gio.SimpleActionGroup */
     vfuncActionAdded(actionName: string): void
     vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
     vfuncActionRemoved(actionName: string): void
@@ -10002,9 +9991,9 @@ export class SimpleActionGroup {
     vfuncListActions(): string[]
     vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     vfuncAddAction(action: Action): void
-    vfuncLookupAction(actionName: string): Action | null
+    vfuncLookupAction(actionName: string): Action
     vfuncRemoveAction(actionName: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10012,14 +10001,14 @@ export class SimpleActionGroup {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.ActionGroup */
+    /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: SimpleActionGroup, actionName: string) => void)): number
     connect_after(sigName: "action-added", callback: (($obj: SimpleActionGroup, actionName: string) => void)): number
     emit(sigName: "action-added", actionName: string): void
@@ -10061,9 +10050,9 @@ export class SimpleActionGroup {
 export interface SimpleAsyncResult_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleAsyncResult {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SimpleAsyncResult */
+    /* Methods of Gio-2.0.Gio.SimpleAsyncResult */
     complete(): void
     completeInIdle(): void
     getOpResGboolean(): boolean
@@ -10074,7 +10063,7 @@ export class SimpleAsyncResult {
     setHandleCancellation(handleCancellation: boolean): void
     setOpResGboolean(opRes: boolean): void
     setOpResGssize(opRes: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10096,16 +10085,16 @@ export class SimpleAsyncResult {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncResult */
+    /* Methods of Gio-2.0.Gio.AsyncResult */
     getSourceObject(): GObject.Object | null
     getUserData(): object | null
     isTagged(sourceTag?: object | null): boolean
     legacyPropagateError(): boolean
-    /* Virtual methods of Gio.SimpleAsyncResult */
+    /* Virtual methods of Gio-2.0.Gio.SimpleAsyncResult */
     vfuncGetSourceObject(): GObject.Object | null
     vfuncGetUserData(): object | null
     vfuncIsTagged(sourceTag?: object | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10113,7 +10102,7 @@ export class SimpleAsyncResult {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10141,15 +10130,15 @@ export interface SimpleIOStream_ConstructProps extends IOStream_ConstructProps {
     outputStream?: OutputStream
 }
 export class SimpleIOStream {
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.IOStream */
+    /* Fields of Gio-2.0.Gio.IOStream */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -10160,7 +10149,7 @@ export class SimpleIOStream {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10182,13 +10171,13 @@ export class SimpleIOStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10196,7 +10185,7 @@ export class SimpleIOStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10235,15 +10224,15 @@ export class SimpleIOStream {
 export interface SimplePermission_ConstructProps extends Permission_ConstructProps {
 }
 export class SimplePermission {
-    /* Properties of Gio.Permission */
+    /* Properties of Gio-2.0.Gio.Permission */
     readonly allowed: boolean
     readonly canAcquire: boolean
     readonly canRelease: boolean
-    /* Fields of Gio.Permission */
+    /* Fields of Gio-2.0.Gio.Permission */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Permission */
+    /* Methods of Gio-2.0.Gio.Permission */
     acquire(cancellable?: Cancellable | null): boolean
     acquireAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     acquireFinish(result: AsyncResult): boolean
@@ -10254,7 +10243,7 @@ export class SimplePermission {
     release(cancellable?: Cancellable | null): boolean
     releaseAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     releaseFinish(result: AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10276,14 +10265,14 @@ export class SimplePermission {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Permission */
+    /* Virtual methods of Gio-2.0.Gio.Permission */
     vfuncAcquire(cancellable?: Cancellable | null): boolean
     vfuncAcquireAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncAcquireFinish(result: AsyncResult): boolean
     vfuncRelease(cancellable?: Cancellable | null): boolean
     vfuncReleaseAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncReleaseFinish(result: AsyncResult): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10291,7 +10280,7 @@ export class SimplePermission {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10332,18 +10321,18 @@ export interface SimpleProxyResolver_ConstructProps extends GObject.Object_Const
     ignoreHosts?: string[]
 }
 export class SimpleProxyResolver {
-    /* Properties of Gio.SimpleProxyResolver */
+    /* Properties of Gio-2.0.Gio.SimpleProxyResolver */
     defaultProxy: string
     ignoreHosts: string[]
-    /* Fields of Gio.SimpleProxyResolver */
+    /* Fields of Gio-2.0.Gio.SimpleProxyResolver */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SimpleProxyResolver */
+    /* Methods of Gio-2.0.Gio.SimpleProxyResolver */
     setDefaultProxy(defaultProxy: string): void
     setIgnoreHosts(ignoreHosts: string): void
     setUriProxy(uriScheme: string, proxy: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10365,17 +10354,17 @@ export class SimpleProxyResolver {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.ProxyResolver */
+    /* Methods of Gio-2.0.Gio.ProxyResolver */
     isSupported(): boolean
     lookup(uri: string, cancellable?: Cancellable | null): string[]
     lookupAsync(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookupFinish(result: AsyncResult): string[]
-    /* Virtual methods of Gio.SimpleProxyResolver */
+    /* Virtual methods of Gio-2.0.Gio.SimpleProxyResolver */
     vfuncIsSupported(): boolean
     vfuncLookup(uri: string, cancellable?: Cancellable | null): string[]
     vfuncLookupAsync(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncLookupFinish(result: AsyncResult): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10383,7 +10372,7 @@ export class SimpleProxyResolver {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10429,7 +10418,7 @@ export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
     type?: SocketType
 }
 export class Socket {
-    /* Properties of Gio.Socket */
+    /* Properties of Gio-2.0.Gio.Socket */
     blocking: boolean
     broadcast: boolean
     keepalive: boolean
@@ -10440,12 +10429,12 @@ export class Socket {
     readonly remoteAddress: SocketAddress
     timeout: number
     ttl: number
-    /* Fields of Gio.Socket */
+    /* Fields of Gio-2.0.Gio.Socket */
     parentInstance: GObject.Object
     priv: SocketPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Socket */
+    /* Methods of Gio-2.0.Gio.Socket */
     accept(cancellable?: Cancellable | null): Socket
     bind(address: SocketAddress, allowReuse: boolean): boolean
     checkConnectResult(): boolean
@@ -10501,7 +10490,7 @@ export class Socket {
     setTtl(ttl: number): void
     shutdown(shutdownRead: boolean, shutdownWrite: boolean): boolean
     speaksIpv4(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10523,21 +10512,21 @@ export class Socket {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.DatagramBased */
+    /* Methods of Gio-2.0.Gio.DatagramBased */
     conditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     createSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     receiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     sendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.Socket */
+    /* Virtual methods of Gio-2.0.Gio.Socket */
     vfuncConditionCheck(condition: GLib.IOCondition): GLib.IOCondition
     vfuncConditionWait(condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null): boolean
     vfuncCreateSource(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
     vfuncReceiveMessages(messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     vfuncSendMessages(messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null): number
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10545,7 +10534,7 @@ export class Socket {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10621,17 +10610,17 @@ export class Socket {
 export interface SocketAddress_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SocketAddress {
-    /* Properties of Gio.SocketAddress */
+    /* Properties of Gio-2.0.Gio.SocketAddress */
     readonly family: SocketFamily
-    /* Fields of Gio.SocketAddress */
+    /* Fields of Gio-2.0.Gio.SocketAddress */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketAddress */
+    /* Methods of Gio-2.0.Gio.SocketAddress */
     getFamily(): SocketFamily
     getNativeSize(): number
     toNative(dest: object | null, destlen: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10653,18 +10642,18 @@ export class SocketAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketAddress */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddress */
     vfuncGetFamily(): SocketFamily
     vfuncGetNativeSize(): number
     vfuncToNative(dest: object | null, destlen: number): boolean
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10672,7 +10661,7 @@ export class SocketAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10701,13 +10690,13 @@ export class SocketAddress {
 export interface SocketAddressEnumerator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SocketAddressEnumerator {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketAddressEnumerator */
+    /* Methods of Gio-2.0.Gio.SocketAddressEnumerator */
     next(cancellable?: Cancellable | null): SocketAddress
     nextAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     nextFinish(result: AsyncResult): SocketAddress
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10729,11 +10718,11 @@ export class SocketAddressEnumerator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketAddressEnumerator */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddressEnumerator */
     vfuncNext(cancellable?: Cancellable | null): SocketAddress
     vfuncNextAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncNextFinish(result: AsyncResult): SocketAddress
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10741,7 +10730,7 @@ export class SocketAddressEnumerator {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10772,7 +10761,7 @@ export interface SocketClient_ConstructProps extends GObject.Object_ConstructPro
     type?: SocketType
 }
 export class SocketClient {
-    /* Properties of Gio.SocketClient */
+    /* Properties of Gio-2.0.Gio.SocketClient */
     enableProxy: boolean
     family: SocketFamily
     localAddress: SocketAddress
@@ -10782,12 +10771,12 @@ export class SocketClient {
     tls: boolean
     tlsValidationFlags: TlsCertificateFlags
     type: SocketType
-    /* Fields of Gio.SocketClient */
+    /* Fields of Gio-2.0.Gio.SocketClient */
     parentInstance: GObject.Object
     priv: SocketClientPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketClient */
+    /* Methods of Gio-2.0.Gio.SocketClient */
     addApplicationProxy(protocol: string): void
     connect(connectable: SocketConnectable, cancellable?: Cancellable | null): SocketConnection
     connectAsync(connectable: SocketConnectable, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -10803,7 +10792,7 @@ export class SocketClient {
     connectToUriFinish(result: AsyncResult): SocketConnection
     getEnableProxy(): boolean
     getFamily(): SocketFamily
-    getLocalAddress(): SocketAddress | null
+    getLocalAddress(): SocketAddress
     getProtocol(): SocketProtocol
     getProxyResolver(): ProxyResolver
     getSocketType(): SocketType
@@ -10819,7 +10808,7 @@ export class SocketClient {
     setTimeout(timeout: number): void
     setTls(tls: boolean): void
     setTlsValidationFlags(flags: TlsCertificateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10841,9 +10830,9 @@ export class SocketClient {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketClient */
+    /* Virtual methods of Gio-2.0.Gio.SocketClient */
     vfuncEvent(event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10851,14 +10840,14 @@ export class SocketClient {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.SocketClient */
+    /* Signals of Gio-2.0.Gio.SocketClient */
     connect(sigName: "event", callback: (($obj: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): number
     connect_after(sigName: "event", callback: (($obj: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): number
     emit(sigName: "event", event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null): void
     on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10928,16 +10917,16 @@ export interface SocketConnection_ConstructProps extends IOStream_ConstructProps
     socket?: Socket
 }
 export class SocketConnection {
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.SocketConnection */
+    /* Fields of Gio-2.0.Gio.SocketConnection */
     parentInstance: IOStream
     priv: SocketConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketConnection */
+    /* Methods of Gio-2.0.Gio.SocketConnection */
     connect(address: SocketAddress, cancellable?: Cancellable | null): boolean
     connectAsync(address: SocketAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     connectFinish(result: AsyncResult): boolean
@@ -10945,7 +10934,7 @@ export class SocketConnection {
     getRemoteAddress(): SocketAddress
     getSocket(): Socket
     isConnected(): boolean
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -10956,7 +10945,7 @@ export class SocketConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10978,13 +10967,13 @@ export class SocketConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -10992,7 +10981,7 @@ export class SocketConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11032,17 +11021,17 @@ export class SocketConnection {
 export interface SocketControlMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SocketControlMessage {
-    /* Fields of Gio.SocketControlMessage */
+    /* Fields of Gio-2.0.Gio.SocketControlMessage */
     parentInstance: GObject.Object
     priv: SocketControlMessagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketControlMessage */
+    /* Methods of Gio-2.0.Gio.SocketControlMessage */
     getLevel(): number
     getMsgType(): number
     getSize(): number
     serialize(data: object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11064,12 +11053,12 @@ export class SocketControlMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketControlMessage */
+    /* Virtual methods of Gio-2.0.Gio.SocketControlMessage */
     vfuncGetLevel(): number
     vfuncGetSize(): number
     vfuncGetType(): number
     vfuncSerialize(data: object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11077,7 +11066,7 @@ export class SocketControlMessage {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketControlMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketControlMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11102,14 +11091,14 @@ export interface SocketListener_ConstructProps extends GObject.Object_ConstructP
     listenBacklog?: number
 }
 export class SocketListener {
-    /* Properties of Gio.SocketListener */
+    /* Properties of Gio-2.0.Gio.SocketListener */
     listenBacklog: number
-    /* Fields of Gio.SocketListener */
+    /* Fields of Gio-2.0.Gio.SocketListener */
     parentInstance: GObject.Object
     priv: SocketListenerPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketListener */
+    /* Methods of Gio-2.0.Gio.SocketListener */
     accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
@@ -11122,7 +11111,7 @@ export class SocketListener {
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
     close(): void
     setBacklog(listenBacklog: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11144,10 +11133,10 @@ export class SocketListener {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketListener */
+    /* Virtual methods of Gio-2.0.Gio.SocketListener */
     vfuncChanged(): void
     vfuncEvent(event: SocketListenerEvent, socket: Socket): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11155,14 +11144,14 @@ export class SocketListener {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.SocketListener */
+    /* Signals of Gio-2.0.Gio.SocketListener */
     connect(sigName: "event", callback: (($obj: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: (($obj: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
     on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11192,20 +11181,20 @@ export interface SocketService_ConstructProps extends SocketListener_ConstructPr
     active?: boolean
 }
 export class SocketService {
-    /* Properties of Gio.SocketService */
+    /* Properties of Gio-2.0.Gio.SocketService */
     active: boolean
-    /* Properties of Gio.SocketListener */
+    /* Properties of Gio-2.0.Gio.SocketListener */
     listenBacklog: number
-    /* Fields of Gio.SocketService */
+    /* Fields of Gio-2.0.Gio.SocketService */
     parentInstance: SocketListener
     priv: SocketServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketService */
+    /* Methods of Gio-2.0.Gio.SocketService */
     isActive(): boolean
     start(): void
     stop(): void
-    /* Methods of Gio.SocketListener */
+    /* Methods of Gio-2.0.Gio.SocketListener */
     accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
@@ -11218,7 +11207,7 @@ export class SocketService {
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
     close(): void
     setBacklog(listenBacklog: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11240,12 +11229,12 @@ export class SocketService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketService */
+    /* Virtual methods of Gio-2.0.Gio.SocketService */
     vfuncIncoming(connection: SocketConnection, sourceObject: GObject.Object): boolean
-    /* Virtual methods of Gio.SocketListener */
+    /* Virtual methods of Gio-2.0.Gio.SocketListener */
     vfuncChanged(): void
     vfuncEvent(event: SocketListenerEvent, socket: Socket): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11253,21 +11242,21 @@ export class SocketService {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.SocketService */
+    /* Signals of Gio-2.0.Gio.SocketService */
     connect(sigName: "incoming", callback: (($obj: SocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     connect_after(sigName: "incoming", callback: (($obj: SocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     emit(sigName: "incoming", connection: SocketConnection, sourceObject?: GObject.Object | null): void
     on(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.SocketListener */
+    /* Signals of Gio-2.0.Gio.SocketListener */
     connect(sigName: "event", callback: (($obj: SocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: (($obj: SocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
     on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11303,9 +11292,9 @@ export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps
     flags?: SubprocessFlags
 }
 export class Subprocess {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Subprocess */
+    /* Methods of Gio-2.0.Gio.Subprocess */
     communicate(stdinBuf?: any | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
     communicateAsync(stdinBuf?: any | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     communicateFinish(result: AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
@@ -11318,9 +11307,9 @@ export class Subprocess {
     getIfExited(): boolean
     getIfSignaled(): boolean
     getStatus(): number
-    getStderrPipe(): InputStream | null
-    getStdinPipe(): OutputStream | null
-    getStdoutPipe(): InputStream | null
+    getStderrPipe(): InputStream
+    getStdinPipe(): OutputStream
+    getStdoutPipe(): InputStream
     getSuccessful(): boolean
     getTermSig(): number
     sendSignal(signalNum: number): void
@@ -11330,7 +11319,7 @@ export class Subprocess {
     waitCheckAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     waitCheckFinish(result: AsyncResult): boolean
     waitFinish(result: AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11352,11 +11341,11 @@ export class Subprocess {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Initable */
+    /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio.Subprocess */
+    /* Virtual methods of Gio-2.0.Gio.Subprocess */
     vfuncInit(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11364,7 +11353,7 @@ export class Subprocess {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11390,11 +11379,10 @@ export interface SubprocessLauncher_ConstructProps extends GObject.Object_Constr
     flags?: SubprocessFlags
 }
 export class SubprocessLauncher {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SubprocessLauncher */
-    close(): void
-    getenv(variable: string): string | null
+    /* Methods of Gio-2.0.Gio.SubprocessLauncher */
+    getenv(variable: string): string
     setCwd(cwd: string): void
     setEnviron(env: string[]): void
     setFlags(flags: SubprocessFlags): void
@@ -11408,7 +11396,7 @@ export class SubprocessLauncher {
     takeStdinFd(fd: number): void
     takeStdoutFd(fd: number): void
     unsetenv(variable: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11430,7 +11418,7 @@ export class SubprocessLauncher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11438,7 +11426,7 @@ export class SubprocessLauncher {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11462,11 +11450,11 @@ export class SubprocessLauncher {
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Task {
-    /* Properties of Gio.Task */
+    /* Properties of Gio-2.0.Gio.Task */
     readonly completed: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Task */
+    /* Methods of Gio-2.0.Gio.Task */
     getCancellable(): Cancellable
     getCheckCancellable(): boolean
     getCompleted(): boolean
@@ -11496,7 +11484,7 @@ export class Task {
     setReturnOnCancel(returnOnCancel: boolean): boolean
     setSourceTag(sourceTag?: object | null): void
     setTaskData(taskData?: object | null, taskDataDestroy?: GLib.DestroyNotify | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11518,15 +11506,15 @@ export class Task {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.AsyncResult */
+    /* Methods of Gio-2.0.Gio.AsyncResult */
     getUserData(): object | null
     isTagged(sourceTag?: object | null): boolean
     legacyPropagateError(): boolean
-    /* Virtual methods of Gio.Task */
+    /* Virtual methods of Gio-2.0.Gio.Task */
     vfuncGetSourceObject(): GObject.Object | null
     vfuncGetUserData(): object | null
     vfuncIsTagged(sourceTag?: object | null): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11534,7 +11522,7 @@ export class Task {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Task, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11566,21 +11554,21 @@ export interface TcpConnection_ConstructProps extends SocketConnection_Construct
     gracefulDisconnect?: boolean
 }
 export class TcpConnection {
-    /* Properties of Gio.TcpConnection */
+    /* Properties of Gio-2.0.Gio.TcpConnection */
     gracefulDisconnect: boolean
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.TcpConnection */
+    /* Fields of Gio-2.0.Gio.TcpConnection */
     parentInstance: SocketConnection
     priv: TcpConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TcpConnection */
+    /* Methods of Gio-2.0.Gio.TcpConnection */
     getGracefulDisconnect(): boolean
     setGracefulDisconnect(gracefulDisconnect: boolean): void
-    /* Methods of Gio.SocketConnection */
+    /* Methods of Gio-2.0.Gio.SocketConnection */
     connect(address: SocketAddress, cancellable?: Cancellable | null): boolean
     connectAsync(address: SocketAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     connectFinish(result: AsyncResult): boolean
@@ -11588,7 +11576,7 @@ export class TcpConnection {
     getRemoteAddress(): SocketAddress
     getSocket(): Socket
     isConnected(): boolean
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -11599,7 +11587,7 @@ export class TcpConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11621,13 +11609,13 @@ export class TcpConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11635,7 +11623,7 @@ export class TcpConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11678,23 +11666,23 @@ export interface TcpWrapperConnection_ConstructProps extends TcpConnection_Const
     baseIoStream?: IOStream
 }
 export class TcpWrapperConnection {
-    /* Properties of Gio.TcpConnection */
+    /* Properties of Gio-2.0.Gio.TcpConnection */
     gracefulDisconnect: boolean
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.TcpWrapperConnection */
+    /* Fields of Gio-2.0.Gio.TcpWrapperConnection */
     parentInstance: TcpConnection
     priv: TcpWrapperConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TcpWrapperConnection */
+    /* Methods of Gio-2.0.Gio.TcpWrapperConnection */
     getBaseIoStream(): IOStream
-    /* Methods of Gio.TcpConnection */
+    /* Methods of Gio-2.0.Gio.TcpConnection */
     getGracefulDisconnect(): boolean
     setGracefulDisconnect(gracefulDisconnect: boolean): void
-    /* Methods of Gio.SocketConnection */
+    /* Methods of Gio-2.0.Gio.SocketConnection */
     connect(address: SocketAddress, cancellable?: Cancellable | null): boolean
     connectAsync(address: SocketAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     connectFinish(result: AsyncResult): boolean
@@ -11702,7 +11690,7 @@ export class TcpWrapperConnection {
     getRemoteAddress(): SocketAddress
     getSocket(): Socket
     isConnected(): boolean
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -11713,7 +11701,7 @@ export class TcpWrapperConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11735,13 +11723,13 @@ export class TcpWrapperConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11749,7 +11737,7 @@ export class TcpWrapperConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11794,16 +11782,16 @@ export interface TestDBus_ConstructProps extends GObject.Object_ConstructProps {
     flags?: TestDBusFlags
 }
 export class TestDBus {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TestDBus */
+    /* Methods of Gio-2.0.Gio.TestDBus */
     addServiceDir(path: string): void
     down(): void
     getBusAddress(): string | null
     getFlags(): TestDBusFlags
     stop(): void
     up(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11825,7 +11813,7 @@ export class TestDBus {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11833,7 +11821,7 @@ export class TestDBus {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TestDBus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TestDBus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11861,13 +11849,13 @@ export interface ThemedIcon_ConstructProps extends GObject.Object_ConstructProps
     useDefaultFallbacks?: boolean
 }
 export class ThemedIcon {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ThemedIcon */
+    /* Methods of Gio-2.0.Gio.ThemedIcon */
     appendName(iconname: string): void
     getNames(): string[]
     prependName(iconname: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11889,15 +11877,15 @@ export class ThemedIcon {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Icon */
+    /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
-    /* Virtual methods of Gio.ThemedIcon */
+    /* Virtual methods of Gio-2.0.Gio.ThemedIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
-    vfuncSerialize(): GLib.Variant | null
-    /* Virtual methods of GObject.Object */
+    vfuncSerialize(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11905,7 +11893,7 @@ export class ThemedIcon {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -11926,7 +11914,7 @@ export class ThemedIcon {
     static new(iconname: string): ThemedIcon
     static newFromNames(iconnames: string[]): ThemedIcon
     static newWithDefaultFallbacks(iconname: string): ThemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -11935,20 +11923,20 @@ export interface ThreadedSocketService_ConstructProps extends SocketService_Cons
     maxThreads?: number
 }
 export class ThreadedSocketService {
-    /* Properties of Gio.SocketService */
+    /* Properties of Gio-2.0.Gio.SocketService */
     active: boolean
-    /* Properties of Gio.SocketListener */
+    /* Properties of Gio-2.0.Gio.SocketListener */
     listenBacklog: number
-    /* Fields of Gio.ThreadedSocketService */
+    /* Fields of Gio-2.0.Gio.ThreadedSocketService */
     parentInstance: SocketService
     priv: ThreadedSocketServicePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.SocketService */
+    /* Methods of Gio-2.0.Gio.SocketService */
     isActive(): boolean
     start(): void
     stop(): void
-    /* Methods of Gio.SocketListener */
+    /* Methods of Gio-2.0.Gio.SocketListener */
     accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
@@ -11961,7 +11949,7 @@ export class ThreadedSocketService {
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
     close(): void
     setBacklog(listenBacklog: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11983,14 +11971,14 @@ export class ThreadedSocketService {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.ThreadedSocketService */
+    /* Virtual methods of Gio-2.0.Gio.ThreadedSocketService */
     vfuncRun(connection: SocketConnection, sourceObject: GObject.Object): boolean
-    /* Virtual methods of Gio.SocketService */
+    /* Virtual methods of Gio-2.0.Gio.SocketService */
     vfuncIncoming(connection: SocketConnection, sourceObject: GObject.Object): boolean
-    /* Virtual methods of Gio.SocketListener */
+    /* Virtual methods of Gio-2.0.Gio.SocketListener */
     vfuncChanged(): void
     vfuncEvent(event: SocketListenerEvent, socket: Socket): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -11998,28 +11986,28 @@ export class ThreadedSocketService {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.ThreadedSocketService */
+    /* Signals of Gio-2.0.Gio.ThreadedSocketService */
     connect(sigName: "run", callback: (($obj: ThreadedSocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     connect_after(sigName: "run", callback: (($obj: ThreadedSocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     emit(sigName: "run", connection: SocketConnection, sourceObject?: GObject.Object | null): void
     on(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.SocketService */
+    /* Signals of Gio-2.0.Gio.SocketService */
     connect(sigName: "incoming", callback: (($obj: ThreadedSocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     connect_after(sigName: "incoming", callback: (($obj: ThreadedSocketService, connection: SocketConnection, sourceObject?: GObject.Object | null) => boolean)): number
     emit(sigName: "incoming", connection: SocketConnection, sourceObject?: GObject.Object | null): void
     on(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gio.SocketListener */
+    /* Signals of Gio-2.0.Gio.SocketListener */
     connect(sigName: "event", callback: (($obj: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: (($obj: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
     on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12055,22 +12043,20 @@ export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructP
     certificate?: any[]
     certificatePem?: string
     issuer?: TlsCertificate
-    pkcs11Uri?: string
     privateKey?: any[]
     privateKeyPem?: string
-    privateKeyPkcs11Uri?: string
 }
 export class TlsCertificate {
-    /* Fields of Gio.TlsCertificate */
+    /* Fields of Gio-2.0.Gio.TlsCertificate */
     parentInstance: GObject.Object
     priv: TlsCertificatePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsCertificate */
-    getIssuer(): TlsCertificate | null
+    /* Methods of Gio-2.0.Gio.TlsCertificate */
+    getIssuer(): TlsCertificate
     isSame(certTwo: TlsCertificate): boolean
     verify(identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null): TlsCertificateFlags
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12092,9 +12078,9 @@ export class TlsCertificate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsCertificate */
+    /* Virtual methods of Gio-2.0.Gio.TlsCertificate */
     vfuncVerify(identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null): TlsCertificateFlags
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12102,7 +12088,7 @@ export class TlsCertificate {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12123,7 +12109,6 @@ export class TlsCertificate {
     static newFromFile(file: string): TlsCertificate
     static newFromFiles(certFile: string, keyFile: string): TlsCertificate
     static newFromPem(data: string, length: number): TlsCertificate
-    static newFromPkcs11Uris(pkcs11Uri: string, privateKeyPkcs11Uri?: string | null): TlsCertificate
     static listNewFromFile(file: string): TlsCertificate[]
     static $gtype: GObject.Type
 }
@@ -12138,7 +12123,7 @@ export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
     useSystemCertdb?: boolean
 }
 export class TlsConnection {
-    /* Properties of Gio.TlsConnection */
+    /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
     database: TlsDatabase
@@ -12149,16 +12134,16 @@ export class TlsConnection {
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.TlsConnection */
+    /* Fields of Gio-2.0.Gio.TlsConnection */
     parentInstance: IOStream
     priv: TlsConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsConnection */
+    /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
@@ -12180,7 +12165,7 @@ export class TlsConnection {
     setRehandshakeMode(mode: TlsRehandshakeMode): void
     setRequireCloseNotify(requireCloseNotify: boolean): void
     setUseSystemCertdb(useSystemCertdb: boolean): void
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -12191,7 +12176,7 @@ export class TlsConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12213,19 +12198,19 @@ export class TlsConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsConnection */
+    /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfuncAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfuncGetBindingData(type: TlsChannelBindingType, data: any[]): boolean
     vfuncHandshake(cancellable?: Cancellable | null): boolean
     vfuncHandshakeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncHandshakeFinish(result: AsyncResult): boolean
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12233,14 +12218,14 @@ export class TlsConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.TlsConnection */
+    /* Signals of Gio-2.0.Gio.TlsConnection */
     connect(sigName: "accept-certificate", callback: (($obj: TlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: (($obj: TlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peerCert: TlsCertificate, errors: TlsCertificateFlags): void
     on(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12327,12 +12312,12 @@ export class TlsConnection {
 export interface TlsDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TlsDatabase {
-    /* Fields of Gio.TlsDatabase */
+    /* Fields of Gio-2.0.Gio.TlsDatabase */
     parentInstance: GObject.Object
     priv: TlsDatabasePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsDatabase */
+    /* Methods of Gio-2.0.Gio.TlsDatabase */
     createCertificateHandle(certificate: TlsCertificate): string | null
     lookupCertificateForHandle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate | null
     lookupCertificateForHandleAsync(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -12346,7 +12331,7 @@ export class TlsDatabase {
     verifyChain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     verifyChainAsync(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     verifyChainFinish(result: AsyncResult): TlsCertificateFlags
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12368,7 +12353,7 @@ export class TlsDatabase {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsDatabase */
+    /* Virtual methods of Gio-2.0.Gio.TlsDatabase */
     vfuncCreateCertificateHandle(certificate: TlsCertificate): string | null
     vfuncLookupCertificateForHandle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null): TlsCertificate | null
     vfuncLookupCertificateForHandleAsync(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -12382,7 +12367,7 @@ export class TlsDatabase {
     vfuncVerifyChain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null): TlsCertificateFlags
     vfuncVerifyChainAsync(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncVerifyChainFinish(result: AsyncResult): TlsCertificateFlags
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12390,7 +12375,7 @@ export class TlsDatabase {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsDatabase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsDatabase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12412,9 +12397,9 @@ export class TlsDatabase {
 export interface TlsInteraction_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TlsInteraction {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsInteraction */
+    /* Methods of Gio-2.0.Gio.TlsInteraction */
     askPassword(password: TlsPassword, cancellable?: Cancellable | null): TlsInteractionResult
     askPasswordAsync(password: TlsPassword, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     askPasswordFinish(result: AsyncResult): TlsInteractionResult
@@ -12423,7 +12408,7 @@ export class TlsInteraction {
     requestCertificate(connection: TlsConnection, flags: TlsCertificateRequestFlags, cancellable?: Cancellable | null): TlsInteractionResult
     requestCertificateAsync(connection: TlsConnection, flags: TlsCertificateRequestFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     requestCertificateFinish(result: AsyncResult): TlsInteractionResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12445,14 +12430,14 @@ export class TlsInteraction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsInteraction */
+    /* Virtual methods of Gio-2.0.Gio.TlsInteraction */
     vfuncAskPassword(password: TlsPassword, cancellable?: Cancellable | null): TlsInteractionResult
     vfuncAskPasswordAsync(password: TlsPassword, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncAskPasswordFinish(result: AsyncResult): TlsInteractionResult
     vfuncRequestCertificate(connection: TlsConnection, flags: TlsCertificateRequestFlags, cancellable?: Cancellable | null): TlsInteractionResult
     vfuncRequestCertificateAsync(connection: TlsConnection, flags: TlsCertificateRequestFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncRequestCertificateFinish(result: AsyncResult): TlsInteractionResult
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12460,7 +12445,7 @@ export class TlsInteraction {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsInteraction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsInteraction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12485,16 +12470,16 @@ export interface TlsPassword_ConstructProps extends GObject.Object_ConstructProp
     warning?: string
 }
 export class TlsPassword {
-    /* Properties of Gio.TlsPassword */
+    /* Properties of Gio-2.0.Gio.TlsPassword */
     description: string
     flags: TlsPasswordFlags
     warning: string
-    /* Fields of Gio.TlsPassword */
+    /* Fields of Gio-2.0.Gio.TlsPassword */
     parentInstance: GObject.Object
     priv: TlsPasswordPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.TlsPassword */
+    /* Methods of Gio-2.0.Gio.TlsPassword */
     getDescription(): string
     getFlags(): TlsPasswordFlags
     getValue(length?: number | null): number
@@ -12504,7 +12489,7 @@ export class TlsPassword {
     setValue(value: any[]): void
     setValueFull(value: any[], destroy?: GLib.DestroyNotify | null): void
     setWarning(warning: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12526,11 +12511,11 @@ export class TlsPassword {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.TlsPassword */
+    /* Virtual methods of Gio-2.0.Gio.TlsPassword */
     vfuncGetDefaultWarning(): string
     vfuncGetValue(length?: number | null): number
     vfuncSetValue(value: any[], destroy?: GLib.DestroyNotify | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12538,7 +12523,7 @@ export class TlsPassword {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12577,16 +12562,16 @@ export class TlsPassword {
 export interface UnixConnection_ConstructProps extends SocketConnection_ConstructProps {
 }
 export class UnixConnection {
-    /* Properties of Gio.IOStream */
+    /* Properties of Gio-2.0.Gio.IOStream */
     readonly closed: boolean
     readonly inputStream: InputStream
     readonly outputStream: OutputStream
-    /* Fields of Gio.UnixConnection */
+    /* Fields of Gio-2.0.Gio.UnixConnection */
     parentInstance: SocketConnection
     priv: UnixConnectionPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixConnection */
+    /* Methods of Gio-2.0.Gio.UnixConnection */
     receiveCredentials(cancellable?: Cancellable | null): Credentials
     receiveCredentialsAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     receiveCredentialsFinish(result: AsyncResult): Credentials
@@ -12595,7 +12580,7 @@ export class UnixConnection {
     sendCredentialsAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     sendCredentialsFinish(result: AsyncResult): boolean
     sendFd(fd: number, cancellable?: Cancellable | null): boolean
-    /* Methods of Gio.SocketConnection */
+    /* Methods of Gio-2.0.Gio.SocketConnection */
     connect(address: SocketAddress, cancellable?: Cancellable | null): boolean
     connectAsync(address: SocketAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     connectFinish(result: AsyncResult): boolean
@@ -12603,7 +12588,7 @@ export class UnixConnection {
     getRemoteAddress(): SocketAddress
     getSocket(): Socket
     isConnected(): boolean
-    /* Methods of Gio.IOStream */
+    /* Methods of Gio-2.0.Gio.IOStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -12614,7 +12599,7 @@ export class UnixConnection {
     isClosed(): boolean
     setPending(): boolean
     spliceAsync(stream2: IOStream, flags: IOStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12636,13 +12621,13 @@ export class UnixConnection {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.IOStream */
+    /* Virtual methods of Gio-2.0.Gio.IOStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
     vfuncGetInputStream(): InputStream
     vfuncGetOutputStream(): OutputStream
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12650,7 +12635,7 @@ export class UnixConnection {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12688,19 +12673,19 @@ export interface UnixCredentialsMessage_ConstructProps extends SocketControlMess
     credentials?: Credentials
 }
 export class UnixCredentialsMessage {
-    /* Fields of Gio.UnixCredentialsMessage */
+    /* Fields of Gio-2.0.Gio.UnixCredentialsMessage */
     parentInstance: SocketControlMessage
     priv: UnixCredentialsMessagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixCredentialsMessage */
+    /* Methods of Gio-2.0.Gio.UnixCredentialsMessage */
     getCredentials(): Credentials
-    /* Methods of Gio.SocketControlMessage */
+    /* Methods of Gio-2.0.Gio.SocketControlMessage */
     getLevel(): number
     getMsgType(): number
     getSize(): number
     serialize(data: object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12722,12 +12707,12 @@ export class UnixCredentialsMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketControlMessage */
+    /* Virtual methods of Gio-2.0.Gio.SocketControlMessage */
     vfuncGetLevel(): number
     vfuncGetSize(): number
     vfuncGetType(): number
     vfuncSerialize(data: object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12735,7 +12720,7 @@ export class UnixCredentialsMessage {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12761,18 +12746,18 @@ export class UnixCredentialsMessage {
 export interface UnixFDList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UnixFDList {
-    /* Fields of Gio.UnixFDList */
+    /* Fields of Gio-2.0.Gio.UnixFDList */
     parentInstance: GObject.Object
     priv: UnixFDListPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixFDList */
+    /* Methods of Gio-2.0.Gio.UnixFDList */
     append(fd: number): number
     get(index: number): number
     getLength(): number
     peekFds(): number[]
     stealFds(): number[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12794,7 +12779,7 @@ export class UnixFDList {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12802,7 +12787,7 @@ export class UnixFDList {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixFDList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixFDList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12828,21 +12813,21 @@ export interface UnixFDMessage_ConstructProps extends SocketControlMessage_Const
     fdList?: UnixFDList
 }
 export class UnixFDMessage {
-    /* Fields of Gio.UnixFDMessage */
+    /* Fields of Gio-2.0.Gio.UnixFDMessage */
     parentInstance: SocketControlMessage
     priv: UnixFDMessagePrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixFDMessage */
+    /* Methods of Gio-2.0.Gio.UnixFDMessage */
     appendFd(fd: number): boolean
     getFdList(): UnixFDList
     stealFds(): number[]
-    /* Methods of Gio.SocketControlMessage */
+    /* Methods of Gio-2.0.Gio.SocketControlMessage */
     getLevel(): number
     getMsgType(): number
     getSize(): number
     serialize(data: object): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12864,12 +12849,12 @@ export class UnixFDMessage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.SocketControlMessage */
+    /* Virtual methods of Gio-2.0.Gio.SocketControlMessage */
     vfuncGetLevel(): number
     vfuncGetSize(): number
     vfuncGetType(): number
     vfuncSerialize(data: object): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12877,7 +12862,7 @@ export class UnixFDMessage {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixFDMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixFDMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -12904,17 +12889,17 @@ export interface UnixInputStream_ConstructProps extends InputStream_ConstructPro
     fd?: number
 }
 export class UnixInputStream {
-    /* Properties of Gio.UnixInputStream */
+    /* Properties of Gio-2.0.Gio.UnixInputStream */
     closeFd: boolean
-    /* Fields of Gio.UnixInputStream */
+    /* Fields of Gio-2.0.Gio.UnixInputStream */
     parentInstance: InputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixInputStream */
+    /* Methods of Gio-2.0.Gio.UnixInputStream */
     getCloseFd(): boolean
     getFd(): number
     setCloseFd(closeFd: boolean): void
-    /* Methods of Gio.InputStream */
+    /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -12934,7 +12919,7 @@ export class UnixInputStream {
     skip(count: number, cancellable?: Cancellable | null): number
     skipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     skipFinish(result: AsyncResult): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12956,18 +12941,18 @@ export class UnixInputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableInputStream */
+    /* Methods of Gio-2.0.Gio.PollableInputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
     readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    /* Virtual methods of Gio.UnixInputStream */
+    /* Virtual methods of Gio-2.0.Gio.UnixInputStream */
     vfuncGetFd(): number
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsReadable(): boolean
     vfuncReadNonblocking(buffer: any[] | null): number
-    /* Virtual methods of Gio.InputStream */
+    /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -12977,7 +12962,7 @@ export class UnixInputStream {
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
     vfuncSkipAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncSkipFinish(result: AsyncResult): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -12985,7 +12970,7 @@ export class UnixInputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13014,11 +12999,11 @@ export class UnixInputStream {
 export interface UnixMountMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class UnixMountMonitor {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixMountMonitor */
+    /* Methods of Gio-2.0.Gio.UnixMountMonitor */
     setRateLimit(limitMsec: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13040,7 +13025,7 @@ export class UnixMountMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13048,7 +13033,7 @@ export class UnixMountMonitor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.UnixMountMonitor */
+    /* Signals of Gio-2.0.Gio.UnixMountMonitor */
     connect(sigName: "mountpoints-changed", callback: (($obj: UnixMountMonitor) => void)): number
     connect_after(sigName: "mountpoints-changed", callback: (($obj: UnixMountMonitor) => void)): number
     emit(sigName: "mountpoints-changed"): void
@@ -13061,7 +13046,7 @@ export class UnixMountMonitor {
     on(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13088,17 +13073,17 @@ export interface UnixOutputStream_ConstructProps extends OutputStream_ConstructP
     fd?: number
 }
 export class UnixOutputStream {
-    /* Properties of Gio.UnixOutputStream */
+    /* Properties of Gio-2.0.Gio.UnixOutputStream */
     closeFd: boolean
-    /* Fields of Gio.UnixOutputStream */
+    /* Fields of Gio-2.0.Gio.UnixOutputStream */
     parentInstance: OutputStream
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixOutputStream */
+    /* Methods of Gio-2.0.Gio.UnixOutputStream */
     getCloseFd(): boolean
     getFd(): number
     setCloseFd(closeFd: boolean): void
-    /* Methods of Gio.OutputStream */
+    /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
     closeAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -13128,7 +13113,7 @@ export class UnixOutputStream {
     writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13150,20 +13135,20 @@ export class UnixOutputStream {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.PollableOutputStream */
+    /* Methods of Gio-2.0.Gio.PollableOutputStream */
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
     writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Virtual methods of Gio.UnixOutputStream */
+    /* Virtual methods of Gio-2.0.Gio.UnixOutputStream */
     vfuncGetFd(): number
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
     vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
-    /* Virtual methods of Gio.OutputStream */
+    /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
@@ -13179,7 +13164,7 @@ export class UnixOutputStream {
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
     vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13187,7 +13172,7 @@ export class UnixOutputStream {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13220,22 +13205,22 @@ export interface UnixSocketAddress_ConstructProps extends SocketAddress_Construc
     pathAsArray?: any[]
 }
 export class UnixSocketAddress {
-    /* Properties of Gio.SocketAddress */
+    /* Properties of Gio-2.0.Gio.SocketAddress */
     readonly family: SocketFamily
-    /* Fields of Gio.UnixSocketAddress */
+    /* Fields of Gio-2.0.Gio.UnixSocketAddress */
     parentInstance: SocketAddress
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.UnixSocketAddress */
+    /* Methods of Gio-2.0.Gio.UnixSocketAddress */
     getAddressType(): UnixSocketAddressType
     getIsAbstract(): boolean
     getPath(): string
     getPathLen(): number
-    /* Methods of Gio.SocketAddress */
+    /* Methods of Gio-2.0.Gio.SocketAddress */
     getFamily(): SocketFamily
     getNativeSize(): number
     toNative(dest: object | null, destlen: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13257,18 +13242,18 @@ export class UnixSocketAddress {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.SocketConnectable */
+    /* Methods of Gio-2.0.Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxyEnumerate(): SocketAddressEnumerator
     toString(): string
-    /* Virtual methods of Gio.SocketAddress */
+    /* Virtual methods of Gio-2.0.Gio.SocketAddress */
     vfuncGetFamily(): SocketFamily
     vfuncGetNativeSize(): number
     vfuncToNative(dest: object | null, destlen: number): boolean
     vfuncEnumerate(): SocketAddressEnumerator
     vfuncProxyEnumerate(): SocketAddressEnumerator
     vfuncToString(): string
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13276,7 +13261,7 @@ export class UnixSocketAddress {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13308,11 +13293,11 @@ export class UnixSocketAddress {
 export interface Vfs_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Vfs {
-    /* Fields of Gio.Vfs */
+    /* Fields of Gio-2.0.Gio.Vfs */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.Vfs */
+    /* Methods of Gio-2.0.Gio.Vfs */
     getFileForPath(path: string): File
     getFileForUri(uri: string): File
     getSupportedUriSchemes(): string[]
@@ -13320,7 +13305,7 @@ export class Vfs {
     parseName(parseName: string): File
     registerUriScheme(scheme: string, uriFunc?: VfsFileLookupFunc | null, parseNameFunc?: VfsFileLookupFunc | null): boolean
     unregisterUriScheme(scheme: string): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13342,7 +13327,7 @@ export class Vfs {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.Vfs */
+    /* Virtual methods of Gio-2.0.Gio.Vfs */
     vfuncAddWritableNamespaces(list: FileAttributeInfoList): void
     vfuncGetFileForPath(path: string): File
     vfuncGetFileForUri(uri: string): File
@@ -13353,7 +13338,7 @@ export class Vfs {
     vfuncLocalFileRemoved(filename: string): void
     vfuncLocalFileSetAttributes(filename: string, info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     vfuncParseName(parseName: string): File
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13361,7 +13346,7 @@ export class Vfs {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Vfs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Vfs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13386,17 +13371,17 @@ export class Vfs {
 export interface VolumeMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class VolumeMonitor {
-    /* Fields of Gio.VolumeMonitor */
+    /* Fields of Gio-2.0.Gio.VolumeMonitor */
     parentInstance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.VolumeMonitor */
+    /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13418,16 +13403,16 @@ export class VolumeMonitor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Gio.VolumeMonitor */
+    /* Virtual methods of Gio-2.0.Gio.VolumeMonitor */
     vfuncDriveChanged(drive: Drive): void
     vfuncDriveConnected(drive: Drive): void
     vfuncDriveDisconnected(drive: Drive): void
     vfuncDriveEjectButton(drive: Drive): void
     vfuncDriveStopButton(drive: Drive): void
     vfuncGetConnectedDrives(): Drive[]
-    vfuncGetMountForUuid(uuid: string): Mount | null
+    vfuncGetMountForUuid(uuid: string): Mount
     vfuncGetMounts(): Mount[]
-    vfuncGetVolumeForUuid(uuid: string): Volume | null
+    vfuncGetVolumeForUuid(uuid: string): Volume
     vfuncGetVolumes(): Volume[]
     vfuncMountAdded(mount: Mount): void
     vfuncMountChanged(mount: Mount): void
@@ -13436,7 +13421,7 @@ export class VolumeMonitor {
     vfuncVolumeAdded(volume: Volume): void
     vfuncVolumeChanged(volume: Volume): void
     vfuncVolumeRemoved(volume: Volume): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13444,7 +13429,7 @@ export class VolumeMonitor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gio.VolumeMonitor */
+    /* Signals of Gio-2.0.Gio.VolumeMonitor */
     connect(sigName: "drive-changed", callback: (($obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-changed", callback: (($obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-changed", drive: Drive): void
@@ -13517,7 +13502,7 @@ export class VolumeMonitor {
     on(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13545,14 +13530,14 @@ export interface ZlibCompressor_ConstructProps extends GObject.Object_ConstructP
     level?: number
 }
 export class ZlibCompressor {
-    /* Properties of Gio.ZlibCompressor */
+    /* Properties of Gio-2.0.Gio.ZlibCompressor */
     fileInfo: FileInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ZlibCompressor */
-    getFileInfo(): FileInfo | null
+    /* Methods of Gio-2.0.Gio.ZlibCompressor */
+    getFileInfo(): FileInfo
     setFileInfo(fileInfo?: FileInfo | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13574,13 +13559,13 @@ export class ZlibCompressor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Converter */
+    /* Methods of Gio-2.0.Gio.Converter */
     convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     reset(): void
-    /* Virtual methods of Gio.ZlibCompressor */
+    /* Virtual methods of Gio-2.0.Gio.ZlibCompressor */
     vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     vfuncReset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13588,7 +13573,7 @@ export class ZlibCompressor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13618,13 +13603,13 @@ export interface ZlibDecompressor_ConstructProps extends GObject.Object_Construc
     format?: ZlibCompressorFormat
 }
 export class ZlibDecompressor {
-    /* Properties of Gio.ZlibDecompressor */
+    /* Properties of Gio-2.0.Gio.ZlibDecompressor */
     readonly fileInfo: FileInfo
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio.ZlibDecompressor */
-    getFileInfo(): FileInfo | null
-    /* Methods of GObject.Object */
+    /* Methods of Gio-2.0.Gio.ZlibDecompressor */
+    getFileInfo(): FileInfo
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13646,13 +13631,13 @@ export class ZlibDecompressor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gio.Converter */
+    /* Methods of Gio-2.0.Gio.Converter */
     convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     reset(): void
-    /* Virtual methods of Gio.ZlibDecompressor */
+    /* Virtual methods of Gio-2.0.Gio.ZlibDecompressor */
     vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     vfuncReset(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
     vfuncDispose(): void
@@ -13660,7 +13645,7 @@ export class ZlibDecompressor {
     vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -13687,7 +13672,7 @@ export class ZlibDecompressor {
     static $gtype: GObject.Type
 }
 export class ActionEntry {
-    /* Fields of Gio.ActionEntry */
+    /* Fields of Gio-2.0.Gio.ActionEntry */
     name: string
     activate: (action: SimpleAction, parameter: GLib.Variant) => void
     parameterType: string
@@ -13696,7 +13681,7 @@ export class ActionEntry {
     static name: string
 }
 export abstract class ActionGroupInterface {
-    /* Fields of Gio.ActionGroupInterface */
+    /* Fields of Gio-2.0.Gio.ActionGroupInterface */
     gIface: GObject.TypeInterface
     hasAction: (actionGroup: ActionGroup, actionName: string) => boolean
     listActions: (actionGroup: ActionGroup) => string[]
@@ -13715,36 +13700,36 @@ export abstract class ActionGroupInterface {
     static name: string
 }
 export abstract class ActionInterface {
-    /* Fields of Gio.ActionInterface */
+    /* Fields of Gio-2.0.Gio.ActionInterface */
     gIface: GObject.TypeInterface
     getName: (action: Action) => string
     getParameterType: (action: Action) => GLib.VariantType | null
     getStateType: (action: Action) => GLib.VariantType | null
     getStateHint: (action: Action) => GLib.Variant | null
     getEnabled: (action: Action) => boolean
-    getState: (action: Action) => GLib.Variant | null
+    getState: (action: Action) => GLib.Variant
     changeState: (action: Action, value: GLib.Variant) => void
     activate: (action: Action, parameter?: GLib.Variant | null) => void
     static name: string
 }
 export abstract class ActionMapInterface {
-    /* Fields of Gio.ActionMapInterface */
+    /* Fields of Gio-2.0.Gio.ActionMapInterface */
     gIface: GObject.TypeInterface
-    lookupAction: (actionMap: ActionMap, actionName: string) => Action | null
+    lookupAction: (actionMap: ActionMap, actionName: string) => Action
     addAction: (actionMap: ActionMap, action: Action) => void
     removeAction: (actionMap: ActionMap, actionName: string) => void
     static name: string
 }
 export abstract class AppInfoIface {
-    /* Fields of Gio.AppInfoIface */
+    /* Fields of Gio-2.0.Gio.AppInfoIface */
     gIface: GObject.TypeInterface
     dup: (appinfo: AppInfo) => AppInfo
     equal: (appinfo1: AppInfo, appinfo2: AppInfo) => boolean
-    getId: (appinfo: AppInfo) => string | null
+    getId: (appinfo: AppInfo) => string
     getName: (appinfo: AppInfo) => string
-    getDescription: (appinfo: AppInfo) => string | null
+    getDescription: (appinfo: AppInfo) => string
     getExecutable: (appinfo: AppInfo) => string
-    getIcon: (appinfo: AppInfo) => Icon | null
+    getIcon: (appinfo: AppInfo) => Icon
     launch: (appinfo: AppInfo, files?: File[] | null, context?: AppLaunchContext | null) => boolean
     supportsUris: (appinfo: AppInfo) => boolean
     supportsFiles: (appinfo: AppInfo) => boolean
@@ -13757,7 +13742,7 @@ export abstract class AppInfoIface {
     removeSupportsType: (appinfo: AppInfo, contentType: string) => boolean
     canDelete: (appinfo: AppInfo) => boolean
     doDelete: (appinfo: AppInfo) => boolean
-    getCommandline: (appinfo: AppInfo) => string | null
+    getCommandline: (appinfo: AppInfo) => string
     getDisplayName: (appinfo: AppInfo) => string
     setAsLastUsedForType: (appinfo: AppInfo, contentType: string) => boolean
     getSupportedTypes: (appinfo: AppInfo) => string[]
@@ -13766,10 +13751,10 @@ export abstract class AppInfoIface {
     static name: string
 }
 export abstract class AppLaunchContextClass {
-    /* Fields of Gio.AppLaunchContextClass */
+    /* Fields of Gio-2.0.Gio.AppLaunchContextClass */
     parentClass: GObject.ObjectClass
-    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
-    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
+    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
+    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
     launchFailed: (context: AppLaunchContext, startupNotifyId: string) => void
     launched: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
     static name: string
@@ -13778,7 +13763,7 @@ export class AppLaunchContextPrivate {
     static name: string
 }
 export abstract class ApplicationClass {
-    /* Fields of Gio.ApplicationClass */
+    /* Fields of Gio-2.0.Gio.ApplicationClass */
     startup: (application: Application) => void
     activate: (application: Application) => void
     open: (application: Application, files: File[], hint: string) => void
@@ -13797,10 +13782,10 @@ export abstract class ApplicationClass {
     static name: string
 }
 export abstract class ApplicationCommandLineClass {
-    /* Fields of Gio.ApplicationCommandLineClass */
+    /* Fields of Gio-2.0.Gio.ApplicationCommandLineClass */
     printLiteral: (cmdline: ApplicationCommandLine, message: string) => void
     printerrLiteral: (cmdline: ApplicationCommandLine, message: string) => void
-    getStdin: (cmdline: ApplicationCommandLine) => InputStream | null
+    getStdin: (cmdline: ApplicationCommandLine) => InputStream
     static name: string
 }
 export class ApplicationCommandLinePrivate {
@@ -13810,14 +13795,14 @@ export class ApplicationPrivate {
     static name: string
 }
 export abstract class AsyncInitableIface {
-    /* Fields of Gio.AsyncInitableIface */
+    /* Fields of Gio-2.0.Gio.AsyncInitableIface */
     gIface: GObject.TypeInterface
     initAsync: (initable: AsyncInitable, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     initFinish: (initable: AsyncInitable, res: AsyncResult) => boolean
     static name: string
 }
 export abstract class AsyncResultIface {
-    /* Fields of Gio.AsyncResultIface */
+    /* Fields of Gio-2.0.Gio.AsyncResultIface */
     gIface: GObject.TypeInterface
     getUserData: (res: AsyncResult) => object | null
     getSourceObject: (res: AsyncResult) => GObject.Object | null
@@ -13825,7 +13810,7 @@ export abstract class AsyncResultIface {
     static name: string
 }
 export abstract class BufferedInputStreamClass {
-    /* Fields of Gio.BufferedInputStreamClass */
+    /* Fields of Gio-2.0.Gio.BufferedInputStreamClass */
     parentClass: FilterInputStreamClass
     fill: (stream: BufferedInputStream, count: number, cancellable?: Cancellable | null) => number
     fillAsync: (stream: BufferedInputStream, count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -13836,7 +13821,7 @@ export class BufferedInputStreamPrivate {
     static name: string
 }
 export abstract class BufferedOutputStreamClass {
-    /* Fields of Gio.BufferedOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.BufferedOutputStreamClass */
     parentClass: FilterOutputStreamClass
     static name: string
 }
@@ -13844,7 +13829,7 @@ export class BufferedOutputStreamPrivate {
     static name: string
 }
 export abstract class CancellableClass {
-    /* Fields of Gio.CancellableClass */
+    /* Fields of Gio-2.0.Gio.CancellableClass */
     parentClass: GObject.ObjectClass
     cancelled: (cancellable?: Cancellable | null) => void
     static name: string
@@ -13853,19 +13838,19 @@ export class CancellablePrivate {
     static name: string
 }
 export abstract class CharsetConverterClass {
-    /* Fields of Gio.CharsetConverterClass */
+    /* Fields of Gio-2.0.Gio.CharsetConverterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ConverterIface {
-    /* Fields of Gio.ConverterIface */
+    /* Fields of Gio-2.0.Gio.ConverterIface */
     gIface: GObject.TypeInterface
     convert: (converter: Converter, inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags) => [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
     reset: (converter: Converter) => void
     static name: string
 }
 export abstract class ConverterInputStreamClass {
-    /* Fields of Gio.ConverterInputStreamClass */
+    /* Fields of Gio-2.0.Gio.ConverterInputStreamClass */
     parentClass: FilterInputStreamClass
     static name: string
 }
@@ -13873,7 +13858,7 @@ export class ConverterInputStreamPrivate {
     static name: string
 }
 export abstract class ConverterOutputStreamClass {
-    /* Fields of Gio.ConverterOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.ConverterOutputStreamClass */
     parentClass: FilterOutputStreamClass
     static name: string
 }
@@ -13884,65 +13869,65 @@ export abstract class CredentialsClass {
     static name: string
 }
 export class DBusAnnotationInfo {
-    /* Fields of Gio.DBusAnnotationInfo */
+    /* Fields of Gio-2.0.Gio.DBusAnnotationInfo */
     refCount: number
     key: string
     value: string
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusAnnotationInfo */
+    /* Methods of Gio-2.0.Gio.DBusAnnotationInfo */
     ref(): DBusAnnotationInfo
     unref(): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
+    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 }
 export class DBusArgInfo {
-    /* Fields of Gio.DBusArgInfo */
+    /* Fields of Gio-2.0.Gio.DBusArgInfo */
     refCount: number
     name: string
     signature: string
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusArgInfo */
+    /* Methods of Gio-2.0.Gio.DBusArgInfo */
     ref(): DBusArgInfo
     unref(): void
     static name: string
 }
 export class DBusErrorEntry {
-    /* Fields of Gio.DBusErrorEntry */
+    /* Fields of Gio-2.0.Gio.DBusErrorEntry */
     errorCode: number
     dbusErrorName: string
     static name: string
 }
 export abstract class DBusInterfaceIface {
-    /* Fields of Gio.DBusInterfaceIface */
+    /* Fields of Gio-2.0.Gio.DBusInterfaceIface */
     parentIface: GObject.TypeInterface
     getInfo: (interface: DBusInterface) => DBusInterfaceInfo
-    getObject: (interface: DBusInterface) => DBusObject | null
+    getObject: (interface: DBusInterface) => DBusObject
     setObject: (interface: DBusInterface, object?: DBusObject | null) => void
-    dupObject: (interface: DBusInterface) => DBusObject | null
+    dupObject: (interface: DBusInterface) => DBusObject
     static name: string
 }
 export class DBusInterfaceInfo {
-    /* Fields of Gio.DBusInterfaceInfo */
+    /* Fields of Gio-2.0.Gio.DBusInterfaceInfo */
     refCount: number
     name: string
     methods: DBusMethodInfo[]
     signals: DBusSignalInfo[]
     properties: DBusPropertyInfo[]
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusInterfaceInfo */
+    /* Methods of Gio-2.0.Gio.DBusInterfaceInfo */
     cacheBuild(): void
     cacheRelease(): void
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupMethod(name: string): DBusMethodInfo | null
-    lookupProperty(name: string): DBusPropertyInfo | null
-    lookupSignal(name: string): DBusSignalInfo | null
+    lookupMethod(name: string): DBusMethodInfo
+    lookupProperty(name: string): DBusPropertyInfo
+    lookupSignal(name: string): DBusSignalInfo
     ref(): DBusInterfaceInfo
     unref(): void
     static name: string
 }
 export abstract class DBusInterfaceSkeletonClass {
-    /* Fields of Gio.DBusInterfaceSkeletonClass */
+    /* Fields of Gio-2.0.Gio.DBusInterfaceSkeletonClass */
     parentClass: GObject.ObjectClass
     getInfo: (interface: DBusInterfaceSkeleton) => DBusInterfaceInfo
     getProperties: (interface: DBusInterfaceSkeleton) => GLib.Variant
@@ -13954,34 +13939,34 @@ export class DBusInterfaceSkeletonPrivate {
     static name: string
 }
 export class DBusInterfaceVTable {
-    /* Fields of Gio.DBusInterfaceVTable */
+    /* Fields of Gio-2.0.Gio.DBusInterfaceVTable */
     methodCall: DBusInterfaceMethodCallFunc
     getProperty: DBusInterfaceGetPropertyFunc
     setProperty: DBusInterfaceSetPropertyFunc
     static name: string
 }
 export class DBusMethodInfo {
-    /* Fields of Gio.DBusMethodInfo */
+    /* Fields of Gio-2.0.Gio.DBusMethodInfo */
     refCount: number
     name: string
     inArgs: DBusArgInfo[]
     outArgs: DBusArgInfo[]
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusMethodInfo */
+    /* Methods of Gio-2.0.Gio.DBusMethodInfo */
     ref(): DBusMethodInfo
     unref(): void
     static name: string
 }
 export class DBusNodeInfo {
-    /* Fields of Gio.DBusNodeInfo */
+    /* Fields of Gio-2.0.Gio.DBusNodeInfo */
     refCount: number
     path: string
     interfaces: DBusInterfaceInfo[]
     nodes: DBusNodeInfo[]
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusNodeInfo */
+    /* Methods of Gio-2.0.Gio.DBusNodeInfo */
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupInterface(name: string): DBusInterfaceInfo | null
+    lookupInterface(name: string): DBusInterfaceInfo
     ref(): DBusNodeInfo
     unref(): void
     static name: string
@@ -13989,17 +13974,17 @@ export class DBusNodeInfo {
     static newForXml(xmlData: string): DBusNodeInfo
 }
 export abstract class DBusObjectIface {
-    /* Fields of Gio.DBusObjectIface */
+    /* Fields of Gio-2.0.Gio.DBusObjectIface */
     parentIface: GObject.TypeInterface
     getObjectPath: (object: DBusObject) => string
     getInterfaces: (object: DBusObject) => DBusInterface[]
-    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface | null
+    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface
     interfaceAdded: (object: DBusObject, interface: DBusInterface) => void
     interfaceRemoved: (object: DBusObject, interface: DBusInterface) => void
     static name: string
 }
 export abstract class DBusObjectManagerClientClass {
-    /* Fields of Gio.DBusObjectManagerClientClass */
+    /* Fields of Gio-2.0.Gio.DBusObjectManagerClientClass */
     parentClass: GObject.ObjectClass
     interfaceProxySignal: (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void
     interfaceProxyPropertiesChanged: (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string) => void
@@ -14009,7 +13994,7 @@ export class DBusObjectManagerClientPrivate {
     static name: string
 }
 export abstract class DBusObjectManagerIface {
-    /* Fields of Gio.DBusObjectManagerIface */
+    /* Fields of Gio-2.0.Gio.DBusObjectManagerIface */
     parentIface: GObject.TypeInterface
     getObjectPath: (manager: DBusObjectManager) => string
     getObjects: (manager: DBusObjectManager) => DBusObject[]
@@ -14022,7 +14007,7 @@ export abstract class DBusObjectManagerIface {
     static name: string
 }
 export abstract class DBusObjectManagerServerClass {
-    /* Fields of Gio.DBusObjectManagerServerClass */
+    /* Fields of Gio-2.0.Gio.DBusObjectManagerServerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14030,7 +14015,7 @@ export class DBusObjectManagerServerPrivate {
     static name: string
 }
 export abstract class DBusObjectProxyClass {
-    /* Fields of Gio.DBusObjectProxyClass */
+    /* Fields of Gio-2.0.Gio.DBusObjectProxyClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14038,7 +14023,7 @@ export class DBusObjectProxyPrivate {
     static name: string
 }
 export abstract class DBusObjectSkeletonClass {
-    /* Fields of Gio.DBusObjectSkeletonClass */
+    /* Fields of Gio-2.0.Gio.DBusObjectSkeletonClass */
     parentClass: GObject.ObjectClass
     authorizeMethod: (object: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean
     static name: string
@@ -14047,19 +14032,19 @@ export class DBusObjectSkeletonPrivate {
     static name: string
 }
 export class DBusPropertyInfo {
-    /* Fields of Gio.DBusPropertyInfo */
+    /* Fields of Gio-2.0.Gio.DBusPropertyInfo */
     refCount: number
     name: string
     signature: string
     flags: DBusPropertyInfoFlags
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusPropertyInfo */
+    /* Methods of Gio-2.0.Gio.DBusPropertyInfo */
     ref(): DBusPropertyInfo
     unref(): void
     static name: string
 }
 export abstract class DBusProxyClass {
-    /* Fields of Gio.DBusProxyClass */
+    /* Fields of Gio-2.0.Gio.DBusProxyClass */
     gPropertiesChanged: (proxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string) => void
     gSignal: (proxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void
     static name: string
@@ -14068,25 +14053,24 @@ export class DBusProxyPrivate {
     static name: string
 }
 export class DBusSignalInfo {
-    /* Fields of Gio.DBusSignalInfo */
+    /* Fields of Gio-2.0.Gio.DBusSignalInfo */
     refCount: number
     name: string
     args: DBusArgInfo[]
     annotations: DBusAnnotationInfo[]
-    /* Methods of Gio.DBusSignalInfo */
+    /* Methods of Gio-2.0.Gio.DBusSignalInfo */
     ref(): DBusSignalInfo
     unref(): void
     static name: string
 }
 export class DBusSubtreeVTable {
-    /* Fields of Gio.DBusSubtreeVTable */
-    enumerate: DBusSubtreeEnumerateFunc
+    /* Fields of Gio-2.0.Gio.DBusSubtreeVTable */
     introspect: DBusSubtreeIntrospectFunc
     dispatch: DBusSubtreeDispatchFunc
     static name: string
 }
 export abstract class DataInputStreamClass {
-    /* Fields of Gio.DataInputStreamClass */
+    /* Fields of Gio-2.0.Gio.DataInputStreamClass */
     parentClass: BufferedInputStreamClass
     static name: string
 }
@@ -14094,7 +14078,7 @@ export class DataInputStreamPrivate {
     static name: string
 }
 export abstract class DataOutputStreamClass {
-    /* Fields of Gio.DataOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.DataOutputStreamClass */
     parentClass: FilterOutputStreamClass
     static name: string
 }
@@ -14102,7 +14086,7 @@ export class DataOutputStreamPrivate {
     static name: string
 }
 export abstract class DatagramBasedInterface {
-    /* Fields of Gio.DatagramBasedInterface */
+    /* Fields of Gio-2.0.Gio.DatagramBasedInterface */
     gIface: GObject.TypeInterface
     receiveMessages: (datagramBased: DatagramBased, messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
     sendMessages: (datagramBased: DatagramBased, messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
@@ -14112,18 +14096,18 @@ export abstract class DatagramBasedInterface {
     static name: string
 }
 export abstract class DesktopAppInfoClass {
-    /* Fields of Gio.DesktopAppInfoClass */
+    /* Fields of Gio-2.0.Gio.DesktopAppInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class DesktopAppInfoLookupIface {
-    /* Fields of Gio.DesktopAppInfoLookupIface */
+    /* Fields of Gio-2.0.Gio.DesktopAppInfoLookupIface */
     gIface: GObject.TypeInterface
     getDefaultForUriScheme: (lookup: DesktopAppInfoLookup, uriScheme: string) => AppInfo | null
     static name: string
 }
 export abstract class DriveIface {
-    /* Fields of Gio.DriveIface */
+    /* Fields of Gio-2.0.Gio.DriveIface */
     gIface: GObject.TypeInterface
     changed: (drive: Drive) => void
     disconnected: (drive: Drive) => void
@@ -14160,12 +14144,12 @@ export abstract class DriveIface {
     static name: string
 }
 export abstract class DtlsClientConnectionInterface {
-    /* Fields of Gio.DtlsClientConnectionInterface */
+    /* Fields of Gio-2.0.Gio.DtlsClientConnectionInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class DtlsConnectionInterface {
-    /* Fields of Gio.DtlsConnectionInterface */
+    /* Fields of Gio-2.0.Gio.DtlsConnectionInterface */
     gIface: GObject.TypeInterface
     acceptCertificate: (connection: DtlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean
     handshake: (conn: DtlsConnection, cancellable?: Cancellable | null) => boolean
@@ -14180,7 +14164,7 @@ export abstract class DtlsConnectionInterface {
     static name: string
 }
 export abstract class DtlsServerConnectionInterface {
-    /* Fields of Gio.DtlsServerConnectionInterface */
+    /* Fields of Gio-2.0.Gio.DtlsServerConnectionInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
@@ -14188,7 +14172,7 @@ export abstract class EmblemClass {
     static name: string
 }
 export abstract class EmblemedIconClass {
-    /* Fields of Gio.EmblemedIconClass */
+    /* Fields of Gio-2.0.Gio.EmblemedIconClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14196,17 +14180,17 @@ export class EmblemedIconPrivate {
     static name: string
 }
 export class FileAttributeInfo {
-    /* Fields of Gio.FileAttributeInfo */
+    /* Fields of Gio-2.0.Gio.FileAttributeInfo */
     name: string
     type: FileAttributeType
     flags: FileAttributeInfoFlags
     static name: string
 }
 export class FileAttributeInfoList {
-    /* Fields of Gio.FileAttributeInfoList */
+    /* Fields of Gio-2.0.Gio.FileAttributeInfoList */
     infos: FileAttributeInfo
     nInfos: number
-    /* Methods of Gio.FileAttributeInfoList */
+    /* Methods of Gio-2.0.Gio.FileAttributeInfoList */
     add(name: string, type: FileAttributeType, flags: FileAttributeInfoFlags): void
     dup(): FileAttributeInfoList
     lookup(name: string): FileAttributeInfo
@@ -14219,13 +14203,13 @@ export class FileAttributeInfoList {
     static new(): FileAttributeInfoList
 }
 export class FileAttributeMatcher {
-    /* Methods of Gio.FileAttributeMatcher */
+    /* Methods of Gio-2.0.Gio.FileAttributeMatcher */
     enumerateNamespace(ns: string): boolean
     enumerateNext(): string | null
     matches(attribute: string): boolean
     matchesOnly(attribute: string): boolean
     ref(): FileAttributeMatcher
-    subtract(subtract?: FileAttributeMatcher | null): FileAttributeMatcher | null
+    subtract(subtract: FileAttributeMatcher): FileAttributeMatcher
     toString(): string
     unref(): void
     static name: string
@@ -14235,13 +14219,13 @@ export class FileAttributeMatcher {
     static new(attributes: string): FileAttributeMatcher
 }
 export abstract class FileDescriptorBasedIface {
-    /* Fields of Gio.FileDescriptorBasedIface */
+    /* Fields of Gio-2.0.Gio.FileDescriptorBasedIface */
     gIface: GObject.TypeInterface
     getFd: (fdBased: FileDescriptorBased) => number
     static name: string
 }
 export abstract class FileEnumeratorClass {
-    /* Fields of Gio.FileEnumeratorClass */
+    /* Fields of Gio-2.0.Gio.FileEnumeratorClass */
     parentClass: GObject.ObjectClass
     nextFile: (enumerator: FileEnumerator, cancellable?: Cancellable | null) => FileInfo | null
     closeFn: (enumerator: FileEnumerator, cancellable?: Cancellable | null) => boolean
@@ -14255,7 +14239,7 @@ export class FileEnumeratorPrivate {
     static name: string
 }
 export abstract class FileIOStreamClass {
-    /* Fields of Gio.FileIOStreamClass */
+    /* Fields of Gio-2.0.Gio.FileIOStreamClass */
     parentClass: IOStreamClass
     tell: (stream: FileIOStream) => number
     canSeek: (stream: FileIOStream) => boolean
@@ -14265,7 +14249,7 @@ export abstract class FileIOStreamClass {
     queryInfo: (stream: FileIOStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileIOStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileIOStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileIOStream) => string | null
+    getEtag: (stream: FileIOStream) => string
     static name: string
 }
 export class FileIOStreamPrivate {
@@ -14275,21 +14259,21 @@ export abstract class FileIconClass {
     static name: string
 }
 export abstract class FileIface {
-    /* Fields of Gio.FileIface */
+    /* Fields of Gio-2.0.Gio.FileIface */
     gIface: GObject.TypeInterface
     dup: (file: File) => File
     hash: (file: File) => number
     equal: (file1: File, file2: File) => boolean
     isNative: (file: File) => boolean
     hasUriScheme: (file: File, uriScheme: string) => boolean
-    getUriScheme: (file: File) => string | null
-    getBasename: (file: File) => string | null
-    getPath: (file: File) => string | null
+    getUriScheme: (file: File) => string
+    getBasename: (file: File) => string
+    getPath: (file: File) => string
     getUri: (file: File) => string
     getParseName: (file: File) => string
     getParent: (file: File) => File | null
     prefixMatches: (prefix: File, file: File) => boolean
-    getRelativePath: (parent: File, descendant: File) => string | null
+    getRelativePath: (parent: File, descendant: File) => string
     resolveRelativePath: (file: File, relativePath: string) => File
     getChildForDisplayName: (file: File, displayName: string) => File
     enumerateChildren: (file: File, attributes: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => FileEnumerator
@@ -14376,7 +14360,7 @@ export abstract class FileInfoClass {
     static name: string
 }
 export abstract class FileInputStreamClass {
-    /* Fields of Gio.FileInputStreamClass */
+    /* Fields of Gio-2.0.Gio.FileInputStreamClass */
     parentClass: InputStreamClass
     tell: (stream: FileInputStream) => number
     canSeek: (stream: FileInputStream) => boolean
@@ -14390,7 +14374,7 @@ export class FileInputStreamPrivate {
     static name: string
 }
 export abstract class FileMonitorClass {
-    /* Fields of Gio.FileMonitorClass */
+    /* Fields of Gio-2.0.Gio.FileMonitorClass */
     parentClass: GObject.ObjectClass
     changed: (monitor: FileMonitor, file: File, otherFile: File, eventType: FileMonitorEvent) => void
     cancel: (monitor: FileMonitor) => boolean
@@ -14400,7 +14384,7 @@ export class FileMonitorPrivate {
     static name: string
 }
 export abstract class FileOutputStreamClass {
-    /* Fields of Gio.FileOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.FileOutputStreamClass */
     parentClass: OutputStreamClass
     tell: (stream: FileOutputStream) => number
     canSeek: (stream: FileOutputStream) => boolean
@@ -14410,37 +14394,37 @@ export abstract class FileOutputStreamClass {
     queryInfo: (stream: FileOutputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileOutputStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileOutputStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileOutputStream) => string | null
+    getEtag: (stream: FileOutputStream) => string
     static name: string
 }
 export class FileOutputStreamPrivate {
     static name: string
 }
 export abstract class FilenameCompleterClass {
-    /* Fields of Gio.FilenameCompleterClass */
+    /* Fields of Gio-2.0.Gio.FilenameCompleterClass */
     parentClass: GObject.ObjectClass
     gotCompletionData: (filenameCompleter: FilenameCompleter) => void
     static name: string
 }
 export abstract class FilterInputStreamClass {
-    /* Fields of Gio.FilterInputStreamClass */
+    /* Fields of Gio-2.0.Gio.FilterInputStreamClass */
     parentClass: InputStreamClass
     static name: string
 }
 export abstract class FilterOutputStreamClass {
-    /* Fields of Gio.FilterOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.FilterOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
 export class IOExtension {
-    /* Methods of Gio.IOExtension */
+    /* Methods of Gio-2.0.Gio.IOExtension */
     getName(): string
     getPriority(): number
     getType(): GObject.Type
     static name: string
 }
 export class IOExtensionPoint {
-    /* Methods of Gio.IOExtensionPoint */
+    /* Methods of Gio-2.0.Gio.IOExtensionPoint */
     getExtensionByName(name: string): IOExtension
     getExtensions(): IOExtension[]
     getRequiredType(): GObject.Type
@@ -14455,13 +14439,13 @@ export abstract class IOModuleClass {
     static name: string
 }
 export class IOModuleScope {
-    /* Methods of Gio.IOModuleScope */
+    /* Methods of Gio-2.0.Gio.IOModuleScope */
     block(basename: string): void
     free(): void
     static name: string
 }
 export class IOSchedulerJob {
-    /* Methods of Gio.IOSchedulerJob */
+    /* Methods of Gio-2.0.Gio.IOSchedulerJob */
     sendToMainloop(func: GLib.SourceFunc): boolean
     sendToMainloopAsync(func: GLib.SourceFunc): void
     static name: string
@@ -14470,7 +14454,7 @@ export class IOStreamAdapter {
     static name: string
 }
 export abstract class IOStreamClass {
-    /* Fields of Gio.IOStreamClass */
+    /* Fields of Gio-2.0.Gio.IOStreamClass */
     parentClass: GObject.ObjectClass
     getInputStream: (stream: IOStream) => InputStream
     getOutputStream: (stream: IOStream) => OutputStream
@@ -14483,22 +14467,22 @@ export class IOStreamPrivate {
     static name: string
 }
 export abstract class IconIface {
-    /* Fields of Gio.IconIface */
+    /* Fields of Gio-2.0.Gio.IconIface */
     gIface: GObject.TypeInterface
     hash: (icon: Icon) => number
     equal: (icon1?: Icon | null, icon2?: Icon | null) => boolean
-    serialize: (icon: Icon) => GLib.Variant | null
+    serialize: (icon: Icon) => GLib.Variant
     static name: string
 }
 export abstract class InetAddressClass {
-    /* Fields of Gio.InetAddressClass */
+    /* Fields of Gio-2.0.Gio.InetAddressClass */
     parentClass: GObject.ObjectClass
     toString: (address: InetAddress) => string
     toBytes: (address: InetAddress) => number
     static name: string
 }
 export abstract class InetAddressMaskClass {
-    /* Fields of Gio.InetAddressMaskClass */
+    /* Fields of Gio-2.0.Gio.InetAddressMaskClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14509,7 +14493,7 @@ export class InetAddressPrivate {
     static name: string
 }
 export abstract class InetSocketAddressClass {
-    /* Fields of Gio.InetSocketAddressClass */
+    /* Fields of Gio-2.0.Gio.InetSocketAddressClass */
     parentClass: SocketAddressClass
     static name: string
 }
@@ -14517,13 +14501,13 @@ export class InetSocketAddressPrivate {
     static name: string
 }
 export abstract class InitableIface {
-    /* Fields of Gio.InitableIface */
+    /* Fields of Gio-2.0.Gio.InitableIface */
     gIface: GObject.TypeInterface
     init: (initable: Initable, cancellable?: Cancellable | null) => boolean
     static name: string
 }
 export class InputMessage {
-    /* Fields of Gio.InputMessage */
+    /* Fields of Gio-2.0.Gio.InputMessage */
     address: SocketAddress
     vectors: InputVector[]
     numVectors: number
@@ -14534,7 +14518,7 @@ export class InputMessage {
     static name: string
 }
 export abstract class InputStreamClass {
-    /* Fields of Gio.InputStreamClass */
+    /* Fields of Gio-2.0.Gio.InputStreamClass */
     parentClass: GObject.ObjectClass
     readFn: (stream: InputStream, buffer: object | null, count: number, cancellable?: Cancellable | null) => number
     skip: (stream: InputStream, count: number, cancellable?: Cancellable | null) => number
@@ -14551,13 +14535,13 @@ export class InputStreamPrivate {
     static name: string
 }
 export class InputVector {
-    /* Fields of Gio.InputVector */
+    /* Fields of Gio-2.0.Gio.InputVector */
     buffer: object
     size: number
     static name: string
 }
 export abstract class ListModelInterface {
-    /* Fields of Gio.ListModelInterface */
+    /* Fields of Gio-2.0.Gio.ListModelInterface */
     gIface: GObject.TypeInterface
     getItemType: (list: ListModel) => GObject.Type
     getNItems: (list: ListModel) => number
@@ -14565,12 +14549,12 @@ export abstract class ListModelInterface {
     static name: string
 }
 export abstract class ListStoreClass {
-    /* Fields of Gio.ListStoreClass */
+    /* Fields of Gio-2.0.Gio.ListStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class LoadableIconIface {
-    /* Fields of Gio.LoadableIconIface */
+    /* Fields of Gio-2.0.Gio.LoadableIconIface */
     gIface: GObject.TypeInterface
     load: (icon: LoadableIcon, size: number, cancellable?: Cancellable | null) => [ /* returnType */ InputStream, /* type */ string | null ]
     loadAsync: (icon: LoadableIcon, size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -14578,7 +14562,7 @@ export abstract class LoadableIconIface {
     static name: string
 }
 export abstract class MemoryInputStreamClass {
-    /* Fields of Gio.MemoryInputStreamClass */
+    /* Fields of Gio-2.0.Gio.MemoryInputStreamClass */
     parentClass: InputStreamClass
     static name: string
 }
@@ -14586,12 +14570,12 @@ export class MemoryInputStreamPrivate {
     static name: string
 }
 export abstract class MemoryMonitorInterface {
-    /* Fields of Gio.MemoryMonitorInterface */
+    /* Fields of Gio-2.0.Gio.MemoryMonitorInterface */
     lowMemoryWarning: (monitor: MemoryMonitor, level: MemoryMonitorWarningLevel) => void
     static name: string
 }
 export abstract class MemoryOutputStreamClass {
-    /* Fields of Gio.MemoryOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.MemoryOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
@@ -14599,7 +14583,7 @@ export class MemoryOutputStreamPrivate {
     static name: string
 }
 export abstract class MenuAttributeIterClass {
-    /* Fields of Gio.MenuAttributeIterClass */
+    /* Fields of Gio-2.0.Gio.MenuAttributeIterClass */
     parentClass: GObject.ObjectClass
     getNext: (iter: MenuAttributeIter) => [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
     static name: string
@@ -14608,7 +14592,7 @@ export class MenuAttributeIterPrivate {
     static name: string
 }
 export abstract class MenuLinkIterClass {
-    /* Fields of Gio.MenuLinkIterClass */
+    /* Fields of Gio-2.0.Gio.MenuLinkIterClass */
     parentClass: GObject.ObjectClass
     getNext: (iter: MenuLinkIter) => [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
     static name: string
@@ -14617,23 +14601,23 @@ export class MenuLinkIterPrivate {
     static name: string
 }
 export abstract class MenuModelClass {
-    /* Fields of Gio.MenuModelClass */
+    /* Fields of Gio-2.0.Gio.MenuModelClass */
     parentClass: GObject.ObjectClass
     isMutable: (model: MenuModel) => boolean
     getNItems: (model: MenuModel) => number
     getItemAttributes: (model: MenuModel, itemIndex: number) => /* attributes */ GLib.HashTable
     iterateItemAttributes: (model: MenuModel, itemIndex: number) => MenuAttributeIter
-    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant | null
+    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant
     getItemLinks: (model: MenuModel, itemIndex: number) => /* links */ GLib.HashTable
     iterateItemLinks: (model: MenuModel, itemIndex: number) => MenuLinkIter
-    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel | null
+    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel
     static name: string
 }
 export class MenuModelPrivate {
     static name: string
 }
 export abstract class MountIface {
-    /* Fields of Gio.MountIface */
+    /* Fields of Gio-2.0.Gio.MountIface */
     gIface: GObject.TypeInterface
     changed: (mount: Mount) => void
     unmounted: (mount: Mount) => void
@@ -14665,7 +14649,7 @@ export abstract class MountIface {
     static name: string
 }
 export abstract class MountOperationClass {
-    /* Fields of Gio.MountOperationClass */
+    /* Fields of Gio-2.0.Gio.MountOperationClass */
     parentClass: GObject.ObjectClass
     askPassword: (op: MountOperation, message: string, defaultUser: string, defaultDomain: string, flags: AskPasswordFlags) => void
     askQuestion: (op: MountOperation, message: string, choices: string[]) => void
@@ -14679,7 +14663,7 @@ export class MountOperationPrivate {
     static name: string
 }
 export abstract class NativeSocketAddressClass {
-    /* Fields of Gio.NativeSocketAddressClass */
+    /* Fields of Gio-2.0.Gio.NativeSocketAddressClass */
     parentClass: SocketAddressClass
     static name: string
 }
@@ -14687,12 +14671,12 @@ export class NativeSocketAddressPrivate {
     static name: string
 }
 export abstract class NativeVolumeMonitorClass {
-    /* Fields of Gio.NativeVolumeMonitorClass */
+    /* Fields of Gio-2.0.Gio.NativeVolumeMonitorClass */
     parentClass: VolumeMonitorClass
     static name: string
 }
 export abstract class NetworkAddressClass {
-    /* Fields of Gio.NetworkAddressClass */
+    /* Fields of Gio-2.0.Gio.NetworkAddressClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14700,7 +14684,7 @@ export class NetworkAddressPrivate {
     static name: string
 }
 export abstract class NetworkMonitorInterface {
-    /* Fields of Gio.NetworkMonitorInterface */
+    /* Fields of Gio-2.0.Gio.NetworkMonitorInterface */
     gIface: GObject.TypeInterface
     networkChanged: (monitor: NetworkMonitor, networkAvailable: boolean) => void
     canReach: (monitor: NetworkMonitor, connectable: SocketConnectable, cancellable?: Cancellable | null) => boolean
@@ -14709,7 +14693,7 @@ export abstract class NetworkMonitorInterface {
     static name: string
 }
 export abstract class NetworkServiceClass {
-    /* Fields of Gio.NetworkServiceClass */
+    /* Fields of Gio-2.0.Gio.NetworkServiceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14717,7 +14701,7 @@ export class NetworkServicePrivate {
     static name: string
 }
 export class OutputMessage {
-    /* Fields of Gio.OutputMessage */
+    /* Fields of Gio-2.0.Gio.OutputMessage */
     address: SocketAddress
     vectors: OutputVector
     numVectors: number
@@ -14727,7 +14711,7 @@ export class OutputMessage {
     static name: string
 }
 export abstract class OutputStreamClass {
-    /* Fields of Gio.OutputStreamClass */
+    /* Fields of Gio-2.0.Gio.OutputStreamClass */
     parentClass: GObject.ObjectClass
     writeFn: (stream: OutputStream, buffer: any[] | null, cancellable?: Cancellable | null) => number
     splice: (stream: OutputStream, source: InputStream, flags: OutputStreamSpliceFlags, cancellable?: Cancellable | null) => number
@@ -14750,13 +14734,13 @@ export class OutputStreamPrivate {
     static name: string
 }
 export class OutputVector {
-    /* Fields of Gio.OutputVector */
+    /* Fields of Gio-2.0.Gio.OutputVector */
     buffer: object
     size: number
     static name: string
 }
 export abstract class PermissionClass {
-    /* Fields of Gio.PermissionClass */
+    /* Fields of Gio-2.0.Gio.PermissionClass */
     parentClass: GObject.ObjectClass
     acquire: (permission: Permission, cancellable?: Cancellable | null) => boolean
     acquireAsync: (permission: Permission, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -14771,7 +14755,7 @@ export class PermissionPrivate {
     static name: string
 }
 export abstract class PollableInputStreamInterface {
-    /* Fields of Gio.PollableInputStreamInterface */
+    /* Fields of Gio-2.0.Gio.PollableInputStreamInterface */
     gIface: GObject.TypeInterface
     canPoll: (stream: PollableInputStream) => boolean
     isReadable: (stream: PollableInputStream) => boolean
@@ -14780,7 +14764,7 @@ export abstract class PollableInputStreamInterface {
     static name: string
 }
 export abstract class PollableOutputStreamInterface {
-    /* Fields of Gio.PollableOutputStreamInterface */
+    /* Fields of Gio-2.0.Gio.PollableOutputStreamInterface */
     gIface: GObject.TypeInterface
     canPoll: (stream: PollableOutputStream) => boolean
     isWritable: (stream: PollableOutputStream) => boolean
@@ -14790,7 +14774,7 @@ export abstract class PollableOutputStreamInterface {
     static name: string
 }
 export abstract class ProxyAddressClass {
-    /* Fields of Gio.ProxyAddressClass */
+    /* Fields of Gio-2.0.Gio.ProxyAddressClass */
     parentClass: InetSocketAddressClass
     static name: string
 }
@@ -14804,7 +14788,7 @@ export class ProxyAddressPrivate {
     static name: string
 }
 export abstract class ProxyInterface {
-    /* Fields of Gio.ProxyInterface */
+    /* Fields of Gio-2.0.Gio.ProxyInterface */
     gIface: GObject.TypeInterface
     connect: (proxy: Proxy, connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null) => IOStream
     connectAsync: (proxy: Proxy, connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -14813,7 +14797,7 @@ export abstract class ProxyInterface {
     static name: string
 }
 export abstract class ProxyResolverInterface {
-    /* Fields of Gio.ProxyResolverInterface */
+    /* Fields of Gio-2.0.Gio.ProxyResolverInterface */
     gIface: GObject.TypeInterface
     isSupported: (resolver: ProxyResolver) => boolean
     lookup: (resolver: ProxyResolver, uri: string, cancellable?: Cancellable | null) => string[]
@@ -14822,14 +14806,14 @@ export abstract class ProxyResolverInterface {
     static name: string
 }
 export abstract class RemoteActionGroupInterface {
-    /* Fields of Gio.RemoteActionGroupInterface */
+    /* Fields of Gio-2.0.Gio.RemoteActionGroupInterface */
     gIface: GObject.TypeInterface
     activateActionFull: (remote: RemoteActionGroup, actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant) => void
     changeActionStateFull: (remote: RemoteActionGroup, actionName: string, value: GLib.Variant, platformData: GLib.Variant) => void
     static name: string
 }
 export abstract class ResolverClass {
-    /* Fields of Gio.ResolverClass */
+    /* Fields of Gio-2.0.Gio.ResolverClass */
     parentClass: GObject.ObjectClass
     reload: (resolver: Resolver) => void
     lookupByName: (resolver: Resolver, hostname: string, cancellable?: Cancellable | null) => InetAddress[]
@@ -14852,7 +14836,7 @@ export class ResolverPrivate {
     static name: string
 }
 export class Resource {
-    /* Methods of Gio.Resource */
+    /* Methods of Gio-2.0.Gio.Resource */
     register(): void
     unregister(): void
     enumerateChildren(path: string, lookupFlags: ResourceLookupFlags): string[]
@@ -14867,7 +14851,7 @@ export class Resource {
     static load(filename: string): Resource
 }
 export abstract class SeekableIface {
-    /* Fields of Gio.SeekableIface */
+    /* Fields of Gio-2.0.Gio.SeekableIface */
     gIface: GObject.TypeInterface
     tell: (seekable: Seekable) => number
     canSeek: (seekable: Seekable) => boolean
@@ -14877,7 +14861,7 @@ export abstract class SeekableIface {
     static name: string
 }
 export abstract class SettingsBackendClass {
-    /* Fields of Gio.SettingsBackendClass */
+    /* Fields of Gio-2.0.Gio.SettingsBackendClass */
     parentClass: GObject.ObjectClass
     read: (backend: SettingsBackend, key: string, expectedType: GLib.VariantType, defaultValue: boolean) => GLib.Variant
     getWritable: (backend: SettingsBackend, key: string) => boolean
@@ -14894,7 +14878,7 @@ export class SettingsBackendPrivate {
     static name: string
 }
 export abstract class SettingsClass {
-    /* Fields of Gio.SettingsClass */
+    /* Fields of Gio-2.0.Gio.SettingsClass */
     parentClass: GObject.ObjectClass
     writableChanged: (settings: Settings, key: string) => void
     changed: (settings: Settings, key: string) => void
@@ -14907,10 +14891,10 @@ export class SettingsPrivate {
     static name: string
 }
 export class SettingsSchema {
-    /* Methods of Gio.SettingsSchema */
+    /* Methods of Gio-2.0.Gio.SettingsSchema */
     getId(): string
     getKey(name: string): SettingsSchemaKey
-    getPath(): string | null
+    getPath(): string
     hasKey(name: string): boolean
     listChildren(): string[]
     listKeys(): string[]
@@ -14919,12 +14903,12 @@ export class SettingsSchema {
     static name: string
 }
 export class SettingsSchemaKey {
-    /* Methods of Gio.SettingsSchemaKey */
+    /* Methods of Gio-2.0.Gio.SettingsSchemaKey */
     getDefaultValue(): GLib.Variant
-    getDescription(): string | null
+    getDescription(): string
     getName(): string
     getRange(): GLib.Variant
-    getSummary(): string | null
+    getSummary(): string
     getValueType(): GLib.VariantType
     rangeCheck(value: GLib.Variant): boolean
     ref(): SettingsSchemaKey
@@ -14932,7 +14916,7 @@ export class SettingsSchemaKey {
     static name: string
 }
 export class SettingsSchemaSource {
-    /* Methods of Gio.SettingsSchemaSource */
+    /* Methods of Gio-2.0.Gio.SettingsSchemaSource */
     listSchemas(recursive: boolean): [ /* nonRelocatable */ string[], /* relocatable */ string[] ]
     lookup(schemaId: string, recursive: boolean): SettingsSchema | null
     ref(): SettingsSchemaSource
@@ -14952,7 +14936,7 @@ export abstract class SimpleAsyncResultClass {
     static name: string
 }
 export abstract class SimpleProxyResolverClass {
-    /* Fields of Gio.SimpleProxyResolverClass */
+    /* Fields of Gio-2.0.Gio.SimpleProxyResolverClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -14960,7 +14944,7 @@ export class SimpleProxyResolverPrivate {
     static name: string
 }
 export abstract class SocketAddressClass {
-    /* Fields of Gio.SocketAddressClass */
+    /* Fields of Gio-2.0.Gio.SocketAddressClass */
     parentClass: GObject.ObjectClass
     getFamily: (address: SocketAddress) => SocketFamily
     getNativeSize: (address: SocketAddress) => number
@@ -14968,19 +14952,19 @@ export abstract class SocketAddressClass {
     static name: string
 }
 export abstract class SocketAddressEnumeratorClass {
-    /* Fields of Gio.SocketAddressEnumeratorClass */
+    /* Fields of Gio-2.0.Gio.SocketAddressEnumeratorClass */
     next: (enumerator: SocketAddressEnumerator, cancellable?: Cancellable | null) => SocketAddress
     nextAsync: (enumerator: SocketAddressEnumerator, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     nextFinish: (enumerator: SocketAddressEnumerator, result: AsyncResult) => SocketAddress
     static name: string
 }
 export abstract class SocketClass {
-    /* Fields of Gio.SocketClass */
+    /* Fields of Gio-2.0.Gio.SocketClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class SocketClientClass {
-    /* Fields of Gio.SocketClientClass */
+    /* Fields of Gio-2.0.Gio.SocketClientClass */
     parentClass: GObject.ObjectClass
     event: (client: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream) => void
     static name: string
@@ -14989,7 +14973,7 @@ export class SocketClientPrivate {
     static name: string
 }
 export abstract class SocketConnectableIface {
-    /* Fields of Gio.SocketConnectableIface */
+    /* Fields of Gio-2.0.Gio.SocketConnectableIface */
     gIface: GObject.TypeInterface
     enumerate: (connectable: SocketConnectable) => SocketAddressEnumerator
     proxyEnumerate: (connectable: SocketConnectable) => SocketAddressEnumerator
@@ -14997,7 +14981,7 @@ export abstract class SocketConnectableIface {
     static name: string
 }
 export abstract class SocketConnectionClass {
-    /* Fields of Gio.SocketConnectionClass */
+    /* Fields of Gio-2.0.Gio.SocketConnectionClass */
     parentClass: IOStreamClass
     static name: string
 }
@@ -15005,7 +14989,7 @@ export class SocketConnectionPrivate {
     static name: string
 }
 export abstract class SocketControlMessageClass {
-    /* Fields of Gio.SocketControlMessageClass */
+    /* Fields of Gio-2.0.Gio.SocketControlMessageClass */
     parentClass: GObject.ObjectClass
     getSize: (message: SocketControlMessage) => number
     getLevel: (message: SocketControlMessage) => number
@@ -15017,7 +15001,7 @@ export class SocketControlMessagePrivate {
     static name: string
 }
 export abstract class SocketListenerClass {
-    /* Fields of Gio.SocketListenerClass */
+    /* Fields of Gio-2.0.Gio.SocketListenerClass */
     parentClass: GObject.ObjectClass
     changed: (listener: SocketListener) => void
     event: (listener: SocketListener, event: SocketListenerEvent, socket: Socket) => void
@@ -15030,7 +15014,7 @@ export class SocketPrivate {
     static name: string
 }
 export abstract class SocketServiceClass {
-    /* Fields of Gio.SocketServiceClass */
+    /* Fields of Gio-2.0.Gio.SocketServiceClass */
     parentClass: SocketListenerClass
     incoming: (service: SocketService, connection: SocketConnection, sourceObject: GObject.Object) => boolean
     static name: string
@@ -15039,7 +15023,7 @@ export class SocketServicePrivate {
     static name: string
 }
 export class SrvTarget {
-    /* Methods of Gio.SrvTarget */
+    /* Methods of Gio-2.0.Gio.SrvTarget */
     copy(): SrvTarget
     free(): void
     getHostname(): string
@@ -15053,7 +15037,7 @@ export class SrvTarget {
     static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
 export class StaticResource {
-    /* Methods of Gio.StaticResource */
+    /* Methods of Gio-2.0.Gio.StaticResource */
     fini(): void
     getResource(): Resource
     init(): void
@@ -15063,7 +15047,7 @@ export abstract class TaskClass {
     static name: string
 }
 export abstract class TcpConnectionClass {
-    /* Fields of Gio.TcpConnectionClass */
+    /* Fields of Gio-2.0.Gio.TcpConnectionClass */
     parentClass: SocketConnectionClass
     static name: string
 }
@@ -15071,7 +15055,7 @@ export class TcpConnectionPrivate {
     static name: string
 }
 export abstract class TcpWrapperConnectionClass {
-    /* Fields of Gio.TcpWrapperConnectionClass */
+    /* Fields of Gio-2.0.Gio.TcpWrapperConnectionClass */
     parentClass: TcpConnectionClass
     static name: string
 }
@@ -15082,7 +15066,7 @@ export abstract class ThemedIconClass {
     static name: string
 }
 export abstract class ThreadedSocketServiceClass {
-    /* Fields of Gio.ThreadedSocketServiceClass */
+    /* Fields of Gio-2.0.Gio.ThreadedSocketServiceClass */
     parentClass: SocketServiceClass
     run: (service: ThreadedSocketService, connection: SocketConnection, sourceObject: GObject.Object) => boolean
     static name: string
@@ -15091,7 +15075,7 @@ export class ThreadedSocketServicePrivate {
     static name: string
 }
 export abstract class TlsBackendInterface {
-    /* Fields of Gio.TlsBackendInterface */
+    /* Fields of Gio-2.0.Gio.TlsBackendInterface */
     gIface: GObject.TypeInterface
     supportsTls: (backend: TlsBackend) => boolean
     getCertificateType: () => GObject.Type
@@ -15105,7 +15089,7 @@ export abstract class TlsBackendInterface {
     static name: string
 }
 export abstract class TlsCertificateClass {
-    /* Fields of Gio.TlsCertificateClass */
+    /* Fields of Gio-2.0.Gio.TlsCertificateClass */
     parentClass: GObject.ObjectClass
     verify: (cert: TlsCertificate, identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null) => TlsCertificateFlags
     static name: string
@@ -15114,13 +15098,13 @@ export class TlsCertificatePrivate {
     static name: string
 }
 export abstract class TlsClientConnectionInterface {
-    /* Fields of Gio.TlsClientConnectionInterface */
+    /* Fields of Gio-2.0.Gio.TlsClientConnectionInterface */
     gIface: GObject.TypeInterface
     copySessionState: (conn: TlsClientConnection, source: TlsClientConnection) => void
     static name: string
 }
 export abstract class TlsConnectionClass {
-    /* Fields of Gio.TlsConnectionClass */
+    /* Fields of Gio-2.0.Gio.TlsConnectionClass */
     parentClass: IOStreamClass
     acceptCertificate: (connection: TlsConnection, peerCert: TlsCertificate, errors: TlsCertificateFlags) => boolean
     handshake: (conn: TlsConnection, cancellable?: Cancellable | null) => boolean
@@ -15133,7 +15117,7 @@ export class TlsConnectionPrivate {
     static name: string
 }
 export abstract class TlsDatabaseClass {
-    /* Fields of Gio.TlsDatabaseClass */
+    /* Fields of Gio-2.0.Gio.TlsDatabaseClass */
     parentClass: GObject.ObjectClass
     verifyChain: (self: TlsDatabase, chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null) => TlsCertificateFlags
     verifyChainAsync: (self: TlsDatabase, chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -15154,12 +15138,12 @@ export class TlsDatabasePrivate {
     static name: string
 }
 export abstract class TlsFileDatabaseInterface {
-    /* Fields of Gio.TlsFileDatabaseInterface */
+    /* Fields of Gio-2.0.Gio.TlsFileDatabaseInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class TlsInteractionClass {
-    /* Fields of Gio.TlsInteractionClass */
+    /* Fields of Gio-2.0.Gio.TlsInteractionClass */
     askPassword: (interaction: TlsInteraction, password: TlsPassword, cancellable?: Cancellable | null) => TlsInteractionResult
     askPasswordAsync: (interaction: TlsInteraction, password: TlsPassword, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     askPasswordFinish: (interaction: TlsInteraction, result: AsyncResult) => TlsInteractionResult
@@ -15172,7 +15156,7 @@ export class TlsInteractionPrivate {
     static name: string
 }
 export abstract class TlsPasswordClass {
-    /* Fields of Gio.TlsPasswordClass */
+    /* Fields of Gio-2.0.Gio.TlsPasswordClass */
     parentClass: GObject.ObjectClass
     getValue: (password: TlsPassword, length?: number | null) => number
     setValue: (password: TlsPassword, value: any[], destroy?: GLib.DestroyNotify | null) => void
@@ -15183,12 +15167,12 @@ export class TlsPasswordPrivate {
     static name: string
 }
 export abstract class TlsServerConnectionInterface {
-    /* Fields of Gio.TlsServerConnectionInterface */
+    /* Fields of Gio-2.0.Gio.TlsServerConnectionInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
 export abstract class UnixConnectionClass {
-    /* Fields of Gio.UnixConnectionClass */
+    /* Fields of Gio-2.0.Gio.UnixConnectionClass */
     parentClass: SocketConnectionClass
     static name: string
 }
@@ -15196,7 +15180,7 @@ export class UnixConnectionPrivate {
     static name: string
 }
 export abstract class UnixCredentialsMessageClass {
-    /* Fields of Gio.UnixCredentialsMessageClass */
+    /* Fields of Gio-2.0.Gio.UnixCredentialsMessageClass */
     parentClass: SocketControlMessageClass
     static name: string
 }
@@ -15204,7 +15188,7 @@ export class UnixCredentialsMessagePrivate {
     static name: string
 }
 export abstract class UnixFDListClass {
-    /* Fields of Gio.UnixFDListClass */
+    /* Fields of Gio-2.0.Gio.UnixFDListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -15212,7 +15196,7 @@ export class UnixFDListPrivate {
     static name: string
 }
 export abstract class UnixFDMessageClass {
-    /* Fields of Gio.UnixFDMessageClass */
+    /* Fields of Gio-2.0.Gio.UnixFDMessageClass */
     parentClass: SocketControlMessageClass
     static name: string
 }
@@ -15220,7 +15204,7 @@ export class UnixFDMessagePrivate {
     static name: string
 }
 export abstract class UnixInputStreamClass {
-    /* Fields of Gio.UnixInputStreamClass */
+    /* Fields of Gio-2.0.Gio.UnixInputStreamClass */
     parentClass: InputStreamClass
     static name: string
 }
@@ -15234,14 +15218,14 @@ export abstract class UnixMountMonitorClass {
     static name: string
 }
 export class UnixMountPoint {
-    /* Methods of Gio.UnixMountPoint */
+    /* Methods of Gio-2.0.Gio.UnixMountPoint */
     compare(mount2: UnixMountPoint): number
     copy(): UnixMountPoint
     free(): void
     getDevicePath(): string
     getFsType(): string
     getMountPath(): string
-    getOptions(): string | null
+    getOptions(): string
     guessCanEject(): boolean
     guessIcon(): Icon
     guessName(): string
@@ -15254,7 +15238,7 @@ export class UnixMountPoint {
     static at(mountPath: string): [ /* returnType */ UnixMountPoint | null, /* timeRead */ number | null ]
 }
 export abstract class UnixOutputStreamClass {
-    /* Fields of Gio.UnixOutputStreamClass */
+    /* Fields of Gio-2.0.Gio.UnixOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
@@ -15262,7 +15246,7 @@ export class UnixOutputStreamPrivate {
     static name: string
 }
 export abstract class UnixSocketAddressClass {
-    /* Fields of Gio.UnixSocketAddressClass */
+    /* Fields of Gio-2.0.Gio.UnixSocketAddressClass */
     parentClass: SocketAddressClass
     static name: string
 }
@@ -15270,7 +15254,7 @@ export class UnixSocketAddressPrivate {
     static name: string
 }
 export abstract class VfsClass {
-    /* Fields of Gio.VfsClass */
+    /* Fields of Gio-2.0.Gio.VfsClass */
     parentClass: GObject.ObjectClass
     isActive: (vfs: Vfs) => boolean
     getFileForPath: (vfs: Vfs, path: string) => File
@@ -15285,7 +15269,7 @@ export abstract class VfsClass {
     static name: string
 }
 export abstract class VolumeIface {
-    /* Fields of Gio.VolumeIface */
+    /* Fields of Gio-2.0.Gio.VolumeIface */
     gIface: GObject.TypeInterface
     changed: (volume: Volume) => void
     removed: (volume: Volume) => void
@@ -15311,7 +15295,7 @@ export abstract class VolumeIface {
     static name: string
 }
 export abstract class VolumeMonitorClass {
-    /* Fields of Gio.VolumeMonitorClass */
+    /* Fields of Gio-2.0.Gio.VolumeMonitorClass */
     parentClass: GObject.ObjectClass
     volumeAdded: (volumeMonitor: VolumeMonitor, volume: Volume) => void
     volumeRemoved: (volumeMonitor: VolumeMonitor, volume: Volume) => void
@@ -15327,19 +15311,19 @@ export abstract class VolumeMonitorClass {
     getConnectedDrives: (volumeMonitor: VolumeMonitor) => Drive[]
     getVolumes: (volumeMonitor: VolumeMonitor) => Volume[]
     getMounts: (volumeMonitor: VolumeMonitor) => Mount[]
-    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume | null
-    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount | null
+    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume
+    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount
     driveEjectButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     driveStopButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     static name: string
 }
 export abstract class ZlibCompressorClass {
-    /* Fields of Gio.ZlibCompressorClass */
+    /* Fields of Gio-2.0.Gio.ZlibCompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ZlibDecompressorClass {
-    /* Fields of Gio.ZlibDecompressorClass */
+    /* Fields of Gio-2.0.Gio.ZlibDecompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

@@ -368,7 +368,7 @@ export interface PropertyChangeHandler {
     (obj: Object, vals: PropertyValues): void
 }
 export class Action {
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -376,7 +376,7 @@ export class Action {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Virtual methods of Atk.Action */
+    /* Virtual methods of Atk-1.0.Atk.Action */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_keybinding(i: number): string | null
@@ -387,7 +387,7 @@ export class Action {
     static name: string
 }
 export class Component {
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -403,7 +403,7 @@ export class Component {
     set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Component */
+    /* Virtual methods of Atk-1.0.Atk.Component */
     vfunc_bounds_changed(bounds: Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: CoordType): boolean
     vfunc_get_alpha(): number
@@ -420,14 +420,14 @@ export class Component {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Component, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Component, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
     static name: string
 }
 export class Document {
-    /* Methods of Atk.Document */
+    /* Methods of Atk-1.0.Atk.Document */
     get_attribute_value(attribute_name: string): string | null
     get_attributes(): AttributeSet
     get_current_page_number(): number
@@ -436,7 +436,7 @@ export class Document {
     get_locale(): string
     get_page_count(): number
     set_attribute_value(attribute_name: string, attribute_value: string): boolean
-    /* Virtual methods of Atk.Document */
+    /* Virtual methods of Atk-1.0.Atk.Document */
     vfunc_get_current_page_number(): number
     vfunc_get_document(): object | null
     vfunc_get_document_attribute_value(attribute_name: string): string | null
@@ -445,7 +445,7 @@ export class Document {
     vfunc_get_document_type(): string
     vfunc_get_page_count(): number
     vfunc_set_document_attribute(attribute_name: string, attribute_value: string): boolean
-    /* Signals of Atk.Document */
+    /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: Document) => void)): number
     connect_after(sigName: "load-complete", callback: (($obj: Document) => void)): number
     emit(sigName: "load-complete"): void
@@ -461,7 +461,7 @@ export class Document {
     static name: string
 }
 export class EditableText {
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copy_text(start_pos: number, end_pos: number): void
     cut_text(start_pos: number, end_pos: number): void
     delete_text(start_pos: number, end_pos: number): void
@@ -469,7 +469,7 @@ export class EditableText {
     paste_text(position: number): void
     set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
     set_text_contents(string: string): void
-    /* Virtual methods of Atk.EditableText */
+    /* Virtual methods of Atk-1.0.Atk.EditableText */
     vfunc_copy_text(start_pos: number, end_pos: number): void
     vfunc_cut_text(start_pos: number, end_pos: number): void
     vfunc_delete_text(start_pos: number, end_pos: number): void
@@ -480,36 +480,36 @@ export class EditableText {
     static name: string
 }
 export class HyperlinkImpl {
-    /* Methods of Atk.HyperlinkImpl */
+    /* Methods of Atk-1.0.Atk.HyperlinkImpl */
     get_hyperlink(): Hyperlink
-    /* Virtual methods of Atk.HyperlinkImpl */
+    /* Virtual methods of Atk-1.0.Atk.HyperlinkImpl */
     vfunc_get_hyperlink(): Hyperlink
     static name: string
 }
 export class Hypertext {
-    /* Methods of Atk.Hypertext */
+    /* Methods of Atk-1.0.Atk.Hypertext */
     get_link(link_index: number): Hyperlink
     get_link_index(char_index: number): number
     get_n_links(): number
-    /* Virtual methods of Atk.Hypertext */
+    /* Virtual methods of Atk-1.0.Atk.Hypertext */
     vfunc_get_link(link_index: number): Hyperlink
     vfunc_get_link_index(char_index: number): number
     vfunc_get_n_links(): number
     vfunc_link_selected(link_index: number): void
-    /* Signals of Atk.Hypertext */
+    /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: Hypertext, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: (($obj: Hypertext, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
     static name: string
 }
 export class Image {
-    /* Methods of Atk.Image */
+    /* Methods of Atk-1.0.Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
     get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_image_size(): [ /* width */ number | null, /* height */ number | null ]
     set_image_description(description: string): boolean
-    /* Virtual methods of Atk.Image */
+    /* Virtual methods of Atk-1.0.Atk.Image */
     vfunc_get_image_description(): string
     vfunc_get_image_locale(): string | null
     vfunc_get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
@@ -521,7 +521,7 @@ export class ImplementorIface {
     static name: string
 }
 export class Selection {
-    /* Methods of Atk.Selection */
+    /* Methods of Atk-1.0.Atk.Selection */
     add_selection(i: number): boolean
     clear_selection(): boolean
     get_selection_count(): number
@@ -529,7 +529,7 @@ export class Selection {
     ref_selection(i: number): Object | null
     remove_selection(i: number): boolean
     select_all_selection(): boolean
-    /* Virtual methods of Atk.Selection */
+    /* Virtual methods of Atk-1.0.Atk.Selection */
     vfunc_add_selection(i: number): boolean
     vfunc_clear_selection(): boolean
     vfunc_get_selection_count(): number
@@ -538,19 +538,19 @@ export class Selection {
     vfunc_remove_selection(i: number): boolean
     vfunc_select_all_selection(): boolean
     vfunc_selection_changed(): void
-    /* Signals of Atk.Selection */
+    /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: Selection) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: Selection) => void)): number
     emit(sigName: "selection-changed"): void
     static name: string
 }
 export class StreamableContent {
-    /* Methods of Atk.StreamableContent */
+    /* Methods of Atk-1.0.Atk.StreamableContent */
     get_mime_type(i: number): string
     get_n_mime_types(): number
     get_stream(mime_type: string): GLib.IOChannel
     get_uri(mime_type: string): string | null
-    /* Virtual methods of Atk.StreamableContent */
+    /* Virtual methods of Atk-1.0.Atk.StreamableContent */
     vfunc_get_mime_type(i: number): string
     vfunc_get_n_mime_types(): number
     vfunc_get_stream(mime_type: string): GLib.IOChannel
@@ -558,7 +558,7 @@ export class StreamableContent {
     static name: string
 }
 export class Table {
-    /* Methods of Atk.Table */
+    /* Methods of Atk-1.0.Atk.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
     get_caption(): Object | null
@@ -588,7 +588,7 @@ export class Table {
     set_row_description(row: number, description: string): void
     set_row_header(row: number, header: Object): void
     set_summary(accessible: Object): void
-    /* Virtual methods of Atk.Table */
+    /* Virtual methods of Atk-1.0.Atk.Table */
     vfunc_add_column_selection(column: number): boolean
     vfunc_add_row_selection(row: number): boolean
     vfunc_column_deleted(column: number, num_deleted: number): void
@@ -625,7 +625,7 @@ export class Table {
     vfunc_set_row_description(row: number, description: string): void
     vfunc_set_row_header(row: number, header: Object): void
     vfunc_set_summary(accessible: Object): void
-    /* Signals of Atk.Table */
+    /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: (($obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
@@ -652,7 +652,7 @@ export class Table {
 export interface TableCell_ConstructProps extends Object_ConstructProps {
 }
 export class TableCell {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -668,16 +668,16 @@ export class TableCell {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.TableCell */
+    /* Methods of Atk-1.0.Atk.TableCell */
     get_column_header_cells(): Object[]
     get_column_span(): number
     get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -685,7 +685,7 @@ export class TableCell {
     get_row_header_cells(): Object[]
     get_row_span(): number
     get_table(): Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -711,7 +711,7 @@ export class TableCell {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -733,7 +733,7 @@ export class TableCell {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.TableCell */
+    /* Virtual methods of Atk-1.0.Atk.TableCell */
     vfunc_get_column_header_cells(): Object[]
     vfunc_get_column_span(): number
     vfunc_get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -741,7 +741,7 @@ export class TableCell {
     vfunc_get_row_header_cells(): Object[]
     vfunc_get_row_span(): number
     vfunc_get_table(): Object
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -766,7 +766,7 @@ export class TableCell {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -774,7 +774,7 @@ export class TableCell {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: TableCell, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: TableCell, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -793,7 +793,7 @@ export class TableCell {
     connect(sigName: "visible-data-changed", callback: (($obj: TableCell) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: TableCell) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableCell, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TableCell, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -837,7 +837,7 @@ export class TableCell {
     static $gtype: GObject.Type
 }
 export class Text {
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange[]
     get_caret_offset(): number
@@ -860,7 +860,7 @@ export class Text {
     scroll_substring_to_point(start_offset: number, end_offset: number, coords: CoordType, x: number, y: number): boolean
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    /* Virtual methods of Atk.Text */
+    /* Virtual methods of Atk-1.0.Atk.Text */
     vfunc_add_selection(start_offset: number, end_offset: number): boolean
     vfunc_get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange[]
     vfunc_get_caret_offset(): number
@@ -887,7 +887,7 @@ export class Text {
     vfunc_text_caret_moved(location: number): void
     vfunc_text_changed(position: number, length: number): void
     vfunc_text_selection_changed(): void
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: Text) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -911,7 +911,7 @@ export class Text {
     static free_ranges(ranges: TextRange[]): void
 }
 export class Value {
-    /* Methods of Atk.Value */
+    /* Methods of Atk-1.0.Atk.Value */
     get_current_value(): /* value */ any
     get_increment(): number
     get_maximum_value(): /* value */ any
@@ -922,7 +922,7 @@ export class Value {
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
-    /* Virtual methods of Atk.Value */
+    /* Virtual methods of Atk-1.0.Atk.Value */
     vfunc_get_current_value(): /* value */ any
     vfunc_get_increment(): number
     vfunc_get_maximum_value(): /* value */ any
@@ -933,7 +933,7 @@ export class Value {
     vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     vfunc_set_current_value(value: any): boolean
     vfunc_set_value(new_value: number): void
-    /* Signals of Atk.Value */
+    /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: Value, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: Value, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
@@ -942,7 +942,7 @@ export class Value {
 export interface Window_ConstructProps extends Object_ConstructProps {
 }
 export class Window {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -958,16 +958,16 @@ export class Window {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -993,7 +993,7 @@ export class Window {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1015,7 +1015,7 @@ export class Window {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1040,7 +1040,7 @@ export class Window {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1048,7 +1048,7 @@ export class Window {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: Window) => void)): number
     connect_after(sigName: "activate", callback: (($obj: Window) => void)): number
     emit(sigName: "activate"): void
@@ -1076,7 +1076,7 @@ export class Window {
     connect(sigName: "restore", callback: (($obj: Window) => void)): number
     connect_after(sigName: "restore", callback: (($obj: Window) => void)): number
     emit(sigName: "restore"): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Window, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Window, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -1095,7 +1095,7 @@ export class Window {
     connect(sigName: "visible-data-changed", callback: (($obj: Window) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Window) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1141,7 +1141,7 @@ export class Window {
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
 }
 export class GObjectAccessible {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -1157,19 +1157,19 @@ export class GObjectAccessible {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.GObjectAccessible */
+    /* Fields of Atk-1.0.Atk.GObjectAccessible */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.GObjectAccessible */
+    /* Methods of Atk-1.0.Atk.GObjectAccessible */
     get_object(): GObject.Object
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -1195,7 +1195,7 @@ export class GObjectAccessible {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1217,7 +1217,7 @@ export class GObjectAccessible {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1242,7 +1242,7 @@ export class GObjectAccessible {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1250,7 +1250,7 @@ export class GObjectAccessible {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: GObjectAccessible, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: GObjectAccessible, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -1269,7 +1269,7 @@ export class GObjectAccessible {
     connect(sigName: "visible-data-changed", callback: (($obj: GObjectAccessible) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: GObjectAccessible) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1317,16 +1317,16 @@ export class GObjectAccessible {
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Hyperlink {
-    /* Properties of Atk.Hyperlink */
+    /* Properties of Atk-1.0.Atk.Hyperlink */
     readonly end_index: number
     readonly number_of_anchors: number
     readonly selected_link: boolean
     readonly start_index: number
-    /* Fields of Atk.Hyperlink */
+    /* Fields of Atk-1.0.Atk.Hyperlink */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Hyperlink */
+    /* Methods of Atk-1.0.Atk.Hyperlink */
     get_end_index(): number
     get_n_anchors(): number
     get_object(i: number): Object
@@ -1335,7 +1335,7 @@ export class Hyperlink {
     is_inline(): boolean
     is_selected_link(): boolean
     is_valid(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1357,7 +1357,7 @@ export class Hyperlink {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -1365,7 +1365,7 @@ export class Hyperlink {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Virtual methods of Atk.Hyperlink */
+    /* Virtual methods of Atk-1.0.Atk.Hyperlink */
     vfunc_get_end_index(): number
     vfunc_get_n_anchors(): number
     vfunc_get_object(i: number): Object
@@ -1382,7 +1382,7 @@ export class Hyperlink {
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
     vfunc_set_description(i: number, desc: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1390,11 +1390,11 @@ export class Hyperlink {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Hyperlink */
+    /* Signals of Atk-1.0.Atk.Hyperlink */
     connect(sigName: "link-activated", callback: (($obj: Hyperlink) => void)): number
     connect_after(sigName: "link-activated", callback: (($obj: Hyperlink) => void)): number
     emit(sigName: "link-activated"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1418,14 +1418,14 @@ export class Hyperlink {
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Misc {
-    /* Fields of Atk.Misc */
+    /* Fields of Atk-1.0.Atk.Misc */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Misc */
+    /* Methods of Atk-1.0.Atk.Misc */
     threads_enter(): void
     threads_leave(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1447,10 +1447,10 @@ export class Misc {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Misc */
+    /* Virtual methods of Atk-1.0.Atk.Misc */
     vfunc_threads_enter(): void
     vfunc_threads_leave(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1458,7 +1458,7 @@ export class Misc {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Misc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Misc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1476,7 +1476,7 @@ export class Misc {
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
 }
 export class NoOpObject {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -1492,17 +1492,17 @@ export class NoOpObject {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.NoOpObject */
+    /* Fields of Atk-1.0.Atk.NoOpObject */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -1528,7 +1528,7 @@ export class NoOpObject {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1550,7 +1550,7 @@ export class NoOpObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Action */
+    /* Methods of Atk-1.0.Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
     get_keybinding(i: number): string | null
@@ -1558,7 +1558,7 @@ export class NoOpObject {
     get_n_actions(): number
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -1572,7 +1572,7 @@ export class NoOpObject {
     set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Methods of Atk.Document */
+    /* Methods of Atk-1.0.Atk.Document */
     get_attribute_value(attribute_name: string): string | null
     get_current_page_number(): number
     get_document(): object | null
@@ -1580,7 +1580,7 @@ export class NoOpObject {
     get_locale(): string
     get_page_count(): number
     set_attribute_value(attribute_name: string, attribute_value: string): boolean
-    /* Methods of Atk.EditableText */
+    /* Methods of Atk-1.0.Atk.EditableText */
     copy_text(start_pos: number, end_pos: number): void
     cut_text(start_pos: number, end_pos: number): void
     delete_text(start_pos: number, end_pos: number): void
@@ -1588,17 +1588,17 @@ export class NoOpObject {
     paste_text(position: number): void
     set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
     set_text_contents(string: string): void
-    /* Methods of Atk.Hypertext */
+    /* Methods of Atk-1.0.Atk.Hypertext */
     get_link(link_index: number): Hyperlink
     get_link_index(char_index: number): number
     get_n_links(): number
-    /* Methods of Atk.Image */
+    /* Methods of Atk-1.0.Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
     get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_image_size(): [ /* width */ number | null, /* height */ number | null ]
     set_image_description(description: string): boolean
-    /* Methods of Atk.Selection */
+    /* Methods of Atk-1.0.Atk.Selection */
     add_selection(i: number): boolean
     clear_selection(): boolean
     get_selection_count(): number
@@ -1606,7 +1606,7 @@ export class NoOpObject {
     ref_selection(i: number): Object | null
     remove_selection(i: number): boolean
     select_all_selection(): boolean
-    /* Methods of Atk.Table */
+    /* Methods of Atk-1.0.Atk.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
     get_caption(): Object | null
@@ -1636,7 +1636,7 @@ export class NoOpObject {
     set_row_description(row: number, description: string): void
     set_row_header(row: number, header: Object): void
     set_summary(accessible: Object): void
-    /* Methods of Atk.TableCell */
+    /* Methods of Atk-1.0.Atk.TableCell */
     get_column_header_cells(): Object[]
     get_column_span(): number
     get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -1644,7 +1644,7 @@ export class NoOpObject {
     get_row_header_cells(): Object[]
     get_row_span(): number
     get_table(): Object
-    /* Methods of Atk.Text */
+    /* Methods of Atk-1.0.Atk.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange[]
     get_caret_offset(): number
@@ -1667,7 +1667,7 @@ export class NoOpObject {
     scroll_substring_to_point(start_offset: number, end_offset: number, coords: CoordType, x: number, y: number): boolean
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    /* Methods of Atk.Value */
+    /* Methods of Atk-1.0.Atk.Value */
     get_current_value(): /* value */ any
     get_increment(): number
     get_maximum_value(): /* value */ any
@@ -1678,7 +1678,7 @@ export class NoOpObject {
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
-    /* Virtual methods of Atk.NoOpObject */
+    /* Virtual methods of Atk-1.0.Atk.NoOpObject */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
     vfunc_get_description(): string | null
@@ -1815,7 +1815,7 @@ export class NoOpObject {
     vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     vfunc_set_current_value(value: any): boolean
     vfunc_set_value(new_value: number): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -1840,7 +1840,7 @@ export class NoOpObject {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1848,7 +1848,7 @@ export class NoOpObject {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: NoOpObject, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: NoOpObject, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -1867,15 +1867,15 @@ export class NoOpObject {
     connect(sigName: "visible-data-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: NoOpObject, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: NoOpObject, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
-    /* Signals of Atk.Document */
+    /* Signals of Atk-1.0.Atk.Document */
     connect(sigName: "load-complete", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "load-complete", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "load-complete"): void
@@ -1888,15 +1888,15 @@ export class NoOpObject {
     connect(sigName: "reload", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "reload", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "reload"): void
-    /* Signals of Atk.Hypertext */
+    /* Signals of Atk-1.0.Atk.Hypertext */
     connect(sigName: "link-selected", callback: (($obj: NoOpObject, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: (($obj: NoOpObject, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
-    /* Signals of Atk.Selection */
+    /* Signals of Atk-1.0.Atk.Selection */
     connect(sigName: "selection-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "selection-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "selection-changed"): void
-    /* Signals of Atk.Table */
+    /* Signals of Atk-1.0.Atk.Table */
     connect(sigName: "column-deleted", callback: (($obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: (($obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
@@ -1918,7 +1918,7 @@ export class NoOpObject {
     connect(sigName: "row-reordered", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "row-reordered", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "row-reordered"): void
-    /* Signals of Atk.Text */
+    /* Signals of Atk-1.0.Atk.Text */
     connect(sigName: "text-attributes-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "text-attributes-changed"): void
@@ -1937,11 +1937,11 @@ export class NoOpObject {
     connect(sigName: "text-selection-changed", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "text-selection-changed", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "text-selection-changed"): void
-    /* Signals of Atk.Value */
+    /* Signals of Atk-1.0.Atk.Value */
     connect(sigName: "value-changed", callback: (($obj: NoOpObject, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: (($obj: NoOpObject, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
-    /* Signals of Atk.Window */
+    /* Signals of Atk-1.0.Atk.Window */
     connect(sigName: "activate", callback: (($obj: NoOpObject) => void)): number
     connect_after(sigName: "activate", callback: (($obj: NoOpObject) => void)): number
     emit(sigName: "activate"): void
@@ -2014,15 +2014,15 @@ export class NoOpObject {
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
 }
 export class NoOpObjectFactory {
-    /* Fields of Atk.NoOpObjectFactory */
+    /* Fields of Atk-1.0.Atk.NoOpObjectFactory */
     parent: ObjectFactory
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2044,9 +2044,9 @@ export class NoOpObjectFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
+    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
     vfunc_invalidate(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2054,7 +2054,7 @@ export class NoOpObjectFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2084,7 +2084,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessible_value?: number
 }
 export class Object {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -2100,16 +2100,16 @@ export class Object {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     parent: GObject.Object
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -2135,7 +2135,7 @@ export class Object {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2157,7 +2157,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -2182,7 +2182,7 @@ export class Object {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2190,7 +2190,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Object, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Object, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -2209,7 +2209,7 @@ export class Object {
     connect(sigName: "visible-data-changed", callback: (($obj: Object) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Object) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2255,15 +2255,15 @@ export class Object {
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ObjectFactory {
-    /* Fields of Atk.ObjectFactory */
+    /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2285,9 +2285,9 @@ export class ObjectFactory {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
+    /* Virtual methods of Atk-1.0.Atk.ObjectFactory */
     vfunc_invalidate(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2295,7 +2295,7 @@ export class ObjectFactory {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2311,7 +2311,7 @@ export class ObjectFactory {
 export interface Plug_ConstructProps extends Object_ConstructProps {
 }
 export class Plug {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -2327,20 +2327,20 @@ export class Plug {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.Plug */
+    /* Fields of Atk-1.0.Atk.Plug */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Plug */
+    /* Methods of Atk-1.0.Atk.Plug */
     get_id(): string
     set_child(child: Object): void
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -2366,7 +2366,7 @@ export class Plug {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2388,7 +2388,7 @@ export class Plug {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -2402,7 +2402,7 @@ export class Plug {
     set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Plug */
+    /* Virtual methods of Atk-1.0.Atk.Plug */
     vfunc_get_object_id(): string
     vfunc_bounds_changed(bounds: Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: CoordType): boolean
@@ -2420,7 +2420,7 @@ export class Plug {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -2445,7 +2445,7 @@ export class Plug {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2453,7 +2453,7 @@ export class Plug {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Plug, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Plug, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -2472,11 +2472,11 @@ export class Plug {
     connect(sigName: "visible-data-changed", callback: (($obj: Plug) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Plug) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plug, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Plug, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Plug, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
@@ -2524,17 +2524,17 @@ export class Plug {
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Registry {
-    /* Fields of Atk.Registry */
+    /* Fields of Atk-1.0.Atk.Registry */
     parent: GObject.Object
     factory_type_registry: GLib.HashTable
     factory_singleton_cache: GLib.HashTable
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Registry */
+    /* Methods of Atk-1.0.Atk.Registry */
     get_factory(type: GObject.Type): ObjectFactory
     get_factory_type(type: GObject.Type): GObject.Type
     set_factory_type(type: GObject.Type, factory_type: GObject.Type): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2556,7 +2556,7 @@ export class Registry {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2564,7 +2564,7 @@ export class Registry {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Registry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2582,20 +2582,20 @@ export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     target?: GObject.ValueArray
 }
 export class Relation {
-    /* Properties of Atk.Relation */
+    /* Properties of Atk-1.0.Atk.Relation */
     relation_type: RelationType
     target: GObject.ValueArray
-    /* Fields of Atk.Relation */
+    /* Fields of Atk-1.0.Atk.Relation */
     parent: GObject.Object
     relationship: RelationType
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Relation */
+    /* Methods of Atk-1.0.Atk.Relation */
     add_target(target: Object): void
     get_relation_type(): RelationType
     get_target(): Object[]
     remove_target(target: Object): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2617,7 +2617,7 @@ export class Relation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2625,7 +2625,7 @@ export class Relation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Relation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2647,12 +2647,12 @@ export class Relation {
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class RelationSet {
-    /* Fields of Atk.RelationSet */
+    /* Fields of Atk-1.0.Atk.RelationSet */
     parent: GObject.Object
     relations: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.RelationSet */
+    /* Methods of Atk-1.0.Atk.RelationSet */
     add(relation: Relation): void
     add_relation_by_type(relationship: RelationType, target: Object): void
     contains(relationship: RelationType): boolean
@@ -2661,7 +2661,7 @@ export class RelationSet {
     get_relation(i: number): Relation
     get_relation_by_type(relationship: RelationType): Relation
     remove(relation: Relation): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2683,7 +2683,7 @@ export class RelationSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2691,7 +2691,7 @@ export class RelationSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2709,7 +2709,7 @@ export class RelationSet {
 export interface Socket_ConstructProps extends Object_ConstructProps {
 }
 export class Socket {
-    /* Properties of Atk.Object */
+    /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
     accessible_description: string
@@ -2725,20 +2725,20 @@ export class Socket {
     accessible_table_row_header: Object
     accessible_table_summary: Object
     accessible_value: number
-    /* Fields of Atk.Socket */
+    /* Fields of Atk-1.0.Atk.Socket */
     parent: Object
-    /* Fields of Atk.Object */
+    /* Fields of Atk-1.0.Atk.Object */
     description: string
     name: string
     role: Role
     relation_set: RelationSet
     layer: Layer
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.Socket */
+    /* Methods of Atk-1.0.Atk.Socket */
     embed(plug_id: string): void
     is_occupied(): boolean
-    /* Methods of Atk.Object */
+    /* Methods of Atk-1.0.Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
@@ -2764,7 +2764,7 @@ export class Socket {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2786,7 +2786,7 @@ export class Socket {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Atk.Component */
+    /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -2800,7 +2800,7 @@ export class Socket {
     set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Socket */
+    /* Virtual methods of Atk-1.0.Atk.Socket */
     vfunc_embed(plug_id: string): void
     vfunc_bounds_changed(bounds: Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: CoordType): boolean
@@ -2818,7 +2818,7 @@ export class Socket {
     vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
     vfunc_set_position(x: number, y: number, coord_type: CoordType): boolean
     vfunc_set_size(width: number, height: number): boolean
-    /* Virtual methods of Atk.Object */
+    /* Virtual methods of Atk-1.0.Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
@@ -2843,7 +2843,7 @@ export class Socket {
     vfunc_set_role(role: Role): void
     vfunc_state_change(name: string, state_set: boolean): void
     vfunc_visible_data_changed(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2851,7 +2851,7 @@ export class Socket {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Object */
+    /* Signals of Atk-1.0.Atk.Object */
     connect(sigName: "active-descendant-changed", callback: (($obj: Socket, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: (($obj: Socket, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
@@ -2870,11 +2870,11 @@ export class Socket {
     connect(sigName: "visible-data-changed", callback: (($obj: Socket) => void)): number
     connect_after(sigName: "visible-data-changed", callback: (($obj: Socket) => void)): number
     emit(sigName: "visible-data-changed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Atk.Component */
+    /* Signals of Atk-1.0.Atk.Component */
     connect(sigName: "bounds-changed", callback: (($obj: Socket, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: (($obj: Socket, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
@@ -2922,11 +2922,11 @@ export class Socket {
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StateSet {
-    /* Fields of Atk.StateSet */
+    /* Fields of Atk-1.0.Atk.StateSet */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Atk.StateSet */
+    /* Methods of Atk-1.0.Atk.StateSet */
     add_state(type: StateType): boolean
     add_states(types: StateType[]): void
     and_sets(compare_set: StateSet): StateSet
@@ -2937,7 +2937,7 @@ export class StateSet {
     or_sets(compare_set: StateSet): StateSet | null
     remove_state(type: StateType): boolean
     xor_sets(compare_set: StateSet): StateSet
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2959,7 +2959,7 @@ export class StateSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2967,7 +2967,7 @@ export class StateSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2985,11 +2985,11 @@ export class StateSet {
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Util {
-    /* Fields of Atk.Util */
+    /* Fields of Atk-1.0.Atk.Util */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3011,7 +3011,7 @@ export class Util {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3019,7 +3019,7 @@ export class Util {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Util, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3033,7 +3033,7 @@ export class Util {
     static $gtype: GObject.Type
 }
 export abstract class ActionIface {
-    /* Fields of Atk.ActionIface */
+    /* Fields of Atk-1.0.Atk.ActionIface */
     do_action: (action: Action, i: number) => boolean
     get_n_actions: (action: Action) => number
     get_description: (action: Action, i: number) => string | null
@@ -3044,7 +3044,7 @@ export abstract class ActionIface {
     static name: string
 }
 export class Attribute {
-    /* Fields of Atk.Attribute */
+    /* Fields of Atk-1.0.Atk.Attribute */
     name: string
     value: string
     static name: string
@@ -3052,7 +3052,7 @@ export class Attribute {
     static set_free(attrib_set: AttributeSet): void
 }
 export abstract class ComponentIface {
-    /* Fields of Atk.ComponentIface */
+    /* Fields of Atk-1.0.Atk.ComponentIface */
     contains: (component: Component, x: number, y: number, coord_type: CoordType) => boolean
     ref_accessible_at_point: (component: Component, x: number, y: number, coord_type: CoordType) => Object | null
     get_extents: (component: Component, coord_type: CoordType) => [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
@@ -3072,7 +3072,7 @@ export abstract class ComponentIface {
     static name: string
 }
 export abstract class DocumentIface {
-    /* Fields of Atk.DocumentIface */
+    /* Fields of Atk-1.0.Atk.DocumentIface */
     parent: GObject.TypeInterface
     get_document_type: (document: Document) => string
     get_document: (document: Document) => object | null
@@ -3085,7 +3085,7 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class EditableTextIface {
-    /* Fields of Atk.EditableTextIface */
+    /* Fields of Atk-1.0.Atk.EditableTextIface */
     parent_interface: GObject.TypeInterface
     set_run_attributes: (text: EditableText, attrib_set: AttributeSet, start_offset: number, end_offset: number) => boolean
     set_text_contents: (text: EditableText, string: string) => void
@@ -3097,14 +3097,14 @@ export abstract class EditableTextIface {
     static name: string
 }
 export abstract class GObjectAccessibleClass {
-    /* Fields of Atk.GObjectAccessibleClass */
+    /* Fields of Atk-1.0.Atk.GObjectAccessibleClass */
     parent_class: ObjectClass
     pad1: Function
     pad2: Function
     static name: string
 }
 export abstract class HyperlinkClass {
-    /* Fields of Atk.HyperlinkClass */
+    /* Fields of Atk-1.0.Atk.HyperlinkClass */
     parent: GObject.ObjectClass
     get_uri: (link_: Hyperlink, i: number) => string
     get_object: (link_: Hyperlink, i: number) => Object
@@ -3119,13 +3119,13 @@ export abstract class HyperlinkClass {
     static name: string
 }
 export abstract class HyperlinkImplIface {
-    /* Fields of Atk.HyperlinkImplIface */
+    /* Fields of Atk-1.0.Atk.HyperlinkImplIface */
     parent: GObject.TypeInterface
     get_hyperlink: (impl: HyperlinkImpl) => Hyperlink
     static name: string
 }
 export abstract class HypertextIface {
-    /* Fields of Atk.HypertextIface */
+    /* Fields of Atk-1.0.Atk.HypertextIface */
     parent: GObject.TypeInterface
     get_link: (hypertext: Hypertext, link_index: number) => Hyperlink
     get_n_links: (hypertext: Hypertext) => number
@@ -3134,7 +3134,7 @@ export abstract class HypertextIface {
     static name: string
 }
 export abstract class ImageIface {
-    /* Fields of Atk.ImageIface */
+    /* Fields of Atk-1.0.Atk.ImageIface */
     parent: GObject.TypeInterface
     get_image_position: (image: Image, coord_type: CoordType) => [ /* x */ number | null, /* y */ number | null ]
     get_image_description: (image: Image) => string
@@ -3144,12 +3144,12 @@ export abstract class ImageIface {
     static name: string
 }
 export class Implementor {
-    /* Methods of Atk.Implementor */
+    /* Methods of Atk-1.0.Atk.Implementor */
     ref_accessible(): Object
     static name: string
 }
 export class KeyEventStruct {
-    /* Fields of Atk.KeyEventStruct */
+    /* Fields of Atk-1.0.Atk.KeyEventStruct */
     type: number
     state: number
     keyval: number
@@ -3160,7 +3160,7 @@ export class KeyEventStruct {
     static name: string
 }
 export abstract class MiscClass {
-    /* Fields of Atk.MiscClass */
+    /* Fields of Atk-1.0.Atk.MiscClass */
     parent: GObject.ObjectClass
     threads_enter: (misc: Misc) => void
     threads_leave: (misc: Misc) => void
@@ -3168,17 +3168,17 @@ export abstract class MiscClass {
     static name: string
 }
 export abstract class NoOpObjectClass {
-    /* Fields of Atk.NoOpObjectClass */
+    /* Fields of Atk-1.0.Atk.NoOpObjectClass */
     parent_class: ObjectClass
     static name: string
 }
 export abstract class NoOpObjectFactoryClass {
-    /* Fields of Atk.NoOpObjectFactoryClass */
+    /* Fields of Atk-1.0.Atk.NoOpObjectFactoryClass */
     parent_class: ObjectFactoryClass
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of Atk.ObjectClass */
+    /* Fields of Atk-1.0.Atk.ObjectClass */
     parent: GObject.ObjectClass
     get_name: (accessible: Object) => string
     get_description: (accessible: Object) => string
@@ -3208,7 +3208,7 @@ export abstract class ObjectClass {
     static name: string
 }
 export abstract class ObjectFactoryClass {
-    /* Fields of Atk.ObjectFactoryClass */
+    /* Fields of Atk-1.0.Atk.ObjectFactoryClass */
     parent_class: GObject.ObjectClass
     invalidate: (factory: ObjectFactory) => void
     get_accessible_type: () => GObject.Type
@@ -3217,20 +3217,20 @@ export abstract class ObjectFactoryClass {
     static name: string
 }
 export abstract class PlugClass {
-    /* Fields of Atk.PlugClass */
+    /* Fields of Atk-1.0.Atk.PlugClass */
     parent_class: ObjectClass
     get_object_id: (obj: Plug) => string
     static name: string
 }
 export class PropertyValues {
-    /* Fields of Atk.PropertyValues */
+    /* Fields of Atk-1.0.Atk.PropertyValues */
     property_name: string
     old_value: any
     new_value: any
     static name: string
 }
 export class Range {
-    /* Methods of Atk.Range */
+    /* Methods of Atk-1.0.Atk.Range */
     copy(): Range
     free(): void
     get_description(): string
@@ -3243,7 +3243,7 @@ export class Range {
     static new(lower_limit: number, upper_limit: number, description: string): Range
 }
 export class Rectangle {
-    /* Fields of Atk.Rectangle */
+    /* Fields of Atk-1.0.Atk.Rectangle */
     x: number
     y: number
     width: number
@@ -3251,24 +3251,24 @@ export class Rectangle {
     static name: string
 }
 export abstract class RegistryClass {
-    /* Fields of Atk.RegistryClass */
+    /* Fields of Atk-1.0.Atk.RegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RelationClass {
-    /* Fields of Atk.RelationClass */
+    /* Fields of Atk-1.0.Atk.RelationClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class RelationSetClass {
-    /* Fields of Atk.RelationSetClass */
+    /* Fields of Atk-1.0.Atk.RelationSetClass */
     parent: GObject.ObjectClass
     pad1: Function
     pad2: Function
     static name: string
 }
 export abstract class SelectionIface {
-    /* Fields of Atk.SelectionIface */
+    /* Fields of Atk-1.0.Atk.SelectionIface */
     parent: GObject.TypeInterface
     add_selection: (selection: Selection, i: number) => boolean
     clear_selection: (selection: Selection) => boolean
@@ -3281,18 +3281,18 @@ export abstract class SelectionIface {
     static name: string
 }
 export abstract class SocketClass {
-    /* Fields of Atk.SocketClass */
+    /* Fields of Atk-1.0.Atk.SocketClass */
     parent_class: ObjectClass
     embed: (obj: Socket, plug_id: string) => void
     static name: string
 }
 export abstract class StateSetClass {
-    /* Fields of Atk.StateSetClass */
+    /* Fields of Atk-1.0.Atk.StateSetClass */
     parent: GObject.ObjectClass
     static name: string
 }
 export abstract class StreamableContentIface {
-    /* Fields of Atk.StreamableContentIface */
+    /* Fields of Atk-1.0.Atk.StreamableContentIface */
     parent: GObject.TypeInterface
     get_n_mime_types: (streamable: StreamableContent) => number
     get_mime_type: (streamable: StreamableContent, i: number) => string
@@ -3304,7 +3304,7 @@ export abstract class StreamableContentIface {
     static name: string
 }
 export abstract class TableCellIface {
-    /* Fields of Atk.TableCellIface */
+    /* Fields of Atk-1.0.Atk.TableCellIface */
     get_column_span: (cell: TableCell) => number
     get_column_header_cells: (cell: TableCell) => Object[]
     get_position: (cell: TableCell) => [ /* returnType */ boolean, /* row */ number, /* column */ number ]
@@ -3315,7 +3315,7 @@ export abstract class TableCellIface {
     static name: string
 }
 export abstract class TableIface {
-    /* Fields of Atk.TableIface */
+    /* Fields of Atk-1.0.Atk.TableIface */
     parent: GObject.TypeInterface
     ref_at: (table: Table, row: number, column: number) => Object
     get_index_at: (table: Table, row: number, column: number) => number
@@ -3356,7 +3356,7 @@ export abstract class TableIface {
     static name: string
 }
 export abstract class TextIface {
-    /* Fields of Atk.TextIface */
+    /* Fields of Atk-1.0.Atk.TextIface */
     parent: GObject.TypeInterface
     get_text: (text: Text, start_offset: number, end_offset: number) => string
     get_text_after_offset: (text: Text, offset: number, boundary_type: TextBoundary) => [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
@@ -3387,7 +3387,7 @@ export abstract class TextIface {
     static name: string
 }
 export class TextRange {
-    /* Fields of Atk.TextRange */
+    /* Fields of Atk-1.0.Atk.TextRange */
     bounds: TextRectangle
     start_offset: number
     end_offset: number
@@ -3395,7 +3395,7 @@ export class TextRange {
     static name: string
 }
 export class TextRectangle {
-    /* Fields of Atk.TextRectangle */
+    /* Fields of Atk-1.0.Atk.TextRectangle */
     x: number
     y: number
     width: number
@@ -3403,7 +3403,7 @@ export class TextRectangle {
     static name: string
 }
 export abstract class UtilClass {
-    /* Fields of Atk.UtilClass */
+    /* Fields of Atk-1.0.Atk.UtilClass */
     parent: GObject.ObjectClass
     remove_global_event_listener: (listener_id: number) => void
     remove_key_event_listener: (listener_id: number) => void
@@ -3412,7 +3412,7 @@ export abstract class UtilClass {
     static name: string
 }
 export abstract class ValueIface {
-    /* Fields of Atk.ValueIface */
+    /* Fields of Atk-1.0.Atk.ValueIface */
     parent: GObject.TypeInterface
     get_current_value: (obj: Value) => /* value */ any
     get_maximum_value: (obj: Value) => /* value */ any
@@ -3427,7 +3427,7 @@ export abstract class ValueIface {
     static name: string
 }
 export abstract class WindowIface {
-    /* Fields of Atk.WindowIface */
+    /* Fields of Atk-1.0.Atk.WindowIface */
     parent: GObject.TypeInterface
     static name: string
 }

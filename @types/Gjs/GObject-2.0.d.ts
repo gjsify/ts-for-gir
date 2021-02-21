@@ -39,7 +39,6 @@ export enum SignalFlags {
     NO_HOOKS,
     MUST_COLLECT,
     DEPRECATED,
-    ACCUMULATOR_FIRST_RUN,
 }
 export enum SignalMatchType {
     ID,
@@ -108,15 +107,15 @@ export function cclosure_marshal_VOID__VOID(closure: Closure, return_value: Valu
 export function cclosure_marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 export function clear_signal_handler(handler_id_ptr: number, instance: Object): void
 export function enum_complete_type_info(g_enum_type: Type, const_values: EnumValue): /* info */ TypeInfo
-export function enum_get_value(enum_class: EnumClass, value: number): EnumValue | null
-export function enum_get_value_by_name(enum_class: EnumClass, name: string): EnumValue | null
-export function enum_get_value_by_nick(enum_class: EnumClass, nick: string): EnumValue | null
+export function enum_get_value(enum_class: EnumClass, value: number): EnumValue
+export function enum_get_value_by_name(enum_class: EnumClass, name: string): EnumValue
+export function enum_get_value_by_nick(enum_class: EnumClass, nick: string): EnumValue
 export function enum_register_static(name: string, const_static_values: EnumValue): Type
 export function enum_to_string(g_enum_type: Type, value: number): string
 export function flags_complete_type_info(g_flags_type: Type, const_values: FlagsValue): /* info */ TypeInfo
-export function flags_get_first_value(flags_class: FlagsClass, value: number): FlagsValue | null
-export function flags_get_value_by_name(flags_class: FlagsClass, name: string): FlagsValue | null
-export function flags_get_value_by_nick(flags_class: FlagsClass, nick: string): FlagsValue | null
+export function flags_get_first_value(flags_class: FlagsClass, value: number): FlagsValue
+export function flags_get_value_by_name(flags_class: FlagsClass, name: string): FlagsValue
+export function flags_get_value_by_nick(flags_class: FlagsClass, nick: string): FlagsValue
 export function flags_register_static(name: string, const_static_values: FlagsValue): Type
 export function flags_to_string(flags_type: Type, value: number): string
 export function gtype_get_type(): Type
@@ -134,6 +133,7 @@ export function param_spec_long(name: string, nick: string, blurb: string, minim
 export function param_spec_object(name: string, nick: string, blurb: string, object_type: Type, flags: ParamFlags): ParamSpec
 export function param_spec_param(name: string, nick: string, blurb: string, param_type: Type, flags: ParamFlags): ParamSpec
 export function param_spec_pointer(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpec
+export function param_spec_pool_new(type_prefixing: boolean): ParamSpecPool
 export function param_spec_string(name: string, nick: string, blurb: string, default_value: string | null, flags: ParamFlags): ParamSpec
 export function param_spec_uchar(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_uint(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
@@ -150,26 +150,26 @@ export function param_values_cmp(pspec: ParamSpec, value1: Value, value2: Value)
 export function pointer_type_register_static(name: string): Type
 export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
 export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
-export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark): number
+export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook): number
 export function signal_chain_from_overridden(instance_and_params: Value[], return_value: Value): void
 export function signal_connect_closure(instance: Object, detailed_signal: string, closure: Closure, after: boolean): number
 export function signal_connect_closure_by_id(instance: Object, signal_id: number, detail: GLib.Quark, closure: Closure, after: boolean): number
 export function signal_emitv(instance_and_params: Value[], signal_id: number, detail: GLib.Quark, return_value?: Value | null): /* return_value */ Value | null
-export function signal_get_invocation_hint(instance: Object): SignalInvocationHint | null
+export function signal_get_invocation_hint(instance: Object): SignalInvocationHint
 export function signal_handler_block(instance: Object, handler_id: number): void
 export function signal_handler_disconnect(instance: Object, handler_id: number): void
-export function signal_handler_find(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, func?: object | null, data?: object | null): number
+export function signal_handler_find(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_handler_is_connected(instance: Object, handler_id: number): boolean
 export function signal_handler_unblock(instance: Object, handler_id: number): void
-export function signal_handlers_block_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, func?: object | null, data?: object | null): number
+export function signal_handlers_block_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_handlers_destroy(instance: Object): void
-export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, func?: object | null, data?: object | null): number
-export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, func?: object | null, data?: object | null): number
+export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
+export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_has_handler_pending(instance: Object, signal_id: number, detail: GLib.Quark, may_be_blocked: boolean): boolean
 export function signal_is_valid_name(name: string): boolean
 export function signal_list_ids(itype: Type): number[]
 export function signal_lookup(name: string, itype: Type): number
-export function signal_name(signal_id: number): string | null
+export function signal_name(signal_id: number): string
 export function signal_override_class_closure(signal_id: number, instance_type: Type, class_closure: Closure): void
 export function signal_parse_name(detailed_signal: string, itype: Type, force_detail_quark: boolean): [ /* returnType */ boolean, /* signal_id_p */ number, /* detail_p */ GLib.Quark ]
 export function signal_query(signal_id: number): /* query */ SignalQuery
@@ -214,7 +214,6 @@ export function type_init(): void
 export function type_init_with_debug_flags(debug_flags: TypeDebugFlags): void
 export function type_interface_add_prerequisite(interface_type: Type, prerequisite_type: Type): void
 export function type_interface_get_plugin(instance_type: Type, interface_type: Type): TypePlugin
-export function type_interface_instantiatable_prerequisite(interface_type: Type): Type
 export function type_interface_peek(instance_class: TypeClass, iface_type: Type): TypeInterface
 export function type_interface_prerequisites(interface_type: Type): Type[]
 export function type_interfaces(type: Type): Type[]
@@ -315,7 +314,7 @@ export interface WeakNotify {
     (data: object | null, where_the_object_was: Object): void
 }
 export class TypePlugin {
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     complete_interface_info(instance_type: Type, interface_type: Type, info: InterfaceInfo): void
     complete_type_info(g_type: Type, info: TypeInfo, value_table: TypeValueTable): void
     unuse(): void
@@ -361,18 +360,16 @@ export interface Binding_ConstructProps extends Object_ConstructProps {
     target_property?: string
 }
 export class Binding {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: TypeInstance
-    /* Methods of GObject.Binding */
-    dup_source(): Object | null
-    dup_target(): Object | null
+    /* Methods of GObject-2.0.GObject.Binding */
     get_flags(): BindingFlags
-    get_source(): Object | null
+    get_source(): Object
     get_source_property(): string
-    get_target(): Object | null
+    get_target(): Object
     get_target_property(): string
     unbind(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
@@ -394,7 +391,7 @@ export class Binding {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -402,7 +399,7 @@ export class Binding {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Binding, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Binding, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
@@ -418,9 +415,9 @@ export class Binding {
 export interface InitiallyUnowned_ConstructProps extends Object_ConstructProps {
 }
 export class InitiallyUnowned {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
@@ -442,7 +439,7 @@ export class InitiallyUnowned {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -450,7 +447,7 @@ export class InitiallyUnowned {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
@@ -466,9 +463,9 @@ export class InitiallyUnowned {
 export interface Object_ConstructProps  {
 }
 export class Object {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
@@ -490,7 +487,7 @@ export class Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -498,7 +495,7 @@ export class Object {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
@@ -523,24 +520,24 @@ export class Object {
     static $gtype: Type
 }
 export class ParamSpec {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -550,27 +547,27 @@ export class ParamSpec {
     static is_valid_name(name: string): boolean
 }
 export class ParamSpecBoolean {
-    /* Fields of GObject.ParamSpecBoolean */
+    /* Fields of GObject-2.0.GObject.ParamSpecBoolean */
     parent_instance: ParamSpec
     default_value: boolean
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -578,26 +575,26 @@ export class ParamSpecBoolean {
     static name: string
 }
 export class ParamSpecBoxed {
-    /* Fields of GObject.ParamSpecBoxed */
+    /* Fields of GObject-2.0.GObject.ParamSpecBoxed */
     parent_instance: ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -605,29 +602,29 @@ export class ParamSpecBoxed {
     static name: string
 }
 export class ParamSpecChar {
-    /* Fields of GObject.ParamSpecChar */
+    /* Fields of GObject-2.0.GObject.ParamSpecChar */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -635,30 +632,30 @@ export class ParamSpecChar {
     static name: string
 }
 export class ParamSpecDouble {
-    /* Fields of GObject.ParamSpecDouble */
+    /* Fields of GObject-2.0.GObject.ParamSpecDouble */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
     epsilon: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -666,28 +663,28 @@ export class ParamSpecDouble {
     static name: string
 }
 export class ParamSpecEnum {
-    /* Fields of GObject.ParamSpecEnum */
+    /* Fields of GObject-2.0.GObject.ParamSpecEnum */
     parent_instance: ParamSpec
     enum_class: EnumClass
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -695,28 +692,28 @@ export class ParamSpecEnum {
     static name: string
 }
 export class ParamSpecFlags {
-    /* Fields of GObject.ParamSpecFlags */
+    /* Fields of GObject-2.0.GObject.ParamSpecFlags */
     parent_instance: ParamSpec
     flags_class: FlagsClass
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -724,30 +721,30 @@ export class ParamSpecFlags {
     static name: string
 }
 export class ParamSpecFloat {
-    /* Fields of GObject.ParamSpecFloat */
+    /* Fields of GObject-2.0.GObject.ParamSpecFloat */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
     epsilon: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -755,27 +752,27 @@ export class ParamSpecFloat {
     static name: string
 }
 export class ParamSpecGType {
-    /* Fields of GObject.ParamSpecGType */
+    /* Fields of GObject-2.0.GObject.ParamSpecGType */
     parent_instance: ParamSpec
     is_a_type: Type
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -783,29 +780,29 @@ export class ParamSpecGType {
     static name: string
 }
 export class ParamSpecInt {
-    /* Fields of GObject.ParamSpecInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecInt */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -813,29 +810,29 @@ export class ParamSpecInt {
     static name: string
 }
 export class ParamSpecInt64 {
-    /* Fields of GObject.ParamSpecInt64 */
+    /* Fields of GObject-2.0.GObject.ParamSpecInt64 */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -843,29 +840,29 @@ export class ParamSpecInt64 {
     static name: string
 }
 export class ParamSpecLong {
-    /* Fields of GObject.ParamSpecLong */
+    /* Fields of GObject-2.0.GObject.ParamSpecLong */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -873,26 +870,26 @@ export class ParamSpecLong {
     static name: string
 }
 export class ParamSpecObject {
-    /* Fields of GObject.ParamSpecObject */
+    /* Fields of GObject-2.0.GObject.ParamSpecObject */
     parent_instance: ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -900,24 +897,24 @@ export class ParamSpecObject {
     static name: string
 }
 export class ParamSpecOverride {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -925,26 +922,26 @@ export class ParamSpecOverride {
     static name: string
 }
 export class ParamSpecParam {
-    /* Fields of GObject.ParamSpecParam */
+    /* Fields of GObject-2.0.GObject.ParamSpecParam */
     parent_instance: ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -952,26 +949,26 @@ export class ParamSpecParam {
     static name: string
 }
 export class ParamSpecPointer {
-    /* Fields of GObject.ParamSpecPointer */
+    /* Fields of GObject-2.0.GObject.ParamSpecPointer */
     parent_instance: ParamSpec
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -979,7 +976,7 @@ export class ParamSpecPointer {
     static name: string
 }
 export class ParamSpecString {
-    /* Fields of GObject.ParamSpecString */
+    /* Fields of GObject-2.0.GObject.ParamSpecString */
     parent_instance: ParamSpec
     default_value: string
     cset_first: string
@@ -987,24 +984,24 @@ export class ParamSpecString {
     substitutor: number
     null_fold_if_empty: number
     ensure_non_null: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1012,29 +1009,29 @@ export class ParamSpecString {
     static name: string
 }
 export class ParamSpecUChar {
-    /* Fields of GObject.ParamSpecUChar */
+    /* Fields of GObject-2.0.GObject.ParamSpecUChar */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1042,29 +1039,29 @@ export class ParamSpecUChar {
     static name: string
 }
 export class ParamSpecUInt {
-    /* Fields of GObject.ParamSpecUInt */
+    /* Fields of GObject-2.0.GObject.ParamSpecUInt */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1072,29 +1069,29 @@ export class ParamSpecUInt {
     static name: string
 }
 export class ParamSpecUInt64 {
-    /* Fields of GObject.ParamSpecUInt64 */
+    /* Fields of GObject-2.0.GObject.ParamSpecUInt64 */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1102,29 +1099,29 @@ export class ParamSpecUInt64 {
     static name: string
 }
 export class ParamSpecULong {
-    /* Fields of GObject.ParamSpecULong */
+    /* Fields of GObject-2.0.GObject.ParamSpecULong */
     parent_instance: ParamSpec
     minimum: number
     maximum: number
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1132,27 +1129,27 @@ export class ParamSpecULong {
     static name: string
 }
 export class ParamSpecUnichar {
-    /* Fields of GObject.ParamSpecUnichar */
+    /* Fields of GObject-2.0.GObject.ParamSpecUnichar */
     parent_instance: ParamSpec
     default_value: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1160,28 +1157,28 @@ export class ParamSpecUnichar {
     static name: string
 }
 export class ParamSpecValueArray {
-    /* Fields of GObject.ParamSpecValueArray */
+    /* Fields of GObject-2.0.GObject.ParamSpecValueArray */
     parent_instance: ParamSpec
     element_spec: ParamSpec
     fixed_n_elements: number
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1189,28 +1186,28 @@ export class ParamSpecValueArray {
     static name: string
 }
 export class ParamSpecVariant {
-    /* Fields of GObject.ParamSpecVariant */
+    /* Fields of GObject-2.0.GObject.ParamSpecVariant */
     parent_instance: ParamSpec
     type: GLib.VariantType
     default_value: GLib.Variant
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: TypeInstance
     name: string
     flags: ParamFlags
     value_type: Type
     owner_type: Type
-    /* Methods of GObject.ParamSpec */
-    get_blurb(): string | null
+    /* Methods of GObject-2.0.GObject.ParamSpec */
+    get_blurb(): string
     get_default_value(): Value
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
     get_qdata(quark: GLib.Quark): object | null
-    get_redirect_target(): ParamSpec | null
+    get_redirect_target(): ParamSpec
     set_qdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
+    /* Virtual methods of GObject-2.0.GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
@@ -1220,15 +1217,15 @@ export class ParamSpecVariant {
 export interface TypeModule_ConstructProps extends Object_ConstructProps {
 }
 export class TypeModule {
-    /* Fields of GObject.TypeModule */
+    /* Fields of GObject-2.0.GObject.TypeModule */
     parent_instance: Object
     use_count: number
     type_infos: object[]
     interface_infos: object[]
     name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: TypeInstance
-    /* Methods of GObject.TypeModule */
+    /* Methods of GObject-2.0.GObject.TypeModule */
     add_interface(instance_type: Type, interface_type: Type, interface_info: InterfaceInfo): void
     register_enum(name: string, const_static_values: EnumValue): Type
     register_flags(name: string, const_static_values: FlagsValue): Type
@@ -1236,7 +1233,7 @@ export class TypeModule {
     set_name(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
@@ -1258,14 +1255,14 @@ export class TypeModule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Methods of GObject.TypePlugin */
+    /* Methods of GObject-2.0.GObject.TypePlugin */
     complete_interface_info(instance_type: Type, interface_type: Type, info: InterfaceInfo): void
     complete_type_info(g_type: Type, info: TypeInfo, value_table: TypeValueTable): void
     use(): void
-    /* Virtual methods of GObject.TypeModule */
+    /* Virtual methods of GObject-2.0.GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -1273,7 +1270,7 @@ export class TypeModule {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TypeModule, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TypeModule, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
@@ -1287,7 +1284,7 @@ export class TypeModule {
     static $gtype: Type
 }
 export class CClosure {
-    /* Fields of GObject.CClosure */
+    /* Fields of GObject-2.0.GObject.CClosure */
     closure: Closure
     callback: object
     static name: string
@@ -1317,11 +1314,11 @@ export class CClosure {
     static marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 }
 export class Closure {
-    /* Fields of GObject.Closure */
+    /* Fields of GObject-2.0.GObject.Closure */
     in_marshal: number
     is_invalid: number
     marshal: (closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object) => void
-    /* Methods of GObject.Closure */
+    /* Methods of GObject-2.0.GObject.Closure */
     invalidate(): void
     invoke(param_values: Value[], invocation_hint?: object | null): /* return_value */ Value | null
     ref(): Closure
@@ -1333,13 +1330,13 @@ export class Closure {
     static new_simple(sizeof_closure: number, data?: object | null): Closure
 }
 export class ClosureNotifyData {
-    /* Fields of GObject.ClosureNotifyData */
+    /* Fields of GObject-2.0.GObject.ClosureNotifyData */
     data: object
     notify: ClosureNotify
     static name: string
 }
 export class EnumClass {
-    /* Fields of GObject.EnumClass */
+    /* Fields of GObject-2.0.GObject.EnumClass */
     g_type_class: TypeClass
     minimum: number
     maximum: number
@@ -1348,14 +1345,14 @@ export class EnumClass {
     static name: string
 }
 export class EnumValue {
-    /* Fields of GObject.EnumValue */
+    /* Fields of GObject-2.0.GObject.EnumValue */
     value: number
     value_name: string
     value_nick: string
     static name: string
 }
 export class FlagsClass {
-    /* Fields of GObject.FlagsClass */
+    /* Fields of GObject-2.0.GObject.FlagsClass */
     g_type_class: TypeClass
     mask: number
     n_values: number
@@ -1363,14 +1360,14 @@ export class FlagsClass {
     static name: string
 }
 export class FlagsValue {
-    /* Fields of GObject.FlagsValue */
+    /* Fields of GObject-2.0.GObject.FlagsValue */
     value: number
     value_name: string
     value_nick: string
     static name: string
 }
 export abstract class InitiallyUnownedClass {
-    /* Fields of GObject.InitiallyUnownedClass */
+    /* Fields of GObject-2.0.GObject.InitiallyUnownedClass */
     g_type_class: TypeClass
     set_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
     get_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
@@ -1382,14 +1379,14 @@ export abstract class InitiallyUnownedClass {
     static name: string
 }
 export class InterfaceInfo {
-    /* Fields of GObject.InterfaceInfo */
+    /* Fields of GObject-2.0.GObject.InterfaceInfo */
     interface_init: InterfaceInitFunc
     interface_finalize: InterfaceFinalizeFunc
     interface_data: object
     static name: string
 }
 export abstract class ObjectClass {
-    /* Fields of GObject.ObjectClass */
+    /* Fields of GObject-2.0.GObject.ObjectClass */
     g_type_class: TypeClass
     set_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
     get_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
@@ -1398,7 +1395,7 @@ export abstract class ObjectClass {
     dispatch_properties_changed: (object: Object, n_pspecs: number, pspecs: ParamSpec) => void
     notify: (object: Object, pspec: ParamSpec) => void
     constructed: (object: Object) => void
-    /* Methods of GObject.ObjectClass */
+    /* Methods of GObject-2.0.GObject.ObjectClass */
     find_property(oclass: Object | Function | Type, property_name: string): ParamSpec
     install_properties(oclass: Object | Function | Type, pspecs: ParamSpec[]): void
     install_property(oclass: Object | Function | Type, property_id: number, pspec: ParamSpec): void
@@ -1407,13 +1404,13 @@ export abstract class ObjectClass {
     static name: string
 }
 export class ObjectConstructParam {
-    /* Fields of GObject.ObjectConstructParam */
+    /* Fields of GObject-2.0.GObject.ObjectConstructParam */
     pspec: ParamSpec
     value: Value
     static name: string
 }
 export abstract class ParamSpecClass {
-    /* Fields of GObject.ParamSpecClass */
+    /* Fields of GObject-2.0.GObject.ParamSpecClass */
     g_type_class: TypeClass
     value_type: Type
     finalize: (pspec: ParamSpec) => void
@@ -1423,16 +1420,16 @@ export abstract class ParamSpecClass {
     static name: string
 }
 export class ParamSpecPool {
-    /* Methods of GObject.ParamSpecPool */
+    /* Methods of GObject-2.0.GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: Type): void
     list(owner_type: Type): ParamSpec[]
     list_owned(owner_type: Type): ParamSpec[]
-    lookup(param_name: string, owner_type: Type, walk_ancestors: boolean): ParamSpec | null
+    lookup(param_name: string, owner_type: Type, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
     static name: string
 }
 export class ParamSpecTypeInfo {
-    /* Fields of GObject.ParamSpecTypeInfo */
+    /* Fields of GObject-2.0.GObject.ParamSpecTypeInfo */
     instance_size: number
     n_preallocs: number
     instance_init: (pspec: ParamSpec) => void
@@ -1444,20 +1441,20 @@ export class ParamSpecTypeInfo {
     static name: string
 }
 export class Parameter {
-    /* Fields of GObject.Parameter */
+    /* Fields of GObject-2.0.GObject.Parameter */
     name: string
     value: Value
     static name: string
 }
 export class SignalInvocationHint {
-    /* Fields of GObject.SignalInvocationHint */
+    /* Fields of GObject-2.0.GObject.SignalInvocationHint */
     signal_id: number
     detail: GLib.Quark
     run_type: SignalFlags
     static name: string
 }
 export class SignalQuery {
-    /* Fields of GObject.SignalQuery */
+    /* Fields of GObject-2.0.GObject.SignalQuery */
     signal_id: number
     signal_name: string
     itype: Type
@@ -1468,7 +1465,7 @@ export class SignalQuery {
     static name: string
 }
 export class TypeClass {
-    /* Methods of GObject.TypeClass */
+    /* Methods of GObject-2.0.GObject.TypeClass */
     add_private(private_size: number): void
     get_private(private_type: Type): object | null
     peek_parent(): TypeClass
@@ -1481,12 +1478,12 @@ export class TypeClass {
     static ref(type: Type): TypeClass
 }
 export class TypeFundamentalInfo {
-    /* Fields of GObject.TypeFundamentalInfo */
+    /* Fields of GObject-2.0.GObject.TypeFundamentalInfo */
     type_flags: TypeFundamentalFlags
     static name: string
 }
 export class TypeInfo {
-    /* Fields of GObject.TypeInfo */
+    /* Fields of GObject-2.0.GObject.TypeInfo */
     class_size: number
     base_init: BaseInitFunc
     base_finalize: BaseFinalizeFunc
@@ -1500,23 +1497,22 @@ export class TypeInfo {
     static name: string
 }
 export class TypeInstance {
-    /* Methods of GObject.TypeInstance */
+    /* Methods of GObject-2.0.GObject.TypeInstance */
     get_private(private_type: Type): object | null
     static name: string
 }
 export class TypeInterface {
-    /* Methods of GObject.TypeInterface */
+    /* Methods of GObject-2.0.GObject.TypeInterface */
     peek_parent(): TypeInterface
     static name: string
     /* Static methods and pseudo-constructors */
     static add_prerequisite(interface_type: Type, prerequisite_type: Type): void
     static get_plugin(instance_type: Type, interface_type: Type): TypePlugin
-    static instantiatable_prerequisite(interface_type: Type): Type
     static peek(instance_class: TypeClass, iface_type: Type): TypeInterface
     static prerequisites(interface_type: Type): Type[]
 }
 export abstract class TypeModuleClass {
-    /* Fields of GObject.TypeModuleClass */
+    /* Fields of GObject-2.0.GObject.TypeModuleClass */
     parent_class: ObjectClass
     load: (module: TypeModule) => boolean
     unload: (module: TypeModule) => void
@@ -1527,7 +1523,7 @@ export abstract class TypeModuleClass {
     static name: string
 }
 export class TypePluginClass {
-    /* Fields of GObject.TypePluginClass */
+    /* Fields of GObject-2.0.GObject.TypePluginClass */
     use_plugin: TypePluginUse
     unuse_plugin: TypePluginUnuse
     complete_type_info: TypePluginCompleteTypeInfo
@@ -1535,7 +1531,7 @@ export class TypePluginClass {
     static name: string
 }
 export class TypeQuery {
-    /* Fields of GObject.TypeQuery */
+    /* Fields of GObject-2.0.GObject.TypeQuery */
     type: Type
     type_name: string
     class_size: number
@@ -1543,7 +1539,7 @@ export class TypeQuery {
     static name: string
 }
 export class TypeValueTable {
-    /* Fields of GObject.TypeValueTable */
+    /* Fields of GObject-2.0.GObject.TypeValueTable */
     value_init: (value: Value) => void
     value_free: (value: Value) => void
     value_copy: (src_value: Value, dest_value: Value) => void
@@ -1555,9 +1551,9 @@ export class TypeValueTable {
     static name: string
 }
 export class Value {
-    /* Fields of GObject.Value */
+    /* Fields of GObject-2.0.GObject.Value */
     data: _Value__data__union[]
-    /* Methods of GObject.Value */
+    /* Methods of GObject-2.0.GObject.Value */
     copy(dest_value: Value): void
     dup_object(): Object
     dup_string(): string
@@ -1626,10 +1622,10 @@ export class Value {
     static type_transformable(src_type: Type, dest_type: Type): boolean
 }
 export class ValueArray {
-    /* Fields of GObject.ValueArray */
+    /* Fields of GObject-2.0.GObject.ValueArray */
     n_values: number
     values: Value
-    /* Methods of GObject.ValueArray */
+    /* Methods of GObject-2.0.GObject.ValueArray */
     append(value?: Value | null): ValueArray
     copy(): ValueArray
     get_nth(index_: number): Value
@@ -1650,7 +1646,7 @@ export class TypeCValue {
     static name: string
 }
 export class _Value__data__union {
-    /* Fields of GObject._Value__data__union */
+    /* Fields of GObject-2.0.GObject._Value__data__union */
     v_int: number
     v_uint: number
     v_long: number

@@ -221,7 +221,6 @@ export class GirModule {
                     const symName = `${this.namespace}.${girConstruct.$.name}`
                     if (this.symTable.get(this.allDependencies, symName)) {
                         this.log.warn(`Duplicate symbol: ${symName}`)
-                        debugger
                     }
 
                     girConstruct._module = this
@@ -870,8 +869,7 @@ export class GirModule {
             }
         }
         if (def.length) {
-            // TODO append version
-            def.unshift(`    /* Fields of ${cls._fullSymName} */`)
+            def.unshift(`    /* Fields of ${cls._module?.packageName}.${cls._fullSymName} */`)
         }
         return def
     }
@@ -889,8 +887,7 @@ export class GirModule {
             }
         }
         if (def.length) {
-            // TODO append version
-            def.unshift(`    /* Properties of ${cls._fullSymName} */`)
+            def.unshift(`    /* Properties of ${cls._module?.packageName}.${cls._fullSymName} */`)
         }
         return def
     }
@@ -909,8 +906,7 @@ export class GirModule {
             }
         }
         if (def.length) {
-            // TODO append version
-            def.unshift(`    /* Methods of ${cls._fullSymName} */`)
+            def.unshift(`    /* Methods of ${cls._module?.packageName}.${cls._fullSymName} */`)
         }
         return def
     }
@@ -939,8 +935,7 @@ export class GirModule {
         })
         const def = this.exportOverloadableMethods(fnMap, explicits)
         if (def.length) {
-            // TODO append version
-            def.unshift(`    /* Virtual methods of ${cls._fullSymName} */`)
+            def.unshift(`    /* Virtual methods of ${cls._module?.packageName}.${cls._fullSymName} */`)
         }
         return def
     }
@@ -952,8 +947,7 @@ export class GirModule {
             for (const s of signals) def.push(...this.getSignalFunc(s, clsName))
         }
         if (def.length) {
-            // TODO append version
-            def.unshift(`    /* Signals of ${cls._fullSymName} */`)
+            def.unshift(`    /* Signals of ${cls._module?.packageName}.${cls._fullSymName} */`)
         }
         return def
     }
@@ -1409,7 +1403,7 @@ export class GirModule {
         const details = this.getClassDetails(girClass)
         if (!details) return []
 
-        const { /*version,*/ name, qualifiedParentName, localParentName } = details
+        const { name, qualifiedParentName, localParentName } = details
 
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, name, qualifiedParentName, localParentName))

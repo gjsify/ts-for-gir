@@ -147,11 +147,10 @@ export class Pixbuf {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pixbuf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Pixbuf, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -233,11 +232,10 @@ export class PixbufAnimation {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -298,11 +296,10 @@ export class PixbufAnimationIter {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -367,36 +364,31 @@ export class PixbufLoader {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GdkPixbuf-2.0.GdkPixbuf.PixbufLoader */
     connect(sigName: "area-prepared", callback: (($obj: PixbufLoader) => void)): number
-    connect_after(sigName: "area-prepared", callback: (($obj: PixbufLoader) => void)): number
+    on(sigName: "area-prepared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "area-prepared", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "area-prepared", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "area-prepared"): void
-    on(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "area-updated", callback: (($obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): number
-    connect_after(sigName: "area-updated", callback: (($obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): number
+    on(sigName: "area-updated", callback: (x: number, y: number, width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "area-updated", callback: (x: number, y: number, width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "area-updated", callback: (x: number, y: number, width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "area-updated", x: number, y: number, width: number, height: number): void
-    on(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "closed", callback: (($obj: PixbufLoader) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: PixbufLoader) => void)): number
+    on(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-prepared", callback: (($obj: PixbufLoader, width: number, height: number) => void)): number
-    connect_after(sigName: "size-prepared", callback: (($obj: PixbufLoader, width: number, height: number) => void)): number
+    on(sigName: "size-prepared", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-prepared", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-prepared", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-prepared", width: number, height: number): void
-    on(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -463,11 +455,10 @@ export class PixbufSimpleAnim {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::loop", callback: (($obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::loop", callback: (($obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::loop", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -529,11 +520,10 @@ export class PixbufSimpleAnimIter {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

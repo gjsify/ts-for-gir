@@ -403,11 +403,10 @@ export class Binding {
     vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Binding, pspec: ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Binding, pspec: ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -457,11 +456,10 @@ export class InitiallyUnowned {
     vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -511,11 +509,10 @@ export class Object {
     vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Object, pspec: ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Object, pspec: ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1292,11 +1289,10 @@ export class TypeModule {
     vfuncSetProperty(propertyId: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TypeModule, pspec: ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TypeModule, pspec: ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

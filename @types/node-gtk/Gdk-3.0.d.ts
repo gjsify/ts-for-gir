@@ -3040,24 +3040,21 @@ export class DevicePad {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: DevicePad) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: DevicePad) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-changed", callback: (($obj: DevicePad, tool: DeviceTool) => void)): number
-    connect_after(sigName: "tool-changed", callback: (($obj: DevicePad, tool: DeviceTool) => void)): number
+    on(sigName: "tool-changed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-changed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-changed", callback: (tool: DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-changed", tool: DeviceTool): void
-    on(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::associated-device", callback: (($obj: DevicePad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3159,24 +3156,21 @@ export class AppLaunchContext {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio-2.0.Gio.AppLaunchContext */
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startupNotifyId: string) => void)): number
-    connect_after(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startupNotifyId: string) => void)): number
+    on(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launch-failed", callback: (startupNotifyId: string) => void): NodeJS.EventEmitter
     emit(sigName: "launch-failed", startupNotifyId: string): void
-    on(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platformData: GLib.Variant) => void)): number
-    connect_after(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platformData: GLib.Variant) => void)): number
+    on(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void): NodeJS.EventEmitter
     emit(sigName: "launched", info: Gio.AppInfo, platformData: GLib.Variant): void
-    on(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3236,11 +3230,10 @@ export class Cursor {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Cursor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3343,24 +3336,21 @@ export class Device {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Device */
     connect(sigName: "changed", callback: (($obj: Device) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: Device) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-changed", callback: (($obj: Device, tool: DeviceTool) => void)): number
-    connect_after(sigName: "tool-changed", callback: (($obj: Device, tool: DeviceTool) => void)): number
+    on(sigName: "tool-changed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-changed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-changed", callback: (tool: DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-changed", tool: DeviceTool): void
-    on(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::associated-device", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::associated-device", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::associated-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3447,30 +3437,26 @@ export class DeviceManager {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DeviceManager */
     connect(sigName: "device-added", callback: (($obj: DeviceManager, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: DeviceManager, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-changed", callback: (($obj: DeviceManager, device: Device) => void)): number
-    connect_after(sigName: "device-changed", callback: (($obj: DeviceManager, device: Device) => void)): number
+    on(sigName: "device-changed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-changed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-changed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-changed", device: Device): void
-    on(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: DeviceManager, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: DeviceManager, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3528,11 +3514,10 @@ export class DeviceTool {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceTool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceTool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3628,48 +3613,41 @@ export class Display {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Display */
     connect(sigName: "closed", callback: (($obj: Display, isError: boolean) => void)): number
-    connect_after(sigName: "closed", callback: (($obj: Display, isError: boolean) => void)): number
+    on(sigName: "closed", callback: (isError: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (isError: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (isError: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "closed", isError: boolean): void
-    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "monitor-added", callback: (($obj: Display, monitor: Monitor) => void)): number
-    connect_after(sigName: "monitor-added", callback: (($obj: Display, monitor: Monitor) => void)): number
+    on(sigName: "monitor-added", callback: (monitor: Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "monitor-added", callback: (monitor: Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "monitor-added", callback: (monitor: Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "monitor-added", monitor: Monitor): void
-    on(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "monitor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "monitor-removed", callback: (($obj: Display, monitor: Monitor) => void)): number
-    connect_after(sigName: "monitor-removed", callback: (($obj: Display, monitor: Monitor) => void)): number
+    on(sigName: "monitor-removed", callback: (monitor: Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "monitor-removed", callback: (monitor: Monitor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "monitor-removed", callback: (monitor: Monitor) => void): NodeJS.EventEmitter
     emit(sigName: "monitor-removed", monitor: Monitor): void
-    on(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "monitor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "opened", callback: (($obj: Display) => void)): number
-    connect_after(sigName: "opened", callback: (($obj: Display) => void)): number
+    on(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "opened", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "opened", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "opened"): void
-    on(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seat-added", callback: (($obj: Display, seat: Seat) => void)): number
-    connect_after(sigName: "seat-added", callback: (($obj: Display, seat: Seat) => void)): number
+    on(sigName: "seat-added", callback: (seat: Seat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seat-added", callback: (seat: Seat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seat-added", callback: (seat: Seat) => void): NodeJS.EventEmitter
     emit(sigName: "seat-added", seat: Seat): void
-    on(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seat-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "seat-removed", callback: (($obj: Display, seat: Seat) => void)): number
-    connect_after(sigName: "seat-removed", callback: (($obj: Display, seat: Seat) => void)): number
+    on(sigName: "seat-removed", callback: (seat: Seat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "seat-removed", callback: (seat: Seat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "seat-removed", callback: (seat: Seat) => void): NodeJS.EventEmitter
     emit(sigName: "seat-removed", seat: Seat): void
-    on(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "seat-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3731,18 +3709,16 @@ export class DisplayManager {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DisplayManager */
     connect(sigName: "display-opened", callback: (($obj: DisplayManager, display: Display) => void)): number
-    connect_after(sigName: "display-opened", callback: (($obj: DisplayManager, display: Display) => void)): number
+    on(sigName: "display-opened", callback: (display: Display) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "display-opened", callback: (display: Display) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "display-opened", callback: (display: Display) => void): NodeJS.EventEmitter
     emit(sigName: "display-opened", display: Display): void
-    on(sigName: "display-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "display-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "display-opened", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-display", callback: (($obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-display", callback: (($obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-display", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3812,36 +3788,31 @@ export class DragContext {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.DragContext */
     connect(sigName: "action-changed", callback: (($obj: DragContext, action: DragAction) => void)): number
-    connect_after(sigName: "action-changed", callback: (($obj: DragContext, action: DragAction) => void)): number
+    on(sigName: "action-changed", callback: (action: DragAction) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "action-changed", callback: (action: DragAction) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "action-changed", callback: (action: DragAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-changed", action: DragAction): void
-    on(sigName: "action-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "action-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "action-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cancel", callback: (($obj: DragContext, reason: DragCancelReason) => void)): number
-    connect_after(sigName: "cancel", callback: (($obj: DragContext, reason: DragCancelReason) => void)): number
+    on(sigName: "cancel", callback: (reason: DragCancelReason) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancel", callback: (reason: DragCancelReason) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancel", callback: (reason: DragCancelReason) => void): NodeJS.EventEmitter
     emit(sigName: "cancel", reason: DragCancelReason): void
-    on(sigName: "cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "dnd-finished", callback: (($obj: DragContext) => void)): number
-    connect_after(sigName: "dnd-finished", callback: (($obj: DragContext) => void)): number
+    on(sigName: "dnd-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "dnd-finished", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "dnd-finished", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "dnd-finished"): void
-    on(sigName: "dnd-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "dnd-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "dnd-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drop-performed", callback: (($obj: DragContext, time: number) => void)): number
-    connect_after(sigName: "drop-performed", callback: (($obj: DragContext, time: number) => void)): number
+    on(sigName: "drop-performed", callback: (time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drop-performed", callback: (time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drop-performed", callback: (time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drop-performed", time: number): void
-    on(sigName: "drop-performed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drop-performed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drop-performed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DragContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DragContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3898,11 +3869,10 @@ export class DrawingContext {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DrawingContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DrawingContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3962,54 +3932,46 @@ export class FrameClock {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.FrameClock */
     connect(sigName: "after-paint", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "after-paint", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "after-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "after-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "after-paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "after-paint"): void
-    on(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "before-paint", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "before-paint", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "before-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "before-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "before-paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "before-paint"): void
-    on(sigName: "before-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "before-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "before-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "flush-events", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "flush-events", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "flush-events", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "flush-events", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "flush-events", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "flush-events"): void
-    on(sigName: "flush-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "flush-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "flush-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "layout", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "layout", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "layout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout"): void
-    on(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resume-events", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "resume-events", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "resume-events", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resume-events", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resume-events", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resume-events"): void
-    on(sigName: "resume-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resume-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resume-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "update", callback: (($obj: FrameClock) => void)): number
-    connect_after(sigName: "update", callback: (($obj: FrameClock) => void)): number
+    on(sigName: "update", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "update", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "update", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "update"): void
-    on(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FrameClock, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FrameClock, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4078,11 +4040,10 @@ export class GLContext {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4149,30 +4110,26 @@ export class Keymap {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Keymap */
     connect(sigName: "direction-changed", callback: (($obj: Keymap) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Keymap) => void)): number
+    on(sigName: "direction-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed"): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keys-changed", callback: (($obj: Keymap) => void)): number
-    connect_after(sigName: "keys-changed", callback: (($obj: Keymap) => void)): number
+    on(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keys-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keys-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "keys-changed"): void
-    on(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keys-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Keymap) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Keymap) => void)): number
+    on(sigName: "state-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "state-changed"): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Keymap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Keymap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4248,18 +4205,16 @@ export class Monitor {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Monitor */
     connect(sigName: "invalidate", callback: (($obj: Monitor) => void)): number
-    connect_after(sigName: "invalidate", callback: (($obj: Monitor) => void)): number
+    on(sigName: "invalidate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "invalidate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "invalidate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "invalidate"): void
-    on(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "invalidate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::geometry", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::geometry", callback: (($obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::geometry", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4390,30 +4345,26 @@ export class Screen {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Screen */
     connect(sigName: "composited-changed", callback: (($obj: Screen) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: Screen) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "monitors-changed", callback: (($obj: Screen) => void)): number
-    connect_after(sigName: "monitors-changed", callback: (($obj: Screen) => void)): number
+    on(sigName: "monitors-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "monitors-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "monitors-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "monitors-changed"): void
-    on(sigName: "monitors-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "monitors-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "monitors-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-changed", callback: (($obj: Screen) => void)): number
-    connect_after(sigName: "size-changed", callback: (($obj: Screen) => void)): number
+    on(sigName: "size-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "size-changed"): void
-    on(sigName: "size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Screen, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Screen, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::font-options", callback: (($obj: Screen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::font-options", callback: (($obj: Screen, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::font-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4490,36 +4441,31 @@ export class Seat {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Seat */
     connect(sigName: "device-added", callback: (($obj: Seat, device: Device) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: Seat, device: Device) => void)): number
+    on(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: Device): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: Seat, device: Device) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: Seat, device: Device) => void)): number
+    on(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: Device) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: Device) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: Device): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-added", callback: (($obj: Seat, tool: DeviceTool) => void)): number
-    connect_after(sigName: "tool-added", callback: (($obj: Seat, tool: DeviceTool) => void)): number
+    on(sigName: "tool-added", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-added", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-added", callback: (tool: DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-added", tool: DeviceTool): void
-    on(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "tool-removed", callback: (($obj: Seat, tool: DeviceTool) => void)): number
-    connect_after(sigName: "tool-removed", callback: (($obj: Seat, tool: DeviceTool) => void)): number
+    on(sigName: "tool-removed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tool-removed", callback: (tool: DeviceTool) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tool-removed", callback: (tool: DeviceTool) => void): NodeJS.EventEmitter
     emit(sigName: "tool-removed", tool: DeviceTool): void
-    on(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tool-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Seat, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Seat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4579,11 +4525,10 @@ export class Visual {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Visual, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Visual, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4803,42 +4748,36 @@ export class Window {
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk-3.0.Gdk.Window */
     connect(sigName: "create-surface", callback: (($obj: Window, width: number, height: number) => cairo.Surface)): number
-    connect_after(sigName: "create-surface", callback: (($obj: Window, width: number, height: number) => cairo.Surface)): number
+    on(sigName: "create-surface", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-surface", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-surface", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "create-surface", width: number, height: number): void
-    on(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "from-embedder", callback: (($obj: Window, embedderX: number, embedderY: number) => void)): number
-    connect_after(sigName: "from-embedder", callback: (($obj: Window, embedderX: number, embedderY: number) => void)): number
+    on(sigName: "from-embedder", callback: (embedderX: number, embedderY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "from-embedder", callback: (embedderX: number, embedderY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "from-embedder", callback: (embedderX: number, embedderY: number) => void): NodeJS.EventEmitter
     emit(sigName: "from-embedder", embedderX: number, embedderY: number): void
-    on(sigName: "from-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "from-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "from-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "moved-to-rect", callback: (($obj: Window, flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean) => void)): number
-    connect_after(sigName: "moved-to-rect", callback: (($obj: Window, flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean) => void)): number
+    on(sigName: "moved-to-rect", callback: (flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "moved-to-rect", callback: (flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "moved-to-rect", callback: (flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "moved-to-rect", flippedRect: object | null, finalRect: object | null, flippedX: boolean, flippedY: boolean): void
-    on(sigName: "moved-to-rect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "moved-to-rect", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "moved-to-rect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick-embedded-child", callback: (($obj: Window, x: number, y: number) => Window | null)): number
-    connect_after(sigName: "pick-embedded-child", callback: (($obj: Window, x: number, y: number) => Window | null)): number
+    on(sigName: "pick-embedded-child", callback: (x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick-embedded-child", callback: (x: number, y: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick-embedded-child", callback: (x: number, y: number) => void): NodeJS.EventEmitter
     emit(sigName: "pick-embedded-child", x: number, y: number): void
-    on(sigName: "pick-embedded-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick-embedded-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick-embedded-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "to-embedder", callback: (($obj: Window, offscreenX: number, offscreenY: number) => void)): number
-    connect_after(sigName: "to-embedder", callback: (($obj: Window, offscreenX: number, offscreenY: number) => void)): number
+    on(sigName: "to-embedder", callback: (offscreenX: number, offscreenY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "to-embedder", callback: (offscreenX: number, offscreenY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "to-embedder", callback: (offscreenX: number, offscreenY: number) => void): NodeJS.EventEmitter
     emit(sigName: "to-embedder", offscreenX: number, offscreenY: number): void
-    on(sigName: "to-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "to-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "to-embedder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cursor", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursor", callback: (($obj: Window, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter

@@ -86,18 +86,23 @@ export class TemplateProcessor {
         identCount = 1,
     ): string[] {
         const ident = this.generateIndent(identCount)
-        const signalMethods = [
+        const signalMethods: string[] = []
+        signalMethods.push(
             `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`,
-        ]
-        if (environment === 'node') {
+        )
+        if (environment === 'gjs') {
             signalMethods.push(
-                `${ident}on(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
             )
         }
+        if (environment === 'node') {
+            signalMethods.push(
+                `${ident}on(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}once(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: (${params}) => void): NodeJS.EventEmitter`,
+            )
+        }
+        signalMethods.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`)
         return signalMethods
     }
 
